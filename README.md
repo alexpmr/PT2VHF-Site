@@ -59,7 +59,7 @@ adicione mais um item em `files` (ex.: `{ os: "Linux", label: "AppImage", url: "
 
 ## Hospedagem na Hostinger (atual)
 
-O site está conectado ao repositório `alexpmr/pt2vhf-site` no GitLab pela função **Git** do hPanel
+O site está conectado ao repositório `pt2vhf-group/pt2vhf-site` no GitLab pela função **Git** do hPanel
 (Sites → pt2vhf.com → Avançado → GIT), com implantação automática da branch `main` em `public_html`.
 Basta fazer push na `main` para atualizar o site. Os passos abaixo servem para atualização manual.
 
