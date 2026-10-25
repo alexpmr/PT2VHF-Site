@@ -57,6 +57,18 @@ adicione mais um item em `files` (ex.: `{ os: "Linux", label: "AppImage", url: "
 
    Os registros `A` fazem `pt2vhf.com` (sem www) redirecionar para `www.pt2vhf.com`.
 
+## Hospedagem na Hostinger (atual)
+
+1. No hPanel, abra **Arquivos → Gerenciador de Arquivos** e entre em `public_html`.
+2. Envie o `pt2vhf-public_html.zip` e use **Extrair** dentro de `public_html`.
+   O `.htaccess` incluído força HTTPS e `www`, usa a página 404 e faz os instaladores baixarem como arquivo.
+3. Envie cada instalador para a pasta correspondente em `public_html/downloads/`
+   (`prog-tool`, `prop-tool`, `mesh-analyzer`, `aprs-client`) e atualize `assets/js/products.js`
+   com `url` no formato `downloads/prog-tool/<arquivo>.exe`, além de versão, data, tamanho e SHA-256.
+4. Em **Segurança → SSL**, confirme que o certificado do domínio está ativo.
+
+Para gerar o pacote: `git archive --format=zip -o pt2vhf-public_html.zip HEAD -- index.html 404.html .htaccess robots.txt sitemap.xml assets downloads`
+
 ## Alternativa: GitLab Pages
 
 O repositório também publica no GitLab Pages pelo arquivo `.gitlab-ci.yml` (o `CNAME` e o workflow do GitHub são ignorados lá).

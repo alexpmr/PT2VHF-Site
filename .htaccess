@@ -1,0 +1,25 @@
+# Configuração para hospedagem Apache/LiteSpeed (Hostinger)
+Options -Indexes
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+# Força HTTPS e www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.pt2vhf.com%{REQUEST_URI} [L,R=301]
+
+# Instaladores sempre como download
+<FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg)$">
+  Header set Content-Disposition attachment
+  Header set X-Content-Type-Options nosniff
+</FilesMatch>
+AddType application/vnd.microsoft.portable-executable .exe
+AddType application/x-msi .msi
+
+# Cache de arquivos estáticos
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 day"
+  ExpiresByType application/javascript "access plus 1 hour"
+  ExpiresByType image/svg+xml "access plus 7 days"
+</IfModule>
