@@ -1,5 +1,10 @@
 # Configuração para hospedagem Apache/LiteSpeed (Hostinger)
 Options -Indexes
+
+# O deploy via Git da Hostinger publica o repositório inteiro em public_html:
+# bloqueia arquivos internos (.git, .github, README etc.)
+RedirectMatch 404 /\.(git|github|gitlab-ci\.yml|gitignore)
+RedirectMatch 404 /README\.md$
 ErrorDocument 404 /404.html
 
 RewriteEngine On
