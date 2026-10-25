@@ -57,6 +57,28 @@ adicione mais um item em `files` (ex.: `{ os: "Linux", label: "AppImage", url: "
 
    Os registros `A` fazem `pt2vhf.com` (sem www) redirecionar para `www.pt2vhf.com`.
 
+## Alternativa: GitLab Pages
+
+O repositório também publica no GitLab Pages pelo arquivo `.gitlab-ci.yml` (o `CNAME` e o workflow do GitHub são ignorados lá).
+
+1. Crie o projeto `PT2VHF-Site` no GitLab (visibilidade **Public**) e envie o conteúdo:
+   ```bash
+   git remote add gitlab https://gitlab.com/<usuario>/PT2VHF-Site.git
+   git push -u gitlab main
+   ```
+2. Aguarde o pipeline terminar em **Build → Pipelines**. O site fica em `https://<usuario>.gitlab.io/PT2VHF-Site/`.
+3. Em **Deploy → Pages → New Domain**, adicione `www.pt2vhf.com` e deixe o certificado automático (Let's Encrypt) ativado.
+4. No DNS de `pt2vhf.com`, crie os registros que o GitLab mostrar. Normalmente são:
+
+   | Tipo  | Nome                              | Valor                                 |
+   |-------|-----------------------------------|---------------------------------------|
+   | CNAME | www                               | `<usuario>.gitlab.io`                 |
+   | TXT   | _gitlab-pages-verification-code.www | código exibido pelo GitLab          |
+
+5. De volta em **Deploy → Pages**, clique em **Verify** no domínio.
+
+Quando a conta do GitHub voltar, basta adicionar o remote `origin` e seguir a configuração inicial acima. Os dois podem coexistir, mas o DNS deve apontar para apenas um deles.
+
 ## Testar localmente
 
 ```bash
