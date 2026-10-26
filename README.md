@@ -249,3 +249,21 @@ clique fora ou escolha e preserva idioma em `?lang=` e localStorage.
 
 As bandeiras SVG são as do repositório PT2VHF APRS Client. O seletor
 aparece na página principal e nas cinco páginas de produtos.
+
+## 26/10/2026 — correção do controle de idioma (APRS Client)
+
+O seletor de idioma é um **menu suspenso como no APRS Client**, não uma
+faixa de bandeiras. O componente foi movido para `header-controls` e agora
+fica independente do menu `site-nav`, inclusive nos celulares.
+
+A folha específica `assets/css/aprs-language-menu.css` contém a
+adaptação dos estilos originais `language-quick-*` do APRS Client. O
+HTML define `width="18"` e `height="12"` em todas as bandeiras, e o
+CSS impõe também as dimensões, evitando o SVG gigante mesmo se algum
+estilo global estiver desatualizado.
+
+Os seis HTMLs referenciam o CSS principal, o CSS do controle e o
+JavaScript com parâmetros de versão para **invalidar cache** (a Hostinger
+configura cache de 1 dia para CSS e 1 hora para JS). Isso corrige o
+descompasso entre HTML atualizado e estilos antigos que desfigurava o
+menu, sem modificar as traduções e a lógica de idioma já existentes.

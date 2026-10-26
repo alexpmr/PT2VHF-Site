@@ -16,7 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261026-2">
+  <link rel="stylesheet" href="/assets/css/aprs-language-menu.css?v=20261026-2">
 </head>
 <body class="program-page" data-program="prop">
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -26,9 +27,7 @@
         <img src="/assets/img/favicon.svg" alt="" width="32" height="32">
         <span>PT2VHF</span>
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
-        <span></span><span></span><span></span>
-      </button>
+
       <nav id="site-nav" class="site-nav" aria-label="Principal">
         <a href="/aprs">APRS Client</a>
         <a href="/prop" aria-current="page">Prop Tool</a>
@@ -36,44 +35,50 @@
         <a href="/sat">SAT Tool</a>
         <a href="/prog">Prog Tool</a>
         <a href="/#contato">Contato</a>
+
+      </nav>
+      <div class="header-controls">
         <div id="languageQuickSwitch" class="language-quick-switch" aria-label="Idioma / Language">
           <button id="languageQuickCurrent" type="button" class="language-quick-current" aria-haspopup="menu" aria-controls="languageQuickMenu" aria-expanded="false" title="Trocar idioma">
-            <img id="languageQuickCurrentFlag" class="language-quick-img" src="/assets/img/flags/br.svg" alt="Brasil">
+            <img id="languageQuickCurrentFlag" class="language-quick-img" src="/assets/img/flags/br.svg" alt="Brasil" width="18" height="12">
             <span id="languageQuickCurrentLabel">Português (Brasil)</span>
             <span class="language-quick-caret" aria-hidden="true">▾</span>
           </button>
           <div id="languageQuickMenu" class="language-quick-menu" role="menu" aria-label="Idioma / Language" hidden>
             <button type="button" class="language-quick-option" data-language="pt" role="menuitemradio" aria-checked="true">
-              <img class="language-quick-img" src="/assets/img/flags/br.svg" alt="Brasil">
+              <img class="language-quick-img" src="/assets/img/flags/br.svg" alt="Brasil" width="18" height="12">
               <span>Português (Brasil)</span>
             </button>
             <button type="button" class="language-quick-option" data-language="en" role="menuitemradio" aria-checked="false">
-              <img class="language-quick-img" src="/assets/img/flags/gb.svg" alt="Reino Unido">
+              <img class="language-quick-img" src="/assets/img/flags/gb.svg" alt="Reino Unido" width="18" height="12">
               <span>English</span>
             </button>
             <button type="button" class="language-quick-option" data-language="es" role="menuitemradio" aria-checked="false">
-              <img class="language-quick-img" src="/assets/img/flags/es.svg" alt="Espanha">
+              <img class="language-quick-img" src="/assets/img/flags/es.svg" alt="Espanha" width="18" height="12">
               <span>Español</span>
             </button>
             <button type="button" class="language-quick-option" data-language="fr" role="menuitemradio" aria-checked="false">
-              <img class="language-quick-img" src="/assets/img/flags/fr.svg" alt="França">
+              <img class="language-quick-img" src="/assets/img/flags/fr.svg" alt="França" width="18" height="12">
               <span>Français</span>
             </button>
             <button type="button" class="language-quick-option" data-language="de" role="menuitemradio" aria-checked="false">
-              <img class="language-quick-img" src="/assets/img/flags/de.svg" alt="Alemanha">
+              <img class="language-quick-img" src="/assets/img/flags/de.svg" alt="Alemanha" width="18" height="12">
               <span>Deutsch</span>
             </button>
             <button type="button" class="language-quick-option" data-language="it" role="menuitemradio" aria-checked="false">
-              <img class="language-quick-img" src="/assets/img/flags/it.svg" alt="Itália">
+              <img class="language-quick-img" src="/assets/img/flags/it.svg" alt="Itália" width="18" height="12">
               <span>Italiano</span>
             </button>
             <button type="button" class="language-quick-option" data-language="zh" role="menuitemradio" aria-checked="false">
-              <img class="language-quick-img" src="/assets/img/flags/cn.svg" alt="China">
+              <img class="language-quick-img" src="/assets/img/flags/cn.svg" alt="China" width="18" height="12">
               <span>简体中文</span>
             </button>
           </div>
         </div>
-      </nav>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      </div>
     </div>
   </header>
   <main id="conteudo">
@@ -130,6 +135,6 @@
   <script src="/assets/js/locales/zh.js"></script>
   <script src="/assets/js/products.js"></script>
   <script src="/assets/js/gallery.js"></script>
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js?v=20261026-2"></script>
 </body>
 </html>

@@ -1,0 +1,81 @@
+/*
+ * Controle de idioma do PT2VHF Site — adaptação fiel do componente de
+ * pt2vhf_aprs/templates/index.html e pt2vhf_aprs/static/css/app.css.
+ * CSS separado e com URL versionada evita estilos desatualizados no browser.
+ */
+
+/* header: idioma independente do menu, como na barra do APRS Client */
+.site-header, .header-inner { overflow:visible; }
+.header-controls { display:flex; align-items:center; justify-content:flex-end; gap:10px; flex:none; margin-left:10px; position:relative; z-index:60; }
+.header-controls > .nav-toggle { flex:none; }
+.language-quick-switch { position:relative; display:inline-block; flex:none; z-index:100; }
+
+.language-quick-current {
+  display:inline-flex; align-items:center; gap:6px;
+  min-height:32px; min-width:175px; padding:5px 8px;
+  border:1px solid #34455c; border-radius:8px;
+  background:#192a40; color:#e7edf7; cursor:pointer;
+  font-family:Inter,system-ui,sans-serif; font-size:12px; font-weight:700;
+  line-height:1.4; white-space:nowrap;
+}
+.language-quick-current:hover,
+.language-quick-current[aria-expanded="true"] {
+  background:rgba(59,166,255,.12); border-color:rgba(59,166,255,.45);
+}
+.language-quick-caret { color:#a8b6cc; font-size:10px; transition:transform .15s ease; }
+.language-quick-current[aria-expanded="true"] .language-quick-caret { transform:rotate(180deg); }
+#languageQuickCurrentLabel { text-align:left; flex:1; white-space:nowrap; }
+
+.language-quick-img {
+  display:block !important; width:18px !important; height:12px !important;
+  min-width:18px; max-width:18px !important; max-height:12px !important;
+  object-fit:cover; flex:0 0 auto;
+  border:1px solid rgba(255,255,255,.3); border-radius:2px;
+  box-shadow:0 1px 2px rgba(0,0,0,.25);
+}
+
+.language-quick-menu {
+  position:absolute; top:calc(100% + 6px); right:0;
+  z-index:5000; width:212px; min-width:180px; max-height:min(70vh,420px);
+  overflow-y:auto; overscroll-behavior:contain;
+  padding:6px; border:1px solid #34455c; border-radius:9px;
+  background:#102033; box-shadow:0 10px 30px rgba(0,0,0,.28);
+}
+.language-quick-menu[hidden] { display:none !important; }
+.language-quick-option {
+  display:flex; align-items:center; gap:8px; width:100%;
+  min-height:35px; padding:6px 8px; margin:0 0 4px;
+  border:1px solid #354961; border-radius:6px;
+  background:#192a40; color:#e7edf7; cursor:pointer;
+  font-family:Inter,system-ui,sans-serif; font-size:12px; font-weight:700;
+  line-height:1.35; text-align:left; white-space:nowrap;
+}
+.language-quick-option:last-child { margin-bottom:0; }
+.language-quick-option:hover,
+.language-quick-option[aria-checked="true"] {
+  background:rgba(59,166,255,.13);
+}
+.language-quick-option[aria-checked="true"] { border-color:#35d6b6; }
+.language-quick-option:focus-visible,
+.language-quick-current:focus-visible { outline:2px solid #35d6b6; outline-offset:2px; }
+
+@media (min-width:1151px) {
+  .site-nav { align-items:center; flex:1; justify-content:center; gap:0; }
+  .site-nav a { font-size:.83rem; padding:8px 9px; white-space:nowrap; }
+}
+@media (max-width:1150px) {
+  .header-controls { margin-left:auto; }
+  .header-controls > .nav-toggle { display:block; }
+  .site-header .site-nav { display:none; }
+  .site-header .site-nav.open { display:flex; }
+  .language-quick-current { min-width:165px; }
+}
+@media (max-width:440px) {
+  .header-inner { padding-left:12px; padding-right:12px; }
+  .brand { font-size:1rem; gap:6px; }
+  .brand img { width:26px; height:26px; }
+  .header-controls { gap:3px; margin-left:auto; }
+  .language-quick-current { min-width:0; padding:6px; max-width:160px; font-size:11px; }
+  #languageQuickCurrentLabel { max-width:105px; overflow:hidden; text-overflow:ellipsis; }
+  .language-quick-menu { width:205px; }
+}
