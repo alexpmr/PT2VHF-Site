@@ -26,6 +26,17 @@ validate_update_api:
   stage: validate
   script:
     - php -l update.php
+    - php -l download.php
     - php -r '$m=json_decode(file_get_contents("updates.json"),true); if (!is_array($m) || ($m["schema"]??null)!==1 || !isset($m["products"]["mesh"])) exit(1);'
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+validate_site_javascript:
+  image: node:22-alpine
+  stage: validate
+  script:
+    - node --check assets/js/main.js
+    - node --check assets/js/products.js
+    - for f in assets/js/locales/*.js; do node --check "$f" || exit 1; done
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
