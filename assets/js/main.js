@@ -35,30 +35,49 @@
   }
 
   function versionLabel(p) {
-    return p.version ? "v" + esc(p.version) : "Em breve";
+    if (p.version) return "v" + esc(p.version);
+    return p.loadError ? "—" : "Em breve";
   }
 
   function shortName(p) {
     return p.name.replace(/^PT2VHF\s+/, "");
   }
 
+  // Categorias de updates.json, na ordem em que aparecem na tabela
   var CATEGORIES = [
-    "Windows — Instalador",
-    "Windows — Portátil",
-    "Linux — .deb (Debian/Ubuntu)",
-    "Linux — .tar.gz",
-    "macOS",
-    "Código-fonte",
-    "Somas de verificação"
+    { id: "windows-installer", label: "Windows — Instalador" },
+    { id: "windows-portable", label: "Windows — Portátil" },
+    { id: "linux-deb", label: "Linux — .deb (Debian/Ubuntu)" },
+    { id: "linux-targz", label: "Linux — .tar.gz" },
+    { id: "macos", label: "macOS" },
+    { id: "source", label: "Código-fonte" },
+    { id: "checksums", label: "Somas de verificação" }
   ];
+  var CATEGORY_IDS = CATEGORIES.map(function (c) { return c.id; });
+
+  // Links do próprio site viram relativos, para funcionar também em testes locais
+  var SITE = "https://www.pt2vhf.com/";
+
+  function localUrl(url) {
+    url = String(url || "");
+    return url.indexOf(SITE) === 0 ? url.slice(SITE.length) : url;
+  }
 
   function fileName(url) {
     return decodeURIComponent(String(url).split("/").pop());
   }
 
+  function humanSize(bytes) {
+    if (typeof bytes !== "number" || !isFinite(bytes)) return "";
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024 * 1024) return Math.round(bytes / 1024) + " KB";
+    var mb = bytes / (1024 * 1024);
+    return (mb < 100 ? mb.toFixed(1).replace(".", ",") : Math.round(mb)) + " MB";
+  }
+
   function sortedFiles(p) {
     function rank(f) {
-      var i = CATEGORIES.indexOf(f.category);
+      var i = CATEGORY_IDS.indexOf(f.category);
       return i < 0 ? CATEGORIES.length : i;
     }
     return (p.files || [])
@@ -68,7 +87,15 @@
       .map(function (x) { return x.f; });
   }
 
+  function categoryLabel(f) {
+    var i = CATEGORY_IDS.indexOf(f.category);
+    return i < 0 ? f.label || f.category : CATEGORIES[i].label;
+  }
+
   function downloadTable(p) {
+    if (p.loadError) {
+      return '<p class="soon load-error">Não foi possível carregar a lista de downloads agora. Recarregue a página em instantes.</p>';
+    }
     var files = sortedFiles(p);
     if (!files.length) {
       return '<p class="soon"><span class="badge">Em breve</span> Este programa ainda não tem versão publicada.</p>';
@@ -77,15 +104,15 @@
       .map(function (f, i) {
         return (
           "<tr>" +
-          '<th scope="row" data-label="Categoria">' + esc(f.category) + "</th>" +
-          '<td data-label="Arquivo"><span class="file-cell"><span class="file-name">' + esc(fileName(f.url)) + "</span>" +
-          (f.label ? '<span class="file-label">' + esc(f.label) + "</span>" : "") +
+          '<th scope="row" data-label="Categoria">' + esc(categoryLabel(f)) + "</th>" +
+          '<td data-label="Arquivo"><span class="file-cell"><span class="file-name">' + esc(f.name || fileName(f.url)) + "</span>" +
+          (f.detail ? '<span class="file-label">' + esc(f.detail) + "</span>" : "") +
           "</span></td>" +
           '<td data-label="Versão" class="mono">' + versionLabel(p) + "</td>" +
-          '<td data-label="Tamanho" class="nowrap">' + (esc(f.size) || "—") + "</td>" +
-          '<td data-label="SHA-256" class="hash">' + (f.sha256 ? "<code>" + esc(f.sha256) + "</code>" : "—") + "</td>" +
-          '<td class="action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(f.url) + '" download>Baixar' +
-          '<span class="sr-only"> ' + esc(fileName(f.url)) + "</span></a></td>" +
+          '<td data-label="Tamanho" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
+          '<td data-label="SHA-256" class="hash">' + (f.sha256 ? "<code>" + esc(String(f.sha256).toLowerCase()) + "</code>" : "—") + "</td>" +
+          '<td class="action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(localUrl(f.url)) + '" download>Baixar' +
+          '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a></td>" +
           "</tr>"
         );
       })
@@ -173,17 +200,46 @@
       .join("");
   }
 
-  var overviewEl = document.getElementById("overview-list");
-  if (overviewEl) renderOverview(overviewEl);
-
-  var sectionsEl = document.getElementById("program-sections");
-  if (sectionsEl) renderSections(sectionsEl);
-
-  // Âncora na URL (ex.: /#prop): rola depois que as seções existem
-  if (location.hash) {
-    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-    if (target) target.scrollIntoView();
+  // Junta os textos de products.js com versões e arquivos de updates.json
+  function merge(data) {
+    var list = (data && data.products) || null;
+    products.forEach(function (p) {
+      var u = list && list[p.id];
+      p.loadError = !list;
+      p.version = (u && u.version) || "";
+      p.date = (u && u.version && u.date) || "";
+      p.files = (u && u.version && Array.isArray(u.files)) ? u.files : [];
+    });
   }
+
+  function render() {
+    var overviewEl = document.getElementById("overview-list");
+    if (overviewEl) renderOverview(overviewEl);
+
+    var sectionsEl = document.getElementById("program-sections");
+    if (sectionsEl) renderSections(sectionsEl);
+
+    // Âncora na URL (ex.: /#prop): rola depois que as seções existem
+    if (location.hash) {
+      var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (target) target.scrollIntoView();
+    }
+  }
+
+  function load() {
+    if (!window.fetch) return Promise.reject(new Error("fetch indisponível"));
+    return fetch("updates.json", { cache: "no-cache" }).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    });
+  }
+
+  load()
+    .then(merge, function (err) {
+      if (window.console) console.warn("updates.json:", err);
+      merge(null);
+    })
+    .then(render);
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

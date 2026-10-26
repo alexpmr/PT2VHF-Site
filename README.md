@@ -3,37 +3,109 @@
 Site oficial de [www.pt2vhf.com](https://www.pt2vhf.com): divulgação e downloads do
 **PT2VHF Prog Tool**, **PT2VHF Prop Tool**, **PT2VHF Mesh Analyzer** e **PT2VHF APRS Client**.
 
-É um site estático (HTML, CSS e JavaScript puro, sem etapa de build), publicado pelo GitHub Pages.
+É um site estático (HTML, CSS e JavaScript puro, sem etapa de build). O repositório fica em
+`gitlab.com/pt2vhf-group/pt2vhf-site` e a Hostinger publica automaticamente cada push na branch `main`
+(veja [Hospedagem na Hostinger](#hospedagem-na-hostinger-atual)).
 
 ## Estrutura
 
 ```
-index.html               Página principal (programas, downloads, instalação, sobre, contato)
+index.html               Página principal (visão geral, uma seção por programa, instalação, sobre, contato)
+updates.json             Versões e arquivos de cada programa  ← única fonte de versões (contrato abaixo)
 404.html                 Página de erro
 assets/css/style.css     Estilos (tema claro e escuro automáticos)
-assets/js/products.js    Catálogo de programas, versões e links dos instaladores  ← edite aqui
-assets/js/main.js        Monta a visão geral e a seção de cada programa
+assets/js/products.js    Textos de cada programa (descrição, recursos, equipamentos, requisitos)
+assets/js/main.js        Lê updates.json e monta a visão geral e a seção de cada programa
 assets/img/              Favicon e imagem de compartilhamento
-downloads/<programa>/    Instaladores hospedados no próprio repositório (opcional)
+downloads/<pasta>/        Arquivos de cada versão (prog-tool, prop-tool, mesh-analyzer, aprs-client)
 CNAME                    Domínio personalizado (www.pt2vhf.com)
 .github/workflows/       Publicação automática no GitHub Pages
 ```
 
+## updates.json: contrato de versões
+
+`https://www.pt2vhf.com/updates.json` é a **única fonte de versões e arquivos**. O site lê esse
+arquivo para montar as tabelas de download, e os programas o consultam para verificar se há
+atualização (eles não consultam o GitLab nem o GitHub). Os nomes dos campos são um contrato com os
+programas: **não renomeie nem remova campos**. Campos novos podem ser acrescentados.
+
+```json
+{
+  "schema": 1,
+  "updated": "2026-10-26",
+  "products": {
+    "prog": {
+      "name": "PT2VHF Prog Tool",
+      "version": "1.2.0",
+      "date": "2026-10-25",
+      "page": "https://www.pt2vhf.com/#prog",
+      "notes": "Resumo curto das novidades, em texto puro.",
+      "files": [
+        {
+          "category": "windows-installer",
+          "label": "Windows — Instalador",
+          "name": "PT2VHFProgTool-1.2.0-instalador.exe",
+          "url": "https://www.pt2vhf.com/downloads/prog-tool/PT2VHFProgTool-1.2.0-instalador.exe",
+          "size": 8887706,
+          "sha256": "8cd72249be49808296bbf48e5f6c5fa5f10c2baab85bc67d5a1288055bface6b",
+          "detail": "Windows 10/11 64 bits (recomendado)"
+        }
+      ]
+    },
+    "prop": { "name": "PT2VHF Prop Tool", "version": null, "page": "https://www.pt2vhf.com/#prop", "files": [] },
+    "mesh": { "name": "PT2VHF Mesh Analyzer", "version": null, "page": "https://www.pt2vhf.com/#mesh", "files": [] },
+    "aprs": { "name": "PT2VHF APRS Client", "version": null, "page": "https://www.pt2vhf.com/#aprs", "files": [] }
+  }
+}
+```
+
+| Campo | Regra |
+|---|---|
+| `schema` | Versão do formato. Hoje `1`. |
+| `updated` | Data da última alteração do arquivo (`AAAA-MM-DD`). |
+| `products.<id>` | Chaves fixas: `prog`, `prop`, `mesh`, `aprs` (as mesmas de `products.js`). |
+| `version` | Versão publicada (`"1.2.0"`), ou `null` se ainda não há versão. Com `null`, o site mostra **Em breve**. |
+| `date` | Data de lançamento (`AAAA-MM-DD`). |
+| `page` | Página do programa no site. |
+| `notes` | Resumo curto das novidades, em texto puro (sem Markdown nem HTML). |
+| `files[].category` | Um destes valores, nesta ordem: `windows-installer`, `windows-portable`, `linux-deb`, `linux-targz`, `macos`, `source`, `checksums`. Use só as categorias que têm arquivo. |
+| `files[].label` | Nome da categoria para leitura humana (`Windows — Instalador`, `Windows — Portátil`, `Linux — .deb (Debian/Ubuntu)`, `Linux — .tar.gz`, `macOS`, `Código-fonte`, `Somas de verificação`). |
+| `files[].name` | Nome do arquivo. |
+| `files[].url` | URL **absoluta**: `https://www.pt2vhf.com/downloads/<pasta>/<arquivo>`. |
+| `files[].size` | Tamanho em **bytes** (inteiro). O site converte para "8,5 MB". |
+| `files[].sha256` | SHA-256 em **minúsculas**. |
+| `files[].detail` | Opcional: detalhe mostrado na tabela (sistemas suportados etc.). |
+
+O servidor entrega o arquivo com `Content-Type: application/json; charset=utf-8`,
+`Cache-Control: no-cache` e `Access-Control-Allow-Origin: *` (configurado no `.htaccess`).
+
+Pastas de download: `prog` → `downloads/prog-tool/`, `prop` → `downloads/prop-tool/`,
+`mesh` → `downloads/mesh-analyzer/`, `aprs` → `downloads/aprs-client/`.
+
 ## Publicar uma nova versão de um programa
 
-1. Coloque o instalador em um destes lugares:
-   - **GitHub Releases** (recomendado): crie uma release neste repositório e anexe o `.exe`.
-     Use a URL do asset, ex.: `https://github.com/<usuario>/PT2VHF-Site/releases/download/prog-v1.0.0/PT2VHF-Prog-Tool-1.0.0-setup.exe`.
-   - **No próprio repositório**: copie o arquivo para `downloads/prog-tool/` e use a URL
-     `downloads/prog-tool/PT2VHF-Prog-Tool-1.0.0-setup.exe`. O GitHub recusa arquivos acima de 100 MB.
-2. Edite `assets/js/products.js` e preencha `version`, `date` e, em `files`, `url`, `size` e `sha256`.
-   Para obter o hash:
-   - Windows: `certutil -hashfile PT2VHF-Prog-Tool-1.0.0-setup.exe SHA256`
-   - Linux/macOS: `sha256sum PT2VHF-Prog-Tool-1.0.0-setup.exe`
-3. Faça commit e push na branch `main`. O site é atualizado em cerca de um minuto.
-
-Programas com `url` vazia aparecem como **Em breve**. Para oferecer outro sistema operacional,
-adicione mais um item em `files` (ex.: `{ os: "Linux", label: "AppImage", url: "...", ... }`).
+1. Atualize o repositório: `git pull --rebase origin main`.
+2. Copie os arquivos da versão para `downloads/<pasta>/` (instalador, portátil, `.deb`, `.tar.gz`,
+   código-fonte e `SHA256SUMS.txt`, os que existirem). Arquivos acima de 100 MB não devem ir para o
+   repositório. Pode apagar os arquivos da versão anterior.
+3. Confira os hashes e anote tamanho e SHA-256 de cada arquivo:
+   ```bash
+   cd downloads/prog-tool
+   sha256sum -c --ignore-missing SHA256SUMS.txt
+   for f in *; do echo "$f $(stat -c %s "$f") $(sha256sum "$f" | cut -d' ' -f1)"; done
+   ```
+4. Edite `updates.json`: no programa, troque `version`, `date`, `notes` e a lista `files`
+   (`category`, `label`, `name`, `url` absoluta, `size` em bytes, `sha256` em minúsculas, `detail`).
+   Atualize também `updated` no topo.
+5. Valide o JSON: `python3 -m json.tool updates.json > /dev/null && echo ok`.
+6. Se a descrição ou os recursos do programa mudaram, edite `assets/js/products.js`
+   (só textos; versões e arquivos não ficam lá).
+7. Teste localmente (veja abaixo) e confira a tabela do programa.
+8. Faça commit e envie: `git pull --rebase origin main && git push origin main`. Outras sessões
+   também publicam neste repositório, por isso sempre faça `pull --rebase` antes do push e nunca
+   use `push --force` na `main`.
+9. A Hostinger implanta em cerca de um minuto. Confira em hPanel → Sites → pt2vhf.com → Avançado → GIT
+   e teste `https://www.pt2vhf.com/updates.json` e um download.
 
 ## Configuração inicial (uma única vez)
 
@@ -67,11 +139,11 @@ Basta fazer push na `main` para atualizar o site. Os passos abaixo servem para a
 2. Envie o `pt2vhf-public_html.zip` e use **Extrair** dentro de `public_html`.
    O `.htaccess` incluído força HTTPS e `www`, usa a página 404 e faz os instaladores baixarem como arquivo.
 3. Envie cada instalador para a pasta correspondente em `public_html/downloads/`
-   (`prog-tool`, `prop-tool`, `mesh-analyzer`, `aprs-client`) e atualize `assets/js/products.js`
-   com `url` no formato `downloads/prog-tool/<arquivo>.exe`, além de versão, data, tamanho e SHA-256.
+   (`prog-tool`, `prop-tool`, `mesh-analyzer`, `aprs-client`) e atualize o `updates.json`
+   como descrito em [Publicar uma nova versão](#publicar-uma-nova-versão-de-um-programa).
 4. Em **Segurança → SSL**, confirme que o certificado do domínio está ativo.
 
-Para gerar o pacote: `git archive --format=zip -o pt2vhf-public_html.zip HEAD -- index.html 404.html .htaccess robots.txt sitemap.xml assets downloads`
+Para gerar o pacote: `git archive --format=zip -o pt2vhf-public_html.zip HEAD -- index.html 404.html .htaccess robots.txt sitemap.xml updates.json assets downloads`
 
 ## Alternativa: GitLab Pages
 

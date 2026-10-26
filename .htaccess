@@ -21,6 +21,14 @@ RewriteRule ^ https://www.pt2vhf.com%{REQUEST_URI} [L,R=301]
 AddType application/vnd.microsoft.portable-executable .exe
 AddType application/x-msi .msi
 
+# Arquivo de versões lido pelo site e pelos programas (verificação de atualizações)
+<Files "updates.json">
+  ForceType "application/json; charset=utf-8"
+  Header set Content-Type "application/json; charset=utf-8"
+  Header set Cache-Control "no-cache"
+  Header set Access-Control-Allow-Origin "*"
+</Files>
+
 # Cache de arquivos estáticos
 <IfModule mod_expires.c>
   ExpiresActive On

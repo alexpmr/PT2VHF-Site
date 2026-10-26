@@ -197,6 +197,7 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .downloads .hash code { display: block; font-size: .72rem; line-height: 1.45; padding: 4px 6px; overflow-wrap: anywhere; word-break: break-all; }
 .downloads .action { text-align: right; }
 .soon { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0; color: var(--muted); background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius); padding: 16px 20px; }
+.load-error { border-style: solid; font-size: .92rem; }
 .note { color: var(--muted); font-size: .9rem; margin-top: 20px; }
 
 @media (max-width: 900px) {

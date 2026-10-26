@@ -1,24 +1,16 @@
 /*
- * Catálogo de produtos e instaladores do site PT2VHF.
+ * Textos dos programas do site PT2VHF: nome, descrição, recursos,
+ * equipamentos suportados e requisitos.
  *
- * Para publicar uma nova versão, edite apenas este arquivo:
- *   - version:      número da versão (ex.: "1.4.2"); vazio = "Em breve"
- *   - date:         data de lançamento no formato AAAA-MM-DD
+ * Versões, datas e arquivos NÃO ficam aqui: vêm de /updates.json, que é
+ * a única fonte de versões (lida também pelos próprios programas para
+ * verificar atualizações). Veja o README.
+ *
+ *   - id:           chave do programa em updates.json (prog, prop, mesh, aprs)
  *   - description:  texto ou lista de parágrafos
  *   - features:     recursos principais
  *   - supported:    rádios e equipamentos suportados (opcional)
  *   - requirements: sistema operacional, cabos e interfaces (opcional)
- *   - files:        um item por arquivo, com:
- *       category: uma das categorias abaixo (define a ordem na tabela)
- *                   "Windows — Instalador", "Windows — Portátil",
- *                   "Linux — .deb (Debian/Ubuntu)", "Linux — .tar.gz",
- *                   "macOS", "Código-fonte", "Somas de verificação"
- *       url:      caminho do arquivo, ex.: downloads/prog-tool/arquivo.exe
- *       label:    detalhe curto (sistemas suportados etc.)
- *       size:     tamanho legível, ex.: "8,5 MB"
- *       sha256:   hash SHA-256 do arquivo
- *
- * Programa sem arquivos aparece como "Em breve".
  */
 window.PT2VHF_PRODUCTS = [
   {
@@ -54,53 +46,7 @@ window.PT2VHF_PRODUCTS = [
       "ID-51A Plus2 / ID-880H: cabo de clonagem/dados do rádio (por exemplo, o OPC-2218LU no ID-51) e o rádio em modo de clonagem",
       "Driver do cabo USB-serial do fabricante (FTDI, Prolific, Silicon Labs ou o do cabo Icom)"
     ],
-    icon: "prog",
-    version: "1.2.0",
-    date: "2026-10-25",
-    files: [
-      {
-        category: "Windows — Instalador",
-        url: "downloads/prog-tool/PT2VHFProgTool-1.2.0-instalador.exe",
-        label: "Windows 10/11 64 bits (recomendado)",
-        size: "8,5 MB",
-        sha256: "8cd72249be49808296bbf48e5f6c5fa5f10c2baab85bc67d5a1288055bface6b"
-      },
-      {
-        category: "Windows — Portátil",
-        url: "downloads/prog-tool/PT2VHFProgTool-1.2.0-windows-portatil.zip",
-        label: "Windows 10/11 64 bits, sem instalar",
-        size: "12,5 MB",
-        sha256: "119c42c3b3bd86e15c1e1239d9a2dde3388660e21ed6fff7fca708119cdbfa9d"
-      },
-      {
-        category: "Linux — .deb (Debian/Ubuntu)",
-        url: "downloads/prog-tool/pt2vhf-prog-tool_1.2.0_all.deb",
-        label: "Ubuntu 22.04+, Debian 12+, Mint 21+",
-        size: "58 KB",
-        sha256: "4891c944297cf3124e47540b94362057cff152d15f857def1c9e434696d2bf13"
-      },
-      {
-        category: "Linux — .tar.gz",
-        url: "downloads/prog-tool/pt2vhf-prog-tool-1.2.0-linux.tar.gz",
-        label: "Outras distribuições e macOS (Python 3.10+ com Tkinter)",
-        size: "86 KB",
-        sha256: "bf35e80a3f58f7f5607e8e2aa127cf4ab200a042f33e472c71efd7831fef27e1"
-      },
-      {
-        category: "Código-fonte",
-        url: "downloads/prog-tool/pt2vhf-prog-tool-1.2.0-codigo-fonte.zip",
-        label: "GPLv3",
-        size: "710 KB",
-        sha256: "eadfccf1f6385f5951456754adb55200820028990c5f99f82d33188ea9ead4e1"
-      },
-      {
-        category: "Somas de verificação",
-        url: "downloads/prog-tool/SHA256SUMS.txt",
-        label: "SHA-256 de todos os arquivos da versão",
-        size: "515 B",
-        sha256: "7d86920c4b77fb6316064f5be5499ce8d4092b4e600fc33ac126459e4dee5eaf"
-      }
-    ]
+    icon: "prog"
   },
   {
     id: "prop",
@@ -114,10 +60,7 @@ window.PT2VHF_PRODUCTS = [
       "Orçamento de enlace (link budget)",
       "Mapa de cobertura estimada"
     ],
-    icon: "prop",
-    version: "",
-    date: "",
-    files: []
+    icon: "prop"
   },
   {
     id: "mesh",
@@ -131,10 +74,7 @@ window.PT2VHF_PRODUCTS = [
       "Histórico de tráfego e telemetria",
       "Exportação de relatórios"
     ],
-    icon: "mesh",
-    version: "",
-    date: "",
-    files: []
+    icon: "mesh"
   },
   {
     id: "aprs",
@@ -148,9 +88,6 @@ window.PT2VHF_PRODUCTS = [
       "Envio de beacons de posição",
       "Mensagens APRS com confirmação"
     ],
-    icon: "aprs",
-    version: "",
-    date: "",
-    files: []
+    icon: "aprs"
   }
 ];
