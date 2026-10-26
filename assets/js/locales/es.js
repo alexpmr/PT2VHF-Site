@@ -76,6 +76,7 @@ window.PT2VHF_I18N["es"] = {
     "detailsProgTar": "Otras distribuciones y macOS (Python 3.10+ y Tkinter)"
   },
   "captions": {
+    "propLive": "Mapa de calor, bandas actuales y clima espacial — captura real",
     "propOverview": "Panel principal — tema oscuro",
     "propBands": "Análisis de bandas",
     "propMap": "Mapa de propagación — tema claro",

@@ -76,6 +76,7 @@ window.PT2VHF_I18N["zh"] = {
     "detailsProgTar": "其他 Linux 发行版及 macOS（Python 3.10+ 与 Tkinter）"
   },
   "captions": {
+    "propLive": "热力图、当前波段与空间天气 — 真实界面截图",
     "propOverview": "主界面 — 深色主题",
     "propBands": "波段分析",
     "propMap": "传播地图 — 浅色主题",

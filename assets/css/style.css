@@ -367,3 +367,24 @@ table.downloads { width: 100%; border-collapse: collapse; }
 @media(max-width:380px) {
   .language-quick-menu { width:min(218px,calc(100vw - 32px)); }
 }
+
+/* Captura principal real do PT2VHF Prop Tool — preserva toda a interface, sem recorte. */
+.prop-hero-screenshot-wrap { max-width: 1140px; margin: 40px auto 0; }
+.prop-hero-screenshot {
+  margin: 0; padding: 10px 10px 0;
+  background: #0b1726;
+  border: 1px solid rgba(124, 167, 194, .25);
+  border-radius: 16px;
+  box-shadow: 0 24px 68px rgba(0, 0, 0, .3);
+}
+.prop-hero-screenshot a { display: block; overflow: hidden; border-radius: 9px; }
+.prop-hero-screenshot img { display: block; width: 100%; height: auto; }
+.prop-hero-screenshot figcaption {
+  padding: 11px 8px 13px;
+  color: #b7c7d8; text-align: center; font-size: .86rem; line-height: 1.5;
+}
+@media (max-width: 700px) {
+  .prop-hero-screenshot-wrap { margin-top: 25px; }
+  .prop-hero-screenshot { padding: 5px 5px 0; border-radius: 10px; }
+  .prop-hero-screenshot a { border-radius: 6px; }
+}
