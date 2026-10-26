@@ -47,6 +47,15 @@
     if (el) el.textContent = t(key);
   }
   function localizeStatic() {
+    var heroCaption = document.getElementById("prop-hero-caption");
+    if (heroCaption) {
+      var heroText = window.PT2VHF_I18N_CAPTION({captionId:"propLive",caption:"Mapa de calor e monitoramento de bandas em operação"});
+      heroCaption.textContent = heroText;
+      var heroImage = document.querySelector(".prop-hero-screenshot img");
+      if (heroImage) heroImage.alt = heroText;
+      var heroLink = document.querySelector(".prop-hero-screenshot a");
+      if (heroLink) heroLink.setAttribute("aria-label", heroText);
+    }
     if (!programId) {
       var home = {
         ".hero .eyebrow":"homeEyebrow", ".hero h1":"homeTitle",
