@@ -338,11 +338,103 @@
     return '<section class="screenshots" id="capturas"><h3>' + esc(heading) + '</h3><p class="screenshots-intro">' + esc(intro) + '</p>' +
       '<div class="screenshot-grid">' + images.map(function (shot) {
         var caption = (window.PT2VHF_I18N_CAPTION ? window.PT2VHF_I18N_CAPTION(shot) : shot.caption) || p.name;
-        return '<figure class="screenshot-card"><a href="' + esc(shot.src) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(caption) + '">' +
-          '<img src="' + esc(shot.src) + '" alt="' + esc(caption) + '" loading="lazy"></a>' +
+        return '<figure class="screenshot-card"><button type="button" class="screenshot-open" data-gallery-product="' + esc(p.id) +
+          '" data-gallery-index="' + images.indexOf(shot) + '" aria-label="' + esc(caption) + '">' +
+          '<img src="' + esc(shot.src) + '" alt="' + esc(caption) + '" loading="lazy"></button>' +
           '<figcaption>' + esc(caption) + '</figcaption></figure>';
       }).join("") + "</div></section>";
   }
+
+
+  // Lightbox acessível: sem nova aba, com imagem ampliada e navegação entre fotos.
+  // Campos src (miniatura) e full (original) ficam separados. Até que um
+  // original maior exista, a miniatura é ampliada dentro do modal.
+  var meshGalleryDialog=null;
+  var meshGalleryIndex=0;
+  var meshGalleryEntries=[];
+  var meshGalleryOpener=null;
+  var galleryDialogLabels={
+    pt:{close:"Fechar imagem",previous:"Imagem anterior",next:"Próxima imagem",count:"Imagem"},
+    en:{close:"Close image",previous:"Previous image",next:"Next image",count:"Image"},
+    es:{close:"Cerrar imagen",previous:"Imagen anterior",next:"Imagen siguiente",count:"Imagen"},
+    fr:{close:"Fermer l'image",previous:"Image précédente",next:"Image suivante",count:"Image"},
+    de:{close:"Bild schließen",previous:"Vorheriges Bild",next:"Nächstes Bild",count:"Bild"},
+    it:{close:"Chiudi immagine",previous:"Immagine precedente",next:"Immagine successiva",count:"Immagine"},
+    zh:{close:"关闭图片",previous:"上一张图片",next:"下一张图片",count:"图片"}
+  };
+  function getGalleryDialogLabels(){
+    return galleryDialogLabels[selectedLang]||galleryDialogLabels.pt;
+  }
+  function ensureGalleryDialog(){
+    if(meshGalleryDialog)return meshGalleryDialog;
+    meshGalleryDialog=document.createElement("dialog");
+    meshGalleryDialog.className="pt2vhf-gallery-dialog";
+    meshGalleryDialog.setAttribute("aria-label", "Galeria de capturas de tela");
+    meshGalleryDialog.innerHTML=
+      '<div class="pt2vhf-gallery-frame">'+
+      '<header class="pt2vhf-gallery-toolbar"><span class="pt2vhf-gallery-count"></span>'+
+      '<button type="button" class="pt2vhf-gallery-close" data-gallery-action="close" aria-label="Fechar">×</button></header>'+
+      '<div class="pt2vhf-gallery-viewer">'+
+      '<button type="button" class="pt2vhf-gallery-prev" data-gallery-action="prev" aria-label="Anterior">‹</button>'+
+      '<img class="pt2vhf-gallery-large" alt="" />'+
+      '<button type="button" class="pt2vhf-gallery-next" data-gallery-action="next" aria-label="Próxima">›</button>'+
+      '</div><p class="pt2vhf-gallery-caption"></p></div>';
+    document.body.appendChild(meshGalleryDialog);
+    meshGalleryDialog.addEventListener("click",function(e){
+      var b=e.target.closest?e.target.closest("[data-gallery-action]"):null;
+      if(b){
+        var action=b.getAttribute("data-gallery-action");
+        if(action==="close")meshGalleryDialog.close();
+        else if(action==="prev")setGalleryIndex(meshGalleryIndex-1);
+        else if(action==="next")setGalleryIndex(meshGalleryIndex+1);
+        return;
+      }
+      if(e.target===meshGalleryDialog)meshGalleryDialog.close();
+    });
+    meshGalleryDialog.addEventListener("keydown",function(e){
+      if(e.key==="ArrowLeft"||e.key==="ArrowRight"){
+        e.preventDefault();
+        setGalleryIndex(meshGalleryIndex+(e.key==="ArrowLeft"?-1:1));
+      }
+    });
+    meshGalleryDialog.addEventListener("close",function(){
+      if(meshGalleryOpener&&meshGalleryOpener.isConnected)meshGalleryOpener.focus();
+      meshGalleryOpener=null;
+    });
+    return meshGalleryDialog;
+  }
+  function setGalleryIndex(i){
+    if(!meshGalleryEntries.length||!meshGalleryDialog)return;
+    meshGalleryIndex=(i+meshGalleryEntries.length)%meshGalleryEntries.length;
+    var shot=meshGalleryEntries[meshGalleryIndex];
+    var caption=(window.PT2VHF_I18N_CAPTION?window.PT2VHF_I18N_CAPTION(shot):shot.caption)||"";
+    var labels=getGalleryDialogLabels();
+    var large=meshGalleryDialog.querySelector(".pt2vhf-gallery-large");
+    large.src=shot.full||shot.src;
+    large.alt=caption;
+    meshGalleryDialog.querySelector(".pt2vhf-gallery-caption").textContent=caption;
+    meshGalleryDialog.querySelector(".pt2vhf-gallery-count").textContent=
+      labels.count+" "+(meshGalleryIndex+1)+" / "+meshGalleryEntries.length;
+    [["close",labels.close],["prev",labels.previous],["next",labels.next]].forEach(function(pair){
+      var el=meshGalleryDialog.querySelector('[data-gallery-action="'+pair[0]+'"]');
+      if(el)el.setAttribute("aria-label",pair[1]);
+    });
+  }
+  document.addEventListener("click",function(event){
+    var opener=event.target.closest?event.target.closest("button.screenshot-open"):null;
+    if(!opener)return;
+    var product=opener.getAttribute("data-gallery-product");
+    var ix=Number(opener.getAttribute("data-gallery-index"));
+    var entries=galleryData[product]||[];
+    if(!entries.length||!Number.isInteger(ix)||ix<0||ix>=entries.length)return;
+    event.preventDefault();
+    meshGalleryEntries=entries;
+    meshGalleryOpener=opener;
+    ensureGalleryDialog();
+    setGalleryIndex(ix);
+    if(!meshGalleryDialog.open)meshGalleryDialog.showModal();
+    meshGalleryDialog.querySelector(".pt2vhf-gallery-close").focus();
+  });
 
   function listBlock(title, items, render) {
     if (!items || !items.length) return "";

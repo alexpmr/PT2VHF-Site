@@ -52,3 +52,11 @@ for(const shot of screenshots){
  }
 }
 console.log("Mesh gallery OK: seis fotos reais em WebP e legendas nos sete idiomas.");
+
+assert(main.includes('button type="button" class="screenshot-open"'),"Captura deve abrir modal, não nova aba");
+assert(main.includes('meshGalleryDialog.showModal()'),"Lightbox não abre dentro da página");
+assert(main.includes('meshGalleryDialog.close()'),"Lightbox não fecha na página");
+assert(main.includes('shot.full||shot.src'),"Original separado de miniatura não configurado");
+assert(main.includes('e.key==="ArrowLeft"||e.key==="ArrowRight"'),"Navegação por teclado ausente");
+assert(!main.includes('"<a href=" + esc(shot.src)'),"Galeria não deve abrir link externo");
+console.log("Lightbox Mesh OK: modal interno, fechar, teclado e fonte full/thumbnail.");
