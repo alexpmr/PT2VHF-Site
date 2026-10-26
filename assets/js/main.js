@@ -38,90 +38,96 @@
     return p.version ? "v" + esc(p.version) : "Em breve";
   }
 
-  function downloadButtons(p) {
-    var primary = true;
-    return p.files
-      .map(function (f) {
-        if (!f.url) {
-          return (
-            '<span class="btn btn-disabled" aria-disabled="true">' +
-            esc(f.os) + " · Em breve</span>"
-          );
-        }
-        if (primary) {
-          primary = false;
-          return (
-            '<a class="btn btn-primary" href="' + esc(f.url) + '" download title="' + esc(f.label) + '">' +
-            "Baixar para " + esc(f.os) +
-            (f.size ? ' <span class="btn-meta">' + esc(f.size) + "</span>" : "") +
-            "</a>"
-          );
-        }
+  function shortName(p) {
+    return p.name.replace(/^PT2VHF\s+/, "");
+  }
+
+  function fileItem(f, primary) {
+    return (
+      '<li class="file">' +
+      '<div class="file-info">' +
+      '<span class="file-os">' + esc(f.os) + "</span>" +
+      (f.label ? '<span class="file-label">' + esc(f.label) + "</span>" : "") +
+      (f.size ? '<span class="file-size">' + esc(f.size) + "</span>" : "") +
+      "</div>" +
+      '<a class="btn ' + (primary ? "btn-primary" : "btn-secondary") + '" href="' + esc(f.url) + '" download>Baixar</a>' +
+      (f.sha256
+        ? '<p class="file-hash"><span>SHA-256</span> <code>' + esc(f.sha256) + "</code></p>"
+        : "") +
+      "</li>"
+    );
+  }
+
+  function downloadPanel(p) {
+    var files = p.files.filter(function (f) { return f.url; });
+    var body = files.length
+      ? '<ul class="file-list">' +
+        files.map(function (f, i) { return fileItem(f, i === 0); }).join("") +
+        "</ul>"
+      : '<p class="soon">Em breve. Este programa ainda não tem versão publicada.</p>';
+    return (
+      '<div class="download-panel">' +
+      "<h3>Downloads" + (p.version ? ' <span class="badge">v' + esc(p.version) + "</span>" : "") + "</h3>" +
+      body +
+      "</div>"
+    );
+  }
+
+  function renderOverview(el) {
+    el.innerHTML = products
+      .map(function (p) {
         return (
-          '<a class="btn btn-secondary btn-sm" href="' + esc(f.url) + '" download>' +
-          esc(f.os) + " · " + esc(f.label) +
-          (f.size ? ' <span class="btn-meta">' + esc(f.size) + "</span>" : "") +
+          '<a class="ov-card" href="#' + esc(p.id) + '">' +
+          '<span class="product-icon">' + icon(p.icon) + "</span>" +
+          '<span class="ov-text"><strong>' + esc(shortName(p)) + "</strong>" +
+          '<span class="ov-version' + (p.version ? "" : " is-soon") + '">' + versionLabel(p) + "</span></span>" +
           "</a>"
         );
       })
       .join("");
   }
 
-  function renderProducts(el) {
+  function renderSections(el) {
     el.innerHTML = products
-      .map(function (p) {
+      .map(function (p, i) {
         return (
-          '<article class="product" id="' + esc(p.id) + '">' +
-          '<div class="product-head">' +
+          '<section class="section program' + (i % 2 ? " section-alt" : "") + '" id="' + esc(p.id) + '" aria-labelledby="' + esc(p.id) + '-titulo">' +
+          '<div class="container program-inner">' +
+          '<div class="program-info">' +
+          '<div class="program-head">' +
           '<div class="product-icon">' + icon(p.icon) + "</div>" +
-          '<span class="badge">' + versionLabel(p) + "</span>" +
+          "<div>" +
+          '<h2 id="' + esc(p.id) + '-titulo">' + esc(p.name) + "</h2>" +
+          '<p class="program-meta"><span class="badge">' + versionLabel(p) + "</span>" +
+          (p.date ? " <span>Lançado em " + formatDate(p.date) + "</span>" : "") +
+          "</p>" +
           "</div>" +
-          "<h3>" + esc(p.name) + "</h3>" +
+          "</div>" +
           '<p class="tagline">' + esc(p.tagline) + "</p>" +
-          "<p>" + esc(p.description) + "</p>" +
+          '<p class="description">' + esc(p.description) + "</p>" +
           '<ul class="features">' +
           p.features.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") +
           "</ul>" +
-          '<div class="product-actions">' + downloadButtons(p) + "</div>" +
-          "</article>"
+          "</div>" +
+          downloadPanel(p) +
+          "</div>" +
+          "</section>"
         );
       })
       .join("");
   }
 
-  function renderDownloads(el) {
-    var rows = [];
-    products.forEach(function (p) {
-      p.files.forEach(function (f) {
-        rows.push(
-          "<tr>" +
-          '<td data-label="Programa"><a href="#' + esc(p.id) + '">' + esc(p.name) + "</a></td>" +
-          '<td data-label="Versão">' + versionLabel(p) + "</td>" +
-          '<td data-label="Sistema"><span class="file-os">' + esc(f.os) +
-          (f.label ? '<span class="file-label">' + esc(f.label) + "</span>" : "") +
-          "</span></td>" +
-          '<td data-label="Data">' + (formatDate(p.date) || "—") + "</td>" +
-          '<td data-label="Tamanho">' + (esc(f.size) || "—") + "</td>" +
-          '<td data-label="">' +
-          (f.url
-            ? '<a class="btn btn-primary btn-sm" href="' + esc(f.url) + '" download>Baixar</a>'
-            : '<span class="btn btn-disabled btn-sm" aria-disabled="true">Em breve</span>') +
-          "</td>" +
-          "</tr>" +
-          (f.sha256
-            ? '<tr class="hash-row"><td colspan="6"><span>SHA-256</span> <code>' + esc(f.sha256) + "</code></td></tr>"
-            : "")
-        );
-      });
-    });
-    el.innerHTML = rows.join("");
+  var overviewEl = document.getElementById("overview-list");
+  if (overviewEl) renderOverview(overviewEl);
+
+  var sectionsEl = document.getElementById("program-sections");
+  if (sectionsEl) renderSections(sectionsEl);
+
+  // Âncora na URL (ex.: /#prop): rola depois que as seções existem
+  if (location.hash) {
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) target.scrollIntoView();
   }
-
-  var productsEl = document.getElementById("product-list");
-  if (productsEl) renderProducts(productsEl);
-
-  var downloadsEl = document.getElementById("download-rows");
-  if (downloadsEl) renderDownloads(downloadsEl);
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

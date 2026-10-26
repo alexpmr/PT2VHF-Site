@@ -12,7 +12,7 @@ index.html               Página principal (programas, downloads, instalação, 
 404.html                 Página de erro
 assets/css/style.css     Estilos (tema claro e escuro automáticos)
 assets/js/products.js    Catálogo de programas, versões e links dos instaladores  ← edite aqui
-assets/js/main.js        Monta os cartões e a tabela de downloads
+assets/js/main.js        Monta a visão geral e a seção de cada programa
 assets/img/              Favicon e imagem de compartilhamento
 downloads/<programa>/    Instaladores hospedados no próprio repositório (opcional)
 CNAME                    Domínio personalizado (www.pt2vhf.com)

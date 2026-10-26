@@ -31,10 +31,11 @@
         <span></span><span></span><span></span>
       </button>
       <nav id="site-nav" class="site-nav" aria-label="Principal">
-        <a href="#programas">Programas</a>
-        <a href="#downloads">Downloads</a>
+        <a href="#prog">Prog Tool</a>
+        <a href="#prop">Prop Tool</a>
+        <a href="#mesh">Mesh Analyzer</a>
+        <a href="#aprs">APRS Client</a>
         <a href="#instalacao">Instalação</a>
-        <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
       </nav>
     </div>
@@ -48,48 +49,24 @@
         <h1>Ferramentas de software feitas por um radioamador, para radioamadores.</h1>
         <p class="lead">Programe seu rádio, planeje enlaces, analise sua rede mesh e acompanhe o APRS em tempo real. Baixe aqui os instaladores oficiais.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#downloads">Ver downloads</a>
-          <a class="btn btn-ghost btn-lg" href="#programas">Conhecer os programas</a>
+          <a class="btn btn-primary btn-lg" href="#visao-geral">Ver downloads</a>
+          <a class="btn btn-ghost btn-lg" href="#prog">Conhecer os programas</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="programas" aria-labelledby="programas-titulo">
+    <section class="overview" id="visao-geral" aria-labelledby="visao-geral-titulo">
       <div class="container">
-        <div class="section-head">
-          <h2 id="programas-titulo">Os programas</h2>
-          <p>Quatro ferramentas, uma para cada parte da sua estação.</p>
-        </div>
-        <div class="product-grid" id="product-list">
-          <noscript><p>Ative o JavaScript para ver a lista de programas.</p></noscript>
-        </div>
+        <h2 id="visao-geral-titulo" class="sr-only">Os programas</h2>
+        <nav class="overview-grid" id="overview-list" aria-label="Programas"></nav>
       </div>
     </section>
 
-    <section class="section section-alt" id="downloads" aria-labelledby="downloads-titulo">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="downloads-titulo">Downloads</h2>
-          <p>Instaladores oficiais. Baixe somente deste site para garantir arquivos íntegros e livres de alterações.</p>
-        </div>
-        <div class="table-wrap">
-          <table class="downloads">
-            <thead>
-              <tr>
-                <th scope="col">Programa</th>
-                <th scope="col">Versão</th>
-                <th scope="col">Sistema</th>
-                <th scope="col">Data</th>
-                <th scope="col">Tamanho</th>
-                <th scope="col"><span class="sr-only">Ação</span></th>
-              </tr>
-            </thead>
-            <tbody id="download-rows"></tbody>
-          </table>
-        </div>
-        <p class="note">Confira a integridade do arquivo comparando o SHA-256 informado acima. No Windows: <code>certutil -hashfile arquivo.exe SHA256</code>.</p>
-      </div>
-    </section>
+    <div id="program-sections">
+      <noscript>
+        <div class="container section"><p>Ative o JavaScript para ver os programas e os downloads.</p></div>
+      </noscript>
+    </div>
 
     <section class="section" id="instalacao" aria-labelledby="instalacao-titulo">
       <div class="container">
@@ -99,7 +76,7 @@
         <ol class="steps">
           <li>
             <h3>Baixe o instalador</h3>
-            <p>Escolha o programa na seção de downloads e salve o arquivo no seu computador.</p>
+            <p>Escolha o programa na seção dele e salve o arquivo no seu computador.</p>
           </li>
           <li>
             <h3>Execute e siga o assistente</h3>
@@ -110,6 +87,7 @@
             <p>Use o cabo de programação, TNC ou rádio mesh correspondente e selecione a porta no programa.</p>
           </li>
         </ol>
+        <p class="note">Confira a integridade do arquivo comparando o SHA-256 informado na seção do programa. No Windows: <code>certutil -hashfile arquivo.exe SHA256</code>.</p>
       </div>
     </section>
 
