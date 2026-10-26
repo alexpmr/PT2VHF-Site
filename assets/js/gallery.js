@@ -21,11 +21,11 @@ window.PT2VHF_GALLERIES = {
     { src:"/assets/screenshots/sat/icon.svg",type:"brand",caption:"Identidade visual do SAT Tool",captionId:"satBrand" }
   ],
   mesh: [
-    { src:"/assets/screenshots/mesh/map-v0658.webp",type:"screenshot",caption:"Mapa e topologia da malha",captionId:"map" },
-    { src:"/assets/screenshots/mesh/messages-v0658.webp",type:"screenshot",caption:"Mensagens, canais e confirmação de entrega",captionId:"messages" },
-    { src:"/assets/screenshots/mesh/nodes-v0658.webp",type:"screenshot",caption:"Inventário e consulta de nós",captionId:"nodes" },
-    { src:"/assets/screenshots/mesh/connections-v0658.webp",type:"screenshot",caption:"Gerenciamento de conexões",captionId:"connections" },
-    { src:"/assets/screenshots/mesh/rf-ranking-v0658.webp",type:"screenshot",caption:"Estatísticas e ranking de enlaces RF",captionId:"rf" },
-    { src:"/assets/screenshots/mesh/chat-v0658.webp",type:"screenshot",caption:"Estatísticas de chat e interações",captionId:"chat" }
+    { src:"/assets/screenshots/mesh/map-v0658.webp",full:"/assets/screenshots/mesh/original/map-v0658.png",type:"screenshot",caption:"Mapa e topologia da malha",captionId:"map" },
+    { src:"/assets/screenshots/mesh/messages-v0658.webp",full:"/assets/screenshots/mesh/original/messages-v0658.png",type:"screenshot",caption:"Mensagens, canais e confirmação de entrega",captionId:"messages" },
+    { src:"/assets/screenshots/mesh/nodes-v0658.webp",full:"/assets/screenshots/mesh/original/nodes-v0658.png",type:"screenshot",caption:"Inventário e consulta de nós",captionId:"nodes" },
+    { src:"/assets/screenshots/mesh/connections-v0658.webp",full:"/assets/screenshots/mesh/original/connections-v0658.png",type:"screenshot",caption:"Gerenciamento de conexões",captionId:"connections" },
+    { src:"/assets/screenshots/mesh/rf-ranking-v0658.webp",full:"/assets/screenshots/mesh/original/rf-ranking-v0658.png",type:"screenshot",caption:"Estatísticas e ranking de enlaces RF",captionId:"rf" },
+    { src:"/assets/screenshots/mesh/chat-v0658.webp",full:"/assets/screenshots/mesh/original/chat-v0658.png",type:"screenshot",caption:"Estatísticas de chat e interações",captionId:"chat" }
   ]
 };

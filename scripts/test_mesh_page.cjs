@@ -60,3 +60,19 @@ assert(main.includes('shot.full||shot.src'),"Original separado de miniatura não
 assert(main.includes('e.key==="ArrowLeft"||e.key==="ArrowRight"'),"Navegação por teclado ausente");
 assert(!main.includes('"<a href=" + esc(shot.src)'),"Galeria não deve abrir link externo");
 console.log("Lightbox Mesh OK: modal interno, fechar, teclado e fonte full/thumbnail.");
+
+// Resolução original deve ser PNG nativo, não miniatura 340px.
+// A existência é verificada quando o pacote de screenshots estiver importado.
+const {readFileSync: readBytes}=require("node:fs");
+for(const shot of screenshots){
+ assert(/\/original\/[a-z0-9-]+\.png$/.test(shot.full),shot.captionId+": caminho do original ausente");
+ const fullPath=path.join(root,shot.full.slice(1));
+ if(fs.existsSync(fullPath)){
+  const bytes=readBytes(fullPath);
+  assert(bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])));
+  assert(bytes.readUInt32BE(16)>=1000,shot.captionId+": imagem ampliada ainda é thumbnail");
+  assert(bytes.readUInt32BE(20)>=500,shot.captionId+": imagem original tem altura inválida");
+ }
+}
+assert(main.includes("large.src=shot.full||shot.src"),"Lightbox deve exibir PNG original quando houver");
+console.log("Full-size gallery links OK. Original PNGs serão validados no importador.");

@@ -410,6 +410,18 @@
     var caption=(window.PT2VHF_I18N_CAPTION?window.PT2VHF_I18N_CAPTION(shot):shot.caption)||"";
     var labels=getGalleryDialogLabels();
     var large=meshGalleryDialog.querySelector(".pt2vhf-gallery-large");
+    // Arquivos originais são PNGs em resolução nativa (~1260px).
+    // Em ausência do arquivo oficial, avisar explicitamente em vez de
+    // apresentar a miniatura de 340px como se fosse a captura original.
+    large.onerror=function(){
+      large.onerror=null;
+      large.src=shot.src;
+      meshGalleryDialog.querySelector(".pt2vhf-gallery-caption").textContent=
+        caption+" — "+(selectedLang==="pt"?"Original ainda não publicado":
+        selectedLang==="es"?"Original aún no publicado":
+        selectedLang==="en"?"Original not published yet":
+        "Original unavailable");
+    };
     large.src=shot.full||shot.src;
     large.alt=caption;
     meshGalleryDialog.querySelector(".pt2vhf-gallery-caption").textContent=caption;
