@@ -3,6 +3,7 @@
 
   var products = window.PT2VHF_PRODUCTS || [];
   var programId = document.body.getAttribute("data-program") || "";
+  var galleryData = window.PT2VHF_GALLERIES || {};
 
   var ICONS = {
     prog:
@@ -118,8 +119,10 @@
           "</span></td>" +
           '<td data-label="Versão" class="mono">' + versionLabel(p) + "</td>" +
           '<td data-label="Tamanho" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
-          '<td class="action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(localUrl(f.url)) + '" download>Baixar' +
-          '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a></td>" +
+          '<td class="action"><div class="download-action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(localUrl(f.url)) + '"' +
+          ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.category) + '" download>Baixar' +
+          '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a>" +
+          '<span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.category) + '" aria-live="polite">—</span></div></td>' +
           "</tr>"
         );
       })
@@ -136,6 +139,26 @@
       "</table>" +
       "</div>"
     );
+  }
+
+  function screenshotGallery(p) {
+    var images = galleryData[p.id] || [];
+    var heading = window.PT2VHF_I18N_T ? window.PT2VHF_I18N_T("screenshots") : "Capturas de tela";
+    if (!images.length) {
+      return '<section class="screenshots" id="capturas"><h3>' + esc(heading) + '</h3>' +
+        '<p class="screenshots-empty">' + esc(window.PT2VHF_I18N_T ? window.PT2VHF_I18N_T("screenshotsPending") : "Capturas reais deste projeto ainda não foram publicadas.") + '</p></section>';
+    }
+    var real = images.some(function (shot) { return shot.type === "screenshot"; });
+    var intro = real
+      ? (window.PT2VHF_I18N_T ? window.PT2VHF_I18N_T("screenshotsIntro") : "Imagens reais da aplicação.")
+      : (window.PT2VHF_I18N_T ? window.PT2VHF_I18N_T("visualIdentityOnly") : "Identidade visual do projeto; capturas de tela ainda não publicadas.");
+    return '<section class="screenshots" id="capturas"><h3>' + esc(heading) + '</h3><p class="screenshots-intro">' + esc(intro) + '</p>' +
+      '<div class="screenshot-grid">' + images.map(function (shot) {
+        var caption = (window.PT2VHF_I18N_CAPTION ? window.PT2VHF_I18N_CAPTION(shot) : shot.caption) || p.name;
+        return '<figure class="screenshot-card"><a href="' + esc(shot.src) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(caption) + '">' +
+          '<img src="' + esc(shot.src) + '" alt="' + esc(caption) + '" loading="lazy"></a>' +
+          '<figcaption>' + esc(caption) + '</figcaption></figure>';
+      }).join("") + "</div></section>";
   }
 
   function listBlock(title, items, render) {
@@ -157,7 +180,7 @@
           '<a class="ov-card" href="/' + esc(p.id) + '">' +
           '<span class="product-icon">' + icon(p.icon) + "</span>" +
           '<span class="ov-text"><strong>' + esc(shortName(p)) + "</strong>" +
-          '<span class="ov-tagline">' + esc(p.tagline || "") + "</span>" +
+          '<span class="ov-tagline">' + esc(p.summary || p.tagline || "") + "</span>" +
           '<span class="ov-version' + (p.version ? "" : " is-soon") + '">' + versionLabel(p) + "</span>" +
           (!p.version && p.developmentVersion ? '<span class="ov-dev">Código v' + esc(p.developmentVersion) + '</span>' : '') +
           '<span class="ov-cta">Abrir projeto</span></span>' +
@@ -203,6 +226,7 @@
           "</div>" +
           (aside ? '<aside class="program-aside">' + aside + "</aside>" : "") +
           "</div>" +
+          screenshotGallery(p) +
           '<div class="program-downloads" id="' + esc(p.id) + '-downloads">' +
           '<h3 id="downloads">Downloads</h3>' +
           downloadTable(p) +
@@ -240,6 +264,7 @@
 
     var sectionsEl = document.getElementById("program-sections");
     if (sectionsEl) renderSections(sectionsEl);
+    renderDownloadCounters();
 
     // Âncora na URL (ex.: /#prop): rola depois que as seções existem
     if (location.hash) {
@@ -256,6 +281,53 @@
     });
   }
 
+  // Estatísticas por tipo de instalador, acumuladas independentemente da versão.
+  // A API PHP usa armazenamento fora da raiz pública. Em hospedagem puramente
+  // estática, os contadores permanecem indisponíveis (nunca inventar números).
+  var cachedCounters = null;
+  function renderDownloadCounters() {
+    if (!cachedCounters) return;
+    var elements = document.querySelectorAll("[data-count-product][data-count-category]");
+    Array.prototype.forEach.call(elements, function (el) {
+      var p = el.getAttribute("data-count-product");
+      var c = el.getAttribute("data-count-category");
+      if (!cachedCounters.counts || !cachedCounters.counts[p]) return;
+      var n = cachedCounters.counts[p][c] || 0;
+      el.textContent = new Intl.NumberFormat(document.documentElement.lang || "pt-BR").format(n) + " " +
+        (window.PT2VHF_I18N_T ? window.PT2VHF_I18N_T("downloadsCount") : "downloads acumulados");
+    });
+  }
+  function loadDownloadCounters() {
+    return fetch("/download.php?mode=stats", { cache: "no-store" }).then(function (response) {
+      if (!response.ok) throw new Error("Counter unavailable");
+      return response.json();
+    }).then(function (data) {
+      if (!data || data.schema !== 1 || !data.counts) throw new Error("Invalid counters");
+      cachedCounters = data;
+      renderDownloadCounters();
+    }).catch(function () {
+      Array.prototype.forEach.call(document.querySelectorAll(".download-count"), function (el) {
+        el.textContent = window.PT2VHF_I18N_T ? window.PT2VHF_I18N_T("counterUnavailable") : "Contador indisponível";
+      });
+    });
+  }
+
+  // Dispara o download pelo arquivo original mesmo se a API PHP falhar.
+  // A contagem é feita por requisição POST no clique, sem cookies nem IPs.
+  document.addEventListener("click", function (event) {
+    var a = event.target.closest ? event.target.closest("a[data-counter-product][data-counter-category]") : null;
+    if (!a || !window.navigator) return;
+    var form = new FormData();
+    form.append("action", "count");
+    form.append("product", a.getAttribute("data-counter-product"));
+    form.append("category", a.getAttribute("data-counter-category"));
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon("/download.php", form);
+    } else if (window.fetch) {
+      fetch("/download.php", { method:"POST", body:form, keepalive:true, cache:"no-store" }).catch(function () {});
+    }
+  }, true);
+
   // Preserva os favoritos antigos com âncoras no catálogo anterior.
   if (!programId) {
     var oldLink = /^#(aprs|prop|mesh|sat|prog)(-downloads)?$/.exec(location.hash);
@@ -267,7 +339,10 @@
       if (window.console) console.warn("updates.json:", err);
       merge(null);
     })
-    .then(render);
+    .then(function () {
+      render();
+      if (programId) loadDownloadCounters();
+    });
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
