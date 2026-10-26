@@ -46,6 +46,9 @@
       if (p.id === "mesh" && window.PT2VHF_MESH_SITE) {
         Object.assign(product, window.PT2VHF_MESH_SITE[selectedLang] || window.PT2VHF_MESH_SITE.pt || {});
       }
+      if (p.id === "prop" && window.PT2VHF_PROP_SITE) {
+        Object.assign(product, window.PT2VHF_PROP_SITE[selectedLang] || window.PT2VHF_PROP_SITE.pt || {});
+      }
       return product;
     }).sort(function (a, b) { return order.indexOf(a.id) - order.indexOf(b.id); });
     document.documentElement.lang = LOCALES[selectedLang];
@@ -243,7 +246,7 @@
   }
 
   function publicDownloadUrl(p, f) {
-    return (p.id === "aprs" || p.id === "mesh") && f.name
+    return (p.id === "aprs" || p.id === "mesh" || p.id === "prop") && f.name
       ? "/download.php?product=" + p.id + "&file=" + encodeURIComponent(f.name)
       : localUrl(f.url);
   }
@@ -279,7 +282,7 @@
       return '<p class="soon load-error">' + esc(t("loadError")) + '</p>';
     }
     var files = sortedFiles(p);
-    if (!files.length && (p.id === "aprs" || p.id === "mesh") && Array.isArray(p.plannedFiles) && p.plannedFiles.length) {
+    if (!files.length && (p.id === "aprs" || p.id === "mesh" || p.id === "prop") && Array.isArray(p.plannedFiles) && p.plannedFiles.length) {
       var rows = p.plannedFiles.map(function (f) {
         var key = esc(f.counterKey || f.category);
         return '<tr><th scope="row">' + esc(categoryLabel(f)) + '</th>' +
@@ -289,7 +292,7 @@
           '<span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + key +
           '" aria-live="polite">—</span></td></tr>';
       }).join("");
-      return '<div class="unreleased"><p class="status-detail">' + esc(t(p.id === "mesh" ? "statMesh" : "statAprs")) + '</p>' +
+      return '<div class="unreleased"><p class="status-detail">' + esc(p.id === "prop" ? (p.releaseStatus || t("statProp")) : t(p.id === "mesh" ? "statMesh" : "statAprs")) + '</p>' +
         '<div class="table-wrap"><table class="downloads"><thead><tr><th>' + esc(t("catCategory")) +
         '</th><th>' + esc(t("catFile")) + '</th><th>' + esc(t("catVersion")) +
         '</th><th>' + esc(t("catSize")) + '</th><th>' + esc(t("downloadsCount")) +
@@ -317,7 +320,7 @@
           '<td data-label="' + esc(t("catSize")) + '" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
           '<td class="action"><div class="download-action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(publicDownloadUrl(p, f)) + '"' +
           ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.counterKey || f.category) + '"' +
-          ((p.id === "aprs" || p.id === "mesh") ? "" : " download") + '>' + esc(t("download")) +
+          ((p.id === "aprs" || p.id === "mesh" || p.id === "prop") ? "" : " download") + '>' + esc(t("download")) +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a>" +
           '<span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.counterKey || f.category) + '" aria-live="polite">—</span></div></td>' +
           "</tr>"
@@ -340,7 +343,7 @@
 
 
   function meshChangelog(p) {
-    if (p.id !== "mesh" || !Array.isArray(p.changelog) || !p.changelog.length) return "";
+    if (["mesh", "prop"].indexOf(p.id) === -1 || !Array.isArray(p.changelog) || !p.changelog.length) return "";
     var rows=p.changelog.slice(0,5).map(function (entry) {
       if (!entry || !/^\d+\.\d+\.\d+$/.test(String(entry.version || ""))) return "";
       var changes=Array.isArray(entry.changes) ? entry.changes : [];
@@ -350,8 +353,8 @@
         '<ul>' + changes.slice(0,4).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") +
         '</ul></article>';
     }).join("");
-    var title=window.PT2VHF_MESH_SITE?.[selectedLang]?.historyTitle || "Histórico de versões — últimas 5";
-    var intro=window.PT2VHF_MESH_SITE?.[selectedLang]?.historyIntro || "Atualizações e correções confirmadas no changelog oficial.";
+    var title=p.historyTitle || window.PT2VHF_MESH_SITE?.[selectedLang]?.historyTitle || "Histórico de versões — últimas 5";
+    var intro=p.historyIntro || window.PT2VHF_MESH_SITE?.[selectedLang]?.historyIntro || "Atualizações e correções confirmadas no changelog oficial.";
     return '<section class="mesh-changelog" id="changelog" aria-labelledby="mesh-history-title">' +
       '<h3 id="mesh-history-title">' + esc(title) + '</h3>' +
       '<p class="mesh-history-intro">' + esc(intro) + '</p>' +
@@ -513,6 +516,24 @@
       .join("");
   }
 
+  function renderPropIntro() {
+    var root = document.getElementById("prop-intro-highlights");
+    if (!root) return;
+    var p = products.filter(function (item) { return item.id === "prop"; })[0];
+    if (!p) return;
+    var description = Array.isArray(p.description) ? p.description[0] : p.description;
+    var features = (p.features || []).slice(0, 6);
+    root.innerHTML =
+      '<div class="prop-intro-copy"><p class="prop-intro-kicker">' + esc(t("featuresTitle")) + '</p>' +
+      '<p>' + esc(description || p.summary || "") + '</p></div>' +
+      '<div class="prop-intro-feature-grid">' +
+      features.map(function (feature) {
+        return '<div class="prop-intro-feature"><span class="prop-intro-feature-dot" aria-hidden="true"></span>' +
+          '<span>' + esc(feature) + '</span></div>';
+      }).join("") +
+      '</div>';
+  }
+
   function renderSections(el) {
     el.innerHTML = products
       .filter(function (p) { return p.id === programId; })
@@ -590,6 +611,7 @@
 
     var sectionsEl = document.getElementById("program-sections");
     if (sectionsEl) renderSections(sectionsEl);
+    renderPropIntro();
     renderDownloadCounters();
 
     // Âncora na URL (ex.: /#prop): rola depois que as seções existem
