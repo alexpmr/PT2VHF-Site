@@ -71,7 +71,7 @@ def run():
         raise ValueError("SHA256SUMS incompleto")
 
     import tempfile
-    with tempfile.TemporaryDirectory(prefix="mesh-release-") as tmp:
+    with tempfile.TemporaryDirectory(prefix="mesh-release-", dir=ROOT) as tmp:
         stage=Path(tmp)
         published=[]
         for cat,key,platform,architecture,name in entries:
