@@ -7,6 +7,8 @@ import hashlib
 import json
 import os
 import re
+import time
+from urllib.error import HTTPError
 from datetime import date
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -44,7 +46,16 @@ def run():
         ("macos","mac-dmg-arm64","macos-arm64","Apple Silicon",stem+"macOS-arm64.dmg"),
         ("macos","mac-dmg-x64","macos-x64","Intel",stem+"macOS-x64.dmg"),
     ]
-    release=json.loads(get(API+"/releases/tags/v"+version,1_000_000))
+    for attempt in range(60):
+        try:
+            release=json.loads(get(API+"/releases/tags/v"+version,1_000_000))
+            break
+        except HTTPError as exc:
+            if exc.code!=404 or attempt==59:
+                raise
+            print("Aguardando concluir a compilação da release v"+version+" ("+str(attempt+1)+"/60)",flush=True)
+            time.sleep(20)
+
     if release.get("tag_name")!="v"+version or release.get("draft") or release.get("prerelease"):
         raise ValueError("Release ainda nao publicada")
     assets={a["name"]:a for a in release.get("assets",[]) if "name" in a}
