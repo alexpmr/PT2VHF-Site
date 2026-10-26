@@ -1,43 +1,49 @@
-# Publicação APRS 1.14.59 no PT2VHF.com
+# Publicação APRS 1.14.59 usando a integração existente GitLab → Hostinger
 
-Estado inicial: o código e testes estão no GitLab, mas a publicação só é
-autorizada quando os instaladores gerados em CI forem transferidos à
-hospedagem e testados de fato. Não use URLs dos artefatos privados do GitLab
-no manifesto. A interface pública nunca exibe código-fonte nem checksums.
+A Hostinger está documentada como sincronizada à branch main do repositório
+privado \`pt2vhf-group/pt2vhf-site\`. Portanto, a publicação dos instaladores
+segue o **mesmo procedimento das páginas HTML**: colocar os binários no
+repositório e fazer push da branch main. Não é obrigatório criar SFTP.
 
-## Pacotes
+O pacote já foi criado pelo job GitLab APRS:
+https://gitlab.com/pt2vhf-group/pt2vhf-aprs-client/-/jobs/17470937896
 
-As compilações de Windows 10/11 x64 e Linux x86_64 são acionadas manualmente
-em CI/CD no projeto APRS. ARM64 e macOS permanecem na tabela como
-"pendentes" até existir build real e validado.
+## Importar os cinco instaladores
 
-## Publicar na Hostinger
+1. No job acima, clique em **Download artifacts**. O GitLab baixará um ZIP
+   externo que contém \`out/PT2VHF-APRS-1.14.59-Hostinger.zip\`.
+2. Extraia desse ZIP externo o arquivo ZIP interno, que contém cinco
+   instaladores verdadeiros e \`updates.json\`.
+3. Faça clone ou atualize o repositório do **site**:
 
-1. Obtenha os .exe, .deb, .AppImage, .tar.gz gerados pelo GitLab CI.
-2. Teste instalação/execução em Windows 10/11 e Linux de destino.
-3. Coloque os arquivos originais em public_html/downloads/aprs-client/.
-4. Confirme que cada URL https://www.pt2vhf.com/downloads/aprs-client/NOME
-   devolve o arquivo inteiro por HTTPS, sem redirecionamentos.
-5. Em uma cópia do repositório pt2vhf-site com OS MESMOS instaladores no
-   diretório downloads/aprs-client, execute:
-   python scripts/sync_aprs_manifest.py --version 1.14.59
-   python scripts/sync_aprs_manifest.py --version 1.14.59 --apply
-6. Faça commit de updates.json e sincronize-o na Hostinger somente depois
-   da verificação dos arquivos físicos na hospedagem.
-7. Valide https://www.pt2vhf.com/update.php?product=aprs
-   (status=available, arquivos da versão e hashes corretos).
-8. Teste atualização real da 1.14.58 para a 1.14.59. Como 1.14.58 ainda
-   consultava o GitHub, poderá ser necessária instalação manual inicial
-   para migrar o canal OTA. Testar futuras atualizações partindo da 1.14.59.
+   \`\`\`bash
+   git clone https://gitlab.com/pt2vhf-group/pt2vhf-site.git
+   cd pt2vhf-site
+   python scripts/import_aprs_bundle.py CAMINHO/PT2VHF-APRS-1.14.59-Hostinger.zip
+   git add updates.json downloads/aprs-client
+   git commit -m "release(aprs): publicar instaladores v1.14.59"
+   git push origin main
+   \`\`\`
 
-## Contadores
+O script verifica os cinco arquivos, os nomes, as URLs, as assinaturas,
+o tamanho e SHA-256 antes de ativar o manifesto. Conserva versões e downloads
+dos demais programas. Não publica código-fonte nem arquivo separado de checksum.
 
-Os contadores por tipo/arquitetura ficam no arquivo privado
-pt2vhf-private-data/downloads.json e não são zerados por uma nova versão.
-Downloads pelo site incrementam ao clicar. Atualizações OTA verificadas
-a partir da versão 1.14.59 enviam também o registro ao mesmo contador.
+## Confirmar a publicação real
 
-A tabela de downloads mostra os instaladores públicos disponíveis. Quando
-não há binários, o site exibe opções pendentes com o download bloqueado.
-Arquivos fonte e somas de verificação NÃO entram em downloads públicos.
-O SHA-256 fica apenas no manifesto da API para verificação de integridade.
+Acompanhe no hPanel o deploy Git configurado para \`main\` em
+\`public_html\`. Confirme por HTTPS que os cinco arquivos foram entregues
+integralmente e que:
+
+- \`https://www.pt2vhf.com/aprs\` mostra os cinco downloads;
+- \`https://www.pt2vhf.com/update.php?product=aprs\` retorna versão
+  \`1.14.59\`, status \`available\` e os cinco arquivos;
+- contadores são acumulados por arquitetura/tipo e não zeram em atualizações;
+- OTA dentro de 1.14.59 consulta exclusivamente o site.
+
+A instalação da 1.14.59 em sistemas executando 1.14.58 pode ser manual uma
+única vez, pois a versão anterior consultava o GitHub suspenso.
+
+**Importante:** o pipeline GitLab Pages de \`pt2vhf-site\` bem-sucedido
+não comprova por si só o deploy na Hostinger. A confirmação é o teste HTTP
+no próprio domínio oficial.
