@@ -91,10 +91,83 @@
       "version": null,
       "page": "https://www.pt2vhf.com/aprs",
       "files": [],
-      "developmentVersion": "1.14.58",
-      "releaseStatus": "Os pacotes Windows e Linux foram compilados no GitLab. Os artefatos são internos e temporários; o instalador público permanente ainda não foi publicado.",
-      "ciUrl": "https://gitlab.com/pt2vhf-group/pt2vhf-aprs-client/-/jobs/17455581495",
-      "ciLabel": "Detalhes do build Windows (requer acesso ao GitLab)"
+      "developmentVersion": "1.14.59",
+      "releaseStatus": "Código v1.14.59 migrado para atualização via site. Os instaladores e pacotes portáteis ainda estão em validação e serão liberados quando estiverem hospedados no próprio site.",
+      "updateEndpoint": "https://www.pt2vhf.com/update.php?product=aprs",
+      "plannedFiles": [
+        {
+          "category": "windows-installer",
+          "counterKey": "win-setup-x64",
+          "architecture": "x64",
+          "name": "PT2VHF_APRS_Client_Setup_x64_v1.14.59.exe"
+        },
+        {
+          "category": "windows-portable",
+          "counterKey": "win-portable-x64",
+          "architecture": "x64",
+          "name": "PT2VHF_APRS_Client_Portable_x64_v1.14.59.exe"
+        },
+        {
+          "category": "windows-installer",
+          "counterKey": "win-setup-arm64",
+          "architecture": "ARM64",
+          "name": "PT2VHF_APRS_Client_Setup_ARM64_v1.14.59.exe"
+        },
+        {
+          "category": "windows-portable",
+          "counterKey": "win-portable-arm64",
+          "architecture": "ARM64",
+          "name": "PT2VHF_APRS_Client_Portable_ARM64_v1.14.59.exe"
+        },
+        {
+          "category": "linux-appimage",
+          "counterKey": "linux-appimage-x64",
+          "architecture": "x64",
+          "name": "PT2VHF_APRS_Client_x86_64_v1.14.59.AppImage"
+        },
+        {
+          "category": "linux-appimage",
+          "counterKey": "linux-appimage-arm64",
+          "architecture": "ARM64",
+          "name": "PT2VHF_APRS_Client_arm64_v1.14.59.AppImage"
+        },
+        {
+          "category": "linux-deb",
+          "counterKey": "linux-deb-x64",
+          "architecture": "x64",
+          "name": "pt2vhf-aprs-client_1.14.59_amd64.deb"
+        },
+        {
+          "category": "linux-deb",
+          "counterKey": "linux-deb-arm64",
+          "architecture": "ARM64",
+          "name": "pt2vhf-aprs-client_1.14.59_arm64.deb"
+        },
+        {
+          "category": "linux-targz",
+          "counterKey": "linux-tar-x64",
+          "architecture": "x64",
+          "name": "PT2VHF_APRS_Client_Linux_x86_64_v1.14.59.tar.gz"
+        },
+        {
+          "category": "linux-targz",
+          "counterKey": "linux-tar-arm64",
+          "architecture": "ARM64",
+          "name": "PT2VHF_APRS_Client_Linux_arm64_v1.14.59.tar.gz"
+        },
+        {
+          "category": "macos",
+          "counterKey": "mac-dmg-x64",
+          "architecture": "Intel",
+          "name": "PT2VHF_APRS_Client_macOS_x86_64_v1.14.59.dmg"
+        },
+        {
+          "category": "macos",
+          "counterKey": "mac-dmg-arm64",
+          "architecture": "Apple Silicon",
+          "name": "PT2VHF_APRS_Client_macOS_arm64_v1.14.59.dmg"
+        }
+      ]
     },
     "sat": {
       "name": "PT2VHF Sat Tool",

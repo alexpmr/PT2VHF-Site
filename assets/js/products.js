@@ -87,10 +87,12 @@ window.PT2VHF_PRODUCTS = [
     description:
       "Veja estações, objetos e mensagens APRS em tempo real. Conecte-se a um TNC/KISS ou ao APRS-IS, envie beacons e troque mensagens.",
     features: [
-      "Mapa com estações e trilhas em tempo real",
-      "Conexão KISS (serial/TCP) e APRS-IS",
-      "Envio de beacons de posição",
-      "Mensagens APRS com confirmação"
+      "Mapas OSM/satélite, radar meteorológico, relevo e trilhas",
+      "APRS-IS e TNC KISS por serial ou TCP, beacons por RF e Internet",
+      "Topologia: estações, digipeaters, iGates e enlaces RF históricos",
+      "Mensagens privadas e CQ, ACK/REJ e automações de resposta",
+      "Estatísticas, relatórios PDF e exportações geográficas",
+      "Interface multilíngue, web local/LAN e atualização segura por pt2vhf.com"
     ],
     icon: "aprs"
   },

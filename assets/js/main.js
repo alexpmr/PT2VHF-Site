@@ -171,6 +171,7 @@
     { id: "windows-portable", label: "Windows — Portátil" },
     { id: "linux-deb", label: "Linux — .deb (Debian/Ubuntu)" },
     { id: "linux-targz", label: "Linux — .tar.gz" },
+    { id: "linux-appimage", label: "Linux — AppImage" },
     { id: "macos", label: "macOS" }
   ];
   var CATEGORY_IDS = CATEGORIES.map(function (c) { return c.id; });
@@ -209,8 +210,8 @@
 
   function categoryLabel(f) {
     var i = CATEGORY_IDS.indexOf(f.category);
-    var keys = { "windows-installer":"winInstaller", "windows-portable":"winPortable", "linux-deb":"linuxDeb", "linux-targz":"linuxTar", "macos":"macOS" };
-    return keys[f.category] ? t(keys[f.category]) : (f.label || f.category);
+    var keys = { "windows-installer":"winInstaller", "windows-portable":"winPortable", "linux-deb":"linuxDeb", "linux-targz":"linuxTar", "linux-appimage":"linuxAppImage", "macos":"macOS" };
+    return (keys[f.category] ? t(keys[f.category]) : (f.label || f.category)) + (f.architecture ? " · " + f.architecture : "");
   }
 
   function downloadTable(p) {
@@ -218,6 +219,22 @@
       return '<p class="soon load-error">' + esc(t("loadError")) + '</p>';
     }
     var files = sortedFiles(p);
+    if (!files.length && p.id === "aprs" && Array.isArray(p.plannedFiles) && p.plannedFiles.length) {
+      var rows = p.plannedFiles.map(function (f) {
+        var key = esc(f.counterKey || f.category);
+        return '<tr><th scope="row">' + esc(categoryLabel(f)) + '</th>' +
+          '<td><span class="file-name">' + esc(f.name) + '</span></td>' +
+          '<td class="mono">' + (p.developmentVersion ? 'v' + esc(p.developmentVersion) : '—') +
+          '</td><td>—</td><td><span class="badge">' + esc(t("releasePending")) + '</span> ' +
+          '<span class="download-count" data-count-product="aprs" data-count-category="' + key +
+          '" aria-live="polite">—</span></td></tr>';
+      }).join("");
+      return '<div class="unreleased"><p class="status-detail">' + esc(t("statAprs")) + '</p>' +
+        '<div class="table-wrap"><table class="downloads"><thead><tr><th>' + esc(t("catCategory")) +
+        '</th><th>' + esc(t("catFile")) + '</th><th>' + esc(t("catVersion")) +
+        '</th><th>' + esc(t("catSize")) + '</th><th>' + esc(t("downloadsCount")) +
+        '</th></tr></thead><tbody>' + rows + '</tbody></table></div></div>';
+    }
     if (!files.length) {
       var statusKey = "stat" + p.id.charAt(0).toUpperCase() + p.id.slice(1);
       return '<div class="unreleased"><span class="badge">' + esc(t("releasePending")) + '</span>' +
@@ -239,9 +256,9 @@
           '<td data-label="' + esc(t("catVersion")) + '" class="mono">' + versionLabel(p) + "</td>" +
           '<td data-label="' + esc(t("catSize")) + '" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
           '<td class="action"><div class="download-action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(localUrl(f.url)) + '"' +
-          ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.category) + '" download>' + esc(t("download")) +
+          ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.counterKey || f.category) + '" download>' + esc(t("download")) +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a>" +
-          '<span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.category) + '" aria-live="polite">—</span></div></td>' +
+          '<span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.counterKey || f.category) + '" aria-live="polite">—</span></div></td>' +
           "</tr>"
         );
       })

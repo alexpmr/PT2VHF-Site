@@ -14,7 +14,10 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 header('X-Robots-Tag: noindex, nofollow');
 
 $allowed = array(
-    'windows-installer', 'windows-portable', 'linux-deb', 'linux-targz', 'macos'
+    'windows-installer', 'windows-portable', 'linux-deb', 'linux-targz', 'linux-appimage', 'macos',
+    'win-setup-x64','win-portable-x64','win-setup-arm64','win-portable-arm64',
+    'linux-appimage-x64','linux-appimage-arm64','linux-deb-x64','linux-deb-arm64',
+    'linux-tar-x64','linux-tar-arm64','mac-dmg-x64','mac-dmg-arm64'
 );
 $products = array('aprs', 'prop', 'mesh', 'sat', 'prog');
 $manifestPath = __DIR__ . '/updates.json';
@@ -90,7 +93,7 @@ if (!is_array($files)) {
 // efetivamente presente na hospedagem. Nunca aceita caminho enviado pelo cliente.
 $found = false;
 foreach ($files as $entry) {
-    if (($entry['category'] ?? '') !== $category) continue;
+    if ((($entry['counterKey'] ?? null) ?: ($entry['category'] ?? '')) !== $category) continue;
     $url = (string)($entry['url'] ?? '');
     $path = (string)(parse_url($url, PHP_URL_PATH) ?: '');
     $host = strtolower((string)(parse_url($url, PHP_URL_HOST) ?: ''));
