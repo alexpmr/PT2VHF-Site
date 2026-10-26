@@ -37,7 +37,11 @@
     var tr = (LANG_DICT[selectedLang] && LANG_DICT[selectedLang].products) || {};
     var order = ["aprs", "prop", "mesh", "sat", "prog"];
     products = baseProducts.map(function (p) {
-      return Object.assign({}, p, tr[p.id] || {});
+      var product=Object.assign({}, p, tr[p.id] || {});
+      if (p.id === "mesh" && window.PT2VHF_MESH_SITE) {
+        Object.assign(product, window.PT2VHF_MESH_SITE[selectedLang] || window.PT2VHF_MESH_SITE.pt || {});
+      }
+      return product;
     }).sort(function (a, b) { return order.indexOf(a.id) - order.indexOf(b.id); });
     document.documentElement.lang = LOCALES[selectedLang];
   }
@@ -293,6 +297,26 @@
     );
   }
 
+
+  function meshChangelog(p) {
+    if (p.id !== "mesh" || !Array.isArray(p.changelog) || !p.changelog.length) return "";
+    var rows=p.changelog.slice(0,5).map(function (entry) {
+      if (!entry || !/^\d+\.\d+\.\d+$/.test(String(entry.version || ""))) return "";
+      var changes=Array.isArray(entry.changes) ? entry.changes : [];
+      return '<article class="mesh-history-entry">' +
+        '<h4><span class="mesh-history-version">v' + esc(entry.version) + '</span>' +
+        '<span>' + esc(entry.title || "") + '</span></h4>' +
+        '<ul>' + changes.slice(0,4).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") +
+        '</ul></article>';
+    }).join("");
+    var title=window.PT2VHF_MESH_SITE?.[selectedLang]?.historyTitle || "Histórico de versões — últimas 5";
+    var intro=window.PT2VHF_MESH_SITE?.[selectedLang]?.historyIntro || "Atualizações e correções confirmadas no changelog oficial.";
+    return '<section class="mesh-changelog" id="changelog" aria-labelledby="mesh-history-title">' +
+      '<h3 id="mesh-history-title">' + esc(title) + '</h3>' +
+      '<p class="mesh-history-intro">' + esc(intro) + '</p>' +
+      '<div class="mesh-history-list">' + rows + '</div></section>';
+  }
+
   function screenshotGallery(p) {
     var images = galleryData[p.id] || [];
     var heading = window.PT2VHF_I18N_T ? window.PT2VHF_I18N_T("screenshots") : "Capturas de tela";
@@ -383,6 +407,7 @@
           '<h3 id="downloads">' + esc(t("downloadsTitle")) + '</h3>' +
           downloadTable(p) +
           "</div>" +
+          meshChangelog(p) +
           "</div>" +
           "</section>"
         );

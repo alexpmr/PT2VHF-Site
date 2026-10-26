@@ -388,3 +388,15 @@ table.downloads { width: 100%; border-collapse: collapse; }
   .prop-hero-screenshot { padding: 5px 5px 0; border-radius: 10px; }
   .prop-hero-screenshot a { border-radius: 6px; }
 }
+
+/* Mesh Analyzer: cinco versões recentes após os downloads. */
+.mesh-changelog { margin:44px 0 24px; padding-top:26px; border-top:1px solid var(--border); scroll-margin-top:95px; }
+.mesh-changelog h3 { margin:0 0 8px; font-size:1.35rem; }
+.mesh-history-intro { color:var(--muted); margin:0 0 22px; }
+.mesh-history-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:14px; }
+.mesh-history-entry { padding:18px 20px; border:1px solid var(--border); background:var(--surface); border-radius:12px; }
+.mesh-history-entry h4 { display:flex; flex-wrap:wrap; gap:7px 12px; align-items:center; margin:0 0 12px; font-size:1rem; }
+.mesh-history-version { color:var(--accent); font-family:"JetBrains Mono",ui-monospace,monospace; }
+.mesh-history-entry ul { padding-left:19px; margin:0; color:var(--muted); line-height:1.6; }
+.mesh-history-entry li + li { margin-top:6px; }
+@media(max-width:640px) { .mesh-changelog { margin-top:28px; } .mesh-history-list { grid-template-columns:1fr; } }

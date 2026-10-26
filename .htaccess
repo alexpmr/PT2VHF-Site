@@ -36,7 +36,7 @@ RewriteRule ^downloads/aprs-client/([A-Za-z0-9_.-]+\.(?:exe|AppImage|deb|tar\.gz
 # Pedidos Range são retomadas e não devem aumentar o contador.
 RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
 RewriteCond %{HTTP:Range} ^$
-RewriteRule ^downloads/mesh-analyzer/([A-Za-z0-9_.-]+\\.(?:exe|zip|deb|dmg|tar\\.gz))$ download.php?product=mesh&file=$1 [L,NC,QSA]
+RewriteRule ^downloads/mesh-analyzer/([A-Za-z0-9_.-]+\.(?:exe|zip|deb|dmg|tar\.gz))$ download.php?product=mesh&file=$1 [L,NC,QSA]
 
 # Instaladores sempre como download
 <FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg|gz)$">

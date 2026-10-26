@@ -79,19 +79,28 @@ window.PT2VHF_PRODUCTS = [
     icon: "prop"
   },
   {
-    id: "mesh",
-    summary: "Acompanhe nós Meshtastic, enlaces RF, tráfego e telemetria da rede.",
-    name: "PT2VHF Mesh Analyzer",
-    tagline: "Visibilidade total da sua rede mesh",
-    description:
-      "Acompanhe os nós da sua rede mesh, a qualidade dos enlaces e o caminho das mensagens. Descubra gargalos e pontos fracos antes que virem problema.",
-    features: [
-      "Lista de nós com SNR, RSSI e última atividade",
-      "Mapa e topologia da rede",
-      "Histórico de tráfego e telemetria",
-      "Exportação de relatórios"
+    "id": "mesh",
+    "summary": "Analise nós Meshtastic e MeshCore, enlaces RF, mensagens, tráfego e telemetria.",
+    "name": "PT2VHF Mesh Analyzer",
+    "tagline": "Entenda o que acontece na sua rede mesh — do rádio ao mapa",
+    "description": [
+      "O PT2VHF Mesh Analyzer é um aplicativo independente de monitoramento e análise de redes mesh. Ele reúne dados de rádios Meshtastic e integrações MeshCore em um banco SQLite próprio, sem depender do MeshMonitor.",
+      "Conecte seu rádio por USB/serial, Bluetooth LE ou Wi-Fi/TCP; use MQTT para monitoramento somente de recepção. Veja no mapa os nós, a atividade de rádio e os enlaces observados, distinguindo evidências de RF direto de caminhos inferidos.",
+      "Além de observar a rede, o aplicativo oferece mensagens, consultas aos nós, traceroute, telemetria, automações e relatórios em Windows, Linux e macOS."
     ],
-    icon: "mesh"
+    "features": [
+      "Conexões USB/serial, Bluetooth LE e Wi-Fi/TCP; MQTT somente para recepção",
+      "Mapa de nós, enlaces RF, topologia, relevo e camadas meteorológicas",
+      "Nós com nomes, favoritos, RSSI, SNR e histórico de atividade",
+      "Mensagens em canais e privadas, com indicadores conforme os retornos do rádio",
+      "Traceroute, Ping, Node Info, posição e telemetria, individualmente ou em lote",
+      "Estatísticas, análise de tráfego, exportações e relatórios PDF",
+      "Automações periódicas para consultas e diagnóstico da malha",
+      "Recursos Meshtastic e MeshCore com configurações por conexão",
+      "Banco SQLite independente, backup e atualização pelo site oficial",
+      "Temas de interface e seleção de idioma"
+    ],
+    "icon": "mesh"
   },
   {
     id: "aprs",
