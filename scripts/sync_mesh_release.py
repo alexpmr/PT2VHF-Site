@@ -21,7 +21,8 @@ SITE="https://www.pt2vhf.com"
 MAX=100_000_000
 
 def get(url, limit):
-    req=Request(url,headers={"User-Agent":"PT2VHF-ReleaseSync/1.0","Accept":"application/octet-stream"})
+    accept = "application/vnd.github+json" if url.startswith(API + "/releases/") else "application/octet-stream"
+    req=Request(url,headers={"User-Agent":"PT2VHF-ReleaseSync/1.0","Accept":accept})
     with urlopen(req,timeout=100) as f:
         buf=f.read(limit+1)
     if len(buf)>limit:
