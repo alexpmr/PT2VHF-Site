@@ -45,7 +45,7 @@ validate_publish_script:
   image: python:3.12-alpine
   stage: validate
   script:
-    - python -m py_compile scripts/sync_aprs_manifest.py
+    - python -m py_compile scripts/sync_aprs_manifest.py scripts/import_aprs_bundle.py
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
 
