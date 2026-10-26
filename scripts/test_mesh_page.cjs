@@ -32,3 +32,23 @@ const ht=fs.readFileSync(path.join(root,".htaccess"),"utf8");
 assert(ht.includes("downloads/mesh-analyzer/"),"Falta interceptação Mesh no Apache");
 assert(ht.includes("pt2vhf_raw=1"),"Falta prevenção de contagem dupla");
 console.log("Mesh site OK: introdução, recursos, traduções, cinco versões e contador roteado.");
+
+const gallerySource=fs.readFileSync(path.join(root,"assets/js/gallery.js"),"utf8");
+const galleryContext={window:{}};
+vm.runInNewContext(gallerySource,galleryContext,{filename:"gallery.js",timeout:1000});
+const screenshots=galleryContext.window.PT2VHF_GALLERIES.mesh;
+assert(screenshots.length===6,"Mesh deve exibir seis capturas reais");
+assert.deepEqual(Array.from(screenshots,s=>s.captionId),["map","messages","nodes","connections","rf","chat"]);
+for(const shot of screenshots){
+ assert(shot.type==="screenshot");
+ assert(shot.src.startsWith("/assets/screenshots/mesh/"));
+ const imagePath=path.join(root,shot.src.slice(1));
+ const bytes=fs.readFileSync(imagePath);
+ assert(bytes.length>=1200,shot.src+": imagem vazia");
+ assert.equal(bytes.toString("ascii",0,4),"RIFF",shot.src+": WebP RIFF invalido");
+ assert.equal(bytes.toString("ascii",8,12),"WEBP",shot.src+": assinatura WebP invalida");
+ for(const lang of ["pt","en","es","fr","de","it","zh"]){
+  assert(dict[lang].captions?.[shot.captionId],lang+": legenda ausente "+shot.captionId);
+ }
+}
+console.log("Mesh gallery OK: seis fotos reais em WebP e legendas nos sete idiomas.");

@@ -400,3 +400,9 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .mesh-history-entry ul { padding-left:19px; margin:0; color:var(--muted); line-height:1.6; }
 .mesh-history-entry li + li { margin-top:6px; }
 @media(max-width:640px) { .mesh-changelog { margin-top:28px; } .mesh-history-list { grid-template-columns:1fr; } }
+
+/* Galeria da versão 0.6.58: capturas reais otimizadas em WebP. */
+.program-page[data-program="mesh"] .screenshot-grid { grid-template-columns:repeat(auto-fit,minmax(min(100%,305px),1fr)); gap:18px; }
+.program-page[data-program="mesh"] .screenshot-card a { height:235px; padding:12px; }
+.program-page[data-program="mesh"] .screenshot-card img { object-fit:contain; image-rendering:auto; }
+.program-page[data-program="mesh"] .screenshot-card figcaption { min-height:68px; line-height:1.5; }

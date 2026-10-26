@@ -65,6 +65,9 @@ sync_mesh_release:
   image: python:3.12-alpine
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - updates.json
+        - scripts/sync_mesh_release.py
       when: on_success
   before_script:
     - apk add --no-cache git ca-certificates

@@ -35,6 +35,18 @@ def run():
     version=str(item.get("developmentVersion") or "")
     if not re.fullmatch(r"\d+\.\d+\.\d+",version):
         raise ValueError("developmentVersion invalida")
+    # Evita baixar 180 MB novamente quando o catálogo e todos os binários já estão válidos.
+    current_files=item.get("files") or []
+    if item.get("version")==version and len(current_files)==6 and all(
+        isinstance(f,dict) and isinstance(f.get("name"),str)
+        and re.fullmatch(r"[A-Za-z0-9_.-]+",f["name"])
+        and isinstance(f.get("size"),int) and f["size"]>0
+        and (FOLDER/f["name"]).is_file()
+        and (FOLDER/f["name"]).stat().st_size==f["size"]
+        for f in current_files
+    ):
+        print("MESH SYNC: seis pacotes já publicados no GitLab; nenhum download adicional.")
+        return
     cur=item.get("version")
     if cur and tuple(map(int,cur.split(".")))>tuple(map(int,version.split("."))):
         raise ValueError("Nao retroceder versao publicada")
