@@ -2,6 +2,7 @@
 stages:
   - validate
   - deploy
+  - sync
 
 deploy_pages:
   image: alpine:3.21
@@ -52,3 +53,26 @@ validate_publish_script:
     - if: '$CI_COMMIT_BRANCH == "main"'
 
 
+
+
+# O site é mantido na Hostinger via integração Git já existente.
+# Token efêmero deste próprio projeto GitLab (push habilitado no repositório).
+sync_mesh_release:
+  stage: sync
+  image: python:3.12-alpine
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: on_success
+  before_script:
+    - apk add --no-cache git ca-certificates
+  script:
+    - python scripts/sync_mesh_release.py
+    - git add -A updates.json downloads/mesh-analyzer
+    - |
+      if git diff --cached --quiet; then
+        echo "Os pacotes já estão sincronizados."
+      else
+        git -c user.name="PT2VHF Release Bot" -c user.email="ci@pt2vhf.com" commit -m "release(mesh): binarios oficiais"
+        git push "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/pt2vhf-group/pt2vhf-site.git" HEAD:main
+      fi
+  timeout: 50m
