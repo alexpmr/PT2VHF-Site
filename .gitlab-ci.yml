@@ -1,12 +1,20 @@
-# Publica o site no GitLab Pages a cada push na branch main.
-pages:
-  image: alpine:latest
+# GitLab Pages - site estático PT2VHF.
+stages:
+  - deploy
+
+deploy_pages:
+  image: alpine:3.21
   stage: deploy
   script:
     - mkdir -p public
-    - cp -r index.html 404.html robots.txt sitemap.xml updates.json assets downloads public/
+    - cp index.html 404.html robots.txt sitemap.xml updates.json public/
+    - cp -r assets downloads public/
+    - test -s public/index.html
+    - test -s public/updates.json
+  pages: true
   artifacts:
     paths:
       - public
+    expire_in: 30 days
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: '$CI_COMMIT_BRANCH == "main"'
