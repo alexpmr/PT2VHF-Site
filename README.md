@@ -216,3 +216,20 @@ são encaminhados para as novas páginas pelo navegador.
 
 **Teste local:** `python -m http.server` não interpreta `.htaccess`;
 abra `/prop.html` etc. Os endereços sem extensão são servidos pela Hostinger.
+
+## Apresentação simplificada dos downloads (26/10/2026)
+
+A interface pública de cada projeto **não exibe** links para baixar código-fonte,
+arquivos de somas de verificação ou a coluna SHA-256. Apenas as categorias de
+instalação e execução são exibidas: Windows instalador, Windows portátil, Linux
+.deb, Linux .tar.gz e macOS.
+
+O contrato `updates.json` **não foi alterado**: os campos `sha256`, além dos
+registros internos `source` e `checksums`, são preservados para compatibilidade
+com atualizadores e verificadores de integridade. Os arquivos de origem não
+foram excluídos do repositório nem da hospedagem por esta alteração.
+
+**Atenção à licença GPLv3 do Prog Tool:** distribuir binários requer disponibilizar
+o código-fonte correspondente por um meio que cumpra os termos da licença.
+Esta alteração remove a apresentação desses links no catálogo; não altera
+as obrigações de licenciamento e deve-se manter uma oferta de código conforme a GPLv3.

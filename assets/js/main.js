@@ -47,14 +47,15 @@
   }
 
   // Categorias de updates.json, na ordem em que aparecem na tabela
+  // O catálogo público mostra apenas pacotes instaláveis ou portáteis.
+  // Metadados do manifest (SHA-256 e demais arquivos) permanecem intactos
+  // para compatibilidade com verificadores e atualizadores existentes.
   var CATEGORIES = [
     { id: "windows-installer", label: "Windows — Instalador" },
     { id: "windows-portable", label: "Windows — Portátil" },
     { id: "linux-deb", label: "Linux — .deb (Debian/Ubuntu)" },
     { id: "linux-targz", label: "Linux — .tar.gz" },
-    { id: "macos", label: "macOS" },
-    { id: "source", label: "Código-fonte" },
-    { id: "checksums", label: "Somas de verificação" }
+    { id: "macos", label: "macOS" }
   ];
   var CATEGORY_IDS = CATEGORIES.map(function (c) { return c.id; });
 
@@ -84,7 +85,7 @@
       return i < 0 ? CATEGORIES.length : i;
     }
     return (p.files || [])
-      .filter(function (f) { return f.url; })
+      .filter(function (f) { return f.url && CATEGORY_IDS.indexOf(f.category) !== -1; })
       .map(function (f, i) { return { f: f, i: i }; })
       .sort(function (a, b) { return rank(a.f) - rank(b.f) || a.i - b.i; })
       .map(function (x) { return x.f; });
@@ -117,7 +118,6 @@
           "</span></td>" +
           '<td data-label="Versão" class="mono">' + versionLabel(p) + "</td>" +
           '<td data-label="Tamanho" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
-          '<td data-label="SHA-256" class="hash">' + (f.sha256 ? "<code>" + esc(String(f.sha256).toLowerCase()) + "</code>" : "—") + "</td>" +
           '<td class="action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(localUrl(f.url)) + '" download>Baixar' +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a></td>" +
           "</tr>"
@@ -130,7 +130,7 @@
       "<caption class=\"sr-only\">Downloads do " + esc(p.name) + "</caption>" +
       "<thead><tr>" +
       '<th scope="col">Categoria</th><th scope="col">Arquivo</th><th scope="col">Versão</th>' +
-      '<th scope="col">Tamanho</th><th scope="col">SHA-256</th><th scope="col"><span class="sr-only">Baixar</span></th>' +
+      '<th scope="col">Tamanho</th><th scope="col"><span class="sr-only">Baixar</span></th>' +
       "</tr></thead>" +
       "<tbody>" + rows + "</tbody>" +
       "</table>" +

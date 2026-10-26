@@ -193,8 +193,6 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .file-label { font-size: .82rem; color: var(--muted); }
 .nowrap { white-space: nowrap; }
 .downloads .mono { font-size: .85rem; white-space: nowrap; }
-.downloads .hash { width: 26%; }
-.downloads .hash code { display: block; font-size: .72rem; line-height: 1.45; padding: 4px 6px; overflow-wrap: anywhere; word-break: break-all; }
 .downloads .action { text-align: right; }
 .soon { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0; color: var(--muted); background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius); padding: 16px 20px; }
 .load-error { border-style: solid; font-size: .92rem; }
@@ -209,8 +207,6 @@ table.downloads { width: 100%; border-collapse: collapse; }
   .downloads th[data-label]::before, .downloads td[data-label]::before { content: attr(data-label); color: var(--muted); font-size: .82rem; font-weight: 500; text-align: left; flex: none; }
   .downloads tbody th { font-size: 1rem; }
   .file-cell { align-items: flex-end; text-align: right; }
-  .downloads .hash { display: block; width: auto; text-align: left; padding-top: 6px; }
-  .downloads .hash::before { display: block; margin-bottom: 2px; }
   .downloads .action { justify-content: stretch; padding-top: 10px; }
   .downloads .action .btn { width: 100%; padding: 10px 14px; }
 }
