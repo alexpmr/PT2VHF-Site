@@ -13,6 +13,7 @@ $public = $tmp . '/public_html';
 $downloads = $public . '/downloads/aprs-client';
 check(@mkdir($downloads, 0700, true) || is_dir($downloads), 'Criar fixture');
 copy(__DIR__ . '/../download.php', $public . '/download.php');
+copy(__DIR__ . '/../prop_parts.php', $public . '/prop_parts.php');
 $name = 'PT2VHF_APRS_Client_Setup_x64_v99.exe';
 $contents = "MZ-example-binary";
 file_put_contents($downloads . '/' . $name, $contents);
@@ -83,6 +84,7 @@ try {
     @unlink($downloads . '/' . $name);
     @unlink($public . '/updates.json');
     @unlink($public . '/download.php');
+    @unlink($public . '/prop_parts.php');
     @unlink($tmp . '/pt2vhf-private-data/downloads.json');
     @rmdir($tmp . '/pt2vhf-private-data');
     @rmdir($downloads);
