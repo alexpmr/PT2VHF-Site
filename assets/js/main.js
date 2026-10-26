@@ -42,33 +42,74 @@
     return p.name.replace(/^PT2VHF\s+/, "");
   }
 
-  function fileItem(f, primary) {
+  var CATEGORIES = [
+    "Windows — Instalador",
+    "Windows — Portátil",
+    "Linux — .deb (Debian/Ubuntu)",
+    "Linux — .tar.gz",
+    "macOS",
+    "Código-fonte",
+    "Somas de verificação"
+  ];
+
+  function fileName(url) {
+    return decodeURIComponent(String(url).split("/").pop());
+  }
+
+  function sortedFiles(p) {
+    function rank(f) {
+      var i = CATEGORIES.indexOf(f.category);
+      return i < 0 ? CATEGORIES.length : i;
+    }
+    return (p.files || [])
+      .filter(function (f) { return f.url; })
+      .map(function (f, i) { return { f: f, i: i }; })
+      .sort(function (a, b) { return rank(a.f) - rank(b.f) || a.i - b.i; })
+      .map(function (x) { return x.f; });
+  }
+
+  function downloadTable(p) {
+    var files = sortedFiles(p);
+    if (!files.length) {
+      return '<p class="soon"><span class="badge">Em breve</span> Este programa ainda não tem versão publicada.</p>';
+    }
+    var rows = files
+      .map(function (f, i) {
+        return (
+          "<tr>" +
+          '<th scope="row" data-label="Categoria">' + esc(f.category) + "</th>" +
+          '<td data-label="Arquivo"><span class="file-cell"><span class="file-name">' + esc(fileName(f.url)) + "</span>" +
+          (f.label ? '<span class="file-label">' + esc(f.label) + "</span>" : "") +
+          "</span></td>" +
+          '<td data-label="Versão" class="mono">' + versionLabel(p) + "</td>" +
+          '<td data-label="Tamanho" class="nowrap">' + (esc(f.size) || "—") + "</td>" +
+          '<td data-label="SHA-256" class="hash">' + (f.sha256 ? "<code>" + esc(f.sha256) + "</code>" : "—") + "</td>" +
+          '<td class="action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(f.url) + '" download>Baixar' +
+          '<span class="sr-only"> ' + esc(fileName(f.url)) + "</span></a></td>" +
+          "</tr>"
+        );
+      })
+      .join("");
     return (
-      '<li class="file">' +
-      '<div class="file-info">' +
-      '<span class="file-os">' + esc(f.os) + "</span>" +
-      (f.label ? '<span class="file-label">' + esc(f.label) + "</span>" : "") +
-      (f.size ? '<span class="file-size">' + esc(f.size) + "</span>" : "") +
-      "</div>" +
-      '<a class="btn ' + (primary ? "btn-primary" : "btn-secondary") + '" href="' + esc(f.url) + '" download>Baixar</a>' +
-      (f.sha256
-        ? '<p class="file-hash"><span>SHA-256</span> <code>' + esc(f.sha256) + "</code></p>"
-        : "") +
-      "</li>"
+      '<div class="table-wrap">' +
+      '<table class="downloads">' +
+      "<caption class=\"sr-only\">Downloads do " + esc(p.name) + "</caption>" +
+      "<thead><tr>" +
+      '<th scope="col">Categoria</th><th scope="col">Arquivo</th><th scope="col">Versão</th>' +
+      '<th scope="col">Tamanho</th><th scope="col">SHA-256</th><th scope="col"><span class="sr-only">Baixar</span></th>' +
+      "</tr></thead>" +
+      "<tbody>" + rows + "</tbody>" +
+      "</table>" +
+      "</div>"
     );
   }
 
-  function downloadPanel(p) {
-    var files = p.files.filter(function (f) { return f.url; });
-    var body = files.length
-      ? '<ul class="file-list">' +
-        files.map(function (f, i) { return fileItem(f, i === 0); }).join("") +
-        "</ul>"
-      : '<p class="soon">Em breve. Este programa ainda não tem versão publicada.</p>';
+  function listBlock(title, items, render) {
+    if (!items || !items.length) return "";
     return (
-      '<div class="download-panel">' +
-      "<h3>Downloads" + (p.version ? ' <span class="badge">v' + esc(p.version) + "</span>" : "") + "</h3>" +
-      body +
+      '<div class="info-block">' +
+      "<h3>" + title + "</h3>" +
+      '<ul class="info-list">' + items.map(render).join("") + "</ul>" +
       "</div>"
     );
   }
@@ -90,10 +131,17 @@
   function renderSections(el) {
     el.innerHTML = products
       .map(function (p, i) {
+        var paragraphs = [].concat(p.description || []);
+        var aside =
+          listBlock("Rádios e equipamentos suportados", p.supported, function (s) {
+            return typeof s === "string"
+              ? "<li>" + esc(s) + "</li>"
+              : "<li><strong>" + esc(s.name) + "</strong>" + (s.detail ? "<span>" + esc(s.detail) + "</span>" : "") + "</li>";
+          }) +
+          listBlock("Requisitos", p.requirements, function (r) { return "<li>" + esc(r) + "</li>"; });
         return (
           '<section class="section program' + (i % 2 ? " section-alt" : "") + '" id="' + esc(p.id) + '" aria-labelledby="' + esc(p.id) + '-titulo">' +
-          '<div class="container program-inner">' +
-          '<div class="program-info">' +
+          '<div class="container">' +
           '<div class="program-head">' +
           '<div class="product-icon">' + icon(p.icon) + "</div>" +
           "<div>" +
@@ -104,12 +152,20 @@
           "</div>" +
           "</div>" +
           '<p class="tagline">' + esc(p.tagline) + "</p>" +
-          '<p class="description">' + esc(p.description) + "</p>" +
+          '<div class="program-body' + (aside ? "" : " no-aside") + '">' +
+          '<div class="program-main">' +
+          '<div class="description">' + paragraphs.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") + "</div>" +
+          "<h3>Recursos</h3>" +
           '<ul class="features">' +
           p.features.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") +
           "</ul>" +
           "</div>" +
-          downloadPanel(p) +
+          (aside ? '<aside class="program-aside">' + aside + "</aside>" : "") +
+          "</div>" +
+          '<div class="program-downloads">' +
+          '<h3 id="' + esc(p.id) + '-downloads">Downloads</h3>' +
+          downloadTable(p) +
+          "</div>" +
           "</div>" +
           "</section>"
         );
