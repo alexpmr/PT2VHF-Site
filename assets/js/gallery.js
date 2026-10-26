@@ -3,6 +3,7 @@
  */
 window.PT2VHF_GALLERIES = {
   prop: [
+    { src:"/assets/screenshots/prop/2026-10-26-prop-tool.avif",type:"screenshot",caption:"Mapa de calor e monitoramento de bandas em operação",captionId:"propLive" },
     { src:"/assets/screenshots/prop/overview.png",type:"screenshot",caption:"Painel principal — tema escuro",captionId:"propOverview" },
     { src:"/assets/screenshots/prop/bands.png",type:"screenshot",caption:"Análise das bandas",captionId:"propBands" },
     { src:"/assets/screenshots/prop/map.png",type:"screenshot",caption:"Mapa de propagação — tema claro",captionId:"propMap" }
