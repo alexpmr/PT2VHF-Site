@@ -26,6 +26,8 @@ RewriteRule ^(aprs|prop|mesh|sat|prog)/?$ $1.html [END,NC]
 </FilesMatch>
 AddType application/vnd.microsoft.portable-executable .exe
 AddType application/x-msi .msi
+# Garantir visualização das capturas AVIF na hospedagem Hostinger.
+AddType image/avif .avif
 
 # Arquivo de versões lido pelo site e pelos programas (verificação de atualizações)
 <Files "updates.json">
