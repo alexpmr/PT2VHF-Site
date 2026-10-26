@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.pt2vhf.com/</loc></url>
+  <url><loc>https://www.pt2vhf.com/aprs</loc></url>
+  <url><loc>https://www.pt2vhf.com/prop</loc></url>
+  <url><loc>https://www.pt2vhf.com/mesh</loc></url>
+  <url><loc>https://www.pt2vhf.com/sat</loc></url>
+  <url><loc>https://www.pt2vhf.com/prog</loc></url>
 </urlset>

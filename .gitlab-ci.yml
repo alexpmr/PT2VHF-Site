@@ -7,10 +7,11 @@ deploy_pages:
   stage: deploy
   script:
     - mkdir -p public
-    - cp index.html 404.html robots.txt sitemap.xml updates.json public/
+    - cp index.html aprs.html prop.html mesh.html sat.html prog.html 404.html robots.txt sitemap.xml updates.json public/
     - cp -r assets downloads public/
     - test -s public/index.html
     - test -s public/updates.json
+    - for page in aprs prop mesh sat prog; do test -s "public/$page.html" || exit 1; done
   pages: true
   artifacts:
     paths:

@@ -2,6 +2,7 @@
   "use strict";
 
   var products = window.PT2VHF_PRODUCTS || [];
+  var programId = document.body.getAttribute("data-program") || "";
 
   var ICONS = {
     prog:
@@ -62,7 +63,7 @@
 
   function localUrl(url) {
     url = String(url || "");
-    return url.indexOf(SITE) === 0 ? url.slice(SITE.length) : url;
+    return url.indexOf(SITE) === 0 ? "/" + url.slice(SITE.length) : url;
   }
 
   function fileName(url) {
@@ -148,14 +149,18 @@
   }
 
   function renderOverview(el) {
+    var otherOnly = el.getAttribute("data-overview-other") === "true";
     el.innerHTML = products
+      .filter(function (p) { return !otherOnly || p.id !== programId; })
       .map(function (p) {
         return (
-          '<a class="ov-card" href="#' + esc(p.id) + '">' +
+          '<a class="ov-card" href="/' + esc(p.id) + '">' +
           '<span class="product-icon">' + icon(p.icon) + "</span>" +
           '<span class="ov-text"><strong>' + esc(shortName(p)) + "</strong>" +
+          '<span class="ov-tagline">' + esc(p.tagline || "") + "</span>" +
           '<span class="ov-version' + (p.version ? "" : " is-soon") + '">' + versionLabel(p) + "</span>" +
-          (!p.version && p.developmentVersion ? '<span class="ov-dev">Código v' + esc(p.developmentVersion) + '</span>' : '') + '</span>' +
+          (!p.version && p.developmentVersion ? '<span class="ov-dev">Código v' + esc(p.developmentVersion) + '</span>' : '') +
+          '<span class="ov-cta">Abrir projeto</span></span>' +
           "</a>"
         );
       })
@@ -164,6 +169,7 @@
 
   function renderSections(el) {
     el.innerHTML = products
+      .filter(function (p) { return p.id === programId; })
       .map(function (p, i) {
         var paragraphs = [].concat(p.description || []);
         var aside =
@@ -190,15 +196,15 @@
           '<div class="program-body' + (aside ? "" : " no-aside") + '">' +
           '<div class="program-main">' +
           '<div class="description">' + paragraphs.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") + "</div>" +
-          "<h3>Recursos</h3>" +
+          '<h3 id="recursos">Recursos</h3>' +
           '<ul class="features">' +
           p.features.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") +
           "</ul>" +
           "</div>" +
           (aside ? '<aside class="program-aside">' + aside + "</aside>" : "") +
           "</div>" +
-          '<div class="program-downloads">' +
-          '<h3 id="' + esc(p.id) + '-downloads">Downloads</h3>' +
+          '<div class="program-downloads" id="' + esc(p.id) + '-downloads">' +
+          '<h3 id="downloads">Downloads</h3>' +
           downloadTable(p) +
           "</div>" +
           "</div>" +
@@ -244,10 +250,16 @@
 
   function load() {
     if (!window.fetch) return Promise.reject(new Error("fetch indisponível"));
-    return fetch("updates.json", { cache: "no-cache" }).then(function (r) {
+    return fetch("/updates.json", { cache: "no-cache" }).then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
     });
+  }
+
+  // Preserva os favoritos antigos com âncoras no catálogo anterior.
+  if (!programId) {
+    var oldLink = /^#(aprs|prop|mesh|sat|prog)(-downloads)?$/.exec(location.hash);
+    if (oldLink) window.location.replace("/" + oldLink[1] + (oldLink[2] ? "#downloads" : ""));
   }
 
   load()

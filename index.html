@@ -23,7 +23,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#topo" aria-label="PT2VHF, início">
+      <a class="brand" href="/" aria-label="PT2VHF, início">
         <img src="assets/img/favicon.svg" alt="" width="32" height="32">
         <span>PT2VHF</span>
       </a>
@@ -31,11 +31,11 @@
         <span></span><span></span><span></span>
       </button>
       <nav id="site-nav" class="site-nav" aria-label="Principal">
-        <a href="#prog">Prog Tool</a>
-        <a href="#prop">Prop Tool</a>
-        <a href="#mesh">Mesh Analyzer</a>
-        <a href="#aprs">APRS Client</a>
-        <a href="#sat">Sat Tool</a>
+        <a href="/aprs">APRS Client</a>
+        <a href="/prop">Prop Tool</a>
+        <a href="/mesh">Mesh Analyzer</a>
+        <a href="/sat">SAT Tool</a>
+        <a href="/prog">Prog Tool</a>
         <a href="#instalacao">Instalação</a>
         <a href="#contato">Contato</a>
       </nav>
@@ -50,8 +50,8 @@
         <h1>Software de radioamadorismo. Cinco projetos, uma estação.</h1>
         <p class="lead">APRS em tempo real, propagação, topologia Meshtastic, rastreamento de satélites e programação de rádios. Consulte os instaladores realmente disponíveis e o andamento das próximas versões.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#visao-geral">Ver downloads</a>
-          <a class="btn btn-ghost btn-lg" href="#prog">Conhecer os programas</a>
+          <a class="btn btn-primary btn-lg" href="#visao-geral">Explorar projetos</a>
+          <a class="btn btn-ghost btn-lg" href="/aprs">Conhecer os programas</a>
         </div>
       </div>
     </section>
@@ -65,15 +65,27 @@
           </div>
           <p id="catalog-updated" class="catalog-updated mono"></p>
         </div>
-        <nav class="overview-grid" id="overview-list" aria-label="Programas"></nav>
+        <nav class="overview-grid" id="overview-list" aria-label="Programas">
+          <noscript><a class="ov-card" href="/aprs">APRS Client</a> <a class="ov-card" href="/prop">Prop Tool</a> <a class="ov-card" href="/mesh">Mesh Analyzer</a> <a class="ov-card" href="/sat">SAT Tool</a> <a class="ov-card" href="/prog">Prog Tool</a></noscript>
+        </nav>
       </div>
     </section>
 
-    <div id="program-sections">
-      <noscript>
-        <div class="container section"><p>Ative o JavaScript para ver os programas e os downloads.</p></div>
-      </noscript>
-    </div>
+    <section class="section section-project-intro" aria-labelledby="project-intro-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="project-intro-title">Uma página para cada projeto</h2>
+          <p>Explore recursos, requisitos, informações de versões e downloads oficiais nas páginas exclusivas de cada aplicação.</p>
+        </div>
+        <div class="project-quicklinks">
+          <a href="/aprs">APRS Client<span>Estações, mapas, digipeaters, mensagens e tráfego APRS em tempo real.</span></a>
+          <a href="/prop">Prop Tool<span>Propagação de rádio, condições solares e análise de bandas e enlaces.</span></a>
+          <a href="/mesh">Mesh Analyzer<span>Análise e visualização de redes Meshtastic, nós, enlaces e mensagens.</span></a>
+          <a href="/sat">SAT Tool<span>Rastreamento de satélites, passagens, frequências e controle CAT.</span></a>
+          <a href="/prog">Prog Tool<span>Programação e gerenciamento de memórias de rádios Kenwood e Icom.</span></a>
+        </div>
+      </div>
+    </section>
 
     <section class="section" id="instalacao" aria-labelledby="instalacao-titulo">
       <div class="container">
@@ -83,7 +95,7 @@
         <ol class="steps">
           <li>
             <h3>Baixe o instalador</h3>
-            <p>Escolha o programa na seção dele e salve o arquivo no seu computador.</p>
+            <p>Abra a página do projeto, selecione o arquivo disponível e salve-o no seu computador.</p>
           </li>
           <li>
             <h3>Execute e siga o assistente</h3>

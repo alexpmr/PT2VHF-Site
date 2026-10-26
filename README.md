@@ -196,3 +196,23 @@ Estado verificado em 26/10/2026:
 
 O catálogo pode apresentar informações sobre o CI, mas esses links não são
 substitutos de instaladores públicos homologados.
+
+## URLs próprias dos projetos (26/10/2026)
+
+As cinco páginas possuem URLs estáveis: `/aprs`, `/prop`, `/mesh`,
+`/sat` e `/prog`. Cada rota tem um documento estático em sua respectiva
+raiz (`aprs.html`, `prop.html`, `mesh.html`, `sat.html`, `prog.html`).
+O Apache/LiteSpeed da Hostinger realiza reescrita interna pelas regras
+do arquivo `.htaccess`. O GitLab Pages recebe os arquivos HTML no artefato.
+
+`index.html` mantém o catálogo e links entre os projetos. Os dados das
+versões e downloads continuam em **`/updates.json`** (esquema 1, sem
+quebrar os atualizadores); `products.<id>.page` aponta para cada nova rota.
+O arquivo JavaScript compartilhado seleciona o conteúdo da página com
+`body[data-program]` e resolve downloads a partir da raiz do domínio.
+
+Favoritos antigos `/#aprs`, `/#prop`, `/#mesh`, `/#sat` e `/#prog`
+são encaminhados para as novas páginas pelo navegador.
+
+**Teste local:** `python -m http.server` não interpreta `.htaccess`;
+abra `/prop.html` etc. Os endereços sem extensão são servidos pela Hostinger.

@@ -13,6 +13,12 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteRule ^ https://www.pt2vhf.com%{REQUEST_URI} [L,R=301]
 
+# As cinco páginas funcionam sem extensão e com barra final opcional.
+# Redireciona URLs .html públicas, sem redirecionar a reescrita interna.
+RewriteCond %{THE_REQUEST} "\\s/+((aprs|prop|mesh|sat|prog))\\.html(?:[?\\s])" [NC]
+RewriteRule ^(aprs|prop|mesh|sat|prog)\\.html$ /$1 [R=301,L,NC]
+RewriteRule ^(aprs|prop|mesh|sat|prog)/?$ $1.html [END,NC]
+
 # Instaladores sempre como download
 <FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg|gz)$">
   Header set Content-Disposition attachment
