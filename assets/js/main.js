@@ -29,6 +29,11 @@
   window.PT2VHF_I18N_T = t;
   window.PT2VHF_I18N_CAPTION = function (shot) {
     var key = shot.captionId;
+    if (programId === "mesh" && window.PT2VHF_MESH_SITE) {
+      var meshLanguage = window.PT2VHF_MESH_SITE[selectedLang] || window.PT2VHF_MESH_SITE.pt;
+      var found = meshLanguage && meshLanguage.captions && meshLanguage.captions[key];
+      if (found) return found;
+    }
     var own = LANG_DICT[selectedLang] && LANG_DICT[selectedLang].captions;
     var fallback = LANG_DICT.pt && LANG_DICT.pt.captions;
     return (own && own[key]) || (fallback && fallback[key]) || shot.caption;
@@ -326,7 +331,9 @@
     }
     var real = images.some(function (shot) { return shot.type === "screenshot"; });
     var intro = real
-      ? (window.PT2VHF_I18N_T ? window.PT2VHF_I18N_T("screenshotsIntro") : "Imagens reais da aplicação.")
+      ? (p.id === "mesh" && window.PT2VHF_MESH_SITE && window.PT2VHF_MESH_SITE[selectedLang] && window.PT2VHF_MESH_SITE[selectedLang].galleryIntro
+         ? window.PT2VHF_MESH_SITE[selectedLang].galleryIntro
+         : (window.PT2VHF_I18N_T ? window.PT2VHF_I18N_T("screenshotsIntro") : "Imagens reais da aplicação."))
       : (window.PT2VHF_I18N_T ? window.PT2VHF_I18N_T("visualIdentityOnly") : "Identidade visual do projeto; capturas de tela ainda não publicadas.");
     return '<section class="screenshots" id="capturas"><h3>' + esc(heading) + '</h3><p class="screenshots-intro">' + esc(intro) + '</p>' +
       '<div class="screenshot-grid">' + images.map(function (shot) {

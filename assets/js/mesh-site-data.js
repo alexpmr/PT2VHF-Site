@@ -1,4 +1,4 @@
-/* PT2VHF Mesh Analyzer: apresentação e últimas cinco versões, 7 idiomas. */
+/* Recursos e galeria Mesh Analyzer, em 7 idiomas. */
 window.PT2VHF_MESH_SITE = {
   "pt": {
     "summary": "Analise nós Meshtastic e MeshCore, enlaces RF, mensagens, tráfego e telemetria.",
@@ -17,7 +17,15 @@ window.PT2VHF_MESH_SITE = {
       "Histórico de tráfego, estatísticas, exportação e relatórios PDF",
       "Automações periódicas para consultas e diagnóstico da rede",
       "Recursos Meshtastic e MeshCore com perfis por conexão",
-      "Banco SQLite próprio, backup, diagnóstico e atualizações pelo site oficial"
+      "Banco SQLite próprio, backup, diagnóstico e atualizações pelo site oficial",
+      "Mapa interativo: localização geográfica, marcadores de nós, enlaces RF observados e filtros de visualização para estudar cobertura e conectividade.",
+      "Mensagens: canal primário, canais adicionais, conversas privadas, pesquisa histórica, filtros e indicação temporal de envio e recebimento.",
+      "Inventário de nós: apelido, nome longo e curto, função, hardware, saltos, bateria, tensão, distância, SNR e horários das últimas interações e posições.",
+      "Gerenciamento de conexões: múltiplos perfis USB/Serial, Wi-Fi/TCP, BLE e MQTT com ativação, desativação e descoberta automática quando compatível.",
+      "Ranking RF: pares com comunicação direta, distâncias compatíveis, observações registradas, SNR e diagnóstico de elegibilidade.",
+      "Estatísticas de chat: total de mensagens, nós participantes e ranking de interações no canal primário.",
+      "Filtros de estatísticas: visão geral, rede, RF, routing, tráfego, consultas, chat, energia, repetidores, topologia e MeshCore.",
+      "Relatórios e exportação: geração de PDF e CSV para documentação das análises de rede."
     ],
     "historyTitle": "Histórico de versões — últimas 5",
     "historyIntro": "Novidades e correções documentadas no changelog oficial do projeto.",
@@ -62,7 +70,16 @@ window.PT2VHF_MESH_SITE = {
           "Melhoria dos indicadores no menu de rádio e nos temas."
         ]
       }
-    ]
+    ],
+    "captions": {
+      "map": "Mapa da malha — nós, enlaces RF e topologia visualizados sobre Brasília e região",
+      "messages": "Mensagens — canal primário, conversas privadas, pesquisa e confirmações",
+      "nodes": "Nós — apelidos, modelos, saltos, bateria, distância, SNR e atividade",
+      "connections": "Conexões — perfis de rádios USB/Serial, Wi-Fi/TCP e descoberta automática",
+      "rf": "Estatísticas — ranking de enlaces RF e critérios de elegibilidade",
+      "chat": "Estatísticas — chat, mensagens e ranking de interações"
+    },
+    "galleryIntro": "Capturas reais da versão 0.6.58 em funcionamento, mostrando operações e análises da malha."
   },
   "en": {
     "summary": "Analyze Meshtastic and MeshCore nodes, RF links, traffic, messages and telemetry.",
@@ -81,7 +98,15 @@ window.PT2VHF_MESH_SITE = {
       "Traffic history, statistics, data exports and PDF reports",
       "Scheduled automations for queries and network diagnostics",
       "Meshtastic and MeshCore features with per-connection profiles",
-      "Independent SQLite database, backups, diagnostics and official-site updates"
+      "Independent SQLite database, backups, diagnostics and official-site updates",
+      "Interactive map: node locations, observed RF links and display filters for coverage and network-connectivity analysis.",
+      "Messages: primary and secondary channels, private conversations, history search, filters and relative time labels.",
+      "Node inventory: nickname, long and short names, role, hardware, hops, battery, voltage, distance, SNR, last interaction and last position.",
+      "Connection management: multiple USB/Serial, Wi-Fi/TCP, BLE and MQTT profiles with connect/disconnect and automatic discovery where supported.",
+      "RF ranking: directly observed links, compatible distances, recorded observations, SNR and eligibility diagnostics.",
+      "Chat analytics: message totals, participating nodes and most active nodes on the primary channel.",
+      "Statistics panels: overview, network, RF, routing, traffic, queries, chat, energy, repeaters, topology and MeshCore.",
+      "Reports and exports: PDF and CSV output for documenting network analysis."
     ],
     "historyTitle": "Release notes — latest 5 versions",
     "historyIntro": "Updates and fixes documented in the official project changelog.",
@@ -126,7 +151,16 @@ window.PT2VHF_MESH_SITE = {
           "Better indicators in the radio menu and themes."
         ]
       }
-    ]
+    ],
+    "captions": {
+      "map": "Mesh map — nodes, RF links and topology around Brasília",
+      "messages": "Messages — primary channel, private conversations, search and acknowledgments",
+      "nodes": "Nodes — nicknames, hardware, hops, battery, distance, SNR and activity",
+      "connections": "Connections — USB/Serial and Wi-Fi/TCP radio profiles and automatic discovery",
+      "rf": "Statistics — RF-link ranking and eligibility criteria",
+      "chat": "Statistics — chat messages and interaction rankings"
+    },
+    "galleryIntro": "Real screenshots of version 0.6.58 in use, showing mesh operations and network analysis."
   },
   "es": {
     "summary": "Analice nodos Meshtastic y MeshCore, enlaces RF, tráfico, mensajes y telemetría.",
@@ -145,7 +179,15 @@ window.PT2VHF_MESH_SITE = {
       "Historial de tráfico, estadísticas, exportaciones e informes PDF",
       "Automatizaciones periódicas para consultas y diagnósticos",
       "Funciones Meshtastic y MeshCore con perfiles por conexión",
-      "Base SQLite independiente, copias de seguridad y actualizaciones oficiales"
+      "Base SQLite independiente, copias de seguridad y actualizaciones oficiales",
+      "Mapa interactivo: ubicaciones de nodos, enlaces RF observados y filtros para analizar cobertura y conectividad.",
+      "Mensajes: canal primario y otros canales, conversaciones privadas, búsqueda histórica, filtros y marcas de tiempo relativas.",
+      "Inventario de nodos: apodo, nombres largo y corto, función, hardware, saltos, batería, tensión, distancia, SNR, última interacción y posición.",
+      "Gestión de conexiones: varios perfiles USB/serie, Wi-Fi/TCP, BLE y MQTT, con conexión, desconexión y búsqueda automática compatible.",
+      "Ranking RF: enlaces directos observados, distancias compatibles, registros, SNR y diagnóstico de elegibilidad.",
+      "Estadísticas de chat: número de mensajes, nodos participantes y ranking de actividad en el canal primario.",
+      "Paneles de estadísticas: resumen, red, RF, rutas, tráfico, consultas, chat, energía, repetidores, topología y MeshCore.",
+      "Informes y exportación: salida PDF y CSV para documentar el análisis de la red."
     ],
     "historyTitle": "Historial de versiones — últimas 5",
     "historyIntro": "Novedades y correcciones del registro oficial del proyecto.",
@@ -190,7 +232,16 @@ window.PT2VHF_MESH_SITE = {
           "Mejor indicación de conexión en el menú de radio y en los temas."
         ]
       }
-    ]
+    ],
+    "captions": {
+      "map": "Mapa mesh — nodos, enlaces RF y topología en Brasília",
+      "messages": "Mensajes — canal primario, mensajes privados, búsqueda y confirmaciones",
+      "nodes": "Nodos — apodos, hardware, saltos, batería, distancia, SNR y actividad",
+      "connections": "Conexiones — perfiles USB/serie y Wi-Fi/TCP y búsqueda automática",
+      "rf": "Estadísticas — clasificación RF y criterios de elegibilidad",
+      "chat": "Estadísticas — mensajes de chat y actividad"
+    },
+    "galleryIntro": "Capturas reales de la versión 0.6.58 en funcionamiento."
   },
   "fr": {
     "summary": "Analysez les nœuds Meshtastic et MeshCore, liaisons RF, trafic, messages et télémétrie.",
@@ -209,7 +260,15 @@ window.PT2VHF_MESH_SITE = {
       "Historique du trafic, statistiques, exports et rapports PDF",
       "Automatisations périodiques pour les diagnostics",
       "Fonctions Meshtastic et MeshCore avec profils par connexion",
-      "Base SQLite indépendante, sauvegardes et mises à jour officielles"
+      "Base SQLite indépendante, sauvegardes et mises à jour officielles",
+      "Carte interactive : positions des nœuds, liaisons RF observées et filtres pour analyser couverture et connectivité.",
+      "Messagerie : canal principal et autres canaux, messages privés, recherche dans l'historique, filtres et dates relatives.",
+      "Inventaire : surnoms, noms long et court, rôle, matériel, sauts, batterie, tension, distance, SNR et derniers échanges/positions.",
+      "Connexions : plusieurs profils USB/série, Wi-Fi/TCP, BLE et MQTT, avec activation et détection automatique lorsqu'elle est disponible.",
+      "Classement RF : liaisons directes, distances compatibles, observations, SNR et diagnostic d'éligibilité.",
+      "Statistiques des messages : volume, participants et nœuds les plus actifs sur le canal principal.",
+      "Statistiques : résumé, réseau, RF, routage, trafic, requêtes, chat, énergie, répéteurs, topologie et MeshCore.",
+      "Rapports : exports PDF et CSV pour documenter l'analyse du réseau."
     ],
     "historyTitle": "Historique des versions — les 5 dernières",
     "historyIntro": "Améliorations et correctifs consignés dans le changelog officiel.",
@@ -254,7 +313,15 @@ window.PT2VHF_MESH_SITE = {
           "Indicateurs améliorés dans le menu radio et les thèmes."
         ]
       }
-    ]
+    ],
+    "captions": {
+      "map": "Carte mesh — nœuds, liaisons RF et topologie près de Brasília",
+      "messages": "Messages — canal principal, messages privés, recherche et confirmations",
+      "nodes": "Nœuds — surnoms, matériel, sauts, batterie, distance, SNR et activité",
+      "connections": "Connexions — profils USB/série et Wi-Fi/TCP et découverte automatique",
+      "rf": "Statistiques — classement des liaisons RF et critères d'éligibilité",
+      "chat": "Statistiques — messages et interactions"
+    }
   },
   "de": {
     "summary": "Meshtastic- und MeshCore-Knoten, RF-Verbindungen, Verkehr, Nachrichten und Telemetrie analysieren.",
@@ -273,7 +340,15 @@ window.PT2VHF_MESH_SITE = {
       "Verkehrsverlauf, Statistiken, Export und PDF-Berichte",
       "Zeitgesteuerte Netzwerkabfragen und Diagnose",
       "Meshtastic- und MeshCore-Funktionen mit Verbindungsprofilen",
-      "Eigene SQLite-Datenbank, Sicherung und offizielle Updates"
+      "Eigene SQLite-Datenbank, Sicherung und offizielle Updates",
+      "Interaktive Karte: Knotenpositionen, beobachtete RF-Verbindungen und Filter zur Analyse von Abdeckung und Konnektivität.",
+      "Nachrichten: primäre und weitere Kanäle, Privatnachrichten, Verlaufssuche, Filter und relative Zeitangaben.",
+      "Knoteninventar: Spitzname, Kurz-/Langname, Rolle, Hardware, Hops, Akku, Spannung, Entfernung, SNR, letzte Aktivität und Position.",
+      "Verbindungen: mehrere USB/seriell-, Wi-Fi/TCP-, BLE- und MQTT-Profile sowie automatische Erkennung, soweit unterstützt.",
+      "RF-Rangliste: direkt beobachtete Verbindungen, plausible Entfernungen, Beobachtungen, SNR und Diagnose.",
+      "Chatstatistik: Nachrichtenanzahl, beteiligte Knoten und häufigste Interaktionen auf dem Primärkanal.",
+      "Statistikbereiche: Übersicht, Netz, RF, Routing, Verkehr, Anfragen, Chat, Energie, Repeater, Topologie und MeshCore.",
+      "Berichte: PDF- und CSV-Export zur Dokumentation der Netzanalyse."
     ],
     "historyTitle": "Versionsverlauf — letzte 5 Versionen",
     "historyIntro": "Änderungen und Fehlerbehebungen aus dem offiziellen Changelog.",
@@ -318,7 +393,15 @@ window.PT2VHF_MESH_SITE = {
           "Klarere Anzeigen im Funkgeräte-Menü und in den Designs."
         ]
       }
-    ]
+    ],
+    "captions": {
+      "map": "Mesh-Karte — Knoten, RF-Verbindungen und Topologie um Brasília",
+      "messages": "Nachrichten — Hauptkanal, Privatnachrichten, Suche und Bestätigungen",
+      "nodes": "Knoten — Spitznamen, Hardware, Hops, Akku, Entfernung, SNR und Aktivität",
+      "connections": "Verbindungen — USB/seriell, Wi-Fi/TCP und automatische Erkennung",
+      "rf": "Statistik — RF-Verbindungsrangliste und Eignungskriterien",
+      "chat": "Statistik — Nachrichten und Interaktionen"
+    }
   },
   "it": {
     "summary": "Analizza nodi Meshtastic e MeshCore, collegamenti RF, traffico, messaggi e telemetria.",
@@ -337,7 +420,15 @@ window.PT2VHF_MESH_SITE = {
       "Cronologia traffico, statistiche, esportazioni e report PDF",
       "Automazioni periodiche per query e diagnostica",
       "Funzioni Meshtastic e MeshCore con profili per connessione",
-      "Database SQLite autonomo, backup e aggiornamenti ufficiali"
+      "Database SQLite autonomo, backup e aggiornamenti ufficiali",
+      "Mappa interattiva: posizioni dei nodi, collegamenti RF osservati e filtri per analizzare copertura e connettività.",
+      "Messaggi: canale primario e secondari, conversazioni private, ricerca, filtri e orari relativi.",
+      "Inventario nodi: soprannome, nome lungo/breve, ruolo, hardware, salti, batteria, tensione, distanza, SNR e ultime attività/posizioni.",
+      "Connessioni: più profili USB/seriale, Wi-Fi/TCP, BLE e MQTT, con rilevamento automatico quando supportato.",
+      "Classifica RF: collegamenti diretti osservati, distanze compatibili, osservazioni, SNR e diagnostica.",
+      "Statistiche chat: messaggi totali, nodi partecipanti e maggiori interazioni sul canale primario.",
+      "Statistiche: panoramica, rete, RF, routing, traffico, richieste, chat, energia, ripetitori, topologia e MeshCore.",
+      "Report: esportazione PDF e CSV per documentare l'analisi della rete."
     ],
     "historyTitle": "Cronologia versioni — ultime 5",
     "historyIntro": "Novità e correzioni del changelog ufficiale.",
@@ -382,7 +473,15 @@ window.PT2VHF_MESH_SITE = {
           "Indicatori migliorati nel selettore radio e nei temi."
         ]
       }
-    ]
+    ],
+    "captions": {
+      "map": "Mappa mesh — nodi, collegamenti RF e topologia a Brasília",
+      "messages": "Messaggi — canale primario, privati, ricerca e conferme",
+      "nodes": "Nodi — soprannomi, hardware, salti, batteria, distanza, SNR e attività",
+      "connections": "Connessioni — USB/seriale, Wi-Fi/TCP e rilevamento automatico",
+      "rf": "Statistiche — classifica dei collegamenti RF e criteri",
+      "chat": "Statistiche — messaggi e interazioni"
+    }
   },
   "zh": {
     "summary": "分析 Meshtastic 与 MeshCore 节点、RF 链路、流量、消息和遥测。",
@@ -401,7 +500,15 @@ window.PT2VHF_MESH_SITE = {
       "流量历史、统计、导出和 PDF 报告",
       "周期性网络查询与诊断自动任务",
       "Meshtastic 和 MeshCore 功能，按连接保存配置",
-      "独立 SQLite 数据库、备份与官方网站更新"
+      "独立 SQLite 数据库、备份与官方网站更新",
+      "交互地图：展示节点位置、实际观测的射频链路，并通过过滤器分析覆盖范围和连通性。",
+      "消息：主频道和其他频道、私聊、历史搜索、过滤器及相对时间显示。",
+      "节点清单：昵称、长短名称、角色、硬件、跳数、电池、电压、距离、SNR、最后活动和位置。",
+      "连接管理：USB/串口、Wi-Fi/TCP、BLE 和 MQTT 多配置文件，支持相应的自动发现功能。",
+      "RF 排名：直接观测到的链路、有效距离、观测次数、SNR 和链路资格诊断。",
+      "聊天统计：消息总数、参与节点及主频道互动排名。",
+      "统计面板：概览、网络、RF、路由、流量、查询、聊天、能源、中继、拓扑和 MeshCore。",
+      "报表：导出 PDF 与 CSV 以记录网络分析结果。"
     ],
     "historyTitle": "版本更新记录 — 最近 5 个版本",
     "historyIntro": "根据项目官方更新日志整理的功能与修复。",
@@ -446,6 +553,14 @@ window.PT2VHF_MESH_SITE = {
           "改善无线电菜单与主题中的状态标识。"
         ]
       }
-    ]
+    ],
+    "captions": {
+      "map": "Mesh 地图 — Brasília 地区的节点、RF 链路与拓扑",
+      "messages": "消息 — 主频道、私聊、搜索与确认状态",
+      "nodes": "节点 — 昵称、硬件、跳数、电池、距离、SNR 与活动",
+      "connections": "连接 — USB/串口、Wi-Fi/TCP 和自动发现",
+      "rf": "统计 — RF 链路排名与资格评估",
+      "chat": "统计 — 聊天消息与互动排行"
+    }
   }
 };
