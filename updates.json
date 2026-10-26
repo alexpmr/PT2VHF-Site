@@ -80,11 +80,78 @@
     },
     "mesh": {
       "name": "PT2VHF Mesh Analyzer",
-      "version": null,
+      "version": "0.6.58",
       "page": "https://www.pt2vhf.com/mesh",
-      "files": [],
+      "files": [
+        {
+          "category": "windows-installer",
+          "counterKey": "win-setup-x64",
+          "platform": "windows-x64",
+          "architecture": "x64",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-Setup-Win10-Win11-x64.exe",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.58-Setup-Win10-Win11-x64.exe",
+          "size": 29809722,
+          "sha256": "b21b6eb7b20b3c5e864bcf5822db143796413bc3c6c4c2ace80669a23dba7a7d",
+          "detail": "PT2VHF Mesh Analyzer x64"
+        },
+        {
+          "category": "windows-portable",
+          "counterKey": "win-portable-x64",
+          "platform": "windows-x64",
+          "architecture": "x64",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-Portable-Win10-Win11-x64.zip",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.58-Portable-Win10-Win11-x64.zip",
+          "size": 27563493,
+          "sha256": "f68ff483685a1d7190eae74a73ab497d74ca17620ff5553f03f16afefa271eef",
+          "detail": "PT2VHF Mesh Analyzer x64"
+        },
+        {
+          "category": "linux-targz",
+          "counterKey": "linux-tar-x64",
+          "platform": "linux-x64",
+          "architecture": "x64",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-Linux-x64.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.58-Linux-x64.tar.gz",
+          "size": 41775959,
+          "sha256": "55ffd39c100c6968ec797d96d055c0932f7b1cddc3c08272c41ae01d31b5e567",
+          "detail": "PT2VHF Mesh Analyzer x64"
+        },
+        {
+          "category": "linux-deb",
+          "counterKey": "linux-deb-x64",
+          "platform": "linux-x64",
+          "architecture": "x64",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-amd64.deb",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.58-amd64.deb",
+          "size": 41673050,
+          "sha256": "80a8496619eb4f2ca17bde452d605306f8775bbbe5fe690c3b9227eb8b22e0a6",
+          "detail": "PT2VHF Mesh Analyzer x64"
+        },
+        {
+          "category": "macos",
+          "counterKey": "mac-dmg-arm64",
+          "platform": "macos-arm64",
+          "architecture": "Apple Silicon",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-macOS-arm64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.58-macOS-arm64.dmg",
+          "size": 28698357,
+          "sha256": "c76558a2e9904a870aa628164e1454528c7380947851ce059b9f351b1eea13ef",
+          "detail": "PT2VHF Mesh Analyzer Apple Silicon"
+        },
+        {
+          "category": "macos",
+          "counterKey": "mac-dmg-x64",
+          "platform": "macos-x64",
+          "architecture": "Intel",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-macOS-x64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.58-macOS-x64.dmg",
+          "size": 30290239,
+          "sha256": "9b5a58d0eaa5f36d36a37e83d0eb507e3afa7d330fd5656e54e65d18fb949e91",
+          "detail": "PT2VHF Mesh Analyzer Intel"
+        }
+      ],
       "developmentVersion": "0.6.58",
-      "releaseStatus": "Versão 0.6.58 em compilação; links habilitados somente após os binários estarem presentes na hospedagem oficial.",
+      "releaseStatus": "Seis instaladores oficiais validados.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=mesh",
       "plannedFiles": [
         {
@@ -124,7 +191,9 @@
           "name": "PT2VHF-Mesh-Analyzer-v0.6.58-macOS-x64.dmg"
         }
       ],
-      "ciUrl": "https://github.com/alexpmr/PT2VHF-Mesh-Analyzer/actions"
+      "ciUrl": "https://github.com/alexpmr/PT2VHF-Mesh-Analyzer/actions",
+      "date": "2026-10-26",
+      "notes": "Atualizacao oficial PT2VHF.com com arquivos verificados."
     },
     "aprs": {
       "name": "PT2VHF APRS Client",
