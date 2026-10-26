@@ -89,5 +89,32 @@ window.PT2VHF_PRODUCTS = [
       "Mensagens APRS com confirmação"
     ],
     icon: "aprs"
+  },
+  {
+    id: "sat",
+    name: "PT2VHF Sat Tool",
+    tagline: "Satélites amadores, passagens e CAT para o Kenwood TS-2000",
+    description: [
+      "Acompanhe satélites de radioamador com mapa orbital, dados TLE/OMM, previsões de passagens e frequências para operar os modos disponíveis.",
+      "Integração CAT com o Kenwood TS-2000 para compensação Doppler em recepção e transmissão. O acompanhamento automático requer conexão serial e validação com o equipamento real."
+    ],
+    features: [
+      "Mapa orbital, posições, satélites favoritos e calendário de passagens AOS/TCA/LOS",
+      "Perfis de frequência e transponder de satélites amadores",
+      "Controle CAT do Kenwood TS-2000 e acompanhamento Doppler",
+      "Estação configurável por coordenadas e Grid Locator Maidenhead",
+      "Diagnóstico de frequências previstas e leituras reais do rádio",
+      "Atualização de dados orbitais e frequências"
+    ],
+    supported: [
+      { name: "Kenwood TS-2000", detail: "Controle CAT pela porta serial" },
+      { name: "Satélites de radioamador", detail: "Catálogo orbital e frequências de operação" }
+    ],
+    requirements: [
+      "Windows 10 (1809+) ou Windows 11, 64 bits",
+      "Para CAT: cabo serial e configuração compatível com o TS-2000",
+      "Ajustes automáticos devem ser validados no rádio físico antes do uso operacional"
+    ],
+    icon: "sat"
   }
 ];

@@ -247,3 +247,17 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .footer-inner p { margin: 0; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+/* Catálogo de downloads — outubro de 2026 */
+.catalog-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin:0 0 18px; }
+.catalog-heading h2 { font-size:clamp(1.4rem,2.4vw,1.85rem); margin-bottom:6px; }
+.catalog-heading p { margin:0; color:var(--muted); font-size:.92rem; max-width:720px; }
+.catalog-updated { flex:none; white-space:nowrap; font-size:.78rem !important; }
+.ov-dev { display:block; color:var(--muted); font-size:.72rem; margin-top:4px; }
+.unreleased { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px 24px; }
+.unreleased .badge { display:inline-flex; }
+.status-detail { margin:12px 0 8px; color:var(--text); }
+.build-version { color:var(--muted); font-size:.9rem; margin-bottom:8px; }
+.build-reference { display:inline-block; margin-top:4px; font-size:.88rem; overflow-wrap:anywhere; }
+@media (min-width:1100px) { .overview-grid { grid-template-columns:repeat(5,minmax(0,1fr)); } }
+@media (max-width:700px) { .catalog-heading { flex-direction:column; align-items:flex-start; gap:8px; } .catalog-updated { white-space:normal; } .unreleased { padding:18px; } }

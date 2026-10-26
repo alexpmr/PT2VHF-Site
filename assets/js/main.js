@@ -11,7 +11,9 @@
     mesh:
       '<circle cx="16" cy="6" r="3"/><circle cx="6" cy="24" r="3"/><circle cx="26" cy="24" r="3"/><circle cx="16" cy="17" r="2.5"/><path d="M16 9v5.5M14 18.5l-6 4M18 18.5l6 4M9 24h14"/>',
     aprs:
-      '<path d="M16 29s-9-8.5-9-15a9 9 0 0 1 18 0c0 6.5-9 15-9 15z"/><circle cx="16" cy="14" r="3"/>'
+      '<path d="M16 29s-9-8.5-9-15a9 9 0 0 1 18 0c0 6.5-9 15-9 15z"/><circle cx="16" cy="14" r="3"/>',
+    sat:
+      '<circle cx="16" cy="16" r="4"/><ellipse cx="16" cy="16" rx="14" ry="7" transform="rotate(-28 16 16)"/><path d="M24 3l5 5M24 8l5-5"/>'
   };
 
   function icon(name) {
@@ -36,7 +38,7 @@
 
   function versionLabel(p) {
     if (p.version) return "v" + esc(p.version);
-    return p.loadError ? "—" : "Em breve";
+    return p.loadError ? "—" : "Instalador pendente";
   }
 
   function shortName(p) {
@@ -98,7 +100,11 @@
     }
     var files = sortedFiles(p);
     if (!files.length) {
-      return '<p class="soon"><span class="badge">Em breve</span> Este programa ainda não tem versão publicada.</p>';
+      return '<div class="unreleased"><span class="badge">Publicação pendente</span>' +
+        '<p class="status-detail">' + esc(p.releaseStatus || "Ainda não há instalador público para este projeto.") + '</p>' +
+        (p.developmentVersion ? '<p class="build-version">Versão identificada no código: <strong>v' + esc(p.developmentVersion) + '</strong> · não é uma versão distribuída neste site.</p>' : '') +
+        (p.ciUrl ? '<a class="build-reference" href="' + esc(p.ciUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(p.ciLabel || "Ver build no GitLab (acesso restrito)") + '</a>' : '') +
+        '</div>';
     }
     var rows = files
       .map(function (f, i) {
@@ -148,7 +154,8 @@
           '<a class="ov-card" href="#' + esc(p.id) + '">' +
           '<span class="product-icon">' + icon(p.icon) + "</span>" +
           '<span class="ov-text"><strong>' + esc(shortName(p)) + "</strong>" +
-          '<span class="ov-version' + (p.version ? "" : " is-soon") + '">' + versionLabel(p) + "</span></span>" +
+          '<span class="ov-version' + (p.version ? "" : " is-soon") + '">' + versionLabel(p) + "</span>" +
+          (!p.version && p.developmentVersion ? '<span class="ov-dev">Código v' + esc(p.developmentVersion) + '</span>' : '') + '</span>' +
           "</a>"
         );
       })
@@ -175,6 +182,7 @@
           '<h2 id="' + esc(p.id) + '-titulo">' + esc(p.name) + "</h2>" +
           '<p class="program-meta"><span class="badge">' + versionLabel(p) + "</span>" +
           (p.date ? " <span>Lançado em " + formatDate(p.date) + "</span>" : "") +
+          (!p.version && p.developmentVersion ? ' <span>Código v' + esc(p.developmentVersion) + '</span>' : '') +
           "</p>" +
           "</div>" +
           "</div>" +
@@ -201,7 +209,9 @@
   }
 
   // Junta os textos de products.js com versões e arquivos de updates.json
+  var catalogUpdated = "";
   function merge(data) {
+    catalogUpdated = (data && data.updated) || "";
     var list = (data && data.products) || null;
     products.forEach(function (p) {
       var u = list && list[p.id];
@@ -209,10 +219,16 @@
       p.version = (u && u.version) || "";
       p.date = (u && u.version && u.date) || "";
       p.files = (u && u.version && Array.isArray(u.files)) ? u.files : [];
+      p.developmentVersion = (u && u.developmentVersion) || "";
+      p.releaseStatus = (u && u.releaseStatus) || "";
+      p.ciUrl = (u && u.ciUrl) || "";
+      p.ciLabel = (u && u.ciLabel) || "";
     });
   }
 
   function render() {
+    var updatedEl = document.getElementById("catalog-updated");
+    if (updatedEl && catalogUpdated) updatedEl.textContent = "Catálogo conferido em " + formatDate(catalogUpdated);
     var overviewEl = document.getElementById("overview-list");
     if (overviewEl) renderOverview(overviewEl);
 

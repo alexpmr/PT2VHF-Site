@@ -173,3 +173,26 @@ Quando a conta do GitHub voltar, basta adicionar o remote `origin` e seguir a co
 python3 -m http.server 8000
 # abra http://localhost:8000
 ```
+
+## Catálogo de cinco programas (26/10/2026)
+
+O site exibe **prog, prop, mesh, aprs e sat**. Além dos campos já existentes
+em `updates.json`, são aceitos metadados informativos opcionais:
+`developmentVersion` (versão presente no código, **não publicada**),
+`releaseStatus` (situação da distribuição), `ciUrl` e `ciLabel`
+(link de diagnóstico de CI que pode exigir autenticação GitLab).
+
+**Regra de segurança para atualizadores:** enquanto não existir instalador
+público permanente e verificado para o programa, `version` permanece `null`
+e `files` permanece `[]`. Não colocar URLs efêmeras de artefatos CI em
+`files`: elas expiram após 14 dias e podem exigir autenticação.
+
+Estado verificado em 26/10/2026:
+- Prog v1.2.0: arquivos presentes no diretório de downloads do site.
+- APRS: código v1.14.58; CI Windows e Linux concluídos, artefatos internos.
+- Prop: código v0.2.21; pacote Windows gerado, mas teste de instalação falhou.
+- SAT: código v1.3.13 conforme README; build Windows travou na importação do Qt WebEngine.
+- Mesh Analyzer: repositório/instalador ainda não localizado na conta GitLab conectada.
+
+O catálogo pode apresentar informações sobre o CI, mas esses links não são
+substitutos de instaladores públicos homologados.

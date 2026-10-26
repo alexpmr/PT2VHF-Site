@@ -63,25 +63,47 @@
           "sha256": "7d86920c4b77fb6316064f5be5499ce8d4092b4e600fc33ac126459e4dee5eaf",
           "detail": "SHA-256 de todos os arquivos da versão"
         }
-      ]
+      ],
+      "developmentVersion": "1.2.0",
+      "releaseStatus": "Instaladores oficiais disponíveis para Windows e Linux. Confira o SHA-256 antes da instalação."
     },
     "prop": {
       "name": "PT2VHF Prop Tool",
       "version": null,
       "page": "https://www.pt2vhf.com/#prop",
-      "files": []
+      "files": [],
+      "developmentVersion": "0.2.21",
+      "releaseStatus": "O empacotamento Windows gerou arquivos, mas a validação automatizada falhou. Não há instalador público homologado nesta página.",
+      "ciUrl": "https://gitlab.com/pt2vhf-group/pt2vhf-prop-tool/-/jobs/17455945352",
+      "ciLabel": "Detalhes do build em validação (requer acesso ao GitLab)"
     },
     "mesh": {
       "name": "PT2VHF Mesh Analyzer",
       "version": null,
       "page": "https://www.pt2vhf.com/#mesh",
-      "files": []
+      "files": [],
+      "developmentVersion": null,
+      "releaseStatus": "Nenhum instalador público ou repositório do Mesh Analyzer foi confirmado neste GitLab. A publicação está pendente."
     },
     "aprs": {
       "name": "PT2VHF APRS Client",
       "version": null,
       "page": "https://www.pt2vhf.com/#aprs",
-      "files": []
+      "files": [],
+      "developmentVersion": "1.14.58",
+      "releaseStatus": "Os pacotes Windows e Linux foram compilados no GitLab. Os artefatos são internos e temporários; o instalador público permanente ainda não foi publicado.",
+      "ciUrl": "https://gitlab.com/pt2vhf-group/pt2vhf-aprs-client/-/jobs/17455581495",
+      "ciLabel": "Detalhes do build Windows (requer acesso ao GitLab)"
+    },
+    "sat": {
+      "name": "PT2VHF Sat Tool",
+      "version": null,
+      "developmentVersion": "1.3.13",
+      "page": "https://www.pt2vhf.com/#sat",
+      "files": [],
+      "releaseStatus": "A compilação Windows está bloqueada por uma dependência do Qt WebEngine no ambiente de build. Aguardando instalador validado.",
+      "ciUrl": "https://gitlab.com/pt2vhf-group/pt2vhf-sat-tool/-/jobs/17455927148",
+      "ciLabel": "Detalhes da compilação (requer acesso ao GitLab)"
     }
   }
 }
