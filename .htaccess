@@ -30,6 +30,14 @@ RewriteRule ^downloads/prop-tool/(PT2VHF-Prop-Tool-[0-9]+\.[0-9]+\.[0-9]+-x64-(?
 RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
 RewriteRule ^downloads/aprs-client/([A-Za-z0-9_.-]+\.(?:exe|AppImage|deb|tar\.gz))$ download.php?product=aprs&file=$1 [L,NC,QSA]
 
+# Downloads do Mesh Analyzer (site, links diretos e OTA) passam pelo mesmo
+# contador persistente do APRS, com uma única contagem por download inicial.
+# pt2vhf_raw=1 identifica somente a resposta estática da segunda requisição.
+# Pedidos Range são retomadas e não devem aumentar o contador.
+RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
+RewriteCond %{HTTP:Range} ^$
+RewriteRule ^downloads/mesh-analyzer/([A-Za-z0-9_.-]+\\.(?:exe|zip|deb|dmg|tar\\.gz))$ download.php?product=mesh&file=$1 [L,NC,QSA]
+
 # Instaladores sempre como download
 <FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg|gz)$">
   Header set Content-Disposition attachment

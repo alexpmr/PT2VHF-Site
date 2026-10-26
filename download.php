@@ -71,8 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['mode'] ?? '') === 'stats') {
     exit;
 }
 
-// Downloads APRS: valida, registra e redireciona no servidor. HEAD não conta.
-// POST de versões antigas do JS é ignorado para evitar duplicação com GET.
+// Downloads APRS/Mesh: valida, conta GET inicial e redireciona.
+// HEAD e Range não contam. O app Mesh antigo envia POST depois do GET:
+// ignoramos esse POST para não duplicar contagens. O app novo não depende dele.
 $method = (string)($_SERVER['REQUEST_METHOD'] ?? 'GET');
 $isFileRequest = in_array($method, array('GET', 'HEAD'), true) && isset($_GET['file']);
 if (!$isFileRequest && ($method !== 'POST' || ($_POST['action'] ?? '') !== 'count')) {
@@ -88,7 +89,7 @@ if (!in_array($product, $products, true) ||
     fclose($file);
     pt2vhf_error(400, 'Projeto, categoria ou arquivo inválidos');
 }
-if (!$isFileRequest && $product === 'aprs') {
+if (!$isFileRequest && in_array($product, array('aprs', 'mesh'), true)) {
     fclose($file);
     http_response_code(204);
     exit;

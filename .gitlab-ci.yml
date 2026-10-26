@@ -30,6 +30,7 @@ validate_update_api:
     - php -l download.php
     - php -l prop_parts.php
     - php scripts/test_download_counter.php
+    - php scripts/test_mesh_download_counter.php
     - php -r '$m=json_decode(file_get_contents("updates.json"),true); if (!is_array($m) || ($m["schema"]??null)!==1 || !isset($m["products"]["mesh"])) exit(1);'
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
