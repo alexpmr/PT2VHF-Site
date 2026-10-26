@@ -267,3 +267,14 @@ JavaScript com parâmetros de versão para **invalidar cache** (a Hostinger
 configura cache de 1 dia para CSS e 1 hora para JS). Isso corrige o
 descompasso entre HTML atualizado e estilos antigos que desfigurava o
 menu, sem modificar as traduções e a lógica de idioma já existentes.
+
+
+## Atualizacao interna a partir do site (26/10/2026)
+
+Endpoint publico: https://www.pt2vhf.com/update.php?product=mesh
+
+A API do proprio site consulta somente o catalogo local de atualizacoes
+e oferece metadados verificaveis para os pacotes fisicamente publicados.
+O Mesh Analyzer ainda precisa ser adaptado no codigo-fonte para consumir
+este endpoint: ver docs/mesh-site-updater.md. Sem pacote validado, a
+resposta e status=unpublished; nao inventar versao nem artefato.

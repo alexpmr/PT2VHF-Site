@@ -83,7 +83,8 @@
       "page": "https://www.pt2vhf.com/mesh",
       "files": [],
       "developmentVersion": null,
-      "releaseStatus": "Nenhum instalador público ou repositório do Mesh Analyzer foi confirmado neste GitLab. A publicação está pendente."
+      "releaseStatus": "Nenhum instalador público ou repositório do Mesh Analyzer foi confirmado neste GitLab. A publicação está pendente.",
+      "updateEndpoint": "https://www.pt2vhf.com/update.php?product=mesh"
     },
     "aprs": {
       "name": "PT2VHF APRS Client",
