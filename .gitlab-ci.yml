@@ -48,3 +48,42 @@ validate_publish_script:
     - python -m py_compile scripts/sync_aprs_manifest.py
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
+
+
+# Pacote de transferência para Hostinger: arquivos de instalação reais e
+# updates.json com tamanhos/hashes calculados. NÃO altera a versão pública:
+# a ativação ocorre apenas depois do upload e conferência na Hostinger.
+package_aprs_11459_hostinger:
+  stage: deploy
+  image: python:3.12-alpine
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual
+      allow_failure: true
+  before_script:
+    - apk add --no-cache curl unzip zip
+  script:
+    - set -eu
+    - mkdir -p /tmp/aprs-win /tmp/aprs-linux downloads/aprs-client out
+    - 'curl --fail --location --silent --show-error --retry 2 --header "JOB-TOKEN: $CI_JOB_TOKEN" "https://gitlab.com/api/v4/projects/88080976/jobs/17458873700/artifacts" -o /tmp/aprs-win.zip'
+    - 'curl --fail --location --silent --show-error --retry 2 --header "JOB-TOKEN: $CI_JOB_TOKEN" "https://gitlab.com/api/v4/projects/88080976/jobs/17458873699/artifacts" -o /tmp/aprs-linux.zip'
+    - unzip -q /tmp/aprs-win.zip -d /tmp/aprs-win
+    - unzip -q /tmp/aprs-linux.zip -d /tmp/aprs-linux
+    - cp /tmp/aprs-win/dist-installer/PT2VHF_APRS_Client_Setup_x64_v1.14.59.exe downloads/aprs-client/
+    - cp /tmp/aprs-win/dist-installer/PT2VHF_APRS_Client_Portable_x64_v1.14.59.exe downloads/aprs-client/
+    - cp /tmp/aprs-linux/dist-linux/PT2VHF_APRS_Client_x86_64_v1.14.59.AppImage downloads/aprs-client/
+    - cp /tmp/aprs-linux/dist-linux/pt2vhf-aprs-client_1.14.59_amd64.deb downloads/aprs-client/
+    - cp /tmp/aprs-linux/dist-linux/PT2VHF_APRS_Client_Linux_x86_64_v1.14.59.tar.gz downloads/aprs-client/
+    - python scripts/sync_aprs_manifest.py --version 1.14.59 --apply
+    - 'python -c "import json;d=json.load(open(\"updates.json\"));f=d[\"products\"][\"aprs\"][\"files\"];assert d[\"products\"][\"aprs\"][\"version\"] == \"1.14.59\" and len(f) == 5;print(\"Verificados\",len(f),\"pacotes\")"'
+    - mkdir -p /tmp/aprs-hostinger-package/downloads/aprs-client
+    - cp updates.json /tmp/aprs-hostinger-package/
+    - cp downloads/aprs-client/* /tmp/aprs-hostinger-package/downloads/aprs-client/
+    - '(cd /tmp/aprs-hostinger-package && zip -q -r "$CI_PROJECT_DIR/out/PT2VHF-APRS-1.14.59-Publicacao-Site.zip" updates.json downloads)'
+    - ls -lh out/
+  artifacts:
+    when: on_success
+    expire_in: 30 days
+    paths:
+      - out/PT2VHF-APRS-1.14.59-Publicacao-Site.zip
+  timeout: 45m
