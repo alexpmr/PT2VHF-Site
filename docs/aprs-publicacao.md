@@ -47,3 +47,12 @@ A instalação da 1.14.59 em sistemas executando 1.14.58 pode ser manual uma
 **Importante:** o pipeline GitLab Pages de `pt2vhf-site` bem-sucedido
 não comprova por si só o deploy na Hostinger. A confirmação é o teste HTTP
 no próprio domínio oficial.
+
+
+## Publicação contínua pelo GitLab
+
+O projeto APRS agora dispõe de um pipeline que compila Windows e Linux e envia os binários para a branch main deste repositório. A sincronização Git já configurada na Hostinger deve distribuir os mesmos arquivos das páginas.
+
+Para habilitar a publicação automática entre projetos privados uma única vez, abra Configurações > CI/CD > Permissões do token de job neste repositório. Adicione o projeto pt2vhf-group/pt2vhf-aprs-client à lista de permissões, autorize envio ao repositório e envio entre projetos autorizados. Depois de ativar, a publicação de versões futuras dispensa transferência manual.
+
+Status dos binários e deploy deve ser conferido no pipeline do APRS e em https://www.pt2vhf.com/aprs. A versão só está publicamente disponível depois que os cinco arquivos existirem no domínio oficial.
