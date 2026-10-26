@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css?v=20261026-prop-capture">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261026-contact-banner">
   <link rel="stylesheet" href="/assets/css/aprs-language-menu.css?v=20261026-2">
 </head>
 <body class="program-page" data-program="prop">
@@ -29,13 +29,18 @@
       </a>
 
       <nav id="site-nav" class="site-nav" aria-label="Principal">
-        <a href="/aprs">APRS Client</a>
-        <a href="/prop" aria-current="page">Prop Tool</a>
-        <a href="/mesh">Mesh Analyzer</a>
-        <a href="/sat">SAT Tool</a>
-        <a href="/prog">Prog Tool</a>
-        <a href="/#contato">Contato</a>
-
+        <a class="site-nav-home" href="/">Início</a>
+        <details class="site-nav-projects">
+          <summary class="site-nav-projects-label" aria-label="Projetos">Projetos <span class="site-nav-caret" aria-hidden="true">▾</span></summary>
+          <div class="site-nav-dropdown">
+            <a href="/aprs">APRS Client</a>
+            <a href="/prop">Prop Tool</a>
+            <a href="/mesh">Mesh Analyzer</a>
+            <a href="/sat">SAT Tool</a>
+            <a href="/prog">Prog Tool</a>
+          </div>
+        </details>
+        <a class="site-nav-contact" href="/contato">Contato</a>
       </nav>
       <div class="header-controls">
         <div id="languageQuickSwitch" class="language-quick-switch" aria-label="Idioma / Language">
@@ -124,7 +129,7 @@
       <div class="container contact">
         <h2 id="project-contact-title">Ajuda, dificuldades ou sugestões?</h2>
         <p>Entre em contato com o desenvolvedor do PT2VHF.</p>
-        <a class="btn btn-primary" href="mailto:alexpmr@gmail.com">Entrar em contato</a>
+        <a class="btn btn-primary" href="/contato">Entrar em contato</a>
       </div>
     </section>
   </main>
@@ -143,6 +148,6 @@
   <script src="/assets/js/locales/zh.js"></script>
   <script src="/assets/js/products.js"></script>
   <script src="/assets/js/gallery.js?v=20261026-prop-capture"></script>
-  <script src="/assets/js/main.js?v=20261026-prop-capture"></script>
+  <script src="/assets/js/main.js?v=20261026-contact-banner"></script>
 </body>
 </html>

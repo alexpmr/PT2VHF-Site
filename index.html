@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261026-2">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261026-contact-banner">
   <link rel="stylesheet" href="assets/css/aprs-language-menu.css?v=20261026-2">
 </head>
 <body>
@@ -30,14 +30,18 @@
       </a>
 
       <nav id="site-nav" class="site-nav" aria-label="Principal">
-        <a href="/aprs">APRS Client</a>
-        <a href="/prop">Prop Tool</a>
-        <a href="/mesh">Mesh Analyzer</a>
-        <a href="/sat">SAT Tool</a>
-        <a href="/prog">Prog Tool</a>
-        <a href="#instalacao">Instalação</a>
-        <a href="#contato">Contato</a>
-
+        <a class="site-nav-home" href="/" aria-current="page">Início</a>
+        <details class="site-nav-projects">
+          <summary class="site-nav-projects-label" aria-label="Projetos">Projetos <span class="site-nav-caret" aria-hidden="true">▾</span></summary>
+          <div class="site-nav-dropdown">
+            <a href="/aprs">APRS Client</a>
+            <a href="/prop">Prop Tool</a>
+            <a href="/mesh">Mesh Analyzer</a>
+            <a href="/sat">SAT Tool</a>
+            <a href="/prog">Prog Tool</a>
+          </div>
+        </details>
+        <a class="site-nav-contact" href="/contato">Contato</a>
       </nav>
       <div class="header-controls">
         <div id="languageQuickSwitch" class="language-quick-switch" aria-label="Idioma / Language">
@@ -85,15 +89,16 @@
   </header>
 
   <main id="conteudo">
-    <section class="hero" id="topo">
-      <div class="hero-wave" aria-hidden="true"></div>
-      <div class="container hero-inner">
-        <p class="eyebrow mono">PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT</p>
-        <h1>Software de radioamadorismo. Cinco projetos, uma estação.</h1>
-        <p class="lead">APRS em tempo real, propagação, topologia Meshtastic, rastreamento de satélites e programação de rádios. Consulte os instaladores realmente disponíveis e o andamento das próximas versões.</p>
+    <section class="hero hero-photo-banner" id="topo" aria-labelledby="home-title">
+      <div class="hero-banner-image">
+        <img src="/assets/img/pt2vhf-hero-banner.webp" alt="PT2VHF — rádio, tecnologia, comunidade, comunicação por satélites e redes" width="2000" height="667" fetchpriority="high" decoding="async">
+      </div>
+      <div class="container hero-banner-bottom">
+        <h1 id="home-title" class="sr-only">Software de radioamadorismo. Cinco projetos, uma estação.</h1>
+        <p class="lead">Aplicativos para APRS, propagação de rádio, redes mesh, satélites e programação de equipamentos.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#visao-geral">Explorar projetos</a>
-          <a class="btn btn-ghost btn-lg" href="/aprs">Conhecer os programas</a>
+          <a class="btn btn-primary" href="#visao-geral">Explorar projetos</a>
+          <a class="btn btn-ghost" href="/contato">Sobre mim e contato</a>
         </div>
       </div>
     </section>
@@ -113,50 +118,6 @@
       </div>
     </section>
 
-    <section class="section" id="instalacao" aria-labelledby="instalacao-titulo">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="instalacao-titulo">Instalação em 3 passos</h2>
-        </div>
-        <ol class="steps">
-          <li>
-            <h3>Baixe o instalador</h3>
-            <p>Abra a página do projeto, selecione o arquivo disponível e salve-o no seu computador.</p>
-          </li>
-          <li>
-            <h3>Execute e siga o assistente</h3>
-            <p>Se o Windows SmartScreen exibir um aviso, confirme a origem do instalador antes de executá-lo. Não ignore avisos de segurança de arquivos desconhecidos.</p>
-          </li>
-          <li>
-            <h3>Conecte seu equipamento</h3>
-            <p>Use o cabo de programação, TNC ou rádio mesh correspondente e selecione a porta no programa.</p>
-          </li>
-        </ol>
-        <p class="note">Baixe apenas arquivos publicados na página oficial de cada projeto. Não execute instaladores recebidos de fontes desconhecidas.</p>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="sobre" aria-labelledby="sobre-titulo">
-      <div class="container about">
-        <div>
-          <h2 id="sobre-titulo">Sobre o PT2VHF</h2>
-          <p>PT2VHF é o indicativo de uma estação de radioamador brasileira dedicada a VHF/UHF, comunicações digitais e redes mesh. As ferramentas deste site nasceram da necessidade de resolver problemas reais da estação e agora estão disponíveis para toda a comunidade.</p>
-          <p>Sugestões, relatos de bugs e ideias de novos recursos são sempre bem-vindos.</p>
-        </div>
-        <div class="callsign mono" aria-hidden="true">
-          <span>PT2VHF</span>
-          <small>73 · QRV</small>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contato" aria-labelledby="contato-titulo">
-      <div class="container contact">
-        <h2 id="contato-titulo">Contato</h2>
-        <p>Fale com o PT2VHF por e-mail.</p>
-        <a class="btn btn-primary btn-lg" href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -174,6 +135,6 @@
   <script src="assets/js/locales/it.js"></script>
   <script src="assets/js/locales/zh.js"></script>
   <script src="assets/js/products.js"></script>
-  <script src="assets/js/main.js?v=20261026-2"></script>
+  <script src="assets/js/main.js?v=20261026-contact-banner"></script>
 </body>
 </html>
