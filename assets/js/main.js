@@ -197,6 +197,12 @@
     return decodeURIComponent(String(url).split("/").pop());
   }
 
+  function publicDownloadUrl(p, f) {
+    return p.id === "aprs" && f.name
+      ? "/download.php?product=aprs&file=" + encodeURIComponent(f.name)
+      : localUrl(f.url);
+  }
+
   function humanSize(bytes) {
     if (typeof bytes !== "number" || !isFinite(bytes)) return "";
     if (bytes < 1024) return bytes + " B";
@@ -264,8 +270,9 @@
           "</span></td>" +
           '<td data-label="' + esc(t("catVersion")) + '" class="mono">' + versionLabel(p) + "</td>" +
           '<td data-label="' + esc(t("catSize")) + '" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
-          '<td class="action"><div class="download-action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(localUrl(f.url)) + '"' +
-          ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.counterKey || f.category) + '" download>' + esc(t("download")) +
+          '<td class="action"><div class="download-action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(publicDownloadUrl(p, f)) + '"' +
+          ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.counterKey || f.category) + '"' +
+          (p.id === "aprs" ? "" : " download") + '>' + esc(t("download")) +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a>" +
           '<span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.counterKey || f.category) + '" aria-live="polite">—</span></div></td>' +
           "</tr>"
@@ -459,21 +466,28 @@
     });
   }
 
-  // Dispara o download pelo arquivo original mesmo se a API PHP falhar.
-  // A contagem é feita por requisição POST no clique, sem cookies nem IPs.
+  // APRS: o servidor registra a solicitação antes de servir o arquivo.
+  // Jamais emitir um segundo POST no mesmo clique.
   document.addEventListener("click", function (event) {
     var a = event.target.closest ? event.target.closest("a[data-counter-product][data-counter-category]") : null;
-    if (!a || !window.navigator) return;
-    var form = new FormData();
-    form.append("action", "count");
-    form.append("product", a.getAttribute("data-counter-product"));
-    form.append("category", a.getAttribute("data-counter-category"));
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon("/download.php", form);
-    } else if (window.fetch) {
-      fetch("/download.php", { method:"POST", body:form, keepalive:true, cache:"no-store" }).catch(function () {});
+    if (!a) return;
+    if (a.getAttribute("data-counter-product") === "aprs") {
+      setTimeout(loadDownloadCounters, 900);
+      setTimeout(loadDownloadCounters, 2800);
+    } else if (window.navigator) {
+      var form = new FormData();
+      form.append("action", "count");
+      form.append("product", a.getAttribute("data-counter-product"));
+      form.append("category", a.getAttribute("data-counter-category"));
+      if (navigator.sendBeacon) navigator.sendBeacon("/download.php", form);
+      else if (window.fetch) fetch("/download.php", { method:"POST", body:form, keepalive:true, cache:"no-store" }).catch(function () {});
+      setTimeout(loadDownloadCounters, 900);
     }
   }, true);
+  window.addEventListener("focus", function () { if (programId) loadDownloadCounters(); });
+  document.addEventListener("visibilitychange", function () {
+    if (programId && !document.hidden) loadDownloadCounters();
+  });
 
   // Preserva os favoritos antigos com âncoras no catálogo anterior.
   if (!programId) {

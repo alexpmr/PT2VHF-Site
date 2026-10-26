@@ -19,6 +19,11 @@ RewriteCond %{THE_REQUEST} "^[A-Z]+[ ]/+(aprs|prop|mesh|sat|prog)[.]html([ ?]|$)
 RewriteRule ^(aprs|prop|mesh|sat|prog)[.]html$ /$1 [R=301,L,NC]
 RewriteRule ^(aprs|prop|mesh|sat|prog)/?$ $1.html [END,NC]
 
+# Contabiliza URLs diretas do APRS (inclusive downloads do atualizador).
+# A segunda requisição, com pt2vhf_raw=1, serve o binário estático.
+RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
+RewriteRule ^downloads/aprs-client/([A-Za-z0-9_.-]+\.(?:exe|AppImage|deb|tar\.gz))$ download.php?product=aprs&file=$1 [L,NC,QSA]
+
 # Instaladores sempre como download
 <FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg|gz)$">
   Header set Content-Disposition attachment

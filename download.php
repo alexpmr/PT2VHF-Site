@@ -70,15 +70,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['mode'] ?? '') === 'stats') {
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST' || ($_POST['action'] ?? '') !== 'count') {
+// Downloads APRS: valida, registra e redireciona no servidor. HEAD não conta.
+// POST de versões antigas do JS é ignorado para evitar duplicação com GET.
+$method = (string)($_SERVER['REQUEST_METHOD'] ?? 'GET');
+$isFileRequest = in_array($method, array('GET', 'HEAD'), true) && isset($_GET['file']);
+if (!$isFileRequest && ($method !== 'POST' || ($_POST['action'] ?? '') !== 'count')) {
     fclose($file);
     pt2vhf_error(405, 'Método ou ação inválidos');
 }
-$product = (string)($_POST['product'] ?? '');
-$category = (string)($_POST['category'] ?? '');
-if (!in_array($product, $products, true) || !in_array($category, $allowed, true)) {
+$product = (string)($isFileRequest ? ($_GET['product'] ?? '') : ($_POST['product'] ?? ''));
+$category = (string)($isFileRequest ? '' : ($_POST['category'] ?? ''));
+$requestedFile = $isFileRequest ? (string)($_GET['file'] ?? '') : '';
+if (!in_array($product, $products, true) ||
+    ($isFileRequest && ($product !== 'aprs' || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
+    (!$isFileRequest && !in_array($category, $allowed, true))) {
     fclose($file);
-    pt2vhf_error(400, 'Projeto ou categoria inválidos');
+    pt2vhf_error(400, 'Projeto, categoria ou arquivo inválidos');
+}
+if (!$isFileRequest && $product === 'aprs') {
+    fclose($file);
+    http_response_code(204);
+    exit;
 }
 
 $manifest = @file_get_contents($manifestPath);
@@ -92,22 +104,42 @@ if (!is_array($files)) {
 // Só conta uma solicitação para uma categoria com arquivo publicado e
 // efetivamente presente na hospedagem. Nunca aceita caminho enviado pelo cliente.
 $found = false;
+$redirectPath = '';
 foreach ($files as $entry) {
-    if ((($entry['counterKey'] ?? null) ?: ($entry['category'] ?? '')) !== $category) continue;
+    if (!is_array($entry)) continue;
+    $key = (string)(($entry['counterKey'] ?? null) ?: ($entry['category'] ?? ''));
+    if ($isFileRequest) {
+        if (($entry['name'] ?? '') !== $requestedFile || !in_array($key, $allowed, true)) continue;
+    } elseif ($key !== $category) continue;
     $url = (string)($entry['url'] ?? '');
-    $path = (string)(parse_url($url, PHP_URL_PATH) ?: '');
-    $host = strtolower((string)(parse_url($url, PHP_URL_HOST) ?: ''));
-    if ($host !== 'www.pt2vhf.com' || strpos($path, '/downloads/') !== 0) continue;
+    $parts = parse_url($url);
+    if (!is_array($parts) || ($parts['scheme'] ?? '') !== 'https'
+        || strtolower((string)($parts['host'] ?? '')) !== 'www.pt2vhf.com'
+        || isset($parts['user']) || isset($parts['pass']) || isset($parts['port'])
+        || isset($parts['query']) || isset($parts['fragment'])) continue;
+    $path = (string)($parts['path'] ?? '');
+    if (strpos($path, '/downloads/') !== 0 || strpos($path, '%') !== false) continue;
+    if ($isFileRequest && $path !== '/downloads/aprs-client/' . $requestedFile) continue;
     $root = realpath(__DIR__ . '/downloads');
     $target = realpath(__DIR__ . $path);
-    if ($root !== false && $target !== false && strncmp($target, $root . DIRECTORY_SEPARATOR, strlen($root) + 1) === 0 && is_file($target)) {
+    $size = $entry['size'] ?? null;
+    if ($root !== false && $target !== false &&
+        strncmp($target, $root . DIRECTORY_SEPARATOR, strlen($root) + 1) === 0 &&
+        is_file($target) && is_readable($target) &&
+        is_int($size) && $size > 0 && filesize($target) === $size) {
         $found = true;
+        if ($isFileRequest) { $category = $key; $redirectPath = $path; }
         break;
     }
 }
 if (!$found) {
     fclose($file);
     pt2vhf_error(404, 'Arquivo da categoria não está disponível');
+}
+if ($isFileRequest && $method === 'HEAD') {
+    fclose($file);
+    header('Location: ' . $redirectPath . '?pt2vhf_raw=1', true, 302);
+    exit;
 }
 
 if (!flock($file, LOCK_EX)) {
@@ -129,4 +161,8 @@ if (!is_string($output) || ftruncate($file, 0) === false || rewind($file) === fa
 }
 flock($file, LOCK_UN);
 fclose($file);
+if ($isFileRequest) {
+    header('Location: ' . $redirectPath . '?pt2vhf_raw=1', true, 302);
+    exit;
+}
 http_response_code(204);
