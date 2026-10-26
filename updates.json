@@ -72,10 +72,10 @@
       "version": null,
       "page": "https://www.pt2vhf.com/prop",
       "files": [],
-      "developmentVersion": "0.2.21",
-      "releaseStatus": "O empacotamento Windows gerou arquivos, mas a validação automatizada falhou. Não há instalador público homologado nesta página.",
-      "ciUrl": "https://gitlab.com/pt2vhf-group/pt2vhf-prop-tool/-/jobs/17455945352",
-      "ciLabel": "Detalhes do build em validação (requer acesso ao GitLab)"
+      "developmentVersion": "0.2.22",
+      "releaseStatus": "Versão 0.2.22 mesclada à main e em compilação/validação Windows. Instaladores públicos ainda não homologados ou publicados.",
+      "ciUrl": "https://gitlab.com/pt2vhf-group/pt2vhf-prop-tool/-/pipelines/2990492802",
+      "ciLabel": "Pipeline de testes e compilação da v0.2.22 (GitLab)"
     },
     "mesh": {
       "name": "PT2VHF Mesh Analyzer",
