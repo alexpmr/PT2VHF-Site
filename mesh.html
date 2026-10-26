@@ -36,14 +36,42 @@
         <a href="/sat">SAT Tool</a>
         <a href="/prog">Prog Tool</a>
         <a href="/#contato">Contato</a>
-        <div class="language-flags" role="group" aria-label="Idioma / Language">
-          <button type="button" class="language-flag" data-lang="pt" aria-label="Português (Brasil)" title="Português (Brasil)" aria-pressed="false"><img src="/assets/img/flags/br.svg" alt="" width="28" height="20"></button>
-          <button type="button" class="language-flag" data-lang="en" aria-label="English (US)" title="English (US)" aria-pressed="false"><img src="/assets/img/flags/us.svg" alt="" width="28" height="20"></button>
-          <button type="button" class="language-flag" data-lang="es" aria-label="Español" title="Español" aria-pressed="false"><img src="/assets/img/flags/es.svg" alt="" width="28" height="20"></button>
-          <button type="button" class="language-flag" data-lang="fr" aria-label="Français" title="Français" aria-pressed="false"><img src="/assets/img/flags/fr.svg" alt="" width="28" height="20"></button>
-          <button type="button" class="language-flag" data-lang="de" aria-label="Deutsch" title="Deutsch" aria-pressed="false"><img src="/assets/img/flags/de.svg" alt="" width="28" height="20"></button>
-          <button type="button" class="language-flag" data-lang="it" aria-label="Italiano" title="Italiano" aria-pressed="false"><img src="/assets/img/flags/it.svg" alt="" width="28" height="20"></button>
-          <button type="button" class="language-flag" data-lang="zh" aria-label="简体中文" title="简体中文" aria-pressed="false"><img src="/assets/img/flags/cn.svg" alt="" width="28" height="20"></button>
+        <div id="languageQuickSwitch" class="language-quick-switch" aria-label="Idioma / Language">
+          <button id="languageQuickCurrent" type="button" class="language-quick-current" aria-haspopup="menu" aria-controls="languageQuickMenu" aria-expanded="false" title="Trocar idioma">
+            <img id="languageQuickCurrentFlag" class="language-quick-img" src="/assets/img/flags/br.svg" alt="Brasil">
+            <span id="languageQuickCurrentLabel">Português (Brasil)</span>
+            <span class="language-quick-caret" aria-hidden="true">▾</span>
+          </button>
+          <div id="languageQuickMenu" class="language-quick-menu" role="menu" aria-label="Idioma / Language" hidden>
+            <button type="button" class="language-quick-option" data-language="pt" role="menuitemradio" aria-checked="true">
+              <img class="language-quick-img" src="/assets/img/flags/br.svg" alt="Brasil">
+              <span>Português (Brasil)</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="en" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/gb.svg" alt="Reino Unido">
+              <span>English</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="es" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/es.svg" alt="Espanha">
+              <span>Español</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="fr" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/fr.svg" alt="França">
+              <span>Français</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="de" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/de.svg" alt="Alemanha">
+              <span>Deutsch</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="it" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/it.svg" alt="Itália">
+              <span>Italiano</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="zh" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/cn.svg" alt="China">
+              <span>简体中文</span>
+            </button>
+          </div>
         </div>
       </nav>
     </div>

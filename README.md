@@ -234,17 +234,18 @@ o código-fonte correspondente por um meio que cumpra os termos da licença.
 Esta alteração remove a apresentação desses links no catálogo; não altera
 as obrigações de licenciamento e deve-se manter uma oferta de código conforme a GPLv3.
 
-## Seletor de idiomas por bandeiras (26/10/2026)
+## Menu de idioma suspenso, como no APRS Client (26/10/2026)
 
-Na barra de navegação de todas as páginas, o seletor de idioma é composto por
-sete bandeiras clicáveis: Brasil/português (`pt`), Estados Unidos/inglês
-(`en`), Espanha/espanhol (`es`), França/francês (`fr`),
-Alemanha/alemão (`de`), Itália/italiano (`it`) e China/chinês
-simplificado (`zh`). As imagens SVG foram copiadas dos recursos próprios
-do APRS Client, evitando serviços externos de bandeiras.
+O controle replica a arquitetura do APRS Client: um único botão
+`languageQuickCurrent` com a bandeira e o nome do idioma corrente, seta
+indicativa e menu vertical `languageQuickMenu` com as opções identificadas
+por bandeira e idioma, seleção realçada e rolagem quando necessário.
 
-O idioma ativo recebe borda destacada e `aria-pressed=true`; cada botão tem
-nome acessível e dica de mouse. A escolha altera o conteúdo sem recarregar
-a página e permanece na URL (`?lang=<código>`) e no navegador, inclusive
-nos links para as páginas individuais. Em telas estreitas, as bandeiras
-aparecem no menu móvel em um grupo responsivo.
+São oferecidos os 7 idiomas efetivamente traduzidos no site: português
+(Brasil), inglês (bandeira britânica do APRS Client), espanhol, francês,
+alemão, italiano e chinês simplificado. As opções são tecláveis:
+Enter/Space, seta para cima/baixo, Home/End e Escape; o menu fecha por
+clique fora ou escolha e preserva idioma em `?lang=` e localStorage.
+
+As bandeiras SVG são as do repositório PT2VHF APRS Client. O seletor
+aparece na página principal e nas cinco páginas de produtos.
