@@ -83,9 +83,48 @@
       "version": null,
       "page": "https://www.pt2vhf.com/mesh",
       "files": [],
-      "developmentVersion": null,
-      "releaseStatus": "Nenhum instalador público ou repositório do Mesh Analyzer foi confirmado neste GitLab. A publicação está pendente.",
-      "updateEndpoint": "https://www.pt2vhf.com/update.php?product=mesh"
+      "developmentVersion": "0.6.58",
+      "releaseStatus": "Versão 0.6.58 em compilação; links habilitados somente após os binários estarem presentes na hospedagem oficial.",
+      "updateEndpoint": "https://www.pt2vhf.com/update.php?product=mesh",
+      "plannedFiles": [
+        {
+          "category": "windows-installer",
+          "counterKey": "win-setup-x64",
+          "architecture": "x64",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-Setup-Win10-Win11-x64.exe"
+        },
+        {
+          "category": "windows-portable",
+          "counterKey": "win-portable-x64",
+          "architecture": "x64",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-Portable-Win10-Win11-x64.zip"
+        },
+        {
+          "category": "linux-targz",
+          "counterKey": "linux-tar-x64",
+          "architecture": "x64",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-Linux-x64.tar.gz"
+        },
+        {
+          "category": "linux-deb",
+          "counterKey": "linux-deb-x64",
+          "architecture": "x64",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-amd64.deb"
+        },
+        {
+          "category": "macos",
+          "counterKey": "mac-dmg-arm64",
+          "architecture": "Apple Silicon",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-macOS-arm64.dmg"
+        },
+        {
+          "category": "macos",
+          "counterKey": "mac-dmg-x64",
+          "architecture": "Intel",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.58-macOS-x64.dmg"
+        }
+      ],
+      "ciUrl": "https://github.com/alexpmr/PT2VHF-Mesh-Analyzer/actions"
     },
     "aprs": {
       "name": "PT2VHF APRS Client",

@@ -83,7 +83,7 @@ $product = (string)($isFileRequest ? ($_GET['product'] ?? '') : ($_POST['product
 $category = (string)($isFileRequest ? '' : ($_POST['category'] ?? ''));
 $requestedFile = $isFileRequest ? (string)($_GET['file'] ?? '') : '';
 if (!in_array($product, $products, true) ||
-    ($isFileRequest && (!in_array($product, array('aprs', 'prop'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
+    ($isFileRequest && (!in_array($product, array('aprs', 'prop', 'mesh'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
     (!$isFileRequest && !in_array($category, $allowed, true))) {
     fclose($file);
     pt2vhf_error(400, 'Projeto, categoria ou arquivo inválidos');
@@ -122,7 +122,7 @@ foreach ($files as $entry) {
         || isset($parts['query']) || isset($parts['fragment'])) continue;
     $path = (string)($parts['path'] ?? '');
     if (strpos($path, '/downloads/') !== 0 || strpos($path, '%') !== false) continue;
-    if ($isFileRequest && $path !== '/downloads/' . ($product === 'prop' ? 'prop-tool' : 'aprs-client') . '/' . $requestedFile) continue;
+    if ($isFileRequest && $path !== '/downloads/' . ($product === 'prop' ? 'prop-tool' : ($product === 'mesh' ? 'mesh-analyzer' : 'aprs-client')) . '/' . $requestedFile) continue;
     $size = $entry['size'] ?? null;
     if ($product === 'prop') {
         $chunks = pt2vhf_prop_parts($entry);

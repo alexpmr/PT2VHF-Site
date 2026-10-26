@@ -198,8 +198,8 @@
   }
 
   function publicDownloadUrl(p, f) {
-    return p.id === "aprs" && f.name
-      ? "/download.php?product=aprs&file=" + encodeURIComponent(f.name)
+    return (p.id === "aprs" || p.id === "mesh") && f.name
+      ? "/download.php?product=" + p.id + "&file=" + encodeURIComponent(f.name)
       : localUrl(f.url);
   }
 
@@ -234,17 +234,17 @@
       return '<p class="soon load-error">' + esc(t("loadError")) + '</p>';
     }
     var files = sortedFiles(p);
-    if (!files.length && p.id === "aprs" && Array.isArray(p.plannedFiles) && p.plannedFiles.length) {
+    if (!files.length && (p.id === "aprs" || p.id === "mesh") && Array.isArray(p.plannedFiles) && p.plannedFiles.length) {
       var rows = p.plannedFiles.map(function (f) {
         var key = esc(f.counterKey || f.category);
         return '<tr><th scope="row">' + esc(categoryLabel(f)) + '</th>' +
           '<td><span class="file-name">' + esc(f.name) + '</span></td>' +
           '<td class="mono">' + (p.developmentVersion ? 'v' + esc(p.developmentVersion) : '—') +
           '</td><td>—</td><td><span class="badge">' + esc(t("releasePending")) + '</span> ' +
-          '<span class="download-count" data-count-product="aprs" data-count-category="' + key +
+          '<span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + key +
           '" aria-live="polite">—</span></td></tr>';
       }).join("");
-      return '<div class="unreleased"><p class="status-detail">' + esc(t("statAprs")) + '</p>' +
+      return '<div class="unreleased"><p class="status-detail">' + esc(t(p.id === "mesh" ? "statMesh" : "statAprs")) + '</p>' +
         '<div class="table-wrap"><table class="downloads"><thead><tr><th>' + esc(t("catCategory")) +
         '</th><th>' + esc(t("catFile")) + '</th><th>' + esc(t("catVersion")) +
         '</th><th>' + esc(t("catSize")) + '</th><th>' + esc(t("downloadsCount")) +
@@ -272,7 +272,7 @@
           '<td data-label="' + esc(t("catSize")) + '" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
           '<td class="action"><div class="download-action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(publicDownloadUrl(p, f)) + '"' +
           ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.counterKey || f.category) + '"' +
-          (p.id === "aprs" ? "" : " download") + '>' + esc(t("download")) +
+          ((p.id === "aprs" || p.id === "mesh") ? "" : " download") + '>' + esc(t("download")) +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a>" +
           '<span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.counterKey || f.category) + '" aria-live="polite">—</span></div></td>' +
           "</tr>"
@@ -471,7 +471,7 @@
   document.addEventListener("click", function (event) {
     var a = event.target.closest ? event.target.closest("a[data-counter-product][data-counter-category]") : null;
     if (!a) return;
-    if (["aprs", "prop"].indexOf(a.getAttribute("data-counter-product")) !== -1) {
+    if (["aprs", "prop", "mesh"].indexOf(a.getAttribute("data-counter-product")) !== -1) {
       setTimeout(loadDownloadCounters, 900);
       setTimeout(loadDownloadCounters, 2800);
     } else if (window.navigator) {
