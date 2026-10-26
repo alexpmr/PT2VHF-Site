@@ -9,6 +9,7 @@ const pages=["index","aprs","prop","mesh","sat","prog","contato"];
 for(const name of pages){
  const s=load(name+".html");
  assert(s.includes("/assets/js/contact-data.js"),name+": traducoes do menu nao foram carregadas");
+ if(name==="contato")assert(!/(?:src|href)="assets\//.test(s),"Contato deve usar URLs absolutas para funcionar com barra final");
  assert(s.includes('href="/contato"'),name+": menu Contato ausente");
  assert(s.includes('class="site-nav-projects"'),name+": menu de projetos ausente");
  for(const project of ["aprs","prop","mesh","sat","prog"]){
