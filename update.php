@@ -5,6 +5,7 @@
  * PHP 7.4+.
  */
 declare(strict_types=1);
+require_once __DIR__ . '/prop_parts.php';
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, max-age=0');
 header('X-Content-Type-Options: nosniff');
@@ -67,12 +68,17 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
         if (strpos($path, $prefix) !== 0 || strpos($path, '%') !== false) continue;
         $name = basename($path);
         if ($name !== (string)($file['name'] ?? '') || !preg_match('/^[a-zA-Z0-9_.-]+$/D', $name)) continue;
-        $real = realpath(__DIR__ . $path);
-        if ($real === false || strncmp($real, $root . DIRECTORY_SEPARATOR, strlen($root) + 1) !== 0
-            || !is_file($real) || !is_readable($real)) continue;
         $size = $file['size'] ?? null;
         $sha = (string)($file['sha256'] ?? '');
-        if (!is_int($size) || $size <= 0 || filesize($real) !== $size || !preg_match('/^[a-f0-9]{64}$/D', $sha)) continue;
+        if (!is_int($size) || $size <= 0 || !preg_match('/^[a-f0-9]{64}$/D', $sha)) continue;
+        if ($product === 'prop') {
+            // Each installer consists of verified, sub-100 MiB server-side parts.
+            if (pt2vhf_prop_parts($file) === false) continue;
+        } else {
+            $real = realpath(__DIR__ . $path);
+            if ($real === false || strncmp($real, $root . DIRECTORY_SEPARATOR, strlen($root) + 1) !== 0
+                || !is_file($real) || !is_readable($real) || filesize($real) !== $size) continue;
+        }
         $assets[] = array('category'=>$category, 'kind'=>$fileKind, 'platform'=>$filePlatform,
                           'name'=>$name, 'url'=>$url, 'size'=>$size, 'sha256'=>$sha);
     }

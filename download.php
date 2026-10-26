@@ -7,6 +7,7 @@
  * Arquivo de dados fora de public_html, preservado em novos deploys.
  */
 declare(strict_types=1);
+require_once __DIR__ . '/prop_parts.php';
 
 header('X-Content-Type-Options: nosniff');
 header('Referrer-Policy: no-referrer');
@@ -82,7 +83,7 @@ $product = (string)($isFileRequest ? ($_GET['product'] ?? '') : ($_POST['product
 $category = (string)($isFileRequest ? '' : ($_POST['category'] ?? ''));
 $requestedFile = $isFileRequest ? (string)($_GET['file'] ?? '') : '';
 if (!in_array($product, $products, true) ||
-    ($isFileRequest && ($product !== 'aprs' || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
+    ($isFileRequest && (!in_array($product, array('aprs', 'prop'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
     (!$isFileRequest && !in_array($category, $allowed, true))) {
     fclose($file);
     pt2vhf_error(400, 'Projeto, categoria ou arquivo inválidos');
@@ -105,6 +106,8 @@ if (!is_array($files)) {
 // efetivamente presente na hospedagem. Nunca aceita caminho enviado pelo cliente.
 $found = false;
 $redirectPath = '';
+$propChunks = false;
+$propSize = 0;
 foreach ($files as $entry) {
     if (!is_array($entry)) continue;
     $key = (string)(($entry['counterKey'] ?? null) ?: ($entry['category'] ?? ''));
@@ -119,17 +122,26 @@ foreach ($files as $entry) {
         || isset($parts['query']) || isset($parts['fragment'])) continue;
     $path = (string)($parts['path'] ?? '');
     if (strpos($path, '/downloads/') !== 0 || strpos($path, '%') !== false) continue;
-    if ($isFileRequest && $path !== '/downloads/aprs-client/' . $requestedFile) continue;
-    $root = realpath(__DIR__ . '/downloads');
-    $target = realpath(__DIR__ . $path);
+    if ($isFileRequest && $path !== '/downloads/' . ($product === 'prop' ? 'prop-tool' : 'aprs-client') . '/' . $requestedFile) continue;
     $size = $entry['size'] ?? null;
-    if ($root !== false && $target !== false &&
-        strncmp($target, $root . DIRECTORY_SEPARATOR, strlen($root) + 1) === 0 &&
-        is_file($target) && is_readable($target) &&
-        is_int($size) && $size > 0 && filesize($target) === $size) {
-        $found = true;
-        if ($isFileRequest) { $category = $key; $redirectPath = $path; }
-        break;
+    if ($product === 'prop') {
+        $chunks = pt2vhf_prop_parts($entry);
+        if ($chunks !== false) {
+            $found = true;
+            if ($isFileRequest) { $category = $key; $propChunks = $chunks; $propSize = $size; }
+            break;
+        }
+    } else {
+        $root = realpath(__DIR__ . '/downloads');
+        $target = realpath(__DIR__ . $path);
+        if ($root !== false && $target !== false &&
+            strncmp($target, $root . DIRECTORY_SEPARATOR, strlen($root) + 1) === 0 &&
+            is_file($target) && is_readable($target) &&
+            is_int($size) && $size > 0 && filesize($target) === $size) {
+            $found = true;
+            if ($isFileRequest) { $category = $key; $redirectPath = $path; }
+            break;
+        }
     }
 }
 if (!$found) {
@@ -138,8 +150,14 @@ if (!$found) {
 }
 if ($isFileRequest && $method === 'HEAD') {
     fclose($file);
+    if ($product === 'prop') pt2vhf_serve_prop($requestedFile, $propSize, $propChunks, true);
     header('Location: ' . $redirectPath . '?pt2vhf_raw=1', true, 302);
     exit;
+}
+// Download continuation/range requests must not inflate the accumulated counter.
+if ($isFileRequest && $product === 'prop' && isset($_SERVER['HTTP_RANGE'])) {
+    fclose($file);
+    pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
 }
 
 if (!flock($file, LOCK_EX)) {
@@ -162,6 +180,7 @@ if (!is_string($output) || ftruncate($file, 0) === false || rewind($file) === fa
 flock($file, LOCK_UN);
 fclose($file);
 if ($isFileRequest) {
+    if ($product === 'prop') pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
     header('Location: ' . $redirectPath . '?pt2vhf_raw=1', true, 302);
     exit;
 }

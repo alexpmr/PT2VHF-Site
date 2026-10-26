@@ -19,6 +19,12 @@ RewriteCond %{THE_REQUEST} "^[A-Z]+[ ]/+(aprs|prop|mesh|sat|prog)[.]html([ ?]|$)
 RewriteRule ^(aprs|prop|mesh|sat|prog)[.]html$ /$1 [R=301,L,NC]
 RewriteRule ^(aprs|prop|mesh|sat|prog)/?$ $1.html [END,NC]
 
+# Parts of Prop Tool installers are never downloadable individually.
+RewriteRule ^downloads/prop-tool/.*\.exe\.part(?:[0-9]{2}|s\.json)$ - [F,L,NC]
+# Reconstruct a byte-identical .exe from <100 MiB files, counting OTA downloads.
+# No external redirect: the desktop auto-updater requires a direct HTTP 200 response.
+RewriteRule ^downloads/prop-tool/(PT2VHF-Prop-Tool-[0-9]+\.[0-9]+\.[0-9]+-x64-(?:setup|portable)\.exe)$ download.php?product=prop&file=$1 [L,NC,QSA]
+
 # Contabiliza URLs diretas do APRS (inclusive downloads do atualizador).
 # A segunda requisição, com pt2vhf_raw=1, serve o binário estático.
 RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
