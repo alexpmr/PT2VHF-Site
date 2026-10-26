@@ -41,6 +41,8 @@ validate_site_javascript:
   script:
     - node --check assets/js/main.js
     - node --check assets/js/products.js
+    - node --check assets/js/contact-data.js
+    - node scripts/test_site_navigation.cjs
     - node --check assets/js/mesh-site-data.js
     - node scripts/test_mesh_page.cjs
     - for f in assets/js/locales/*.js; do node --check "$f" || exit 1; done

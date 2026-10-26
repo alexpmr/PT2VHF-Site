@@ -103,6 +103,39 @@
     if (footer && footer.lastChild && footer.lastChild.nodeType === 3) {
       footer.lastChild.textContent = " PT2VHF. " + t("footerRights");
     }
+
+    var siteLanguage=(window.PT2VHF_SITE_PAGE_I18N||{})[selectedLang]||(window.PT2VHF_SITE_PAGE_I18N||{}).pt;
+    if (siteLanguage) {
+      [
+        [".site-nav-home","navHome"],
+        [".site-nav-projects-label","navProjects"],
+        [".site-nav-contact","navContact"]
+      ].forEach(function(pair){
+        var element=document.querySelector(pair[0]);
+        if(!element)return;
+        if(pair[1]==="navProjects"){
+          element.textContent=siteLanguage.navProjects+" ";
+          var chevron=document.createElement("span");
+          chevron.className="site-nav-caret";
+          chevron.setAttribute("aria-hidden","true");
+          chevron.textContent="▾";
+          element.appendChild(chevron);
+          element.setAttribute("aria-label",siteLanguage.navProjects);
+        } else {
+          element.textContent=siteLanguage[pair[1]];
+        }
+      });
+      if (!programId) {
+        var aboutLink=document.querySelector(".hero-banner-bottom .hero-actions a:nth-child(2)");
+        if (aboutLink) aboutLink.textContent=siteLanguage.aboutButton;
+      }
+      if(document.body.classList.contains("contact-page")){
+        Array.prototype.forEach.call(document.querySelectorAll("[data-contact]"),function(el){
+          var key=el.getAttribute("data-contact");
+          if(siteLanguage[key])el.textContent=siteLanguage[key];
+        });
+      }
+    }
     syncQuickLanguageButtons();
     var meta = document.querySelector('meta[name="description"]');
     var currentProduct = products.filter(function (p) { return p.id === programId; })[0];
@@ -110,6 +143,9 @@
       var suffixes = { pt:"Recursos e downloads", en:"Features and downloads", es:"Funciones y descargas", fr:"Fonctions et téléchargements", de:"Funktionen und Downloads", it:"Funzioni e download", zh:"功能与下载" };
       document.title = currentProduct.name + " — " + suffixes[selectedLang];
       if (meta) meta.setAttribute("content", currentProduct.summary || currentProduct.tagline);
+    } else if(document.body.classList.contains("contact-page") && siteLanguage) {
+      document.title=siteLanguage.pageTitle;
+      if(meta)meta.setAttribute("content",siteLanguage.pageDescription);
     } else {
       document.title = "PT2VHF — " + t("catalogTitle");
       if (meta) meta.setAttribute("content", t("homeLead"));
@@ -117,7 +153,7 @@
     // Preserve the selected language when navigating between project pages.
     Array.prototype.forEach.call(document.querySelectorAll('a[href^="/"]'), function (link) {
       var href = link.getAttribute("href");
-      if (!/^\/(?:$|aprs(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|#)/.test(href)) return;
+      if (!/^\/(?:$|aprs(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|contato(?:[?#]|$)|#)/.test(href)) return;
       var url = new URL(href, location.origin);
       url.searchParams.set("lang", selectedLang);
       link.setAttribute("href", url.pathname + url.search + url.hash);
