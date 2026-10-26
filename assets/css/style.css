@@ -305,9 +305,21 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .download-count { font-size:.76rem; color:var(--muted); text-align:right; min-width:120px; }
 @media(max-width:900px) { .download-action { width:100%; align-items:stretch; } .download-count { text-align:center; } }
 
-/* Seletor de idioma disponível em todas as páginas */
-.language-picker { align-self:center; display:inline-flex; align-items:center; margin-left:9px; }
-.language-picker select { background:var(--hero-bg); color:var(--hero-text); border:1px solid rgba(255,255,255,.3); border-radius:8px; padding:8px; font:inherit; font-size:.83rem; cursor:pointer; min-width:110px; max-width:135px; }
-.language-picker select:focus-visible { outline:2px solid var(--signal); outline-offset:2px; }
-.language-picker option { background:var(--hero-bg); color:var(--hero-text); }
-@media(max-width:900px) { .language-picker { margin:9px 12px 0; } .language-picker select { max-width:100%; min-width:150px; } }
+/* Seletor de idiomas por bandeiras, com marcação persistente do idioma ativo */
+.language-flags { display:flex; align-self:center; align-items:center; flex-wrap:nowrap; gap:3px; margin:0 0 0 8px; }
+.language-flag { display:inline-flex; align-items:center; justify-content:center; flex:none; width:36px; height:32px; padding:3px; border-radius:7px; border:2px solid transparent; background:transparent; cursor:pointer; opacity:.72; transition:opacity .12s,background .12s,border-color .12s; }
+.language-flag img { display:block; width:28px; height:20px; object-fit:cover; border-radius:2px; box-shadow:0 0 0 1px rgba(255,255,255,.18); }
+.language-flag:hover { opacity:1; background:rgba(255,255,255,.1); }
+.language-flag[aria-pressed="true"], .language-flag.is-active { opacity:1; background:rgba(53,214,182,.13); border-color:var(--signal); }
+.language-flag:focus-visible { outline:2px solid var(--signal); outline-offset:2px; opacity:1; }
+@media(max-width:1150px) and (min-width:901px) {
+  .site-header .nav-toggle { display:block; }
+  .site-header .site-nav { position:absolute; top:64px; left:0; right:0; display:none; flex-direction:column; background:var(--hero-bg); padding:8px 16px 16px; border-bottom:1px solid rgba(255,255,255,.08); }
+  .site-header .site-nav.open { display:flex; }
+  .site-header .site-nav a { padding:12px; }
+}
+@media(max-width:1150px) {
+  .language-flags { margin:10px 12px 4px; flex-wrap:wrap; gap:5px; }
+  .language-flag { width:39px; height:36px; }
+}
+

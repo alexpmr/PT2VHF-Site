@@ -85,8 +85,13 @@
     if (footer && footer.lastChild && footer.lastChild.nodeType === 3) {
       footer.lastChild.textContent = " PT2VHF. " + t("footerRights");
     }
-    var picker = document.getElementById("language-select");
-    if (picker) { picker.value = selectedLang; picker.setAttribute("aria-label", t("language")); }
+    var flagGroup = document.querySelector(".language-flags");
+    if (flagGroup) flagGroup.setAttribute("aria-label", t("language"));
+    Array.prototype.forEach.call(document.querySelectorAll(".language-flag[data-lang]"), function (button) {
+      var chosen = button.getAttribute("data-lang") === selectedLang;
+      button.setAttribute("aria-pressed", chosen ? "true" : "false");
+      button.classList.toggle("is-active", chosen);
+    });
     var meta = document.querySelector('meta[name="description"]');
     var currentProduct = products.filter(function (p) { return p.id === programId; })[0];
     if (currentProduct) {
@@ -466,13 +471,13 @@
       if (programId) loadDownloadCounters();
     });
 
-  var languageSelect = document.getElementById("language-select");
-  if (languageSelect) {
-    languageSelect.value = selectedLang;
-    languageSelect.addEventListener("change", function () {
-      setLanguage(languageSelect.value);
+  var languageButtons = document.querySelectorAll(".language-flag[data-lang]");
+  Array.prototype.forEach.call(languageButtons, function (button) {
+    button.addEventListener("click", function () {
+      var requested = button.getAttribute("data-lang");
+      if (requested !== selectedLang) setLanguage(requested);
     });
-  }
+  });
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
