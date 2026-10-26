@@ -39,6 +39,7 @@
   }
 
   function downloadButtons(p) {
+    var primary = true;
     return p.files
       .map(function (f) {
         if (!f.url) {
@@ -47,9 +48,18 @@
             esc(f.os) + " · Em breve</span>"
           );
         }
+        if (primary) {
+          primary = false;
+          return (
+            '<a class="btn btn-primary" href="' + esc(f.url) + '" download title="' + esc(f.label) + '">' +
+            "Baixar para " + esc(f.os) +
+            (f.size ? ' <span class="btn-meta">' + esc(f.size) + "</span>" : "") +
+            "</a>"
+          );
+        }
         return (
-          '<a class="btn btn-primary" href="' + esc(f.url) + '" download>' +
-          "Baixar para " + esc(f.os) +
+          '<a class="btn btn-secondary btn-sm" href="' + esc(f.url) + '" download>' +
+          esc(f.os) + " · " + esc(f.label) +
           (f.size ? ' <span class="btn-meta">' + esc(f.size) + "</span>" : "") +
           "</a>"
         );
@@ -87,7 +97,9 @@
           "<tr>" +
           '<td data-label="Programa"><a href="#' + esc(p.id) + '">' + esc(p.name) + "</a></td>" +
           '<td data-label="Versão">' + versionLabel(p) + "</td>" +
-          '<td data-label="Sistema">' + esc(f.os) + "</td>" +
+          '<td data-label="Sistema"><span class="file-os">' + esc(f.os) +
+          (f.label ? '<span class="file-label">' + esc(f.label) + "</span>" : "") +
+          "</span></td>" +
           '<td data-label="Data">' + (formatDate(p.date) || "—") + "</td>" +
           '<td data-label="Tamanho">' + (esc(f.size) || "—") + "</td>" +
           '<td data-label="">' +

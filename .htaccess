@@ -14,7 +14,7 @@ RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteRule ^ https://www.pt2vhf.com%{REQUEST_URI} [L,R=301]
 
 # Instaladores sempre como download
-<FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg)$">
+<FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg|gz)$">
   Header set Content-Disposition attachment
   Header set X-Content-Type-Options nosniff
 </FilesMatch>
