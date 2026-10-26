@@ -40,3 +40,11 @@ validate_site_javascript:
     - for f in assets/js/locales/*.js; do node --check "$f" || exit 1; done
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
+
+validate_publish_script:
+  image: python:3.12-alpine
+  stage: validate
+  script:
+    - python -m py_compile scripts/sync_aprs_manifest.py
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'

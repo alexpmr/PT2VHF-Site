@@ -66,7 +66,8 @@ def main():
                 raise SystemExit("Executavel Windows invalido: " + name)
             if name.endswith(".AppImage") and header != b"\x7fELF":
                 raise SystemExit("AppImage invalido: " + name)
-        digest = hashlib.file_digest(path.open("rb"), "sha256").hexdigest()
+        with path.open("rb") as source:
+            digest = hashlib.file_digest(source, "sha256").hexdigest()
         published.append({
             "category": category, "counterKey": key, "architecture": arch,
             "platform": platform, "name": name,
