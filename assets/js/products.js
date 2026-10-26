@@ -51,16 +51,30 @@ window.PT2VHF_PRODUCTS = [
   },
   {
     id: "prop",
-    summary: "Analise a propagação HF/VHF/UHF e estime a qualidade de enlaces e cobertura.",
+    summary: "Analise propagação HF, 6 m, 2 m e 70 cm com dados reais e mapas de calor por região.",
     name: "PT2VHF Prop Tool",
-    tagline: "Propagação e enlaces em VHF/UHF",
-    description:
-      "Planeje enlaces e estime a cobertura de estações e repetidoras usando perfil de terreno, zona de Fresnel e cálculo de perda de percurso.",
+    tagline: "PSK Reporter, WSPR, RBN, NOAA, VOACAP e MUF em uma só análise",
+    description: [
+      "O PT2VHF Prop Tool mostra evidências de propagação de sua região a partir de recepções observadas e condições de clima espacial. Diferencia observação, medição e estimativa para evitar interpretações equivocadas.",
+      "Informe seu indicativo, coordenadas ou Grid Maidenhead e selecione as bandas de interesse. O mapa de calor mostra a concentração geográfica de evidências, e a análise destaca quais bandas têm melhores condições no momento.",
+      "Suporta 14 bandas, de 160 m a 70 cm, incluindo 11 m. Consulte a origem dos dados e a confiança associada a cada avaliação. O sistema não garante contatos bidirecionais e não substitui a medição física da estação."
+    ],
     features: [
-      "Perfil de terreno entre dois pontos",
-      "Zona de Fresnel e linha de visada",
-      "Orçamento de enlace (link budget)",
-      "Mapa de cobertura estimada"
+      "Mapa de calor regional com zoom, gradiente de densidade e mapas base offline",
+      "PSK Reporter, WSPR.live e Reverse Beacon Network como fontes observacionais independentes",
+      "NOAA SWPC: Kp, F10.7, Bz, vento solar e raios X",
+      "VOACAP HF local e referências foF2/MUF de ionossondas",
+      "Bandas agora, bar-graphs de qualidade, confiança e destaque das condições mais favoráveis",
+      "Filtros independentes de fonte e de janela de observação (15, 30 ou 60 minutos)",
+      "Destinos geolocalizados, azimute e distância a partir da estação",
+      "Assistente local, histórico de tráfego, temas e seis idiomas",
+      "Windows 10/11 x64: instalador e portátil com atualização segura via pt2vhf.com"
+    ],
+    requirements: [
+      "Windows 10 ou 11 de 64 bits",
+      "Conexão à internet para consultar fontes de propagação e clima espacial",
+      "Executável instalado ou portátil; sem necessidade de instalar Node.js ou Python",
+      "VOACAP local requer instalação/configuração do motor externo quando utilizado"
     ],
     icon: "prop"
   },
