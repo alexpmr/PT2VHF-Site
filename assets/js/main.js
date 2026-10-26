@@ -1,8 +1,122 @@
 (function () {
   "use strict";
 
-  var products = window.PT2VHF_PRODUCTS || [];
+  var baseProducts = window.PT2VHF_PRODUCTS || [];
+  var products = baseProducts.slice();
   var programId = document.body.getAttribute("data-program") || "";
+  var LANGS = ["pt", "en", "es", "fr", "de", "it", "zh"];
+  var LOCALES = { pt:"pt-BR", en:"en-US", es:"es-ES", fr:"fr-FR", de:"de-DE", it:"it-IT", zh:"zh-CN" };
+  var LANG_DICT = window.PT2VHF_I18N || {};
+  var selectedLang = "pt";
+  var manifestData = null;
+
+  function normalizeLanguage(value) {
+    var code = String(value || "").toLowerCase().split("-")[0];
+    return LANGS.indexOf(code) !== -1 ? code : "pt";
+  }
+  (function () {
+    var urlLang = new URLSearchParams(location.search).get("lang");
+    var stored = "";
+    try { stored = localStorage.getItem("pt2vhf-language") || ""; } catch (e) {}
+    selectedLang = normalizeLanguage(urlLang || stored || navigator.language || "pt");
+  })();
+
+  function t(key) {
+    var own = LANG_DICT[selectedLang] && LANG_DICT[selectedLang].ui;
+    var fallback = LANG_DICT.pt && LANG_DICT.pt.ui;
+    return (own && own[key]) || (fallback && fallback[key]) || key;
+  }
+  window.PT2VHF_I18N_T = t;
+  window.PT2VHF_I18N_CAPTION = function (shot) {
+    var key = shot.captionId;
+    var own = LANG_DICT[selectedLang] && LANG_DICT[selectedLang].captions;
+    var fallback = LANG_DICT.pt && LANG_DICT.pt.captions;
+    return (own && own[key]) || (fallback && fallback[key]) || shot.caption;
+  };
+  function applyLocaleProducts() {
+    var tr = (LANG_DICT[selectedLang] && LANG_DICT[selectedLang].products) || {};
+    var order = ["aprs", "prop", "mesh", "sat", "prog"];
+    products = baseProducts.map(function (p) {
+      return Object.assign({}, p, tr[p.id] || {});
+    }).sort(function (a, b) { return order.indexOf(a.id) - order.indexOf(b.id); });
+    document.documentElement.lang = LOCALES[selectedLang];
+  }
+
+  function textAt(selector, key) {
+    var el = document.querySelector(selector);
+    if (el) el.textContent = t(key);
+  }
+  function localizeStatic() {
+    if (!programId) {
+      var home = {
+        ".hero .eyebrow":"homeEyebrow", ".hero h1":"homeTitle",
+        ".hero .lead":"homeLead", ".hero-actions a:first-child":"homeExplore",
+        ".hero-actions a:nth-child(2)":"homeKnow", "#visao-geral-titulo":"catalogTitle",
+        ".catalog-heading > div > p":"catalogIntro", "#instalacao-titulo":"installationTitle",
+        ".steps li:nth-child(1) h3":"step1Title", ".steps li:nth-child(1) p":"step1Desc",
+        ".steps li:nth-child(2) h3":"step2Title", ".steps li:nth-child(2) p":"step2Desc",
+        ".steps li:nth-child(3) h3":"step3Title", ".steps li:nth-child(3) p":"step3Desc",
+        "#instalacao .note":"downloadWarning", "#sobre-titulo":"aboutTitle",
+        ".about > div:first-child p:nth-of-type(1)":"aboutText1",
+        ".about > div:first-child p:nth-of-type(2)":"aboutText2",
+        "#contato-titulo":"contactTitle", ".contact p":"contactIntro"
+      };
+      Object.keys(home).forEach(function (sel) { textAt(sel, home[sel]); });
+    } else {
+      var selectors = {
+        ".breadcrumb a":"detailHome",
+        ".hero-actions a:first-child":"downloadsButton",
+        ".hero-actions a:nth-child(2)":"featuresButton",
+        "#related-title":"relatedTitle", ".related-projects .section-head p":"relatedDesc",
+        ".all-projects a":"allProjects", "#project-contact-title":"helpTitle",
+        ".project-contact p":"helpDesc", ".project-contact .btn":"helpButton"
+      };
+      Object.keys(selectors).forEach(function (sel) { textAt(sel, selectors[sel]); });
+      var current = products.filter(function (p) { return p.id === programId; })[0];
+      if (current) {
+        var lead = document.querySelector(".program-hero .lead");
+        if (lead) lead.textContent = current.summary || current.tagline;
+      }
+    }
+    textAt('.site-nav a[href^="#instalacao"]', "navInstallation");
+    textAt('.site-nav a[href^="#contato"]', "navContact");
+    textAt('.site-nav a[href^="/#contato"]', "navContact");
+    var footer = document.querySelector(".footer-inner p:first-child");
+    if (footer && footer.lastChild && footer.lastChild.nodeType === 3) {
+      footer.lastChild.textContent = " PT2VHF. " + t("footerRights");
+    }
+    var picker = document.getElementById("language-select");
+    if (picker) { picker.value = selectedLang; picker.setAttribute("aria-label", t("language")); }
+    var meta = document.querySelector('meta[name="description"]');
+    var currentProduct = products.filter(function (p) { return p.id === programId; })[0];
+    if (currentProduct) {
+      var suffixes = { pt:"Recursos e downloads", en:"Features and downloads", es:"Funciones y descargas", fr:"Fonctions et téléchargements", de:"Funktionen und Downloads", it:"Funzioni e download", zh:"功能与下载" };
+      document.title = currentProduct.name + " — " + suffixes[selectedLang];
+      if (meta) meta.setAttribute("content", currentProduct.summary || currentProduct.tagline);
+    } else {
+      document.title = "PT2VHF — " + t("catalogTitle");
+      if (meta) meta.setAttribute("content", t("homeLead"));
+    }
+    // Preserve the selected language when navigating between project pages.
+    Array.prototype.forEach.call(document.querySelectorAll('a[href^="/"]'), function (link) {
+      var href = link.getAttribute("href");
+      if (!/^\/(?:$|aprs(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|#)/.test(href)) return;
+      var url = new URL(href, location.origin);
+      url.searchParams.set("lang", selectedLang);
+      link.setAttribute("href", url.pathname + url.search + url.hash);
+    });
+  }
+  function setLanguage(lang) {
+    selectedLang = normalizeLanguage(lang);
+    try { localStorage.setItem("pt2vhf-language", selectedLang); } catch (e) {}
+    var url = new URL(location.href);
+    url.searchParams.set("lang", selectedLang);
+    history.replaceState(null, "", url.pathname + url.search + url.hash);
+    applyLocaleProducts();
+    merge(manifestData);
+    render();
+  }
+  applyLocaleProducts();
   var galleryData = window.PT2VHF_GALLERIES || {};
 
   var ICONS = {
@@ -35,12 +149,14 @@
   function formatDate(iso) {
     if (!iso) return "";
     var p = iso.split("-");
-    return p.length === 3 ? p[2] + "/" + p[1] + "/" + p[0] : iso;
+    if (p.length !== 3) return iso;
+    var date = new Date(iso + "T12:00:00Z");
+    return new Intl.DateTimeFormat(LOCALES[selectedLang], { day:"2-digit", month:"short", year:"numeric", timeZone:"UTC" }).format(date);
   }
 
   function versionLabel(p) {
     if (p.version) return "v" + esc(p.version);
-    return p.loadError ? "—" : "Instalador pendente";
+    return p.loadError ? "—" : t("unreleased");
   }
 
   function shortName(p) {
@@ -94,33 +210,37 @@
 
   function categoryLabel(f) {
     var i = CATEGORY_IDS.indexOf(f.category);
-    return i < 0 ? f.label || f.category : CATEGORIES[i].label;
+    var keys = { "windows-installer":"winInstaller", "windows-portable":"winPortable", "linux-deb":"linuxDeb", "linux-targz":"linuxTar", "macos":"macOS" };
+    return keys[f.category] ? t(keys[f.category]) : (f.label || f.category);
   }
 
   function downloadTable(p) {
     if (p.loadError) {
-      return '<p class="soon load-error">Não foi possível carregar a lista de downloads agora. Recarregue a página em instantes.</p>';
+      return '<p class="soon load-error">' + esc(t("loadError")) + '</p>';
     }
     var files = sortedFiles(p);
     if (!files.length) {
-      return '<div class="unreleased"><span class="badge">Publicação pendente</span>' +
-        '<p class="status-detail">' + esc(p.releaseStatus || "Ainda não há instalador público para este projeto.") + '</p>' +
-        (p.developmentVersion ? '<p class="build-version">Versão identificada no código: <strong>v' + esc(p.developmentVersion) + '</strong> · não é uma versão distribuída neste site.</p>' : '') +
-        (p.ciUrl ? '<a class="build-reference" href="' + esc(p.ciUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(p.ciLabel || "Ver build no GitLab (acesso restrito)") + '</a>' : '') +
+      var statusKey = "stat" + p.id.charAt(0).toUpperCase() + p.id.slice(1);
+      return '<div class="unreleased"><span class="badge">' + esc(t("releasePending")) + '</span>' +
+        '<p class="status-detail">' + esc(t(statusKey)) + '</p>' +
+        (p.developmentVersion ? '<p class="build-version">' + esc(t("versionCode")) + ' <strong>v' + esc(p.developmentVersion) + '</strong> · ' + esc(t("notReleased")) + '</p>' : '') +
+        (p.ciUrl ? '<a class="build-reference" href="' + esc(p.ciUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(t("ciLink")) + '</a>' : '') +
         '</div>';
     }
+    var detailKeys = { "windows-installer":"detailsProgInstaller", "windows-portable":"detailsProgPortable", "linux-deb":"detailsProgDeb", "linux-targz":"detailsProgTar" };
     var rows = files
       .map(function (f, i) {
+        var detail = p.id === "prog" && detailKeys[f.category] ? t(detailKeys[f.category]) : f.detail;
         return (
           "<tr>" +
-          '<th scope="row" data-label="Categoria">' + esc(categoryLabel(f)) + "</th>" +
-          '<td data-label="Arquivo"><span class="file-cell"><span class="file-name">' + esc(f.name || fileName(f.url)) + "</span>" +
-          (f.detail ? '<span class="file-label">' + esc(f.detail) + "</span>" : "") +
+          '<th scope="row" data-label="' + esc(t("catCategory")) + '">' + esc(categoryLabel(f)) + "</th>" +
+          '<td data-label="' + esc(t("catFile")) + '"><span class="file-cell"><span class="file-name">' + esc(f.name || fileName(f.url)) + "</span>" +
+          (detail ? '<span class="file-label">' + esc(detail) + "</span>" : "") +
           "</span></td>" +
-          '<td data-label="Versão" class="mono">' + versionLabel(p) + "</td>" +
-          '<td data-label="Tamanho" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
+          '<td data-label="' + esc(t("catVersion")) + '" class="mono">' + versionLabel(p) + "</td>" +
+          '<td data-label="' + esc(t("catSize")) + '" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
           '<td class="action"><div class="download-action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(localUrl(f.url)) + '"' +
-          ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.category) + '" download>Baixar' +
+          ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.category) + '" download>' + esc(t("download")) +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a>" +
           '<span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.category) + '" aria-live="polite">—</span></div></td>' +
           "</tr>"
@@ -130,10 +250,10 @@
     return (
       '<div class="table-wrap">' +
       '<table class="downloads">' +
-      "<caption class=\"sr-only\">Downloads do " + esc(p.name) + "</caption>" +
+      "<caption class=\"sr-only\">" + esc(t("downloadsTitle")) + " — " + esc(p.name) + "</caption>" +
       "<thead><tr>" +
-      '<th scope="col">Categoria</th><th scope="col">Arquivo</th><th scope="col">Versão</th>' +
-      '<th scope="col">Tamanho</th><th scope="col"><span class="sr-only">Baixar</span></th>' +
+      '<th scope="col">' + esc(t("catCategory")) + '</th><th scope="col">' + esc(t("catFile")) + '</th><th scope="col">' + esc(t("catVersion")) + '</th>' +
+      '<th scope="col">' + esc(t("catSize")) + '</th><th scope="col"><span class="sr-only">' + esc(t("download")) + '</span></th>' +
       "</tr></thead>" +
       "<tbody>" + rows + "</tbody>" +
       "</table>" +
@@ -183,7 +303,7 @@
           '<span class="ov-tagline">' + esc(p.summary || p.tagline || "") + "</span>" +
           '<span class="ov-version' + (p.version ? "" : " is-soon") + '">' + versionLabel(p) + "</span>" +
           (!p.version && p.developmentVersion ? '<span class="ov-dev">Código v' + esc(p.developmentVersion) + '</span>' : '') +
-          '<span class="ov-cta">Abrir projeto</span></span>' +
+          '<span class="ov-cta">' + esc(t("cardOpen")) + '</span></span>' +
           "</a>"
         );
       })
@@ -196,12 +316,12 @@
       .map(function (p, i) {
         var paragraphs = [].concat(p.description || []);
         var aside =
-          listBlock("Rádios e equipamentos suportados", p.supported, function (s) {
+          listBlock(esc(t("supportedTitle")), p.supported, function (s) {
             return typeof s === "string"
               ? "<li>" + esc(s) + "</li>"
               : "<li><strong>" + esc(s.name) + "</strong>" + (s.detail ? "<span>" + esc(s.detail) + "</span>" : "") + "</li>";
           }) +
-          listBlock("Requisitos", p.requirements, function (r) { return "<li>" + esc(r) + "</li>"; });
+          listBlock(esc(t("requirementsTitle")), p.requirements, function (r) { return "<li>" + esc(r) + "</li>"; });
         return (
           '<section class="section program' + (i % 2 ? " section-alt" : "") + '" id="' + esc(p.id) + '" aria-labelledby="' + esc(p.id) + '-titulo">' +
           '<div class="container">' +
@@ -210,8 +330,8 @@
           "<div>" +
           '<h2 id="' + esc(p.id) + '-titulo">' + esc(p.name) + "</h2>" +
           '<p class="program-meta"><span class="badge">' + versionLabel(p) + "</span>" +
-          (p.date ? " <span>Lançado em " + formatDate(p.date) + "</span>" : "") +
-          (!p.version && p.developmentVersion ? ' <span>Código v' + esc(p.developmentVersion) + '</span>' : '') +
+          (p.date ? " <span>" + esc(t("launchDate")) + " " + formatDate(p.date) + "</span>" : "") +
+          (!p.version && p.developmentVersion ? ' <span>' + esc(t("versionCode")) + ' v' + esc(p.developmentVersion) + '</span>' : '') +
           "</p>" +
           "</div>" +
           "</div>" +
@@ -219,7 +339,7 @@
           '<div class="program-body' + (aside ? "" : " no-aside") + '">' +
           '<div class="program-main">' +
           '<div class="description">' + paragraphs.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") + "</div>" +
-          '<h3 id="recursos">Recursos</h3>' +
+          '<h3 id="recursos">' + esc(t("featuresTitle")) + '</h3>' +
           '<ul class="features">' +
           p.features.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") +
           "</ul>" +
@@ -228,7 +348,7 @@
           "</div>" +
           screenshotGallery(p) +
           '<div class="program-downloads" id="' + esc(p.id) + '-downloads">' +
-          '<h3 id="downloads">Downloads</h3>' +
+          '<h3 id="downloads">' + esc(t("downloadsTitle")) + '</h3>' +
           downloadTable(p) +
           "</div>" +
           "</div>" +
@@ -241,6 +361,7 @@
   // Junta os textos de products.js com versões e arquivos de updates.json
   var catalogUpdated = "";
   function merge(data) {
+    manifestData = data;
     catalogUpdated = (data && data.updated) || "";
     var list = (data && data.products) || null;
     products.forEach(function (p) {
@@ -257,8 +378,9 @@
   }
 
   function render() {
+    localizeStatic();
     var updatedEl = document.getElementById("catalog-updated");
-    if (updatedEl && catalogUpdated) updatedEl.textContent = "Catálogo conferido em " + formatDate(catalogUpdated);
+    if (updatedEl && catalogUpdated) updatedEl.textContent = t("catalogUpdated") + " " + formatDate(catalogUpdated);
     var overviewEl = document.getElementById("overview-list");
     if (overviewEl) renderOverview(overviewEl);
 
@@ -331,7 +453,7 @@
   // Preserva os favoritos antigos com âncoras no catálogo anterior.
   if (!programId) {
     var oldLink = /^#(aprs|prop|mesh|sat|prog)(-downloads)?$/.exec(location.hash);
-    if (oldLink) window.location.replace("/" + oldLink[1] + (oldLink[2] ? "#downloads" : ""));
+    if (oldLink) window.location.replace("/" + oldLink[1] + "?lang=" + selectedLang + (oldLink[2] ? "#downloads" : ""));
   }
 
   load()
@@ -343,6 +465,14 @@
       render();
       if (programId) loadDownloadCounters();
     });
+
+  var languageSelect = document.getElementById("language-select");
+  if (languageSelect) {
+    languageSelect.value = selectedLang;
+    languageSelect.addEventListener("change", function () {
+      setLanguage(languageSelect.value);
+    });
+  }
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

@@ -304,3 +304,10 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .download-action { display:flex; gap:5px; align-items:flex-end; flex-direction:column; }
 .download-count { font-size:.76rem; color:var(--muted); text-align:right; min-width:120px; }
 @media(max-width:900px) { .download-action { width:100%; align-items:stretch; } .download-count { text-align:center; } }
+
+/* Seletor de idioma disponível em todas as páginas */
+.language-picker { align-self:center; display:inline-flex; align-items:center; margin-left:9px; }
+.language-picker select { background:var(--hero-bg); color:var(--hero-text); border:1px solid rgba(255,255,255,.3); border-radius:8px; padding:8px; font:inherit; font-size:.83rem; cursor:pointer; min-width:110px; max-width:135px; }
+.language-picker select:focus-visible { outline:2px solid var(--signal); outline-offset:2px; }
+.language-picker option { background:var(--hero-bg); color:var(--hero-text); }
+@media(max-width:900px) { .language-picker { margin:9px 12px 0; } .language-picker select { max-width:100%; min-width:150px; } }
