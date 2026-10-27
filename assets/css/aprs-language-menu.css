@@ -59,11 +59,12 @@
 .language-quick-option:focus-visible,
 .language-quick-current:focus-visible { outline:2px solid #35d6b6; outline-offset:2px; }
 
-@media (min-width:1151px) {
+@media (min-width:761px) {
   .site-nav { align-items:center; flex:1; justify-content:center; gap:0; }
-  .site-nav a { font-size:.83rem; padding:8px 9px; white-space:nowrap; }
+  .site-nav > a, .site-nav-projects-label { font-size:.92rem; padding:8px 12px; white-space:nowrap; }
+  .site-nav-projects { font-size:.92rem; }
 }
-@media (max-width:1150px) {
+@media (max-width:760px) {
   .header-controls { margin-left:auto; }
   .header-controls > .nav-toggle { display:block; }
   .site-header .site-nav { display:none; }

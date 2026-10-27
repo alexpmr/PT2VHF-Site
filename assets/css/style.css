@@ -80,7 +80,7 @@ code { font-size: .9em; background: var(--bg-alt); padding: .1em .35em; border-r
 .nav-toggle { display: none; background: none; border: 0; padding: 10px; cursor: pointer; }
 .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--hero-text); margin: 4px 0; border-radius: 2px; }
 
-@media (max-width: 900px) {
+@media (max-width: 760px) {
   .nav-toggle { display: block; }
   .site-nav {
     position: absolute; top: 64px; left: 0; right: 0;
@@ -350,17 +350,7 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .language-quick-current:focus-visible, .language-quick-option:focus-visible {
   outline:2px solid #32d6b1; outline-offset:2px;
 }
-@media(max-width:1150px) and (min-width:901px) {
-  .site-header .nav-toggle { display:block; }
-  .site-header .site-nav {
-    position:absolute; top:64px; left:0; right:0; display:none;
-    flex-direction:column; background:var(--hero-bg);
-    padding:8px 16px 16px; border-bottom:1px solid rgba(255,255,255,.08);
-  }
-  .site-header .site-nav.open { display:flex; }
-  .site-header .site-nav a { padding:12px; }
-}
-@media(max-width:1150px) {
+@media(max-width:760px) {
   .language-quick-switch { align-self:flex-start; margin:10px 12px 6px; }
   .language-quick-menu { right:auto; left:0; }
 }
@@ -448,7 +438,7 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .site-nav-dropdown a { display:block; border-radius:7px; white-space:nowrap; }
 .site-nav a[aria-current="page"] { color:var(--hero-text); background:rgba(53,214,182,.12); }
 .site-nav-projects:focus-within .site-nav-dropdown { outline-offset:2px; }
-@media(max-width:1150px) {
+@media(max-width:760px) {
   .site-header .site-nav { align-items:stretch; }
   .site-nav-projects-label { padding:12px; }
   .site-nav-dropdown { position:static; box-shadow:none; border:0; padding:2px 0 2px 14px; min-width:0; background:transparent; }
