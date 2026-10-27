@@ -3,7 +3,7 @@ window.PT2VHF_SITE_PAGE_I18N = {
   "pt": {
     "navHome": "Início",
     "navProjects": "Projetos",
-    "navContact": "Contato",
+    "navContact": "Sobre e Contato",
     "aboutButton": "Sobre mim e contato",
     "eyebrow": "POR ALEX · PT2VHF",
     "aboutTitle": "Sobre mim",
@@ -20,7 +20,7 @@ window.PT2VHF_SITE_PAGE_I18N = {
   "en": {
     "navHome": "Home",
     "navProjects": "Projects",
-    "navContact": "Contact",
+    "navContact": "About & Contact",
     "aboutButton": "About me and contact",
     "eyebrow": "BY ALEX · PT2VHF",
     "aboutTitle": "About me",
@@ -37,7 +37,7 @@ window.PT2VHF_SITE_PAGE_I18N = {
   "es": {
     "navHome": "Inicio",
     "navProjects": "Proyectos",
-    "navContact": "Contacto",
+    "navContact": "Acerca de y contacto",
     "aboutButton": "Sobre mí y contacto",
     "eyebrow": "POR ALEX · PT2VHF",
     "aboutTitle": "Sobre mí",
@@ -54,7 +54,7 @@ window.PT2VHF_SITE_PAGE_I18N = {
   "fr": {
     "navHome": "Accueil",
     "navProjects": "Projets",
-    "navContact": "Contact",
+    "navContact": "À propos et contact",
     "aboutButton": "À propos et contact",
     "eyebrow": "PAR ALEX · PT2VHF",
     "aboutTitle": "À propos de moi",
@@ -71,7 +71,7 @@ window.PT2VHF_SITE_PAGE_I18N = {
   "de": {
     "navHome": "Startseite",
     "navProjects": "Projekte",
-    "navContact": "Kontakt",
+    "navContact": "Über mich & Kontakt",
     "aboutButton": "Über mich und Kontakt",
     "eyebrow": "VON ALEX · PT2VHF",
     "aboutTitle": "Über mich",
@@ -88,7 +88,7 @@ window.PT2VHF_SITE_PAGE_I18N = {
   "it": {
     "navHome": "Home",
     "navProjects": "Progetti",
-    "navContact": "Contatti",
+    "navContact": "Chi sono e contatti",
     "aboutButton": "Chi sono e contatti",
     "eyebrow": "DI ALEX · PT2VHF",
     "aboutTitle": "Chi sono",
@@ -105,7 +105,7 @@ window.PT2VHF_SITE_PAGE_I18N = {
   "zh": {
     "navHome": "首页",
     "navProjects": "项目",
-    "navContact": "联系",
+    "navContact": "关于与联系",
     "aboutButton": "关于我与联系",
     "eyebrow": "作者 ALEX · PT2VHF",
     "aboutTitle": "关于我",
