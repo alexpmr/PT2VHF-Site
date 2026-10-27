@@ -68,7 +68,7 @@ window.PT2VHF_I18N["de"] = {
     "statProp": "Windows-Pakete erstellt, automatische Prüfung jedoch fehlgeschlagen. Noch kein freigegebener Download.",
     "statMesh": "Für dieses Projekt wurde in diesem GitLab-Konto weder ein öffentlicher Installer noch ein Repository bestätigt.",
     "statAprs": "Die Pakete der Version 1.14.59 werden geprüft. Downloads erscheinen nach Freigabe und Veröffentlichung auf dieser Website.",
-    "statSat": "Windows-Build wegen einer Qt-WebEngine-Abhängigkeit blockiert. Geprüfter Installer ausstehend.",
+    "statSat": "Offizieller Installer und portable Version für Windows 10/11 x64.",
     "ciLink": "Build-Details (GitLab-Zugang eventuell erforderlich)",
     "detailsProgInstaller": "Windows 10/11 64 Bit (empfohlen)",
     "detailsProgPortable": "Windows 10/11 64 Bit, ohne Installation",
@@ -185,7 +185,10 @@ window.PT2VHF_I18N["de"] = {
         "Kenwood-TS-2000-CAT mit Dopplernachführung",
         "Standortkoordinaten und Maidenhead-Locator",
         "Vergleich berechneter und tatsächlicher Funkfrequenzen",
-        "Aktualisierung von Orbit- und Frequenzdaten"
+        "Aktualisierung von Orbit- und Frequenzdaten",
+        "Kontinuierliches Auto-CAT: FA/FB gesendet und per Rücklesen bestätigt, ohne PTT",
+        "CelesTrak-Bahndaten (OMM/TLE) und SatNOGS-Transponder, Offline-Karte",
+        "Installer und portable EXE mit sicherem Update über pt2vhf.com (Größe und SHA-256 geprüft)"
       ],
       "supported": [
         {

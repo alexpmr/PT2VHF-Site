@@ -134,7 +134,10 @@ window.PT2VHF_PRODUCTS = [
       "Controle CAT do Kenwood TS-2000 e acompanhamento Doppler",
       "Estação configurável por coordenadas e Grid Locator Maidenhead",
       "Diagnóstico de frequências previstas e leituras reais do rádio",
-      "Atualização de dados orbitais e frequências"
+      "Atualização de dados orbitais e frequências",
+      "Auto CAT contínuo: FA/FB enviados e confirmados por leitura do rádio, sem acionar PTT",
+      "Elementos orbitais CelesTrak (OMM/TLE) e transponders SatNOGS, com mapa offline",
+      "Instalador e portátil EXE com atualização segura via pt2vhf.com (tamanho e SHA-256 verificados)"
     ],
     supported: [
       { name: "Kenwood TS-2000", detail: "Controle CAT pela porta serial" },

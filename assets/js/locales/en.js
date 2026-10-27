@@ -68,7 +68,7 @@ window.PT2VHF_I18N["en"] = {
     "statProp": "Windows packages were built, but automated validation failed. No approved public installer yet.",
     "statMesh": "No public installer or matching repository has been confirmed in this GitLab account.",
     "statAprs": "Version 1.14.59 packages are being validated. Downloads will become available after verification and publication on this website.",
-    "statSat": "Windows build blocked by a Qt WebEngine dependency. Awaiting a verified installer.",
+    "statSat": "Official installer and portable builds for Windows 10/11 x64.",
     "ciLink": "Build details (GitLab access may be required)",
     "detailsProgInstaller": "Windows 10/11 64-bit (recommended)",
     "detailsProgPortable": "Windows 10/11 64-bit, no installation",
@@ -185,7 +185,10 @@ window.PT2VHF_I18N["en"] = {
         "Kenwood TS-2000 CAT and Doppler tracking",
         "Station coordinates and Maidenhead Grid Locator",
         "Predicted-versus-actual radio frequency diagnostics",
-        "Orbital and frequency data updates"
+        "Orbital and frequency data updates",
+        "Continuous Auto CAT: FA/FB sent and confirmed by radio readback, never keying PTT",
+        "CelesTrak orbital elements (OMM/TLE) and SatNOGS transponders, with offline map",
+        "Installer and portable EXE with secure updates from pt2vhf.com (size and SHA-256 verified)"
       ],
       "supported": [
         {

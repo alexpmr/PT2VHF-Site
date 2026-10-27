@@ -68,7 +68,7 @@ window.PT2VHF_I18N["fr"] = {
     "statProp": "Les paquets Windows ont été générés, mais la validation automatique a échoué. Aucun installateur public approuvé.",
     "statMesh": "Aucun installateur public ni dépôt correspondant confirmé dans ce compte GitLab.",
     "statAprs": "Les packages v1.14.59 sont en cours de validation. Les téléchargements seront disponibles après vérification et publication sur ce site.",
-    "statSat": "Compilation Windows bloquée par une dépendance Qt WebEngine. Installateur validé en attente.",
+    "statSat": "Installateur et version portable officiels pour Windows 10/11 x64.",
     "ciLink": "Détails de compilation (accès GitLab éventuellement requis)",
     "detailsProgInstaller": "Windows 10/11 64 bits (recommandé)",
     "detailsProgPortable": "Windows 10/11 64 bits, sans installation",
@@ -185,7 +185,10 @@ window.PT2VHF_I18N["fr"] = {
         "CAT du Kenwood TS-2000 et suivi Doppler",
         "Coordonnées de station et Grid Locator Maidenhead",
         "Diagnostic fréquences prévues et réellement lues",
-        "Actualisation des données orbitales et des fréquences"
+        "Actualisation des données orbitales et des fréquences",
+        "Auto CAT continu : FA/FB envoyées et confirmées par relecture du poste, sans PTT",
+        "Éléments orbitaux CelesTrak (OMM/TLE) et transpondeurs SatNOGS, carte hors ligne",
+        "Installateur et EXE portable avec mise à jour sécurisée via pt2vhf.com (taille et SHA-256 vérifiés)"
       ],
       "supported": [
         {
