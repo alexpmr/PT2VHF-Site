@@ -73,10 +73,24 @@
       "page": "https://www.pt2vhf.com/prop",
       "files": [],
       "developmentVersion": "0.2.22",
-      "releaseStatus": "OTA integrado a pt2vhf.com. Recompilação e homologação dos instaladores Windows em andamento; os downloads serão liberados somente após os testes.",
-      "ciUrl": "https://gitlab.com/pt2vhf-group/pt2vhf-prop-tool/-/pipelines/2990940581",
-      "ciLabel": "Acompanhar compilação e publicação automática no GitLab",
-      "updateEndpoint": "https://www.pt2vhf.com/update.php?product=prop&platform=windows-x64"
+      "releaseStatus": "Empacotamento Windows x64 validado. A publicação dos arquivos no domínio oficial será liberada após validação de integridade e transferência.",
+      "ciUrl": "https://github.com/alexpmr/PT2VHF-Prop-Tool/actions",
+      "ciLabel": "Compilações no GitHub (repositório principal)",
+      "updateEndpoint": "https://www.pt2vhf.com/update.php?product=prop&platform=windows-x64",
+      "plannedFiles": [
+        {
+          "category": "windows-installer",
+          "counterKey": "win-setup-x64",
+          "architecture": "x64",
+          "name": "PT2VHF-Prop-Tool-0.2.22-x64-setup.exe"
+        },
+        {
+          "category": "windows-portable",
+          "counterKey": "win-portable-x64",
+          "architecture": "x64",
+          "name": "PT2VHF-Prop-Tool-0.2.22-x64-portable.exe"
+        }
+      ]
     },
     "mesh": {
       "name": "PT2VHF Mesh Analyzer",
