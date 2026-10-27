@@ -135,7 +135,10 @@
       if(document.body.classList.contains("contact-page")){
         Array.prototype.forEach.call(document.querySelectorAll("[data-contact]"),function(el){
           var key=el.getAttribute("data-contact");
-          if(siteLanguage[key])el.textContent=siteLanguage[key];
+          if(!siteLanguage[key])return;
+          // Textos marcados com data-contact-rich aceitam **negrito** (o resto é escapado)
+          if(el.hasAttribute("data-contact-rich"))el.innerHTML=esc(siteLanguage[key]).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>");
+          else el.textContent=siteLanguage[key];
         });
       }
     }

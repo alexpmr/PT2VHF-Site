@@ -477,6 +477,11 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .contact-channel strong { margin-bottom:5px; font-size:1.08rem; }
 .contact-channel small { font-size:.93rem; overflow-wrap:anywhere; color:var(--muted); }
 .contact-73 { margin-top:24px!important; color:var(--muted); }
+@media(min-width:781px){.contact-profile { align-items:start; }.contact-profile-photo { position:sticky; top:96px; }}
+.contact-profile-copy .contact-signoff { margin:1.4em 0 .2em; font-weight:700; font-size:1.1rem; color:var(--text); }
+.contact-profile-copy .contact-tagline { font-style:italic; color:var(--muted); }
+.contact-channel-icon svg { width:26px; height:26px; fill:currentColor; }
+.contact-channel-whatsapp .contact-channel-icon { background:rgba(37,211,102,.14); color:#25d366; }
 @media(max-width:780px){.contact-profile { grid-template-columns:1fr; }.contact-profile-photo { max-width:600px; }.contact-page-hero { padding-top:30px; }.contact-channel-grid { grid-template-columns:1fr; } }
 
 
