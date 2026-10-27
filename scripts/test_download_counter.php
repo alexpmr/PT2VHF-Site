@@ -39,10 +39,10 @@ $proc = proc_open($cmd, array(
 check(is_resource($proc), 'Servidor PHP não iniciou');
 fclose($pipes[0]);
 
-function request(string $url, string $method = 'GET', string $body = ''): array {
+function request(string $url, string $method = 'GET', string $body = '', string $agent = 'teste'): array {
     $opts = array('http'=>array(
         'method'=>$method, 'content'=>$body, 'ignore_errors'=>true, 'follow_location'=>0,
-        'timeout'=>3, 'header'=>"Content-Type: application/x-www-form-urlencoded\r\n"
+        'timeout'=>3, 'header'=>"Content-Type: application/x-www-form-urlencoded\r\nUser-Agent: " . $agent . "\r\n"
     ));
     $result = @file_get_contents($url, false, stream_context_create($opts));
     $headers = $http_response_header ?? array();
@@ -76,7 +76,12 @@ try {
     check($status === 404 && $getStats() === 1, 'Arquivo inválido não contabilizado');
     [$status] = request($url);
     check($status === 302 && $getStats() === 2, 'Contagem cumulativa');
-    echo "OK: GET +1, HEAD +0, POST legado +0, arquivo inexistente +0.\n";
+    // Atualizador OTA do APRS: HTTP 200 direto (sem 302), conteúdo íntegro, +1.
+    [$status,$body,$headers] = request($url, 'GET', '', 'PT2VHF-APRS-Client/1.14.59');
+    check($status === 200 && $body === $contents && $getStats() === 3, 'OTA do APRS 200 e contabilizado');
+    [$status] = request($base . '/download.php', 'POST', 'action=count&product=aprs&category=win-setup-x64', 'PT2VHF-APRS-Client-Updater');
+    check($status === 204 && $getStats() === 3, 'POST do atualizador não duplica');
+    echo "OK: GET +1, HEAD +0, POST legado +0, arquivo inexistente +0, OTA APRS 200 +1.\n";
 } finally {
     proc_terminate($proc);
     proc_close($proc);
