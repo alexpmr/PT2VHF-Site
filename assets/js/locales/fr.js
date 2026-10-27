@@ -56,6 +56,8 @@ window.PT2VHF_I18N["fr"] = {
     "catSize": "Taille",
     "download": "Télécharger",
     "downloadsCount": "téléchargements cumulés",
+    "catDownloads": "Téléchargements",
+    "catStatus": "Statut",
     "counterUnavailable": "Compteur indisponible",
     "loadError": "Impossible de charger les téléchargements. Actualisez la page.",
     "winInstaller": "Windows — Installateur",

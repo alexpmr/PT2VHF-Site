@@ -56,6 +56,8 @@ window.PT2VHF_I18N["zh"] = {
     "catSize": "大小",
     "download": "下载",
     "downloadsCount": "累计下载次数",
+    "catDownloads": "下载次数",
+    "catStatus": "状态",
     "counterUnavailable": "计数器不可用",
     "loadError": "无法加载下载列表，请刷新页面。",
     "winInstaller": "Windows — 安装版",

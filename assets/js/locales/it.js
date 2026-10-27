@@ -56,6 +56,8 @@ window.PT2VHF_I18N["it"] = {
     "catSize": "Dimensione",
     "download": "Scarica",
     "downloadsCount": "download cumulativi",
+    "catDownloads": "Download",
+    "catStatus": "Stato",
     "counterUnavailable": "Contatore non disponibile",
     "loadError": "Impossibile caricare i download. Aggiorna la pagina.",
     "winInstaller": "Windows — Installatore",

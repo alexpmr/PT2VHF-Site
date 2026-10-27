@@ -56,6 +56,8 @@ window.PT2VHF_I18N["en"] = {
     "catSize": "Size",
     "download": "Download",
     "downloadsCount": "cumulative downloads",
+    "catDownloads": "Downloads",
+    "catStatus": "Status",
     "counterUnavailable": "Counter unavailable",
     "loadError": "Unable to load downloads. Refresh the page.",
     "winInstaller": "Windows — Installer",
