@@ -71,17 +71,17 @@ try {
     [$status] = request($url, 'HEAD');
     check($status === 302 && $getStats() === 1, 'HEAD não contabilizado');
     [$status] = request($base . '/download.php', 'POST', 'action=count&product=aprs&category=win-setup-x64');
-    check($status === 204 && $getStats() === 1, 'POST legado não duplica');
+    check($status === 204 && $getStats() === 2, 'POST de contagem do atualizador soma 1');
     [$status] = request($base . '/download.php?product=aprs&file=inexistente.exe');
-    check($status === 404 && $getStats() === 1, 'Arquivo inválido não contabilizado');
+    check($status === 404 && $getStats() === 2, 'Arquivo inválido não contabilizado');
     [$status] = request($url);
-    check($status === 302 && $getStats() === 2, 'Contagem cumulativa');
-    // Atualizador OTA do APRS: HTTP 200 direto (sem 302), conteúdo íntegro, +1.
-    [$status,$body,$headers] = request($url, 'GET', '', 'PT2VHF-APRS-Client/1.14.59');
-    check($status === 200 && $body === $contents && $getStats() === 3, 'OTA do APRS 200 e contabilizado');
+    check($status === 302 && $getStats() === 3, 'Contagem cumulativa');
+    // OTA do APRS: download com HTTP 200 sem contar; o POST após o SHA-256 conta 1.
+    [$status,$body] = request($url, 'GET', '', 'PT2VHF-APRS-Client/1.14.59');
+    check($status === 200 && $body === $contents && $getStats() === 3, 'Download do atualizador 200 sem contar');
     [$status] = request($base . '/download.php', 'POST', 'action=count&product=aprs&category=win-setup-x64', 'PT2VHF-APRS-Client-Updater');
-    check($status === 204 && $getStats() === 3, 'POST do atualizador não duplica');
-    echo "OK: GET +1, HEAD +0, POST legado +0, arquivo inexistente +0, OTA APRS 200 +1.\n";
+    check($status === 204 && $getStats() === 4, 'OTA do APRS conta uma vez');
+    echo "OK: navegador +1, HEAD +0, POST do atualizador +1, download do atualizador +0, inexistente +0.\n";
 } finally {
     proc_terminate($proc);
     proc_close($proc);

@@ -92,7 +92,11 @@ if (!in_array($product, $products, true) ||
     fclose($file);
     pt2vhf_error(400, 'Projeto, categoria ou arquivo inválidos');
 }
-if (!$isFileRequest && in_array($product, array('aprs', 'mesh', 'sat'), true)) {
+// O atualizador do APRS registra cada OTA por este POST (uma vez por download);
+// por isso o arquivo que ele baixa não é contado de novo (ver $isAprsUpdater).
+$agent = (string)($_SERVER['HTTP_USER_AGENT'] ?? '');
+$isAprsUpdater = $product === 'aprs' && strncmp($agent, 'PT2VHF-APRS-Client', 18) === 0;
+if (!$isFileRequest && in_array($product, array('mesh', 'sat'), true)) {
     fclose($file);
     http_response_code(204);
     exit;
@@ -174,6 +178,21 @@ if ($isFileRequest && $segmented && isset($_SERVER['HTTP_RANGE'])) {
     exit;
 }
 
+if ($isFileRequest && $isAprsUpdater) {
+    // Download do atualizador: entrega com HTTP 200 sem contar; o POST de
+    // contagem enviado após a verificação do SHA-256 conta uma única vez.
+    fclose($file);
+    $real = realpath(__DIR__ . $redirectPath);
+    $size = $real === false ? false : filesize($real);
+    if ($real === false || $size === false) pt2vhf_error(404, 'Arquivo indisponível');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="' . basename($real) . '"');
+    header('Content-Length: ' . $size);
+    while (ob_get_level() > 0) ob_end_flush();
+    readfile($real);
+    exit;
+}
+
 if (!flock($file, LOCK_EX)) {
     fclose($file);
     pt2vhf_error(503, 'Não foi possível bloquear a contagem');
@@ -198,22 +217,6 @@ if ($isFileRequest) {
         if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
         header('Location: ' . $redirectPath, true, 302);
         exit;
-    }
-    // O atualizador OTA do APRS recusa redirecionamentos (segurança): para ele,
-    // o arquivo já contado é entregue aqui mesmo com HTTP 200, sem 302.
-    $agent = (string)($_SERVER['HTTP_USER_AGENT'] ?? '');
-    if ($product === 'aprs' && strncmp($agent, 'PT2VHF-APRS-Client', 18) === 0) {
-        $real = realpath(__DIR__ . $redirectPath);
-        $size = $real === false ? false : filesize($real);
-        if ($real !== false && $size !== false) {
-            header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename="' . basename($real) . '"');
-            header('Content-Length: ' . $size);
-            header('X-Content-Type-Options: nosniff');
-            while (ob_get_level() > 0) ob_end_flush();
-            readfile($real);
-            exit;
-        }
     }
     header('Location: ' . $redirectPath . '?pt2vhf_raw=1', true, 302);
     exit;
