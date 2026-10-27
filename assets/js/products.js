@@ -16,6 +16,7 @@ window.PT2VHF_PRODUCTS = [
   {
     id: "prog",
     summary: "Programe, faça backup e gerencie memórias e configurações de rádios Kenwood e Icom.",
+    cardSummary: "Ferramenta de configuração de memórias e menus de rádios em ambiente simples e fácil.",
     name: "PT2VHF Prog Tool",
     tagline: "Kenwood TS-2000 e Icom ID-51A Plus2 / ID-880H",
     description: [
@@ -52,6 +53,7 @@ window.PT2VHF_PRODUCTS = [
   {
     id: "prop",
     summary: "Analise propagação HF, 6 m, 2 m e 70 cm com dados reais e mapas de calor por região.",
+    cardSummary: "Análise de propagação para HF/VHF em tempo real, a partir da sua estação.",
     name: "PT2VHF Prop Tool",
     tagline: "PSK Reporter, WSPR, RBN, NOAA, VOACAP e MUF em uma só análise",
     description: [
@@ -81,6 +83,7 @@ window.PT2VHF_PRODUCTS = [
   {
     "id": "mesh",
     "summary": "Analise nós Meshtastic e MeshCore, enlaces RF, mensagens, tráfego e telemetria.",
+    "cardSummary": "Converse com outras pessoas e analise como as redes estão se comportando: enlaces RF, tráfego, telemetria etc. Compatível com Meshtastic e MeshCore.",
     "name": "PT2VHF Mesh Analyzer",
     "tagline": "Entenda o que acontece na sua rede mesh — do rádio ao mapa",
     "description": [
@@ -105,6 +108,7 @@ window.PT2VHF_PRODUCTS = [
   {
     id: "aprs",
     summary: "Monitore estações, mensagens e rotas APRS por RF e APRS-IS.",
+    cardSummary: "Cliente de APRS com conexão pela internet e por rádio/TNC.",
     name: "PT2VHF APRS Client",
     tagline: "APRS no mapa, via RF ou internet",
     description:
@@ -122,6 +126,7 @@ window.PT2VHF_PRODUCTS = [
   {
     id: "sat",
     summary: "Rastreie satélites amadores, preveja passagens e controle o TS-2000 via CAT.",
+    cardSummary: "Software de rastreamento de satélites e da ISS com controle em tempo real do rádio via CAT/Serial.",
     name: "PT2VHF Sat Tool",
     tagline: "Satélites amadores, passagens e CAT para o Kenwood TS-2000",
     description: [

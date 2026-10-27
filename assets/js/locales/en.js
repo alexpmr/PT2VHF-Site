@@ -90,6 +90,7 @@ window.PT2VHF_I18N["en"] = {
   "products": {
     "prog": {
       "summary": "Program, back up and manage memories and settings on Kenwood and Icom radios.",
+      "cardSummary": "A simple, easy tool for configuring radio memories and menus.",
       "tagline": "Kenwood TS-2000 and Icom ID-51A Plus2 / ID-880H",
       "description": [
         "PT2VHF Prog Tool is a desktop application for programming radios over a serial interface. Select Kenwood TS-2000 or Icom ID-51A Plus2 / ID-880H from its opening screen.",
@@ -132,6 +133,7 @@ window.PT2VHF_I18N["en"] = {
     },
     "prop": {
       "summary": "Analyze HF/VHF/UHF propagation using observed reception, solar conditions and a regional heatmap.",
+      "cardSummary": "Real-time HF/VHF propagation analysis from your own station.",
       "tagline": "Live radio propagation: PSK Reporter, WSPR, RBN, NOAA, VOACAP and MUF",
       "description": [
         "PT2VHF Prop Tool analyzes propagation evidence around your station using actual reception reports, space-weather conditions and geographical visualization. It distinguishes measurements, observations and estimates.",
@@ -152,6 +154,7 @@ window.PT2VHF_I18N["en"] = {
     },
     "mesh": {
       "summary": "Inspect Meshtastic nodes, RF links, traffic and network telemetry.",
+      "cardSummary": "Chat with other people and see how networks are behaving: RF links, traffic, telemetry and more. Works with Meshtastic and MeshCore.",
       "tagline": "Understand your mesh network",
       "description": "Track mesh nodes, radio link quality and message routes. Locate potential bottlenecks and weak links.",
       "features": [
@@ -163,6 +166,7 @@ window.PT2VHF_I18N["en"] = {
     },
     "aprs": {
       "summary": "Monitor APRS stations, messages and paths over RF and APRS-IS.",
+      "cardSummary": "APRS client with internet and radio/TNC connections.",
       "tagline": "APRS maps over RF and the Internet",
       "description": "See live APRS stations, objects and messages. Connect to TNC/KISS or APRS-IS, transmit beacons and exchange messages.",
       "features": [
@@ -174,6 +178,7 @@ window.PT2VHF_I18N["en"] = {
     },
     "sat": {
       "summary": "Track amateur satellites, predict passes and control the TS-2000 over CAT.",
+      "cardSummary": "Satellite and ISS tracking software with real-time radio control over CAT/serial.",
       "tagline": "Amateur satellites, passes and Kenwood TS-2000 CAT",
       "description": [
         "Track amateur satellites with orbital maps, TLE/OMM data, pass predictions and operating frequencies.",

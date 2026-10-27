@@ -506,7 +506,7 @@
           '<a class="ov-card" href="/' + esc(p.id) + '">' +
           '<span class="product-icon">' + icon(p.icon) + "</span>" +
           '<span class="ov-text"><strong>' + esc(shortName(p)) + "</strong>" +
-          '<span class="ov-tagline">' + esc(p.summary || p.tagline || "") + "</span>" +
+          '<span class="ov-tagline">' + esc(p.cardSummary || p.summary || p.tagline || "") + "</span>" +
           '<span class="ov-version' + (p.version ? "" : " is-soon") + '">' + versionLabel(p) + "</span>" +
           (!p.version && p.developmentVersion ? '<span class="ov-dev">Código v' + esc(p.developmentVersion) + '</span>' : '') +
           '<span class="ov-cta">' + esc(t("cardOpen")) + '</span></span>' +

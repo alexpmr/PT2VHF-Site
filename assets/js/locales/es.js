@@ -90,6 +90,7 @@ window.PT2VHF_I18N["es"] = {
   "products": {
     "prog": {
       "summary": "Programe, respalde y gestione memorias y ajustes de radios Kenwood e Icom.",
+      "cardSummary": "Herramienta sencilla y fácil para configurar memorias y menús de radios.",
       "tagline": "Kenwood TS-2000 e Icom ID-51A Plus2 / ID-880H",
       "description": [
         "PT2VHF Prog Tool permite programar radios por puerto serie. En la pantalla inicial seleccione Kenwood TS-2000 o Icom ID-51A Plus2 / ID-880H.",
@@ -132,6 +133,7 @@ window.PT2VHF_I18N["es"] = {
     },
     "prop": {
       "summary": "Analice la propagación HF/VHF/UHF con recepciones observadas, clima espacial y mapas de calor regionales.",
+      "cardSummary": "Análisis de propagación en HF/VHF en tiempo real, desde su estación.",
       "tagline": "Propagación real: PSK Reporter, WSPR, RBN, NOAA, VOACAP y MUF",
       "description": [
         "PT2VHF Prop Tool analiza evidencias de propagación en su región a partir de recepciones reales, condiciones solares y visualización geográfica. Distingue observaciones, mediciones y estimaciones.",
@@ -152,6 +154,7 @@ window.PT2VHF_I18N["es"] = {
     },
     "mesh": {
       "summary": "Analice nodos Meshtastic, enlaces RF, tráfico y telemetría.",
+      "cardSummary": "Converse con otras personas y analice cómo se comportan las redes: enlaces RF, tráfico, telemetría y más. Compatible con Meshtastic y MeshCore.",
       "tagline": "Conozca su red mesh",
       "description": "Supervise nodos, calidad de enlaces y rutas de mensajes. Detecte cuellos de botella y enlaces débiles.",
       "features": [
@@ -163,6 +166,7 @@ window.PT2VHF_I18N["es"] = {
     },
     "aprs": {
       "summary": "Supervise estaciones, mensajes y rutas APRS por RF y APRS-IS.",
+      "cardSummary": "Cliente APRS con conexión por internet y por radio/TNC.",
       "tagline": "APRS en mapa por RF e Internet",
       "description": "Consulte estaciones, objetos y mensajes APRS en tiempo real. Conecte un TNC/KISS o APRS-IS, envíe balizas e intercambie mensajes.",
       "features": [
@@ -174,6 +178,7 @@ window.PT2VHF_I18N["es"] = {
     },
     "sat": {
       "summary": "Siga satélites, prediga pasadas y controle el TS-2000 por CAT.",
+      "cardSummary": "Software de seguimiento de satélites y de la ISS con control del radio en tiempo real por CAT/serie.",
       "tagline": "Satélites de radioaficionado, pasadas y CAT Kenwood TS-2000",
       "description": [
         "Siga satélites de radioaficionado con mapas orbitales, datos TLE/OMM, predicción de pasadas y frecuencias de operación.",

@@ -90,6 +90,7 @@ window.PT2VHF_I18N["zh"] = {
   "products": {
     "prog": {
       "summary": "管理、备份和编程 Kenwood 与 Icom 电台的频道及设置。",
+      "cardSummary": "简单易用的电台频道与菜单配置工具。",
       "tagline": "Kenwood TS-2000 和 Icom ID-51A Plus2 / ID-880H",
       "description": [
         "PT2VHF Prog Tool 是通过串口编程电台的桌面软件。在主界面中可选择 Kenwood TS-2000 或 Icom ID-51A Plus2 / ID-880H。",
@@ -132,6 +133,7 @@ window.PT2VHF_I18N["zh"] = {
     },
     "prop": {
       "summary": "结合真实接收报告、空间天气与区域热力图分析 HF/VHF/UHF 无线电传播条件。",
+      "cardSummary": "从您自己的电台出发，实时分析 HF/VHF 传播。",
       "tagline": "传播分析：PSK Reporter、WSPR、RBN、NOAA、VOACAP 与 MUF",
       "description": [
         "PT2VHF Prop Tool 结合真实接收报告、太阳活动数据和地理可视化，分析电台所在地附近的传播条件，并区分观测、测量和估算。",
@@ -152,6 +154,7 @@ window.PT2VHF_I18N["zh"] = {
     },
     "mesh": {
       "summary": "分析 Meshtastic 节点、射频链路、网络流量及遥测。",
+      "cardSummary": "与他人聊天，并查看网络运行情况：射频链路、流量、遥测等。兼容 Meshtastic 和 MeshCore。",
       "tagline": "深入了解 Mesh 网络",
       "description": "监控 Mesh 节点、链路质量和消息路径，识别网络瓶颈和弱链路。",
       "features": [
@@ -163,6 +166,7 @@ window.PT2VHF_I18N["zh"] = {
     },
     "aprs": {
       "summary": "通过射频或 APRS-IS 监控 APRS 电台、消息和路径。",
+      "cardSummary": "支持互联网和电台/TNC 连接的 APRS 客户端。",
       "tagline": "通过射频和互联网查看 APRS 地图",
       "description": "实时查看 APRS 电台、对象和消息。连接 TNC/KISS 或 APRS-IS，发送位置 Beacon 并交换消息。",
       "features": [
@@ -174,6 +178,7 @@ window.PT2VHF_I18N["zh"] = {
     },
     "sat": {
       "summary": "跟踪业余卫星、预测过境并通过 CAT 控制 TS-2000。",
+      "cardSummary": "卫星与国际空间站（ISS）跟踪软件，可通过 CAT/串口实时控制电台。",
       "tagline": "业余卫星、过境预测和 Kenwood TS-2000 CAT",
       "description": [
         "通过轨道地图、TLE/OMM 数据、过境预测及工作频率跟踪业余无线电卫星。",

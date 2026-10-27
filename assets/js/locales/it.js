@@ -90,6 +90,7 @@ window.PT2VHF_I18N["it"] = {
   "products": {
     "prog": {
       "summary": "Programma, salva e gestisci memorie e impostazioni delle radio Kenwood e Icom.",
+      "cardSummary": "Uno strumento semplice e facile per configurare memorie e menu delle radio.",
       "tagline": "Kenwood TS-2000 e Icom ID-51A Plus2 / ID-880H",
       "description": [
         "PT2VHF Prog Tool programma le radio attraverso la porta seriale. Nella schermata iniziale scegli Kenwood TS-2000 oppure Icom ID-51A Plus2 / ID-880H.",
@@ -132,6 +133,7 @@ window.PT2VHF_I18N["it"] = {
     },
     "prop": {
       "summary": "Analizza la propagazione HF/VHF/UHF con ricezioni osservate, meteo spaziale e mappe di calore regionali.",
+      "cardSummary": "Analisi della propagazione HF/VHF in tempo reale, dalla tua stazione.",
       "tagline": "Propagazione reale: PSK Reporter, WSPR, RBN, NOAA, VOACAP e MUF",
       "description": [
         "PT2VHF Prop Tool analizza le evidenze di propagazione nella propria regione usando segnalazioni reali di ricezione, condizioni solari e visualizzazione geografica. Distingue osservazioni, misurazioni e stime.",
@@ -152,6 +154,7 @@ window.PT2VHF_I18N["it"] = {
     },
     "mesh": {
       "summary": "Analizza nodi Meshtastic, collegamenti RF, traffico e telemetria.",
+      "cardSummary": "Chatta con altre persone e analizza come si comportano le reti: collegamenti RF, traffico, telemetria ecc. Compatibile con Meshtastic e MeshCore.",
       "tagline": "Comprendi la tua rete mesh",
       "description": "Monitora i nodi mesh, la qualità dei collegamenti e i percorsi dei messaggi. Individua colli di bottiglia e collegamenti deboli.",
       "features": [
@@ -163,6 +166,7 @@ window.PT2VHF_I18N["it"] = {
     },
     "aprs": {
       "summary": "Monitora stazioni, messaggi e percorsi APRS via RF e APRS-IS.",
+      "cardSummary": "Client APRS con connessione via internet e via radio/TNC.",
       "tagline": "APRS sulla mappa via RF o Internet",
       "description": "Visualizza stazioni, oggetti e messaggi APRS in tempo reale. Collega TNC/KISS o APRS-IS, invia beacon e scambia messaggi.",
       "features": [
@@ -174,6 +178,7 @@ window.PT2VHF_I18N["it"] = {
     },
     "sat": {
       "summary": "Segui i satelliti, prevedi i passaggi e controlla il TS-2000 via CAT.",
+      "cardSummary": "Software di tracciamento dei satelliti e della ISS con controllo della radio in tempo reale via CAT/seriale.",
       "tagline": "Satelliti amatoriali, passaggi e CAT Kenwood TS-2000",
       "description": [
         "Segui i satelliti amatoriali con mappe orbitali, dati TLE/OMM, previsioni dei passaggi e frequenze operative.",
