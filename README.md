@@ -4,7 +4,7 @@ Site oficial de [www.pt2vhf.com](https://www.pt2vhf.com): divulgação e downloa
 **PT2VHF Prog Tool**, **PT2VHF Prop Tool**, **PT2VHF Mesh Analyzer** e **PT2VHF APRS Client**.
 
 É um site estático (HTML, CSS e JavaScript puro, sem etapa de build). O repositório fica em
-`gitlab.com/pt2vhf-group/pt2vhf-site` e a Hostinger publica automaticamente cada push na branch `main`
+`github.com/alexpmr/PT2VHF-Site`; o GitHub Actions publica na Hostinger cada push na branch `main`
 (veja [Hospedagem na Hostinger](#hospedagem-na-hostinger-atual)).
 
 ## Estrutura
@@ -19,7 +19,7 @@ assets/js/main.js        Lê updates.json e monta a visão geral e a seção de 
 assets/img/              Favicon e imagem de compartilhamento
 downloads/<pasta>/        Arquivos de cada versão (prog-tool, prop-tool, mesh-analyzer, aprs-client)
 CNAME                    Domínio personalizado (www.pt2vhf.com)
-.github/workflows/       Publicação automática no GitHub Pages
+.github/workflows/       Deploy automático na Hostinger por FTPS (deploy-hostinger.yml)
 ```
 
 ## updates.json: contrato de versões
