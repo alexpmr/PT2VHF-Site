@@ -98,6 +98,7 @@
     },
     aprs: {
       pt: [
+        e("1.14.62", "Downloads no site oficial", ["Ao iniciar, um aviso informa que novas versões e instaladores são distribuídos pelo site oficial."]),
         e("1.14.61", "Estatísticas guardadas", ["A aba Estatísticas abre com o último cálculo guardado; o botão Recalcular refaz quando quiser.", "Atualizações automáticas também entram nos contadores do site."]),
         e("1.14.60", "Anúncio da versão e filtros de mensagens", ["Anúncio automático da versão na rede APRS (desligável em Automações).", "Mensagens da própria estação sempre visíveis; rotas RF sem saltos faltando; Windows sem UPX."]),
         e("1.14.59", "Atualização via site PT2VHF", ["O atualizador consulta exclusivamente https://www.pt2vhf.com.", "Tamanho e SHA-256 verificados; links externos e redirecionamentos bloqueados."]),
@@ -107,6 +108,7 @@
         e("1.14.55", "Planejamento de enlaces e melhor ponto", ["Enlace entre 2 pontos com perfil de terreno, Fresnel, sinal estimado e veredito de viabilidade.", "Melhor ponto para instalar estação: topos da área desenhada, com CSV e PDF."])
       ],
       en: [
+        e("1.14.62", "Downloads on the official website", ["At startup, a notice explains that new versions and installers are distributed through the official website."]),
         e("1.14.61", "Saved statistics", ["The Statistics tab opens with the last saved calculation; Recalculate refreshes it on demand.", "Automatic updates are also counted on the site."]),
         e("1.14.60", "Version announcement and message filters", ["Automatic version announcement on the APRS network (can be turned off in Automations).", "Own-station messages always visible; RF routes without missing hops; Windows builds without UPX."]),
         e("1.14.59", "Updates from the PT2VHF site", ["The updater checks only https://www.pt2vhf.com.", "Size and SHA-256 verified; external links and redirects blocked."]),
@@ -116,6 +118,7 @@
         e("1.14.55", "Link planning and best site", ["Point-to-point link with terrain profile, Fresnel zone, estimated signal and feasibility verdict.", "Best site for a station: peaks inside the drawn area, with CSV and PDF."])
       ],
       es: [
+        e("1.14.62", "Descargas en el sitio web oficial", ["Al iniciar, un aviso indica que las nuevas versiones e instaladores se distribuyen por el sitio oficial."]),
         e("1.14.61", "Estadísticas guardadas", ["La pestaña Estadísticas abre con el último cálculo guardado; Recalcular lo actualiza cuando quiera.", "Las actualizaciones automáticas también cuentan en el sitio."]),
         e("1.14.60", "Anuncio de versión y filtros de mensajes", ["Anuncio automático de la versión en la red APRS (desactivable en Automatizaciones).", "Mensajes de la propia estación siempre visibles; rutas RF sin saltos faltantes; Windows sin UPX."]),
         e("1.14.59", "Actualización desde el sitio PT2VHF", ["El actualizador consulta exclusivamente https://www.pt2vhf.com.", "Tamaño y SHA-256 verificados; enlaces externos y redirecciones bloqueados."]),
@@ -125,6 +128,7 @@
         e("1.14.55", "Planificación de enlaces y mejor punto", ["Enlace entre 2 puntos con perfil de terreno, Fresnel, señal estimada y veredicto de viabilidad.", "Mejor punto para instalar una estación: cumbres del área dibujada, con CSV y PDF."])
       ],
       fr: [
+        e("1.14.62", "Téléchargements sur le site officiel", ["Au démarrage, un avis indique que les nouvelles versions et installateurs sont distribués via le site officiel."]),
         e("1.14.61", "Statistiques enregistrées", ["L’onglet Statistiques s’ouvre avec le dernier calcul enregistré ; Recalculer le met à jour à la demande.", "Les mises à jour automatiques sont aussi comptées sur le site."]),
         e("1.14.60", "Annonce de version et filtres de messages", ["Annonce automatique de la version sur le réseau APRS (désactivable dans Automatisations).", "Messages de la station toujours visibles ; routes RF sans sauts manquants ; Windows sans UPX."]),
         e("1.14.59", "Mise à jour via le site PT2VHF", ["Le programme de mise à jour consulte uniquement https://www.pt2vhf.com.", "Taille et SHA-256 vérifiés ; liens externes et redirections bloqués."]),
@@ -134,6 +138,7 @@
         e("1.14.55", "Planification de liaisons et meilleur site", ["Liaison entre 2 points avec profil du terrain, zone de Fresnel, signal estimé et verdict de faisabilité.", "Meilleur site pour une station : sommets de la zone dessinée, avec CSV et PDF."])
       ],
       de: [
+        e("1.14.62", "Downloads auf der offiziellen Website", ["Beim Start weist ein Hinweis darauf hin, dass neue Versionen über die offizielle Website verteilt werden."]),
         e("1.14.61", "Gespeicherte Statistiken", ["Der Statistik-Tab öffnet mit der zuletzt gespeicherten Berechnung; Neu berechnen aktualisiert bei Bedarf.", "Automatische Updates werden ebenfalls auf der Website gezählt."]),
         e("1.14.60", "Versionsansage und Nachrichtenfilter", ["Automatische Versionsansage im APRS-Netz (unter Automationen abschaltbar).", "Eigene Nachrichten immer sichtbar; RF-Routen ohne fehlende Sprünge; Windows ohne UPX."]),
         e("1.14.59", "Updates über die PT2VHF-Website", ["Der Updater fragt ausschließlich https://www.pt2vhf.com ab.", "Größe und SHA-256 geprüft; externe Links und Weiterleitungen blockiert."]),
@@ -143,6 +148,7 @@
         e("1.14.55", "Verbindungsplanung und bester Standort", ["Punkt-zu-Punkt-Verbindung mit Geländeprofil, Fresnelzone, geschätztem Signal und Machbarkeitsurteil.", "Bester Standort für eine Station: Gipfel im gezeichneten Bereich, mit CSV und PDF."])
       ],
       it: [
+        e("1.14.62", "Download sul sito ufficiale", ["All’avvio, un avviso indica che le nuove versioni sono distribuite tramite il sito ufficiale."]),
         e("1.14.61", "Statistiche salvate", ["La scheda Statistiche si apre con l’ultimo calcolo salvato; Ricalcola lo aggiorna su richiesta.", "Anche gli aggiornamenti automatici vengono conteggiati sul sito."]),
         e("1.14.60", "Annuncio versione e filtri messaggi", ["Annuncio automatico della versione sulla rete APRS (disattivabile in Automazioni).", "Messaggi della propria stazione sempre visibili; rotte RF senza salti mancanti; Windows senza UPX."]),
         e("1.14.59", "Aggiornamento dal sito PT2VHF", ["L’aggiornamento consulta esclusivamente https://www.pt2vhf.com.", "Dimensione e SHA-256 verificati; link esterni e reindirizzamenti bloccati."]),
@@ -152,6 +158,7 @@
         e("1.14.55", "Pianificazione dei collegamenti e punto migliore", ["Collegamento tra 2 punti con profilo del terreno, zona di Fresnel, segnale stimato e verdetto di fattibilità.", "Punto migliore per una stazione: cime dell’area disegnata, con CSV e PDF."])
       ],
       zh: [
+        e("1.14.62", "官方网站下载", ["启动时提示：新版本和安装程序通过官方网站发布。"]),
         e("1.14.61", "保存的统计", ["统计页面打开时显示上次保存的计算结果；需要时点击“重新计算”。", "自动更新也计入网站下载计数。"]),
         e("1.14.60", "版本播报与消息筛选", ["在 APRS 网络自动播报版本（可在“自动化”中关闭）。", "本台消息始终显示；RF 路由不再缺少跳；Windows 版不再使用 UPX。"]),
         e("1.14.59", "通过 PT2VHF 官网更新", ["更新程序仅查询 https://www.pt2vhf.com。", "校验大小和 SHA-256；阻止外部链接和重定向。"]),
