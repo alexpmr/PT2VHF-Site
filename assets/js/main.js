@@ -49,6 +49,8 @@
       if (p.id === "prop" && window.PT2VHF_PROP_SITE) {
         Object.assign(product, window.PT2VHF_PROP_SITE[selectedLang] || window.PT2VHF_PROP_SITE.pt || {});
       }
+      var logs = window.PT2VHF_CHANGELOGS && window.PT2VHF_CHANGELOGS[p.id];
+      if (logs) Object.assign(product, logs[selectedLang] || logs.pt || {});
       return product;
     }).sort(function (a, b) { return order.indexOf(a.id) - order.indexOf(b.id); });
     document.documentElement.lang = LOCALES[selectedLang];
@@ -347,7 +349,7 @@
 
 
   function meshChangelog(p) {
-    if (["mesh", "prop"].indexOf(p.id) === -1 || !Array.isArray(p.changelog) || !p.changelog.length) return "";
+    if (!Array.isArray(p.changelog) || !p.changelog.length) return "";
     var rows=p.changelog.slice(0,5).map(function (entry) {
       if (!entry || !/^\d+\.\d+\.\d+$/.test(String(entry.version || ""))) return "";
       var changes=Array.isArray(entry.changes) ? entry.changes : [];

@@ -27,7 +27,7 @@ window.PT2VHF_MESH_SITE = {
       "Filtros de estatísticas: visão geral, rede, RF, routing, tráfego, consultas, chat, energia, repetidores, topologia e MeshCore.",
       "Relatórios e exportação: geração de PDF e CSV para documentação das análises de rede."
     ],
-    "historyTitle": "Histórico de versões — últimas 5",
+    "historyTitle": "Changelog — últimas 5 versões",
     "historyIntro": "Novidades e correções documentadas no changelog oficial do projeto.",
     "changelog": [
       {
@@ -108,7 +108,7 @@ window.PT2VHF_MESH_SITE = {
       "Statistics panels: overview, network, RF, routing, traffic, queries, chat, energy, repeaters, topology and MeshCore.",
       "Reports and exports: PDF and CSV output for documenting network analysis."
     ],
-    "historyTitle": "Release notes — latest 5 versions",
+    "historyTitle": "Changelog — last 5 versions",
     "historyIntro": "Updates and fixes documented in the official project changelog.",
     "changelog": [
       {
@@ -189,7 +189,7 @@ window.PT2VHF_MESH_SITE = {
       "Paneles de estadísticas: resumen, red, RF, rutas, tráfico, consultas, chat, energía, repetidores, topología y MeshCore.",
       "Informes y exportación: salida PDF y CSV para documentar el análisis de la red."
     ],
-    "historyTitle": "Historial de versiones — últimas 5",
+    "historyTitle": "Changelog — últimas 5 versiones",
     "historyIntro": "Novedades y correcciones del registro oficial del proyecto.",
     "changelog": [
       {
@@ -270,7 +270,7 @@ window.PT2VHF_MESH_SITE = {
       "Statistiques : résumé, réseau, RF, routage, trafic, requêtes, chat, énergie, répéteurs, topologie et MeshCore.",
       "Rapports : exports PDF et CSV pour documenter l'analyse du réseau."
     ],
-    "historyTitle": "Historique des versions — les 5 dernières",
+    "historyTitle": "Changelog — 5 dernières versions",
     "historyIntro": "Améliorations et correctifs consignés dans le changelog officiel.",
     "changelog": [
       {
@@ -350,7 +350,7 @@ window.PT2VHF_MESH_SITE = {
       "Statistikbereiche: Übersicht, Netz, RF, Routing, Verkehr, Anfragen, Chat, Energie, Repeater, Topologie und MeshCore.",
       "Berichte: PDF- und CSV-Export zur Dokumentation der Netzanalyse."
     ],
-    "historyTitle": "Versionsverlauf — letzte 5 Versionen",
+    "historyTitle": "Changelog — letzte 5 Versionen",
     "historyIntro": "Änderungen und Fehlerbehebungen aus dem offiziellen Changelog.",
     "changelog": [
       {
@@ -430,7 +430,7 @@ window.PT2VHF_MESH_SITE = {
       "Statistiche: panoramica, rete, RF, routing, traffico, richieste, chat, energia, ripetitori, topologia e MeshCore.",
       "Report: esportazione PDF e CSV per documentare l'analisi della rete."
     ],
-    "historyTitle": "Cronologia versioni — ultime 5",
+    "historyTitle": "Changelog — ultime 5 versioni",
     "historyIntro": "Novità e correzioni del changelog ufficiale.",
     "changelog": [
       {
@@ -510,7 +510,7 @@ window.PT2VHF_MESH_SITE = {
       "统计面板：概览、网络、RF、路由、流量、查询、聊天、能源、中继、拓扑和 MeshCore。",
       "报表：导出 PDF 与 CSV 以记录网络分析结果。"
     ],
-    "historyTitle": "版本更新记录 — 最近 5 个版本",
+    "historyTitle": "更新日志 — 最近 5 个版本",
     "historyIntro": "根据项目官方更新日志整理的功能与修复。",
     "changelog": [
       {
