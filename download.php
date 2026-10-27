@@ -87,12 +87,12 @@ $product = (string)($isFileRequest ? ($_GET['product'] ?? '') : ($_POST['product
 $category = (string)($isFileRequest ? '' : ($_POST['category'] ?? ''));
 $requestedFile = $isFileRequest ? (string)($_GET['file'] ?? '') : '';
 if (!in_array($product, $products, true) ||
-    ($isFileRequest && (!in_array($product, array('aprs', 'prop', 'mesh'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
+    ($isFileRequest && (!in_array($product, array('aprs', 'prop', 'mesh', 'sat'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
     (!$isFileRequest && !in_array($category, $allowed, true))) {
     fclose($file);
     pt2vhf_error(400, 'Projeto, categoria ou arquivo inválidos');
 }
-if (!$isFileRequest && in_array($product, array('aprs', 'mesh'), true)) {
+if (!$isFileRequest && in_array($product, array('aprs', 'mesh', 'sat'), true)) {
     fclose($file);
     http_response_code(204);
     exit;
@@ -112,6 +112,8 @@ $found = false;
 $redirectPath = '';
 $propChunks = false;
 $propSize = 0;
+$folders = array('aprs' => 'aprs-client', 'prop' => 'prop-tool', 'mesh' => 'mesh-analyzer', 'sat' => 'sat-tool');
+$segmented = $product === 'prop' || $product === 'sat';
 foreach ($files as $entry) {
     if (!is_array($entry)) continue;
     $key = (string)(($entry['counterKey'] ?? null) ?: ($entry['category'] ?? ''));
@@ -126,10 +128,10 @@ foreach ($files as $entry) {
         || isset($parts['query']) || isset($parts['fragment'])) continue;
     $path = (string)($parts['path'] ?? '');
     if (strpos($path, '/downloads/') !== 0 || strpos($path, '%') !== false) continue;
-    if ($isFileRequest && $path !== '/downloads/' . ($product === 'prop' ? 'prop-tool' : ($product === 'mesh' ? 'mesh-analyzer' : 'aprs-client')) . '/' . $requestedFile) continue;
+    if ($isFileRequest && $path !== '/downloads/' . $folders[$product] . '/' . $requestedFile) continue;
     $size = $entry['size'] ?? null;
-    if ($product === 'prop') {
-        $chunks = pt2vhf_prop_parts($entry);
+    if ($segmented) {
+        $chunks = pt2vhf_prop_parts($entry, $product);
         if ($chunks !== false) {
             $found = true;
             if ($isFileRequest) { $category = $key; $propChunks = $chunks; $propSize = $size; }
@@ -138,7 +140,7 @@ foreach ($files as $entry) {
         // Enquanto o pacote segmentado nao estiver hospedado no dominio,
         // o site contabiliza e entrega a release assinada pelo GitHub oficial.
         // Nao altera o endpoint OTA: ele so divulga pacotes locais validados.
-        if ($isFileRequest) {
+        if ($isFileRequest && $product === 'prop') {
             $source = (string)($entry['source_url'] ?? '');
             $tag = (string)($entry['version'] ?? '');
             $expected = 'https://github.com/alexpmr/PT2VHF-Prop-Tool/releases/download/v'
@@ -173,7 +175,7 @@ if (!$found) {
 }
 if ($isFileRequest && $method === 'HEAD') {
     fclose($file);
-    if ($product === 'prop') {
+    if ($segmented) {
         if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks, true);
         header('Location: ' . $redirectPath, true, 302);
         exit;
@@ -182,7 +184,7 @@ if ($isFileRequest && $method === 'HEAD') {
     exit;
 }
 // Download continuation/range requests must not inflate the accumulated counter.
-if ($isFileRequest && $product === 'prop' && isset($_SERVER['HTTP_RANGE'])) {
+if ($isFileRequest && $segmented && isset($_SERVER['HTTP_RANGE'])) {
     fclose($file);
     if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
     header('Location: ' . $redirectPath, true, 302);
@@ -209,7 +211,7 @@ if (!is_string($output) || ftruncate($file, 0) === false || rewind($file) === fa
 flock($file, LOCK_UN);
 fclose($file);
 if ($isFileRequest) {
-    if ($product === 'prop') {
+    if ($segmented) {
         if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
         header('Location: ' . $redirectPath, true, 302);
         exit;
