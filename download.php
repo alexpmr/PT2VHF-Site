@@ -199,6 +199,22 @@ if ($isFileRequest) {
         header('Location: ' . $redirectPath, true, 302);
         exit;
     }
+    // O atualizador OTA do APRS recusa redirecionamentos (segurança): para ele,
+    // o arquivo já contado é entregue aqui mesmo com HTTP 200, sem 302.
+    $agent = (string)($_SERVER['HTTP_USER_AGENT'] ?? '');
+    if ($product === 'aprs' && strncmp($agent, 'PT2VHF-APRS-Client', 18) === 0) {
+        $real = realpath(__DIR__ . $redirectPath);
+        $size = $real === false ? false : filesize($real);
+        if ($real !== false && $size !== false) {
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="' . basename($real) . '"');
+            header('Content-Length: ' . $size);
+            header('X-Content-Type-Options: nosniff');
+            while (ob_get_level() > 0) ob_end_flush();
+            readfile($real);
+            exit;
+        }
+    }
     header('Location: ' . $redirectPath . '?pt2vhf_raw=1', true, 302);
     exit;
 }
