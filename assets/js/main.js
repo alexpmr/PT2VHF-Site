@@ -112,6 +112,7 @@
       [
         [".site-nav-home","navHome"],
         [".site-nav-projects-label","navProjects"],
+        [".site-nav-about","navAbout"],
         [".site-nav-contact","navContact"]
       ].forEach(function(pair){
         var element=document.querySelector(pair[0]);
@@ -150,8 +151,9 @@
       document.title = currentProduct.name + " — " + suffixes[selectedLang];
       if (meta) meta.setAttribute("content", currentProduct.summary || currentProduct.tagline);
     } else if(document.body.classList.contains("contact-page") && siteLanguage) {
-      document.title=siteLanguage.pageTitle;
-      if(meta)meta.setAttribute("content",siteLanguage.pageDescription);
+      var isAbout=document.body.classList.contains("about-page");
+      document.title=siteLanguage[isAbout?"aboutPageTitle":"pageTitle"];
+      if(meta)meta.setAttribute("content",siteLanguage[isAbout?"aboutPageDescription":"pageDescription"]);
     } else {
       document.title = "PT2VHF — " + t("catalogTitle");
       if (meta) meta.setAttribute("content", t("homeLead"));
@@ -159,7 +161,7 @@
     // Preserve the selected language when navigating between project pages.
     Array.prototype.forEach.call(document.querySelectorAll('a[href^="/"]'), function (link) {
       var href = link.getAttribute("href");
-      if (!/^\/(?:$|aprs(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|contato(?:[?#]|$)|#)/.test(href)) return;
+      if (!/^\/(?:$|aprs(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|contato(?:[?#]|$)|sobre(?:[?#]|$)|#)/.test(href)) return;
       var url = new URL(href, location.origin);
       url.searchParams.set("lang", selectedLang);
       link.setAttribute("href", url.pathname + url.search + url.hash);

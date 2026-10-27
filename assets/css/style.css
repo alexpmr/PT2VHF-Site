@@ -502,3 +502,14 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .program-page[data-program="prop"] .mesh-history-entry li { margin-bottom:6px; }
 @media(max-width:900px) { .prop-intro-feature-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:600px) { .prop-intro-feature-grid { grid-template-columns:1fr; } .prop-intro-top { padding-bottom:18px; } .prop-intro-feature { min-height:0; } }
+
+/* Páginas Sobre e Contato separadas */
+.about-cta { padding:48px 0 56px; }
+.about-cta-inner { display:flex; align-items:center; justify-content:center; gap:20px 28px; flex-wrap:wrap; text-align:center; }
+.about-cta-inner p { margin:0; max-width:620px; font-size:1.1rem; color:var(--text); }
+.contact-intro h1 { font-size:clamp(1.8rem,4vw,2.6rem); margin:0 0 16px; }
+.contact-intro .contact-lead { max-width:700px; margin:0 auto 30px; line-height:1.7; color:var(--muted); font-size:1.05rem; }
+.contact-help { max-width:760px; }
+.contact-help h2 { font-size:clamp(1.3rem,2.6vw,1.7rem); margin:0 0 16px; }
+.contact-help-list { margin:0; padding:20px 24px 20px 44px; background:var(--surface); border:1px solid var(--border); border-radius:14px; line-height:1.7; }
+.contact-help-list li + li { margin-top:6px; }
