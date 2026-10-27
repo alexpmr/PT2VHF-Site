@@ -137,25 +137,8 @@ foreach ($files as $entry) {
             if ($isFileRequest) { $category = $key; $propChunks = $chunks; $propSize = $size; }
             break;
         }
-        // Enquanto o pacote segmentado nao estiver hospedado no dominio,
-        // o site contabiliza e entrega a release assinada pelo GitHub oficial.
-        // Nao altera o endpoint OTA: ele so divulga pacotes locais validados.
-        if ($isFileRequest && $product === 'prop') {
-            $source = (string)($entry['source_url'] ?? '');
-            $tag = (string)($entry['version'] ?? '');
-            $expected = 'https://github.com/alexpmr/PT2VHF-Prop-Tool/releases/download/v'
-                . $tag . '/' . $requestedFile;
-            if (preg_match('/^\d+\.\d+\.\d+$/D', $tag) === 1
-                && $source === $expected
-                && preg_match('/^PT2VHF-Prop-Tool-\d+\.\d+\.\d+-x64-(setup|portable)\.exe$/D', $requestedFile) === 1
-                && is_int($size) && $size > 50000000 && $size < 700000000
-                && preg_match('/^[a-f0-9]{64}$/D', (string)($entry['sha256'] ?? '')) === 1) {
-                $found = true;
-                $category = $key;
-                $redirectPath = $source;
-                break;
-            }
-        }
+        // Todos os binarios sao servidos pelo proprio dominio: sem partes
+        // validadas em downloads/, o arquivo nao e oferecido (nunca redireciona).
     } else {
         $root = realpath(__DIR__ . '/downloads');
         $target = realpath(__DIR__ . $path);

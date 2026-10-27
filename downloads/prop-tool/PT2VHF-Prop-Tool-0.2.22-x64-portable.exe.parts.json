@@ -1,0 +1,22 @@
+{
+  "name": "PT2VHF-Prop-Tool-0.2.22-x64-portable.exe",
+  "size": 115107199,
+  "sha256": "f29e54fa28a11e7032d281669b85e3ee50d6ce2e461b6a27879c7c825c30d6c8",
+  "parts": [
+    {
+      "name": "PT2VHF-Prop-Tool-0.2.22-x64-portable.exe.part00",
+      "size": 50331648,
+      "sha256": "c438e4e66dc1d74a741b2f731a7450c40192a4dc4fd79fe8ce6b4a408a88f197"
+    },
+    {
+      "name": "PT2VHF-Prop-Tool-0.2.22-x64-portable.exe.part01",
+      "size": 50331648,
+      "sha256": "b183192a4204b2f9d74207ec7a2caaae579fa366a4364d732ad80e81c93856b1"
+    },
+    {
+      "name": "PT2VHF-Prop-Tool-0.2.22-x64-portable.exe.part02",
+      "size": 14443903,
+      "sha256": "c0c3a157779f76cc9608341fe57c4769de7249f7381532051bef8a6829a067fe"
+    }
+  ]
+}

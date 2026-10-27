@@ -76,35 +76,29 @@
           "category": "windows-installer",
           "counterKey": "win-setup-x64",
           "kind": "installer",
-          "platform": "windows-x64",
           "architecture": "x64",
+          "platform": "windows-x64",
           "name": "PT2VHF-Prop-Tool-0.2.22-x64-setup.exe",
           "url": "https://www.pt2vhf.com/downloads/prop-tool/PT2VHF-Prop-Tool-0.2.22-x64-setup.exe",
-          "source_url": "https://github.com/alexpmr/PT2VHF-Prop-Tool/releases/download/v0.2.22/PT2VHF-Prop-Tool-0.2.22-x64-setup.exe",
-          "version": "0.2.22",
           "size": 115206309,
           "sha256": "30fcd286348d1c63bcbce7401acd5e36ee5a8bbeec3d3b4e9ef05cae4d38f5df",
-          "detail": "Windows 10/11 x64 · GitHub Releases oficial"
+          "detail": "Windows 10/11 x64"
         },
         {
           "category": "windows-portable",
           "counterKey": "win-portable-x64",
           "kind": "portable",
-          "platform": "windows-x64",
           "architecture": "x64",
+          "platform": "windows-x64",
           "name": "PT2VHF-Prop-Tool-0.2.22-x64-portable.exe",
           "url": "https://www.pt2vhf.com/downloads/prop-tool/PT2VHF-Prop-Tool-0.2.22-x64-portable.exe",
-          "source_url": "https://github.com/alexpmr/PT2VHF-Prop-Tool/releases/download/v0.2.22/PT2VHF-Prop-Tool-0.2.22-x64-portable.exe",
-          "version": "0.2.22",
           "size": 115107199,
           "sha256": "f29e54fa28a11e7032d281669b85e3ee50d6ce2e461b6a27879c7c825c30d6c8",
-          "detail": "Windows 10/11 x64 · GitHub Releases oficial"
+          "detail": "Windows 10/11 x64"
         }
       ],
       "developmentVersion": "0.2.22",
-      "releaseStatus": "Downloads oficiais do GitHub v0.2.22 disponíveis com contador acumulado no site. O OTA continuará exigindo arquivos validados no domínio PT2VHF.",
-      "ciUrl": "https://github.com/alexpmr/PT2VHF-Prop-Tool/releases/tag/v0.2.22",
-      "ciLabel": "Release oficial 0.2.22 no GitHub",
+      "releaseStatus": "Instaladores validados e servidos pelo site oficial.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=prop&platform=windows-x64",
       "plannedFiles": [
         {

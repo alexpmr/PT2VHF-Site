@@ -82,6 +82,18 @@ O servidor entrega o arquivo com `Content-Type: application/json; charset=utf-8`
 Pastas de download: `prog` → `downloads/prog-tool/`, `prop` → `downloads/prop-tool/`,
 `mesh` → `downloads/mesh-analyzer/`, `aprs` → `downloads/aprs-client/`.
 
+## Regra: todos os binários ficam no site
+
+Todo instalador, pacote ou arquivo oferecido no site e no OTA (`update.php`) fica hospedado em
+`downloads/<pasta>/` deste repositório. O `download.php` e o `update.php` só entregam arquivos do
+próprio domínio e **nunca redirecionam** para o GitHub ou outro serviço: se o arquivo não estiver aqui,
+o download responde 404 e o OTA não o oferece. Assim os repositórios dos programas podem ser privados.
+
+Arquivos acima de 100 MB (limite do GitHub) são guardados em partes de 48 MiB com um `.parts.json`
+(tamanho e SHA-256 de cada parte e do arquivo inteiro); o PHP remonta o arquivo na hora do download,
+com suporte a Range. Para o Prop Tool: `python3 scripts/segment_prop_packages.py X.Y.Z` e depois
+`python3 scripts/sync_prop_manifest.py --version X.Y.Z --apply`. O Sat Tool usa o mesmo formato.
+
 ## Publicar uma nova versão de um programa
 
 1. Atualize o repositório: `git pull --rebase origin main`.
