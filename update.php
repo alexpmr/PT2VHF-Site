@@ -71,9 +71,9 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
         $size = $file['size'] ?? null;
         $sha = (string)($file['sha256'] ?? '');
         if (!is_int($size) || $size <= 0 || !preg_match('/^[a-f0-9]{64}$/D', $sha)) continue;
-        if ($product === 'prop') {
+        if ($product === 'prop' || $product === 'sat') {
             // Each installer consists of verified, sub-100 MiB server-side parts.
-            if (pt2vhf_prop_parts($file) === false) continue;
+            if (pt2vhf_prop_parts($file, $product) === false) continue;
         } else {
             $real = realpath(__DIR__ . $path);
             if ($real === false || strncmp($real, $root . DIRECTORY_SEPARATOR, strlen($root) + 1) !== 0

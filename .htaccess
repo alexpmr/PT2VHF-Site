@@ -25,6 +25,11 @@ RewriteRule ^downloads/prop-tool/.*\.exe\.part(?:[0-9]{2}|s\.json)$ - [F,L,NC]
 # No external redirect: the desktop auto-updater requires a direct HTTP 200 response.
 RewriteRule ^downloads/prop-tool/(PT2VHF-Prop-Tool-[0-9]+\.[0-9]+\.[0-9]+-x64-(?:setup|portable)\.exe)$ download.php?product=prop&file=$1 [L,NC,QSA]
 
+# Sat Tool: mesmo esquema segmentado (EXEs > 100 MiB), servido com HTTP 200
+# direto para o atualizador OTA, que recusa redirecionamentos.
+RewriteRule ^downloads/sat-tool/.*\.exe\.part(?:[0-9]{2}|s\.json)$ - [F,L,NC]
+RewriteRule ^downloads/sat-tool/(PT2VHF-Sat-Tool-v[0-9]+\.[0-9]+\.[0-9]+-Win11-x64-(?:Setup|Portable)\.exe)$ download.php?product=sat&file=$1 [L,NC,QSA]
+
 # Contabiliza URLs diretas do APRS (inclusive downloads do atualizador).
 # A segunda requisição, com pt2vhf_raw=1, serve o binário estático.
 RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]

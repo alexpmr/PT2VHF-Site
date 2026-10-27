@@ -1,14 +1,25 @@
 <?php
-/** Validate a segmented Prop Tool installer without reading large files on every request. */
+/** Validate a segmented Prop/Sat Tool installer without reading large files on every request. */
 declare(strict_types=1);
-function pt2vhf_prop_parts(array $entry) {
+/** Products whose >100 MiB Windows EXEs are stored as Git-sized parts. */
+function pt2vhf_segmented_products(): array {
+    return array(
+        'prop' => array('folder' => 'prop-tool',
+                        'pattern' => '/^PT2VHF-Prop-Tool-[0-9]+\.[0-9]+\.[0-9]+-x64-(setup|portable)\.exe$/D'),
+        'sat' => array('folder' => 'sat-tool',
+                       'pattern' => '/^PT2VHF-Sat-Tool-v[0-9]+\.[0-9]+\.[0-9]+-Win11-x64-(Setup|Portable)\.exe$/D'),
+    );
+}
+function pt2vhf_prop_parts(array $entry, string $product = 'prop') {
+    $products = pt2vhf_segmented_products();
+    if (!isset($products[$product])) return false;
     $name = (string)($entry['name'] ?? '');
-    if (preg_match('/^PT2VHF-Prop-Tool-[0-9]+\.[0-9]+\.[0-9]+-x64-(setup|portable)\.exe$/D', $name) !== 1) return false;
+    if (preg_match($products[$product]['pattern'], $name) !== 1) return false;
     $expectedSize = $entry['size'] ?? null;
     $expectedHash = (string)($entry['sha256'] ?? '');
     if (!is_int($expectedSize) || $expectedSize < 50000000 || $expectedSize > 700000000 ||
         preg_match('/^[a-f0-9]{64}$/D', $expectedHash) !== 1) return false;
-    $folder = realpath(__DIR__ . '/downloads/prop-tool');
+    $folder = realpath(__DIR__ . '/downloads/' . $products[$product]['folder']);
     if ($folder === false) return false;
     $sidecar = $folder . DIRECTORY_SEPARATOR . $name . '.parts.json';
     if (!is_file($sidecar) || !is_readable($sidecar)) return false;

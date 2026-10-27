@@ -68,7 +68,7 @@ window.PT2VHF_I18N["zh"] = {
     "statProp": "Windows 安装包已生成，但自动验证失败，尚无通过验证的公开安装包。",
     "statMesh": "目前未在此 GitLab 账号中确认该项目的公开安装包或对应仓库。",
     "statAprs": "v1.14.59 安装包正在验证中。通过检查并发布到本站后才会开放下载。",
-    "statSat": "Windows 构建受 Qt WebEngine 依赖问题阻碍，正在等待验证通过的安装包。",
+    "statSat": "适用于 Windows 10/11 x64 的官方安装版与便携版。",
     "ciLink": "构建详情（可能需要 GitLab 权限）",
     "detailsProgInstaller": "Windows 10/11 64 位（推荐）",
     "detailsProgPortable": "Windows 10/11 64 位，免安装",
@@ -190,7 +190,10 @@ window.PT2VHF_I18N["zh"] = {
         "Kenwood TS-2000 CAT 与多普勒跟踪",
         "电台坐标及 Maidenhead 网格定位",
         "预测频率与实际电台频率诊断",
-        "更新轨道和频率数据"
+        "更新轨道和频率数据",
+        "连续 Auto CAT：发送 FA/FB 并通过电台回读确认，不触发 PTT",
+        "CelesTrak 轨道根数（OMM/TLE）与 SatNOGS 转发器数据，离线地图",
+        "安装版与便携 EXE，通过 pt2vhf.com 安全更新（校验大小与 SHA-256）"
       ],
       "supported": [
         {

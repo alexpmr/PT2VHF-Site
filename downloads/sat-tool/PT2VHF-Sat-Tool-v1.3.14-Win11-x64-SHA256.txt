@@ -1,0 +1,2 @@
+7e8f9f2cab79f310da73de517cc0b50ce504af87b14c30c5a9b558abb6e758a8  PT2VHF-Sat-Tool-v1.3.14-Win11-x64-Setup.exe
+8afa0f2c38a6032756de0fd4fad74f0528860701705be63fbbe98c0c1d0d1f68  PT2VHF-Sat-Tool-v1.3.14-Win11-x64-Portable.exe

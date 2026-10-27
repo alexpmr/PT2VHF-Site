@@ -68,7 +68,7 @@ window.PT2VHF_I18N["pt"] = {
     "statProp": "Arquivos Windows gerados, mas a validação automatizada falhou. Instalador público ainda não homologado.",
     "statMesh": "Ainda não há instalador público ou repositório confirmado neste GitLab.",
     "statAprs": "Pacotes v1.14.59 em validação. Downloads serão liberados após publicação e verificação no site.",
-    "statSat": "Build Windows bloqueado por dependência Qt WebEngine. Aguardando instalador validado.",
+    "statSat": "Instalador e portátil oficiais para Windows 10/11 x64.",
     "ciLink": "Detalhes da compilação (pode exigir acesso ao GitLab)",
     "detailsProgInstaller": "Windows 10/11 de 64 bits (recomendado)",
     "detailsProgPortable": "Windows 10/11 de 64 bits, sem instalar",
