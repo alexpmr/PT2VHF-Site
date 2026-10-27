@@ -21,6 +21,9 @@ $allowed = array(
     'linux-tar-x64','linux-tar-arm64','mac-dmg-x64','mac-dmg-arm64'
 );
 $products = array('aprs', 'prop', 'mesh', 'sat', 'prog');
+// Baseline histórico do GitHub em 26/10/2026, antes dos downloads pelo site.
+// Contagens auditáveis: github.com/alexpmr/PT2VHF-Prop-Tool (ramo badges).
+$propHistoricalCounts = array('win-setup-x64' => 48, 'win-portable-x64' => 23);
 $manifestPath = __DIR__ . '/updates.json';
 
 function pt2vhf_error(int $status, string $msg): void {
@@ -62,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['mode'] ?? '') === 'stats') {
         if (!isset($data['counts'][$product])) $data['counts'][$product] = array();
         foreach ($allowed as $category) {
             if (!isset($data['counts'][$product][$category])) {
-                $data['counts'][$product][$category] = 0;
+                $data['counts'][$product][$category] = $product === 'prop' ? ($propHistoricalCounts[$category] ?? 0) : 0;
             }
         }
     }
@@ -169,7 +172,7 @@ $data = pt2vhf_read_document($file);
 if (!isset($data['counts'][$product]) || !is_array($data['counts'][$product])) {
     $data['counts'][$product] = array();
 }
-$current = (int)($data['counts'][$product][$category] ?? 0);
+$current = (int)($data['counts'][$product][$category] ?? ($product === 'prop' ? ($propHistoricalCounts[$category] ?? 0) : 0));
 $data['counts'][$product][$category] = $current + 1;
 $data['updated'] = gmdate('c');
 $output = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
