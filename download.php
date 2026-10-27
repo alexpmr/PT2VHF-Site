@@ -135,6 +135,25 @@ foreach ($files as $entry) {
             if ($isFileRequest) { $category = $key; $propChunks = $chunks; $propSize = $size; }
             break;
         }
+        // Enquanto o pacote segmentado nao estiver hospedado no dominio,
+        // o site contabiliza e entrega a release assinada pelo GitHub oficial.
+        // Nao altera o endpoint OTA: ele so divulga pacotes locais validados.
+        if ($isFileRequest) {
+            $source = (string)($entry['source_url'] ?? '');
+            $tag = (string)($entry['version'] ?? '');
+            $expected = 'https://github.com/alexpmr/PT2VHF-Prop-Tool/releases/download/v'
+                . $tag . '/' . $requestedFile;
+            if (preg_match('/^\d+\.\d+\.\d+$/D', $tag) === 1
+                && $source === $expected
+                && preg_match('/^PT2VHF-Prop-Tool-\d+\.\d+\.\d+-x64-(setup|portable)\.exe$/D', $requestedFile) === 1
+                && is_int($size) && $size > 50000000 && $size < 700000000
+                && preg_match('/^[a-f0-9]{64}$/D', (string)($entry['sha256'] ?? '')) === 1) {
+                $found = true;
+                $category = $key;
+                $redirectPath = $source;
+                break;
+            }
+        }
     } else {
         $root = realpath(__DIR__ . '/downloads');
         $target = realpath(__DIR__ . $path);
@@ -154,14 +173,20 @@ if (!$found) {
 }
 if ($isFileRequest && $method === 'HEAD') {
     fclose($file);
-    if ($product === 'prop') pt2vhf_serve_prop($requestedFile, $propSize, $propChunks, true);
+    if ($product === 'prop') {
+        if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks, true);
+        header('Location: ' . $redirectPath, true, 302);
+        exit;
+    }
     header('Location: ' . $redirectPath . '?pt2vhf_raw=1', true, 302);
     exit;
 }
 // Download continuation/range requests must not inflate the accumulated counter.
 if ($isFileRequest && $product === 'prop' && isset($_SERVER['HTTP_RANGE'])) {
     fclose($file);
-    pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
+    if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
+    header('Location: ' . $redirectPath, true, 302);
+    exit;
 }
 
 if (!flock($file, LOCK_EX)) {
@@ -184,7 +209,11 @@ if (!is_string($output) || ftruncate($file, 0) === false || rewind($file) === fa
 flock($file, LOCK_UN);
 fclose($file);
 if ($isFileRequest) {
-    if ($product === 'prop') pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
+    if ($product === 'prop') {
+        if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
+        header('Location: ' . $redirectPath, true, 302);
+        exit;
+    }
     header('Location: ' . $redirectPath . '?pt2vhf_raw=1', true, 302);
     exit;
 }
