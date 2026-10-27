@@ -69,7 +69,7 @@ window.PT2VHF_I18N["zh"] = {
     "statProg": "Windows 和 Linux 正式安装包已提供下载。",
     "statProp": "Windows 安装包已生成，但自动验证失败，尚无通过验证的公开安装包。",
     "statMesh": "目前未在此 GitLab 账号中确认该项目的公开安装包或对应仓库。",
-    "statAprs": "v1.14.59 安装包正在验证中。通过检查并发布到本站后才会开放下载。",
+    "statAprs": "1.14.61 版已提供 Windows 和 Linux x64 版本。已安装的程序会收到提示并在应用内更新。",
     "statSat": "适用于 Windows 10/11 x64 的官方安装版与便携版。",
     "ciLink": "构建详情（可能需要 GitLab 权限）",
     "detailsProgInstaller": "Windows 10/11 64 位（推荐）",
