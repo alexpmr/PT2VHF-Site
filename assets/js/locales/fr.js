@@ -131,14 +131,23 @@ window.PT2VHF_I18N["fr"] = {
       ]
     },
     "prop": {
-      "summary": "Étudier la propagation HF/VHF/UHF et estimer les liaisons et la couverture.",
-      "tagline": "Propagation et liaisons HF/VHF/UHF",
-      "description": "Planifiez des liaisons et estimez la couverture des stations et relais à partir du terrain, de la zone de Fresnel et des pertes de propagation.",
+      "summary": "Analysez la propagation HF/VHF/UHF avec des réceptions observées, la météo spatiale et une carte thermique régionale.",
+      "tagline": "Propagation réelle : PSK Reporter, WSPR, RBN, NOAA, VOACAP et MUF",
+      "description": [
+        "PT2VHF Prop Tool analyse les indices de propagation dans votre région à partir de réceptions observées, des conditions solaires et d'une représentation géographique. Il distingue observations, mesures et estimations.",
+        "Indiquez votre indicatif, vos coordonnées ou votre locator Maidenhead et choisissez les bandes. La carte thermique affiche la concentration géographique des signaux observés et les bandes actuellement favorisées.",
+        "L'application couvre 14 bandes de 160 m à 70 cm, dont 11 m. Elle précise les sources et la confiance des analyses sans garantir de contact radio bidirectionnel."
+      ],
       "features": [
-        "Profil altimétrique entre deux points",
-        "Zone de Fresnel et visibilité directe",
-        "Bilan de liaison et pertes de trajet",
-        "Carte de couverture estimée"
+        "Carte thermique régionale, zoom et fonds de carte hors ligne",
+        "Sources indépendantes : PSK Reporter, WSPR.live et Reverse Beacon Network",
+        "Météo spatiale NOAA : Kp, F10.7, Bz, vent solaire et rayons X",
+        "Modélisation VOACAP HF locale et mesures foF2/MUF d'ionosondes",
+        "État des bandes, barres de qualité, confiance et meilleures bandes",
+        "Filtres par source et fenêtres d'observation de 15, 30 ou 60 minutes",
+        "Destinations observées, azimut et distance",
+        "Assistant local, historique du trafic, thèmes et langues",
+        "Installateur et version portable Windows 10/11 x64 avec OTA sur pt2vhf.com"
       ]
     },
     "mesh": {

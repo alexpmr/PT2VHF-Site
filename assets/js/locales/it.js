@@ -131,14 +131,23 @@ window.PT2VHF_I18N["it"] = {
       ]
     },
     "prop": {
-      "summary": "Analizza la propagazione HF/VHF/UHF e stima collegamenti e copertura.",
-      "tagline": "Propagazione e collegamenti HF/VHF/UHF",
-      "description": "Pianifica collegamenti radio e stima la copertura di stazioni e ripetitori con profili del terreno, zona di Fresnel e perdita di percorso.",
+      "summary": "Analizza la propagazione HF/VHF/UHF con ricezioni osservate, meteo spaziale e mappe di calore regionali.",
+      "tagline": "Propagazione reale: PSK Reporter, WSPR, RBN, NOAA, VOACAP e MUF",
+      "description": [
+        "PT2VHF Prop Tool analizza le evidenze di propagazione nella propria regione usando segnalazioni reali di ricezione, condizioni solari e visualizzazione geografica. Distingue osservazioni, misurazioni e stime.",
+        "Imposta il nominativo, le coordinate o il locator Maidenhead e seleziona le bande. La mappa di calore mostra le aree con segnali osservati e individua le bande più favorevoli al momento.",
+        "Supporta 14 bande da 160 m a 70 cm, compresi gli 11 m. Riporta le fonti dei dati e l'affidabilità delle analisi, senza garantire collegamenti bidirezionali."
+      ],
       "features": [
-        "Profilo del terreno tra due punti",
-        "Zona di Fresnel e visibilità ottica",
-        "Bilancio di collegamento e perdita di percorso",
-        "Mappa della copertura stimata"
+        "Mappa di calore regionale con zoom e mappe offline",
+        "Fonti indipendenti: PSK Reporter, WSPR.live e Reverse Beacon Network",
+        "Meteo spaziale NOAA: Kp, F10.7, Bz, vento solare e raggi X",
+        "Modello VOACAP HF locale e misure foF2/MUF delle ionosonde",
+        "Stato delle bande, barre di qualità, affidabilità e banda migliore",
+        "Filtri per fonte e finestre di osservazione di 15, 30 o 60 minuti",
+        "Destinazioni geografiche osservate, azimut e distanza",
+        "Assistente locale, cronologia, temi e lingue",
+        "Installer e versione portatile Windows 10/11 x64 con OTA via pt2vhf.com"
       ]
     },
     "mesh": {

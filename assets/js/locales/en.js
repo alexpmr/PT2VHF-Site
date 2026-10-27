@@ -131,14 +131,23 @@ window.PT2VHF_I18N["en"] = {
       ]
     },
     "prop": {
-      "summary": "Analyze HF/VHF/UHF propagation and estimate link and coverage conditions.",
-      "tagline": "Propagation and links on HF/VHF/UHF",
-      "description": "Plan radio paths and estimate station/repeater coverage using terrain profiles, Fresnel clearance and path-loss calculations.",
+      "summary": "Analyze HF/VHF/UHF propagation using observed reception, solar conditions and a regional heatmap.",
+      "tagline": "Live radio propagation: PSK Reporter, WSPR, RBN, NOAA, VOACAP and MUF",
+      "description": [
+        "PT2VHF Prop Tool analyzes propagation evidence around your station using actual reception reports, space-weather conditions and geographical visualization. It distinguishes measurements, observations and estimates.",
+        "Enter your call sign, coordinates or Maidenhead grid and choose the bands to monitor. A regional heatmap highlights the concentration of observed signals, while the band panel indicates favorable current conditions.",
+        "Supports 14 bands from 160 m to 70 cm, including 11 m. Results include data provenance and confidence; they do not guarantee a successful two-way contact."
+      ],
       "features": [
-        "Terrain profiles between two points",
-        "Fresnel zone and line-of-sight analysis",
-        "Link budget and path loss",
-        "Estimated coverage map"
+        "Regional propagation heatmap with zoom and offline base maps",
+        "Independent reception sources: PSK Reporter, WSPR.live and Reverse Beacon Network",
+        "NOAA SWPC conditions: Kp, F10.7, Bz, solar wind and X-rays",
+        "Local VOACAP HF modeling and foF2/MUF ionosonde measurements",
+        "Band status, quality bars, confidence and best-band highlights",
+        "Independent source filters and 15, 30 or 60-minute observation windows",
+        "Observed geographic destinations, bearings and distances",
+        "Local assistant, traffic history, light/dark themes and six app languages",
+        "Windows 10/11 x64 installer and portable edition with secure updates from pt2vhf.com"
       ]
     },
     "mesh": {

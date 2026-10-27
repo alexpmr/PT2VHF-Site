@@ -131,14 +131,23 @@ window.PT2VHF_I18N["de"] = {
       ]
     },
     "prop": {
-      "summary": "HF/VHF/UHF-Ausbreitung und Reichweite von Funkstrecken untersuchen.",
-      "tagline": "Ausbreitung und Funkstrecken in HF/VHF/UHF",
-      "description": "Planen Sie Funkverbindungen und schätzen Sie die Abdeckung von Stationen und Relais mit Geländeprofilen, Fresnelzone und Pfadverlust.",
+      "summary": "Analysieren Sie HF/VHF/UHF-Ausbreitung anhand beobachteter Empfangsdaten, Weltraumwetter und regionaler Heatmaps.",
+      "tagline": "Funkausbreitung: PSK Reporter, WSPR, RBN, NOAA, VOACAP und MUF",
+      "description": [
+        "PT2VHF Prop Tool bewertet Ausbreitungsbedingungen in Ihrer Region anhand tatsächlicher Empfangsmeldungen, des Weltraumwetters und geografischer Darstellungen. Beobachtungen, Messungen und Schätzungen werden unterschieden.",
+        "Geben Sie Rufzeichen, Koordinaten oder Maidenhead-Locator ein und wählen Sie Bänder. Die Heatmap zeigt die geografische Verteilung beobachteter Signale und hebt momentan günstige Bänder hervor.",
+        "Unterstützt 14 Bänder von 160 m bis 70 cm, einschließlich 11 m. Datenquellen und Vertrauenswerte sind nachvollziehbar; Funkverbindungen werden nicht garantiert."
+      ],
       "features": [
-        "Geländeprofil zwischen zwei Standorten",
-        "Fresnelzone und Sichtverbindung",
-        "Linkbudget und Streckendämpfung",
-        "Karte der geschätzten Abdeckung"
+        "Regionale Ausbreitungs-Heatmap mit Zoom und Offline-Karten",
+        "Unabhängige Quellen: PSK Reporter, WSPR.live und Reverse Beacon Network",
+        "NOAA-Weltraumwetter: Kp, F10.7, Bz, Sonnenwind und Röntgenstrahlung",
+        "Lokales VOACAP-HF-Modell und foF2/MUF-Ionosphärendaten",
+        "Bandstatus, Qualitätsanzeigen, Vertrauenswerte und beste Bänder",
+        "Quellenfilter und Beobachtungsfenster von 15, 30 oder 60 Minuten",
+        "Beobachtete geografische Ziele, Azimut und Entfernung",
+        "Lokaler Assistent, Empfangsverlauf, Designs und Sprachen",
+        "Windows-10/11-x64-Installer und Portable-Version mit OTA über pt2vhf.com"
       ]
     },
     "mesh": {

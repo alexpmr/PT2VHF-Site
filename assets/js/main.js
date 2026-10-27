@@ -318,7 +318,7 @@
           "</span></td>" +
           '<td data-label="' + esc(t("catVersion")) + '" class="mono">' + versionLabel(p) + "</td>" +
           '<td data-label="' + esc(t("catSize")) + '" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
-          '<td class="action"><div class="download-action"><a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-secondary") + '" href="' + esc(publicDownloadUrl(p, f)) + '"' +
+          '<td class="action"><div class="download-action"><a class="btn btn-sm ' + ((p.id === "prop" || i === 0) ? "btn-primary" : "btn-secondary") + '" href="' + esc(publicDownloadUrl(p, f)) + '"' +
           ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.counterKey || f.category) + '"' +
           ((p.id === "aprs" || p.id === "mesh" || p.id === "prop") ? "" : " download") + '>' + esc(t("download")) +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a>" +
@@ -522,7 +522,7 @@
     var p = products.filter(function (item) { return item.id === "prop"; })[0];
     if (!p) return;
     var description = Array.isArray(p.description) ? p.description[0] : p.description;
-    var features = (p.features || []).slice(0, 6);
+    var features = p.features || [];
     root.innerHTML =
       '<div class="prop-intro-copy"><p class="prop-intro-kicker">' + esc(t("featuresTitle")) + '</p>' +
       '<p>' + esc(description || p.summary || "") + '</p></div>' +
@@ -563,10 +563,11 @@
           '<div class="program-body' + (aside ? "" : " no-aside") + '">' +
           '<div class="program-main">' +
           '<div class="description">' + paragraphs.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") + "</div>" +
-          '<h3 id="recursos">' + esc(t("featuresTitle")) + '</h3>' +
-          '<ul class="features">' +
-          p.features.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") +
-          "</ul>" +
+          (p.id === "prop" ? "" :
+            '<h3 id="recursos">' + esc(t("featuresTitle")) + '</h3>' +
+            '<ul class="features">' +
+            p.features.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") +
+            "</ul>") +
           "</div>" +
           (aside ? '<aside class="program-aside">' + aside + "</aside>" : "") +
           "</div>" +

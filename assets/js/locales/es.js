@@ -131,14 +131,23 @@ window.PT2VHF_I18N["es"] = {
       ]
     },
     "prop": {
-      "summary": "Analice propagación HF/VHF/UHF y estime enlaces y cobertura.",
-      "tagline": "Propagación y enlaces en HF/VHF/UHF",
-      "description": "Planifique enlaces y estime cobertura de estaciones y repetidores mediante perfiles del terreno, zona de Fresnel y pérdidas de trayecto.",
+      "summary": "Analice la propagación HF/VHF/UHF con recepciones observadas, clima espacial y mapas de calor regionales.",
+      "tagline": "Propagación real: PSK Reporter, WSPR, RBN, NOAA, VOACAP y MUF",
+      "description": [
+        "PT2VHF Prop Tool analiza evidencias de propagación en su región a partir de recepciones reales, condiciones solares y visualización geográfica. Distingue observaciones, mediciones y estimaciones.",
+        "Configure su indicativo, coordenadas o cuadrícula Maidenhead y elija las bandas. El mapa de calor muestra la concentración de señales observadas y destaca las bandas con mejores condiciones actuales.",
+        "Admite 14 bandas, de 160 m a 70 cm, incluida la banda de 11 m. Cada análisis muestra fuentes y confianza; no garantiza contactos bidireccionales."
+      ],
       "features": [
-        "Perfil del terreno entre dos puntos",
-        "Zona de Fresnel y línea de visión",
-        "Presupuesto de enlace y pérdidas",
-        "Mapa de cobertura estimada"
+        "Mapa de calor regional con zoom y mapas base sin conexión",
+        "Fuentes independientes: PSK Reporter, WSPR.live y Reverse Beacon Network",
+        "Clima espacial NOAA: Kp, F10.7, Bz, viento solar y rayos X",
+        "Modelos VOACAP HF locales y datos foF2/MUF de ionosondas",
+        "Estado de bandas, barras de calidad, confianza y banda más favorable",
+        "Filtros por fuente y ventanas de observación de 15, 30 o 60 minutos",
+        "Destinos geográficos observados, rumbo y distancia",
+        "Asistente local, historial de tráfico, temas e idiomas",
+        "Instalador y versión portátil Windows 10/11 x64 con OTA desde pt2vhf.com"
       ]
     },
     "mesh": {
