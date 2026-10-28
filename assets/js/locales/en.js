@@ -88,7 +88,8 @@ window.PT2VHF_I18N["en"] = {
     "progDisplay": "Live TS-2000 display",
     "progIcom": "Icom radio programming",
     "aprsBrand": "APRS Client branding",
-    "satBrand": "SAT Tool branding"
+    "satBrand": "SAT Tool branding",
+    "satOperation": "Operation — tracking, Doppler-corrected frequencies and passes"
   },
   "products": {
     "prog": {

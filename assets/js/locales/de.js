@@ -88,7 +88,8 @@ window.PT2VHF_I18N["de"] = {
     "progDisplay": "TS-2000-Anzeige in Echtzeit",
     "progIcom": "Icom-Funkgeräteprogrammierung",
     "aprsBrand": "APRS-Client-Logo",
-    "satBrand": "SAT-Tool-Logo"
+    "satBrand": "SAT-Tool-Logo",
+    "satOperation": "Betrieb — Verfolgung, Doppler-korrigierte Frequenzen und Überflüge"
   },
   "products": {
     "prog": {

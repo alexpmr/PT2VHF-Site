@@ -18,6 +18,7 @@ window.PT2VHF_GALLERIES = {
     { src:"/assets/screenshots/aprs/logo.png",type:"brand",caption:"Identidade visual do APRS Client",captionId:"aprsBrand" }
   ],
   sat: [
+    { src:"/assets/screenshots/sat/operacao-v1.3.15.webp",full:"/assets/screenshots/sat/original/operacao-v1.3.15.png",type:"screenshot",caption:"Operação — rastreio, frequências com Doppler e passagens",captionId:"satOperation" },
     { src:"/assets/screenshots/sat/icon.svg",type:"brand",caption:"Identidade visual do SAT Tool",captionId:"satBrand" }
   ],
   mesh: [

@@ -88,7 +88,8 @@ window.PT2VHF_I18N["zh"] = {
     "progDisplay": "TS-2000 实时显示",
     "progIcom": "Icom 电台编程",
     "aprsBrand": "APRS Client 项目标识",
-    "satBrand": "SAT Tool 项目标识"
+    "satBrand": "SAT Tool 项目标识",
+    "satOperation": "运行 — 跟踪、多普勒校正频率与过境预报"
   },
   "products": {
     "prog": {

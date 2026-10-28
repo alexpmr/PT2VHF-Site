@@ -2,13 +2,17 @@
 
 ## Pendentes
 
-- **Sat Tool — captura de tela real na página `/sat`** (registrado em 28/10/2026)
+(nenhum)
+
+## Concluídos
+
+- **Sat Tool — captura de tela real na página `/sat`** (registrado e concluído em 28/10/2026)
   - Imagem: `docs/backlog/sat-operacao-v1.3.15.png` (aba Operação da v1.3.15, recortada).
   - Publicar em `assets/screenshots/sat/` (WebP + original), adicionar em `PT2VHF_GALLERIES.sat`
     (`assets/js/gallery.js`) como `type:"screenshot"`, antes do logo, com legenda nos 7 idiomas
     (`captionId` novo nos `assets/js/locales/*.js`).
-
-## Concluídos
+  - Feito: `operacao-v1.3.15.webp` + `original/operacao-v1.3.15.png`, primeiro item da galeria
+    `sat` (`captionId` `satOperation` nos 7 idiomas); cache `?v=20261028-satshot`.
 
 - **Tabelas de download de todos os programas — coluna com a data de release** (registrado e concluído em 28/10/2026)
   - Roadmap do mantenedor: "Em todos os projetos, tabela de downloads, incluir uma coluna com a

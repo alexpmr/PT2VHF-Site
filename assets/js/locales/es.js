@@ -88,7 +88,8 @@ window.PT2VHF_I18N["es"] = {
     "progDisplay": "Pantalla del TS-2000 en tiempo real",
     "progIcom": "Programación de radios Icom",
     "aprsBrand": "Identidad visual de APRS Client",
-    "satBrand": "Identidad visual de SAT Tool"
+    "satBrand": "Identidad visual de SAT Tool",
+    "satOperation": "Operación — seguimiento, frecuencias con Doppler y pasadas"
   },
   "products": {
     "prog": {
