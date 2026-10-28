@@ -1,5 +1,5 @@
-40678c38161a7c79ceaf24634bbda1a948349fb4230b7696dee6ce03f8df8a84  PT2VHFProgTool-1.3.0-instalador.exe
-c103df8f1d6b890fbe4ceb9ec90998391d204388485bde38f4fc6ab417abf6b7  PT2VHFProgTool-1.3.0-windows-portatil.zip
-3ef2b576fb7ce0c3e75a0f782ba0564a6c243f3adef1ccff4c9d97b2fecb0f12  pt2vhf-prog-tool_1.3.0_all.deb
-981b0ae9b7ba33bbafc7f877357094dcff24f6735eeecbd46dab879eb324f68e  pt2vhf-prog-tool-1.3.0-linux.tar.gz
-9441657fe269c5e25b21b6f67754fdb68eb5bc9d2594437c1d06dbeb1a2c9a81  pt2vhf-prog-tool-1.3.0-codigo-fonte.zip
+e22f44867e8406fbc84227c1e1c76da814a07d8fabe49f38b3a6838d5ef87238  PT2VHFProgTool-1.3.1-instalador.exe
+bcf84654eaf3139b2bfbd684de526ae748316915b31218c90085800a4fbe3779  PT2VHFProgTool-1.3.1-windows-portatil.zip
+0fd666b4050ed0222798949de64ad1a0f3b9d29f232a39f276c0f0126c6c7ecd  pt2vhf-prog-tool_1.3.1_all.deb
+9229325d9dd43e9f63a633d7f74a60eab934771163faadb82d77d67dc53c1c92  pt2vhf-prog-tool-1.3.1-linux.tar.gz
+3e1b1abbdfa7272e2218345d716d9bfffbfcfc3b8018e912356f04513dbdb66e  pt2vhf-prog-tool-1.3.1-codigo-fonte.zip
