@@ -72,7 +72,7 @@
     },
     "prop": {
       "name": "PT2VHF Prop Tool",
-      "version": "0.2.22",
+      "version": "0.2.23",
       "page": "https://www.pt2vhf.com/prop",
       "files": [
         {
@@ -81,10 +81,10 @@
           "kind": "installer",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-Prop-Tool-0.2.22-x64-setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/prop-tool/PT2VHF-Prop-Tool-0.2.22-x64-setup.exe",
-          "size": 115206309,
-          "sha256": "30fcd286348d1c63bcbce7401acd5e36ee5a8bbeec3d3b4e9ef05cae4d38f5df",
+          "name": "PT2VHF-Prop-Tool-0.2.23-x64-setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/prop-tool/PT2VHF-Prop-Tool-0.2.23-x64-setup.exe",
+          "size": 115180224,
+          "sha256": "c272c7a5ee59be818ccbb2b5feeaf6c14235580b9886c5c727d87689ef537322",
           "detail": "Windows 10/11 x64"
         },
         {
@@ -93,14 +93,14 @@
           "kind": "portable",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-Prop-Tool-0.2.22-x64-portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/prop-tool/PT2VHF-Prop-Tool-0.2.22-x64-portable.exe",
-          "size": 115107199,
-          "sha256": "f29e54fa28a11e7032d281669b85e3ee50d6ce2e461b6a27879c7c825c30d6c8",
+          "name": "PT2VHF-Prop-Tool-0.2.23-x64-portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/prop-tool/PT2VHF-Prop-Tool-0.2.23-x64-portable.exe",
+          "size": 115130283,
+          "sha256": "8b039152e3b26300cbea8128a6247d6be7a98f297b1f0318c418bf8ff1d3643f",
           "detail": "Windows 10/11 x64"
         }
       ],
-      "developmentVersion": "0.2.22",
+      "developmentVersion": "0.2.23",
       "releaseStatus": "Instaladores validados e servidos pelo site oficial.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=prop&platform=windows-x64",
       "plannedFiles": [
@@ -108,17 +108,17 @@
           "category": "windows-installer",
           "counterKey": "win-setup-x64",
           "architecture": "x64",
-          "name": "PT2VHF-Prop-Tool-0.2.22-x64-setup.exe"
+          "name": "PT2VHF-Prop-Tool-0.2.23-x64-setup.exe"
         },
         {
           "category": "windows-portable",
           "counterKey": "win-portable-x64",
           "architecture": "x64",
-          "name": "PT2VHF-Prop-Tool-0.2.22-x64-portable.exe"
+          "name": "PT2VHF-Prop-Tool-0.2.23-x64-portable.exe"
         }
       ],
-      "date": "2026-10-26",
-      "notes": "Versão 0.2.22: OTA para pt2vhf.com, validação SHA-256 e testes das edições instalável e portátil."
+      "date": "2026-10-28",
+      "notes": "Aviso do site oficial www.pt2vhf.com a cada abertura; o aviso de versão nova aparece em seguida, depois que o aviso é fechado."
     },
     "mesh": {
       "name": "PT2VHF Mesh Analyzer",
