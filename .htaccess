@@ -49,6 +49,11 @@ RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
 RewriteCond %{HTTP:Range} ^$
 RewriteRule ^downloads/prog-tool/(PT2VHFProgTool-[0-9]+\.[0-9]+\.[0-9]+-(?:instalador\.exe|windows-portatil\.zip)|pt2vhf-prog-tool_[0-9]+\.[0-9]+\.[0-9]+_all\.deb|pt2vhf-prog-tool-[0-9]+\.[0-9]+\.[0-9]+-linux\.tar\.gz)$ download.php?product=prog&file=$1 [L,NC,QSA]
 
+# Páginas sempre revalidadas: assim a marca ?v= dos scripts novos chega na hora
+<FilesMatch "\.html$">
+  Header set Cache-Control "no-cache"
+</FilesMatch>
+
 # Instaladores sempre como download
 <FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg|gz)$">
   Header set Content-Disposition attachment

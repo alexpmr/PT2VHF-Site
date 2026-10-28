@@ -147,8 +147,9 @@ com suporte a Range. Para o Prop Tool: `python3 scripts/segment_prop_packages.py
 
 ## Hospedagem na Hostinger (atual)
 
-O site está conectado ao repositório `pt2vhf-group/pt2vhf-site` no GitLab pela função **Git** do hPanel
-(Sites → pt2vhf.com → Avançado → GIT), com implantação automática da branch `main` em `public_html`.
+O site está conectado ao repositório `alexpmr/PT2VHF-Site` do GitHub pela função **Git** do hPanel
+(Sites → pt2vhf.com → Avançado → GIT), com implantação automática da branch `main` em `public_html`
+(confirmado em 28/10/2026: o push publicou o Prog Tool 1.3.1 em `update.php?product=prog`).
 Basta fazer push na `main` para atualizar o site. Os passos abaixo servem para atualização manual.
 
 1. No hPanel, abra **Arquivos → Gerenciador de Arquivos** e entre em `public_html`.
