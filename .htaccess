@@ -43,6 +43,12 @@ RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
 RewriteCond %{HTTP:Range} ^$
 RewriteRule ^downloads/mesh-analyzer/([A-Za-z0-9_.-]+\.(?:exe|zip|deb|dmg|tar\.gz))$ download.php?product=mesh&file=$1 [L,NC,QSA]
 
+# Downloads do Prog Tool (site e OTA) contados uma única vez por download;
+# pt2vhf_raw=1 marca a resposta estática e pedidos Range não contam.
+RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
+RewriteCond %{HTTP:Range} ^$
+RewriteRule ^downloads/prog-tool/(PT2VHFProgTool-[0-9]+\.[0-9]+\.[0-9]+-(?:instalador\.exe|windows-portatil\.zip)|pt2vhf-prog-tool_[0-9]+\.[0-9]+\.[0-9]+_all\.deb|pt2vhf-prog-tool-[0-9]+\.[0-9]+\.[0-9]+-linux\.tar\.gz)$ download.php?product=prog&file=$1 [L,NC,QSA]
+
 # Instaladores sempre como download
 <FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg|gz)$">
   Header set Content-Disposition attachment

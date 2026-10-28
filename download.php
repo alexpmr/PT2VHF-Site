@@ -87,7 +87,7 @@ $product = (string)($isFileRequest ? ($_GET['product'] ?? '') : ($_POST['product
 $category = (string)($isFileRequest ? '' : ($_POST['category'] ?? ''));
 $requestedFile = $isFileRequest ? (string)($_GET['file'] ?? '') : '';
 if (!in_array($product, $products, true) ||
-    ($isFileRequest && (!in_array($product, array('aprs', 'prop', 'mesh', 'sat'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
+    ($isFileRequest && (!in_array($product, array('aprs', 'prop', 'mesh', 'sat', 'prog'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
     (!$isFileRequest && !in_array($category, $allowed, true))) {
     fclose($file);
     pt2vhf_error(400, 'Projeto, categoria ou arquivo inválidos');
@@ -116,7 +116,7 @@ $found = false;
 $redirectPath = '';
 $propChunks = false;
 $propSize = 0;
-$folders = array('aprs' => 'aprs-client', 'prop' => 'prop-tool', 'mesh' => 'mesh-analyzer', 'sat' => 'sat-tool');
+$folders = array('aprs' => 'aprs-client', 'prop' => 'prop-tool', 'mesh' => 'mesh-analyzer', 'sat' => 'sat-tool', 'prog' => 'prog-tool');
 $segmented = $product === 'prop' || $product === 'sat';
 foreach ($files as $entry) {
     if (!is_array($entry)) continue;

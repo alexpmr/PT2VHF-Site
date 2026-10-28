@@ -79,8 +79,12 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
             if ($real === false || strncmp($real, $root . DIRECTORY_SEPARATOR, strlen($root) + 1) !== 0
                 || !is_file($real) || !is_readable($real) || filesize($real) !== $size) continue;
         }
-        $assets[] = array('category'=>$category, 'kind'=>$fileKind, 'platform'=>$filePlatform,
-                          'name'=>$name, 'url'=>$url, 'size'=>$size, 'sha256'=>$sha);
+        $asset = array('category'=>$category, 'kind'=>$fileKind, 'platform'=>$filePlatform,
+                       'name'=>$name, 'url'=>$url, 'size'=>$size, 'sha256'=>$sha);
+        // Assinatura Ed25519 opcional do pacote (usada pelo OTA do Prog Tool).
+        $sig = $file['sig'] ?? null;
+        if (is_string($sig) && preg_match('/^[A-Za-z0-9+\/]{86}==$/D', $sig)) $asset['sig'] = $sig;
+        $assets[] = $asset;
     }
 }
 $status = $ready && count($assets) > 0 ? 'available' : 'unpublished';
