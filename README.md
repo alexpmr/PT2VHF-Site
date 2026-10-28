@@ -94,6 +94,10 @@ Arquivos acima de 100 MB (limite do GitHub) são guardados em partes de 48 MiB c
 com suporte a Range. Para o Prop Tool: `python3 scripts/segment_prop_packages.py X.Y.Z` e depois
 `python3 scripts/sync_prop_manifest.py --version X.Y.Z --apply`. O Sat Tool usa o mesmo formato.
 
+> **Cache:** ao alterar qualquer arquivo em `assets/js/` ou `assets/css/`, troque a marca
+> `?v=AAAAMMDD-descricao` em **todas** as páginas `.html` (ex.: `sed -i 's/?v=ANTIGA/?v=NOVA/g' *.html`).
+> Sem isso, navegadores e o cache da Hostinger continuam entregando a versão antiga (JS fica em cache por 1 h).
+
 ## Publicar uma nova versão de um programa
 
 1. Atualize o repositório: `git pull --rebase origin main`.
