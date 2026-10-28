@@ -31,6 +31,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Novidades e correções documentadas no changelog oficial do projeto.",
     "changelog": [
       {
+        "version": "0.6.61",
+        "title": "Menu Ferramentas e análise de cobertura",
+        "changes": [
+          "Novo menu Ferramentas com análise de cobertura (onde o sinal chegaria, a partir de um ponto ou nó), enlace, melhor ponto e relevo com corte com cor ajustável.",
+          "Indicador da conexão verde/vermelho com o tipo (USB, BLE, WIFI, MQTT) e automações recolhidas com Salvar/Cancelar."
+        ]
+      },
+      {
         "version": "0.6.60",
         "title": "Aviso do site oficial e aviso de versão nova em sequência",
         "changes": [
@@ -60,14 +68,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Implementado histórico acumulado por tipo de pacote nas releases do GitHub.",
           "Indicadores específicos para Windows, macOS e Linux."
-        ]
-      },
-      {
-        "version": "0.6.56",
-        "title": "Favoritos sem reenvio contínuo",
-        "changes": [
-          "Eliminados comandos de favoritos repetidos a cada minuto.",
-          "Nova tentativa de sincronização apenas após reconexão."
         ]
       }
     ],
@@ -112,6 +112,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Updates and fixes documented in the official project changelog.",
     "changelog": [
       {
+        "version": "0.6.61",
+        "title": "Tools menu and coverage analysis",
+        "changes": [
+          "New Tools menu with coverage analysis (where the signal would reach, from a point or node), link analysis, best spot and terrain cutoff with adjustable color.",
+          "Green/red connection indicator with the type (USB, BLE, WIFI, MQTT) and collapsed automations with Save/Cancel."
+        ]
+      },
+      {
         "version": "0.6.60",
         "title": "Official site notice followed by the update prompt",
         "changes": [
@@ -141,14 +149,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Introduced cumulative download statistics by package type for GitHub releases.",
           "Separate Windows, macOS and Linux indicators."
-        ]
-      },
-      {
-        "version": "0.6.56",
-        "title": "Stop repeated favorite commands",
-        "changes": [
-          "Prevented favorite commands from being sent again every minute.",
-          "Synchronization is retried after reconnection only."
         ]
       }
     ],
@@ -193,6 +193,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Novedades y correcciones del registro oficial del proyecto.",
     "changelog": [
       {
+        "version": "0.6.61",
+        "title": "Menú Herramientas y análisis de cobertura",
+        "changes": [
+          "Nuevo menú Herramientas con análisis de cobertura (hasta dónde llegaría la señal, desde un punto o nodo), enlace, mejor punto y relieve con corte de color ajustable.",
+          "Indicador de conexión verde/rojo con el tipo (USB, BLE, WIFI, MQTT) y automatizaciones contraídas con Guardar/Cancelar."
+        ]
+      },
+      {
         "version": "0.6.60",
         "title": "Aviso del sitio oficial seguido del aviso de nueva versión",
         "changes": [
@@ -222,14 +230,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Conteo acumulado por tipo de paquete en las versiones de GitHub.",
           "Indicadores independientes para Windows, macOS y Linux."
-        ]
-      },
-      {
-        "version": "0.6.56",
-        "title": "Favoritos sin reenvíos continuos",
-        "changes": [
-          "Se evitan órdenes de favoritos repetidas cada minuto.",
-          "La sincronización se repite únicamente al reconectar."
         ]
       }
     ],
@@ -274,6 +274,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Améliorations et correctifs consignés dans le changelog officiel.",
     "changelog": [
       {
+        "version": "0.6.61",
+        "title": "Menu Outils et analyse de couverture",
+        "changes": [
+          "Nouveau menu Outils avec analyse de couverture (jusqu’où le signal porterait, depuis un point ou un nœud), liaison, meilleur point et relief avec coupure à couleur réglable.",
+          "Indicateur de connexion vert/rouge avec le type (USB, BLE, WIFI, MQTT) et automatisations repliées avec Enregistrer/Annuler."
+        ]
+      },
+      {
         "version": "0.6.60",
         "title": "Avis du site officiel suivi de l’avis de nouvelle version",
         "changes": [
@@ -303,14 +311,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Total cumulatif par type de paquet pour les releases GitHub.",
           "Indicateurs distincts Windows, macOS et Linux."
-        ]
-      },
-      {
-        "version": "0.6.56",
-        "title": "Synchronisation des favoris corrigée",
-        "changes": [
-          "Fin des commandes de favoris répétées chaque minute.",
-          "Nouvelle synchronisation uniquement après reconnexion."
         ]
       }
     ],
@@ -354,6 +354,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Änderungen und Fehlerbehebungen aus dem offiziellen Changelog.",
     "changelog": [
       {
+        "version": "0.6.61",
+        "title": "Werkzeug-Menü und Abdeckungsanalyse",
+        "changes": [
+          "Neues Werkzeug-Menü mit Abdeckungsanalyse (wohin das Signal reicht, ab einem Punkt oder Knoten), Strecke, bester Standort und Geländeschnitt mit einstellbarer Farbe.",
+          "Grün/rote Verbindungsanzeige mit Typ (USB, BLE, WIFI, MQTT) und eingeklappte Automationen mit Speichern/Abbrechen."
+        ]
+      },
+      {
         "version": "0.6.60",
         "title": "Hinweis auf die offizielle Website, danach Update-Hinweis",
         "changes": [
@@ -383,14 +391,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Kumulierte Zählung pro Paketart für GitHub-Releases.",
           "Separate Anzeigen für Windows, macOS und Linux."
-        ]
-      },
-      {
-        "version": "0.6.56",
-        "title": "Favoriten ohne dauernde Wiederholung",
-        "changes": [
-          "Favoritenbefehle werden nicht jede Minute wiederholt.",
-          "Erneuter Abgleich erst nach einer Wiederverbindung."
         ]
       }
     ],
@@ -434,6 +434,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Novità e correzioni del changelog ufficiale.",
     "changelog": [
       {
+        "version": "0.6.61",
+        "title": "Menu Strumenti e analisi di copertura",
+        "changes": [
+          "Nuovo menu Strumenti con analisi di copertura (dove arriverebbe il segnale, da un punto o nodo), collegamento, punto migliore e rilievo con taglio a colore regolabile.",
+          "Indicatore di connessione verde/rosso con il tipo (USB, BLE, WIFI, MQTT) e automazioni compresse con Salva/Annulla."
+        ]
+      },
+      {
         "version": "0.6.60",
         "title": "Avviso del sito ufficiale seguito dall’avviso di nuova versione",
         "changes": [
@@ -463,14 +471,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Conteggio cumulativo per tipo di pacchetto nelle release GitHub.",
           "Indicatori specifici per Windows, macOS e Linux."
-        ]
-      },
-      {
-        "version": "0.6.56",
-        "title": "Preferiti senza invii ripetuti",
-        "changes": [
-          "Rimossi i comandi preferiti ripetuti ogni minuto.",
-          "Risincronizzazione solo dopo la riconnessione."
         ]
       }
     ],
@@ -514,6 +514,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "根据项目官方更新日志整理的功能与修复。",
     "changelog": [
       {
+        "version": "0.6.61",
+        "title": "工具菜单与覆盖分析",
+        "changes": [
+          "新增工具菜单：覆盖分析（从某点或节点推算信号可达范围）、链路分析、最佳位置以及可调颜色的地形截断。",
+          "连接指示灯改为绿/红并显示类型（USB、BLE、WIFI、MQTT），自动化改为折叠并带保存/取消。"
+        ]
+      },
+      {
         "version": "0.6.60",
         "title": "官方网站提示后显示新版本通知",
         "changes": [
@@ -543,14 +551,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "按软件包类型记录 GitHub 历史发行版本的下载量。",
           "分别统计 Windows、macOS 和 Linux。"
-        ]
-      },
-      {
-        "version": "0.6.56",
-        "title": "收藏同步不再持续重发",
-        "changes": [
-          "避免每分钟重复发送收藏命令。",
-          "只在重新连接后重试同步。"
         ]
       }
     ],
