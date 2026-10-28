@@ -16,7 +16,7 @@ for(const lang of ["pt","en","es","fr","de","it","zh"]){
  assert(Array.isArray(info.description)&&info.description.length>=3,lang+": introdução incompleta");
  assert(Array.isArray(info.features)&&info.features.length>=8,lang+": recursos incompletos");
  assert(Array.isArray(info.changelog)&&info.changelog.length===5,lang+": histórico deve ter 5 versões");
- assert.deepEqual(Array.from(info.changelog,x=>x.version),["0.6.58","0.6.57","0.6.56","0.6.55","0.6.54"],lang+": ordem errada");
+ assert.deepEqual(Array.from(info.changelog,x=>x.version),["0.6.60","0.6.59","0.6.58","0.6.57","0.6.56"],lang+": ordem errada");
  for(const row of info.changelog){assert(row.title&&row.changes?.length,lang+": nota de versão incompleta");}
 }
 const html=fs.readFileSync(path.join(root,"mesh.html"),"utf8");

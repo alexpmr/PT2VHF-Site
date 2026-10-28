@@ -31,6 +31,22 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Novidades e correções documentadas no changelog oficial do projeto.",
     "changelog": [
       {
+        "version": "0.6.60",
+        "title": "Aviso do site oficial e aviso de versão nova em sequência",
+        "changes": [
+          "O aviso do site oficial aparece sempre ao abrir, sem opção de ocultar.",
+          "O aviso de versão nova abre logo depois que o aviso é fechado, sem ficar escondido por baixo."
+        ]
+      },
+      {
+        "version": "0.6.59",
+        "title": "Detecção USB segura para rádios com CAT",
+        "changes": [
+          "A busca automática abre só portas de placas Meshtastic/MeshCore, sem acionar o PTT de rádios ligados ao PC.",
+          "Placas MeshCore cadastradas como Meshtastic passam a conectar sozinhas."
+        ]
+      },
+      {
         "version": "0.6.58",
         "title": "Downloads e atualização no site oficial",
         "changes": [
@@ -52,22 +68,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Eliminados comandos de favoritos repetidos a cada minuto.",
           "Nova tentativa de sincronização apenas após reconexão."
-        ]
-      },
-      {
-        "version": "0.6.55",
-        "title": "Apelidos nos nós",
-        "changes": [
-          "Nome local amigável passou a ser chamado de Apelido na lista e no painel.",
-          "Exibição do apelido junto do nome real do nó."
-        ]
-      },
-      {
-        "version": "0.6.54",
-        "title": "Cores das conexões",
-        "changes": [
-          "USB verde, Bluetooth azul, Wi-Fi laranja e MQTT violeta.",
-          "Melhoria dos indicadores no menu de rádio e nos temas."
         ]
       }
     ],
@@ -112,6 +112,22 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Updates and fixes documented in the official project changelog.",
     "changelog": [
       {
+        "version": "0.6.60",
+        "title": "Official site notice followed by the update prompt",
+        "changes": [
+          "The official site notice appears on every start, with no option to hide it.",
+          "The new version prompt opens right after the notice is closed instead of hiding behind it."
+        ]
+      },
+      {
+        "version": "0.6.59",
+        "title": "Safe USB detection for radios with CAT",
+        "changes": [
+          "Automatic search opens only Meshtastic/MeshCore board ports, so radios connected to the PC no longer key PTT.",
+          "MeshCore boards registered as Meshtastic now connect on their own."
+        ]
+      },
+      {
         "version": "0.6.58",
         "title": "Official website downloads and updates",
         "changes": [
@@ -133,22 +149,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Prevented favorite commands from being sent again every minute.",
           "Synchronization is retried after reconnection only."
-        ]
-      },
-      {
-        "version": "0.6.55",
-        "title": "Node nicknames",
-        "changes": [
-          "Local friendly names were renamed to nicknames in node lists and details.",
-          "Nicknames appear alongside actual node names."
-        ]
-      },
-      {
-        "version": "0.6.54",
-        "title": "Connection colors",
-        "changes": [
-          "USB green, Bluetooth blue, Wi-Fi orange and MQTT purple.",
-          "Better indicators in the radio menu and themes."
         ]
       }
     ],
@@ -193,6 +193,22 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Novedades y correcciones del registro oficial del proyecto.",
     "changelog": [
       {
+        "version": "0.6.60",
+        "title": "Aviso del sitio oficial seguido del aviso de nueva versión",
+        "changes": [
+          "El aviso del sitio oficial aparece siempre al abrir, sin opción de ocultarlo.",
+          "El aviso de nueva versión se abre justo después de cerrar el aviso, sin quedar oculto debajo."
+        ]
+      },
+      {
+        "version": "0.6.59",
+        "title": "Detección USB segura para radios con CAT",
+        "changes": [
+          "La búsqueda automática abre solo puertos de placas Meshtastic/MeshCore, sin activar el PTT de radios conectadas al PC.",
+          "Las placas MeshCore registradas como Meshtastic ahora se conectan solas."
+        ]
+      },
+      {
         "version": "0.6.58",
         "title": "Descargas y actualizaciones oficiales",
         "changes": [
@@ -214,22 +230,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Se evitan órdenes de favoritos repetidas cada minuto.",
           "La sincronización se repite únicamente al reconectar."
-        ]
-      },
-      {
-        "version": "0.6.55",
-        "title": "Apodos de los nodos",
-        "changes": [
-          "El nombre local amigable pasa a llamarse Apodo.",
-          "Apodo y nombre real aparecen juntos."
-        ]
-      },
-      {
-        "version": "0.6.54",
-        "title": "Colores de conexión",
-        "changes": [
-          "USB verde, Bluetooth azul, Wi-Fi naranja y MQTT violeta.",
-          "Mejor indicación de conexión en el menú de radio y en los temas."
         ]
       }
     ],
@@ -274,6 +274,22 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Améliorations et correctifs consignés dans le changelog officiel.",
     "changelog": [
       {
+        "version": "0.6.60",
+        "title": "Avis du site officiel suivi de l’avis de nouvelle version",
+        "changes": [
+          "L’avis du site officiel s’affiche à chaque démarrage, sans option pour le masquer.",
+          "L’avis de nouvelle version s’ouvre juste après la fermeture de l’avis, au lieu d’être caché dessous."
+        ]
+      },
+      {
+        "version": "0.6.59",
+        "title": "Détection USB sûre pour les radios avec CAT",
+        "changes": [
+          "La recherche automatique n’ouvre que les ports des cartes Meshtastic/MeshCore, sans déclencher le PTT des radios reliées au PC.",
+          "Les cartes MeshCore enregistrées comme Meshtastic se connectent désormais seules."
+        ]
+      },
+      {
         "version": "0.6.58",
         "title": "Téléchargements sur le site officiel",
         "changes": [
@@ -295,22 +311,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Fin des commandes de favoris répétées chaque minute.",
           "Nouvelle synchronisation uniquement après reconnexion."
-        ]
-      },
-      {
-        "version": "0.6.55",
-        "title": "Surnoms des nœuds",
-        "changes": [
-          "Le nom local devient un surnom dans la liste et la fiche.",
-          "Surnom et nom réel s’affichent ensemble."
-        ]
-      },
-      {
-        "version": "0.6.54",
-        "title": "Couleurs de connexion",
-        "changes": [
-          "USB vert, Bluetooth bleu, Wi-Fi orange et MQTT violet.",
-          "Indicateurs améliorés dans le menu radio et les thèmes."
         ]
       }
     ],
@@ -354,6 +354,22 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Änderungen und Fehlerbehebungen aus dem offiziellen Changelog.",
     "changelog": [
       {
+        "version": "0.6.60",
+        "title": "Hinweis auf die offizielle Website, danach Update-Hinweis",
+        "changes": [
+          "Der Hinweis auf die offizielle Website erscheint bei jedem Start, ohne Option zum Ausblenden.",
+          "Der Hinweis auf eine neue Version öffnet sich direkt nach dem Schließen, statt darunter verdeckt zu sein."
+        ]
+      },
+      {
+        "version": "0.6.59",
+        "title": "Sichere USB-Erkennung bei Funkgeräten mit CAT",
+        "changes": [
+          "Die automatische Suche öffnet nur Ports von Meshtastic/MeshCore-Boards und tastet angeschlossene Funkgeräte nicht mehr per PTT.",
+          "Als Meshtastic eingetragene MeshCore-Boards verbinden sich jetzt selbst."
+        ]
+      },
+      {
         "version": "0.6.58",
         "title": "Downloads und Updates über die offizielle Website",
         "changes": [
@@ -375,22 +391,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Favoritenbefehle werden nicht jede Minute wiederholt.",
           "Erneuter Abgleich erst nach einer Wiederverbindung."
-        ]
-      },
-      {
-        "version": "0.6.55",
-        "title": "Spitznamen der Knoten",
-        "changes": [
-          "Lokale Anzeigenamen heißen jetzt Spitznamen.",
-          "Spitzname und tatsächlicher Name werden zusammen gezeigt."
-        ]
-      },
-      {
-        "version": "0.6.54",
-        "title": "Farben der Verbindungen",
-        "changes": [
-          "USB grün, Bluetooth blau, Wi-Fi orange und MQTT violett.",
-          "Klarere Anzeigen im Funkgeräte-Menü und in den Designs."
         ]
       }
     ],
@@ -434,6 +434,22 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Novità e correzioni del changelog ufficiale.",
     "changelog": [
       {
+        "version": "0.6.60",
+        "title": "Avviso del sito ufficiale seguito dall’avviso di nuova versione",
+        "changes": [
+          "L’avviso del sito ufficiale appare a ogni avvio, senza opzione per nasconderlo.",
+          "L’avviso di nuova versione si apre subito dopo la chiusura, invece di restare nascosto sotto."
+        ]
+      },
+      {
+        "version": "0.6.59",
+        "title": "Rilevamento USB sicuro per radio con CAT",
+        "changes": [
+          "La ricerca automatica apre solo le porte delle schede Meshtastic/MeshCore, senza attivare il PTT delle radio collegate al PC.",
+          "Le schede MeshCore registrate come Meshtastic ora si collegano da sole."
+        ]
+      },
+      {
         "version": "0.6.58",
         "title": "Download e aggiornamenti ufficiali",
         "changes": [
@@ -455,22 +471,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Rimossi i comandi preferiti ripetuti ogni minuto.",
           "Risincronizzazione solo dopo la riconnessione."
-        ]
-      },
-      {
-        "version": "0.6.55",
-        "title": "Soprannomi dei nodi",
-        "changes": [
-          "Il nome locale viene mostrato come Soprannome.",
-          "Soprannome e nome reale sono visibili insieme."
-        ]
-      },
-      {
-        "version": "0.6.54",
-        "title": "Colori delle connessioni",
-        "changes": [
-          "USB verde, Bluetooth blu, Wi-Fi arancione, MQTT viola.",
-          "Indicatori migliorati nel selettore radio e nei temi."
         ]
       }
     ],
@@ -514,6 +514,22 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "根据项目官方更新日志整理的功能与修复。",
     "changelog": [
       {
+        "version": "0.6.60",
+        "title": "官方网站提示后显示新版本通知",
+        "changes": [
+          "每次启动都会显示官方网站提示，且无法隐藏。",
+          "关闭提示后立即显示新版本通知，不再被遮挡。"
+        ]
+      },
+      {
+        "version": "0.6.59",
+        "title": "对带 CAT 的电台安全进行 USB 检测",
+        "changes": [
+          "自动搜索仅打开 Meshtastic/MeshCore 开发板端口，不再触发连接电脑的电台 PTT。",
+          "登记为 Meshtastic 的 MeshCore 开发板现在可自动连接。"
+        ]
+      },
+      {
         "version": "0.6.58",
         "title": "通过官方网站分发",
         "changes": [
@@ -535,22 +551,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "避免每分钟重复发送收藏命令。",
           "只在重新连接后重试同步。"
-        ]
-      },
-      {
-        "version": "0.6.55",
-        "title": "节点昵称",
-        "changes": [
-          "本地友好名称改为昵称。",
-          "昵称与原节点名称同时显示。"
-        ]
-      },
-      {
-        "version": "0.6.54",
-        "title": "连接颜色",
-        "changes": [
-          "USB 绿色、蓝牙蓝色、Wi-Fi 橙色和 MQTT 紫色。",
-          "改善无线电菜单与主题中的状态标识。"
         ]
       }
     ],

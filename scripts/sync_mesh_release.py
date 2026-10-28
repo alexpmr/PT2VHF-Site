@@ -45,7 +45,7 @@ def run():
         and (FOLDER/f["name"]).stat().st_size==f["size"]
         for f in current_files
     ):
-        print("MESH SYNC: seis pacotes já publicados no GitLab; nenhum download adicional.")
+        print("MESH SYNC: seis pacotes já publicados no site; nenhum download adicional.")
         return
     cur=item.get("version")
     if cur and tuple(map(int,cur.split(".")))>tuple(map(int,version.split("."))):
@@ -122,7 +122,7 @@ def run():
     dest=MANIFEST.with_suffix(".tmp")
     dest.write_text(json.dumps(doc,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     os.replace(dest,MANIFEST)
-    print("PUBLICADO NO GITLAB SITE:",version,len(published),"instaladores (OTA ainda depende do deploy Hostinger).")
+    print("PUBLICADO NO SITE:",version,len(published),"instaladores (OTA ainda depende do deploy Hostinger).")
 
 if __name__=="__main__":
     run()
