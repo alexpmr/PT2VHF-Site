@@ -4,58 +4,58 @@
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
-      "version": "1.3.1",
+      "version": "1.3.2",
       "date": "2026-10-28",
       "page": "https://www.pt2vhf.com/prog",
-      "notes": "Instalador do Windows corrigido para também ser gerado no próprio Windows (caminhos e acentos do assistente de instalação); Testes automáticos (CI) no Linux e no Windows a cada alteração, incluindo a geração do instalador",
+      "notes": "Aviso do site oficial www.pt2vhf.com a cada abertura do programa (downloads, novas versões e atualizações só pelo site); O aviso de versão nova aparece em seguida, logo depois que o aviso do site é fechado",
       "files": [
         {
           "category": "windows-installer",
           "label": "Windows — Instalador",
-          "name": "PT2VHFProgTool-1.3.1-instalador.exe",
-          "url": "https://www.pt2vhf.com/downloads/prog-tool/PT2VHFProgTool-1.3.1-instalador.exe",
-          "size": 9665673,
-          "sha256": "e22f44867e8406fbc84227c1e1c76da814a07d8fabe49f38b3a6838d5ef87238",
+          "name": "PT2VHFProgTool-1.3.2-instalador.exe",
+          "url": "https://www.pt2vhf.com/downloads/prog-tool/PT2VHFProgTool-1.3.2-instalador.exe",
+          "size": 9664485,
+          "sha256": "ea5b14a29a98331e284f695f0dc25c67d53b8ad2bc65868e5c518862c5571064",
           "detail": "Windows 10/11 64 bits (recomendado)",
-          "sig": "FK5Q+CNhWzDBU3MLjTapNE3kk1YG2tFv5cb5hml9+XMk6h1lf7yLsjG7/uDUjOML0vW1G0u8Wk3tGMHHjA0+Dw=="
+          "sig": "RojAbqcadkeMvvgvnECcunqeXV3odRo+tmeJvUqKYmbVQzH6jzDKLLyP37ZM/O5WW4whpOwZp6RApKpr4GNJAg=="
         },
         {
           "category": "windows-portable",
           "label": "Windows — Portátil",
-          "name": "PT2VHFProgTool-1.3.1-windows-portatil.zip",
-          "url": "https://www.pt2vhf.com/downloads/prog-tool/PT2VHFProgTool-1.3.1-windows-portatil.zip",
-          "size": 14031479,
-          "sha256": "bcf84654eaf3139b2bfbd684de526ae748316915b31218c90085800a4fbe3779",
+          "name": "PT2VHFProgTool-1.3.2-windows-portatil.zip",
+          "url": "https://www.pt2vhf.com/downloads/prog-tool/PT2VHFProgTool-1.3.2-windows-portatil.zip",
+          "size": 14033189,
+          "sha256": "fd517f19890bb557c12940f4c8eacad26c114a1aaf04d3f84d35e3d81be12471",
           "detail": "Windows 10/11 64 bits, sem instalação",
-          "sig": "JA98JWw2uE/3nj0Qx3ASsRw52u/SKBnt/PyQY0cxbU8xbWb3cXmWRy8ZpiKWYZ3UzMASzvX7wBjksvIZZHhcDw=="
+          "sig": "o0n/bDmW4r4cJYWfHgnoaJUV6nTAwJKpuGl0f50gTWmrXKTbbqHaBJsJnQ/fLRhrItrRMaQ4D6g8+SJnNAMkAQ=="
         },
         {
           "category": "linux-deb",
           "label": "Linux — .deb (Debian/Ubuntu)",
-          "name": "pt2vhf-prog-tool_1.3.1_all.deb",
-          "url": "https://www.pt2vhf.com/downloads/prog-tool/pt2vhf-prog-tool_1.3.1_all.deb",
-          "size": 175492,
-          "sha256": "0fd666b4050ed0222798949de64ad1a0f3b9d29f232a39f276c0f0126c6c7ecd",
+          "name": "pt2vhf-prog-tool_1.3.2_all.deb",
+          "url": "https://www.pt2vhf.com/downloads/prog-tool/pt2vhf-prog-tool_1.3.2_all.deb",
+          "size": 175984,
+          "sha256": "e58abdc5186e4e607ee2153ff02291b4c744a560e052f01b7fe931f2571d2156",
           "detail": "Ubuntu 22.04+, Debian 12+, Mint 21+",
-          "sig": "kqi5TidxwPn/i6UoTZtBzF3QynU3K/psa1gZspResHs1QUqCgmztYBz75rcEM1An9HpBCpobCRsKV0cijtW2CQ=="
+          "sig": "yJssE3tDMx4awX+PrpWNA0Y/OV1AHgwRhOK7lhU2IUqiX6/gA696pfuaBo+Ygw1A8IHn8S8E12J/XH4PlzmyBA=="
         },
         {
           "category": "linux-targz",
           "label": "Linux — .tar.gz",
-          "name": "pt2vhf-prog-tool-1.3.1-linux.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/prog-tool/pt2vhf-prog-tool-1.3.1-linux.tar.gz",
-          "size": 209944,
-          "sha256": "9229325d9dd43e9f63a633d7f74a60eab934771163faadb82d77d67dc53c1c92",
+          "name": "pt2vhf-prog-tool-1.3.2-linux.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/prog-tool/pt2vhf-prog-tool-1.3.2-linux.tar.gz",
+          "size": 210597,
+          "sha256": "6a9073871c63a876cf0276a8e58d0ee3280b083ee94ab0ac567b96bfc2875573",
           "detail": "Outras distribuições e macOS (Python 3.10+ com Tkinter)",
-          "sig": "VDKp080YDZxEJzGWnHKuheDaBYP1U28HQqJ/7f7Vz5lHn3mpapqA19CUUSNDgx/c5sLS6f2ho+2W84x+KwBjDg=="
+          "sig": "0YihKS0H8pWFVtBG5uJl7qko9Z6g1l8XJPeI8Df9pQbtl8b64/lNHfl7i3UC2PCJHsp7c9nq5SiFmrVvZM72CQ=="
         },
         {
           "category": "source",
           "label": "Código-fonte",
-          "name": "pt2vhf-prog-tool-1.3.1-codigo-fonte.zip",
-          "url": "https://www.pt2vhf.com/downloads/prog-tool/pt2vhf-prog-tool-1.3.1-codigo-fonte.zip",
-          "size": 941155,
-          "sha256": "3e1b1abbdfa7272e2218345d716d9bfffbfcfc3b8018e912356f04513dbdb66e",
+          "name": "pt2vhf-prog-tool-1.3.2-codigo-fonte.zip",
+          "url": "https://www.pt2vhf.com/downloads/prog-tool/pt2vhf-prog-tool-1.3.2-codigo-fonte.zip",
+          "size": 943215,
+          "sha256": "5c472bfe405fc1aebced57a294ca6c46b03950a627716e7412f0498ae2f3f314",
           "detail": "GPLv3"
         },
         {
@@ -64,7 +64,7 @@
           "name": "SHA256SUMS.txt",
           "url": "https://www.pt2vhf.com/downloads/prog-tool/SHA256SUMS.txt",
           "size": 515,
-          "sha256": "dce0b721b1efb3edfef134c144e78b0cceaeca2bb31f2ca228c5cd6650c3831e"
+          "sha256": "7c681ed970ebdea38d95edd706814c3c322c4c07164fca870dd1076e98489ebe"
         }
       ],
       "developmentVersion": "1.2.0",
