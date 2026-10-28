@@ -53,6 +53,7 @@ window.PT2VHF_I18N["fr"] = {
     "catCategory": "Catégorie",
     "catFile": "Fichier",
     "catVersion": "Version",
+    "catDate": "Publication",
     "catSize": "Taille",
     "download": "Télécharger",
     "downloadsCount": "téléchargements cumulés",

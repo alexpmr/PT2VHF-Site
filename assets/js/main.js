@@ -253,7 +253,7 @@
   }
 
   function publicDownloadUrl(p, f) {
-    return (p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat") && f.name
+    return (p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog") && f.name
       ? "/download.php?product=" + p.id + "&file=" + encodeURIComponent(f.name)
       : localUrl(f.url);
   }
@@ -295,13 +295,13 @@
         return '<tr><th scope="row">' + esc(categoryLabel(f)) + '</th>' +
           '<td><span class="file-name">' + esc(f.name) + '</span></td>' +
           '<td class="mono">' + (p.developmentVersion ? 'v' + esc(p.developmentVersion) : '—') +
-          '</td><td>—</td><td class="count-cell"><span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + key +
+          '</td><td>—</td><td>—</td><td class="count-cell"><span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + key +
           '" aria-live="polite">—</span></td><td class="action"><span class="badge">' + esc(t("releasePending")) + '</span></td></tr>';
       }).join("");
       return '<div class="unreleased"><p class="status-detail">' + esc(p.id === "prop" ? (p.releaseStatus || t("statProp")) : t(p.id === "mesh" ? "statMesh" : "statAprs")) + '</p>' +
         '<div class="table-wrap"><table class="downloads"><thead><tr><th>' + esc(t("catCategory")) +
         '</th><th>' + esc(t("catFile")) + '</th><th>' + esc(t("catVersion")) +
-        '</th><th>' + esc(t("catSize")) + '</th><th class="count-cell">' + esc(t("catDownloads")) +
+        '</th><th>' + esc(t("catDate")) + '</th><th>' + esc(t("catSize")) + '</th><th class="count-cell">' + esc(t("catDownloads")) +
         '</th><th><span class="sr-only">' + esc(t("catStatus")) + '</span></th></tr></thead><tbody>' + rows + '</tbody></table></div></div>';
     }
     if (!files.length) {
@@ -323,11 +323,12 @@
           (detail ? '<span class="file-label">' + esc(detail) + "</span>" : "") +
           "</span></td>" +
           '<td data-label="' + esc(t("catVersion")) + '" class="mono">' + versionLabel(p) + "</td>" +
+          '<td data-label="' + esc(t("catDate")) + '" class="nowrap">' + (formatDate(f.date || p.date) || "—") + "</td>" +
           '<td data-label="' + esc(t("catSize")) + '" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
           '<td data-label="' + esc(t("catDownloads")) + '" class="count-cell"><span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.counterKey || f.category) + '" aria-live="polite">—</span></td>' +
           '<td class="action"><a class="btn btn-sm btn-primary" href="' + esc(publicDownloadUrl(p, f)) + '"' +
           ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.counterKey || f.category) + '"' +
-          ((p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat") ? "" : " download") + '>' + esc(t("download")) +
+          ((p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog") ? "" : " download") + '>' + esc(t("download")) +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a></td>" +
           "</tr>"
         );
@@ -339,7 +340,7 @@
       "<caption class=\"sr-only\">" + esc(t("downloadsTitle")) + " — " + esc(p.name) + "</caption>" +
       "<thead><tr>" +
       '<th scope="col">' + esc(t("catCategory")) + '</th><th scope="col">' + esc(t("catFile")) + '</th><th scope="col">' + esc(t("catVersion")) + '</th>' +
-      '<th scope="col">' + esc(t("catSize")) + '</th><th scope="col" class="count-cell">' + esc(t("catDownloads")) + '</th><th scope="col"><span class="sr-only">' + esc(t("download")) + '</span></th>' +
+      '<th scope="col">' + esc(t("catDate")) + '</th><th scope="col">' + esc(t("catSize")) + '</th><th scope="col" class="count-cell">' + esc(t("catDownloads")) + '</th><th scope="col"><span class="sr-only">' + esc(t("download")) + '</span></th>' +
       "</tr></thead>" +
       "<tbody>" + rows + "</tbody>" +
       "</table>" +
@@ -672,7 +673,7 @@
   document.addEventListener("click", function (event) {
     var a = event.target.closest ? event.target.closest("a[data-counter-product][data-counter-category]") : null;
     if (!a) return;
-    if (["aprs", "prop", "mesh"].indexOf(a.getAttribute("data-counter-product")) !== -1) {
+    if (["aprs", "prop", "mesh", "sat", "prog"].indexOf(a.getAttribute("data-counter-product")) !== -1) {
       setTimeout(loadDownloadCounters, 900);
       setTimeout(loadDownloadCounters, 2800);
     } else if (window.navigator) {

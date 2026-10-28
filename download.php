@@ -96,7 +96,7 @@ if (!in_array($product, $products, true) ||
 // por isso o arquivo que ele baixa não é contado de novo (ver $isAprsUpdater).
 $agent = (string)($_SERVER['HTTP_USER_AGENT'] ?? '');
 $isAprsUpdater = $product === 'aprs' && strncmp($agent, 'PT2VHF-APRS-Client', 18) === 0;
-if (!$isFileRequest && in_array($product, array('mesh', 'sat'), true)) {
+if (!$isFileRequest && in_array($product, array('mesh', 'sat', 'prog'), true)) {
     fclose($file);
     http_response_code(204);
     exit;

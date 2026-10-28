@@ -53,6 +53,7 @@ window.PT2VHF_I18N["zh"] = {
     "catCategory": "类别",
     "catFile": "文件",
     "catVersion": "版本",
+    "catDate": "发布日期",
     "catSize": "大小",
     "download": "下载",
     "downloadsCount": "累计下载次数",
