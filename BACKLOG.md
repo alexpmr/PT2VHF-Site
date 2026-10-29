@@ -2,7 +2,7 @@
 
 ## Pendentes
 
-### Contadores não aumentam com atualização OTA feita pelo próprio aplicativo (29/10/2026)
+### Contadores: todo download conta — manual e OTA, em todos os projetos (29/10/2026)
 
 - **Relato (backlog):** parece que os contadores do site não sobem quando a atualização é feita
   internamente (OTA). Regra do mantenedor: atualização OTA conta **uma única vez por download**.
@@ -18,6 +18,13 @@
     arquivos do `updates.json` não têm `counterKey` — o OTA do Prog (e talvez o download direto) não conta.
   - **Prop / Sat:** rewrite do `.exe` remontado pelas partes; conferir que o OTA baixa esse `.exe` (e não
     as partes ou `parts.json`, que não contam).
+- **Decisão do mantenedor (29/10/2026): tudo conta como download, em todos os projetos** (APRS, Mesh,
+  Prop, Prog, Sat e os que vierem): download **manual** pelo site e atualização **por dentro da aplicação**
+  (OTA), em todas as plataformas e tipos de pacote (instalador, portátil, AppImage, .deb, .tar.gz, .dmg,
+  Win7 Legacy). Cada download conta **uma vez** — sem somar duas vezes o GET e o POST do mesmo download, e
+  sem contar HEAD/Range/retomadas. Todos os arquivos de `downloads/<pasta>/` passam pelo `download.php` e
+  todos os itens do `updates.json` têm `counterKey`; nenhum produto fica de fora (hoje o Prog Tool fica).
+  Mesma regra vale para versões antigas dos apps já instaladas.
 - **Teste:** para cada produto, simular o download do atualizador (mesmo User-Agent e fluxo do app) contra
   `php -S` e verificar +1 exatamente uma vez; ampliar `scripts/test_download_counter.php` para todos os
   produtos e plataformas. Registrar no log do servidor (sem dados pessoais) produto/categoria/origem OTA.
