@@ -230,31 +230,31 @@ window.PT2VHF_I18N["es"] = {
       ]
     },
     "qsl": {
-      "summary": "Analice sus contactos de radioaficionado: estadísticas, mapas, confirmaciones QSL e informes PDF a partir de ADIF y otros logs.",
-      "cardSummary": "Análisis de logs y confirmaciones QSL con base local, gráficos interactivos e informes.",
-      "tagline": "ADIF, Cabrillo, EDI y CSV · QRZ.com, LoTW, eQSL y Club Log",
+      "summary": "Gestione sus contactos de radioaficionado: log completo, confirmaciones QSL, diplomas, sincronización con QRZ.com, LoTW, eQSL y Club Log, estadísticas e informes.",
+      "cardSummary": "Gestor de contactos y confirmaciones QSL, con sincronización, diplomas y estadísticas.",
+      "tagline": "Su log en su computadora, sincronizado con QRZ.com, LoTW, eQSL y Club Log",
       "description": [
-        "PT2VHF QSL Analyzer lee sus logs de radioaficionado (ADIF, ADX, Cabrillo, EDI y CSV) y guarda los contactos en una base local, en su computadora. Las nuevas cargas solo añaden lo que aún no existe y actualizan las confirmaciones QSL de los contactos ya registrados.",
-        "Logs de varias estaciones conviven en la misma base y cada contacto guarda el indicativo de la estación. En Configuración puede borrar solo el indicativo que desee.",
-        "Ofrece análisis completos: estadísticas básicas, estaciones trabajadas, mapas de actividad, bandas y modos, primer DXCC, cambios de banda, pausas, duplicados, puntos, zonas CQ/ITU, DXCC/locator, azimuts y distancias, tasas de QSO y tiempo de operación. Los gráficos son interactivos: un clic filtra toda la pantalla.",
-        "La pestaña QSL suma las confirmaciones en papel, LoTW y eQSL y muestra la matriz DXCC × banda trabajado/confirmado. El generador de informes crea un PDF personalizado con las secciones que elija."
+        "PT2VHF QSL Manager guarda todo su log de radioaficionado en una base local, en su computadora. Importe ADIF, ADX, Cabrillo, EDI y CSV o descargue directamente de QRZ.com, LoTW, eQSL y Club Log: los contactos repetidos se omiten y las confirmaciones QSL se actualizan.",
+        "Agregue, edite y elimine contactos, envíe y sincronice el log con cada plataforma (LoTW mediante TQSL de la ARRL) y siga lo que ya fue enviado y confirmado. Logs de varias estaciones conviven en la misma base.",
+        "Haga clic en un indicativo, país o cuadrícula para ver todo lo que hizo con él, incluida la foto y los datos de la estación en QRZ.com. La pestaña QSL muestra confirmaciones, diplomas (DXCC, WAZ, WAS, WPX, VUCC, IOTA) y lo que falta confirmar.",
+        "Estadísticas completas, propagación a lo largo de los meses, salud del log, informes PDF y copia completa con restauración."
       ],
       "features": [
-        "Base local incremental organizada por indicativo de estación: las recargas no duplican contactos y actualizan las confirmaciones QSL",
-        "Importación en un paso con barra de progreso: ADIF, ADX, Cabrillo, EDI (REG1TEST) y CSV, y descarga directa de QRZ.com, LoTW, eQSL y Club Log, con comparación y sincronización automática",
-        "Fichas clicables de indicativos, países, cuadrículas, zonas y continentes con todos los contactos; la del indicativo muestra foto y datos de QRZ.com/HamQTH",
-        "Diplomas (DXCC, WAZ, WAS, WPX, VUCC, IOTA), entidades por confirmar y entidades raras",
-        "20 estadísticas detalladas, además de Propagación a lo largo de los meses, Comparar períodos, Estaciones frecuentes, Indicativos nuevos y Concursos",
-        "Resumen de su actividad en lenguaje natural y Salud del log con corrección en lote",
-        "Gráficos estilo BI: clic para filtrar, arrastrar para elegir el período, filtros plegables con paneles guardados y páginas en subpestañas",
-        "Informes personalizables en PDF y HTML, incluido \"Mi año en la radio\"; exportación a ADIF v3, CSV, Cabrillo y KML",
-        "Actualización automática desde el sitio oficial: descarga, verifica el SHA-256, instala y reabre la app",
-        "Interfaz en portugués, inglés y español, con tema claro y oscuro"
+        "Contactos: agregar, editar y eliminar, con país, DXCC y zonas automáticos",
+        "Importación de ADIF, ADX, Cabrillo, EDI y CSV con progreso, sin duplicados",
+        "Plataformas: descargar, enviar y sincronizar con QRZ.com, LoTW (vía TQSL), eQSL y Club Log, desde 1980",
+        "Estado de QSL (papel, LoTW, eQSL), diplomas y lo que falta confirmar",
+        "Fichas de indicativos, países y cuadrículas, con foto y datos de QRZ.com/HamQTH",
+        "20 estadísticas detalladas, propagación, comparación de períodos, concursos y salud del log",
+        "Gráficos interactivos, filtros plegables, paneles guardados e informes PDF",
+        "Copia completa (.qslbackup) con contraseñas protegidas opcionales, restauración y copia automática",
+        "Actualización automática desde el sitio oficial; interfaz en portugués, inglés y español"
       ],
       "requirements": [
         "Windows 10/11 de 64 bits: instalador o versión portátil",
         "Linux y macOS: temporalmente fuera de esta versión; vuelven en las próximas",
-        "Internet solo para descargar logs de las plataformas, consultar datos de estaciones (QRZ.com/HamQTH) y buscar actualizaciones en www.pt2vhf.com"
+        "Envío a LoTW: TQSL de la ARRL instalado con certificado y Station Location",
+        "Internet solo para las plataformas, los datos de estaciones y las actualizaciones en www.pt2vhf.com"
       ]
     }
   }

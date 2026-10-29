@@ -230,31 +230,31 @@ window.PT2VHF_I18N["de"] = {
       ]
     },
     "qsl": {
-      "summary": "Analyze your amateur radio contacts: statistics, maps, QSL confirmations and PDF reports from ADIF and other logs.",
-      "cardSummary": "Log and QSL confirmation analysis with a local database, interactive charts and reports.",
-      "tagline": "ADIF, Cabrillo, EDI and CSV · QRZ.com, LoTW, eQSL and Club Log",
+      "summary": "Manage your amateur radio contacts: complete log, QSL confirmations, awards, sync with QRZ.com, LoTW, eQSL and Club Log, statistics and reports.",
+      "cardSummary": "Contact and QSL confirmation manager with sync, awards and statistics.",
+      "tagline": "Your log on your computer, synced with QRZ.com, LoTW, eQSL and Club Log",
       "description": [
-        "PT2VHF QSL Analyzer reads your amateur radio logs (ADIF, ADX, Cabrillo, EDI and CSV) and keeps the contacts in a local database on your computer. New uploads only add what is not there yet and update the QSL confirmations of existing contacts.",
-        "Logs from several stations share the same database, and each contact keeps its station callsign. In Settings you can delete just the callsign you want.",
-        "It brings complete analyses: basic stats, stations worked, activity maps, bands and modes, DXCC first worked, band changes, pauses, dupes, points, CQ/ITU zones, DXCC/locator, azimuths and distances, QSO rates and operating time. Charts are interactive: one click filters the whole view.",
-        "The QSL tab totals paper, LoTW and eQSL confirmations and shows the DXCC × band worked/confirmed matrix. The report builder creates a custom PDF with the sections you choose."
+        "PT2VHF QSL Manager keeps your whole amateur radio log in a local database on your computer. Import ADIF, ADX, Cabrillo, EDI and CSV files or download directly from QRZ.com, LoTW, eQSL and Club Log: repeated contacts are skipped and QSL confirmations are updated.",
+        "Add, edit and delete contacts, upload and sync your log with each platform (LoTW through ARRL TQSL) and track what has been uploaded and confirmed. Logs from several stations share the same database.",
+        "Click a callsign, country or grid to see everything you did with it, including the station photo and data from QRZ.com. The QSL tab shows confirmations, awards (DXCC, WAZ, WAS, WPX, VUCC, IOTA) and what is still to be confirmed.",
+        "Complete statistics, propagation over the months, log health, PDF reports and full backup with restore."
       ],
       "features": [
-        "Incremental local database organized by station callsign: re-uploads never duplicate contacts and update QSL confirmations",
-        "One-step import with progress bar: ADIF, ADX, Cabrillo, EDI (REG1TEST) and CSV, plus direct download from QRZ.com, LoTW, eQSL and Club Log, with comparison and auto-sync",
-        "Clickable cards for callsigns, countries, grids, zones and continents with all contacts; the callsign card shows photo and QRZ.com/HamQTH data",
-        "Awards (DXCC, WAZ, WAS, WPX, VUCC, IOTA), entities still to confirm and rare entities",
-        "20 detailed statistics plus Propagation over the months, Compare periods, Frequent stations, New callsigns and Contests",
-        "Natural-language activity summary and Log health with bulk fixes (band × frequency, dupes, mistyped callsigns)",
-        "BI-style charts: click to filter, drag to pick a period, collapsible filters with saved views and pages in sub-tabs",
-        "Custom PDF and HTML reports, including the ready-made \"My year on the air\"; export to ADIF v3, CSV, Cabrillo and KML",
-        "Automatic updates from the official site: downloads, verifies SHA-256, installs and reopens the app",
-        "Portuguese, English and Spanish interface, light and dark themes"
+        "Contacts: add, edit and delete, with country, DXCC and zones filled in automatically",
+        "Import ADIF, ADX, Cabrillo, EDI and CSV with progress, without duplicates",
+        "Platforms: download, upload and sync with QRZ.com, LoTW (via TQSL), eQSL and Club Log, from 1980",
+        "QSL status (paper, LoTW, eQSL), awards and what is still to be confirmed",
+        "Cards for callsigns, countries and grids, with QRZ.com/HamQTH photo and data",
+        "20 detailed statistics, propagation, period comparison, contests and log health",
+        "Interactive charts, collapsible filters, saved views and PDF reports",
+        "Full backup (.qslbackup) with optional protected passwords, restore and automatic backup",
+        "Automatic updates from the official site; Portuguese, English and Spanish interface"
       ],
       "requirements": [
         "Windows 10/11 64-bit: installer or portable",
         "Linux and macOS: temporarily not in this version; coming back in the next ones",
-        "Internet only to download logs from platforms, look up station data (QRZ.com/HamQTH) and check for updates at www.pt2vhf.com"
+        "LoTW upload: ARRL TQSL installed with certificate and Station Location",
+        "Internet only for platforms, station data and updates at www.pt2vhf.com"
       ]
     }
   }

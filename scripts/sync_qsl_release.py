@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publica uma release do PT2VHF QSL Analyzer no site oficial.
+"""Publica uma release do PT2VHF QSL Manager no site oficial.
 
 Lê os pacotes baixados da release do GitHub (origem gerada pelo Actions), confere o SHA256SUMS.txt,
 divide cada pacote em partes < 100 MiB em downloads/qsl-analyzer/ (remontadas pelo download.php)
@@ -130,7 +130,7 @@ def main() -> None:
         })
     today = date.today().isoformat()
     catalog["products"]["qsl"] = {
-        "name": "PT2VHF QSL Analyzer",
+        "name": "PT2VHF QSL Manager",
         "version": args.version,
         "date": today,
         "page": f"{SITE}/qsl",
@@ -145,7 +145,7 @@ def main() -> None:
         os.replace(temp, CATALOG)
     finally:
         temp.unlink(missing_ok=True)
-    print(f"QSL Analyzer v{args.version} publicado: {len(entries)} pacotes em partes verificadas.")
+    print(f"QSL Manager v{args.version} publicado: {len(entries)} pacotes em partes verificadas.")
 
 if __name__ == "__main__":
     main()

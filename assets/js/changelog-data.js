@@ -1,5 +1,5 @@
 /* Changelog (últimas 5 versões) dos projetos sem arquivo próprio de site.
- * Fontes: CHANGELOG do QSL Analyzer, README do Sat Tool, version_notes.py do APRS Client e notas da
+ * Fontes: CHANGELOG do QSL Manager, README do Sat Tool, version_notes.py do APRS Client e notas da
  * versão do Prog Tool em updates.json. Mesh e Prop usam mesh-site-data.js
  * e prop-site.js. Idioma ausente cai para pt. */
 (function () {
@@ -34,13 +34,13 @@
       zh: "根据各版本官方说明整理的 APRS Client 更新。"
     },
     qsl: {
-      pt: "Evolução do QSL Analyzer, versão a versão.",
-      en: "QSL Analyzer evolution, version by version.",
-      es: "Evolución del QSL Analyzer, versión por versión.",
-      fr: "Évolution du QSL Analyzer, version par version.",
-      de: "Entwicklung des QSL Analyzer, Version für Version.",
-      it: "Evoluzione del QSL Analyzer, versione per versione.",
-      zh: "QSL Analyzer 各版本更新。"
+      pt: "Evolução do QSL Manager, versão a versão.",
+      en: "QSL Manager evolution, version by version.",
+      es: "Evolución del QSL Manager, versión por versión.",
+      fr: "Évolution du QSL Manager, version par version.",
+      de: "Entwicklung des QSL Manager, Version für Version.",
+      it: "Evoluzione del QSL Manager, versione per versione.",
+      zh: "QSL Manager 各版本更新。"
     },
     prog: {
       pt: "Versão publicada no site; as próximas versões serão listadas aqui.",
@@ -56,16 +56,19 @@
   var LOG = {
     qsl: {
       pt: [
+        e("0.4.0", "Novo nome: PT2VHF QSL Manager", ["Agora um gerenciador de contatos: inserir, editar e apagar contatos, enviar e sincronizar com QRZ.com, LoTW (via TQSL), eQSL e Club Log.", "Downloads das plataformas a partir de 1980, mensagens claras quando o LoTW limita consultas e sincronização incremental.", "Backup completo com senhas opcionais protegidas, restauração com prévia e backup automático."]),
         e("0.3.0", "Atualização automática", ["No Windows, o aviso de versão nova oferece \"Atualizar agora\": baixa de www.pt2vhf.com com progresso, confere tamanho e SHA-256, instala e reabre o app já atualizado.", "Banco, preferências e credenciais preservados; as novidades aparecem uma vez na primeira abertura."]),
         e("0.2.0", "Fichas, diplomas e novas análises", ["Indicativos, países, quadrículas, zonas e continentes clicáveis, com todos os contatos; ficha do indicativo com foto e dados do QRZ.com/HamQTH.", "Diplomas (DXCC, WAZ, WAS, WPX, VUCC, IOTA), Faltam confirmar, Entidades raras, Propagação, Comparar períodos, Estações frequentes, Novos indicativos, Concursos e Saúde do log.", "Importação em um passo com progresso, organização por estação, filtros recolhidos, painéis salvos, sub-abas e relatório \"Meu ano no rádio\"."]),
         e("0.1.0", "Primeira versão", ["Banco local incremental com limpeza por indicativo; ADIF, ADX, Cabrillo, EDI e CSV; importação do QRZ.com, LoTW, eQSL e Club Log.", "20 estatísticas, status de QSL, gráficos interativos, relatórios em PDF e exportação ADIF/CSV/Cabrillo/KML."])
       ],
       en: [
+        e("0.4.0", "New name: PT2VHF QSL Manager", ["Now a contact manager: add, edit and delete contacts, upload and sync with QRZ.com, LoTW (via TQSL), eQSL and Club Log.", "Platform downloads from 1980, clear messages when LoTW limits queries and incremental sync.", "Full backup with optional protected passwords, restore with preview and automatic backup."]),
         e("0.3.0", "Automatic updates", ["On Windows, the new version prompt offers \"Update now\": downloads from www.pt2vhf.com with progress, verifies size and SHA-256, installs and reopens the updated app.", "Database, preferences and credentials are kept; what's new is shown once on first launch."]),
         e("0.2.0", "Cards, awards and new analyses", ["Clickable callsigns, countries, grids, zones and continents with all contacts; callsign card with photo and QRZ.com/HamQTH data.", "Awards (DXCC, WAZ, WAS, WPX, VUCC, IOTA), To be confirmed, Rare entities, Propagation, Compare periods, Frequent stations, New callsigns, Contests and Log health.", "One-step import with progress, organization by station, collapsible filters, saved views, sub-tabs and the \"My year on the air\" report."]),
         e("0.1.0", "First release", ["Incremental local database with clearing by callsign; ADIF, ADX, Cabrillo, EDI and CSV; import from QRZ.com, LoTW, eQSL and Club Log.", "20 statistics, QSL status, interactive charts, PDF reports and ADIF/CSV/Cabrillo/KML export."])
       ],
       es: [
+        e("0.4.0", "Nuevo nombre: PT2VHF QSL Manager", ["Ahora un gestor de contactos: agregar, editar y eliminar contactos, enviar y sincronizar con QRZ.com, LoTW (vía TQSL), eQSL y Club Log.", "Descargas de las plataformas desde 1980, mensajes claros cuando LoTW limita consultas y sincronización incremental.", "Copia completa con contraseñas protegidas opcionales, restauración con vista previa y copia automática."]),
         e("0.3.0", "Actualización automática", ["En Windows, el aviso de nueva versión ofrece \"Actualizar ahora\": descarga de www.pt2vhf.com con progreso, verifica tamaño y SHA-256, instala y reabre la app actualizada.", "Base, preferencias y credenciales se conservan; las novedades aparecen una vez en el primer inicio."]),
         e("0.2.0", "Fichas, diplomas y nuevos análisis", ["Indicativos, países, cuadrículas, zonas y continentes clicables, con todos los contactos; ficha del indicativo con foto y datos de QRZ.com/HamQTH.", "Diplomas (DXCC, WAZ, WAS, WPX, VUCC, IOTA), Faltan confirmar, Entidades raras, Propagación, Comparar períodos, Estaciones frecuentes, Indicativos nuevos, Concursos y Salud del log.", "Importación en un paso con progreso, organización por estación, filtros plegables, paneles guardados, subpestañas e informe \"Mi año en la radio\"."]),
         e("0.1.0", "Primera versión", ["Base local incremental con limpieza por indicativo; ADIF, ADX, Cabrillo, EDI y CSV; importación de QRZ.com, LoTW, eQSL y Club Log.", "20 estadísticas, estado de QSL, gráficos interactivos, informes PDF y exportación ADIF/CSV/Cabrillo/KML."])

@@ -14,6 +14,14 @@
 
 ## Concluídos
 
+### RESOLVIDO (29/10/2026) — PT2VHF QSL Manager 0.4.0 no site (Windows)
+
+- Novo nome PT2VHF QSL Manager (antes QSL Analyzer) no menu de projetos, página `/qsl` (mesma URL), catálogo e
+  textos em 7 idiomas; produto `qsl` mantido no `updates.json`, `update.php` e contadores (histórico preservado).
+- Pacotes 0.4.0 com o nome de arquivo anterior, para o OTA da 0.3.0 instalar a versão nova.
+- `scripts/test_qsl_download.php` confere no catálogo real que todo arquivo do `qsl` tem `counterKey` aceito,
+  URL oficial e partes publicadas, e que downloads pelo site e pelo OTA (nomes antigo e novo) contam uma vez.
+
 ### RESOLVIDO (29/10/2026) — QSL Analyzer 0.3.0 no site (Windows); screenshots e changelog no fim da página
 
 - `updates.json` com a 0.3.0 (instalador e portátil Windows); atualização automática (OTA) no app.

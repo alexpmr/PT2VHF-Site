@@ -426,11 +426,11 @@
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
     "qsl": {
-      "name": "PT2VHF QSL Analyzer",
-      "version": "0.3.0",
+      "name": "PT2VHF QSL Manager",
+      "version": "0.4.0",
       "date": "2026-10-29",
       "page": "https://www.pt2vhf.com/qsl",
-      "notes": "Atualização automática no Windows: o aviso de versão nova oferece Atualizar agora, que baixa de www.pt2vhf.com com progresso, confere tamanho e SHA-256, instala e reabre o app já atualizado, preservando banco, preferências e credenciais. Novidades mostradas uma vez após atualizar. Textos e créditos revisados.",
+      "notes": "Novo nome: PT2VHF QSL Manager. Inserir, editar e apagar contatos; enviar e sincronizar com QRZ.com, LoTW (via TQSL), eQSL e Club Log; downloads das plataformas a partir de 1980 com mensagens claras quando o LoTW limita consultas; backup completo com senhas opcionais protegidas, restauração e backup automático.",
       "files": [
         {
           "category": "windows-installer",
@@ -439,10 +439,10 @@
           "architecture": "x64",
           "platform": "windows-x64",
           "label": "Windows — Instalador",
-          "name": "PT2VHF-QSL-Analyzer-0.3.0-win-x64-setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.3.0-win-x64-setup.exe",
-          "size": 114413620,
-          "sha256": "9e3fbbb1e601964794bd02e37e83b5fbc46d1fa51c1904c4f8453b12062bbdcb",
+          "name": "PT2VHF-QSL-Analyzer-0.4.0-win-x64-setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.4.0-win-x64-setup.exe",
+          "size": 114425828,
+          "sha256": "4e416228ae55860a7390d96e8a5adc8e3b897ab9da96b0936e8fcb1cd2b5208d",
           "detail": "Windows 10/11 64 bits (recomendado)"
         },
         {
@@ -452,10 +452,10 @@
           "architecture": "x64",
           "platform": "windows-x64",
           "label": "Windows — Portátil",
-          "name": "PT2VHF-QSL-Analyzer-0.3.0-win-x64-portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.3.0-win-x64-portable.exe",
-          "size": 114185964,
-          "sha256": "a9fbc06ef94a6b1adca18852b373a798d1f9d8078898444061a0e18f69ffa927",
+          "name": "PT2VHF-QSL-Analyzer-0.4.0-win-x64-portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.4.0-win-x64-portable.exe",
+          "size": 114198189,
+          "sha256": "3fd91c686f8fc8851deb9d7693716b08a6486cf353f0bc3cca079d759b0a6b7d",
           "detail": "Windows 10/11 64 bits, sem instalação"
         }
       ],
