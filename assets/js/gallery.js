@@ -22,6 +22,16 @@ window.PT2VHF_GALLERIES = {
     { src:"/assets/screenshots/sat/icon.svg",type:"brand",caption:"Identidade visual do SAT Tool",captionId:"satBrand" }
   ],
   qsl: [
+    { src:"/assets/screenshots/qsl/estatisticas-basicas.webp",type:"screenshot",caption:"Estatísticas básicas de um log real com 65.289 QSOs",captionId:"qslEstatisticasBasicas" },
+    { src:"/assets/screenshots/qsl/estacoes-trabalhadas.webp",type:"screenshot",caption:"Estações trabalhadas, com bandas, modos e slots",captionId:"qslEstacoesTrabalhadas" },
+    { src:"/assets/screenshots/qsl/mapa-atividade.webp",type:"screenshot",caption:"Mapa de atividade: banda × mês",captionId:"qslMapaAtividade" },
+    { src:"/assets/screenshots/qsl/bandas-modos.webp",type:"screenshot",caption:"Bandas e modos: QSOs e indicativos por modo",captionId:"qslBandasModos" },
+    { src:"/assets/screenshots/qsl/bandas-modos-10m.webp",type:"screenshot",caption:"Bandas/modos com filtro de banda (10 m)",captionId:"qslBandasModos10m" },
+    { src:"/assets/screenshots/qsl/dxcc-locator.webp",type:"screenshot",caption:"QSOs por entidade DXCC e por quadrícula",captionId:"qslDxccLocator" },
+    { src:"/assets/screenshots/qsl/dxcc-locator-10m.webp",type:"screenshot",caption:"DXCC/locator com filtro de banda",captionId:"qslDxccLocator10m" },
+    { src:"/assets/screenshots/qsl/historico.webp",type:"screenshot",caption:"Gráficos históricos: QSOs e DXCC por ano",captionId:"qslHistorico" },
+    { src:"/assets/screenshots/qsl/pontos.webp",type:"screenshot",caption:"Gráficos de pontos por indicativo",captionId:"qslPontos" },
+    { src:"/assets/screenshots/qsl/status-qsl.webp",type:"screenshot",caption:"Status de QSL e DXCC por banda",captionId:"qslStatusQsl" },
     { src:"/assets/screenshots/qsl/dashboard-v010.webp",type:"screenshot",caption:"Dashboard com totais, bandas, anos e mapa DXCC",captionId:"qslDashboard" },
     { src:"/assets/screenshots/qsl/estatisticas-bi-v010.webp",type:"screenshot",caption:"Gráficos interativos: um clique filtra a tela inteira",captionId:"qslBi" },
     { src:"/assets/screenshots/qsl/banco-por-indicativo-v010.webp",type:"screenshot",caption:"Limpeza do banco por indicativo de estação",captionId:"qslDatabase" },

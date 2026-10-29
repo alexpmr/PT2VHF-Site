@@ -79,6 +79,16 @@ window.PT2VHF_I18N["es"] = {
     "detailsProgTar": "Otras distribuciones y macOS (Python 3.10+ y Tkinter)"
   },
   "captions": {
+    "qslEstatisticasBasicas": "Estadísticas básicas de un log real con 65.289 QSOs",
+    "qslEstacoesTrabalhadas": "Estaciones trabajadas, con bandas, modos y slots",
+    "qslMapaAtividade": "Mapa de actividad: banda × mes",
+    "qslBandasModos": "Bandas y modos: QSOs e indicativos por modo",
+    "qslBandasModos10m": "Bandas/modos con filtro de banda (10 m)",
+    "qslDxccLocator": "QSOs por entidad DXCC y por cuadrícula",
+    "qslDxccLocator10m": "DXCC/locator con filtro de banda",
+    "qslHistorico": "Gráficos históricos: QSOs y DXCC por año",
+    "qslPontos": "Gráficos de puntos por indicativo",
+    "qslStatusQsl": "Estado de QSL y DXCC por banda",
     "qslDashboard": "Panel con totales, bandas, años y mapa DXCC",
     "qslBi": "Gráficos interactivos: un clic filtra toda la pantalla",
     "qslDatabase": "Limpieza de la base por indicativo de estación",
@@ -230,21 +240,20 @@ window.PT2VHF_I18N["es"] = {
         "La pestaña QSL suma las confirmaciones en papel, LoTW y eQSL y muestra la matriz DXCC × banda trabajado/confirmado. El generador de informes crea un PDF personalizado con las secciones que elija."
       ],
       "features": [
-        "Base local incremental: las recargas no duplican contactos y actualizan las confirmaciones QSL",
-        "Limpieza de la base por indicativo de estación, en todos los contenedores o en uno",
-        "Importación de ADIF, ADX, Cabrillo, EDI (REG1TEST) y CSV, y descarga directa de QRZ.com Logbook, LoTW, eQSL y Club Log",
-        "Menú Logs según QScope: contenedores, subir, importar, modificar, copiar/filtrar y búsqueda con comodines",
-        "Las 20 estadísticas de QScope, con tasas de QSO, tiempo de operación, pausas, zonas, DXCC y mapas",
-        "Gráficos estilo BI: clic para filtrar, arrastrar para elegir el período y leyendas interactivas",
-        "Estado de QSL con matriz DXCC × banda trabajado (W) / confirmado (C)",
-        "Informes personalizables en PDF y HTML; exportación a ADIF v3, CSV, Cabrillo y KML (Google Earth)",
+        "Base local incremental organizada por indicativo de estación: las recargas no duplican contactos y actualizan las confirmaciones QSL",
+        "Importación en un paso con barra de progreso: ADIF, ADX, Cabrillo, EDI (REG1TEST) y CSV, y descarga directa de QRZ.com, LoTW, eQSL y Club Log, con comparación y sincronización automática",
+        "Fichas clicables de indicativos, países, cuadrículas, zonas y continentes con todos los contactos; la del indicativo muestra foto y datos de QRZ.com/HamQTH",
+        "Diplomas (DXCC, WAZ, WAS, WPX, VUCC, IOTA), entidades por confirmar y entidades raras",
+        "Las 20 estadísticas de QScope, además de Propagación a lo largo de los meses, Comparar períodos, Estaciones frecuentes, Indicativos nuevos y Concursos",
+        "Resumen de su actividad en lenguaje natural y Salud del log con corrección en lote",
+        "Gráficos estilo BI: clic para filtrar, arrastrar para elegir el período, filtros plegables con paneles guardados y páginas en subpestañas",
+        "Informes personalizables en PDF y HTML, incluido \"Mi año en la radio\"; exportación a ADIF v3, CSV, Cabrillo y KML",
         "Interfaz en portugués, inglés y español, con tema claro y oscuro"
       ],
       "requirements": [
         "Windows 10/11 de 64 bits: instalador o versión portátil",
-        "Linux x64: AppImage, paquete .deb (Ubuntu/Debian/Mint) o .tar.gz",
-        "macOS 12+ en Apple Silicon (arm64) o Intel (x64). La app aún no está firmada por Apple: la primera vez, haga clic derecho y elija Abrir",
-        "Internet solo para descargar logs de las plataformas en línea y buscar actualizaciones en www.pt2vhf.com"
+        "Linux y macOS: temporalmente fuera de esta versión; vuelven en las próximas",
+        "Internet solo para descargar logs de las plataformas, consultar datos de estaciones (QRZ.com/HamQTH) y buscar actualizaciones en www.pt2vhf.com"
       ]
     }
   }

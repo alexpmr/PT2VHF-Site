@@ -5,7 +5,10 @@ Lê os pacotes baixados da release do GitHub (origem gerada pelo Actions), confe
 divide cada pacote em partes < 100 MiB em downloads/qsl-analyzer/ (remontadas pelo download.php)
 e atualiza o produto "qsl" do updates.json com versão, tamanho e SHA-256.
 
-Uso: python3 scripts/sync_qsl_release.py --version 0.1.0 --source /caminho/dos/pacotes [--apply]
+Uso: python3 scripts/sync_qsl_release.py --version 0.2.0 --source /caminho/dos/pacotes [--platforms windows,linux,macos] [--apply]
+
+Só as plataformas indicadas são publicadas; pacotes antigos de outras plataformas são removidos, porque o
+updates.json tem uma única versão por produto (evita anunciar versão nova com arquivos de versão antiga).
 """
 from __future__ import annotations
 import argparse
@@ -87,6 +90,7 @@ def main() -> None:
     parser.add_argument("--version", required=True)
     parser.add_argument("--source", required=True, type=Path)
     parser.add_argument("--notes", default="")
+    parser.add_argument("--platforms", default="windows,linux,macos")
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
     if re.fullmatch(r"\d+\.\d+\.\d+", args.version) is None:
@@ -96,7 +100,10 @@ def main() -> None:
     if previous and tuple(map(int, previous.split("."))) > tuple(map(int, args.version.split("."))):
         raise SystemExit(f"Recusando rebaixar de {previous} para {args.version}")
     sums = read_sums(args.source)
-    items = packages(args.version)
+    wanted = {p.strip() for p in args.platforms.split(",") if p.strip()}
+    items = [i for i in packages(args.version) if i["platform"].split("-")[0] in wanted]
+    if not items:
+        parser.error("Nenhuma plataforma selecionada")
     for item in items:
         src = args.source / item["file"]
         if not src.is_file() or item["file"] not in sums:

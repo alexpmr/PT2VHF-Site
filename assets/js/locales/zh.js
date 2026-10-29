@@ -79,6 +79,16 @@ window.PT2VHF_I18N["zh"] = {
     "detailsProgTar": "其他 Linux 发行版及 macOS（Python 3.10+ 与 Tkinter）"
   },
   "captions": {
+    "qslEstatisticasBasicas": "Basic stats from a real log with 65,289 QSOs",
+    "qslEstacoesTrabalhadas": "Stations worked, with bands, modes and slots",
+    "qslMapaAtividade": "Activity map: band × month",
+    "qslBandasModos": "Bands and modes: QSOs and callsigns per mode",
+    "qslBandasModos10m": "Bands/modes filtered by band (10 m)",
+    "qslDxccLocator": "QSOs per DXCC entity and grid square",
+    "qslDxccLocator10m": "DXCC/locator filtered by band",
+    "qslHistorico": "Historical charts: QSOs and DXCC per year",
+    "qslPontos": "Points per callsign",
+    "qslStatusQsl": "QSL status and DXCC per band",
     "qslDashboard": "Dashboard with totals, bands, years and DXCC map",
     "qslBi": "Interactive charts: one click filters the whole view",
     "qslDatabase": "Clearing the database by station callsign",
@@ -230,21 +240,20 @@ window.PT2VHF_I18N["zh"] = {
         "The QSL tab totals paper, LoTW and eQSL confirmations and shows the DXCC × band worked/confirmed matrix. The report builder creates a custom PDF with the sections you choose."
       ],
       "features": [
-        "Incremental local database: re-uploads never duplicate contacts and update QSL confirmations",
-        "Clear the database by station callsign, in all containers or just one",
-        "Import ADIF, ADX, Cabrillo, EDI (REG1TEST) and CSV, or download directly from QRZ.com Logbook, LoTW, eQSL and Club Log",
-        "Logs menu following QScope: containers, upload, import, modify, copy/filter and wildcard search",
-        "The 20 QScope statistics, with QSO rates, operating time, pauses, zones, DXCC and maps",
-        "BI-style charts: click to filter, drag to pick a period and interactive legends",
-        "QSL status with a DXCC × band worked (W) / confirmed (C) matrix",
-        "Custom PDF and HTML reports; export to ADIF v3, CSV, Cabrillo and KML (Google Earth)",
+        "Incremental local database organized by station callsign: re-uploads never duplicate contacts and update QSL confirmations",
+        "One-step import with progress bar: ADIF, ADX, Cabrillo, EDI (REG1TEST) and CSV, plus direct download from QRZ.com, LoTW, eQSL and Club Log, with comparison and auto-sync",
+        "Clickable cards for callsigns, countries, grids, zones and continents with all contacts; the callsign card shows photo and QRZ.com/HamQTH data",
+        "Awards (DXCC, WAZ, WAS, WPX, VUCC, IOTA), entities still to confirm and rare entities",
+        "The 20 QScope statistics plus Propagation over the months, Compare periods, Frequent stations, New callsigns and Contests",
+        "Natural-language activity summary and Log health with bulk fixes (band × frequency, dupes, mistyped callsigns)",
+        "BI-style charts: click to filter, drag to pick a period, collapsible filters with saved views and pages in sub-tabs",
+        "Custom PDF and HTML reports, including the ready-made \"My year on the air\"; export to ADIF v3, CSV, Cabrillo and KML",
         "Portuguese, English and Spanish interface, light and dark themes"
       ],
       "requirements": [
         "Windows 10/11 64-bit: installer or portable",
-        "Linux x64: AppImage, .deb package (Ubuntu/Debian/Mint) or .tar.gz",
-        "macOS 12+ on Apple Silicon (arm64) or Intel (x64). The app is not yet signed by Apple: on first launch, right-click it and choose Open",
-        "Internet only to download logs from online platforms and check for updates at www.pt2vhf.com"
+        "Linux and macOS: temporarily not in this version; coming back in the next ones",
+        "Internet only to download logs from platforms, look up station data (QRZ.com/HamQTH) and check for updates at www.pt2vhf.com"
       ]
     }
   }

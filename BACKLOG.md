@@ -14,6 +14,13 @@
 
 ## Concluídos
 
+### RESOLVIDO (29/10/2026) — QSL Analyzer 0.2.0 no site (Windows) e screenshots reais
+
+- `updates.json` com a 0.2.0 (instalador e portátil Windows); pacotes 0.1.0 de Linux/macOS removidos
+  enquanto essas plataformas não são geradas (uma versão por produto no catálogo).
+- Galeria da página `/qsl` com as 10 capturas enviadas pelo mantenedor (log real), legendas em pt/en/es.
+- `scripts/sync_qsl_release.py --platforms windows` publica só as plataformas geradas.
+
 ### RESOLVIDO (29/10/2026) — Publicar o PT2VHF QSL Analyzer com versões para Windows, Linux e macOS
 
 - Página `/qsl`, menu de projetos em todas as páginas, catálogo da home ("Seis projetos"), sitemap,

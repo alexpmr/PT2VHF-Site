@@ -168,22 +168,21 @@ window.PT2VHF_PRODUCTS = [
       "A aba QSL soma as confirmações por papel, LoTW e eQSL e mostra a matriz DXCC × banda trabalhado/confirmado. O gerador de relatórios monta um PDF personalizado com as seções que você escolher."
 ],
     features: [
-      "Banco local incremental: reenvios não duplicam contatos e atualizam as confirmações QSL",
-      "Limpeza do banco por indicativo de estação, em todos os containers ou em um só",
-      "Importação de ADIF, ADX, Cabrillo, EDI (REG1TEST) e CSV, e download direto do QRZ.com Logbook, LoTW, eQSL e Club Log",
-      "Menu Logs no fluxo do QScope: containers, enviar, importar, modificar, copiar/filtrar e busca com curingas",
-      "20 estatísticas do QScope, com taxas de QSO, tempo de operação, pausas, zonas, DXCC e mapas",
-      "Gráficos estilo BI: clique para filtrar, arraste para escolher o período e legendas interativas",
-      "Status de QSL com matriz DXCC × banda trabalhado (W) / confirmado (C)",
-      "Relatórios personalizáveis em PDF e HTML; exportação em ADIF v3, CSV, Cabrillo e KML (Google Earth)",
+      "Banco local incremental organizado por indicativo de estação: reenvios não duplicam contatos e atualizam as confirmações QSL",
+      "Importação em um passo com barra de progresso: ADIF, ADX, Cabrillo, EDI (REG1TEST) e CSV, e download direto do QRZ.com, LoTW, eQSL e Club Log, com conferência e sincronização automática",
+      "Fichas clicáveis de indicativos, países, quadrículas, zonas e continentes com todos os contatos; a do indicativo traz foto e dados do QRZ.com/HamQTH",
+      "Diplomas (DXCC, WAZ, WAS, WPX, VUCC, IOTA), entidades que faltam confirmar e entidades raras",
+      "As 20 estatísticas do QScope, além de Propagação ao longo dos meses, Comparar períodos, Estações frequentes, Novos indicativos e Concursos",
+      "Resumo da sua atividade em linguagem natural e Saúde do log com correção em lote (banda × frequência, duplicados, indicativos mal digitados)",
+      "Gráficos estilo BI: clique para filtrar, arraste para escolher o período, filtros recolhidos com painéis salvos e páginas em sub-abas",
+      "Relatórios personalizáveis em PDF e HTML, inclusive o pronto \"Meu ano no rádio\"; exportação em ADIF v3, CSV, Cabrillo e KML",
       "Interface em português, inglês e espanhol, com tema claro e escuro"
-],
+    ],
     requirements: [
       "Windows 10/11 de 64 bits: instalador ou versão portátil",
-      "Linux x64: AppImage, pacote .deb (Ubuntu/Debian/Mint) ou .tar.gz",
-      "macOS 12+ em Apple Silicon (arm64) ou Intel (x64). O app ainda não é assinado pela Apple: na primeira abertura, clique com o botão direito e escolha Abrir",
-      "Internet só para baixar logs das plataformas online e verificar atualizações em www.pt2vhf.com"
-],
+      "Linux e macOS: temporariamente fora desta versão; voltam nas próximas",
+      "Internet só para baixar logs das plataformas, consultar dados das estações (QRZ.com/HamQTH) e verificar atualizações em www.pt2vhf.com"
+    ],
     icon: "qsl"
   }
 ];

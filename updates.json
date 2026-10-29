@@ -427,10 +427,10 @@
     },
     "qsl": {
       "name": "PT2VHF QSL Analyzer",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "date": "2026-10-29",
       "page": "https://www.pt2vhf.com/qsl",
-      "notes": "Primeira versão: banco local incremental com limpeza por indicativo; ADIF, ADX, Cabrillo, EDI e CSV; importação do QRZ.com, LoTW, eQSL e Club Log; 20 estatísticas do QScope e status de QSL; gráficos interativos; relatórios em PDF; Windows, Linux e macOS.",
+      "notes": "Fichas clicáveis de indicativos e entidades (com dados do QRZ.com/HamQTH); sem containers, tudo por estação; importação em um passo com progresso; Diplomas, Faltam confirmar e Entidades raras; Propagação, Comparar períodos, Estações frequentes, Novos indicativos e Concursos; resumo da atividade; Saúde do log; conferência e sincronização com plataformas; filtros recolhidos, painéis salvos e sub-abas; relatório Meu ano no rádio.",
       "files": [
         {
           "category": "windows-installer",
@@ -439,10 +439,10 @@
           "architecture": "x64",
           "platform": "windows-x64",
           "label": "Windows — Instalador",
-          "name": "PT2VHF-QSL-Analyzer-0.1.0-win-x64-setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.1.0-win-x64-setup.exe",
-          "size": 114387204,
-          "sha256": "6946c74d217b94021f2a5627a28ae03aa1faae68684aa3efaf06ae58a7529d68",
+          "name": "PT2VHF-QSL-Analyzer-0.2.0-win-x64-setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.2.0-win-x64-setup.exe",
+          "size": 114409228,
+          "sha256": "c2a2a9b587fd88efe252698e97a1a9f7884349116eb90058ec4ded995a7b5cba",
           "detail": "Windows 10/11 64 bits (recomendado)"
         },
         {
@@ -452,76 +452,11 @@
           "architecture": "x64",
           "platform": "windows-x64",
           "label": "Windows — Portátil",
-          "name": "PT2VHF-QSL-Analyzer-0.1.0-win-x64-portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.1.0-win-x64-portable.exe",
-          "size": 114159561,
-          "sha256": "f79dbc88022bca76efae1baacf1f2b364cc85e7b705a2f9fedc4c591b4aeed49",
+          "name": "PT2VHF-QSL-Analyzer-0.2.0-win-x64-portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.2.0-win-x64-portable.exe",
+          "size": 114181567,
+          "sha256": "f4d5c79dae3f88cf02453638eb73e377ad26c1ad4f9f50dc9b67ec4cef9f4fdc",
           "detail": "Windows 10/11 64 bits, sem instalação"
-        },
-        {
-          "category": "linux-deb",
-          "counterKey": "linux-deb-x64",
-          "kind": "deb",
-          "architecture": "x64",
-          "platform": "linux-x64",
-          "label": "Linux — .deb (Debian/Ubuntu)",
-          "name": "pt2vhf-qsl-analyzer_0.1.0_amd64.deb",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/pt2vhf-qsl-analyzer_0.1.0_amd64.deb",
-          "size": 88319194,
-          "sha256": "8bb862d95f5e3c92b477e6339afb965bf9954109a3db267925630c8858db891f",
-          "detail": "Ubuntu 22.04+, Debian 12+, Mint 21+"
-        },
-        {
-          "category": "linux-appimage",
-          "counterKey": "linux-appimage-x64",
-          "kind": "appimage",
-          "architecture": "x64",
-          "platform": "linux-x64",
-          "label": "Linux — AppImage",
-          "name": "PT2VHF-QSL-Analyzer-0.1.0-linux-x86_64.AppImage",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.1.0-linux-x86_64.AppImage",
-          "size": 125185485,
-          "sha256": "442d38fd0d3b0d9bdd80101d07299e853a7a14e2c0ecc773275f410b8e59db02",
-          "detail": "Qualquer distribuição x64 (torne executável e abra)"
-        },
-        {
-          "category": "linux-targz",
-          "counterKey": "linux-tar-x64",
-          "kind": "tar.gz",
-          "architecture": "x64",
-          "platform": "linux-x64",
-          "label": "Linux — .tar.gz",
-          "name": "PT2VHF-QSL-Analyzer-0.1.0-linux-x64.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.1.0-linux-x64.tar.gz",
-          "size": 119128803,
-          "sha256": "b4f171bdc576d3a8ad816305dbd7cdbd5a47b7643a6f227638afd1886daa7ead",
-          "detail": "Outras distribuições x64"
-        },
-        {
-          "category": "macos",
-          "counterKey": "mac-dmg-arm64",
-          "kind": "dmg",
-          "architecture": "arm64",
-          "platform": "macos-arm64",
-          "label": "macOS",
-          "name": "PT2VHF-QSL-Analyzer-0.1.0-mac-arm64.dmg",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.1.0-mac-arm64.dmg",
-          "size": 128089149,
-          "sha256": "b83968ff78f992696c884b4ac6b99135a6f00ec08b33c68dd129f1be546ce55b",
-          "detail": "Apple Silicon (M1 ou mais novo), macOS 12+"
-        },
-        {
-          "category": "macos",
-          "counterKey": "mac-dmg-x64",
-          "kind": "dmg",
-          "architecture": "x64",
-          "platform": "macos-x64",
-          "label": "macOS",
-          "name": "PT2VHF-QSL-Analyzer-0.1.0-mac-x64.dmg",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.1.0-mac-x64.dmg",
-          "size": 131962180,
-          "sha256": "c612bbde038b0255278dc2df069adab1d0a11c044616587cf435dcdc34afb543",
-          "detail": "Mac com processador Intel, macOS 12+"
         }
       ],
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=qsl"
