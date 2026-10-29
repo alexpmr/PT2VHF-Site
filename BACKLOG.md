@@ -2,13 +2,6 @@
 
 ## Pendentes
 
-### QSL Analyzer: página sem relação com o QScope; screenshots e changelog no fim (29/10/2026)
-
-- Remover da página `/qsl` (`assets/js/products.js` e `assets/js/locales/*`) qualquer menção ao QScope,
-  reescrevendo os textos de forma natural, sem registrar publicamente que a referência foi retirada.
-- Colocar a galeria de screenshots e o changelog (histórico de versões) no fim da página `/qsl`.
-- Implementar junto com a próxima versão do QSL Analyzer.
-
 ### Site não atualizou depois da publicação do QSL Analyzer 0.1.0 (29/10/2026)
 
 - **Relato:** depois dos pushes de 29/10/2026 (commits `1008fc4` a `39002a1`), a página `/qsl` e o
@@ -20,6 +13,12 @@
   sem .tar.gz Linux) ou mover os binários grandes para fora do histórico do Git.
 
 ## Concluídos
+
+### RESOLVIDO (29/10/2026) — QSL Analyzer 0.3.0 no site (Windows); screenshots e changelog no fim da página
+
+- `updates.json` com a 0.3.0 (instalador e portátil Windows); atualização automática (OTA) no app.
+- Página `/qsl`: textos revisados, galeria de screenshots e changelog (0.1.0 a 0.3.0) no fim da página,
+  depois dos downloads.
 
 ### RESOLVIDO (29/10/2026) — QSL Analyzer 0.2.0 no site (Windows) e screenshots reais
 

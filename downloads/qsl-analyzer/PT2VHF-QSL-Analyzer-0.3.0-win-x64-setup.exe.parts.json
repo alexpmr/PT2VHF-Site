@@ -1,0 +1,22 @@
+{
+  "name": "PT2VHF-QSL-Analyzer-0.3.0-win-x64-setup.exe",
+  "size": 114413620,
+  "sha256": "9e3fbbb1e601964794bd02e37e83b5fbc46d1fa51c1904c4f8453b12062bbdcb",
+  "parts": [
+    {
+      "name": "PT2VHF-QSL-Analyzer-0.3.0-win-x64-setup.exe.part00",
+      "size": 38137874,
+      "sha256": "646f8b33b9f4b86dd5a0b5c67eb92ee8c5b1df40980128632cfea8df5a21f714"
+    },
+    {
+      "name": "PT2VHF-QSL-Analyzer-0.3.0-win-x64-setup.exe.part01",
+      "size": 38137874,
+      "sha256": "e4cb39b9b0fb2b25a02049692d30d5d7651c72a02e3cec2a8b37096609bae27c"
+    },
+    {
+      "name": "PT2VHF-QSL-Analyzer-0.3.0-win-x64-setup.exe.part02",
+      "size": 38137872,
+      "sha256": "a805e8cd26cb7135172d04ffc1920feae501d9618c28cde60e0729835d15b030"
+    }
+  ]
+}

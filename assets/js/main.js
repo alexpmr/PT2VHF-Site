@@ -580,11 +580,12 @@
           "</div>" +
           (aside ? '<aside class="program-aside">' + aside + "</aside>" : "") +
           "</div>" +
-          screenshotGallery(p) +
+          (p.id === "qsl" ? "" : screenshotGallery(p)) +
           '<div class="program-downloads" id="' + esc(p.id) + '-downloads">' +
           '<h3 id="downloads">' + esc(t("downloadsTitle")) + '</h3>' +
           downloadTable(p) +
           "</div>" +
+          (p.id === "qsl" ? screenshotGallery(p) : "") +
           meshChangelog(p) +
           "</div>" +
           "</section>"

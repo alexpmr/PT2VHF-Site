@@ -164,7 +164,7 @@ window.PT2VHF_PRODUCTS = [
     description: [
       "O PT2VHF QSL Analyzer lê os seus logs de radioamador (ADIF, ADX, Cabrillo, EDI e CSV) e guarda os contatos num banco local, no seu computador. Novos envios só acrescentam o que ainda não existe e atualizam as confirmações QSL dos contatos já cadastrados.",
       "Logs de várias estações convivem no mesmo banco, e cada contato guarda o indicativo da estação. Em Configurações você apaga só o indicativo que quiser.",
-      "Inspirado no QScope.org, traz as mesmas análises: estatísticas básicas, estações trabalhadas, mapas de atividade, bandas e modos, primeiro DXCC, trocas de banda, pausas, duplicados, pontos, zonas CQ/ITU, DXCC/locator, azimutes e distâncias, taxas de QSO e tempo de operação. Os gráficos são interativos: um clique filtra a tela inteira.",
+      "Traz análises completas: estatísticas básicas, estações trabalhadas, mapas de atividade, bandas e modos, primeiro DXCC, trocas de banda, pausas, duplicados, pontos, zonas CQ/ITU, DXCC/locator, azimutes e distâncias, taxas de QSO e tempo de operação. Os gráficos são interativos: um clique filtra a tela inteira.",
       "A aba QSL soma as confirmações por papel, LoTW e eQSL e mostra a matriz DXCC × banda trabalhado/confirmado. O gerador de relatórios monta um PDF personalizado com as seções que você escolher."
 ],
     features: [
@@ -172,10 +172,11 @@ window.PT2VHF_PRODUCTS = [
       "Importação em um passo com barra de progresso: ADIF, ADX, Cabrillo, EDI (REG1TEST) e CSV, e download direto do QRZ.com, LoTW, eQSL e Club Log, com conferência e sincronização automática",
       "Fichas clicáveis de indicativos, países, quadrículas, zonas e continentes com todos os contatos; a do indicativo traz foto e dados do QRZ.com/HamQTH",
       "Diplomas (DXCC, WAZ, WAS, WPX, VUCC, IOTA), entidades que faltam confirmar e entidades raras",
-      "As 20 estatísticas do QScope, além de Propagação ao longo dos meses, Comparar períodos, Estações frequentes, Novos indicativos e Concursos",
+      "20 estatísticas detalhadas, além de Propagação ao longo dos meses, Comparar períodos, Estações frequentes, Novos indicativos e Concursos",
       "Resumo da sua atividade em linguagem natural e Saúde do log com correção em lote (banda × frequência, duplicados, indicativos mal digitados)",
       "Gráficos estilo BI: clique para filtrar, arraste para escolher o período, filtros recolhidos com painéis salvos e páginas em sub-abas",
       "Relatórios personalizáveis em PDF e HTML, inclusive o pronto \"Meu ano no rádio\"; exportação em ADIF v3, CSV, Cabrillo e KML",
+      "Atualização automática pelo site oficial: baixa, confere o SHA-256, instala e reabre o app",
       "Interface em português, inglês e espanhol, com tema claro e escuro"
     ],
     requirements: [

@@ -1,5 +1,5 @@
 /* Changelog (últimas 5 versões) dos projetos sem arquivo próprio de site.
- * Fontes: README do Sat Tool, version_notes.py do APRS Client e notas da
+ * Fontes: CHANGELOG do QSL Analyzer, README do Sat Tool, version_notes.py do APRS Client e notas da
  * versão do Prog Tool em updates.json. Mesh e Prop usam mesh-site-data.js
  * e prop-site.js. Idioma ausente cai para pt. */
 (function () {
@@ -33,6 +33,15 @@
       it: "Evoluzione dell’APRS Client secondo le note ufficiali di ogni versione.",
       zh: "根据各版本官方说明整理的 APRS Client 更新。"
     },
+    qsl: {
+      pt: "Evolução do QSL Analyzer, versão a versão.",
+      en: "QSL Analyzer evolution, version by version.",
+      es: "Evolución del QSL Analyzer, versión por versión.",
+      fr: "Évolution du QSL Analyzer, version par version.",
+      de: "Entwicklung des QSL Analyzer, Version für Version.",
+      it: "Evoluzione del QSL Analyzer, versione per versione.",
+      zh: "QSL Analyzer 各版本更新。"
+    },
     prog: {
       pt: "Versão publicada no site; as próximas versões serão listadas aqui.",
       en: "Version published on the site; future versions will be listed here.",
@@ -45,6 +54,23 @@
   };
   function e(version, title, changes) { return { version: version, title: title, changes: changes }; }
   var LOG = {
+    qsl: {
+      pt: [
+        e("0.3.0", "Atualização automática", ["No Windows, o aviso de versão nova oferece \"Atualizar agora\": baixa de www.pt2vhf.com com progresso, confere tamanho e SHA-256, instala e reabre o app já atualizado.", "Banco, preferências e credenciais preservados; as novidades aparecem uma vez na primeira abertura."]),
+        e("0.2.0", "Fichas, diplomas e novas análises", ["Indicativos, países, quadrículas, zonas e continentes clicáveis, com todos os contatos; ficha do indicativo com foto e dados do QRZ.com/HamQTH.", "Diplomas (DXCC, WAZ, WAS, WPX, VUCC, IOTA), Faltam confirmar, Entidades raras, Propagação, Comparar períodos, Estações frequentes, Novos indicativos, Concursos e Saúde do log.", "Importação em um passo com progresso, organização por estação, filtros recolhidos, painéis salvos, sub-abas e relatório \"Meu ano no rádio\"."]),
+        e("0.1.0", "Primeira versão", ["Banco local incremental com limpeza por indicativo; ADIF, ADX, Cabrillo, EDI e CSV; importação do QRZ.com, LoTW, eQSL e Club Log.", "20 estatísticas, status de QSL, gráficos interativos, relatórios em PDF e exportação ADIF/CSV/Cabrillo/KML."])
+      ],
+      en: [
+        e("0.3.0", "Automatic updates", ["On Windows, the new version prompt offers \"Update now\": downloads from www.pt2vhf.com with progress, verifies size and SHA-256, installs and reopens the updated app.", "Database, preferences and credentials are kept; what's new is shown once on first launch."]),
+        e("0.2.0", "Cards, awards and new analyses", ["Clickable callsigns, countries, grids, zones and continents with all contacts; callsign card with photo and QRZ.com/HamQTH data.", "Awards (DXCC, WAZ, WAS, WPX, VUCC, IOTA), To be confirmed, Rare entities, Propagation, Compare periods, Frequent stations, New callsigns, Contests and Log health.", "One-step import with progress, organization by station, collapsible filters, saved views, sub-tabs and the \"My year on the air\" report."]),
+        e("0.1.0", "First release", ["Incremental local database with clearing by callsign; ADIF, ADX, Cabrillo, EDI and CSV; import from QRZ.com, LoTW, eQSL and Club Log.", "20 statistics, QSL status, interactive charts, PDF reports and ADIF/CSV/Cabrillo/KML export."])
+      ],
+      es: [
+        e("0.3.0", "Actualización automática", ["En Windows, el aviso de nueva versión ofrece \"Actualizar ahora\": descarga de www.pt2vhf.com con progreso, verifica tamaño y SHA-256, instala y reabre la app actualizada.", "Base, preferencias y credenciales se conservan; las novedades aparecen una vez en el primer inicio."]),
+        e("0.2.0", "Fichas, diplomas y nuevos análisis", ["Indicativos, países, cuadrículas, zonas y continentes clicables, con todos los contactos; ficha del indicativo con foto y datos de QRZ.com/HamQTH.", "Diplomas (DXCC, WAZ, WAS, WPX, VUCC, IOTA), Faltan confirmar, Entidades raras, Propagación, Comparar períodos, Estaciones frecuentes, Indicativos nuevos, Concursos y Salud del log.", "Importación en un paso con progreso, organización por estación, filtros plegables, paneles guardados, subpestañas e informe \"Mi año en la radio\"."]),
+        e("0.1.0", "Primera versión", ["Base local incremental con limpieza por indicativo; ADIF, ADX, Cabrillo, EDI y CSV; importación de QRZ.com, LoTW, eQSL y Club Log.", "20 estadísticas, estado de QSL, gráficos interactivos, informes PDF y exportación ADIF/CSV/Cabrillo/KML."])
+      ]
+    },
     sat: {
       pt: [
         e("1.3.15", "Satélites padrão e tela mais limpa", ["Instalações novas começam com ISS, IO-86 e SO-50 habilitados; seleções salvas são preservadas.", "Removido o bloco Próxima passagem do satélite selecionado; a tabela de passagens de 36 h continua."]),

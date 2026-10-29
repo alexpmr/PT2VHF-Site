@@ -236,7 +236,7 @@ window.PT2VHF_I18N["it"] = {
       "description": [
         "PT2VHF QSL Analyzer reads your amateur radio logs (ADIF, ADX, Cabrillo, EDI and CSV) and keeps the contacts in a local database on your computer. New uploads only add what is not there yet and update the QSL confirmations of existing contacts.",
         "Logs from several stations share the same database, and each contact keeps its station callsign. In Settings you can delete just the callsign you want.",
-        "Inspired by QScope.org, it brings the same analyses: basic stats, stations worked, activity maps, bands and modes, DXCC first worked, band changes, pauses, dupes, points, CQ/ITU zones, DXCC/locator, azimuths and distances, QSO rates and operating time. Charts are interactive: one click filters the whole view.",
+        "It brings complete analyses: basic stats, stations worked, activity maps, bands and modes, DXCC first worked, band changes, pauses, dupes, points, CQ/ITU zones, DXCC/locator, azimuths and distances, QSO rates and operating time. Charts are interactive: one click filters the whole view.",
         "The QSL tab totals paper, LoTW and eQSL confirmations and shows the DXCC × band worked/confirmed matrix. The report builder creates a custom PDF with the sections you choose."
       ],
       "features": [
@@ -244,10 +244,11 @@ window.PT2VHF_I18N["it"] = {
         "One-step import with progress bar: ADIF, ADX, Cabrillo, EDI (REG1TEST) and CSV, plus direct download from QRZ.com, LoTW, eQSL and Club Log, with comparison and auto-sync",
         "Clickable cards for callsigns, countries, grids, zones and continents with all contacts; the callsign card shows photo and QRZ.com/HamQTH data",
         "Awards (DXCC, WAZ, WAS, WPX, VUCC, IOTA), entities still to confirm and rare entities",
-        "The 20 QScope statistics plus Propagation over the months, Compare periods, Frequent stations, New callsigns and Contests",
+        "20 detailed statistics plus Propagation over the months, Compare periods, Frequent stations, New callsigns and Contests",
         "Natural-language activity summary and Log health with bulk fixes (band × frequency, dupes, mistyped callsigns)",
         "BI-style charts: click to filter, drag to pick a period, collapsible filters with saved views and pages in sub-tabs",
         "Custom PDF and HTML reports, including the ready-made \"My year on the air\"; export to ADIF v3, CSV, Cabrillo and KML",
+        "Automatic updates from the official site: downloads, verifies SHA-256, installs and reopens the app",
         "Portuguese, English and Spanish interface, light and dark themes"
       ],
       "requirements": [
