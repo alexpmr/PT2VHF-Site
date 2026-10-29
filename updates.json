@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -122,7 +122,7 @@
     },
     "mesh": {
       "name": "PT2VHF Mesh Analyzer",
-      "version": "0.6.61",
+      "version": "0.6.62",
       "page": "https://www.pt2vhf.com/mesh",
       "files": [
         {
@@ -130,10 +130,10 @@
           "counterKey": "win-setup-x64",
           "platform": "windows-x64",
           "architecture": "x64",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-Setup-Win10-Win11-x64.exe",
-          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.61-Setup-Win10-Win11-x64.exe",
-          "size": 29835865,
-          "sha256": "264c40efb6807f42d0dfd56cfd42e28cbb099d4c5bb1d743361e2a21e65ff6ca",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-Setup-Win10-Win11-x64.exe",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.62-Setup-Win10-Win11-x64.exe",
+          "size": 29865007,
+          "sha256": "e832e97cdedffff32694fb955843f4000924664e6f919360bcde4f516819b642",
           "detail": "PT2VHF Mesh Analyzer x64"
         },
         {
@@ -141,10 +141,10 @@
           "counterKey": "win-portable-x64",
           "platform": "windows-x64",
           "architecture": "x64",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-Portable-Win10-Win11-x64.zip",
-          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.61-Portable-Win10-Win11-x64.zip",
-          "size": 27588582,
-          "sha256": "b0d22d5474f01c6089d74a0adbc19fcbea7bc7186ae55555cdbfe602add3dcad",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-Portable-Win10-Win11-x64.zip",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.62-Portable-Win10-Win11-x64.zip",
+          "size": 27618544,
+          "sha256": "7c76f99d81de1309b01ca5d99ef7b543b784ea60e986008574364eac98932470",
           "detail": "PT2VHF Mesh Analyzer x64"
         },
         {
@@ -152,10 +152,10 @@
           "counterKey": "linux-tar-x64",
           "platform": "linux-x64",
           "architecture": "x64",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-Linux-x64.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.61-Linux-x64.tar.gz",
-          "size": 41800804,
-          "sha256": "8753792f191112e4d964d87c0f8829ec6609d2fb12fcdd1715a6258aa3e942c0",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-Linux-x64.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.62-Linux-x64.tar.gz",
+          "size": 41828244,
+          "sha256": "4c41b66d365b0d5aeab788ffbef23ffc83bb120499492a0d6267a483fb273ed9",
           "detail": "PT2VHF Mesh Analyzer x64"
         },
         {
@@ -163,10 +163,10 @@
           "counterKey": "linux-deb-x64",
           "platform": "linux-x64",
           "architecture": "x64",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-amd64.deb",
-          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.61-amd64.deb",
-          "size": 41700912,
-          "sha256": "21b90efbb7ce2b037bc91c2c039edff84144191182fae07488b48626646cf43e",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-amd64.deb",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.62-amd64.deb",
+          "size": 41728848,
+          "sha256": "f23b22841ec47478ebeba0b8788f93f78dd9588069fc8382d432e844356937c8",
           "detail": "PT2VHF Mesh Analyzer x64"
         },
         {
@@ -174,10 +174,10 @@
           "counterKey": "mac-dmg-arm64",
           "platform": "macos-arm64",
           "architecture": "Apple Silicon",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-macOS-arm64.dmg",
-          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.61-macOS-arm64.dmg",
-          "size": 28705765,
-          "sha256": "b4af04819f1d5ec58ed7b10c65dea8cbf412f9f8806f3a3d17dc746e85547ad3",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-macOS-arm64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.62-macOS-arm64.dmg",
+          "size": 28548379,
+          "sha256": "bc7c67bb3847e1dd87ee785ec3dd0d0fcb96be93e4682063cfac0c8f0aeeef1d",
           "detail": "PT2VHF Mesh Analyzer Apple Silicon"
         },
         {
@@ -185,14 +185,14 @@
           "counterKey": "mac-dmg-x64",
           "platform": "macos-x64",
           "architecture": "Intel",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-macOS-x64.dmg",
-          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.61-macOS-x64.dmg",
-          "size": 30391765,
-          "sha256": "d6c672d4a307b22a2af97efbf4b59f2d41bb46516cb8784c267958837cef336b",
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-macOS-x64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/mesh-analyzer/PT2VHF-Mesh-Analyzer-v0.6.62-macOS-x64.dmg",
+          "size": 30476381,
+          "sha256": "dc8bf657ed53cd3f79405d9ec9dd635be8af846e6a1f533588c27da16fd4da72",
           "detail": "PT2VHF Mesh Analyzer Intel"
         }
       ],
-      "developmentVersion": "0.6.61",
+      "developmentVersion": "0.6.62",
       "releaseStatus": "Seis instaladores oficiais validados.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=mesh",
       "plannedFiles": [
@@ -200,42 +200,42 @@
           "category": "windows-installer",
           "counterKey": "win-setup-x64",
           "architecture": "x64",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-Setup-Win10-Win11-x64.exe"
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-Setup-Win10-Win11-x64.exe"
         },
         {
           "category": "windows-portable",
           "counterKey": "win-portable-x64",
           "architecture": "x64",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-Portable-Win10-Win11-x64.zip"
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-Portable-Win10-Win11-x64.zip"
         },
         {
           "category": "linux-targz",
           "counterKey": "linux-tar-x64",
           "architecture": "x64",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-Linux-x64.tar.gz"
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-Linux-x64.tar.gz"
         },
         {
           "category": "linux-deb",
           "counterKey": "linux-deb-x64",
           "architecture": "x64",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-amd64.deb"
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-amd64.deb"
         },
         {
           "category": "macos",
           "counterKey": "mac-dmg-arm64",
           "architecture": "Apple Silicon",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-macOS-arm64.dmg"
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-macOS-arm64.dmg"
         },
         {
           "category": "macos",
           "counterKey": "mac-dmg-x64",
           "architecture": "Intel",
-          "name": "PT2VHF-Mesh-Analyzer-v0.6.61-macOS-x64.dmg"
+          "name": "PT2VHF-Mesh-Analyzer-v0.6.62-macOS-x64.dmg"
         }
       ],
       "ciUrl": "https://github.com/alexpmr/PT2VHF-Mesh-Analyzer/actions",
-      "date": "2026-10-28",
-      "notes": "Menu Ferramentas com análise de cobertura (onde o sinal chegaria, a partir de um ponto ou nó), enlace, melhor ponto e relevo com corte com cor ajustável; indicador da conexão verde/vermelho com o tipo (USB, BLE, WIFI, MQTT); automações recolhidas com Salvar/Cancelar; Relevo sombreado removido."
+      "date": "2026-10-29",
+      "notes": "Ferramentas no menu superior; cobertura com raio até 100 km, rádios por marca e modelo, nós sem cobertura e PDF; relevo sem altitudes impossíveis; conexões preferem USB, depois Bluetooth e Wi-Fi; Tráfego mostra o conteúdo dos pacotes; nomes curtos no mapa; disponibilidade dos repetidores corrigida."
     },
     "aprs": {
       "name": "PT2VHF APRS Client",
