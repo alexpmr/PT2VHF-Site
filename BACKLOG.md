@@ -2,7 +2,25 @@
 
 ## Pendentes
 
-(nenhum)
+### Contadores não aumentam com atualização OTA feita pelo próprio aplicativo (29/10/2026)
+
+- **Relato (backlog):** parece que os contadores do site não sobem quando a atualização é feita
+  internamente (OTA). Regra do mantenedor: atualização OTA conta **uma única vez por download**.
+- **Conferir produto a produto** (como cada atualizador baixa e o que o `download.php` faz):
+  - **APRS:** o arquivo baixado com User-Agent `PT2VHF-APRS-Client*` é entregue **sem contar**; a contagem
+    depende do `POST action=count` que o cliente envia depois de validar o SHA-256 (`updater.py`). Se o
+    POST falha, não é enviado em alguma plataforma (Win7 Legacy, Linux, macOS) ou vai com categoria fora de
+    `$allowed`, a atualização some do contador. Ver também se versões antigas do cliente enviam o POST.
+  - **Mesh / Sat / Prog:** o `POST` de contagem é ignorado (HTTP 204) e a contagem depende do GET do arquivo
+    passar pelo `download.php` (rewrite no `.htaccess`). Confirmar que o atualizador usa a URL do
+    `updates.json` sem cair num redirecionamento/caminho que escape do rewrite.
+  - **Prog Tool:** **não há rewrite** de `downloads/prog-tool/` para o `download.php` no `.htaccess` e os
+    arquivos do `updates.json` não têm `counterKey` — o OTA do Prog (e talvez o download direto) não conta.
+  - **Prop / Sat:** rewrite do `.exe` remontado pelas partes; conferir que o OTA baixa esse `.exe` (e não
+    as partes ou `parts.json`, que não contam).
+- **Teste:** para cada produto, simular o download do atualizador (mesmo User-Agent e fluxo do app) contra
+  `php -S` e verificar +1 exatamente uma vez; ampliar `scripts/test_download_counter.php` para todos os
+  produtos e plataformas. Registrar no log do servidor (sem dados pessoais) produto/categoria/origem OTA.
 
 ## Concluídos
 
