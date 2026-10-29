@@ -2,7 +2,11 @@
 
 ## Pendentes
 
-### Contadores: todo download conta — manual e OTA, em todos os projetos (29/10/2026)
+(nenhum)
+
+## Concluídos
+
+### RESOLVIDO (29/10/2026) — Contadores: todo download conta — manual e OTA, em todos os projetos
 
 - **Relato (backlog):** parece que os contadores do site não sobem quando a atualização é feita
   internamente (OTA). Regra do mantenedor: atualização OTA conta **uma única vez por download**.
@@ -28,8 +32,12 @@
 - **Teste:** para cada produto, simular o download do atualizador (mesmo User-Agent e fluxo do app) contra
   `php -S` e verificar +1 exatamente uma vez; ampliar `scripts/test_download_counter.php` para todos os
   produtos e plataformas. Registrar no log do servidor (sem dados pessoais) produto/categoria/origem OTA.
+- **Resolvido:** `download.php` conta todo download no GET do arquivo, inclusive o do atualizador do APRS
+  (antes só o POST posterior contava e, se falhasse, a atualização sumia do contador); o POST de contagem
+  das versões antigas é ignorado (204) para não contar duas vezes; retomadas (Range) e HEAD não contam;
+  categorias `win7-*` aceitas; `ota` no `mode=stats` mostra quantos downloads vieram dos atualizadores.
+  Prog Tool já passava pelo `download.php` (rewrite existente) — a observação acima estava errada.
 
-## Concluídos
 
 - **Sat Tool — captura de tela real na página `/sat`** (registrado e concluído em 28/10/2026)
   - Imagem: `docs/backlog/sat-operacao-v1.3.15.png` (aba Operação da v1.3.15, recortada).

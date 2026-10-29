@@ -33,6 +33,7 @@ RewriteRule ^downloads/sat-tool/(PT2VHF-Sat-Tool-v[0-9]+\.[0-9]+\.[0-9]+-Win11-x
 # Contabiliza URLs diretas do APRS (inclusive downloads do atualizador).
 # A segunda requisição, com pt2vhf_raw=1, serve o binário estático.
 RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
+RewriteCond %{HTTP:Range} ^$
 RewriteRule ^downloads/aprs-client/([A-Za-z0-9_.-]+\.(?:exe|AppImage|deb|tar\.gz))$ download.php?product=aprs&file=$1 [L,NC,QSA]
 
 # Downloads do Mesh Analyzer (site, links diretos e OTA) passam pelo mesmo

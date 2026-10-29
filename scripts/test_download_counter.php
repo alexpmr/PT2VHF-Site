@@ -71,17 +71,20 @@ try {
     [$status] = request($url, 'HEAD');
     check($status === 302 && $getStats() === 1, 'HEAD não contabilizado');
     [$status] = request($base . '/download.php', 'POST', 'action=count&product=aprs&category=win-setup-x64');
-    check($status === 204 && $getStats() === 2, 'POST de contagem do atualizador soma 1');
+    check($status === 204 && $getStats() === 1, 'POST de contagem avulso não soma');
     [$status] = request($base . '/download.php?product=aprs&file=inexistente.exe');
-    check($status === 404 && $getStats() === 2, 'Arquivo inválido não contabilizado');
+    check($status === 404 && $getStats() === 1, 'Arquivo inválido não contabilizado');
     [$status] = request($url);
-    check($status === 302 && $getStats() === 3, 'Contagem cumulativa');
-    // OTA do APRS: download com HTTP 200 sem contar; o POST após o SHA-256 conta 1.
+    check($status === 302 && $getStats() === 2, 'Contagem cumulativa');
+    // OTA do APRS: o download do atualizador (HTTP 200, sem redirecionar) conta 1; o POST que
+    // as versões antigas enviam depois do SHA-256 não soma de novo.
     [$status,$body] = request($url, 'GET', '', 'PT2VHF-APRS-Client/1.14.59');
-    check($status === 200 && $body === $contents && $getStats() === 3, 'Download do atualizador 200 sem contar');
+    check($status === 200 && $body === $contents && $getStats() === 3, 'Download do atualizador 200 e contado');
     [$status] = request($base . '/download.php', 'POST', 'action=count&product=aprs&category=win-setup-x64', 'PT2VHF-APRS-Client-Updater');
-    check($status === 204 && $getStats() === 4, 'OTA do APRS conta uma vez');
-    echo "OK: navegador +1, HEAD +0, POST do atualizador +1, download do atualizador +0, inexistente +0.\n";
+    check($status === 204 && $getStats() === 3, 'OTA do APRS conta uma única vez');
+    [$status,$json] = request($base . '/download.php?mode=stats');
+    check((json_decode($json, true)['ota']['aprs']['win-setup-x64'] ?? null) === 1, 'OTA registrado à parte');
+    echo "OK: navegador +1, HEAD +0, download do atualizador +1 (OTA), POST do atualizador +0, inexistente +0.\n";
 } finally {
     proc_terminate($proc);
     proc_close($proc);

@@ -18,7 +18,8 @@ $allowed = array(
     'windows-installer', 'windows-portable', 'linux-deb', 'linux-targz', 'linux-appimage', 'macos',
     'win-setup-x64','win-portable-x64','win-setup-arm64','win-portable-arm64',
     'linux-appimage-x64','linux-appimage-arm64','linux-deb-x64','linux-deb-arm64',
-    'linux-tar-x64','linux-tar-arm64','mac-dmg-x64','mac-dmg-arm64'
+    'linux-tar-x64','linux-tar-arm64','mac-dmg-x64','mac-dmg-arm64',
+    'win7-setup-x64','win7-portable-x64'
 );
 $products = array('aprs', 'prop', 'mesh', 'sat', 'prog');
 // Baseline histórico do GitHub em 26/10/2026, antes dos downloads pelo site.
@@ -92,11 +93,14 @@ if (!in_array($product, $products, true) ||
     fclose($file);
     pt2vhf_error(400, 'Projeto, categoria ou arquivo inválidos');
 }
-// O atualizador do APRS registra cada OTA por este POST (uma vez por download);
-// por isso o arquivo que ele baixa não é contado de novo (ver $isAprsUpdater).
+// 29/10/2026: todo download conta uma vez, manual (site) ou OTA (por dentro do app), em todos os
+// projetos — sempre no GET do arquivo, que todo atualizador faz. O POST de contagem que versões
+// antigas dos apps enviam depois do download é ignorado (204) para não contar duas vezes; antes o
+// OTA do APRS dependia só desse POST e deixava de contar quando ele falhava.
 $agent = (string)($_SERVER['HTTP_USER_AGENT'] ?? '');
 $isAprsUpdater = $product === 'aprs' && strncmp($agent, 'PT2VHF-APRS-Client', 18) === 0;
-if (!$isFileRequest && in_array($product, array('mesh', 'sat', 'prog'), true)) {
+$isAppUpdater = strncasecmp($agent, 'PT2VHF', 6) === 0;
+if (!$isFileRequest) {
     fclose($file);
     http_response_code(204);
     exit;
@@ -178,21 +182,6 @@ if ($isFileRequest && $segmented && isset($_SERVER['HTTP_RANGE'])) {
     exit;
 }
 
-if ($isFileRequest && $isAprsUpdater) {
-    // Download do atualizador: entrega com HTTP 200 sem contar; o POST de
-    // contagem enviado após a verificação do SHA-256 conta uma única vez.
-    fclose($file);
-    $real = realpath(__DIR__ . $redirectPath);
-    $size = $real === false ? false : filesize($real);
-    if ($real === false || $size === false) pt2vhf_error(404, 'Arquivo indisponível');
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="' . basename($real) . '"');
-    header('Content-Length: ' . $size);
-    while (ob_get_level() > 0) ob_end_flush();
-    readfile($real);
-    exit;
-}
-
 if (!flock($file, LOCK_EX)) {
     fclose($file);
     pt2vhf_error(503, 'Não foi possível bloquear a contagem');
@@ -203,6 +192,11 @@ if (!isset($data['counts'][$product]) || !is_array($data['counts'][$product])) {
 }
 $current = (int)($data['counts'][$product][$category] ?? ($product === 'prop' ? ($propHistoricalCounts[$category] ?? 0) : 0));
 $data['counts'][$product][$category] = $current + 1;
+// Quantos dos downloads vieram do atualizador dos apps (OTA), para conferência.
+if ($isAppUpdater) {
+    if (!isset($data['ota'][$product]) || !is_array($data['ota'][$product])) $data['ota'][$product] = array();
+    $data['ota'][$product][$category] = (int)($data['ota'][$product][$category] ?? 0) + 1;
+}
 $data['updated'] = gmdate('c');
 $output = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 if (!is_string($output) || ftruncate($file, 0) === false || rewind($file) === false || fwrite($file, $output) !== strlen($output) || fflush($file) === false) {
@@ -212,6 +206,18 @@ if (!is_string($output) || ftruncate($file, 0) === false || rewind($file) === fa
 }
 flock($file, LOCK_UN);
 fclose($file);
+if ($isFileRequest && $isAprsUpdater && !$segmented) {
+    // O atualizador do APRS não aceita redirecionamento: entrega o arquivo com HTTP 200 (já contado).
+    $real = realpath(__DIR__ . $redirectPath);
+    $size = $real === false ? false : filesize($real);
+    if ($real === false || $size === false) pt2vhf_error(404, 'Arquivo indisponível');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="' . basename($real) . '"');
+    header('Content-Length: ' . $size);
+    while (ob_get_level() > 0) ob_end_flush();
+    readfile($real);
+    exit;
+}
 if ($isFileRequest) {
     if ($segmented) {
         if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
