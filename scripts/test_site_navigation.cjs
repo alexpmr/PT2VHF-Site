@@ -5,7 +5,7 @@ const vm=require("node:vm");
 const assert=require("node:assert/strict");
 const root=path.resolve(__dirname,"..");
 const load=(f)=>fs.readFileSync(path.join(root,f),"utf8");
-const pages=["index","aprs","prop","mesh","sat","prog","sobre","contato"];
+const pages=["index","aprs","prop","mesh","sat","prog","qsl","sobre","contato"];
 for(const name of pages){
  const s=load(name+".html");
  assert(s.includes("/assets/js/contact-data.js"),name+": traducoes do menu nao foram carregadas");
@@ -13,7 +13,7 @@ for(const name of pages){
  assert(s.includes('href="/contato"'),name+": menu Contato ausente");
  assert(s.includes('href="/sobre"'),name+": menu Sobre ausente");
  assert(s.includes('class="site-nav-projects"'),name+": menu de projetos ausente");
- for(const project of ["aprs","prop","mesh","sat","prog"]){
+ for(const project of ["aprs","prop","mesh","sat","prog","qsl"]){
    assert(s.includes('href="/'+project+'"'),name+": projeto ausente: "+project);
  }
  assert(s.includes('class="site-nav-home"'),name+": Inicio ausente");
@@ -43,7 +43,7 @@ for(const lang of ["pt","en","es","fr","de","it","zh"]){
  }
 }
 const ht=load(".htaccess");
-assert(ht.includes("(aprs|prop|mesh|sat|prog|contato|sobre)/?"),"Falta rota /contato ou /sobre");
+assert(ht.includes("(aprs|prop|mesh|sat|prog|qsl|contato|sobre)/?"),"Falta rota /contato, /sobre ou /qsl");
 const siteJs=load("assets/js/main.js");
 assert(siteJs.includes("contato(?:[?#]|$)"),"Idioma deve persistir ao navegar para /contato");
 assert(siteJs.includes("sobre(?:[?#]|$)"),"Idioma deve persistir ao navegar para /sobre");

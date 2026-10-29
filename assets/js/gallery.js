@@ -21,6 +21,12 @@ window.PT2VHF_GALLERIES = {
     { src:"/assets/screenshots/sat/operacao-v1.3.15.webp",full:"/assets/screenshots/sat/original/operacao-v1.3.15.png",type:"screenshot",caption:"Operação — rastreio, frequências com Doppler e passagens",captionId:"satOperation" },
     { src:"/assets/screenshots/sat/icon.svg",type:"brand",caption:"Identidade visual do SAT Tool",captionId:"satBrand" }
   ],
+  qsl: [
+    { src:"/assets/screenshots/qsl/dashboard-v010.webp",type:"screenshot",caption:"Dashboard com totais, bandas, anos e mapa DXCC",captionId:"qslDashboard" },
+    { src:"/assets/screenshots/qsl/estatisticas-bi-v010.webp",type:"screenshot",caption:"Gráficos interativos: um clique filtra a tela inteira",captionId:"qslBi" },
+    { src:"/assets/screenshots/qsl/banco-por-indicativo-v010.webp",type:"screenshot",caption:"Limpeza do banco por indicativo de estação",captionId:"qslDatabase" },
+    { src:"/assets/screenshots/qsl/relatorio-v010.webp",type:"screenshot",caption:"Gerador de relatórios com prévia do PDF",captionId:"qslReport" }
+  ],
   mesh: [
     { src:"/assets/screenshots/mesh/map-v0658.webp",full:"/assets/screenshots/mesh/original/map-v0658.png",type:"screenshot",caption:"Mapa e topologia da malha",captionId:"map" },
     { src:"/assets/screenshots/mesh/messages-v0658.webp",full:"/assets/screenshots/mesh/original/messages-v0658.png",type:"screenshot",caption:"Mensagens, canais e confirmação de entrega",captionId:"messages" },

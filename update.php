@@ -20,7 +20,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'GET') {
     header('Allow: GET');
     reply(405, array('error' => 'Somente GET e permitido'));
 }
-$names = array('mesh','aprs','prop','sat','prog');
+$names = array('mesh','aprs','prop','sat','prog','qsl');
 $product = (string)($_GET['product'] ?? 'mesh');
 if (!in_array($product, $names, true)) reply(400, array('error' => 'Produto invalido'));
 $platform = (string)($_GET['platform'] ?? '');
@@ -43,7 +43,7 @@ $mapping = array('windows-installer' => 'installer', 'windows-portable' => 'port
                  'linux-deb' => 'deb', 'linux-targz' => 'tar.gz',
                  'linux-appimage' => 'appimage', 'macos' => 'dmg');
 $directories = array('mesh'=>'mesh-analyzer', 'aprs'=>'aprs-client', 'prop'=>'prop-tool',
-                     'sat'=>'sat-tool', 'prog'=>'prog-tool');
+                     'sat'=>'sat-tool', 'prog'=>'prog-tool', 'qsl'=>'qsl-analyzer');
 $prefix = '/downloads/' . $directories[$product] . '/';
 $root = realpath(__DIR__ . '/downloads');
 $assets = array();
@@ -71,7 +71,7 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
         $size = $file['size'] ?? null;
         $sha = (string)($file['sha256'] ?? '');
         if (!is_int($size) || $size <= 0 || !preg_match('/^[a-f0-9]{64}$/D', $sha)) continue;
-        if ($product === 'prop' || $product === 'sat') {
+        if ($product === 'prop' || $product === 'sat' || $product === 'qsl') {
             // Each installer consists of verified, sub-100 MiB server-side parts.
             if (pt2vhf_prop_parts($file, $product) === false) continue;
         } else {

@@ -40,7 +40,7 @@
   };
   function applyLocaleProducts() {
     var tr = (LANG_DICT[selectedLang] && LANG_DICT[selectedLang].products) || {};
-    var order = ["aprs", "prop", "mesh", "sat", "prog"];
+    var order = ["aprs", "prop", "mesh", "sat", "prog", "qsl"];
     products = baseProducts.map(function (p) {
       var product=Object.assign({}, p, tr[p.id] || {});
       if (p.id === "mesh" && window.PT2VHF_MESH_SITE) {
@@ -163,7 +163,7 @@
     // Preserve the selected language when navigating between project pages.
     Array.prototype.forEach.call(document.querySelectorAll('a[href^="/"]'), function (link) {
       var href = link.getAttribute("href");
-      if (!/^\/(?:$|aprs(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|contato(?:[?#]|$)|sobre(?:[?#]|$)|#)/.test(href)) return;
+      if (!/^\/(?:$|aprs(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|qsl(?:[?#]|$)|contato(?:[?#]|$)|sobre(?:[?#]|$)|#)/.test(href)) return;
       var url = new URL(href, location.origin);
       url.searchParams.set("lang", selectedLang);
       link.setAttribute("href", url.pathname + url.search + url.hash);
@@ -183,6 +183,8 @@
   var galleryData = window.PT2VHF_GALLERIES || {};
 
   var ICONS = {
+    qsl:
+      '<rect x="4" y="7" width="24" height="18" rx="2"/><path d="M8 13h8M8 17h5"/><path d="M19 17l2.5 2.5L26 13"/>',
     prog:
       '<rect x="7" y="9" width="18" height="20" rx="3"/><path d="M11 9V3"/><path d="M11 14h10M11 18h10M11 22h6"/>',
     prop:
@@ -253,7 +255,7 @@
   }
 
   function publicDownloadUrl(p, f) {
-    return (p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog") && f.name
+    return (p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog" || p.id === "qsl") && f.name
       ? "/download.php?product=" + p.id + "&file=" + encodeURIComponent(f.name)
       : localUrl(f.url);
   }
@@ -328,7 +330,7 @@
           '<td data-label="' + esc(t("catDownloads")) + '" class="count-cell"><span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.counterKey || f.category) + '" aria-live="polite">—</span></td>' +
           '<td class="action"><a class="btn btn-sm btn-primary" href="' + esc(publicDownloadUrl(p, f)) + '"' +
           ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.counterKey || f.category) + '"' +
-          ((p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog") ? "" : " download") + '>' + esc(t("download")) +
+          ((p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog" || p.id === "qsl") ? "" : " download") + '>' + esc(t("download")) +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a></td>" +
           "</tr>"
         );
@@ -673,7 +675,7 @@
   document.addEventListener("click", function (event) {
     var a = event.target.closest ? event.target.closest("a[data-counter-product][data-counter-category]") : null;
     if (!a) return;
-    if (["aprs", "prop", "mesh", "sat", "prog"].indexOf(a.getAttribute("data-counter-product")) !== -1) {
+    if (["aprs", "prop", "mesh", "sat", "prog", "qsl"].indexOf(a.getAttribute("data-counter-product")) !== -1) {
       setTimeout(loadDownloadCounters, 900);
       setTimeout(loadDownloadCounters, 2800);
     } else if (window.navigator) {
@@ -693,7 +695,7 @@
 
   // Preserva os favoritos antigos com âncoras no catálogo anterior.
   if (!programId) {
-    var oldLink = /^#(aprs|prop|mesh|sat|prog)(-downloads)?$/.exec(location.hash);
+    var oldLink = /^#(aprs|prop|mesh|sat|prog|qsl)(-downloads)?$/.exec(location.hash);
     if (oldLink) window.location.replace("/" + oldLink[1] + "?lang=" + selectedLang + (oldLink[2] ? "#downloads" : ""));
   }
 

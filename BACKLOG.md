@@ -6,6 +6,18 @@
 
 ## Concluídos
 
+### RESOLVIDO (29/10/2026) — Publicar o PT2VHF QSL Analyzer com versões para Windows, Linux e macOS
+
+- Página `/qsl`, menu de projetos em todas as páginas, catálogo da home ("Seis projetos"), sitemap,
+  textos em 7 idiomas (pt, en, es; fr/de/it/zh com o texto em inglês) e galeria com capturas reais.
+- `downloads/qsl-analyzer/`: os 7 pacotes (instalador e portátil Windows, AppImage, .deb, .tar.gz e .dmg
+  arm64/x64) ficam em partes < 100 MiB e o `download.php` remonta cada arquivo com HTTP 200 e Range;
+  todo download conta uma vez (site e OTA), HEAD/Range não contam, partes avulsas não são servidas.
+- `update.php?product=qsl` anuncia a versão por plataforma; o app mostra o aviso do site oficial a cada
+  abertura e, em seguida, o aviso de versão nova.
+- `scripts/sync_qsl_release.py` publica uma release (SHA-256 conferido); `scripts/test_qsl_download.php`
+  cobre contagem, remontagem e `update.php`.
+
 ### RESOLVIDO (29/10/2026) — Contadores: todo download conta — manual e OTA, em todos os projetos
 
 - **Relato (backlog):** parece que os contadores do site não sobem quando a atualização é feita

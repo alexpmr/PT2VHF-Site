@@ -6,7 +6,7 @@
  * a única fonte de versões (lida também pelos próprios programas para
  * verificar atualizações). Veja o README.
  *
- *   - id:           chave do programa em updates.json (prog, prop, mesh, aprs)
+ *   - id:           chave do programa em updates.json (prog, prop, mesh, aprs, sat, qsl)
  *   - description:  texto ou lista de parágrafos
  *   - features:     recursos principais
  *   - supported:    rádios e equipamentos suportados (opcional)
@@ -154,5 +154,36 @@ window.PT2VHF_PRODUCTS = [
       "Ajustes automáticos devem ser validados no rádio físico antes do uso operacional"
     ],
     icon: "sat"
+  },
+  {
+    id: "qsl",
+    summary: "Analise seus contatos de radioamador: estatísticas, mapas, confirmações QSL e relatórios em PDF a partir de ADIF e outros logs.",
+    cardSummary: "Análise de logs e confirmações QSL com banco local, gráficos interativos e relatórios.",
+    name: "PT2VHF QSL Analyzer",
+    tagline: "ADIF, Cabrillo, EDI e CSV · QRZ.com, LoTW, eQSL e Club Log",
+    description: [
+      "O PT2VHF QSL Analyzer lê os seus logs de radioamador (ADIF, ADX, Cabrillo, EDI e CSV) e guarda os contatos num banco local, no seu computador. Novos envios só acrescentam o que ainda não existe e atualizam as confirmações QSL dos contatos já cadastrados.",
+      "Logs de várias estações convivem no mesmo banco, e cada contato guarda o indicativo da estação. Em Configurações você apaga só o indicativo que quiser.",
+      "Inspirado no QScope.org, traz as mesmas análises: estatísticas básicas, estações trabalhadas, mapas de atividade, bandas e modos, primeiro DXCC, trocas de banda, pausas, duplicados, pontos, zonas CQ/ITU, DXCC/locator, azimutes e distâncias, taxas de QSO e tempo de operação. Os gráficos são interativos: um clique filtra a tela inteira.",
+      "A aba QSL soma as confirmações por papel, LoTW e eQSL e mostra a matriz DXCC × banda trabalhado/confirmado. O gerador de relatórios monta um PDF personalizado com as seções que você escolher."
+],
+    features: [
+      "Banco local incremental: reenvios não duplicam contatos e atualizam as confirmações QSL",
+      "Limpeza do banco por indicativo de estação, em todos os containers ou em um só",
+      "Importação de ADIF, ADX, Cabrillo, EDI (REG1TEST) e CSV, e download direto do QRZ.com Logbook, LoTW, eQSL e Club Log",
+      "Menu Logs no fluxo do QScope: containers, enviar, importar, modificar, copiar/filtrar e busca com curingas",
+      "20 estatísticas do QScope, com taxas de QSO, tempo de operação, pausas, zonas, DXCC e mapas",
+      "Gráficos estilo BI: clique para filtrar, arraste para escolher o período e legendas interativas",
+      "Status de QSL com matriz DXCC × banda trabalhado (W) / confirmado (C)",
+      "Relatórios personalizáveis em PDF e HTML; exportação em ADIF v3, CSV, Cabrillo e KML (Google Earth)",
+      "Interface em português, inglês e espanhol, com tema claro e escuro"
+],
+    requirements: [
+      "Windows 10/11 de 64 bits: instalador ou versão portátil",
+      "Linux x64: AppImage, pacote .deb (Ubuntu/Debian/Mint) ou .tar.gz",
+      "macOS 12+ em Apple Silicon (arm64) ou Intel (x64). O app ainda não é assinado pela Apple: na primeira abertura, clique com o botão direito e escolha Abrir",
+      "Internet só para baixar logs das plataformas online e verificar atualizações em www.pt2vhf.com"
+],
+    icon: "qsl"
   }
 ];

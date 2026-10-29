@@ -5,8 +5,8 @@ window.PT2VHF_I18N["es"] = {
     "navContact": "Contacto",
     "language": "Idioma",
     "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT",
-    "homeTitle": "Software para radioaficionados. Cinco proyectos, una estación.",
-    "homeLead": "APRS en tiempo real, propagación, topología Meshtastic, seguimiento de satélites y programación de radios. Descubra las herramientas y los instaladores.",
+    "homeTitle": "Software para radioaficionados. Seis proyectos, una estación.",
+    "homeLead": "APRS en tiempo real, propagación, topología Meshtastic, seguimiento de satélites, programación de radios y análisis de logs y QSL. Descubra las herramientas y los instaladores.",
     "homeExplore": "Explorar proyectos",
     "homeKnow": "Conocer los programas",
     "catalogTitle": "Proyectos PT2VHF",
@@ -79,6 +79,10 @@ window.PT2VHF_I18N["es"] = {
     "detailsProgTar": "Otras distribuciones y macOS (Python 3.10+ y Tkinter)"
   },
   "captions": {
+    "qslDashboard": "Panel con totales, bandas, años y mapa DXCC",
+    "qslBi": "Gráficos interactivos: un clic filtra toda la pantalla",
+    "qslDatabase": "Limpieza de la base por indicativo de estación",
+    "qslReport": "Generador de informes con vista previa del PDF",
     "propLive": "Mapa de calor, bandas actuales y clima espacial — captura real",
     "propOverview": "Panel principal — tema oscuro",
     "propBands": "Análisis de bandas",
@@ -213,6 +217,34 @@ window.PT2VHF_I18N["es"] = {
         "Windows 10 (1809+) o Windows 11 de 64 bits",
         "CAT requiere cable y configuración serie compatibles con TS-2000",
         "Verifique la sintonización automática en el radio físico antes de operar"
+      ]
+    },
+    "qsl": {
+      "summary": "Analice sus contactos de radioaficionado: estadísticas, mapas, confirmaciones QSL e informes PDF a partir de ADIF y otros logs.",
+      "cardSummary": "Análisis de logs y confirmaciones QSL con base local, gráficos interactivos e informes.",
+      "tagline": "ADIF, Cabrillo, EDI y CSV · QRZ.com, LoTW, eQSL y Club Log",
+      "description": [
+        "PT2VHF QSL Analyzer lee sus logs de radioaficionado (ADIF, ADX, Cabrillo, EDI y CSV) y guarda los contactos en una base local, en su computadora. Las nuevas cargas solo añaden lo que aún no existe y actualizan las confirmaciones QSL de los contactos ya registrados.",
+        "Logs de varias estaciones conviven en la misma base y cada contacto guarda el indicativo de la estación. En Configuración puede borrar solo el indicativo que desee.",
+        "Inspirado en QScope.org, ofrece los mismos análisis: estadísticas básicas, estaciones trabajadas, mapas de actividad, bandas y modos, primer DXCC, cambios de banda, pausas, duplicados, puntos, zonas CQ/ITU, DXCC/locator, azimuts y distancias, tasas de QSO y tiempo de operación. Los gráficos son interactivos: un clic filtra toda la pantalla.",
+        "La pestaña QSL suma las confirmaciones en papel, LoTW y eQSL y muestra la matriz DXCC × banda trabajado/confirmado. El generador de informes crea un PDF personalizado con las secciones que elija."
+      ],
+      "features": [
+        "Base local incremental: las recargas no duplican contactos y actualizan las confirmaciones QSL",
+        "Limpieza de la base por indicativo de estación, en todos los contenedores o en uno",
+        "Importación de ADIF, ADX, Cabrillo, EDI (REG1TEST) y CSV, y descarga directa de QRZ.com Logbook, LoTW, eQSL y Club Log",
+        "Menú Logs según QScope: contenedores, subir, importar, modificar, copiar/filtrar y búsqueda con comodines",
+        "Las 20 estadísticas de QScope, con tasas de QSO, tiempo de operación, pausas, zonas, DXCC y mapas",
+        "Gráficos estilo BI: clic para filtrar, arrastrar para elegir el período y leyendas interactivas",
+        "Estado de QSL con matriz DXCC × banda trabajado (W) / confirmado (C)",
+        "Informes personalizables en PDF y HTML; exportación a ADIF v3, CSV, Cabrillo y KML (Google Earth)",
+        "Interfaz en portugués, inglés y español, con tema claro y oscuro"
+      ],
+      "requirements": [
+        "Windows 10/11 de 64 bits: instalador o versión portátil",
+        "Linux x64: AppImage, paquete .deb (Ubuntu/Debian/Mint) o .tar.gz",
+        "macOS 12+ en Apple Silicon (arm64) o Intel (x64). La app aún no está firmada por Apple: la primera vez, haga clic derecho y elija Abrir",
+        "Internet solo para descargar logs de las plataformas en línea y buscar actualizaciones en www.pt2vhf.com"
       ]
     }
   }

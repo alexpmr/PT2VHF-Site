@@ -5,8 +5,8 @@ window.PT2VHF_I18N["de"] = {
     "navContact": "Kontakt",
     "language": "Sprache",
     "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT",
-    "homeTitle": "Amateurfunk-Software. Fünf Projekte, eine Station.",
-    "homeLead": "APRS in Echtzeit, Ausbreitungsanalyse, Meshtastic-Topologie, Satellitenverfolgung und Funkgeräteprogrammierung. Entdecken Sie die Werkzeuge und Installationspakete.",
+    "homeTitle": "Amateurfunk-Software. Sechs Projekte, eine Station.",
+    "homeLead": "APRS in Echtzeit, Ausbreitungsanalyse, Meshtastic-Topologie, Satellitenverfolgung, Funkgeräteprogrammierung sowie Log- und QSL-Analyse. Entdecken Sie die Werkzeuge und Installationspakete.",
     "homeExplore": "Projekte entdecken",
     "homeKnow": "Software kennenlernen",
     "catalogTitle": "PT2VHF-Projekte",
@@ -79,6 +79,10 @@ window.PT2VHF_I18N["de"] = {
     "detailsProgTar": "Andere Distributionen und macOS (Python 3.10+ mit Tkinter)"
   },
   "captions": {
+    "qslDashboard": "Dashboard with totals, bands, years and DXCC map",
+    "qslBi": "Interactive charts: one click filters the whole view",
+    "qslDatabase": "Clearing the database by station callsign",
+    "qslReport": "Report builder with PDF preview",
     "propLive": "Heatmap, aktuelle Bänder und Weltraumwetter — echter Screenshot",
     "propOverview": "Hauptübersicht — dunkles Design",
     "propBands": "Bandauswertung",
@@ -213,6 +217,34 @@ window.PT2VHF_I18N["de"] = {
         "Windows 10 (1809+) oder Windows 11, 64 Bit",
         "Für CAT: kompatibles TS-2000-Kabel und serielle Einstellungen",
         "Automatische Abstimmung vor dem Betrieb am realen Funkgerät prüfen"
+      ]
+    },
+    "qsl": {
+      "summary": "Analyze your amateur radio contacts: statistics, maps, QSL confirmations and PDF reports from ADIF and other logs.",
+      "cardSummary": "Log and QSL confirmation analysis with a local database, interactive charts and reports.",
+      "tagline": "ADIF, Cabrillo, EDI and CSV · QRZ.com, LoTW, eQSL and Club Log",
+      "description": [
+        "PT2VHF QSL Analyzer reads your amateur radio logs (ADIF, ADX, Cabrillo, EDI and CSV) and keeps the contacts in a local database on your computer. New uploads only add what is not there yet and update the QSL confirmations of existing contacts.",
+        "Logs from several stations share the same database, and each contact keeps its station callsign. In Settings you can delete just the callsign you want.",
+        "Inspired by QScope.org, it brings the same analyses: basic stats, stations worked, activity maps, bands and modes, DXCC first worked, band changes, pauses, dupes, points, CQ/ITU zones, DXCC/locator, azimuths and distances, QSO rates and operating time. Charts are interactive: one click filters the whole view.",
+        "The QSL tab totals paper, LoTW and eQSL confirmations and shows the DXCC × band worked/confirmed matrix. The report builder creates a custom PDF with the sections you choose."
+      ],
+      "features": [
+        "Incremental local database: re-uploads never duplicate contacts and update QSL confirmations",
+        "Clear the database by station callsign, in all containers or just one",
+        "Import ADIF, ADX, Cabrillo, EDI (REG1TEST) and CSV, or download directly from QRZ.com Logbook, LoTW, eQSL and Club Log",
+        "Logs menu following QScope: containers, upload, import, modify, copy/filter and wildcard search",
+        "The 20 QScope statistics, with QSO rates, operating time, pauses, zones, DXCC and maps",
+        "BI-style charts: click to filter, drag to pick a period and interactive legends",
+        "QSL status with a DXCC × band worked (W) / confirmed (C) matrix",
+        "Custom PDF and HTML reports; export to ADIF v3, CSV, Cabrillo and KML (Google Earth)",
+        "Portuguese, English and Spanish interface, light and dark themes"
+      ],
+      "requirements": [
+        "Windows 10/11 64-bit: installer or portable",
+        "Linux x64: AppImage, .deb package (Ubuntu/Debian/Mint) or .tar.gz",
+        "macOS 12+ on Apple Silicon (arm64) or Intel (x64). The app is not yet signed by Apple: on first launch, right-click it and choose Open",
+        "Internet only to download logs from online platforms and check for updates at www.pt2vhf.com"
       ]
     }
   }

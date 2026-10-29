@@ -1,7 +1,7 @@
 # PT2VHF Site
 
 Site oficial de [www.pt2vhf.com](https://www.pt2vhf.com): divulgação e downloads do
-**PT2VHF Prog Tool**, **PT2VHF Prop Tool**, **PT2VHF Mesh Analyzer** e **PT2VHF APRS Client**.
+**PT2VHF Prog Tool**, **PT2VHF Prop Tool**, **PT2VHF Mesh Analyzer**, **PT2VHF APRS Client**, **PT2VHF SAT Tool** e **PT2VHF QSL Analyzer**.
 
 É um site estático (HTML, CSS e JavaScript puro, sem etapa de build). O repositório fica em
 `github.com/alexpmr/PT2VHF-Site` e a integração Git da Hostinger publica cada push na branch `main`
@@ -17,7 +17,7 @@ assets/css/style.css     Estilos (tema claro e escuro automáticos)
 assets/js/products.js    Textos de cada programa (descrição, recursos, equipamentos, requisitos)
 assets/js/main.js        Lê updates.json e monta a visão geral e a seção de cada programa
 assets/img/              Favicon e imagem de compartilhamento
-downloads/<pasta>/        Arquivos de cada versão (prog-tool, prop-tool, mesh-analyzer, aprs-client)
+downloads/<pasta>/        Arquivos de cada versão (prog-tool, prop-tool, mesh-analyzer, aprs-client, sat-tool, qsl-analyzer)
 CNAME                    Domínio personalizado (www.pt2vhf.com)
 (deploy)                 Integração Git da Hostinger: cada push na main é publicado
 ```
@@ -63,7 +63,7 @@ programas: **não renomeie nem remova campos**. Campos novos podem ser acrescent
 |---|---|
 | `schema` | Versão do formato. Hoje `1`. |
 | `updated` | Data da última alteração do arquivo (`AAAA-MM-DD`). |
-| `products.<id>` | Chaves fixas: `prog`, `prop`, `mesh`, `aprs` (as mesmas de `products.js`). |
+| `products.<id>` | Chaves fixas: `prog`, `prop`, `mesh`, `aprs`, `sat`, `qsl` (as mesmas de `products.js`). |
 | `version` | Versão publicada (`"1.2.0"`), ou `null` se ainda não há versão. Com `null`, o site mostra **Em breve**. |
 | `date` | Data de lançamento (`AAAA-MM-DD`). |
 | `page` | Página do programa no site. |
@@ -295,3 +295,20 @@ e oferece metadados verificaveis para os pacotes fisicamente publicados.
 O Mesh Analyzer ainda precisa ser adaptado no codigo-fonte para consumir
 este endpoint: ver docs/mesh-site-updater.md. Sem pacote validado, a
 resposta e status=unpublished; nao inventar versao nem artefato.
+
+## Publicar o QSL Analyzer
+
+O GitHub Actions do repositório `alexpmr/QSL-Analyzer` gera, a cada push na `main`, a release `vX.Y.Z`
+com os pacotes de Windows (instalador e portátil), Linux (AppImage, .deb, .tar.gz) e macOS (.dmg arm64 e
+x64), além do `SHA256SUMS.txt`. Para publicar no site:
+
+```bash
+gh release download vX.Y.Z --repo alexpmr/QSL-Analyzer --dir /tmp/qsl-release
+python3 scripts/sync_qsl_release.py --version X.Y.Z --source /tmp/qsl-release --notes "Resumo da versão" --apply
+php scripts/test_qsl_download.php
+```
+
+O script confere o SHA-256 de cada pacote, divide os arquivos em partes menores que 100 MiB em
+`downloads/qsl-analyzer/` (o `download.php` remonta o arquivo, aceita Range e conta uma vez por download,
+inclusive o OTA) e atualiza o produto `qsl` do `updates.json`. O app consulta
+`https://www.pt2vhf.com/update.php?product=qsl&platform=<plataforma>` e mostra o aviso de versão nova.

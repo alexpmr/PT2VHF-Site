@@ -15,9 +15,9 @@ RewriteRule ^ https://www.pt2vhf.com%{REQUEST_URI} [L,R=301]
 
 # As seis páginas funcionam sem extensão e com barra final opcional.
 # A condição THE_REQUEST limita o redirecionamento a requisições .html externas.
-RewriteCond %{THE_REQUEST} "^[A-Z]+[ ]/+(aprs|prop|mesh|sat|prog|contato|sobre)[.]html([ ?]|$)" [NC]
-RewriteRule ^(aprs|prop|mesh|sat|prog|contato|sobre)[.]html$ /$1 [R=301,L,NC]
-RewriteRule ^(aprs|prop|mesh|sat|prog|contato|sobre)/?$ $1.html [END,NC]
+RewriteCond %{THE_REQUEST} "^[A-Z]+[ ]/+(aprs|prop|mesh|sat|prog|qsl|contato|sobre)[.]html([ ?]|$)" [NC]
+RewriteRule ^(aprs|prop|mesh|sat|prog|qsl|contato|sobre)[.]html$ /$1 [R=301,L,NC]
+RewriteRule ^(aprs|prop|mesh|sat|prog|qsl|contato|sobre)/?$ $1.html [END,NC]
 
 # Parts of Prop Tool installers are never downloadable individually.
 RewriteRule ^downloads/prop-tool/.*\.exe\.part(?:[0-9]{2}|s\.json)$ - [F,L,NC]
@@ -49,6 +49,11 @@ RewriteRule ^downloads/mesh-analyzer/([A-Za-z0-9_.-]+\.(?:exe|zip|deb|dmg|tar\.g
 RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
 RewriteCond %{HTTP:Range} ^$
 RewriteRule ^downloads/prog-tool/(PT2VHFProgTool-[0-9]+\.[0-9]+\.[0-9]+-(?:instalador\.exe|windows-portatil\.zip)|pt2vhf-prog-tool_[0-9]+\.[0-9]+\.[0-9]+_all\.deb|pt2vhf-prog-tool-[0-9]+\.[0-9]+\.[0-9]+-linux\.tar\.gz)$ download.php?product=prog&file=$1 [L,NC,QSA]
+
+# QSL Analyzer: todos os pacotes (Windows, Linux, macOS) ficam em partes < 100 MiB e são
+# remontados pelo download.php (HTTP 200, Range), contando uma vez por download (site e OTA).
+RewriteRule ^downloads/qsl-analyzer/.*\.part(?:[0-9]{2}|s\.json)$ - [F,L,NC]
+RewriteRule ^downloads/qsl-analyzer/([A-Za-z0-9_.-]+\.(?:exe|AppImage|deb|tar\.gz|dmg))$ download.php?product=qsl&file=$1 [L,NC,QSA]
 
 # Páginas sempre revalidadas: assim a marca ?v= dos scripts novos chega na hora
 <FilesMatch "\.html$">
