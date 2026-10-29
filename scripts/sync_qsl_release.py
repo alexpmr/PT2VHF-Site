@@ -28,26 +28,29 @@ CHUNK = 48 * 1024 * 1024
 
 def packages(version: str) -> list[dict]:
     v = version
+    # A partir da 0.5.0 os pacotes usam o nome novo do programa (QSL Manager).
+    new = tuple(map(int, v.split("."))) >= (0, 5, 0)
+    N, n = ("Manager", "manager") if new else ("Analyzer", "analyzer")
     return [
-        {"file": f"PT2VHF-QSL-Analyzer-{v}-win-x64-setup.exe", "category": "windows-installer", "counterKey": "win-setup-x64",
+        {"file": f"PT2VHF-QSL-{N}-{v}-win-x64-setup.exe", "category": "windows-installer", "counterKey": "win-setup-x64",
          "kind": "installer", "platform": "windows-x64", "architecture": "x64", "label": "Windows — Instalador",
          "detail": "Windows 10/11 64 bits (recomendado)", "magic": b"MZ"},
-        {"file": f"PT2VHF-QSL-Analyzer-{v}-win-x64-portable.exe", "category": "windows-portable", "counterKey": "win-portable-x64",
+        {"file": f"PT2VHF-QSL-{N}-{v}-win-x64-portable.exe", "category": "windows-portable", "counterKey": "win-portable-x64",
          "kind": "portable", "platform": "windows-x64", "architecture": "x64", "label": "Windows — Portátil",
          "detail": "Windows 10/11 64 bits, sem instalação", "magic": b"MZ"},
-        {"file": f"pt2vhf-qsl-analyzer_{v}_amd64.deb", "category": "linux-deb", "counterKey": "linux-deb-x64",
+        {"file": f"pt2vhf-qsl-{n}_{v}_amd64.deb", "category": "linux-deb", "counterKey": "linux-deb-x64",
          "kind": "deb", "platform": "linux-x64", "architecture": "x64", "label": "Linux — .deb (Debian/Ubuntu)",
          "detail": "Ubuntu 22.04+, Debian 12+, Mint 21+", "magic": b"!<arch>"},
-        {"file": f"PT2VHF-QSL-Analyzer-{v}-linux-x86_64.AppImage", "category": "linux-appimage", "counterKey": "linux-appimage-x64",
+        {"file": f"PT2VHF-QSL-{N}-{v}-linux-x86_64.AppImage", "category": "linux-appimage", "counterKey": "linux-appimage-x64",
          "kind": "appimage", "platform": "linux-x64", "architecture": "x64", "label": "Linux — AppImage",
          "detail": "Qualquer distribuição x64 (torne executável e abra)", "magic": b"\x7fELF"},
-        {"file": f"PT2VHF-QSL-Analyzer-{v}-linux-x64.tar.gz", "category": "linux-targz", "counterKey": "linux-tar-x64",
+        {"file": f"PT2VHF-QSL-{N}-{v}-linux-x64.tar.gz", "category": "linux-targz", "counterKey": "linux-tar-x64",
          "kind": "tar.gz", "platform": "linux-x64", "architecture": "x64", "label": "Linux — .tar.gz",
          "detail": "Outras distribuições x64", "magic": b"\x1f\x8b"},
-        {"file": f"PT2VHF-QSL-Analyzer-{v}-mac-arm64.dmg", "category": "macos", "counterKey": "mac-dmg-arm64",
+        {"file": f"PT2VHF-QSL-{N}-{v}-mac-arm64.dmg", "category": "macos", "counterKey": "mac-dmg-arm64",
          "kind": "dmg", "platform": "macos-arm64", "architecture": "arm64", "label": "macOS",
          "detail": "Apple Silicon (M1 ou mais novo), macOS 12+", "magic": None},
-        {"file": f"PT2VHF-QSL-Analyzer-{v}-mac-x64.dmg", "category": "macos", "counterKey": "mac-dmg-x64",
+        {"file": f"PT2VHF-QSL-{N}-{v}-mac-x64.dmg", "category": "macos", "counterKey": "mac-dmg-x64",
          "kind": "dmg", "platform": "macos-x64", "architecture": "x64", "label": "macOS",
          "detail": "Mac com processador Intel, macOS 12+", "magic": None},
     ]

@@ -427,10 +427,10 @@
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "date": "2026-10-29",
       "page": "https://www.pt2vhf.com/qsl",
-      "notes": "Novo nome: PT2VHF QSL Manager. Inserir, editar e apagar contatos; enviar e sincronizar com QRZ.com, LoTW (via TQSL), eQSL e Club Log; downloads das plataformas a partir de 1980 com mensagens claras quando o LoTW limita consultas; backup completo com senhas opcionais protegidas, restauração e backup automático.",
+      "notes": "Recuperação automática dos contatos da versão anterior, indicativo ativo no cabeçalho, indicador de já trabalhado, backup na pasta da nuvem e instaladores com o nome QSL Manager.",
       "files": [
         {
           "category": "windows-installer",
@@ -439,10 +439,10 @@
           "architecture": "x64",
           "platform": "windows-x64",
           "label": "Windows — Instalador",
-          "name": "PT2VHF-QSL-Analyzer-0.4.0-win-x64-setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.4.0-win-x64-setup.exe",
-          "size": 114425828,
-          "sha256": "4e416228ae55860a7390d96e8a5adc8e3b897ab9da96b0936e8fcb1cd2b5208d",
+          "name": "PT2VHF-QSL-Manager-0.5.0-win-x64-setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Manager-0.5.0-win-x64-setup.exe",
+          "size": 114427438,
+          "sha256": "ffce1ff3a7e45fdd1c5875b335dcfa419cb8c52a244dcbe69340da86876a7844",
           "detail": "Windows 10/11 64 bits (recomendado)"
         },
         {
@@ -452,10 +452,10 @@
           "architecture": "x64",
           "platform": "windows-x64",
           "label": "Windows — Portátil",
-          "name": "PT2VHF-QSL-Analyzer-0.4.0-win-x64-portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Analyzer-0.4.0-win-x64-portable.exe",
-          "size": 114198189,
-          "sha256": "3fd91c686f8fc8851deb9d7693716b08a6486cf353f0bc3cca079d759b0a6b7d",
+          "name": "PT2VHF-QSL-Manager-0.5.0-win-x64-portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/qsl-analyzer/PT2VHF-QSL-Manager-0.5.0-win-x64-portable.exe",
+          "size": 114199793,
+          "sha256": "0d36e36296dee7640ab55144f94d3f2adeda10b524c36eff477c1febb110befd",
           "detail": "Windows 10/11 64 bits, sem instalação"
         }
       ],
