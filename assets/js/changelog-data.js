@@ -98,6 +98,7 @@
     },
     aprs: {
       pt: [
+        e("1.15.0", "Menu Ferramentas e análise de cobertura", ["Novo menu Ferramentas: análise de cobertura, enlace entre 2 pontos, melhor ponto para instalar estação, relevo com corte, relatório em PDF e diagnóstico para suporte.", "Análise de cobertura com potência em W (padrão 50 W), raio de 50 até 100 km, estações com e sem cobertura e comparação com as recepções reais por RF.", "PDFs com mapa de ruas; relevo com corte em coluna compacta e cor ajustável; TNC / RF agora fica em Configuração."]),
         e("1.14.62", "Downloads no site oficial", ["Ao iniciar, um aviso informa que novas versões e instaladores são distribuídos pelo site oficial."]),
         e("1.14.61", "Estatísticas guardadas", ["A aba Estatísticas abre com o último cálculo guardado; o botão Recalcular refaz quando quiser.", "Atualizações automáticas também entram nos contadores do site."]),
         e("1.14.60", "Anúncio da versão e filtros de mensagens", ["Anúncio automático da versão na rede APRS (desligável em Automações).", "Mensagens da própria estação sempre visíveis; rotas RF sem saltos faltando; Windows sem UPX."]),
@@ -108,6 +109,7 @@
         e("1.14.55", "Planejamento de enlaces e melhor ponto", ["Enlace entre 2 pontos com perfil de terreno, Fresnel, sinal estimado e veredito de viabilidade.", "Melhor ponto para instalar estação: topos da área desenhada, com CSV e PDF."])
       ],
       en: [
+        e("1.15.0", "Tools menu and coverage analysis", ["New Tools menu: coverage analysis, link between 2 points, best spot to install a station, terrain cut, PDF report and support diagnostics.", "Coverage analysis with power in W (50 W default), radius from 50 up to 100 km, stations with and without coverage, and comparison with real RF receptions.", "PDFs with a street map; compact terrain cut with adjustable color; TNC / RF now lives in Settings."]),
         e("1.14.62", "Downloads on the official website", ["At startup, a notice explains that new versions and installers are distributed through the official website."]),
         e("1.14.61", "Saved statistics", ["The Statistics tab opens with the last saved calculation; Recalculate refreshes it on demand.", "Automatic updates are also counted on the site."]),
         e("1.14.60", "Version announcement and message filters", ["Automatic version announcement on the APRS network (can be turned off in Automations).", "Own-station messages always visible; RF routes without missing hops; Windows builds without UPX."]),
@@ -118,6 +120,7 @@
         e("1.14.55", "Link planning and best site", ["Point-to-point link with terrain profile, Fresnel zone, estimated signal and feasibility verdict.", "Best site for a station: peaks inside the drawn area, with CSV and PDF."])
       ],
       es: [
+        e("1.15.0", "Menú Herramientas y análisis de cobertura", ["Nuevo menú Herramientas: análisis de cobertura, enlace entre 2 puntos, mejor punto para instalar una estación, relieve con corte, informe PDF y diagnóstico para soporte.", "Análisis de cobertura con potencia en W (50 W por defecto), radio de 50 hasta 100 km, estaciones con y sin cobertura y comparación con las recepciones reales por RF.", "PDF con mapa de calles; relieve con corte compacto y color ajustable; TNC / RF ahora está en Configuración."]),
         e("1.14.62", "Descargas en el sitio web oficial", ["Al iniciar, un aviso indica que las nuevas versiones e instaladores se distribuyen por el sitio oficial."]),
         e("1.14.61", "Estadísticas guardadas", ["La pestaña Estadísticas abre con el último cálculo guardado; Recalcular lo actualiza cuando quiera.", "Las actualizaciones automáticas también cuentan en el sitio."]),
         e("1.14.60", "Anuncio de versión y filtros de mensajes", ["Anuncio automático de la versión en la red APRS (desactivable en Automatizaciones).", "Mensajes de la propia estación siempre visibles; rutas RF sin saltos faltantes; Windows sin UPX."]),
@@ -128,6 +131,7 @@
         e("1.14.55", "Planificación de enlaces y mejor punto", ["Enlace entre 2 puntos con perfil de terreno, Fresnel, señal estimada y veredicto de viabilidad.", "Mejor punto para instalar una estación: cumbres del área dibujada, con CSV y PDF."])
       ],
       fr: [
+        e("1.15.0", "Menu Outils et analyse de couverture", ["Nouveau menu Outils : analyse de couverture, liaison entre 2 points, meilleur emplacement pour une station, relief avec coupe, rapport PDF et diagnostic pour le support.", "Analyse de couverture avec puissance en W (50 W par défaut), rayon de 50 à 100 km, stations couvertes ou non et comparaison avec les réceptions RF réelles.", "PDF avec carte des rues ; relief avec coupe compact et couleur réglable ; TNC / RF se trouve désormais dans Configuration."]),
         e("1.14.62", "Téléchargements sur le site officiel", ["Au démarrage, un avis indique que les nouvelles versions et installateurs sont distribués via le site officiel."]),
         e("1.14.61", "Statistiques enregistrées", ["L’onglet Statistiques s’ouvre avec le dernier calcul enregistré ; Recalculer le met à jour à la demande.", "Les mises à jour automatiques sont aussi comptées sur le site."]),
         e("1.14.60", "Annonce de version et filtres de messages", ["Annonce automatique de la version sur le réseau APRS (désactivable dans Automatisations).", "Messages de la station toujours visibles ; routes RF sans sauts manquants ; Windows sans UPX."]),
@@ -138,6 +142,7 @@
         e("1.14.55", "Planification de liaisons et meilleur site", ["Liaison entre 2 points avec profil du terrain, zone de Fresnel, signal estimé et verdict de faisabilité.", "Meilleur site pour une station : sommets de la zone dessinée, avec CSV et PDF."])
       ],
       de: [
+        e("1.15.0", "Menü Werkzeuge und Abdeckungsanalyse", ["Neues Menü Werkzeuge: Abdeckungsanalyse, Verbindung zwischen 2 Punkten, bester Standort für eine Station, Geländeschnitt, PDF-Bericht und Support-Diagnose.", "Abdeckungsanalyse mit Leistung in W (Standard 50 W), Radius von 50 bis 100 km, Stationen mit und ohne Abdeckung und Vergleich mit echten HF-Empfängen.", "PDFs mit Straßenkarte; kompakter Geländeschnitt mit einstellbarer Farbe; TNC / RF jetzt in den Einstellungen."]),
         e("1.14.62", "Downloads auf der offiziellen Website", ["Beim Start weist ein Hinweis darauf hin, dass neue Versionen über die offizielle Website verteilt werden."]),
         e("1.14.61", "Gespeicherte Statistiken", ["Der Statistik-Tab öffnet mit der zuletzt gespeicherten Berechnung; Neu berechnen aktualisiert bei Bedarf.", "Automatische Updates werden ebenfalls auf der Website gezählt."]),
         e("1.14.60", "Versionsansage und Nachrichtenfilter", ["Automatische Versionsansage im APRS-Netz (unter Automationen abschaltbar).", "Eigene Nachrichten immer sichtbar; RF-Routen ohne fehlende Sprünge; Windows ohne UPX."]),
@@ -148,6 +153,7 @@
         e("1.14.55", "Verbindungsplanung und bester Standort", ["Punkt-zu-Punkt-Verbindung mit Geländeprofil, Fresnelzone, geschätztem Signal und Machbarkeitsurteil.", "Bester Standort für eine Station: Gipfel im gezeichneten Bereich, mit CSV und PDF."])
       ],
       it: [
+        e("1.15.0", "Menu Strumenti e analisi di copertura", ["Nuovo menu Strumenti: analisi di copertura, collegamento tra 2 punti, punto migliore per installare una stazione, rilievo con taglio, report PDF e diagnostica per il supporto.", "Analisi di copertura con potenza in W (50 W predefiniti), raggio da 50 fino a 100 km, stazioni con e senza copertura e confronto con le ricezioni RF reali.", "PDF con mappa stradale; rilievo con taglio compatto e colore regolabile; TNC / RF ora si trova in Configurazione."]),
         e("1.14.62", "Download sul sito ufficiale", ["All’avvio, un avviso indica che le nuove versioni sono distribuite tramite il sito ufficiale."]),
         e("1.14.61", "Statistiche salvate", ["La scheda Statistiche si apre con l’ultimo calcolo salvato; Ricalcola lo aggiorna su richiesta.", "Anche gli aggiornamenti automatici vengono conteggiati sul sito."]),
         e("1.14.60", "Annuncio versione e filtri messaggi", ["Annuncio automatico della versione sulla rete APRS (disattivabile in Automazioni).", "Messaggi della propria stazione sempre visibili; rotte RF senza salti mancanti; Windows senza UPX."]),
@@ -158,6 +164,7 @@
         e("1.14.55", "Pianificazione dei collegamenti e punto migliore", ["Collegamento tra 2 punti con profilo del terreno, zona di Fresnel, segnale stimato e verdetto di fattibilità.", "Punto migliore per una stazione: cime dell’area disegnata, con CSV e PDF."])
       ],
       zh: [
+        e("1.15.0", "工具菜单与覆盖分析", ["新增工具菜单：覆盖分析、两点链路分析、最佳站点选址、地形切面、PDF 报告和支持诊断。", "覆盖分析按瓦特设置功率（默认 50 W），半径 50 至 100 km，列出有/无覆盖的电台，并与实际射频接收对比。", "PDF 带街道底图；紧凑的地形切面并可调颜色；TNC / RF 移至设置。"]),
         e("1.14.62", "官方网站下载", ["启动时提示：新版本和安装程序通过官方网站发布。"]),
         e("1.14.61", "保存的统计", ["统计页面打开时显示上次保存的计算结果；需要时点击“重新计算”。", "自动更新也计入网站下载计数。"]),
         e("1.14.60", "版本播报与消息筛选", ["在 APRS 网络自动播报版本（可在“自动化”中关闭）。", "本台消息始终显示；RF 路由不再缺少跳；Windows 版不再使用 UPX。"]),
