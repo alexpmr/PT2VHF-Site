@@ -2,7 +2,15 @@
 
 ## Pendentes
 
-(nenhum)
+### Site não atualizou depois da publicação do QSL Analyzer 0.1.0 (29/10/2026)
+
+- **Relato:** depois dos pushes de 29/10/2026 (commits `1008fc4` a `39002a1`), a página `/qsl` e o
+  `update.php?product=qsl` não aparecem em www.pt2vhf.com.
+- **Hipótese:** a implantação Git da Hostinger falhou ou não foi disparada; esses pushes acrescentaram
+  ~780 MB de pacotes (repositório com ~2,1 GB), o que pode estourar tempo ou espaço da hospedagem.
+- **Conferir no hPanel:** Sites → pt2vhf.com → Avançado → GIT → log da última implantação; clicar em
+  Implantar. Se o erro for de tamanho, publicar menos pacotes por versão (ex.: sem portátil Windows e
+  sem .tar.gz Linux) ou mover os binários grandes para fora do histórico do Git.
 
 ## Concluídos
 
