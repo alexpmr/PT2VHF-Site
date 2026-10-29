@@ -17,6 +17,8 @@ for(const name of pages){
    assert(s.includes('href="/'+project+'"'),name+": projeto ausente: "+project);
  }
  assert(s.includes('class="site-nav-home"'),name+": Inicio ausente");
+ // Todo script do site leva a marca ?v= para não ficar preso no cache depois de uma publicação.
+ for(const m of s.matchAll(/<script src="([^"]+)"/g))assert(m[1].includes("?v="),name+": script sem ?v=: "+m[1]);
 }
 const index=load("index.html");
 assert(index.includes('/assets/img/pt2vhf-hero-banner.webp'),"Banner nao encontrado");
