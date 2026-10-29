@@ -1,0 +1,17 @@
+{
+  "name": "pt2vhf-qsl-analyzer_0.1.0_amd64.deb",
+  "size": 88319194,
+  "sha256": "8bb862d95f5e3c92b477e6339afb965bf9954109a3db267925630c8858db891f",
+  "parts": [
+    {
+      "name": "pt2vhf-qsl-analyzer_0.1.0_amd64.deb.part00",
+      "size": 44159597,
+      "sha256": "1bc13edd33a41e3dd17295110de246d490826303140f365a4107efd5f2328cc8"
+    },
+    {
+      "name": "pt2vhf-qsl-analyzer_0.1.0_amd64.deb.part01",
+      "size": 44159597,
+      "sha256": "79caccc9c5960eb61b29919de0d82995d63346ab2056f137211fe3a98dcf0ed5"
+    }
+  ]
+}
