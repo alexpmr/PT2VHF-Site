@@ -31,6 +31,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Novidades e correções documentadas no changelog oficial do projeto.",
     "changelog": [
       {
+        "version": "0.6.62",
+        "title": "Cobertura completa, conteúdo no Tráfego e preferência USB",
+        "changes": [
+          "Ferramentas no menu superior; cobertura com raio de até 100 km, rádios por marca e modelo, nós sem cobertura e PDF para documentação; relevo sem altitudes impossíveis.",
+          "Conexões preferem USB, depois Bluetooth e Wi-Fi; Tráfego mostra o conteúdo dos pacotes; nomes curtos no mapa; disponibilidade dos repetidores corrigida."
+        ]
+      },
+      {
         "version": "0.6.61",
         "title": "Menu Ferramentas e análise de cobertura",
         "changes": [
@@ -60,14 +68,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Atualizador e pacotes passam a usar www.PT2VHF.com, com verificação SHA-256.",
           "Popup inicial no idioma configurado e integração com o contador por instalador."
-        ]
-      },
-      {
-        "version": "0.6.57",
-        "title": "Contagem histórica de downloads",
-        "changes": [
-          "Implementado histórico acumulado por tipo de pacote nas releases do GitHub.",
-          "Indicadores específicos para Windows, macOS e Linux."
         ]
       }
     ],
@@ -112,6 +112,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Updates and fixes documented in the official project changelog.",
     "changelog": [
       {
+        "version": "0.6.62",
+        "title": "Full coverage tool, packet content and USB preference",
+        "changes": [
+          "Tools in the top menu; coverage up to 100 km, radios by brand and model, uncovered nodes and PDF for documentation; terrain without impossible elevations.",
+          "Connections prefer USB, then Bluetooth and Wi-Fi; Traffic shows packet content; short names on the map; repeater availability fixed."
+        ]
+      },
+      {
         "version": "0.6.61",
         "title": "Tools menu and coverage analysis",
         "changes": [
@@ -141,14 +149,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "The updater and installers move to www.PT2VHF.com with SHA-256 verification.",
           "A localized startup notice and installer download tracking are introduced."
-        ]
-      },
-      {
-        "version": "0.6.57",
-        "title": "Historical download counts",
-        "changes": [
-          "Introduced cumulative download statistics by package type for GitHub releases.",
-          "Separate Windows, macOS and Linux indicators."
         ]
       }
     ],
@@ -193,6 +193,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Novedades y correcciones del registro oficial del proyecto.",
     "changelog": [
       {
+        "version": "0.6.62",
+        "title": "Cobertura completa, contenido en Tráfico y preferencia USB",
+        "changes": [
+          "Herramientas en el menú superior; cobertura de hasta 100 km, radios por marca y modelo, nodos sin cobertura y PDF para documentación; relieve sin altitudes imposibles.",
+          "Las conexiones prefieren USB, luego Bluetooth y Wi-Fi; Tráfico muestra el contenido de los paquetes; nombres cortos en el mapa; disponibilidad de repetidores corregida."
+        ]
+      },
+      {
         "version": "0.6.61",
         "title": "Menú Herramientas y análisis de cobertura",
         "changes": [
@@ -222,14 +230,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "El actualizador y los instaladores utilizan www.PT2VHF.com y validación SHA-256.",
           "Aviso inicial traducido e integración con contadores por instalador."
-        ]
-      },
-      {
-        "version": "0.6.57",
-        "title": "Conteo histórico de descargas",
-        "changes": [
-          "Conteo acumulado por tipo de paquete en las versiones de GitHub.",
-          "Indicadores independientes para Windows, macOS y Linux."
         ]
       }
     ],
@@ -274,6 +274,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Améliorations et correctifs consignés dans le changelog officiel.",
     "changelog": [
       {
+        "version": "0.6.62",
+        "title": "Couverture complète, contenu du trafic et préférence USB",
+        "changes": [
+          "Outils dans le menu supérieur ; couverture jusqu’à 100 km, radios par marque et modèle, nœuds non couverts et PDF pour la documentation ; relief sans altitudes impossibles.",
+          "Les connexions préfèrent l’USB, puis Bluetooth et Wi-Fi ; le trafic affiche le contenu des paquets ; noms courts sur la carte ; disponibilité des répéteurs corrigée."
+        ]
+      },
+      {
         "version": "0.6.61",
         "title": "Menu Outils et analyse de couverture",
         "changes": [
@@ -303,14 +311,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Mises à jour et installateurs sur www.PT2VHF.com avec contrôle SHA-256.",
           "Avis traduit au démarrage et compteurs par installateur."
-        ]
-      },
-      {
-        "version": "0.6.57",
-        "title": "Statistiques historiques des téléchargements",
-        "changes": [
-          "Total cumulatif par type de paquet pour les releases GitHub.",
-          "Indicateurs distincts Windows, macOS et Linux."
         ]
       }
     ],
@@ -354,6 +354,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Änderungen und Fehlerbehebungen aus dem offiziellen Changelog.",
     "changelog": [
       {
+        "version": "0.6.62",
+        "title": "Vollständige Abdeckung, Paketinhalt und USB-Vorrang",
+        "changes": [
+          "Werkzeuge im oberen Menü; Abdeckung bis 100 km, Funkgeräte nach Marke und Modell, nicht abgedeckte Knoten und PDF zur Dokumentation; Gelände ohne unmögliche Höhen.",
+          "Verbindungen bevorzugen USB, dann Bluetooth und WLAN; der Verkehr zeigt den Paketinhalt; Kurznamen auf der Karte; Verfügbarkeit der Repeater korrigiert."
+        ]
+      },
+      {
         "version": "0.6.61",
         "title": "Werkzeug-Menü und Abdeckungsanalyse",
         "changes": [
@@ -383,14 +391,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Updater und Installationspakete über www.PT2VHF.com mit SHA-256-Prüfung.",
           "Mehrsprachiger Startdialog und Zähler pro Paket."
-        ]
-      },
-      {
-        "version": "0.6.57",
-        "title": "Historische Downloadstatistik",
-        "changes": [
-          "Kumulierte Zählung pro Paketart für GitHub-Releases.",
-          "Separate Anzeigen für Windows, macOS und Linux."
         ]
       }
     ],
@@ -434,6 +434,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "Novità e correzioni del changelog ufficiale.",
     "changelog": [
       {
+        "version": "0.6.62",
+        "title": "Copertura completa, contenuto nel traffico e preferenza USB",
+        "changes": [
+          "Strumenti nel menu superiore; copertura fino a 100 km, radio per marca e modello, nodi senza copertura e PDF per la documentazione; rilievo senza altitudini impossibili.",
+          "Le connessioni preferiscono USB, poi Bluetooth e Wi-Fi; il traffico mostra il contenuto dei pacchetti; nomi brevi sulla mappa; disponibilità dei ripetitori corretta."
+        ]
+      },
+      {
         "version": "0.6.61",
         "title": "Menu Strumenti e analisi di copertura",
         "changes": [
@@ -463,14 +471,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "Aggiornamenti e installatori tramite www.PT2VHF.com con verifica SHA-256.",
           "Avviso iniziale localizzato e contatori per installatore."
-        ]
-      },
-      {
-        "version": "0.6.57",
-        "title": "Statistiche storiche dei download",
-        "changes": [
-          "Conteggio cumulativo per tipo di pacchetto nelle release GitHub.",
-          "Indicatori specifici per Windows, macOS e Linux."
         ]
       }
     ],
@@ -514,6 +514,14 @@ window.PT2VHF_MESH_SITE = {
     "historyIntro": "根据项目官方更新日志整理的功能与修复。",
     "changelog": [
       {
+        "version": "0.6.62",
+        "title": "完整覆盖分析、流量内容与 USB 优先",
+        "changes": [
+          "工具移至顶部菜单；覆盖分析半径可达 100 公里，按品牌和型号选择电台，列出未覆盖节点并可导出 PDF；地形数据剔除不可能的高程。",
+          "连接优先 USB，其次蓝牙和 Wi-Fi；流量页显示数据包内容；地图显示短名称；修正中继器可用率。"
+        ]
+      },
+      {
         "version": "0.6.61",
         "title": "工具菜单与覆盖分析",
         "changes": [
@@ -543,14 +551,6 @@ window.PT2VHF_MESH_SITE = {
         "changes": [
           "更新与安装包改用 www.PT2VHF.com，并验证 SHA-256。",
           "启动提示支持当前语言，并记录各安装包下载次数。"
-        ]
-      },
-      {
-        "version": "0.6.57",
-        "title": "历史累计下载数",
-        "changes": [
-          "按软件包类型记录 GitHub 历史发行版本的下载量。",
-          "分别统计 Windows、macOS 和 Linux。"
         ]
       }
     ],
