@@ -1,0 +1,22 @@
+{
+  "name": "PT2VHF-QSL-Manager-0.6.0-win-x64-portable.exe",
+  "size": 114203450,
+  "sha256": "40da9cddcf35673f0feb0ad9adc4d1e02575d44a5c8f245ffe066e724b0f37a6",
+  "parts": [
+    {
+      "name": "PT2VHF-QSL-Manager-0.6.0-win-x64-portable.exe.part00",
+      "size": 38067817,
+      "sha256": "83d6ac2780a90b6ea5e9cc632d9b33c17c9a5868a8a7b69b989fb3c5290ebdc1"
+    },
+    {
+      "name": "PT2VHF-QSL-Manager-0.6.0-win-x64-portable.exe.part01",
+      "size": 38067817,
+      "sha256": "f00472b27d904c571c6642e6c5abbe7b4371b5d71778a376381272af78af1d6f"
+    },
+    {
+      "name": "PT2VHF-QSL-Manager-0.6.0-win-x64-portable.exe.part02",
+      "size": 38067816,
+      "sha256": "2639bf0e4f55a4379993be8a7016e99c8018f95c3d73f87b037d92665d68a140"
+    }
+  ]
+}
