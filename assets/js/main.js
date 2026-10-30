@@ -584,6 +584,7 @@
           '<div class="program-downloads" id="' + esc(p.id) + '-downloads">' +
           '<h3 id="downloads">' + esc(t("downloadsTitle")) + '</h3>' +
           downloadTable(p) +
+          (p.id === "aprs" ? androidDownloads() : "") +
           "</div>" +
           (p.id === "qsl" ? screenshotGallery(p) : "") +
           meshChangelog(p) +
@@ -592,6 +593,42 @@
         );
       })
       .join("");
+  }
+
+  // PT2VHF APRS Client for Android: entrada própria no updates.json ("aprs-android"),
+  // mostrada na página do APRS logo abaixo dos downloads do desktop.
+  var ANDROID_TEXT = {
+    pt: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 ou superior" },
+    en: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 or later" },
+    es: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 o superior" },
+    fr: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 ou ultérieur" },
+    de: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 oder neuer" },
+    it: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 o successivo" },
+    zh: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 或更高版本" }
+  };
+  function androidDownloads() {
+    var a = manifestData && manifestData.products && manifestData.products["aprs-android"];
+    if (!a || !a.version || !Array.isArray(a.files) || !a.files.length) return "";
+    var tx = ANDROID_TEXT[selectedLang] || ANDROID_TEXT.en;
+    var rows = a.files.filter(function (f) { return f.category === "android-apk" && f.name; }).map(function (f) {
+      var key = esc(f.counterKey || f.category);
+      return "<tr>" +
+        '<th scope="row" data-label="' + esc(t("catCategory")) + '">' + esc(tx.cat) + "</th>" +
+        '<td data-label="' + esc(t("catFile")) + '"><span class="file-cell"><span class="file-name">' + esc(f.name) + '</span><span class="file-label">' + esc(tx.detail) + "</span></span></td>" +
+        '<td data-label="' + esc(t("catVersion")) + '" class="mono">v' + esc(a.version) + "</td>" +
+        '<td data-label="' + esc(t("catDate")) + '" class="nowrap">' + (formatDate(a.date) || "—") + "</td>" +
+        '<td data-label="' + esc(t("catSize")) + '" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
+        '<td data-label="' + esc(t("catDownloads")) + '" class="count-cell"><span class="download-count" data-count-product="aprs-android" data-count-category="' + key + '" aria-live="polite">—</span></td>' +
+        '<td class="action"><a class="btn btn-sm btn-primary" href="/download.php?product=aprs-android&amp;file=' + encodeURIComponent(f.name) + '"' +
+        ' data-counter-product="aprs-android" data-counter-category="' + key + '">' + esc(t("download")) +
+        '<span class="sr-only"> ' + esc(f.name) + "</span></a></td></tr>";
+    }).join("");
+    if (!rows) return "";
+    return '<h3 id="android">' + esc(tx.title) + "</h3>" +
+      '<div class="table-wrap"><table class="downloads"><caption class="sr-only">' + esc(tx.title) + "</caption>" +
+      '<thead><tr><th scope="col">' + esc(t("catCategory")) + '</th><th scope="col">' + esc(t("catFile")) + '</th><th scope="col">' + esc(t("catVersion")) +
+      '</th><th scope="col">' + esc(t("catDate")) + '</th><th scope="col">' + esc(t("catSize")) + '</th><th scope="col" class="count-cell">' + esc(t("catDownloads")) +
+      '</th><th scope="col"><span class="sr-only">' + esc(t("download")) + "</span></th></tr></thead><tbody>" + rows + "</tbody></table></div>";
   }
 
   // Junta os textos de products.js com versões e arquivos de updates.json
@@ -676,7 +713,7 @@
   document.addEventListener("click", function (event) {
     var a = event.target.closest ? event.target.closest("a[data-counter-product][data-counter-category]") : null;
     if (!a) return;
-    if (["aprs", "prop", "mesh", "sat", "prog", "qsl"].indexOf(a.getAttribute("data-counter-product")) !== -1) {
+    if (["aprs", "prop", "mesh", "sat", "prog", "qsl", "aprs-android"].indexOf(a.getAttribute("data-counter-product")) !== -1) {
       setTimeout(loadDownloadCounters, 900);
       setTimeout(loadDownloadCounters, 2800);
     } else if (window.navigator) {

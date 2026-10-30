@@ -20,13 +20,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'GET') {
     header('Allow: GET');
     reply(405, array('error' => 'Somente GET e permitido'));
 }
-$names = array('mesh','aprs','prop','sat','prog','qsl');
+$names = array('mesh','aprs','prop','sat','prog','qsl','aprs-android');
 $product = (string)($_GET['product'] ?? 'mesh');
 if (!in_array($product, $names, true)) reply(400, array('error' => 'Produto invalido'));
 $platform = (string)($_GET['platform'] ?? '');
 $kind = (string)($_GET['kind'] ?? '');
-$platforms = array('', 'windows-x64', 'windows-arm64', 'linux-x64', 'linux-arm64', 'macos-x64', 'macos-arm64');
-$kinds = array('', 'installer', 'portable', 'deb', 'tar.gz', 'appimage', 'dmg');
+$platforms = array('', 'windows-x64', 'windows-arm64', 'linux-x64', 'linux-arm64', 'macos-x64', 'macos-arm64', 'android');
+$kinds = array('', 'installer', 'portable', 'deb', 'tar.gz', 'appimage', 'dmg', 'apk');
 if (!in_array($platform, $platforms, true) || !in_array($kind, $kinds, true)) {
     reply(400, array('error' => 'Plataforma ou tipo invalido'));
 }
@@ -41,9 +41,11 @@ $version = $entry['version'] ?? null;
 $ready = is_string($version) && preg_match('/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/D', $version) === 1;
 $mapping = array('windows-installer' => 'installer', 'windows-portable' => 'portable',
                  'linux-deb' => 'deb', 'linux-targz' => 'tar.gz',
-                 'linux-appimage' => 'appimage', 'macos' => 'dmg');
+                 'linux-appimage' => 'appimage', 'macos' => 'dmg',
+                 'android-apk' => 'apk');
 $directories = array('mesh'=>'mesh-analyzer', 'aprs'=>'aprs-client', 'prop'=>'prop-tool',
-                     'sat'=>'sat-tool', 'prog'=>'prog-tool', 'qsl'=>'qsl-analyzer');
+                     'sat'=>'sat-tool', 'prog'=>'prog-tool', 'qsl'=>'qsl-analyzer',
+                     'aprs-android'=>'aprs-android');
 $prefix = '/downloads/' . $directories[$product] . '/';
 $root = realpath(__DIR__ . '/downloads');
 $assets = array();

@@ -36,6 +36,11 @@ RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
 RewriteCond %{HTTP:Range} ^$
 RewriteRule ^downloads/aprs-client/([A-Za-z0-9_.-]+\.(?:exe|AppImage|deb|tar\.gz))$ download.php?product=aprs&file=$1 [L,NC,QSA]
 
+# APRS Client for Android: links diretos e o aviso de atualização do app passam
+# pelo mesmo contador (uma contagem por download; pt2vhf_raw=1 serve o arquivo).
+RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
+RewriteRule ^downloads/aprs-android/([A-Za-z0-9_.-]+\.apk)$ download.php?product=aprs-android&file=$1 [L,NC,QSA]
+
 # Downloads do Mesh Analyzer (site, links diretos e OTA) passam pelo mesmo
 # contador persistente do APRS, com uma única contagem por download inicial.
 # pt2vhf_raw=1 identifica somente a resposta estática da segunda requisição.
@@ -61,12 +66,13 @@ RewriteRule ^downloads/qsl-analyzer/([A-Za-z0-9_.-]+\.(?:exe|AppImage|deb|tar\.g
 </FilesMatch>
 
 # Instaladores sempre como download
-<FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg|gz)$">
+<FilesMatch "\.(exe|msi|zip|AppImage|deb|dmg|gz|apk)$">
   Header set Content-Disposition attachment
   Header set X-Content-Type-Options nosniff
 </FilesMatch>
 AddType application/vnd.microsoft.portable-executable .exe
 AddType application/x-msi .msi
+AddType application/vnd.android.package-archive .apk
 # Garantir visualização das capturas AVIF na hospedagem Hostinger.
 AddType image/avif .avif
 
