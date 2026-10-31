@@ -19,9 +19,10 @@ $allowed = array(
     'win-setup-x64','win-portable-x64','win-setup-arm64','win-portable-arm64',
     'linux-appimage-x64','linux-appimage-arm64','linux-deb-x64','linux-deb-arm64',
     'linux-tar-x64','linux-tar-arm64','mac-dmg-x64','mac-dmg-arm64',
-    'win7-setup-x64','win7-portable-x64'
+    'win7-setup-x64','win7-portable-x64',
+    'android-apk'
 );
-$products = array('aprs', 'prop', 'mesh', 'sat', 'prog', 'qsl');
+$products = array('aprs', 'prop', 'mesh', 'sat', 'prog', 'qsl', 'aprs-android');
 // Baseline histórico do GitHub em 26/10/2026, antes dos downloads pelo site.
 // Contagens auditáveis: github.com/alexpmr/PT2VHF-Prop-Tool (ramo badges).
 $propHistoricalCounts = array('win-setup-x64' => 48, 'win-portable-x64' => 23);
@@ -88,7 +89,7 @@ $product = (string)($isFileRequest ? ($_GET['product'] ?? '') : ($_POST['product
 $category = (string)($isFileRequest ? '' : ($_POST['category'] ?? ''));
 $requestedFile = $isFileRequest ? (string)($_GET['file'] ?? '') : '';
 if (!in_array($product, $products, true) ||
-    ($isFileRequest && (!in_array($product, array('aprs', 'prop', 'mesh', 'sat', 'prog', 'qsl'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
+    ($isFileRequest && (!in_array($product, array('aprs', 'prop', 'mesh', 'sat', 'prog', 'qsl', 'aprs-android'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
     (!$isFileRequest && !in_array($category, $allowed, true))) {
     fclose($file);
     pt2vhf_error(400, 'Projeto, categoria ou arquivo inválidos');
@@ -120,7 +121,7 @@ $found = false;
 $redirectPath = '';
 $propChunks = false;
 $propSize = 0;
-$folders = array('aprs' => 'aprs-client', 'prop' => 'prop-tool', 'mesh' => 'mesh-analyzer', 'sat' => 'sat-tool', 'prog' => 'prog-tool', 'qsl' => 'qsl-analyzer');
+$folders = array('aprs' => 'aprs-client', 'prop' => 'prop-tool', 'mesh' => 'mesh-analyzer', 'sat' => 'sat-tool', 'prog' => 'prog-tool', 'qsl' => 'qsl-analyzer', 'aprs-android' => 'aprs-android');
 $segmented = $product === 'prop' || $product === 'sat' || $product === 'qsl';
 foreach ($files as $entry) {
     if (!is_array($entry)) continue;
