@@ -1,0 +1,59 @@
+name: Publish APRS Android v0.1.3 (signed APK)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.3.apk'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pt2vhf-aprs-android-publish
+  cancel-in-progress: false
+
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Verify signed APK digest and generate official OTA manifest
+        run: |
+          set -euo pipefail
+          python3 -m py_compile scripts/publish_android_013.py
+          python3 scripts/publish_android_013.py
+          python3 -m json.tool updates.json >/dev/null
+          python3 - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          data = json.loads(Path("updates.json").read_text("utf-8"))
+          product = data["products"]["aprs-android"]
+          assert product["version"] == "0.1.3"
+          assert product["page"] == "https://www.pt2vhf.com/aprs-android"
+          entry = product["files"][0]
+          apk = Path("downloads/aprs-android") / entry["name"]
+          assert entry["category"] == "android-apk"
+          assert entry["counterKey"] == "android-apk"
+          assert apk.is_file()
+          assert entry["size"] == apk.stat().st_size
+          assert entry["sha256"] == hashlib.sha256(apk.read_bytes()).hexdigest()
+          print("APRS_ANDROID_OTA=VERIFIED")
+          PY
+
+      - name: Commit OTA manifest after APK validation
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add updates.json
+          if ! git diff --cached --quiet; then
+            git commit -m "site(release): publicar Android APK v0.1.3 assinado e atualizar OTA"
+            git push origin HEAD:main
+          else
+            echo "OTA manifest already matches the signed APK."
+          fi
