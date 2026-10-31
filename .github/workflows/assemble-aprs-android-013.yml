@@ -1,0 +1,55 @@
+name: Assemble verified APRS Android v0.1.3 for official website
+
+on:
+  push:
+    branches:
+      - 'transport/aprs-android-013'
+    paths:
+      - 'transport/aprs-android-013/chunk-*'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pt2vhf-aprs-android-assemble
+  cancel-in-progress: false
+
+jobs:
+  assemble-publish:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: source
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: site
+
+      - name: Assemble exact signed APK from verified Git objects
+        run: |
+          set -euo pipefail
+          apk="$RUNNER_TEMP/PT2VHF_APRS_Client_Android_v0.1.3.apk"
+          test "$(find source/transport/aprs-android-013 -name 'chunk-*' -type f | wc -l)" = 10
+          cat source/transport/aprs-android-013/chunk-* > "$apk"
+          test "$(stat -c '%s' "$apk")" = 7428195
+          test "$(sha256sum "$apk" | cut -d' ' -f1)" =             'f2d2b765aeaa5fa906d60f7644d5c2e1a835633e42c990f8a8906d8ecea7d711'
+          mkdir -p site/downloads/aprs-android
+          cp "$apk" site/downloads/aprs-android/
+          (cd site && python3 scripts/publish_android_013.py && python3 -m json.tool updates.json >/dev/null)
+          echo "SIGNED_ANDROID_APK=VERIFIED"
+
+      - name: Publish APK and matching OTA manifest atomically to main
+        working-directory: site
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.3.apk updates.json
+          git diff --cached --stat
+          if ! git diff --cached --quiet; then
+            git commit -m "site(release): publicar APK Android v0.1.3 assinado + OTA"
+            git push origin HEAD:main
+          else
+            echo "Release APK and OTA already synchronized."
+          fi
