@@ -20,20 +20,27 @@ MANIFEST = ROOT / "updates.json"
 
 def main() -> None:
     if len(sys.argv) != 2:
-        raise SystemExit("usage: publish_android_012.py <signed-release-artifact.zip>")
-    archive = Path(sys.argv[1])
-    if not archive.is_file() or archive.stat().st_size < 1_000_000:
-        raise RuntimeError("Artefato ZIP inexistente ou pequeno demais")
-    with zipfile.ZipFile(archive) as z:
-        candidates = [n for n in z.namelist() if Path(n).name == EXPECTED and not n.endswith("/")]
-        if len(candidates) != 1:
-            raise RuntimeError(f"APK {EXPECTED} não encontrado exatamente uma vez no artefato")
-        entry = z.getinfo(candidates[0])
-        if not 1_000_000 < entry.file_size < 50_000_000:
-            raise RuntimeError("Tamanho do APK fora do intervalo esperado")
-        content = z.read(candidates[0])
+        raise SystemExit("usage: publish_android_012.py <signed-release-artifact.zip | final.apk>")
+    source = Path(sys.argv[1])
+    if not source.is_file() or source.stat().st_size < 1_000_000:
+        raise RuntimeError("Arquivo APK/ZIP inexistente ou pequeno demais")
+    if source.suffix.lower() == ".apk":
+        if source.name != EXPECTED:
+            raise RuntimeError(f"Nome do APK diferente do esperado: {EXPECTED}")
+        content = source.read_bytes()
+    else:
+        with zipfile.ZipFile(source) as z:
+            candidates = [n for n in z.namelist() if Path(n).name == EXPECTED and not n.endswith("/")]
+            if len(candidates) != 1:
+                raise RuntimeError(f"APK {EXPECTED} não encontrado exatamente uma vez")
+            entry = z.getinfo(candidates[0])
+            if not 1_000_000 < entry.file_size < 50_000_000:
+                raise RuntimeError("Tamanho do APK fora do intervalo esperado")
+            content = z.read(candidates[0])
     if not content.startswith(bytes((0x50, 0x4b, 0x03, 0x04))):
-        raise RuntimeError("APK não é ZIP Android válido")
+        raise RuntimeError("Cabeçalho APK inválido")
+    if hashlib.sha256(content).hexdigest() != "88160a481117fd6b0a3b66f608c5960c31c48de5e8f2624a94e70240cbd76a39":
+        raise RuntimeError("SHA-256 diferente do APK de produção assinado")
     sha = hashlib.sha256(content).hexdigest()
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_bytes(content)
