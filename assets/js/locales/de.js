@@ -5,7 +5,7 @@ window.PT2VHF_I18N["de"] = {
     "navContact": "Kontakt",
     "language": "Sprache",
     "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT",
-    "homeTitle": "Amateurfunk-Software. Sechs Projekte, eine Station.",
+    "homeTitle": "Amateurfunk-Software. Sieben Projekte, eine Station.",
     "homeLead": "APRS in Echtzeit, Ausbreitungsanalyse, Meshtastic-Topologie, Satellitenverfolgung, Funkgeräteprogrammierung sowie Log- und QSL-Analyse. Entdecken Sie die Werkzeuge und Installationspakete.",
     "homeExplore": "Projekte entdecken",
     "homeKnow": "Software kennenlernen",
@@ -180,6 +180,29 @@ window.PT2VHF_I18N["de"] = {
         "Netzkarte und Topologie",
         "Verkehrsverlauf und Telemetrie",
         "Berichte exportieren"
+      ]
+    },
+    "aprs-android": {
+      "summary": "APRS auf dem Smartphone: Karte, Nachrichten, Bake, Tracker im Hintergrund und Bluetooth-TNC.",
+      "cardSummary": "Android-Version des APRS Client mit SmartBeaconing-Tracker und Funkgerät/TNC über Bluetooth.",
+      "tagline": "APRS unter Android 8 oder neuer · APRS-IS und HF über Bluetooth",
+      "description": [
+        "Smartphone-Version des PT2VHF APRS Client. Verbindet sich mit APRS-IS über den gewählten Server, berechnet den Passcode aus dem Rufzeichen und zeigt Stationen und Funkverbindungen auf der Karte.",
+        "Mit einem per Bluetooth gekoppelten KISS-Funkgerät oder TNC sendet und empfängt es über Funk. Der Tracker-Modus sendet die Position per SmartBeaconing auch bei ausgeschaltetem Bildschirm."
+      ],
+      "features": [
+        "APRS-IS mit Serverliste (Standard soam.aprs2.net) oder eigenem Server, automatischem Passcode und editierbarem Filter (Standard r/4000)",
+        "Automatische Neuverbindung beim Wechsel zwischen WLAN und Mobilfunk",
+        "OpenStreetMap-Karte mit Stationen und nachgewiesenen Funkverbindungen (Internet, DMR und D-STAR zählen nicht als Funk)",
+        "Nachrichten: Unterhaltungen, allgemeiner Kanal (CQ) und Bulletins, mit ACK, Wiederholungen und Benachrichtigungen",
+        "Schaltfläche Bake senden und SmartBeaconing-Tracker im Hintergrund",
+        "KISS-TNC über Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro u. ä.) mit Live-Monitor",
+        "Hinweis auf neue Versionen und Downloads über die offizielle Website"
+      ],
+      "requirements": [
+        "Android 8.0 oder neuer",
+        "Installation per APK von der Website: „Unbekannte Apps installieren“ erlauben, wenn Android fragt",
+        "Berechtigungen für Standort (Bake/Tracker), Benachrichtigungen und Bluetooth (TNC)"
       ]
     },
     "aprs": {

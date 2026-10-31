@@ -15,9 +15,9 @@ RewriteRule ^ https://www.pt2vhf.com%{REQUEST_URI} [L,R=301]
 
 # As seis páginas funcionam sem extensão e com barra final opcional.
 # A condição THE_REQUEST limita o redirecionamento a requisições .html externas.
-RewriteCond %{THE_REQUEST} "^[A-Z]+[ ]/+(aprs|prop|mesh|sat|prog|qsl|contato|sobre)[.]html([ ?]|$)" [NC]
-RewriteRule ^(aprs|prop|mesh|sat|prog|qsl|contato|sobre)[.]html$ /$1 [R=301,L,NC]
-RewriteRule ^(aprs|prop|mesh|sat|prog|qsl|contato|sobre)/?$ $1.html [END,NC]
+RewriteCond %{THE_REQUEST} "^[A-Z]+[ ]/+(aprs|android|prop|mesh|sat|prog|qsl|contato|sobre)[.]html([ ?]|$)" [NC]
+RewriteRule ^(aprs|android|prop|mesh|sat|prog|qsl|contato|sobre)[.]html$ /$1 [R=301,L,NC]
+RewriteRule ^(aprs|android|prop|mesh|sat|prog|qsl|contato|sobre)/?$ $1.html [END,NC]
 
 # Parts of Prop Tool installers are never downloadable individually.
 RewriteRule ^downloads/prop-tool/.*\.exe\.part(?:[0-9]{2}|s\.json)$ - [F,L,NC]

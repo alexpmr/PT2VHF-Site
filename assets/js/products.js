@@ -51,6 +51,42 @@ window.PT2VHF_PRODUCTS = [
     icon: "prog"
   },
   {
+    id: "aprs-android",
+    summary: "Cliente APRS no celular: mapa, mensagens, beacon, tracker em segundo plano e TNC por Bluetooth.",
+    cardSummary: "Versão Android do APRS Client, com tracker SmartBeaconing e rádio/TNC por Bluetooth.",
+    name: "PT2VHF APRS Client for Android",
+    tagline: "APRS no Android 8 ou superior · APRS-IS e RF por Bluetooth",
+    description: [
+      "Versão para celular do PT2VHF APRS Client. Conecta ao APRS-IS com o servidor que você escolher, calcula o passcode a partir do indicativo e mostra estações e enlaces RF no mapa.",
+      "Com um rádio ou TNC KISS pareado por Bluetooth, transmite e recebe por RF. O modo tracker envia a sua posição com SmartBeaconing mesmo com a tela desligada."
+    ],
+    features: [
+      "APRS-IS com lista de servidores (padrão soam.aprs2.net) ou servidor próprio, passcode automático e filtro editável (padrão r/4000)",
+      "Reconexão automática ao trocar entre Wi-Fi e dados móveis",
+      "Mapa OpenStreetMap com estações e enlaces RF comprovados (internet, DMR e D-STAR não contam como RF)",
+      "Mensagens: conversas, canal geral (CQ) e boletins, com ACK, novas tentativas e notificações",
+      "Botão Enviar beacon e modo tracker com SmartBeaconing em segundo plano",
+      "TNC KISS por Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro e similares) com monitor ao vivo",
+      "Aviso de nova versão e downloads pelo site oficial"
+    ],
+    supported: [
+      {
+        "name": "TNC KISS Bluetooth",
+        "detail": "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro e similares (SPP)"
+      },
+      {
+        "name": "APRS-IS",
+        "detail": "Rede aprs2.net ou servidor próprio"
+      }
+    ],
+    requirements: [
+      "Android 8.0 ou superior",
+      "Instalação pelo APK do site: permita \"instalar apps desconhecidos\" quando o Android pedir",
+      "Permissões de localização (beacon/tracker), notificações e Bluetooth (TNC)"
+    ],
+    icon: "android"
+  },
+  {
     id: "prop",
     summary: "Analise propagação HF, 6 m, 2 m e 70 cm com dados reais e mapas de calor por região.",
     cardSummary: "Análise de propagação para HF/VHF em tempo real, a partir da sua estação.",

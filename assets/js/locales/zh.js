@@ -5,7 +5,7 @@ window.PT2VHF_I18N["zh"] = {
     "navContact": "联系",
     "language": "语言",
     "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT",
-    "homeTitle": "业余无线电软件：六个项目，一座电台。",
+    "homeTitle": "业余无线电软件：七个项目，一座电台。",
     "homeLead": "实时 APRS、传播分析、Meshtastic 网络拓扑、卫星跟踪、电台编程以及日志与 QSL 分析。了解工具和可用安装程序。",
     "homeExplore": "浏览项目",
     "homeKnow": "了解软件",
@@ -180,6 +180,29 @@ window.PT2VHF_I18N["zh"] = {
         "网络地图与拓扑",
         "通信历史与遥测数据",
         "导出报告"
+      ]
+    },
+    "aprs-android": {
+      "summary": "手机上的 APRS：地图、消息、信标、后台跟踪器和蓝牙 TNC。",
+      "cardSummary": "APRS Client 的 Android 版本，支持 SmartBeaconing 跟踪器和蓝牙电台/TNC。",
+      "tagline": "Android 8 及以上 · APRS-IS 与蓝牙射频",
+      "description": [
+        "PT2VHF APRS Client 的手机版本。连接到您选择的 APRS-IS 服务器，根据呼号自动计算 passcode，并在地图上显示电台和射频链路。",
+        "通过蓝牙配对的 KISS 电台或 TNC 可进行射频收发。跟踪器模式在屏幕关闭时也会用 SmartBeaconing 发送位置。"
+      ],
+      "features": [
+        "APRS-IS 服务器列表（默认 soam.aprs2.net）或自有服务器，自动 passcode，可编辑过滤器（默认 r/4000）",
+        "在 Wi-Fi 与移动数据间切换时自动重连",
+        "OpenStreetMap 地图显示电台和已证实的射频链路（互联网、DMR 和 D-STAR 不算射频）",
+        "消息：会话、公共频道（CQ）和公告，支持 ACK、重发和通知",
+        "发送信标按钮和后台 SmartBeaconing 跟踪器",
+        "蓝牙 KISS TNC（Mobilinkd、BTECH UV-Pro、Radtel RT-950 Pro 等）及实时监视",
+        "新版本提醒，官方网站下载"
+      ],
+      "requirements": [
+        "Android 8.0 或更高版本",
+        "从网站安装 APK：在 Android 提示时允许“安装未知应用”",
+        "位置（信标/跟踪器）、通知和蓝牙（TNC）权限"
       ]
     },
     "aprs": {

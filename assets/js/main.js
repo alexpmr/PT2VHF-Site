@@ -40,7 +40,7 @@
   };
   function applyLocaleProducts() {
     var tr = (LANG_DICT[selectedLang] && LANG_DICT[selectedLang].products) || {};
-    var order = ["aprs", "prop", "mesh", "sat", "prog", "qsl"];
+    var order = ["aprs", "aprs-android", "prop", "mesh", "sat", "prog", "qsl"];
     products = baseProducts.map(function (p) {
       var product=Object.assign({}, p, tr[p.id] || {});
       if (p.id === "mesh" && window.PT2VHF_MESH_SITE) {
@@ -163,7 +163,7 @@
     // Preserve the selected language when navigating between project pages.
     Array.prototype.forEach.call(document.querySelectorAll('a[href^="/"]'), function (link) {
       var href = link.getAttribute("href");
-      if (!/^\/(?:$|aprs(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|qsl(?:[?#]|$)|contato(?:[?#]|$)|sobre(?:[?#]|$)|#)/.test(href)) return;
+      if (!/^\/(?:$|aprs(?:[?#]|$)|android(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|qsl(?:[?#]|$)|contato(?:[?#]|$)|sobre(?:[?#]|$)|#)/.test(href)) return;
       var url = new URL(href, location.origin);
       url.searchParams.set("lang", selectedLang);
       link.setAttribute("href", url.pathname + url.search + url.hash);
@@ -183,6 +183,8 @@
   var galleryData = window.PT2VHF_GALLERIES || {};
 
   var ICONS = {
+    android:
+      '<rect x="9" y="3" width="14" height="26" rx="3"/><path d="M14 25h4"/><path d="M12.5 10.5a5 5 0 0 1 7 0M10.5 8a8 8 0 0 1 11 0"/>',
     qsl:
       '<rect x="4" y="7" width="24" height="18" rx="2"/><path d="M8 13h8M8 17h5"/><path d="M19 17l2.5 2.5L26 13"/>',
     prog:
@@ -238,7 +240,8 @@
     { id: "linux-deb", label: "Linux — .deb (Debian/Ubuntu)" },
     { id: "linux-targz", label: "Linux — .tar.gz" },
     { id: "linux-appimage", label: "Linux — AppImage" },
-    { id: "macos", label: "macOS" }
+    { id: "macos", label: "macOS" },
+    { id: "android-apk", label: "Android — APK" }
   ];
   var CATEGORY_IDS = CATEGORIES.map(function (c) { return c.id; });
 
@@ -255,7 +258,7 @@
   }
 
   function publicDownloadUrl(p, f) {
-    return (p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog" || p.id === "qsl") && f.name
+    return (p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog" || p.id === "qsl" || p.id === "aprs-android") && f.name
       ? "/download.php?product=" + p.id + "&file=" + encodeURIComponent(f.name)
       : localUrl(f.url);
   }
@@ -330,7 +333,7 @@
           '<td data-label="' + esc(t("catDownloads")) + '" class="count-cell"><span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.counterKey || f.category) + '" aria-live="polite">—</span></td>' +
           '<td class="action"><a class="btn btn-sm btn-primary" href="' + esc(publicDownloadUrl(p, f)) + '"' +
           ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.counterKey || f.category) + '"' +
-          ((p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog" || p.id === "qsl") ? "" : " download") + '>' + esc(t("download")) +
+          ((p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog" || p.id === "qsl" || p.id === "aprs-android") ? "" : " download") + '>' + esc(t("download")) +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a></td>" +
           "</tr>"
         );
@@ -584,7 +587,6 @@
           '<div class="program-downloads" id="' + esc(p.id) + '-downloads">' +
           '<h3 id="downloads">' + esc(t("downloadsTitle")) + '</h3>' +
           downloadTable(p) +
-          (p.id === "aprs" ? androidDownloads() : "") +
           "</div>" +
           (p.id === "qsl" ? screenshotGallery(p) : "") +
           meshChangelog(p) +
@@ -593,42 +595,6 @@
         );
       })
       .join("");
-  }
-
-  // PT2VHF APRS Client for Android: entrada própria no updates.json ("aprs-android"),
-  // mostrada na página do APRS logo abaixo dos downloads do desktop.
-  var ANDROID_TEXT = {
-    pt: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 ou superior" },
-    en: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 or later" },
-    es: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 o superior" },
-    fr: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 ou ultérieur" },
-    de: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 oder neuer" },
-    it: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 o successivo" },
-    zh: { title: "PT2VHF APRS Client for Android", cat: "Android — APK", detail: "Android 8 或更高版本" }
-  };
-  function androidDownloads() {
-    var a = manifestData && manifestData.products && manifestData.products["aprs-android"];
-    if (!a || !a.version || !Array.isArray(a.files) || !a.files.length) return "";
-    var tx = ANDROID_TEXT[selectedLang] || ANDROID_TEXT.en;
-    var rows = a.files.filter(function (f) { return f.category === "android-apk" && f.name; }).map(function (f) {
-      var key = esc(f.counterKey || f.category);
-      return "<tr>" +
-        '<th scope="row" data-label="' + esc(t("catCategory")) + '">' + esc(tx.cat) + "</th>" +
-        '<td data-label="' + esc(t("catFile")) + '"><span class="file-cell"><span class="file-name">' + esc(f.name) + '</span><span class="file-label">' + esc(tx.detail) + "</span></span></td>" +
-        '<td data-label="' + esc(t("catVersion")) + '" class="mono">v' + esc(a.version) + "</td>" +
-        '<td data-label="' + esc(t("catDate")) + '" class="nowrap">' + (formatDate(a.date) || "—") + "</td>" +
-        '<td data-label="' + esc(t("catSize")) + '" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
-        '<td data-label="' + esc(t("catDownloads")) + '" class="count-cell"><span class="download-count" data-count-product="aprs-android" data-count-category="' + key + '" aria-live="polite">—</span></td>' +
-        '<td class="action"><a class="btn btn-sm btn-primary" href="/download.php?product=aprs-android&amp;file=' + encodeURIComponent(f.name) + '"' +
-        ' data-counter-product="aprs-android" data-counter-category="' + key + '">' + esc(t("download")) +
-        '<span class="sr-only"> ' + esc(f.name) + "</span></a></td></tr>";
-    }).join("");
-    if (!rows) return "";
-    return '<h3 id="android">' + esc(tx.title) + "</h3>" +
-      '<div class="table-wrap"><table class="downloads"><caption class="sr-only">' + esc(tx.title) + "</caption>" +
-      '<thead><tr><th scope="col">' + esc(t("catCategory")) + '</th><th scope="col">' + esc(t("catFile")) + '</th><th scope="col">' + esc(t("catVersion")) +
-      '</th><th scope="col">' + esc(t("catDate")) + '</th><th scope="col">' + esc(t("catSize")) + '</th><th scope="col" class="count-cell">' + esc(t("catDownloads")) +
-      '</th><th scope="col"><span class="sr-only">' + esc(t("download")) + "</span></th></tr></thead><tbody>" + rows + "</tbody></table></div>";
   }
 
   // Junta os textos de products.js com versões e arquivos de updates.json
