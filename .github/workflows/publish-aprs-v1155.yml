@@ -1,0 +1,54 @@
+name: Publish APRS Client v1.15.5 to PT2VHF Site (GitHub only)
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-aprs-v1155.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: pt2vhf-aprs-site-v1155
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check official GitHub build result and commit
+        env:
+          GH_TOKEN: ${{ secrets.PT2VHF_APRS_ACTIONS_READ_TOKEN || github.token }}
+        run: |
+          set -euo pipefail
+          gh api repos/alexpmr/PT2VHF-APRS-Client/actions/runs/41252636779 \
+            --jq '{status, conclusion, head_sha}' > /tmp/source.json
+          jq -e '.status == "completed" and .conclusion == "success" and .head_sha == "fdec84e26d850a4a73095ad4d9fa7262bc52a7da"' /tmp/source.json
+      - name: Download exact successful GitHub Actions binaries
+        uses: actions/download-artifact@v4
+        with:
+          repository: alexpmr/PT2VHF-APRS-Client
+          run-id: 41252636779
+          pattern: PT2VHF-APRS-Client-*
+          merge-multiple: true
+          path: artifacts
+          github-token: ${{ secrets.PT2VHF_APRS_ACTIONS_READ_TOKEN || github.token }}
+      - name: Validate binaries and update official website manifest
+        run: |
+          set -euo pipefail
+          python3 scripts/publish_aprs_from_actions.py artifacts
+          python3 -m json.tool updates.json >/dev/null
+          php -l update.php
+          php -l download.php
+      - name: Commit only validated downloads and manifest
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add updates.json downloads/aprs-client
+          if ! git diff --cached --quiet; then
+            git commit -m "release(aprs): publicar v1.15.5 no site oficial"
+            git push origin HEAD:main
+          fi
+          echo "GITHUB_SITE_APRS_PUBLICATION_RECORDED=1"
