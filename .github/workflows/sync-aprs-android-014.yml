@@ -1,0 +1,83 @@
+name: Sync PT2VHF APRS Android v0.1.4 signed APK to official site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-aprs-android-014.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pt2vhf-aprs-android-v014-sync
+  cancel-in-progress: false
+
+jobs:
+  publish-signed-apk:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Verify official signed release availability
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          asset="PT2VHF_APRS_Client_Android_v0.1.4.apk"
+          ready=0
+          for i in $(seq 1 60); do
+            if gh api repos/alexpmr/PT2VHF-APRS-Android/releases/tags/v0.1.4 > "$RUNNER_TEMP/aprs-android-release.json" 2>/dev/null; then
+              name="$(jq -r --arg name "$asset" '.assets[] | select(.name==$name) | .name' "$RUNNER_TEMP/aprs-android-release.json")"
+              digest="$(jq -r --arg name "$asset" '.assets[] | select(.name==$name) | .digest' "$RUNNER_TEMP/aprs-android-release.json")"
+              if [[ "$name" == "$asset" && "$digest" == sha256:* ]]; then
+                ready=1
+                break
+              fi
+            fi
+            echo "The signed Android v0.1.4 release is not available yet (check $i/60)."
+            sleep 15
+          done
+          if [ "$ready" -ne 1 ]; then
+            echo "::error::Signed APK v0.1.4 was not published by the Android pipeline."
+            exit 1
+          fi
+          echo "SIGNED_ANDROID_RELEASE_FOUND=1"
+
+      - name: Download published APK into the site checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          name="PT2VHF_APRS_Client_Android_v0.1.4.apk"
+          mkdir -p downloads/aprs-android
+          curl --fail --location --show-error --silent \
+            --retry 4 --retry-all-errors \
+            "https://github.com/alexpmr/PT2VHF-APRS-Android/releases/download/v0.1.4/$name" \
+            --output "downloads/aprs-android/$name"
+          test -s "downloads/aprs-android/$name"
+
+      - name: Verify ZIP structure, digest and official OTA manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m py_compile scripts/publish_android_014.py
+          python3 scripts/publish_android_014.py "$RUNNER_TEMP/aprs-android-release.json"
+          python3 -m json.tool updates.json > /dev/null
+
+      - name: Commit verified production APK and OTA metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- updates.json downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.4.apk
+          if ! git diff --cached --quiet; then
+            git commit -m "site(android): publicar APK v0.1.4 assinado e atualizar OTA"
+            git push origin HEAD:main
+          fi
+          echo "VERIFIED_ANDROID_APK_PUBLISHED_IN_REPOSITORY=1"
