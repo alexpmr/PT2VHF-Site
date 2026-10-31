@@ -163,7 +163,7 @@
     // Preserve the selected language when navigating between project pages.
     Array.prototype.forEach.call(document.querySelectorAll('a[href^="/"]'), function (link) {
       var href = link.getAttribute("href");
-      if (!/^\/(?:$|aprs(?:[?#]|$)|android(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|qsl(?:[?#]|$)|contato(?:[?#]|$)|sobre(?:[?#]|$)|#)/.test(href)) return;
+      if (!/^\/(?:$|aprs(?:[?#]|$)|android(?:[?#]|$)|aprs-android(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|qsl(?:[?#]|$)|contato(?:[?#]|$)|sobre(?:[?#]|$)|#)/.test(href)) return;
       var url = new URL(href, location.origin);
       url.searchParams.set("lang", selectedLang);
       link.setAttribute("href", url.pathname + url.search + url.hash);
