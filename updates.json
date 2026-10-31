@@ -465,7 +465,7 @@
       "name": "PT2VHF APRS Client for Android",
       "version": "0.1.0",
       "date": "2026-10-31",
-      "page": "https://www.pt2vhf.com/aprs",
+      "page": "https://www.pt2vhf.com/android",
       "notes": "Primeira versão: APRS-IS com servidor configurável e passcode automático, mapa com estações e enlaces RF, mensagens, Enviar beacon, tracker SmartBeaconing em segundo plano e TNC KISS por Bluetooth.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=aprs-android",
       "files": [
@@ -478,7 +478,8 @@
           "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.0.apk",
           "size": 7065213,
           "sha256": "b80e752e668bc8fc697aea65d4419620bdf5a2035d3d3419b63fdafdaf01005a",
-          "detail": "Android 8 ou superior"
+          "detail": "Android 8 ou superior",
+          "label": "Android — APK"
         }
       ]
     }

@@ -5,7 +5,7 @@ window.PT2VHF_I18N["en"] = {
     "navContact": "Contact",
     "language": "Language",
     "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT",
-    "homeTitle": "Amateur radio software. Six projects, one station.",
+    "homeTitle": "Amateur radio software. Seven projects, one station.",
     "homeLead": "Real-time APRS, propagation analysis, Meshtastic topology, satellite tracking, radio programming and log/QSL analysis. Explore the tools and available installers.",
     "homeExplore": "Explore projects",
     "homeKnow": "Discover the software",
@@ -180,6 +180,29 @@ window.PT2VHF_I18N["en"] = {
         "Network map and topology",
         "Traffic history and telemetry",
         "Report export"
+      ]
+    },
+    "aprs-android": {
+      "summary": "APRS on your phone: map, messages, beacon, background tracker and Bluetooth TNC.",
+      "cardSummary": "Android version of the APRS Client, with SmartBeaconing tracker and Bluetooth radio/TNC.",
+      "tagline": "APRS on Android 8 or later · APRS-IS and RF over Bluetooth",
+      "description": [
+        "Phone version of PT2VHF APRS Client. Connects to APRS-IS on the server you choose, computes the passcode from your callsign and shows stations and RF links on the map.",
+        "With a KISS radio or TNC paired over Bluetooth it transmits and receives over RF. Tracker mode sends your position with SmartBeaconing even with the screen off."
+      ],
+      "features": [
+        "APRS-IS with a server list (default soam.aprs2.net) or your own server, automatic passcode and editable filter (default r/4000)",
+        "Automatic reconnection when switching between Wi-Fi and mobile data",
+        "OpenStreetMap map with stations and proven RF links (internet, DMR and D-STAR are not counted as RF)",
+        "Messages: conversations, general channel (CQ) and bulletins, with ACK, retries and notifications",
+        "Send beacon button and background SmartBeaconing tracker",
+        "KISS TNC over Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro and similar) with live monitor",
+        "New-version notice and downloads from the official website"
+      ],
+      "requirements": [
+        "Android 8.0 or later",
+        "Install the APK from the website: allow \"install unknown apps\" when Android asks",
+        "Location (beacon/tracker), notification and Bluetooth (TNC) permissions"
       ]
     },
     "aprs": {

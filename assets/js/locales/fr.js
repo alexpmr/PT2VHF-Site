@@ -5,7 +5,7 @@ window.PT2VHF_I18N["fr"] = {
     "navContact": "Contact",
     "language": "Langue",
     "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT",
-    "homeTitle": "Logiciels pour radioamateurs. Six projets, une station.",
+    "homeTitle": "Logiciels pour radioamateurs. Sept projets, une station.",
     "homeLead": "APRS en temps réel, propagation, topologie Meshtastic, suivi de satellites, programmation de postes radio et analyse de logs et QSL. Découvrez les outils et leurs installateurs.",
     "homeExplore": "Explorer les projets",
     "homeKnow": "Découvrir les logiciels",
@@ -180,6 +180,29 @@ window.PT2VHF_I18N["fr"] = {
         "Carte et topologie du réseau",
         "Historique du trafic et télémétrie",
         "Export de rapports"
+      ]
+    },
+    "aprs-android": {
+      "summary": "APRS sur votre téléphone : carte, messages, balise, tracker en arrière-plan et TNC Bluetooth.",
+      "cardSummary": "Version Android de l’APRS Client, avec tracker SmartBeaconing et radio/TNC Bluetooth.",
+      "tagline": "APRS sous Android 8 ou ultérieur · APRS-IS et RF par Bluetooth",
+      "description": [
+        "Version mobile du PT2VHF APRS Client. Se connecte à APRS-IS sur le serveur choisi, calcule le passcode à partir de l’indicatif et affiche stations et liaisons RF sur la carte.",
+        "Avec une radio ou un TNC KISS appairé en Bluetooth, il émet et reçoit en RF. Le mode tracker envoie votre position avec SmartBeaconing même écran éteint."
+      ],
+      "features": [
+        "APRS-IS avec liste de serveurs (par défaut soam.aprs2.net) ou serveur personnel, passcode automatique et filtre modifiable (par défaut r/4000)",
+        "Reconnexion automatique lors du passage Wi-Fi ↔ données mobiles",
+        "Carte OpenStreetMap avec stations et liaisons RF avérées (internet, DMR et D-STAR ne comptent pas comme RF)",
+        "Messages : conversations, canal général (CQ) et bulletins, avec ACK, nouvelles tentatives et notifications",
+        "Bouton Envoyer la balise et tracker SmartBeaconing en arrière-plan",
+        "TNC KISS Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro et similaires) avec moniteur en direct",
+        "Avis de nouvelle version et téléchargements depuis le site officiel"
+      ],
+      "requirements": [
+        "Android 8.0 ou ultérieur",
+        "Installation via l’APK du site : autorisez « installer des applis inconnues » quand Android le demande",
+        "Autorisations de localisation (balise/tracker), notifications et Bluetooth (TNC)"
       ]
     },
     "aprs": {

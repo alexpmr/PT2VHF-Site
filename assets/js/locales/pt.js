@@ -5,7 +5,7 @@ window.PT2VHF_I18N["pt"] = {
     "navContact": "Contato",
     "language": "Idioma",
     "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT",
-    "homeTitle": "Software de radioamadorismo. Seis projetos, uma estação.",
+    "homeTitle": "Software de radioamadorismo. Sete projetos, uma estação.",
     "homeLead": "APRS em tempo real, propagação, topologia Meshtastic, rastreamento de satélites, programação de rádios e análise de logs e QSL. Conheça as ferramentas e seus instaladores.",
     "homeExplore": "Explorar projetos",
     "homeKnow": "Conhecer os programas",
