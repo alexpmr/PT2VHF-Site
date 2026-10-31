@@ -63,6 +63,11 @@ window.PT2VHF_PRODUCTS = [
     features: [
       "APRS-IS com lista de servidores (padrão soam.aprs2.net) ou servidor próprio, passcode automático e filtro editável (padrão r/4000)",
       "Reconexão automática ao trocar entre Wi-Fi e dados móveis",
+      "Conexão automática APRS-IS configurável; é possível receber sem transmitir pela internet",
+      "Persistência local de estações, enlaces RF e tracklog; restauração de dados após reabrir",
+      "Filtros e ordenação de mensagens e estações por proximidade, indicativo e última recepção",
+      "Indicadores APRS-IS/TNC/GPS por cor, favoritos, seguir estação móvel e diagnóstico RX/TX",
+      "Modos de beacon manual, periódico e SmartBeaconing configurável; interface PT/EN/ES/FR/IT",
       "Mapa OpenStreetMap com estações e enlaces RF comprovados (internet, DMR e D-STAR não contam como RF)",
       "Mensagens: conversas, canal geral (CQ) e boletins, com ACK, novas tentativas e notificações",
       "Botão Enviar beacon e modo tracker com SmartBeaconing em segundo plano",
