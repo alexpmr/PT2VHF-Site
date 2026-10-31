@@ -221,7 +221,9 @@
     return new Intl.DateTimeFormat(LOCALES[selectedLang], { day:"2-digit", month:"short", year:"numeric", timeZone:"UTC" }).format(date);
   }
 
-  function versionLabel(p) {
+  function versionLabel(p, f) {
+    // Arquivo de versão anterior mantido no manifesto (ex.: Linux quando a release nova é só Windows).
+    if (f && f.version) return "v" + esc(f.version);
     if (p.version) return "v" + esc(p.version);
     return p.loadError ? "—" : t("unreleased");
   }
@@ -327,7 +329,7 @@
           '<td data-label="' + esc(t("catFile")) + '"><span class="file-cell"><span class="file-name">' + esc(f.name || fileName(f.url)) + "</span>" +
           (detail ? '<span class="file-label">' + esc(detail) + "</span>" : "") +
           "</span></td>" +
-          '<td data-label="' + esc(t("catVersion")) + '" class="mono">' + versionLabel(p) + "</td>" +
+          '<td data-label="' + esc(t("catVersion")) + '" class="mono">' + versionLabel(p, f) + "</td>" +
           '<td data-label="' + esc(t("catDate")) + '" class="nowrap">' + (formatDate(f.date || p.date) || "—") + "</td>" +
           '<td data-label="' + esc(t("catSize")) + '" class="nowrap">' + (humanSize(f.size) || "—") + "</td>" +
           '<td data-label="' + esc(t("catDownloads")) + '" class="count-cell"><span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.counterKey || f.category) + '" aria-live="polite">—</span></td>' +
