@@ -25,28 +25,21 @@ jobs:
 
       - name: Verify official signed release availability
         shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           asset="PT2VHF_APRS_Client_Android_v0.1.6.apk"
-          ready=0
-          for i in $(seq 1 60); do
-            if gh api repos/alexpmr/PT2VHF-APRS-Android/releases/tags/v0.1.6 > "$RUNNER_TEMP/aprs-android-release.json" 2>/dev/null; then
-              name="$(jq -r --arg name "$asset" '.assets[] | select(.name==$name) | .name' "$RUNNER_TEMP/aprs-android-release.json")"
-              digest="$(jq -r --arg name "$asset" '.assets[] | select(.name==$name) | .digest' "$RUNNER_TEMP/aprs-android-release.json")"
-              if [[ "$name" == "$asset" && "$digest" == sha256:* ]]; then
-                ready=1
-                break
-              fi
-            fi
-            echo "The signed Android v0.1.6 release is not available yet (check $i/60)."
-            sleep 15
-          done
-          if [ "$ready" -ne 1 ]; then
-            echo "::error::Signed APK v0.1.6 was not published by the Android pipeline."
-            exit 1
-          fi
+          # The GITHUB_TOKEN for this SITE repository cannot read the Android
+          # repository through "gh api" (GitHub App repo-scoped token).
+          # Its public release is read without this token.
+          url="https://api.github.com/repos/alexpmr/PT2VHF-APRS-Android/releases/tags/v0.1.6"
+          curl --fail --show-error --silent --location --retry 5 --retry-all-errors \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "$url" --output "$RUNNER_TEMP/aprs-android-release.json"
+          jq -e --arg asset "$asset" '
+            .tag_name == "v0.1.6" and (.draft | not)
+            and ([.assets[] | select(.name == $asset and (.digest | test("^sha256:[0-9a-f]{64}$")))] | length == 1)
+          ' "$RUNNER_TEMP/aprs-android-release.json" >/dev/null
           echo "SIGNED_ANDROID_RELEASE_FOUND=1"
 
       - name: Download published APK into the site checkout
