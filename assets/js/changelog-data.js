@@ -56,6 +56,7 @@
   var LOG = {
     qsl: {
       pt: [
+        e("1.15.2", "Anúncio no seu idioma e enlaces preservados", ["O boletim de versão nova sai no idioma configurado, com download em www.PT2VHF.com; a divulgação da aba Sobre também passa a usar www.PT2VHF.com.", "Limpar as estações não apaga nem esconde mais os enlaces do mapa.", "O cabeçalho ganhou o botão Enviar Beacon no lugar do ícone."]),
         e("0.6.0", "Envio automático e testar conexão", ["Contatos baixados das plataformas que já existiam ficam marcados como enviados, e o envio ao QRZ.com ficou muito mais rápido.", "Envio automático de cada contato novo às plataformas escolhidas, botão Testar conexão com LED e Plataformas em Configurações.", "Formulário com banda automática pela frequência, frequência e modo do último contato e botão Salvar e adicionar novo; ficha do indicativo com bandeira e resumo dos dados; termo Grid em todo o programa."]),
         e("0.5.0", "Recuperação de dados e indicativo ativo", ["Se o banco abrir vazio, o programa recupera sozinho os contatos da versão anterior e avisa quantos restaurou.", "Menu no cabeçalho para escolher o indicativo ativo; formulário de contato mostra se a estação já foi trabalhada e se a banda/modo é novo.", "Backup automático direto na pasta do OneDrive, Dropbox, Google Drive ou iCloud; instaladores com o nome QSL Manager."]),
         e("0.4.0", "Novo nome: PT2VHF QSL Manager", ["Agora um gerenciador de contatos: inserir, editar e apagar contatos, enviar e sincronizar com QRZ.com, LoTW (via TQSL), eQSL e Club Log.", "Downloads das plataformas a partir de 1980, mensagens claras quando o LoTW limita consultas e sincronização incremental.", "Backup completo com senhas opcionais protegidas, restauração com prévia e backup automático."]),
@@ -64,6 +65,7 @@
         e("0.1.0", "Primeira versão", ["Banco local incremental com limpeza por indicativo; ADIF, ADX, Cabrillo, EDI e CSV; importação do QRZ.com, LoTW, eQSL e Club Log.", "20 estatísticas, status de QSL, gráficos interativos, relatórios em PDF e exportação ADIF/CSV/Cabrillo/KML."])
       ],
       en: [
+        e("1.15.2", "Announcement in your language and links kept", ["The new-version bulletin is sent in the configured language, with download at www.PT2VHF.com; the About tab promotion also uses www.PT2VHF.com.", "Clearing stations no longer deletes or hides the map links.", "The header now has a Send Beacon button instead of the icon."]),
         e("0.6.0", "Automatic upload and connection test", ["Contacts downloaded from the platforms that already existed are marked as uploaded, and uploading to QRZ.com is much faster.", "Automatic upload of each new contact to the chosen platforms, Test connection button with LED, and Platforms moved to Settings.", "Contact form with band from frequency, last frequency and mode prefilled and a Save and add new button; callsign sheet with flag and data summary; Grid wording throughout."]),
         e("0.5.0", "Data recovery and active callsign", ["If the database opens empty, the program recovers the contacts from the previous version and tells how many were restored.", "Header menu to pick the active callsign; the contact form shows whether the station was worked before and if the band/mode is new.", "Automatic backup straight into the OneDrive, Dropbox, Google Drive or iCloud folder; installers named QSL Manager."]),
         e("0.4.0", "New name: PT2VHF QSL Manager", ["Now a contact manager: add, edit and delete contacts, upload and sync with QRZ.com, LoTW (via TQSL), eQSL and Club Log.", "Platform downloads from 1980, clear messages when LoTW limits queries and incremental sync.", "Full backup with optional protected passwords, restore with preview and automatic backup."]),
@@ -72,6 +74,7 @@
         e("0.1.0", "First release", ["Incremental local database with clearing by callsign; ADIF, ADX, Cabrillo, EDI and CSV; import from QRZ.com, LoTW, eQSL and Club Log.", "20 statistics, QSL status, interactive charts, PDF reports and ADIF/CSV/Cabrillo/KML export."])
       ],
       es: [
+        e("1.15.2", "Anuncio en su idioma y enlaces preservados", ["El boletín de versión nueva se envía en el idioma configurado, con descarga en www.PT2VHF.com; la divulgación de la pestaña Acerca de también usa www.PT2VHF.com.", "Limpiar las estaciones ya no borra ni oculta los enlaces del mapa.", "El encabezado tiene el botón Enviar beacon en lugar del icono."]),
         e("0.6.0", "Envío automático y prueba de conexión", ["Los contactos descargados de las plataformas que ya existían quedan marcados como enviados, y el envío a QRZ.com es mucho más rápido.", "Envío automático de cada contacto nuevo a las plataformas elegidas, botón Probar conexión con LED y Plataformas en Configuración.", "Formulario con banda automática por la frecuencia, frecuencia y modo del último contacto y botón Guardar y añadir otro; ficha del indicativo con bandera y resumen de datos; término Grid en todo el programa."]),
         e("0.5.0", "Recuperación de datos e indicativo activo", ["Si la base abre vacía, el programa recupera los contactos de la versión anterior e informa cuántos restauró.", "Menú en la cabecera para elegir el indicativo activo; el formulario de contacto muestra si la estación ya fue trabajada y si la banda/modo es nuevo.", "Copia automática directa en la carpeta de OneDrive, Dropbox, Google Drive o iCloud; instaladores con el nombre QSL Manager."]),
         e("0.4.0", "Nuevo nombre: PT2VHF QSL Manager", ["Ahora un gestor de contactos: agregar, editar y eliminar contactos, enviar y sincronizar con QRZ.com, LoTW (vía TQSL), eQSL y Club Log.", "Descargas de las plataformas desde 1980, mensajes claros cuando LoTW limita consultas y sincronización incremental.", "Copia completa con contraseñas protegidas opcionales, restauración con vista previa y copia automática."]),
@@ -103,6 +106,7 @@
         e("1.3.11", "Predicción comparada con el radio real", ["Compara el Doppler calculado con FA/FB leídas del TS-2000 aproximadamente cada segundo.", "Reconcilia automáticamente el radio cuando la frecuencia real difiere."])
       ],
       fr: [
+        e("1.15.2", "Annonce dans votre langue et liaisons conservées", ["Le bulletin de nouvelle version est envoyé dans la langue configurée, avec téléchargement sur www.PT2VHF.com ; la promotion de l’onglet À propos utilise aussi www.PT2VHF.com.", "Effacer les stations ne supprime ni ne masque plus les liaisons de la carte.", "L’en-tête affiche le bouton Envoyer le beacon à la place de l’icône."]),
         e("1.3.15", "Satellites par défaut et écran épuré", ["Les nouvelles installations démarrent avec ISS, IO-86 et SO-50 activés ; les sélections enregistrées sont conservées.", "Bloc Prochain passage du satellite sélectionné supprimé ; le tableau des passages sur 36 h reste disponible."]),
         e("1.3.14", "Mise à jour OTA via le site PT2VHF", ["Mises à jour vérifiées et téléchargées uniquement depuis www.pt2vhf.com, sans redirection.", "Taille et SHA-256 obligatoires ; annonce du nouveau site officiel au démarrage."]),
         e("1.3.13", "Avis de nouvelle version", ["Lorsqu’une nouvelle version est détectée, propose de mettre à jour maintenant.", "Plus tard reporte la même version de 24 heures ; rien n’est installé sans confirmation."]),
@@ -110,6 +114,7 @@
         e("1.3.11", "Prévision comparée au poste réel", ["Compare le Doppler calculé aux FA/FB lues sur le TS-2000 environ chaque seconde.", "Réaligne automatiquement le poste lorsque la fréquence réelle diverge."])
       ],
       de: [
+        e("1.15.2", "Ankündigung in Ihrer Sprache, Verbindungen bleiben erhalten", ["Das Bulletin zur neuen Version wird in der eingestellten Sprache gesendet, Download unter www.PT2VHF.com; auch die Werbung im Reiter Über nutzt www.PT2VHF.com.", "Das Löschen der Stationen löscht oder verbirgt die Kartenverbindungen nicht mehr.", "Die Kopfzeile hat jetzt die Schaltfläche Beacon senden statt des Symbols."]),
         e("1.3.15", "Standardsatelliten und aufgeräumte Ansicht", ["Neuinstallationen starten mit ISS, IO-86 und SO-50 aktiviert; gespeicherte Auswahl bleibt erhalten.", "Block Nächster Überflug des gewählten Satelliten entfernt; die 36-h-Überflugtabelle bleibt."]),
         e("1.3.14", "OTA über die PT2VHF-Website", ["Updates werden nur von www.pt2vhf.com geprüft und geladen, ohne Weiterleitungen.", "Größe und SHA-256 Pflicht; Hinweis auf die neue offizielle Website beim Start."]),
         e("1.3.13", "Hinweis auf neue Version", ["Bei einer neuen Version wird gefragt, ob jetzt aktualisiert werden soll.", "Später verschiebt dieselbe Version um 24 Stunden; nichts wird ohne Bestätigung installiert."]),
@@ -117,6 +122,7 @@
         e("1.3.11", "Vorhersage im Vergleich zum echten Funkgerät", ["Vergleicht den berechneten Doppler etwa sekündlich mit den vom TS-2000 gelesenen FA/FB.", "Gleicht das Funkgerät automatisch ab, wenn die tatsächliche Frequenz abweicht."])
       ],
       it: [
+        e("1.15.2", "Annuncio nella tua lingua e collegamenti mantenuti", ["Il bollettino di nuova versione viene inviato nella lingua configurata, con download su www.PT2VHF.com; anche la promozione della scheda Informazioni usa www.PT2VHF.com.", "Cancellare le stazioni non elimina né nasconde più i collegamenti sulla mappa.", "L’intestazione ha il pulsante Invia beacon al posto dell’icona."]),
         e("1.3.15", "Satelliti predefiniti e schermata più pulita", ["Le nuove installazioni partono con ISS, IO-86 e SO-50 abilitati; le selezioni salvate restano.", "Rimosso il blocco Prossimo passaggio del satellite selezionato; la tabella dei passaggi a 36 h resta disponibile."]),
         e("1.3.14", "OTA dal sito PT2VHF", ["Aggiornamenti verificati e scaricati solo da www.pt2vhf.com, senza reindirizzamenti.", "Dimensione e SHA-256 obbligatori; avviso del nuovo sito ufficiale all’avvio."]),
         e("1.3.13", "Avviso di nuova versione", ["Quando trova una nuova versione, chiede se aggiornare subito.", "Più tardi rimanda la stessa versione di 24 ore; nulla viene installato senza conferma."]),
@@ -124,6 +130,7 @@
         e("1.3.11", "Previsione confrontata con la radio reale", ["Confronta il Doppler calcolato con FA/FB letti dal TS-2000 circa ogni secondo.", "Riallinea automaticamente la radio quando la frequenza reale differisce."])
       ],
       zh: [
+        e("1.15.2", "以您的语言发布公告并保留链路", ["新版本公告以所设置的语言发送，下载地址 www.PT2VHF.com；“关于”选项卡的推广也改用 www.PT2VHF.com。", "清除电台不再删除或隐藏地图上的链路。", "页眉中的图标改为“发送信标”按钮。"]),
         e("1.3.15", "默认卫星与更简洁的界面", ["新安装默认启用 ISS、IO-86 和 SO-50；已保存的选择保持不变。", "移除“所选卫星的下一次过境”区块；36 小时过境表仍然保留。"]),
         e("1.3.14", "通过 PT2VHF 官网 OTA 更新", ["仅从 www.pt2vhf.com 检查并下载更新，不允许重定向。", "必须校验大小和 SHA-256；启动时提示新的官方网站。"]),
         e("1.3.13", "新版本提示", ["发现新版本时询问是否立即更新。", "“稍后”将同一版本推迟 24 小时；未经确认不会安装。"]),
