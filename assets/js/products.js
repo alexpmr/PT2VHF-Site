@@ -67,7 +67,12 @@ window.PT2VHF_PRODUCTS = [
       "Mensagens: conversas, canal geral (CQ) e boletins, com ACK, novas tentativas e notificações",
       "Botão Enviar beacon e modo tracker com SmartBeaconing em segundo plano",
       "TNC KISS por Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro e similares) com monitor ao vivo",
-      "Aviso de nova versão e downloads pelo site oficial"
+      "Aviso de nova versão e downloads pelo site oficial",
+      "Símbolos APRS convencionais nas tabelas primária e alternativa, inclusive overlays; disponíveis offline dentro do APK",
+      "Restauração da visualização anterior do mapa, preservando centro e zoom, com ação Minha localização",
+      "Filtro combinado de estações por indicativo, tipo, fonte APRS-IS/RF, período de recepção e distância",
+      "Ordenação ascendente ou descendente por indicativo, primeira/última recepção e distância, com histórico local",
+      "Confirmação de saída, com opção de manter ou interromper o tracker; versão instalada exibida no aviso do site oficial"
     ],
     supported: [
       {
