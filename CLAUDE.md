@@ -44,3 +44,5 @@ uma release finalizada apenas porque o APK saiu no GitHub Actions.
    sucesso do commit.
 7. Não iniciar versão nova por conta própria: esta é uma regra do fluxo de
    publicação quando o mantenedor solicitar a próxima versão.
+
+- **Todo novo item de backlog deve ser registrado imediatamente no GitHub:** atualizar `BACKLOG.md` no repositório correspondente e realizar commit de documentação no mesmo atendimento. Não basta mencionar a pendência na conversa. Confirmar repositório/branch/commit; não implementar nem publicar versão até pedido explícito. Se o commit falhar, informar claramente que o registro não foi concluído.
