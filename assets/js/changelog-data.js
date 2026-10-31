@@ -42,6 +42,15 @@
       it: "Evoluzione del QSL Manager, versione per versione.",
       zh: "QSL Manager 各版本更新。"
     },
+    "aprs-android": {
+      pt: "Histórico oficial de versões do PT2VHF APRS Client for Android.",
+      en: "Official PT2VHF APRS Client for Android release history.",
+      es: "Historial oficial de versiones de PT2VHF APRS Client for Android.",
+      fr: "Historique officiel des versions de PT2VHF APRS Client for Android.",
+      de: "Offizielle Versionshistorie des PT2VHF APRS Client for Android.",
+      it: "Cronologia ufficiale delle versioni di PT2VHF APRS Client for Android.",
+      zh: "PT2VHF APRS Client for Android 官方版本更新记录。"
+    },
     prog: {
       pt: "Versão publicada no site; as próximas versões serão listadas aqui.",
       en: "Version published on the site; future versions will be listed here.",
@@ -216,6 +225,15 @@
         e("1.14.56", "地图链路与诊断", ["修复：气象站因风速被当作移动速度而被视为移动台。", "“检查数据库”说明 RF 链路数量以及某条链路为何被隐藏。"]),
         e("1.14.55", "链路规划与最佳站址", ["两点间链路：地形剖面、菲涅耳区、估算信号和可行性结论。", "最佳站址：在绘制区域内列出山顶，并支持 CSV 和 PDF。"])
       ]
+    },
+    "aprs-android": {
+      pt: [e("0.1.0", "Primeira versão Android", ["APRS-IS com servidor configurável, passcode automático e reconexão ao alternar entre Wi-Fi e dados móveis.", "Mapa OpenStreetMap com estações e enlaces RF; mensagens, CQ, boletins, ACK e notificações.", "Beacon manual, SmartBeaconing em segundo plano, TNC KISS Bluetooth e aviso de atualização pelo site oficial."])],
+      en: [e("0.1.0", "First Android release", ["APRS-IS with configurable server, automatic passcode and reconnection when switching between Wi-Fi and mobile data.", "OpenStreetMap with stations and RF links; messages, CQ, bulletins, ACK and notifications.", "Manual beacon, background SmartBeaconing, Bluetooth KISS TNC and update notice from the official website."])],
+      es: [e("0.1.0", "Primera versión Android", ["APRS-IS con servidor configurable, código de acceso automático y reconexión al cambiar entre Wi-Fi y datos móviles.", "Mapa OpenStreetMap con estaciones y enlaces RF; mensajes, CQ, boletines, ACK y notificaciones.", "Beacon manual, SmartBeaconing en segundo plano, TNC KISS Bluetooth y aviso de actualización desde el sitio oficial."])],
+      fr: [e("0.1.0", "Première version Android", ["APRS-IS avec serveur configurable, code d’accès automatique et reconnexion lors du passage du Wi-Fi aux données mobiles.", "Carte OpenStreetMap avec stations et liaisons RF ; messages, CQ, bulletins, accusés de réception et notifications.", "Balise manuelle, SmartBeaconing en arrière-plan, TNC KISS Bluetooth et avis de mise à jour via le site officiel."])],
+      de: [e("0.1.0", "Erste Android-Version", ["APRS-IS mit konfigurierbarem Server, automatischem Passcode und Wiederverbindung beim Wechsel zwischen WLAN und Mobilfunk.", "OpenStreetMap mit Stationen und HF-Verbindungen; Nachrichten, CQ, Bulletins, ACKs und Benachrichtigungen.", "Manuelle Bake, SmartBeaconing im Hintergrund, Bluetooth-KISS-TNC und Update-Hinweis über die offizielle Website."])],
+      it: [e("0.1.0", "Prima versione Android", ["APRS-IS con server configurabile, passcode automatico e riconnessione tra Wi-Fi e rete mobile.", "Mappa OpenStreetMap con stazioni e collegamenti RF; messaggi, CQ, bollettini, ACK e notifiche.", "Beacon manuale, SmartBeaconing in background, TNC KISS Bluetooth e avviso di aggiornamento dal sito ufficiale."])],
+      zh: [e("0.1.0", "首个 Android 版本", ["APRS-IS 支持配置服务器、自动生成通行码，并在 Wi-Fi 与移动网络切换时重新连接。", "OpenStreetMap 地图显示电台和射频链路，支持消息、CQ、公告、ACK 确认和通知。", "支持手动信标、后台 SmartBeaconing、蓝牙 KISS TNC，以及通过官方网站检查新版本。"])]
     },
     prog: {
       pt: [e("1.3.2", "Aviso do site oficial", ["Ao abrir, um aviso informa que downloads e atualizações vêm somente de www.pt2vhf.com.", "O aviso de versão nova aparece em seguida, depois que o aviso é fechado."]), e("1.3.1", "Instalador do Windows e testes automáticos", ["Instalador do Windows corrigido para também ser gerado no próprio Windows (caminhos e acentos do assistente).", "Testes automáticos no Linux e no Windows a cada alteração, incluindo a geração do instalador."]), e("1.3.0", "Display em tempo real e atualização pelo site", ["Réplica do display do TS-2000 e painel completo com todos os dados do rádio (ganhos, filtro, medidores de TX).", "Atualização automática assinada pelo site pt2vhf.com; tabela de menus completa conforme o manual; fotos dos rádios na tela inicial."]), e("1.2.0", "Novo nome: PT2VHF Prog Tool", ["O programa passa a se chamar PT2VHF Prog Tool (antes Programador de Rádios); o instalador Windows remove a versão 1.1.0 e o .deb substitui o pacote antigo.", "Arquivos .ts2k e .icf continuam compatíveis; instaladores para Windows e Linux."])],
