@@ -1,0 +1,48 @@
+name: Verify Android v0.1.3 on the live PT2VHF website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-live-aprs-android-013.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Verify website OTA and downloadable signed APK
+        run: |
+          set -euo pipefail
+          endpoint='https://www.pt2vhf.com/update.php?product=aprs-android'
+          apk_url='https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.3.apk?pt2vhf_raw=1'
+          for attempt in 1 2 3 4 5 6; do
+            echo "Hostinger verification attempt $attempt"
+            if curl -fsSL --connect-timeout 10 --max-time 25 "$endpoint" -o "$RUNNER_TEMP/ota.json" && \
+              python3 - "$RUNNER_TEMP/ota.json" <<'PY'
+          import json, sys
+          data = json.load(open(sys.argv[1], encoding='utf-8'))
+          assert data.get('status') == 'available', data
+          assert data.get('version') == '0.1.3', data
+          apk = next(f for f in data['files'] if f.get('name') == 'PT2VHF_APRS_Client_Android_v0.1.3.apk')
+          assert apk.get('size') == 7428195
+          assert apk.get('sha256') == 'f2d2b765aeaa5fa906d60f7644d5c2e1a835633e42c990f8a8906d8ecea7d711'
+          print('LIVE_OTA=0.1.3')
+          PY
+            then
+              break
+            fi
+            if [ "$attempt" -eq 6 ]; then
+              echo "::error::Website OTA did not reach Android 0.1.3; check Hostinger Git deployment"
+              exit 1
+            fi
+            sleep 12
+          done
+          curl -fsSL --connect-timeout 10 --max-time 80 "$apk_url" -o "$RUNNER_TEMP/android013.apk"
+          test "$(stat -c '%s' "$RUNNER_TEMP/android013.apk")" = 7428195
+          test "$(sha256sum "$RUNNER_TEMP/android013.apk" | cut -d' ' -f1)" = \
+            'f2d2b765aeaa5fa906d60f7644d5c2e1a835633e42c990f8a8906d8ecea7d711'
+          echo "LIVE_APK_SHA256=VERIFIED"
