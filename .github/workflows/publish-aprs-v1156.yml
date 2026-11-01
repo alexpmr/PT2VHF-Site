@@ -1,0 +1,65 @@
+name: Publish APRS Client v1.15.6 to PT2VHF Site (GitHub only)
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-aprs-v1156.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: pt2vhf-aprs-site-v1156
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check official GitHub build result and commit
+        env:
+          GH_TOKEN: ${{ secrets.PT2VHF_APRS_ACTIONS_READ_TOKEN || github.token }}
+        run: |
+          set -euo pipefail
+          gh api repos/alexpmr/PT2VHF-APRS-Client/actions/runs/41261573176 \
+            --jq '{status, conclusion, head_sha}' > /tmp/source.json
+          jq -e '.status == "completed" and .conclusion == "success" and .head_sha == "92e633714f43856c4929e27f25423da8b6a543e3"' /tmp/source.json
+      - name: Require localization browser tests at the exact source commit
+        env:
+          GH_TOKEN: ${{ secrets.PT2VHF_APRS_ACTIONS_READ_TOKEN || github.token }}
+        run: |
+          set -euo pipefail
+          gh api repos/alexpmr/PT2VHF-APRS-Client/actions/runs/41261573154 \
+            --jq '{status, conclusion, head_sha}' > /tmp/i18n.json
+          jq -e '.status == "completed" and .conclusion == "success" and .head_sha == "92e633714f43856c4929e27f25423da8b6a543e3"' /tmp/i18n.json
+      - name: Download exact successful GitHub Actions binaries
+        uses: actions/download-artifact@v4
+        with:
+          repository: alexpmr/PT2VHF-APRS-Client
+          run-id: 41261573176
+          pattern: PT2VHF-APRS-Client-*
+          merge-multiple: true
+          path: artifacts
+          github-token: ${{ secrets.PT2VHF_APRS_ACTIONS_READ_TOKEN || github.token }}
+      - name: Validate binaries and update official website manifest
+        run: |
+          set -euo pipefail
+          python3 scripts/publish_aprs_v1156.py artifacts
+          python3 -m json.tool updates.json >/dev/null
+          php -l update.php
+          php -l download.php
+          node --check assets/js/changelog-data.js
+      - name: Commit only validated downloads and manifest
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add updates.json downloads/aprs-client assets/js/changelog-data.js aprs.html
+          if ! git diff --cached --quiet; then
+            git commit -m "release(aprs): publicar v1.15.6 no site oficial"
+            git push origin HEAD:main
+          fi
+          echo "GITHUB_SITE_APRS_PUBLICATION_RECORDED=1"
+      - name: Verify actual Hostinger OTA and all served binary hashes
+        run: python3 scripts/verify_aprs_v1156_live.py --wait
