@@ -65,3 +65,5 @@ jobs:
           git commit -m "release(site): Linux ARM64 v1.15.6 — Raspberry Pi AppImage DEB TAR"
           git push origin HEAD:main
           echo "ARM64_SITE_REPOSITORY_PUBLISHED=1"
+      - name: Verify three ARM64 downloads and OTA from live Hostinger
+        run: python3 scripts/verify_aprs_linux_arm64_live.py --wait
