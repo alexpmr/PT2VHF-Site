@@ -1,0 +1,67 @@
+name: Publish Raspberry Pi Linux ARM64 v1.15.6 (AppImage, DEB, TAR)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-aprs-1156-linux-arm64.yml
+      - scripts/publish_aprs_linux_arm64_1156.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pt2vhf-site-linux-arm64-v1156
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Require a successful native ARM64 GitHub Actions build on main
+        env:
+          GH_TOKEN: ${{ secrets.PT2VHF_APRS_ACTIONS_READ_TOKEN || github.token }}
+        run: |
+          set -euo pipefail
+          gh api "repos/alexpmr/PT2VHF-APRS-Client/actions/workflows/build-linux-arm64-raspberry.yml/runs?branch=main&status=success&per_page=1" \
+            --jq '.workflow_runs[0] | {status,conclusion,head_sha,run_attempt}' > /tmp/arm-run.json
+          jq -e '.status == "completed" and .conclusion == "success" and (.head_sha | length == 40)' /tmp/arm-run.json
+      - name: Download three ARM64 packages from the official GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.PT2VHF_APRS_ACTIONS_READ_TOKEN || github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p release-arm64
+          for pattern in \
+            PT2VHF_APRS_Client_arm64_v1.15.6.AppImage \
+            pt2vhf-aprs-client_1.15.6_arm64.deb \
+            PT2VHF_APRS_Client_Linux_arm64_v1.15.6.tar.gz; do
+            gh release download v1.15.6 \
+              --repo alexpmr/PT2VHF-APRS-Client --pattern "$pattern" \
+              --dir release-arm64
+          done
+      - name: Verify AArch64 ELF, Debian architecture, TAR and preserve current site files
+        run: |
+          set -euo pipefail
+          python3 scripts/publish_aprs_linux_arm64_1156.py release-arm64
+          python3 -m json.tool updates.json >/dev/null
+          php -l download.php
+          php -l update.php
+      - name: Commit verified binaries and OTA additions in the GitHub site repository
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- updates.json downloads/aprs-client
+          if git diff --cached --quiet; then
+            echo "Already published in GitHub; no changes."
+            exit 0
+          fi
+          git commit -m "release(site): Linux ARM64 v1.15.6 — Raspberry Pi AppImage DEB TAR"
+          git push origin HEAD:main
+          echo "ARM64_SITE_REPOSITORY_PUBLISHED=1"
