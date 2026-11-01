@@ -1,0 +1,16 @@
+name: Verify live APRS v1.15.6 hashes and OTA
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/verify-aprs-v1156-live.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-live:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify all nine served binaries and the matching OTA manifest
+        run: python3 scripts/verify_aprs_v1156_live.py
