@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-31",
+  "updated": "2026-11-01",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -349,6 +349,42 @@
           "sha256": "e55d0e92e31d7a6556c10f899a959dd90e86529b42438581f20d4a83ec55125b",
           "detail": "PT2VHF APRS Client Apple Silicon",
           "version": "1.15.6"
+        },
+        {
+          "name": "PT2VHF_APRS_Client_arm64_v1.15.6.AppImage",
+          "category": "linux-appimage",
+          "counterKey": "linux-appimage-arm64",
+          "architecture": "ARM64 / aarch64",
+          "platform": "linux-arm64",
+          "size": 39135752,
+          "sha256": "a396789bcca6d3848efa085a091332a498f07df5628e56621096ecf084cdcae2",
+          "detail": "Linux ARM64 — AppImage (Raspberry Pi)",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_arm64_v1.15.6.AppImage",
+          "version": "1.15.6"
+        },
+        {
+          "name": "pt2vhf-aprs-client_1.15.6_arm64.deb",
+          "category": "linux-deb",
+          "counterKey": "linux-deb-arm64",
+          "architecture": "ARM64 / aarch64",
+          "platform": "linux-arm64",
+          "size": 37993706,
+          "sha256": "54626da1b55877c22f56e7fb2503a7264f8d4480d2aa4010d278a2b304198af4",
+          "detail": "Linux ARM64 — DEB (Raspberry Pi OS 64-bit)",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/pt2vhf-aprs-client_1.15.6_arm64.deb",
+          "version": "1.15.6"
+        },
+        {
+          "name": "PT2VHF_APRS_Client_Linux_arm64_v1.15.6.tar.gz",
+          "category": "linux-targz",
+          "counterKey": "linux-tar-arm64",
+          "architecture": "ARM64 / aarch64",
+          "platform": "linux-arm64",
+          "size": 38155710,
+          "sha256": "265d0ad786e828387b32c568d1237bf792f10413d4819e65cd84f5ecfbd9318f",
+          "detail": "Linux ARM64 — TAR.GZ (Raspberry Pi)",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Linux_arm64_v1.15.6.tar.gz",
+          "version": "1.15.6"
         }
       ],
       "developmentVersion": "1.15.6",
@@ -408,10 +444,28 @@
           "counterKey": "mac-dmg-arm64",
           "architecture": "Apple Silicon",
           "name": "PT2VHF_APRS_Client_macOS_arm64_v1.15.6.dmg"
+        },
+        {
+          "category": "linux-appimage",
+          "counterKey": "linux-appimage-arm64",
+          "architecture": "ARM64 / aarch64",
+          "name": "PT2VHF_APRS_Client_arm64_v1.15.6.AppImage"
+        },
+        {
+          "category": "linux-deb",
+          "counterKey": "linux-deb-arm64",
+          "architecture": "ARM64 / aarch64",
+          "name": "pt2vhf-aprs-client_1.15.6_arm64.deb"
+        },
+        {
+          "category": "linux-targz",
+          "counterKey": "linux-tar-arm64",
+          "architecture": "ARM64 / aarch64",
+          "name": "PT2VHF_APRS_Client_Linux_arm64_v1.15.6.tar.gz"
         }
       ],
       "date": "2026-10-31",
-      "notes": "Tradução dinâmica, bandeiras corretas, 30 textos revisados e regressão de interface em seis idiomas. Revisão integral de traduções (#157) continua aberta."
+      "notes": "Tradução dinâmica, bandeiras corretas, 30 textos revisados e regressão de interface em seis idiomas. Revisão integral de traduções (#157) continua aberta. Linux ARM64/Raspberry Pi OS 64-bit: AppImage, .deb e .tar.gz nativos."
     },
     "sat": {
       "name": "PT2VHF Sat Tool",
