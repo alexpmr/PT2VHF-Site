@@ -64,4 +64,14 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as error:
+        chain = []
+        current = error
+        while current is not None:
+            chain.append(f"{type(current).__name__}: {current}")
+            current = current.__cause__
+        message = " <- ".join(chain).replace("%", "%25").replace("\n", "%0A").replace("\r", "%0D")
+        print("::error::" + message, flush=True)
+        raise

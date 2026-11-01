@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Verify all nine served binaries and the matching OTA manifest
-        run: python3 scripts/verify_aprs_v1156_live.py
+        run: python3 -u scripts/verify_aprs_v1156_live.py
