@@ -156,6 +156,7 @@
     },
     aprs: {
       pt: [
+        e("1.15.6", "Tradução dinâmica e bandeiras", ["Textos dinâmicos, bandeiras e persistência de idioma testados em seis idiomas; dez idiomas preservados.", "A revisão integral das traduções (#157) continua aberta."]),
         e("1.15.1", "Configuração em sub-abas", ["A Configuração agora é dividida em sub-abas: Estação, APRS-IS, TNC / RF, Mapa, Aplicativo, Integrações, Banco de dados e Backup; o indicador TNC abre direto a sub-aba TNC / RF.", "Posições de DMR, D-STAR, C4FM e outros modos digitais não aparecem mais como RF no mapa de calor e nos enlaces.", "Processamentos demorados podem ser cancelados pelo botão × e mostram o tempo decorrido."]),
         e("1.15.0", "Menu Ferramentas e análise de cobertura", ["Novo menu Ferramentas: análise de cobertura, enlace entre 2 pontos, melhor ponto para instalar estação, relevo com corte, relatório em PDF e diagnóstico para suporte.", "Análise de cobertura com potência em W (padrão 50 W), raio de 50 até 100 km, estações com e sem cobertura e comparação com as recepções reais por RF.", "PDFs com mapa de ruas; relevo com corte em coluna compacta e cor ajustável; TNC / RF agora fica em Configuração."]),
         e("1.14.62", "Downloads no site oficial", ["Ao iniciar, um aviso informa que novas versões e instaladores são distribuídos pelo site oficial."]),
@@ -168,6 +169,7 @@
         e("1.14.55", "Planejamento de enlaces e melhor ponto", ["Enlace entre 2 pontos com perfil de terreno, Fresnel, sinal estimado e veredito de viabilidade.", "Melhor ponto para instalar estação: topos da área desenhada, com CSV e PDF."])
       ],
       en: [
+        e("1.15.6", "Live translations and flags", ["Dynamic text, flags and saved language tested in six languages; all ten languages retained.", "The full translation review (#157) remains open."]),
         e("1.15.1", "Settings in sub-tabs", ["Settings are now split into sub-tabs: Station, APRS-IS, TNC / RF, Map, Application, Integrations, Database and Backup; the TNC indicator opens the TNC / RF sub-tab directly.", "Positions from DMR, D-STAR, C4FM and other digital modes no longer show up as RF in the heat map and links.", "Long-running processing can be cancelled with the × button and shows the elapsed time."]),
         e("1.15.0", "Tools menu and coverage analysis", ["New Tools menu: coverage analysis, link between 2 points, best spot to install a station, terrain cut, PDF report and support diagnostics.", "Coverage analysis with power in W (50 W default), radius from 50 up to 100 km, stations with and without coverage, and comparison with real RF receptions.", "PDFs with a street map; compact terrain cut with adjustable color; TNC / RF now lives in Settings."]),
         e("1.14.62", "Downloads on the official website", ["At startup, a notice explains that new versions and installers are distributed through the official website."]),
@@ -180,6 +182,7 @@
         e("1.14.55", "Link planning and best site", ["Point-to-point link with terrain profile, Fresnel zone, estimated signal and feasibility verdict.", "Best site for a station: peaks inside the drawn area, with CSV and PDF."])
       ],
       es: [
+        e("1.15.6", "Traducción dinámica y banderas", ["Textos dinámicos, banderas e idioma guardado probados en seis idiomas; diez idiomas conservados.", "La revisión completa de las traducciones (#157) sigue abierta."]),
         e("1.15.1", "Configuración en subpestañas", ["La Configuración ahora se divide en subpestañas: Estación, APRS-IS, TNC / RF, Mapa, Aplicación, Integraciones, Base de datos y Copia de seguridad; el indicador TNC abre directamente TNC / RF.", "Las posiciones de DMR, D-STAR, C4FM y otros modos digitales ya no aparecen como RF en el mapa de calor y en los enlaces.", "Los procesos largos se pueden cancelar con el botón × y muestran el tiempo transcurrido."]),
         e("1.15.0", "Menú Herramientas y análisis de cobertura", ["Nuevo menú Herramientas: análisis de cobertura, enlace entre 2 puntos, mejor punto para instalar una estación, relieve con corte, informe PDF y diagnóstico para soporte.", "Análisis de cobertura con potencia en W (50 W por defecto), radio de 50 hasta 100 km, estaciones con y sin cobertura y comparación con las recepciones reales por RF.", "PDF con mapa de calles; relieve con corte compacto y color ajustable; TNC / RF ahora está en Configuración."]),
         e("1.14.62", "Descargas en el sitio web oficial", ["Al iniciar, un aviso indica que las nuevas versiones e instaladores se distribuyen por el sitio oficial."]),
@@ -192,6 +195,7 @@
         e("1.14.55", "Planificación de enlaces y mejor punto", ["Enlace entre 2 puntos con perfil de terreno, Fresnel, señal estimada y veredicto de viabilidad.", "Mejor punto para instalar una estación: cumbres del área dibujada, con CSV y PDF."])
       ],
       fr: [
+        e("1.15.6", "Traduction dynamique et drapeaux", ["Textes dynamiques, drapeaux et langue enregistrée testés dans six langues ; dix langues conservées.", "La révision complète des traductions (#157) reste ouverte."]),
         e("1.15.1", "Configuration en sous-onglets", ["La configuration est désormais répartie en sous-onglets : Station, APRS-IS, TNC / RF, Carte, Application, Intégrations, Base de données et Sauvegarde ; l’indicateur TNC ouvre directement TNC / RF.", "Les positions DMR, D-STAR, C4FM et autres modes numériques n’apparaissent plus comme RF dans la carte de chaleur et les liaisons.", "Les traitements longs peuvent être annulés avec le bouton × et affichent le temps écoulé."]),
         e("1.15.0", "Menu Outils et analyse de couverture", ["Nouveau menu Outils : analyse de couverture, liaison entre 2 points, meilleur emplacement pour une station, relief avec coupe, rapport PDF et diagnostic pour le support.", "Analyse de couverture avec puissance en W (50 W par défaut), rayon de 50 à 100 km, stations couvertes ou non et comparaison avec les réceptions RF réelles.", "PDF avec carte des rues ; relief avec coupe compact et couleur réglable ; TNC / RF se trouve désormais dans Configuration."]),
         e("1.14.62", "Téléchargements sur le site officiel", ["Au démarrage, un avis indique que les nouvelles versions et installateurs sont distribués via le site officiel."]),
@@ -204,6 +208,7 @@
         e("1.14.55", "Planification de liaisons et meilleur site", ["Liaison entre 2 points avec profil du terrain, zone de Fresnel, signal estimé et verdict de faisabilité.", "Meilleur site pour une station : sommets de la zone dessinée, avec CSV et PDF."])
       ],
       de: [
+        e("1.15.6", "Dynamische Übersetzungen und Flaggen", ["Dynamische Texte, Flaggen und gespeicherte Sprache in sechs Sprachen getestet; alle zehn Sprachen bleiben erhalten.", "Die vollständige Überprüfung der Übersetzungen (#157) bleibt offen."]),
         e("1.15.1", "Einstellungen in Unterregistern", ["Die Einstellungen sind jetzt in Unterregister aufgeteilt: Station, APRS-IS, TNC / RF, Karte, Anwendung, Integrationen, Datenbank und Sicherung; die TNC-Anzeige öffnet direkt TNC / RF.", "Positionen aus DMR, D-STAR, C4FM und anderen Digitalmodi erscheinen nicht mehr als HF in der Heatmap und bei Verbindungen.", "Lange Verarbeitungen lassen sich mit der Schaltfläche × abbrechen und zeigen die verstrichene Zeit."]),
         e("1.15.0", "Menü Werkzeuge und Abdeckungsanalyse", ["Neues Menü Werkzeuge: Abdeckungsanalyse, Verbindung zwischen 2 Punkten, bester Standort für eine Station, Geländeschnitt, PDF-Bericht und Support-Diagnose.", "Abdeckungsanalyse mit Leistung in W (Standard 50 W), Radius von 50 bis 100 km, Stationen mit und ohne Abdeckung und Vergleich mit echten HF-Empfängen.", "PDFs mit Straßenkarte; kompakter Geländeschnitt mit einstellbarer Farbe; TNC / RF jetzt in den Einstellungen."]),
         e("1.14.62", "Downloads auf der offiziellen Website", ["Beim Start weist ein Hinweis darauf hin, dass neue Versionen über die offizielle Website verteilt werden."]),
@@ -216,6 +221,7 @@
         e("1.14.55", "Verbindungsplanung und bester Standort", ["Punkt-zu-Punkt-Verbindung mit Geländeprofil, Fresnelzone, geschätztem Signal und Machbarkeitsurteil.", "Bester Standort für eine Station: Gipfel im gezeichneten Bereich, mit CSV und PDF."])
       ],
       it: [
+        e("1.15.6", "Traduzione dinamica e bandiere", ["Testi dinamici, bandiere e lingua salvata verificati in sei lingue; dieci lingue mantenute.", "La revisione completa delle traduzioni (#157) rimane aperta."]),
         e("1.15.1", "Configurazione in sotto-schede", ["La Configurazione è ora divisa in sotto-schede: Stazione, APRS-IS, TNC / RF, Mappa, Applicazione, Integrazioni, Database e Backup; l’indicatore TNC apre direttamente TNC / RF.", "Le posizioni da DMR, D-STAR, C4FM e altri modi digitali non compaiono più come RF nella mappa di calore e nei collegamenti.", "Le elaborazioni lunghe possono essere annullate con il pulsante × e mostrano il tempo trascorso."]),
         e("1.15.0", "Menu Strumenti e analisi di copertura", ["Nuovo menu Strumenti: analisi di copertura, collegamento tra 2 punti, punto migliore per installare una stazione, rilievo con taglio, report PDF e diagnostica per il supporto.", "Analisi di copertura con potenza in W (50 W predefiniti), raggio da 50 fino a 100 km, stazioni con e senza copertura e confronto con le ricezioni RF reali.", "PDF con mappa stradale; rilievo con taglio compatto e colore regolabile; TNC / RF ora si trova in Configurazione."]),
         e("1.14.62", "Download sul sito ufficiale", ["All’avvio, un avviso indica che le nuove versioni sono distribuite tramite il sito ufficiale."]),
@@ -228,6 +234,7 @@
         e("1.14.55", "Pianificazione dei collegamenti e punto migliore", ["Collegamento tra 2 punti con profilo del terreno, zona di Fresnel, segnale stimato e verdetto di fattibilità.", "Punto migliore per una stazione: cime dell’area disegnata, con CSV e PDF."])
       ],
       zh: [
+        e("1.15.6", "动态翻译和国旗", ["已在六种语言中测试动态文本、国旗和语言保存；保留全部十种语言。", "完整翻译审查（#157）仍未完成。"]),
         e("1.15.1", "设置分为子选项卡", ["设置现在分为子选项卡：电台、APRS-IS、TNC / RF、地图、应用程序、集成、数据库和备份；TNC 指示器直接打开 TNC / RF。", "来自 DMR、D-STAR、C4FM 等数字模式的位置不再在热力图和链路中显示为射频。", "耗时的处理可通过 × 按钮取消，并显示已用时间。"]),
         e("1.15.0", "工具菜单与覆盖分析", ["新增工具菜单：覆盖分析、两点链路分析、最佳站点选址、地形切面、PDF 报告和支持诊断。", "覆盖分析按瓦特设置功率（默认 50 W），半径 50 至 100 km，列出有/无覆盖的电台，并与实际射频接收对比。", "PDF 带街道底图；紧凑的地形切面并可调颜色；TNC / RF 移至设置。"]),
         e("1.14.62", "官方网站下载", ["启动时提示：新版本和安装程序通过官方网站发布。"]),
