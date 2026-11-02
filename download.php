@@ -18,7 +18,7 @@ $allowed = array(
     'windows-installer', 'windows-portable', 'linux-deb', 'linux-targz', 'linux-appimage', 'macos',
     'win-setup-x64','win-portable-x64','win-setup-arm64','win-portable-arm64',
     'linux-appimage-x64','linux-appimage-arm64','linux-deb-x64','linux-deb-arm64',
-    'linux-tar-x64','linux-tar-arm64','mac-dmg-x64','mac-dmg-arm64',
+    'linux-tar-x64','linux-tar-arm64','mac-dmg-x64','mac-dmg-arm64','mac-dmg-intel-legacy',
     'win7-setup-x64','win7-portable-x64',
     'android-apk'
 );
