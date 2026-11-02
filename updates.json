@@ -335,7 +335,7 @@
           "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_macOS_x86_64_v1.15.6.dmg",
           "size": 27004568,
           "sha256": "a9d41789c14b12fe253ae9cf865489eb2f491c6237d0bb28d8b0c826cd396356",
-          "detail": "PT2VHF APRS Client Intel",
+          "detail": "Mac Intel (x86_64), macOS 11 ou superior. Catalina 10.15 exige o futuro instalador Intel Legacy.",
           "version": "1.15.6"
         },
         {
@@ -347,7 +347,7 @@
           "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_macOS_arm64_v1.15.6.dmg",
           "size": 25556865,
           "sha256": "e55d0e92e31d7a6556c10f899a959dd90e86529b42438581f20d4a83ec55125b",
-          "detail": "PT2VHF APRS Client Apple Silicon",
+          "detail": "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou superior. Não funciona em Macs Intel.",
           "version": "1.15.6"
         },
         {
