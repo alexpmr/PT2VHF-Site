@@ -1,0 +1,75 @@
+name: Publish verified APRS Catalina Intel Legacy DMG
+
+# Must be started only after a REAL Catalina Mac completed
+# macos/build_macos_legacy.sh and both DMG/evidence were attached
+# to the APRS v1.15.6 GitHub Release. NEVER publish CI candidates.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-aprs-catalina
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout official PT2VHF site
+        uses: actions/checkout@v4
+      - name: Fetch artifacts from APRS source Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p legacy-artifacts
+          gh release download v1.15.6 --repo alexpmr/PT2VHF-APRS-Client \
+            --pattern 'PT2VHF_APRS_Client_macOS_Intel_Legacy_v1.15.6.dmg' \
+            --dir legacy-artifacts
+          gh release download v1.15.6 --repo alexpmr/PT2VHF-APRS-Client \
+            --pattern 'catalina-verification.json' --dir legacy-artifacts
+      - name: Verify evidence, real DMG and preserve other platform downloads
+        shell: bash
+        run: |
+          python3 scripts/publish_aprs_macos_legacy.py \
+            --dmg legacy-artifacts/PT2VHF_APRS_Client_macOS_Intel_Legacy_v1.15.6.dmg \
+            --evidence legacy-artifacts/catalina-verification.json
+          python3 -m json.tool updates.json >/dev/null
+      - name: Commit verified binary and manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name pt2vhf-release-bot
+          git config user.email pt2vhf-release-bot@users.noreply.github.com
+          git add updates.json downloads/aprs-client/PT2VHF_APRS_Client_macOS_Intel_Legacy_v1.15.6.dmg
+          if ! git diff --cached --quiet; then
+            git commit -m 'release(aprs): publish native Catalina Intel Legacy verified DMG'
+            git push origin HEAD:main
+          else
+            echo "Manifest and binary already published."
+          fi
+      - name: Verify Hostinger binary and metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          file=PT2VHF_APRS_Client_macOS_Intel_Legacy_v1.15.6.dmg
+          local_sha="$(sha256sum "downloads/aprs-client/$file" | cut -d' ' -f1)"
+          url="https://www.pt2vhf.com/downloads/aprs-client/$file?pt2vhf_raw=1"
+          # Site may need a propagation window. Never claim success without verification.
+          success=0
+          for attempt in $(seq 1 20); do
+            if curl --fail --location --silent --show-error --output /tmp/pt2vhf-legacy.dmg "$url"; then
+              remote_sha="$(sha256sum /tmp/pt2vhf-legacy.dmg | cut -d' ' -f1)"
+              if [[ "$remote_sha" == "$local_sha" ]] &&
+                 curl --fail --silent --show-error "https://www.pt2vhf.com/updates.json" | grep -q "$file"; then
+                success=1
+                break
+              fi
+            fi
+            sleep 15
+          done
+          test "$success" -eq 1 || { echo "::error::Hostinger not yet verified; site release unconfirmed"; exit 1; }
