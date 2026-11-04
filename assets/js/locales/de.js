@@ -254,7 +254,7 @@ window.PT2VHF_I18N["de"] = {
         }
       ],
       "requirements": [
-        "Windows 10 (1809+) oder Windows 11, 64 Bit",
+        "Windows 10 (1809+) oder 11 x64, Linux x64 (Ubuntu 22.04+ o. ä.) oder macOS 14+ Apple Silicon",
         "Für CAT: kompatibles TS-2000-Kabel und serielle Einstellungen",
         "Automatische Abstimmung vor dem Betrieb am realen Funkgerät prüfen"
       ]

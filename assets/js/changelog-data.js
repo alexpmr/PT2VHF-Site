@@ -100,6 +100,7 @@
     },
     sat: {
       pt: [
+        e("1.3.16", "Linux, macOS e satélites padrão", ["Novas versões para Linux x64 (.tar.gz) e macOS Apple Silicon (.dmg), além do Windows.", "ISS, SO-50, IO-86, AO-7, FO-29, RS-44 e SONATE-2 habilitados por padrão; passagens 36 h ocupam todo o painel."]),
         e("1.3.15", "Satélites padrão e tela mais limpa", ["Instalações novas começam com ISS, IO-86 e SO-50 habilitados; seleções salvas são preservadas.", "Removido o bloco Próxima passagem do satélite selecionado; a tabela de passagens de 36 h continua."]),
         e("1.3.14", "OTA pelo site PT2VHF", ["Atualizações consultadas e baixadas apenas de www.pt2vhf.com, sem redirecionamentos.", "Tamanho e SHA-256 obrigatórios; aviso do novo site oficial ao abrir o programa."]),
         e("1.3.13", "Aviso de nova versão", ["Ao detectar versão nova, pergunta se deseja atualizar agora.", "Depois adia a mesma versão por 24 horas; nada é instalado sem confirmação."]),
@@ -107,6 +108,7 @@
         e("1.3.11", "Previsão comparada ao rádio real", ["Compara o Doppler calculado com FA/FB lidas do TS-2000 cerca de uma vez por segundo.", "Reconcilia automaticamente o rádio quando a frequência real diverge da prevista."])
       ],
       en: [
+        e("1.3.16", "Linux, macOS and default satellites", ["New builds for Linux x64 (.tar.gz) and macOS Apple Silicon (.dmg), alongside Windows.", "ISS, SO-50, IO-86, AO-7, FO-29, RS-44 and SONATE-2 enabled by default; the 36 h pass table fills the panel."]),
         e("1.3.15", "Default satellites and a cleaner screen", ["New installs start with ISS, IO-86 and SO-50 enabled; saved selections are kept.", "Removed the next-pass block for the selected satellite; the 36 h pass table remains."]),
         e("1.3.14", "OTA from the PT2VHF site", ["Updates are checked and downloaded only from www.pt2vhf.com, with no redirects.", "Size and SHA-256 required; new official site notice on startup."]),
         e("1.3.13", "New version prompt", ["When a new version is found, asks whether to update now.", "Later postpones the same version for 24 hours; nothing installs without confirmation."]),
@@ -114,6 +116,7 @@
         e("1.3.11", "Prediction compared with the real radio", ["Compares computed Doppler with FA/FB read from the TS-2000 about once per second.", "Automatically reconciles the radio when the actual frequency diverges."])
       ],
       es: [
+        e("1.3.16", "Linux, macOS y satélites predeterminados", ["Nuevas versiones para Linux x64 (.tar.gz) y macOS Apple Silicon (.dmg), además de Windows.", "ISS, SO-50, IO-86, AO-7, FO-29, RS-44 y SONATE-2 habilitados por defecto; las pasadas de 36 h ocupan todo el panel."]),
         e("1.3.15", "Satélites predeterminados y pantalla más limpia", ["Las instalaciones nuevas empiezan con ISS, IO-86 y SO-50 habilitados; las selecciones guardadas se conservan.", "Eliminado el bloque Próxima pasada del satélite seleccionado; la tabla de pasadas de 36 h sigue disponible."]),
         e("1.3.14", "OTA desde el sitio PT2VHF", ["Actualizaciones consultadas y descargadas solo de www.pt2vhf.com, sin redirecciones.", "Tamaño y SHA-256 obligatorios; aviso del nuevo sitio oficial al abrir el programa."]),
         e("1.3.13", "Aviso de nueva versión", ["Al detectar una versión nueva, pregunta si desea actualizar ahora.", "Después pospone la misma versión 24 horas; nada se instala sin confirmación."]),
@@ -124,6 +127,7 @@
         e("1.15.7", "TNC / RF accessible et unités impériales", ["Corrigé : le sous-onglet TNC / RF ne défilait pas (connexion KISS et Enregistrer inaccessibles) ; Enregistrer TNC / RF reste visible.", "Bouton Détecter Dire Wolf pour Raspberry Pi avec Digirig et autres cartes son ; aide sur la permission du port série (groupe dialout).", "Unités impériales (pieds, miles, mph), altitude facultative, bouton Quitter en mode navigateur et Configuration traduite en anglais, espagnol, français, allemand et italien."]),
         e("1.15.3", "Avis de nouveautés simplifié", ["L’avis de nouvelle version n’a plus que le bouton Fermer.", "Le bulletin de nouvelle version est envoyé comme prévu ; pour le désactiver, utilisez Automatisations → Annoncer la nouvelle version."]),
         e("1.15.2", "Annonce dans votre langue et liaisons conservées", ["Le bulletin de nouvelle version est envoyé dans la langue configurée, avec téléchargement sur www.PT2VHF.com ; la promotion de l’onglet À propos utilise aussi www.PT2VHF.com.", "Effacer les stations ne supprime ni ne masque plus les liaisons de la carte.", "L’en-tête affiche le bouton Envoyer le beacon à la place de l’icône."]),
+        e("1.3.16", "Linux, macOS et satellites par défaut", ["Nouvelles versions pour Linux x64 (.tar.gz) et macOS Apple Silicon (.dmg), en plus de Windows.", "ISS, SO-50, IO-86, AO-7, FO-29, RS-44 et SONATE-2 activés par défaut ; les passages sur 36 h occupent tout le panneau."]),
         e("1.3.15", "Satellites par défaut et écran épuré", ["Les nouvelles installations démarrent avec ISS, IO-86 et SO-50 activés ; les sélections enregistrées sont conservées.", "Bloc Prochain passage du satellite sélectionné supprimé ; le tableau des passages sur 36 h reste disponible."]),
         e("1.3.14", "Mise à jour OTA via le site PT2VHF", ["Mises à jour vérifiées et téléchargées uniquement depuis www.pt2vhf.com, sans redirection.", "Taille et SHA-256 obligatoires ; annonce du nouveau site officiel au démarrage."]),
         e("1.3.13", "Avis de nouvelle version", ["Lorsqu’une nouvelle version est détectée, propose de mettre à jour maintenant.", "Plus tard reporte la même version de 24 heures ; rien n’est installé sans confirmation."]),
@@ -134,6 +138,7 @@
         e("1.15.7", "TNC / RF erreichbar und imperiale Einheiten", ["Behoben: Der Unterreiter TNC / RF ließ sich nicht scrollen (KISS-Verbindung und Speichern unerreichbar); TNC / RF speichern bleibt sichtbar.", "Schaltfläche Dire Wolf erkennen für Raspberry Pi mit Digirig und anderen Soundkarten; Hinweis zu Berechtigungen der seriellen Schnittstelle (Gruppe dialout).", "Imperiale Einheiten (ft, mi, mph), optionale Höhe, Beenden-Schaltfläche im Browsermodus und Einstellungen auf Englisch, Spanisch, Französisch, Deutsch und Italienisch."]),
         e("1.15.3", "Vereinfachter Hinweis zu Neuerungen", ["Der Hinweis zur neuen Version hat nur noch die Schaltfläche Schließen.", "Das Bulletin zur neuen Version wird wie geplant gesendet; abschalten unter Automatisierungen → Neue Version ankündigen."]),
         e("1.15.2", "Ankündigung in Ihrer Sprache, Verbindungen bleiben erhalten", ["Das Bulletin zur neuen Version wird in der eingestellten Sprache gesendet, Download unter www.PT2VHF.com; auch die Werbung im Reiter Über nutzt www.PT2VHF.com.", "Das Löschen der Stationen löscht oder verbirgt die Kartenverbindungen nicht mehr.", "Die Kopfzeile hat jetzt die Schaltfläche Beacon senden statt des Symbols."]),
+        e("1.3.16", "Linux, macOS und Standardsatelliten", ["Neue Versionen für Linux x64 (.tar.gz) und macOS Apple Silicon (.dmg), zusätzlich zu Windows.", "ISS, SO-50, IO-86, AO-7, FO-29, RS-44 und SONATE-2 standardmäßig aktiv; die 36-h-Überflugtabelle nutzt das ganze Feld."]),
         e("1.3.15", "Standardsatelliten und aufgeräumte Ansicht", ["Neuinstallationen starten mit ISS, IO-86 und SO-50 aktiviert; gespeicherte Auswahl bleibt erhalten.", "Block Nächster Überflug des gewählten Satelliten entfernt; die 36-h-Überflugtabelle bleibt."]),
         e("1.3.14", "OTA über die PT2VHF-Website", ["Updates werden nur von www.pt2vhf.com geprüft und geladen, ohne Weiterleitungen.", "Größe und SHA-256 Pflicht; Hinweis auf die neue offizielle Website beim Start."]),
         e("1.3.13", "Hinweis auf neue Version", ["Bei einer neuen Version wird gefragt, ob jetzt aktualisiert werden soll.", "Später verschiebt dieselbe Version um 24 Stunden; nichts wird ohne Bestätigung installiert."]),
@@ -144,6 +149,7 @@
         e("1.15.7", "TNC / RF accessibile e unità imperiali", ["Corretta la sotto-scheda TNC / RF che non scorreva (connessione KISS e Salva irraggiungibili); Salva TNC / RF resta sempre visibile.", "Pulsante Rileva Dire Wolf per Raspberry Pi con Digirig e altre schede audio; avviso sui permessi della porta seriale (gruppo dialout).", "Unità imperiali (piedi, miglia, mph), altitudine facoltativa, pulsante Esci in modalità browser e Configurazione tradotta in inglese, spagnolo, francese, tedesco e italiano."]),
         e("1.15.3", "Avviso delle novità semplificato", ["L’avviso di nuova versione ha solo il pulsante Chiudi.", "Il bollettino di nuova versione viene inviato come programmato; per disattivarlo, usa Automazioni → Annuncia nuova versione."]),
         e("1.15.2", "Annuncio nella tua lingua e collegamenti mantenuti", ["Il bollettino di nuova versione viene inviato nella lingua configurata, con download su www.PT2VHF.com; anche la promozione della scheda Informazioni usa www.PT2VHF.com.", "Cancellare le stazioni non elimina né nasconde più i collegamenti sulla mappa.", "L’intestazione ha il pulsante Invia beacon al posto dell’icona."]),
+        e("1.3.16", "Linux, macOS e satelliti predefiniti", ["Nuove versioni per Linux x64 (.tar.gz) e macOS Apple Silicon (.dmg), oltre a Windows.", "ISS, SO-50, IO-86, AO-7, FO-29, RS-44 e SONATE-2 abilitati per impostazione predefinita; i passaggi a 36 h occupano tutto il pannello."]),
         e("1.3.15", "Satelliti predefiniti e schermata più pulita", ["Le nuove installazioni partono con ISS, IO-86 e SO-50 abilitati; le selezioni salvate restano.", "Rimosso il blocco Prossimo passaggio del satellite selezionato; la tabella dei passaggi a 36 h resta disponibile."]),
         e("1.3.14", "OTA dal sito PT2VHF", ["Aggiornamenti verificati e scaricati solo da www.pt2vhf.com, senza reindirizzamenti.", "Dimensione e SHA-256 obbligatori; avviso del nuovo sito ufficiale all’avvio."]),
         e("1.3.13", "Avviso di nuova versione", ["Quando trova una nuova versione, chiede se aggiornare subito.", "Più tardi rimanda la stessa versione di 24 ore; nulla viene installato senza conferma."]),
@@ -154,6 +160,7 @@
         e("1.15.7", "TNC / RF 可访问并支持英制单位", ["修复 TNC / RF 子选项卡无法滚动的问题（KISS 连接和保存按钮无法访问）；“保存 TNC / RF”始终可见。", "新增“检测 Dire Wolf”按钮，适用于搭配 Digirig 等声卡接口的树莓派；串口权限提示（dialout 组）。", "英制单位（英尺、英里、英里/小时）、海拔可选、浏览器模式下的退出按钮，并将设置翻译为英语、西班牙语、法语、德语和意大利语。"]),
         e("1.15.3", "简化的新功能提示", ["新版本提示只保留“关闭”按钮。", "新版本公告按计划发送；如需关闭，请在“自动化 → 公告新版本”中设置。"]),
         e("1.15.2", "以您的语言发布公告并保留链路", ["新版本公告以所设置的语言发送，下载地址 www.PT2VHF.com；“关于”选项卡的推广也改用 www.PT2VHF.com。", "清除电台不再删除或隐藏地图上的链路。", "页眉中的图标改为“发送信标”按钮。"]),
+        e("1.3.16", "Linux、macOS 与默认卫星", ["除 Windows 外，新增 Linux x64（.tar.gz）和 macOS Apple Silicon（.dmg）版本。", "默认启用 ISS、SO-50、IO-86、AO-7、FO-29、RS-44 和 SONATE-2；36 小时过境表占满整个面板。"]),
         e("1.3.15", "默认卫星与更简洁的界面", ["新安装默认启用 ISS、IO-86 和 SO-50；已保存的选择保持不变。", "移除“所选卫星的下一次过境”区块；36 小时过境表仍然保留。"]),
         e("1.3.14", "通过 PT2VHF 官网 OTA 更新", ["仅从 www.pt2vhf.com 检查并下载更新，不允许重定向。", "必须校验大小和 SHA-256；启动时提示新的官方网站。"]),
         e("1.3.13", "新版本提示", ["发现新版本时询问是否立即更新。", "“稍后”将同一版本推迟 24 小时；未经确认不会安装。"]),

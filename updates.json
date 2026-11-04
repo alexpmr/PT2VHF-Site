@@ -469,8 +469,8 @@
     },
     "sat": {
       "name": "PT2VHF Sat Tool",
-      "version": "1.3.15",
-      "developmentVersion": "1.3.15",
+      "version": "1.3.16",
+      "developmentVersion": "1.3.16",
       "page": "https://www.pt2vhf.com/sat",
       "files": [
         {
@@ -480,10 +480,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Instalador",
-          "name": "PT2VHF-Sat-Tool-v1.3.15-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.3.15-Win11-x64-Setup.exe",
-          "size": 151630573,
-          "sha256": "cef00746003798d2992418442de130d489390fd9539fe6c72f719a71ffa223e2",
+          "name": "PT2VHF-Sat-Tool-v1.3.16-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.3.16-Win11-x64-Setup.exe",
+          "size": 151589617,
+          "sha256": "5237ab337ba574b678c9a12ec943f7c421161eb183cb0e56051c24ab75135127",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -493,25 +493,51 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Portátil",
-          "name": "PT2VHF-Sat-Tool-v1.3.15-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.3.15-Win11-x64-Portable.exe",
-          "size": 225762310,
-          "sha256": "2350a2d0d3bc199f55e297958c066249584cf94e735a9f4a3e7150e2df9ee609",
+          "name": "PT2VHF-Sat-Tool-v1.3.16-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.3.16-Win11-x64-Portable.exe",
+          "size": 225765970,
+          "sha256": "b0a40456e65d3de9298d23aee894e1f40b0fda51b647ad07ab4c86543c1b638e",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
+        },
+        {
+          "category": "linux-targz",
+          "counterKey": "linux-tar-x64",
+          "kind": "tar.gz",
+          "platform": "linux-x64",
+          "architecture": "x64",
+          "label": "Linux — .tar.gz",
+          "name": "PT2VHF-Sat-Tool-v1.3.16-Linux-x64.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.3.16-Linux-x64.tar.gz",
+          "size": 248008405,
+          "sha256": "78c954b23f1df57d664a6e39ac81fc8ea2a2deba7fbb010c3a3b89ff2bbfa6b0",
+          "detail": "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute PT2VHF-Sat-Tool"
+        },
+        {
+          "category": "macos",
+          "counterKey": "mac-dmg-arm64",
+          "kind": "dmg",
+          "platform": "macos-arm64",
+          "architecture": "Apple Silicon",
+          "label": "macOS — .dmg",
+          "name": "PT2VHF-Sat-Tool-v1.3.16-macOS-arm64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.3.16-macOS-arm64.dmg",
+          "size": 224538060,
+          "sha256": "95c632372b7d9f8078060d8914cacd1300e619d0306e7904b0015370937437a7",
+          "detail": "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos"
         },
         {
           "category": "checksums",
           "label": "Somas de verificação",
-          "name": "PT2VHF-Sat-Tool-v1.3.15-Win11-x64-SHA256.txt",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.3.15-Win11-x64-SHA256.txt",
-          "size": 223,
-          "sha256": "c50fe1c0a6b4874c586c7a4c3f2caf21abd77dc54bd313b2bb5af2eea705e907",
+          "name": "PT2VHF-Sat-Tool-v1.3.16-SHA256.txt",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.3.16-SHA256.txt",
+          "size": 436,
+          "sha256": "60a193463e0f9576f8d1b2e284de8d0e7230b7c704f2d16b533753822de9b69a",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
-      "releaseStatus": "Instalador e portátil oficiais para Windows 10/11 x64. Confira o SHA-256 antes da instalação.",
-      "date": "2026-10-27",
-      "notes": "v1.3.15: ISS, IO-86 e SO-50 habilitados por padrão em instalações novas; removido o bloco Próxima passagem do satélite selecionado. OTA exclusivamente via www.pt2vhf.com.",
+      "releaseStatus": "Pacotes oficiais para Windows 10/11 x64, Linux x64 e macOS Apple Silicon. Confira o SHA-256 antes da instalação.",
+      "date": "2026-11-04",
+      "notes": "v1.3.16: ISS, SO-50, IO-86, AO-7, FO-29, RS-44 e SONATE-2 habilitados por padrão (também em instalações existentes); painel de passagens 36 h aproveitando a largura e a altura; aviso Downloads no site oficial no padrão PT2VHF; novas versões para Linux x64 e macOS Apple Silicon.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
     "qsl": {

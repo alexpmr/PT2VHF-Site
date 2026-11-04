@@ -254,7 +254,7 @@ window.PT2VHF_I18N["es"] = {
         }
       ],
       "requirements": [
-        "Windows 10 (1809+) o Windows 11 de 64 bits",
+        "Windows 10 (1809+) u 11 x64, Linux x64 (Ubuntu 22.04+ o equivalente) o macOS 14+ Apple Silicon",
         "CAT requiere cable y configuración serie compatibles con TS-2000",
         "Verifique la sintonización automática en el radio físico antes de operar"
       ]

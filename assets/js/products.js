@@ -201,7 +201,7 @@ window.PT2VHF_PRODUCTS = [
       { name: "Satélites de radioamador", detail: "Catálogo orbital e frequências de operação" }
     ],
     requirements: [
-      "Windows 10 (1809+) ou Windows 11, 64 bits",
+      "Windows 10 (1809+) ou 11 x64, Linux x64 (Ubuntu 22.04+ ou equivalente) ou macOS 14+ Apple Silicon",
       "Para CAT: cabo serial e configuração compatível com o TS-2000",
       "Ajustes automáticos devem ser validados no rádio físico antes do uso operacional"
     ],

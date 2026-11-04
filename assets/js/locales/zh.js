@@ -254,7 +254,7 @@ window.PT2VHF_I18N["zh"] = {
         }
       ],
       "requirements": [
-        "Windows 10（1809+）或 Windows 11 64 位",
+        "Windows 10（1809+）或 11 x64、Linux x64（Ubuntu 22.04+ 或同等系统）或 macOS 14+ Apple Silicon",
         "CAT 需要与 TS-2000 兼容的串口线及配置",
         "实际使用前，请在真实电台上验证自动调谐功能"
       ]
