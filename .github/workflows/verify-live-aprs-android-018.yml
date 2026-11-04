@@ -28,21 +28,21 @@ jobs:
             [ "$code" = 200 ] && v=$(jq -r '.products["aprs-android"].version + " " + .products["aprs-android"].files[0].sha256' "$RUNNER_TEMP/u.json" 2>/dev/null || echo parse-error)
             ota_code=$(curl -s -o "$RUNNER_TEMP/ota.json" -w '%{http_code}' --max-time 15 "$site/update.php?product=aprs-android&verify=$1") || true
             page_code=$(curl -s -o "$RUNNER_TEMP/page.html" -w '%{http_code}' --max-time 15 "$site/aprs-android") || true
-            apk_code=$(curl -s -o /dev/null -I -w '%{http_code}' --max-time 15 "$apk") || true
+            apk_code=$(curl -s -o /dev/null -I -L -w '%{http_code} %header{content-length}' --max-time 20 "$apk") || true
             echo "attempt $1: updates.json=$code ($v) update.php=$ota_code page=$page_code apk=$apk_code"
             [ "$v" = "0.1.8 $sha" ] && [ "$ota_code" = 200 ] && grep -q '0.1.8' "$RUNNER_TEMP/ota.json" \
-              && [ "$page_code" = 200 ] && grep -q 'android018' "$RUNNER_TEMP/page.html" && [ "$apk_code" = 200 ]
+              && [ "$page_code" = 200 ] && grep -q 'android018' "$RUNNER_TEMP/page.html" && [ "$apk_code" = "200 7686727" ]
           }
-          sleep 60
-          for attempt in $(seq 1 15); do
+          # Hostinger devolve 429 com consultas seguidas: poucas tentativas espaçadas.
+          sleep 240
+          for attempt in $(seq 1 4); do
             if check "$attempt-${GITHUB_SHA}"; then
-              curl --fail --location --silent --show-error --max-time 120 "$apk" -o "$RUNNER_TEMP/app.apk"
-              echo "$sha  $RUNNER_TEMP/app.apk" | sha256sum -c -
+              # HEAD não conta download; tamanho confirmado pelo Content-Length final.
               echo "OTA response:"; cat "$RUNNER_TEMP/ota.json"; echo
               echo "LIVE_ANDROID_018_APK_OTA_PAGE_VERIFIED=1"
               exit 0
             fi
-            sleep 45
+            sleep 120
           done
           echo "::error::APRS Android v0.1.8 in GitHub site repo but not verified on live Hostinger"
           exit 1
