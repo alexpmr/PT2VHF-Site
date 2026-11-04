@@ -22,28 +22,27 @@ jobs:
           site="https://www.pt2vhf.com"
           sha="a8e90b149a900fca1024d62f4c8e8bc0f595b58c3d37e1ff12e562b69b21bc50"
           apk="$site/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.8.apk"
-          for attempt in $(seq 1 24); do
-            if curl --fail --location --silent --show-error --max-time 15 \
-                 -H "Cache-Control: no-cache" "$site/updates.json?verify=v018-$attempt-${GITHUB_SHA}" \
-                 -o "$RUNNER_TEMP/live-updates.json" \
-              && jq -e --arg sha "$sha" '.products["aprs-android"].version == "0.1.8" and
-                .products["aprs-android"].files[0].sha256 == $sha and
-                .products["aprs-android"].files[0].counterKey == "android-apk"' \
-                "$RUNNER_TEMP/live-updates.json" >/dev/null \
-              && curl --fail --silent --show-error --max-time 15 -H "Cache-Control: no-cache" \
-                 "$site/update.php?product=aprs-android&verify=$attempt" -o "$RUNNER_TEMP/ota.json" \
-              && grep -q '0.1.8' "$RUNNER_TEMP/ota.json" \
-              && curl --fail --silent --show-error --max-time 15 \
-                 "$site/assets/js/changelog-data.js?v=20261104-android018" | grep -q '"0.1.8"' \
-              && curl --fail --silent --show-error --max-time 15 "$site/aprs-android" | grep -q 'android018'; then
+          check() {
+            local v="-"
+            code=$(curl -s -o "$RUNNER_TEMP/u.json" -w '%{http_code}' --max-time 15 -H "Cache-Control: no-cache" "$site/updates.json?verify=v018-$1") || true
+            [ "$code" = 200 ] && v=$(jq -r '.products["aprs-android"].version + " " + .products["aprs-android"].files[0].sha256' "$RUNNER_TEMP/u.json" 2>/dev/null || echo parse-error)
+            ota_code=$(curl -s -o "$RUNNER_TEMP/ota.json" -w '%{http_code}' --max-time 15 "$site/update.php?product=aprs-android&verify=$1") || true
+            page_code=$(curl -s -o "$RUNNER_TEMP/page.html" -w '%{http_code}' --max-time 15 "$site/aprs-android") || true
+            apk_code=$(curl -s -o /dev/null -I -w '%{http_code}' --max-time 15 "$apk") || true
+            echo "attempt $1: updates.json=$code ($v) update.php=$ota_code page=$page_code apk=$apk_code"
+            [ "$v" = "0.1.8 $sha" ] && [ "$ota_code" = 200 ] && grep -q '0.1.8' "$RUNNER_TEMP/ota.json" \
+              && [ "$page_code" = 200 ] && grep -q 'android018' "$RUNNER_TEMP/page.html" && [ "$apk_code" = 200 ]
+          }
+          sleep 60
+          for attempt in $(seq 1 15); do
+            if check "$attempt-${GITHUB_SHA}"; then
               curl --fail --location --silent --show-error --max-time 120 "$apk" -o "$RUNNER_TEMP/app.apk"
               echo "$sha  $RUNNER_TEMP/app.apk" | sha256sum -c -
               echo "OTA response:"; cat "$RUNNER_TEMP/ota.json"; echo
               echo "LIVE_ANDROID_018_APK_OTA_PAGE_VERIFIED=1"
               exit 0
             fi
-            echo "Hostinger deployment/cache not yet confirmed ($attempt/24)"
-            sleep 20
+            sleep 45
           done
           echo "::error::APRS Android v0.1.8 in GitHub site repo but not verified on live Hostinger"
           exit 1
