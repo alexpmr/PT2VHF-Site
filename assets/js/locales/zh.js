@@ -185,7 +185,7 @@ window.PT2VHF_I18N["zh"] = {
     "aprs-android": {
       "summary": "手机上的 APRS：地图、消息、信标、后台跟踪器和蓝牙 TNC。",
       "cardSummary": "APRS Client 的 Android 版本，支持 SmartBeaconing 跟踪器和蓝牙电台/TNC。",
-      "tagline": "Android 8 及以上 · APRS-IS 与蓝牙射频",
+      "tagline": "Android 8 及以上 · APRS-IS 与蓝牙/TCP 射频",
       "description": [
         "PT2VHF APRS Client 的手机版本。连接到您选择的 APRS-IS 服务器，根据呼号自动计算 passcode，并在地图上显示电台和射频链路。",
         "通过蓝牙配对的 KISS 电台或 TNC 可进行射频收发。跟踪器模式在屏幕关闭时也会用 SmartBeaconing 发送位置。"
@@ -197,7 +197,14 @@ window.PT2VHF_I18N["zh"] = {
         "消息：会话、公共频道（CQ）和公告，支持 ACK、重发和通知",
         "发送信标按钮和后台 SmartBeaconing 跟踪器",
         "蓝牙 KISS TNC（Mobilinkd、BTECH UV-Pro、Radtel RT-950 Pro 等）及实时监视",
-        "新版本提醒，官方网站下载"
+        "新版本提醒，官方网站下载",
+        "基地、车载、便携和仅接收配置文件，可在跟踪页快速切换",
+        "除蓝牙外，也支持局域网 TCP 方式的 KISS TNC（Dire Wolf 等）",
+        "消息历史保存在本地数据库，保留期限可设置；支持引用回复、私信、筛选和呼号搜索",
+        "我的射频链路、通联距离记录和地图覆盖图层；跟随电台的轨迹与信息面板",
+        "轨迹记录的颜色、粗细、透明度和保留期限可设置，并可导出 GPX",
+        "隐私：位置模糊化，可选高度和语音频率，以及收藏电台提醒",
+        "可选 API，供其他应用集成，受权限保护"
       ],
       "requirements": [
         "Android 8.0 或更高版本",

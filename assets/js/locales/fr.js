@@ -185,7 +185,7 @@ window.PT2VHF_I18N["fr"] = {
     "aprs-android": {
       "summary": "APRS sur votre téléphone : carte, messages, balise, tracker en arrière-plan et TNC Bluetooth.",
       "cardSummary": "Version Android de l’APRS Client, avec tracker SmartBeaconing et radio/TNC Bluetooth.",
-      "tagline": "APRS sous Android 8 ou ultérieur · APRS-IS et RF par Bluetooth",
+      "tagline": "APRS sous Android 8 ou ultérieur · APRS-IS et RF par Bluetooth ou TCP",
       "description": [
         "Version mobile du PT2VHF APRS Client. Se connecte à APRS-IS sur le serveur choisi, calcule le passcode à partir de l’indicatif et affiche stations et liaisons RF sur la carte.",
         "Avec une radio ou un TNC KISS appairé en Bluetooth, il émet et reçoit en RF. Le mode tracker envoie votre position avec SmartBeaconing même écran éteint."
@@ -197,7 +197,14 @@ window.PT2VHF_I18N["fr"] = {
         "Messages : conversations, canal général (CQ) et bulletins, avec ACK, nouvelles tentatives et notifications",
         "Bouton Envoyer la balise et tracker SmartBeaconing en arrière-plan",
         "TNC KISS Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro et similaires) avec moniteur en direct",
-        "Avis de nouvelle version et téléchargements depuis le site officiel"
+        "Avis de nouvelle version et téléchargements depuis le site officiel",
+        "Profils Base, Mobile, Portable et Réception seule, avec changement rapide dans le Suivi",
+        "TNC KISS aussi par TCP sur le réseau local (Dire Wolf et similaires), en plus du Bluetooth",
+        "Historique des messages en base locale avec rétention configurable ; réponses citées, message direct, filtres et recherche d’indicatif",
+        "Mes liaisons RF, records de portée et couche de couverture sur la carte ; trace et panneau de la station suivie",
+        "Tracklog avec couleur, épaisseur, opacité et rétention configurables, exportable en GPX",
+        "Confidentialité avec ambiguïté de position, altitude et fréquence phonie optionnelles et alertes des stations favorites",
+        "API optionnelle pour d’autres applications, protégée par une permission"
       ],
       "requirements": [
         "Android 8.0 ou ultérieur",

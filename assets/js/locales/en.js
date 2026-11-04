@@ -185,7 +185,7 @@ window.PT2VHF_I18N["en"] = {
     "aprs-android": {
       "summary": "APRS on your phone: map, messages, beacon, background tracker and Bluetooth TNC.",
       "cardSummary": "Android version of the APRS Client, with SmartBeaconing tracker and Bluetooth radio/TNC.",
-      "tagline": "APRS on Android 8 or later · APRS-IS and RF over Bluetooth",
+      "tagline": "APRS on Android 8 or later · APRS-IS and RF over Bluetooth or TCP",
       "description": [
         "Phone version of PT2VHF APRS Client. Connects to APRS-IS on the server you choose, computes the passcode from your callsign and shows stations and RF links on the map.",
         "With a KISS radio or TNC paired over Bluetooth it transmits and receives over RF. Tracker mode sends your position with SmartBeaconing even with the screen off."
@@ -197,7 +197,14 @@ window.PT2VHF_I18N["en"] = {
         "Messages: conversations, general channel (CQ) and bulletins, with ACK, retries and notifications",
         "Send beacon button and background SmartBeaconing tracker",
         "KISS TNC over Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro and similar) with live monitor",
-        "New-version notice and downloads from the official website"
+        "New-version notice and downloads from the official website",
+        "Base, Mobile, Portable and Receive-only profiles, with quick switching in the Tracker",
+        "KISS TNC over TCP on the local network (Dire Wolf and similar) as well as Bluetooth",
+        "Message history in a local database with configurable retention; quoted replies, direct messages, filters and callsign search",
+        "My RF links, range records and a coverage layer on the map; trail and panel for the followed station",
+        "Tracklog with configurable color, width, opacity and retention, exportable as GPX",
+        "Privacy with position ambiguity, optional altitude and voice frequency, and alerts for favorite stations",
+        "Optional API for other apps, protected by a permission"
       ],
       "requirements": [
         "Android 8.0 or later",

@@ -185,7 +185,7 @@ window.PT2VHF_I18N["it"] = {
     "aprs-android": {
       "summary": "APRS sullo smartphone: mappa, messaggi, beacon, tracker in background e TNC Bluetooth.",
       "cardSummary": "Versione Android dell’APRS Client, con tracker SmartBeaconing e radio/TNC via Bluetooth.",
-      "tagline": "APRS su Android 8 o successivo · APRS-IS e RF via Bluetooth",
+      "tagline": "APRS su Android 8 o successivo · APRS-IS e RF via Bluetooth o TCP",
       "description": [
         "Versione per smartphone del PT2VHF APRS Client. Si collega ad APRS-IS sul server scelto, calcola il passcode dal nominativo e mostra stazioni e collegamenti RF sulla mappa.",
         "Con una radio o un TNC KISS associato via Bluetooth trasmette e riceve in RF. La modalità tracker invia la posizione con SmartBeaconing anche a schermo spento."
@@ -197,7 +197,14 @@ window.PT2VHF_I18N["it"] = {
         "Messaggi: conversazioni, canale generale (CQ) e bollettini, con ACK, nuovi tentativi e notifiche",
         "Pulsante Invia beacon e tracker SmartBeaconing in background",
         "TNC KISS via Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro e simili) con monitor dal vivo",
-        "Avviso di nuova versione e download dal sito ufficiale"
+        "Avviso di nuova versione e download dal sito ufficiale",
+        "Profili Base, Mobile, Portatile e Solo ricezione, con cambio rapido nel Tracker",
+        "TNC KISS anche via TCP sulla rete locale (Dire Wolf e simili), oltre al Bluetooth",
+        "Cronologia messaggi in database locale con conservazione configurabile; risposte con citazione, messaggio diretto, filtri e ricerca nominativo",
+        "I miei collegamenti RF, record di portata e livello di copertura sulla mappa; traccia e pannello della stazione seguita",
+        "Tracklog con colore, spessore, opacità e conservazione configurabili, esportabile in GPX",
+        "Privacy con ambiguità di posizione, altitudine e frequenza fonia opzionali e avvisi per le stazioni preferite",
+        "API opzionale per altre app, protetta da un permesso"
       ],
       "requirements": [
         "Android 8.0 o successivo",

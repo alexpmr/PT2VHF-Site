@@ -185,7 +185,7 @@ window.PT2VHF_I18N["de"] = {
     "aprs-android": {
       "summary": "APRS auf dem Smartphone: Karte, Nachrichten, Bake, Tracker im Hintergrund und Bluetooth-TNC.",
       "cardSummary": "Android-Version des APRS Client mit SmartBeaconing-Tracker und Funkgerät/TNC über Bluetooth.",
-      "tagline": "APRS unter Android 8 oder neuer · APRS-IS und HF über Bluetooth",
+      "tagline": "APRS unter Android 8 oder neuer · APRS-IS und HF über Bluetooth oder TCP",
       "description": [
         "Smartphone-Version des PT2VHF APRS Client. Verbindet sich mit APRS-IS über den gewählten Server, berechnet den Passcode aus dem Rufzeichen und zeigt Stationen und Funkverbindungen auf der Karte.",
         "Mit einem per Bluetooth gekoppelten KISS-Funkgerät oder TNC sendet und empfängt es über Funk. Der Tracker-Modus sendet die Position per SmartBeaconing auch bei ausgeschaltetem Bildschirm."
@@ -197,7 +197,14 @@ window.PT2VHF_I18N["de"] = {
         "Nachrichten: Unterhaltungen, allgemeiner Kanal (CQ) und Bulletins, mit ACK, Wiederholungen und Benachrichtigungen",
         "Schaltfläche Bake senden und SmartBeaconing-Tracker im Hintergrund",
         "KISS-TNC über Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro u. ä.) mit Live-Monitor",
-        "Hinweis auf neue Versionen und Downloads über die offizielle Website"
+        "Hinweis auf neue Versionen und Downloads über die offizielle Website",
+        "Profile Basis, Mobil, Portabel und Nur Empfang, mit schnellem Wechsel im Tracker",
+        "KISS-TNC auch über TCP im lokalen Netz (Dire Wolf und ähnliche), zusätzlich zu Bluetooth",
+        "Nachrichtenverlauf in lokaler Datenbank mit einstellbarer Aufbewahrung; Antworten mit Zitat, Direktnachricht, Filter und Rufzeichensuche",
+        "Meine HF-Verbindungen, Reichweitenrekorde und Abdeckungsebene auf der Karte; Spur und Panel der verfolgten Station",
+        "Tracklog mit einstellbarer Farbe, Breite, Deckkraft und Aufbewahrung, als GPX exportierbar",
+        "Datenschutz mit Positionsunschärfe, optionaler Höhe und Sprechfrequenz sowie Alarme für Favoriten",
+        "Optionale API für andere Apps, durch eine Berechtigung geschützt"
       ],
       "requirements": [
         "Android 8.0 oder neuer",

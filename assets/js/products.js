@@ -55,7 +55,7 @@ window.PT2VHF_PRODUCTS = [
     summary: "Cliente APRS no celular: mapa, mensagens, beacon, tracker em segundo plano e TNC por Bluetooth.",
     cardSummary: "Versão Android do APRS Client, com tracker SmartBeaconing e rádio/TNC por Bluetooth.",
     name: "PT2VHF APRS Client for Android",
-    tagline: "APRS no Android 8 ou superior · APRS-IS e RF por Bluetooth",
+    tagline: "APRS no Android 8 ou superior · APRS-IS e RF por Bluetooth ou TCP",
     description: [
       "Versão para celular do PT2VHF APRS Client. Conecta ao APRS-IS com o servidor que você escolher, calcula o passcode a partir do indicativo e mostra estações e enlaces RF no mapa.",
       "Com um rádio ou TNC KISS pareado por Bluetooth, transmite e recebe por RF. O modo tracker envia a sua posição com SmartBeaconing mesmo com a tela desligada."
@@ -72,7 +72,14 @@ window.PT2VHF_PRODUCTS = [
       "Restauração da visualização anterior do mapa, preservando centro e zoom, com ação Minha localização",
       "Filtro combinado de estações por indicativo, tipo, fonte APRS-IS/RF, período de recepção e distância",
       "Ordenação ascendente ou descendente por indicativo, primeira/última recepção e distância, com histórico local",
-      "Confirmação de saída, com opção de manter ou interromper o tracker; versão instalada exibida no aviso do site oficial"
+      "Confirmação de saída, com opção de manter ou interromper o tracker; versão instalada em Configurações → Sobre",
+      "Perfis Base, Móvel, Portátil e Somente recepção, com troca rápida no Rastreador",
+      "TNC KISS também por TCP na rede local (Dire Wolf e similares), além do Bluetooth",
+      "Histórico de mensagens em banco local com retenção configurável; responder com citação, mensagem direta, filtros e busca de indicativo",
+      "Meus enlaces RF, recordes de alcance e camada de cobertura no mapa; trilha e painel da estação seguida",
+      "Tracklog com cor, espessura, opacidade e retenção configuráveis, exportável em GPX",
+      "Privacidade com ambiguidade de posição, altitude e frequência de voz opcionais e alertas de estações favoritas",
+      "API opcional para integração com outros apps, protegida por permissão"
     ],
     supported: [
       {
@@ -82,6 +89,10 @@ window.PT2VHF_PRODUCTS = [
       {
         "name": "APRS-IS",
         "detail": "Rede aprs2.net ou servidor próprio"
+      },
+      {
+        "name": "TNC KISS TCP",
+        "detail": "Dire Wolf ou TNC na rede local"
       }
     ],
     requirements: [
