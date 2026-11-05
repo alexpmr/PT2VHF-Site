@@ -206,9 +206,13 @@ window.PT2VHF_PRODUCTS = [
       "Estação configurável por coordenadas e Grid Locator Maidenhead",
       "Diagnóstico de frequências previstas e leituras reais do rádio",
       "Atualização de dados orbitais e frequências",
-      "Auto CAT contínuo: FA/FB enviados e confirmados por leitura do rádio, sem acionar PTT",
-      "Elementos orbitais CelesTrak (OMM/TLE) e transponders SatNOGS, com mapa offline",
-      "Instalador e portátil EXE com atualização segura via pt2vhf.com (tamanho e SHA-256 verificados)"
+      "Auto CAT para compensação Doppler do TS-2000, sem PTT (homologação com rádio físico pendente)",
+      "Mapa offline com elementos orbitais CelesTrak (OMM/TLE) e transponders SatNOGS",
+      "Passagens de 36 horas com duração, altura máxima e horários AOS/TCA/LOS",
+      "Alarme AOS configurável (10 segundos por padrão), com som e contagem regressiva",
+      "Interface Web de consulta no próprio computador ou na rede LAN, com chave temporária de acesso e sem controle CAT/PTT remoto",
+      "Filtros simultâneos de categorias de satélites e layout compacto para monitores menores",
+      "Windows 10/11 x64 (Setup e Portable), Linux x64 e macOS Apple Silicon, com atualizações pelo site oficial"
     ],
     supported: [
       { name: "Kenwood TS-2000", detail: "Controle CAT pela porta serial" },
