@@ -513,3 +513,113 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .contact-help h2 { font-size:clamp(1.3rem,2.6vw,1.7rem); margin:0 0 16px; }
 .contact-help-list { margin:0; padding:20px 24px 20px 44px; background:var(--surface); border:1px solid var(--border); border-radius:14px; line-height:1.7; }
 .contact-help-list li + li { margin-top:6px; }
+
+/* Home — mostrador de sintonia e lista do catálogo */
+.overview-home { padding: 44px 0 64px; }
+.overview-home .catalog-heading { margin-bottom: 26px; }
+.overview-home .catalog-heading p { max-width: 62ch; }
+
+.tuner {
+  --needle: 50%;
+  --dial-face: #0a1424;
+  --dial-glass: #101d33;
+  --dial-ink: #8ea3c2;
+  --dial-lit: #f4f7fc;
+  --dial-amber: #f2a541;
+  display: grid; grid-template-columns: minmax(0, 1fr) 15.5rem; align-items: stretch;
+  background: var(--dial-face); color: var(--dial-lit);
+  border: 1px solid #1c2a42; border-bottom: 0; border-radius: 6px 6px 0 0; overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+}
+.tuner-dial {
+  position: relative; height: 104px; margin: 14px 0 14px 14px;
+  background: linear-gradient(180deg, var(--dial-glass), #0c1729 70%);
+  border: 1px solid #22324d; border-radius: 4px;
+}
+.tuner-scale {
+  position: absolute; left: 0; right: 0; top: 10px; height: 26px;
+  background:
+    repeating-linear-gradient(90deg, rgba(142,163,194,.55) 0 1px, transparent 1px calc(100% / 70)) 0 10px / 100% 16px no-repeat,
+    repeating-linear-gradient(90deg, rgba(142,163,194,.85) 0 1px, transparent 1px calc(100% / 14)) calc(100% / 28) 0 / 100% 26px no-repeat;
+}
+.tuner-scale::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: #2a3b58; }
+.tuner-stations { position: absolute; left: 0; right: 0; top: 54px; }
+.tuner-stations span {
+  position: absolute; transform: translateX(-50%); white-space: nowrap;
+  font-size: .82rem; font-weight: 600; letter-spacing: .01em; color: var(--dial-ink);
+  transition: color .2s;
+}
+.tuner-stations span.is-tuned { color: var(--dial-lit); }
+.tuner-needle {
+  position: absolute; top: 4px; height: 42px; left: var(--needle); width: 2px; margin-left: -1px;
+  background: var(--dial-amber); border-radius: 1px;
+  box-shadow: 0 0 10px rgba(242,165,65,.75), 0 0 2px rgba(242,165,65,.9);
+  transition: left .38s cubic-bezier(.3,.7,.25,1);
+}
+.tuner-readout {
+  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  padding: 14px 22px; min-width: 0;
+}
+.tuner-caption { color: var(--dial-ink); font-size: .8rem; }
+.tuner-name { font-size: 1.05rem; font-weight: 600; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tuner-freq {
+  font-family: "JetBrains Mono", monospace; font-size: 1.9rem; line-height: 1.1;
+  color: var(--dial-amber); text-shadow: 0 0 14px rgba(242,165,65,.35);
+  font-variant-numeric: tabular-nums;
+}
+
+.catalog-list {
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+}
+.tuner:not([hidden]) + .catalog-list { border-top: 0; border-radius: 0 0 6px 6px; }
+.cat-row {
+  position: relative; display: grid; align-items: center; gap: 6px 20px;
+  grid-template-columns: 44px minmax(0, 1fr) 11rem 8.5rem;
+  padding: 18px 24px 18px 22px; color: var(--text); text-decoration: none;
+  border-top: 1px solid var(--border);
+}
+.cat-row:first-child { border-top: 0; }
+.cat-row::before {
+  content: ""; position: absolute; left: 0; top: 12px; bottom: 12px; width: 3px;
+  background: var(--dial-amber, #f2a541); border-radius: 0 2px 2px 0;
+  transform: scaleY(0); transition: transform .2s;
+}
+.cat-row:hover, .cat-row:focus-visible { background: var(--bg); }
+.cat-row:hover::before, .cat-row:focus-visible::before { transform: scaleY(1); }
+.cat-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.cat-row .product-icon { width: 44px; height: 44px; border-radius: 10px; }
+.cat-row .icon { width: 24px; height: 24px; }
+.cat-main { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.cat-name { font-size: 1.05rem; font-weight: 600; }
+.cat-row:hover .cat-name { color: var(--accent-strong); }
+.cat-summary { color: var(--muted); font-size: .92rem; line-height: 1.5; max-width: 60ch; }
+.cat-platforms { display: flex; flex-wrap: wrap; gap: 4px 12px; color: var(--muted); font-size: .84rem; }
+.cat-release { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; text-align: right; }
+.cat-version { font-family: "JetBrains Mono", monospace; font-size: .95rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+.cat-version.is-soon { color: var(--muted); font-family: inherit; font-size: .85rem; }
+.cat-date { color: var(--muted); font-size: .8rem; }
+
+@media (max-width: 900px) {
+  .tuner { grid-template-columns: minmax(0, 1fr); }
+  .tuner-dial { margin: 14px 14px 0; }
+  .tuner-readout { flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; padding: 12px 18px 16px; }
+  .tuner-freq { font-size: 1.35rem; margin-left: auto; }
+  .tuner-caption { flex-basis: 100%; }
+  .cat-row { grid-template-columns: 44px minmax(0, 1fr) auto; }
+  .cat-platforms { grid-column: 2 / 3; grid-row: 2; }
+  .cat-release { grid-column: 3; grid-row: 1 / 3; align-self: start; }
+}
+@media (max-width: 640px) {
+  .overview-home { padding: 32px 0 48px; }
+  .tuner-stations span { font-size: .7rem; }
+  .tuner-stations span:not(.is-tuned) { color: transparent; }
+  .tuner-dial { height: 84px; }
+  .tuner-stations { top: 48px; }
+  .tuner-needle { height: 38px; }
+  .cat-row { grid-template-columns: 40px minmax(0, 1fr); padding: 16px 16px 16px 14px; gap: 6px 14px; }
+  .cat-row .product-icon { width: 40px; height: 40px; }
+  .cat-platforms { grid-column: 2; grid-row: auto; }
+  .cat-release { grid-column: 2; grid-row: auto; flex-direction: row; align-items: baseline; gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .tuner-needle, .cat-row::before { transition: none; } }

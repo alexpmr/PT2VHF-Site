@@ -49,6 +49,7 @@ window.PT2VHF_I18N["de"] = {
     "versionCode": "Version im Quellcode:",
     "notReleased": "keine auf dieser Website veröffentlichte Version.",
     "cardOpen": "Projekt öffnen",
+    "catalogLatest": "Neueste Veröffentlichung",
     "launchDate": "Veröffentlicht am",
     "catCategory": "Kategorie",
     "catFile": "Datei",

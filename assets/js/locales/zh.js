@@ -49,6 +49,7 @@ window.PT2VHF_I18N["zh"] = {
     "versionCode": "源代码版本：",
     "notReleased": "此版本尚未在本站提供正式下载。",
     "cardOpen": "打开项目",
+    "catalogLatest": "最新发布",
     "launchDate": "发布日期：",
     "catCategory": "类别",
     "catFile": "文件",

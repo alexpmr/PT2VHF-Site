@@ -511,7 +511,90 @@
     );
   }
 
+  // Home: lista do catálogo e mostrador de sintonia (agulha no projeto em foco)
+  var DIAL_LABELS = { aprs: "APRS", "aprs-android": "Android", prop: "Prop", mesh: "Mesh", sat: "SAT", prog: "Prog", qsl: "QSL" };
+
+  function platformsOf(p) {
+    var seen = {}, out = [];
+    (p.files || []).forEach(function (f) {
+      var key = String(f.platform || "").split("-")[0];
+      var name = String(f.name || "").toLowerCase();
+      if (!key) {
+        if (/\.apk$/.test(name)) key = "android";
+        else if (/\.(exe|msi)$|win|portat|portable/.test(name)) key = "windows";
+        else if (/\.dmg$|macos|darwin/.test(name)) key = "macos";
+        else if (/\.(deb|rpm|appimage)$|linux|\.tar\.gz$/.test(name)) key = "linux";
+      }
+      if (key && !seen[key]) { seen[key] = true; out.push(key); }
+    });
+    var order = ["windows", "linux", "macos", "android"];
+    var labels = { windows: "Windows", linux: "Linux", macos: "macOS", android: "Android" };
+    return out.sort(function (a, b) { return order.indexOf(a) - order.indexOf(b); })
+      .map(function (k) { return labels[k] || k; });
+  }
+
+  function renderHomeCatalog(el) {
+    var list = products.slice();
+    el.innerHTML = list.map(function (p) {
+      var plats = platformsOf(p);
+      return (
+        '<a class="cat-row" href="/' + esc(p.id) + '" data-id="' + esc(p.id) + '">' +
+        '<span class="product-icon">' + icon(p.icon) + "</span>" +
+        '<span class="cat-main"><strong class="cat-name">' + esc(shortName(p)) + "</strong>" +
+        '<span class="cat-summary">' + esc(p.cardSummary || p.summary || p.tagline || "") + "</span></span>" +
+        '<span class="cat-platforms">' + plats.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</span>" +
+        '<span class="cat-release"><span class="cat-version' + (p.version ? "" : " is-soon") + '">' + versionLabel(p) + "</span>" +
+        (p.date ? '<span class="cat-date">' + esc(formatDate(p.date)) + "</span>" : "") + "</span>" +
+        "</a>"
+      );
+    }).join("");
+
+    var tuner = document.getElementById("home-tuner");
+    if (!tuner) return;
+    var latest = list.filter(function (p) { return p.date; })
+      .sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; })[0];
+    var n = list.length;
+    tuner.innerHTML =
+      '<div class="tuner-dial">' +
+      '<div class="tuner-scale"></div>' +
+      '<div class="tuner-stations">' + list.map(function (p, i) {
+        return '<span data-id="' + esc(p.id) + '" style="left:' + ((i + .5) / n * 100).toFixed(3) + '%">' +
+          esc(DIAL_LABELS[p.id] || shortName(p)) + "</span>";
+      }).join("") + "</div>" +
+      '<div class="tuner-needle"></div>' +
+      "</div>" +
+      '<div class="tuner-readout"><span class="tuner-caption"></span>' +
+      '<strong class="tuner-name"></strong><span class="tuner-freq"></span></div>';
+    tuner.hidden = false;
+
+    function tune(p, isDefault) {
+      if (!p) return;
+      var i = list.indexOf(p);
+      tuner.style.setProperty("--needle", ((i + .5) / n * 100).toFixed(3) + "%");
+      tuner.querySelectorAll(".tuner-stations span").forEach(function (s) {
+        s.classList.toggle("is-tuned", s.getAttribute("data-id") === p.id);
+      });
+      tuner.querySelector(".tuner-caption").textContent = isDefault ? t("catalogLatest") : (p.date ? t("launchDate") + " " + formatDate(p.date) : "");
+      tuner.querySelector(".tuner-name").textContent = shortName(p);
+      tuner.querySelector(".tuner-freq").textContent = p.version ? "v" + p.version : versionLabel(p);
+    }
+    function byId(id) { return list.filter(function (p) { return p.id === id; })[0]; }
+    tune(latest || list[0], !!latest);
+
+    function onEnter(e) {
+      var row = e.target.closest && e.target.closest(".cat-row");
+      if (row) tune(byId(row.getAttribute("data-id")), false);
+    }
+    function onLeave(e) {
+      if (e.relatedTarget && el.contains(e.relatedTarget)) return;
+      tune(latest || list[0], !!latest);
+    }
+    el.onmouseover = onEnter; el.onfocusin = onEnter;
+    el.onmouseleave = onLeave; el.onfocusout = onLeave;
+  }
+
   function renderOverview(el) {
+    if (el.classList.contains("catalog-list")) return renderHomeCatalog(el);
     var otherOnly = el.getAttribute("data-overview-other") === "true";
     el.innerHTML = products
       .filter(function (p) { return !otherOnly || p.id !== programId; })
