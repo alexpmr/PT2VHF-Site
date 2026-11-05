@@ -185,7 +185,7 @@ window.PT2VHF_I18N["es"] = {
     "aprs-android": {
       "summary": "APRS en el móvil: mapa, mensajes, baliza, tracker en segundo plano y TNC por Bluetooth.",
       "cardSummary": "Versión Android del APRS Client, con tracker SmartBeaconing y radio/TNC por Bluetooth.",
-      "tagline": "APRS en Android 8 o superior · APRS-IS y RF por Bluetooth o TCP",
+      "tagline": "APRS en Android 8 o superior · APRS-IS y RF por Bluetooth, TCP, USB o audio",
       "description": [
         "Versión móvil del PT2VHF APRS Client. Se conecta a APRS-IS en el servidor que elija, calcula el passcode a partir del indicativo y muestra estaciones y enlaces RF en el mapa.",
         "Con una radio o TNC KISS emparejado por Bluetooth transmite y recibe por RF. El modo tracker envía su posición con SmartBeaconing incluso con la pantalla apagada."
@@ -204,12 +204,18 @@ window.PT2VHF_I18N["es"] = {
         "Mis enlaces RF, récords de alcance y capa de cobertura en el mapa; rastro y panel de la estación seguida",
         "Tracklog con color, grosor, opacidad y retención configurables, exportable en GPX",
         "Privacidad con ambigüedad de posición, altitud y frecuencia de voz opcionales y alertas de estaciones favoritas",
-        "API opcional para integración con otras apps, protegida por permiso"
+        "API opcional para integración con otras apps, protegida por permiso",
+        "Módem AFSK 1200 por el audio del teléfono (cable, tarjeta de sonido USB o Bluetooth), con PTT por VOX o interfaz",
+        "TNC KISS por USB-OTG: CDC-ACM (Mobilinkd, NinoTNC, radios con USB), FTDI y CP210x",
+        "Pestaña Logs con todos los paquetes RX/TX, filtros por tipo, detalles y exportación TXT/CSV",
+        "Objetos e ítems APRS creados desde el mapa, posición fija y rutas GPX con distancia restante",
+        "Modo coche, widget en la pantalla de inicio, ahorro de batería y copia de seguridad de los ajustes",
+        "Aviso de nueva versión con notificación; reenvío de mensajes visible y configurable"
       ],
       "requirements": [
         "Android 8.0 o superior",
         "Instalación con el APK del sitio: permita \"instalar apps desconocidas\" cuando Android lo pida",
-        "Permisos de ubicación (baliza/tracker), notificaciones y Bluetooth (TNC)"
+        "Permisos de ubicación (baliza/tracker), notificaciones, Bluetooth (TNC), micrófono (módem de audio) y USB (TNC USB-OTG)"
       ]
     },
     "aprs": {

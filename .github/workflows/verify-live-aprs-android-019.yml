@@ -1,10 +1,10 @@
-name: Verify public APRS Android v0.1.8 delivery
+name: Verify public APRS Android v0.1.9 delivery
 
 on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/verify-live-aprs-android-018.yml'
+      - '.github/workflows/verify-live-aprs-android-019.yml'
   workflow_dispatch:
 
 permissions:
@@ -20,18 +20,18 @@ jobs:
         run: |
           set -euo pipefail
           site="https://www.pt2vhf.com"
-          sha="a8e90b149a900fca1024d62f4c8e8bc0f595b58c3d37e1ff12e562b69b21bc50"
-          apk="$site/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.8.apk"
+          sha="fda693d8240050c20b172553e71c976c4d30baa9738e79b0fa767d6efe4b6017"
+          apk="$site/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.9.apk"
           check() {
             local v="-"
-            code=$(curl -s -o "$RUNNER_TEMP/u.json" -w '%{http_code}' --max-time 15 -H "Cache-Control: no-cache" "$site/updates.json?verify=v018-$1") || true
+            code=$(curl -s -o "$RUNNER_TEMP/u.json" -w '%{http_code}' --max-time 15 -H "Cache-Control: no-cache" "$site/updates.json?verify=v019-$1") || true
             [ "$code" = 200 ] && v=$(jq -r '.products["aprs-android"].version + " " + .products["aprs-android"].files[0].sha256' "$RUNNER_TEMP/u.json" 2>/dev/null || echo parse-error)
             ota_code=$(curl -s -o "$RUNNER_TEMP/ota.json" -w '%{http_code}' --max-time 15 "$site/update.php?product=aprs-android&verify=$1") || true
             page_code=$(curl -s -o "$RUNNER_TEMP/page.html" -w '%{http_code}' --max-time 15 "$site/aprs-android") || true
             apk_code=$(curl -s -o /dev/null -I -L -w '%{http_code} %header{content-length}' --max-time 20 "$apk") || true
             echo "attempt $1: updates.json=$code ($v) update.php=$ota_code page=$page_code apk=$apk_code"
-            [ "$v" = "0.1.8 $sha" ] && [ "$ota_code" = 200 ] && grep -q '0.1.8' "$RUNNER_TEMP/ota.json" \
-              && [ "$page_code" = 200 ] && grep -q 'android018' "$RUNNER_TEMP/page.html" && [ "$apk_code" = "200 7686727" ]
+            [ "$v" = "0.1.9 $sha" ] && [ "$ota_code" = 200 ] && grep -q '0.1.9' "$RUNNER_TEMP/ota.json" \
+              && [ "$page_code" = 200 ] && grep -q 'android019' "$RUNNER_TEMP/page.html" && [ "$apk_code" = "200 7970775" ]
           }
           # Hostinger devolve 429 com consultas seguidas: poucas tentativas espaçadas.
           sleep 240
@@ -39,10 +39,10 @@ jobs:
             if check "$attempt-${GITHUB_SHA}"; then
               # HEAD não conta download; tamanho confirmado pelo Content-Length final.
               echo "OTA response:"; cat "$RUNNER_TEMP/ota.json"; echo
-              echo "LIVE_ANDROID_018_APK_OTA_PAGE_VERIFIED=1"
+              echo "LIVE_ANDROID_019_APK_OTA_PAGE_VERIFIED=1"
               exit 0
             fi
             sleep 120
           done
-          echo "::error::APRS Android v0.1.8 in GitHub site repo but not verified on live Hostinger"
+          echo "::error::APRS Android v0.1.9 in GitHub site repo but not verified on live Hostinger"
           exit 1

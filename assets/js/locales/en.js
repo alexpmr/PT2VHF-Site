@@ -185,7 +185,7 @@ window.PT2VHF_I18N["en"] = {
     "aprs-android": {
       "summary": "APRS on your phone: map, messages, beacon, background tracker and Bluetooth TNC.",
       "cardSummary": "Android version of the APRS Client, with SmartBeaconing tracker and Bluetooth radio/TNC.",
-      "tagline": "APRS on Android 8 or later · APRS-IS and RF over Bluetooth or TCP",
+      "tagline": "APRS on Android 8 or later · APRS-IS and RF over Bluetooth, TCP, USB or audio",
       "description": [
         "Phone version of PT2VHF APRS Client. Connects to APRS-IS on the server you choose, computes the passcode from your callsign and shows stations and RF links on the map.",
         "With a KISS radio or TNC paired over Bluetooth it transmits and receives over RF. Tracker mode sends your position with SmartBeaconing even with the screen off."
@@ -204,12 +204,18 @@ window.PT2VHF_I18N["en"] = {
         "My RF links, range records and a coverage layer on the map; trail and panel for the followed station",
         "Tracklog with configurable color, width, opacity and retention, exportable as GPX",
         "Privacy with position ambiguity, optional altitude and voice frequency, and alerts for favorite stations",
-        "Optional API for other apps, protected by a permission"
+        "Optional API for other apps, protected by a permission",
+        "AFSK 1200 modem through the phone's audio (cable, USB sound card or Bluetooth), with PTT by VOX or an interface",
+        "KISS TNC over USB-OTG: CDC-ACM (Mobilinkd, NinoTNC, radios with USB), FTDI and CP210x",
+        "Logs tab with every RX/TX packet, type filters, details and TXT/CSV export",
+        "APRS objects and items created from the map, fixed position and GPX routes with remaining distance",
+        "Car mode, home-screen widget, battery saver and settings backup",
+        "New-version notice with notification; visible, configurable message retries"
       ],
       "requirements": [
         "Android 8.0 or later",
         "Install the APK from the website: allow \"install unknown apps\" when Android asks",
-        "Location (beacon/tracker), notification and Bluetooth (TNC) permissions"
+        "Location (beacon/tracker), notification, Bluetooth (TNC), microphone (audio modem) and USB (USB-OTG TNC) permissions"
       ]
     },
     "aprs": {

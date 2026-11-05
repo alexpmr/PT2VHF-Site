@@ -55,7 +55,7 @@ window.PT2VHF_PRODUCTS = [
     summary: "Cliente APRS no celular: mapa, mensagens, beacon, tracker em segundo plano e TNC por Bluetooth.",
     cardSummary: "Versão Android do APRS Client, com tracker SmartBeaconing e rádio/TNC por Bluetooth.",
     name: "PT2VHF APRS Client for Android",
-    tagline: "APRS no Android 8 ou superior · APRS-IS e RF por Bluetooth ou TCP",
+    tagline: "APRS no Android 8 ou superior · APRS-IS e RF por Bluetooth, TCP, USB ou áudio",
     description: [
       "Versão para celular do PT2VHF APRS Client. Conecta ao APRS-IS com o servidor que você escolher, calcula o passcode a partir do indicativo e mostra estações e enlaces RF no mapa.",
       "Com um rádio ou TNC KISS pareado por Bluetooth, transmite e recebe por RF. O modo tracker envia a sua posição com SmartBeaconing mesmo com a tela desligada."
@@ -79,7 +79,13 @@ window.PT2VHF_PRODUCTS = [
       "Meus enlaces RF, recordes de alcance e camada de cobertura no mapa; trilha e painel da estação seguida",
       "Tracklog com cor, espessura, opacidade e retenção configuráveis, exportável em GPX",
       "Privacidade com ambiguidade de posição, altitude e frequência de voz opcionais e alertas de estações favoritas",
-      "API opcional para integração com outros apps, protegida por permissão"
+      "API opcional para integração com outros apps, protegida por permissão",
+      "Modem AFSK 1200 pelo áudio do celular (cabo, placa de som USB ou Bluetooth), com PTT por VOX ou interface",
+      "TNC KISS por USB-OTG: CDC-ACM (Mobilinkd, NinoTNC, rádios com USB), FTDI e CP210x",
+      "Aba Logs com todos os pacotes RX/TX, filtros por tipo, detalhes e exportação TXT/CSV",
+      "Objetos e itens APRS criados pelo mapa, posição fixa e rotas GPX com distância restante",
+      "Modo carro, widget na tela inicial, economia de bateria e backup das configurações",
+      "Aviso de nova versão com notificação; reenvio de mensagens visível e configurável"
     ],
     supported: [
       {
@@ -93,12 +99,20 @@ window.PT2VHF_PRODUCTS = [
       {
         "name": "TNC KISS TCP",
         "detail": "Dire Wolf ou TNC na rede local"
+      },
+      {
+        "name": "Modem de áudio AFSK 1200",
+        "detail": "Celular como TNC, com cabo, placa de som USB ou Bluetooth; PTT por VOX ou interface"
+      },
+      {
+        "name": "TNC KISS USB-OTG",
+        "detail": "CDC-ACM (Mobilinkd, NinoTNC, rádios com USB), FTDI e CP210x"
       }
     ],
     requirements: [
       "Android 8.0 ou superior",
       "Instalação pelo APK do site: permita \"instalar apps desconhecidos\" quando o Android pedir",
-      "Permissões de localização (beacon/tracker), notificações e Bluetooth (TNC)"
+      "Permissões de localização (beacon/tracker), notificações, Bluetooth (TNC), microfone (modem de áudio) e USB (TNC USB-OTG)"
     ],
     icon: "android"
   },

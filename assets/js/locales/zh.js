@@ -185,7 +185,7 @@ window.PT2VHF_I18N["zh"] = {
     "aprs-android": {
       "summary": "手机上的 APRS：地图、消息、信标、后台跟踪器和蓝牙 TNC。",
       "cardSummary": "APRS Client 的 Android 版本，支持 SmartBeaconing 跟踪器和蓝牙电台/TNC。",
-      "tagline": "Android 8 及以上 · APRS-IS 与蓝牙/TCP 射频",
+      "tagline": "Android 8 及以上 · APRS-IS 与蓝牙/TCP/USB/音频射频",
       "description": [
         "PT2VHF APRS Client 的手机版本。连接到您选择的 APRS-IS 服务器，根据呼号自动计算 passcode，并在地图上显示电台和射频链路。",
         "通过蓝牙配对的 KISS 电台或 TNC 可进行射频收发。跟踪器模式在屏幕关闭时也会用 SmartBeaconing 发送位置。"
@@ -204,12 +204,18 @@ window.PT2VHF_I18N["zh"] = {
         "我的射频链路、通联距离记录和地图覆盖图层；跟随电台的轨迹与信息面板",
         "轨迹记录的颜色、粗细、透明度和保留期限可设置，并可导出 GPX",
         "隐私：位置模糊化，可选高度和语音频率，以及收藏电台提醒",
-        "可选 API，供其他应用集成，受权限保护"
+        "可选 API，供其他应用集成，受权限保护",
+        "通过手机音频（线缆、USB 声卡或蓝牙）实现 AFSK 1200 调制解调器，PTT 由 VOX 或接口控制",
+        "USB-OTG 方式的 KISS TNC：CDC-ACM（Mobilinkd、NinoTNC、带 USB 的电台）、FTDI 和 CP210x",
+        "日志标签页显示全部收发数据包，可按类型筛选、查看详情并导出 TXT/CSV",
+        "在地图上创建 APRS 对象和项目，固定位置，以及显示剩余距离的 GPX 路线",
+        "车载模式、主屏幕小部件、省电模式和设置备份",
+        "新版本提醒及通知；消息重发过程可见且可设置"
       ],
       "requirements": [
         "Android 8.0 或更高版本",
         "从网站安装 APK：在 Android 提示时允许“安装未知应用”",
-        "位置（信标/跟踪器）、通知和蓝牙（TNC）权限"
+        "位置（信标/跟踪器）、通知、蓝牙（TNC）、麦克风（音频调制解调器）和 USB（USB-OTG TNC）权限"
       ]
     },
     "aprs": {

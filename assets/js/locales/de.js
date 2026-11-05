@@ -185,7 +185,7 @@ window.PT2VHF_I18N["de"] = {
     "aprs-android": {
       "summary": "APRS auf dem Smartphone: Karte, Nachrichten, Bake, Tracker im Hintergrund und Bluetooth-TNC.",
       "cardSummary": "Android-Version des APRS Client mit SmartBeaconing-Tracker und Funkgerät/TNC über Bluetooth.",
-      "tagline": "APRS unter Android 8 oder neuer · APRS-IS und HF über Bluetooth oder TCP",
+      "tagline": "APRS unter Android 8 oder neuer · APRS-IS und HF über Bluetooth, TCP, USB oder Audio",
       "description": [
         "Smartphone-Version des PT2VHF APRS Client. Verbindet sich mit APRS-IS über den gewählten Server, berechnet den Passcode aus dem Rufzeichen und zeigt Stationen und Funkverbindungen auf der Karte.",
         "Mit einem per Bluetooth gekoppelten KISS-Funkgerät oder TNC sendet und empfängt es über Funk. Der Tracker-Modus sendet die Position per SmartBeaconing auch bei ausgeschaltetem Bildschirm."
@@ -204,12 +204,18 @@ window.PT2VHF_I18N["de"] = {
         "Meine HF-Verbindungen, Reichweitenrekorde und Abdeckungsebene auf der Karte; Spur und Panel der verfolgten Station",
         "Tracklog mit einstellbarer Farbe, Breite, Deckkraft und Aufbewahrung, als GPX exportierbar",
         "Datenschutz mit Positionsunschärfe, optionaler Höhe und Sprechfrequenz sowie Alarme für Favoriten",
-        "Optionale API für andere Apps, durch eine Berechtigung geschützt"
+        "Optionale API für andere Apps, durch eine Berechtigung geschützt",
+        "AFSK-1200-Modem über das Audio des Telefons (Kabel, USB-Soundkarte oder Bluetooth), PTT per VOX oder Interface",
+        "KISS-TNC über USB-OTG: CDC-ACM (Mobilinkd, NinoTNC, Funkgeräte mit USB), FTDI und CP210x",
+        "Registerkarte Logs mit allen RX/TX-Paketen, Typfiltern, Details und TXT/CSV-Export",
+        "APRS-Objekte und -Items direkt auf der Karte, feste Position und GPX-Routen mit Restdistanz",
+        "Automodus, Startbildschirm-Widget, Energiesparmodus und Sicherung der Einstellungen",
+        "Hinweis auf neue Versionen mit Benachrichtigung; sichtbare, einstellbare Nachrichtenwiederholung"
       ],
       "requirements": [
         "Android 8.0 oder neuer",
         "Installation per APK von der Website: „Unbekannte Apps installieren“ erlauben, wenn Android fragt",
-        "Berechtigungen für Standort (Bake/Tracker), Benachrichtigungen und Bluetooth (TNC)"
+        "Berechtigungen für Standort (Bake/Tracker), Benachrichtigungen, Bluetooth (TNC), Mikrofon (Audiomodem) und USB (USB-OTG-TNC)"
       ]
     },
     "aprs": {
