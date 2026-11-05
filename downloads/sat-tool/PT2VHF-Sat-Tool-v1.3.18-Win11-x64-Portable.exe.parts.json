@@ -1,0 +1,32 @@
+{
+  "name": "PT2VHF-Sat-Tool-v1.3.18-Win11-x64-Portable.exe",
+  "size": 234809933,
+  "sha256": "977849e8a13658b252f9289ad4c09925828bbbd2be3871c47aaa9bc22b18ae79",
+  "parts": [
+    {
+      "name": "PT2VHF-Sat-Tool-v1.3.18-Win11-x64-Portable.exe.part00",
+      "size": 50331648,
+      "sha256": "4fb2be98eef1a02dcb2b06b02bad70ce45b3e3f969f3c7a95c16d9a0fd2f39fc"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.3.18-Win11-x64-Portable.exe.part01",
+      "size": 50331648,
+      "sha256": "6c8d7756c9fe3674befd4d124328151c608032cfec98a358698ef64076dd9add"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.3.18-Win11-x64-Portable.exe.part02",
+      "size": 50331648,
+      "sha256": "28a947e44220b55532a1f773ede711634b2fcfc84ca892d000d2ab461ec3fc50"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.3.18-Win11-x64-Portable.exe.part03",
+      "size": 50331648,
+      "sha256": "6ff3cf4e752a67326f3f548d37abf76481cfdc94736713172fd97ea0bf92b9ca"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.3.18-Win11-x64-Portable.exe.part04",
+      "size": 33483341,
+      "sha256": "609c18afe3ccbb48cdd5814ad8c11ec8e921bb6a9a4d3d47da4327a89aa3251b"
+    }
+  ]
+}
