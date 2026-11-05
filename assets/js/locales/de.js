@@ -247,7 +247,9 @@ window.PT2VHF_I18N["de"] = {
         "Aktualisierung von Orbit- und Frequenzdaten",
         "Kontinuierliches Auto-CAT: FA/FB gesendet und per Rücklesen bestätigt, ohne PTT",
         "CelesTrak-Bahndaten (OMM/TLE) und SatNOGS-Transponder, Offline-Karte",
-        "Installer und portable EXE mit sicherem Update über pt2vhf.com (Größe und SHA-256 geprüft)"
+        "Installer und portable EXE mit sicherem Update über pt2vhf.com (Größe und SHA-256 geprüft)",
+        "Integriertes RTL-SDR für RX: automatische Erkennung, Echtzeit-Doppler, FM/SSB/CW, Audio, Wasserfall und Aufzeichnung der Überflüge",
+        "Yaesu FT-817/818/857/897 und Hamlib rigctld für RX/TX; Telemetrie über AFSK 1200, SoundModem (KISS), satnogs-decoders und SatNOGS-Upload"
       ],
       "supported": [
         {

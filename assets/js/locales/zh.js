@@ -247,7 +247,9 @@ window.PT2VHF_I18N["zh"] = {
         "更新轨道和频率数据",
         "连续 Auto CAT：发送 FA/FB 并通过电台回读确认，不触发 PTT",
         "CelesTrak 轨道根数（OMM/TLE）与 SatNOGS 转发器数据，离线地图",
-        "安装版与便携 EXE，通过 pt2vhf.com 安全更新（校验大小与 SHA-256）"
+        "安装版与便携 EXE，通过 pt2vhf.com 安全更新（校验大小与 SHA-256）",
+        "内置 RTL-SDR 接收：自动识别、实时多普勒、FM/SSB/CW、音频、瀑布图与过境录音",
+        "Yaesu FT-817/818/857/897 与 Hamlib rigctld 收发；通过 AFSK 1200、SoundModem（KISS）、satnogs-decoders 解码遥测并可上传 SatNOGS"
       ],
       "supported": [
         {

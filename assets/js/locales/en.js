@@ -247,7 +247,9 @@ window.PT2VHF_I18N["en"] = {
         "Orbital and frequency data updates",
         "Continuous Auto CAT: FA/FB sent and confirmed by radio readback, never keying PTT",
         "CelesTrak orbital elements (OMM/TLE) and SatNOGS transponders, with offline map",
-        "Installer and portable EXE with secure updates from pt2vhf.com (size and SHA-256 verified)"
+        "Installer and portable EXE with secure updates from pt2vhf.com (size and SHA-256 verified)",
+        "Built-in RTL-SDR for RX: auto-detection, real-time Doppler, FM/SSB/CW, audio, waterfall and pass recording",
+        "Yaesu FT-817/818/857/897 and Hamlib rigctld for RX/TX; telemetry via AFSK 1200, SoundModem (KISS), satnogs-decoders and SatNOGS upload"
       ],
       "supported": [
         {
