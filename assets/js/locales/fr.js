@@ -249,7 +249,8 @@ window.PT2VHF_I18N["fr"] = {
         "Éléments orbitaux CelesTrak (OMM/TLE) et transpondeurs SatNOGS, carte hors ligne",
         "Installateur et EXE portable avec mise à jour sécurisée via pt2vhf.com (taille et SHA-256 vérifiés)",
         "RTL-SDR intégré pour la réception : détection automatique, Doppler en temps réel, FM/SSB/CW, audio, waterfall et enregistrement des passages",
-        "Yaesu FT-817/818/857/897 et Hamlib rigctld pour RX/TX ; télémétrie via AFSK 1200, SoundModem (KISS), satnogs-decoders et envoi à SatNOGS"
+        "Yaesu FT-817/818/857/897 et Hamlib rigctld pour RX/TX ; télémétrie via AFSK 1200, SoundModem (KISS), satnogs-decoders et envoi à SatNOGS",
+        "RTL-SDR prêt à l’emploi (pilote/autorisations installés par le programme), CAT détecté automatiquement, qualité des passages en étoiles et fiche du satellite"
       ],
       "supported": [
         {

@@ -210,7 +210,8 @@ window.PT2VHF_PRODUCTS = [
       "Elementos orbitais CelesTrak (OMM/TLE) e transponders SatNOGS, com mapa offline",
       "Instalador e portátil EXE com atualização segura via pt2vhf.com (tamanho e SHA-256 verificados)",
       "RTL-SDR embutido para RX: detecção automática, Doppler em tempo real, FM/SSB/CW, áudio, waterfall e gravação das passagens",
-      "Yaesu FT-817/818/857/897 e Hamlib rigctld para RX/TX; telemetria por AFSK 1200, SoundModem (KISS), satnogs-decoders e envio ao SatNOGS"
+      "Yaesu FT-817/818/857/897 e Hamlib rigctld para RX/TX; telemetria por AFSK 1200, SoundModem (KISS), satnogs-decoders e envio ao SatNOGS",
+      "RTL-SDR plug and play (driver/permissões instalados pelo programa), CAT autodetectado, qualidade da passagem em estrelas e popup com informações do satélite"
     ],
     supported: [
       { name: "Kenwood TS-2000", detail: "Controle CAT pela porta serial" },
