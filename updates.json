@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -482,8 +482,8 @@
           "label": "Windows — Instalador",
           "name": "PT2VHF-Sat-Tool-v1.4.0-Win11-x64-Setup.exe",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.4.0-Win11-x64-Setup.exe",
-          "size": 161027406,
-          "sha256": "2864fb364e3968a98924a5ed2ca15ee704e01d1cc5313ff355e50068e637a18a",
+          "size": 161037085,
+          "sha256": "c14d1319da602021ff3ad6b8c93e63cad1268059926727d94da226e083cb546e",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -495,8 +495,8 @@
           "label": "Windows — Portátil",
           "name": "PT2VHF-Sat-Tool-v1.4.0-Win11-x64-Portable.exe",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.4.0-Win11-x64-Portable.exe",
-          "size": 238654185,
-          "sha256": "67c85f3539bb0b75a5e6429b75361a91481fc73de4edf5eac7923c5462f3e7f2",
+          "size": 238654684,
+          "sha256": "df07d91bb72e118022df8eaf6bf890802846b44d68f625c5bef5b60ef7d41ddc",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -531,12 +531,12 @@
           "name": "PT2VHF-Sat-Tool-v1.4.0-SHA256.txt",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.4.0-SHA256.txt",
           "size": 432,
-          "sha256": "94768eb46907f189cb009bed033ad91883308cda6ae2df737894050d20729e66",
+          "sha256": "bbbd6b207b8b36e8382a8aaf91ba93cf27dfe4d1e25bc558c5a5759075da3c1b",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
       "releaseStatus": "Pacotes oficiais para Windows 10/11 x64, Linux x64 e macOS Apple Silicon. Confira o SHA-256 antes da instalação.",
-      "date": "2026-11-05",
+      "date": "2026-11-06",
       "notes": "v1.4.0: RTL-SDR embutido para RX (detecção automática, Doppler em tempo real, FM/USB/LSB/CW, áudio, gravação de passagens), waterfall, Yaesu FT-817/818/857/897 e Hamlib rigctld para RX/TX, telemetria (AFSK 1200 interno, SoundModem UZ7HO via KISS, satnogs-decoders, CSV e envio opcional ao SatNOGS). Windows x64, Linux x64 e macOS ARM64.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
