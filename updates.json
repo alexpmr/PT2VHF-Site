@@ -469,8 +469,8 @@
     },
     "sat": {
       "name": "PT2VHF Sat Tool",
-      "version": "1.6.0",
-      "developmentVersion": "1.6.0",
+      "version": "1.7.0",
+      "developmentVersion": "1.7.0",
       "page": "https://www.pt2vhf.com/sat",
       "files": [
         {
@@ -480,10 +480,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Instalador",
-          "name": "PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Setup.exe",
-          "size": 166064276,
-          "sha256": "0ffc75f5544779708b17d730b7cab653e32db8f89383b253245e2c25ed6ee458",
+          "name": "PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Setup.exe",
+          "size": 166144928,
+          "sha256": "390f90e2332ccb0de01a09a7790efcc11e3f960390f60ad54e8b67e343fb1cc5",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -493,10 +493,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Portátil",
-          "name": "PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Portable.exe",
-          "size": 244264851,
-          "sha256": "8116eb0ba68b0b3e3ec317aaab41843b07123d7b8686fbab6d815f41e57aeda6",
+          "name": "PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Portable.exe",
+          "size": 244312807,
+          "sha256": "8a1fb9dc12e5b029493d8aba5c8af2a240a1793ce58fb66acb8637c4a047befd",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -506,10 +506,10 @@
           "platform": "linux-x64",
           "architecture": "x64",
           "label": "Linux — .tar.gz",
-          "name": "PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz",
-          "size": 262319895,
-          "sha256": "0a8c8d49d2d1f8a6fcc19fa5a1971145b4c85337cfd61ca2bb8c8a412eb0306c",
+          "name": "PT2VHF-Sat-Tool-v1.7.0-Linux-x64.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-Linux-x64.tar.gz",
+          "size": 262361904,
+          "sha256": "db770b14ae9f927a661d25a2d79b484b6d64d93617632be90fde9c36aeeb381a",
           "detail": "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute PT2VHF-Sat-Tool"
         },
         {
@@ -519,25 +519,25 @@
           "platform": "macos-arm64",
           "architecture": "Apple Silicon",
           "label": "macOS — .dmg",
-          "name": "PT2VHF-Sat-Tool-v1.6.0-macOS-arm64.dmg",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-macOS-arm64.dmg",
-          "size": 253314839,
-          "sha256": "2a062d7b1ae2f279b91fd97273b01118db9f94a4c58ddfa90f412908d16021d6",
+          "name": "PT2VHF-Sat-Tool-v1.7.0-macOS-arm64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-macOS-arm64.dmg",
+          "size": 250889205,
+          "sha256": "369c93224e36e2367634a7c4d50dded6d36f004e4cba946fbec33d354a3cb799",
           "detail": "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos"
         },
         {
           "category": "checksums",
           "label": "Somas de verificação",
-          "name": "PT2VHF-Sat-Tool-v1.6.0-SHA256.txt",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-SHA256.txt",
+          "name": "PT2VHF-Sat-Tool-v1.7.0-SHA256.txt",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-SHA256.txt",
           "size": 432,
-          "sha256": "cec0de9aeba1f4ee4a7051c836d1b9d4f0ebd968b7438b070acb0292bdc61976",
+          "sha256": "4c0f6b7679405b23790f0f5f39f7653c8bb790177a9509ebb1c9da7253055bcb",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
       "releaseStatus": "Pacotes oficiais para Windows 10/11 x64, Linux x64 e macOS Apple Silicon. Confira o SHA-256 antes da instalação.",
       "date": "2026-11-06",
-      "notes": "v1.6.0: atualização automática conclui (processos do mapa encerrados, instalador detecta o app aberto, resultado exibido); display LCD âmbar de matriz de pontos com parâmetros do rádio via CAT, tecla A/B (MAIN↔SUB) e modo Somente RX; passagens com Hoje/Amanhã, larguras otimizadas, estrelas cheias e avisos 30 min/30 s pelo clique direito; divisor Passagens/Telemetria; trajetória passada de volta e linhas mais suaves; SDR com squelch por ruído, áudio contínuo, filtro/velocidade/altura do waterfall, janelas destacáveis e pacotes APRS decodificados no mapa. Windows x64, Linux x64 e macOS ARM64.",
+      "notes": "v1.7.0: display no layout do TS-2000 (MAIN e SUB lado a lado) com 5 modelos selecionáveis — matriz de pontos âmbar Normal/Negrito, LED e LCD de 7 segmentos âmbar, Digital colorido e Clássico — pontos sem falhas e contagem LOS/AOS; tecla A/B corrigida (confirma pela leitura do rádio e acompanha troca feita no painel); controle de rotor GS-232 (Yaesu G-5400B via ERC-M pela USB) com pré-posicionamento, flip, estacionamento e PARAR; atualização automática sem perguntar (configurável, adia durante operação); Configurações em abas Apresentação/Estação/Rádio/Rotor/Geral; detalhes de CAT recolhidos; velocidade radial em km/h; tabela de passagens sem rolagem lateral. Windows x64, Linux x64 e macOS ARM64.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
     "qsl": {
