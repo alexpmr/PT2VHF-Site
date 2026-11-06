@@ -70,7 +70,7 @@ window.PT2VHF_I18N["it"] = {
     "statProg": "Installatori ufficiali disponibili per Windows e Linux.",
     "statProp": "Pacchetti Windows generati, ma test automatico non riuscito. Nessun installatore pubblico approvato.",
     "statMesh": "Nessun installatore pubblico o repository corrispondente confermato in questo account GitLab.",
-    "statAprs": "Versione 1.15.7 disponibile per Windows, Linux (x86_64 e Raspberry Pi ARM64) e macOS. Le installazioni esistenti vengono avvisate e si aggiornano dall’app.",
+    "statAprs": "Versione 1.15.8 disponibile per Windows, Linux (x86_64 e Raspberry Pi ARM64) e macOS. Le installazioni esistenti vengono avvisate e si aggiornano dall’app.",
     "statSat": "Installer e versione portatile ufficiali per Windows 10/11 x64.",
     "ciLink": "Dettagli della compilazione (potrebbe servire l’accesso a GitLab)",
     "detailsProgInstaller": "Windows 10/11 64 bit (consigliato)",

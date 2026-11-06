@@ -65,6 +65,7 @@
   var LOG = {
     qsl: {
       pt: [
+        e("1.15.8", "Mapa de calor completo", ["O mapa de calor mostra todas as áreas com recepção RF; as menos densas não somem mais quando o histórico cresce.", "Ao abrir, convite às demais ferramentas gratuitas PT2VHF, como no Sat Tool.", "Barra do mapa traduzida."]),
         e("1.15.7", "TNC / RF acessível e unidades imperiais", ["Corrigida a sub-aba TNC / RF que não rolava (conexão KISS e Salvar inacessíveis); Salvar TNC / RF fica sempre à vista.", "Botão Detectar Dire Wolf para Raspberry Pi com Digirig e outras placas de som; aviso de permissão serial (grupo dialout).", "Unidades imperiais (pés, milhas, mph), altitude opcional, botão Sair no modo navegador e Configuração traduzida em inglês, espanhol, francês, alemão e italiano."]),
         e("1.15.3", "Aviso de novidades simplificado", ["O aviso de versão nova tem apenas o botão Fechar.", "O boletim da versão nova é enviado como programado; para desligar, use Automações → Anunciar nova versão."]),
         e("1.15.2", "Anúncio no seu idioma e enlaces preservados", ["O boletim de versão nova sai no idioma configurado, com download em www.PT2VHF.com; a divulgação da aba Sobre também passa a usar www.PT2VHF.com.", "Limpar as estações não apaga nem esconde mais os enlaces do mapa.", "O cabeçalho ganhou o botão Enviar Beacon no lugar do ícone."]),
@@ -76,6 +77,7 @@
         e("0.1.0", "Primeira versão", ["Banco local incremental com limpeza por indicativo; ADIF, ADX, Cabrillo, EDI e CSV; importação do QRZ.com, LoTW, eQSL e Club Log.", "20 estatísticas, status de QSL, gráficos interativos, relatórios em PDF e exportação ADIF/CSV/Cabrillo/KML."])
       ],
       en: [
+        e("1.15.8", "Complete heat map", ["The heat map shows every area with RF reception; sparse areas no longer disappear as the history grows.", "On startup, an invitation to the other free PT2VHF tools, as in Sat Tool.", "Map toolbar translated."]),
         e("1.15.7", "TNC / RF reachable and imperial units", ["Fixed the TNC / RF sub-tab that would not scroll (KISS connection and Save unreachable); Save TNC / RF now stays visible.", "Detect Dire Wolf button for Raspberry Pi with Digirig and other sound-card interfaces; serial permission hint (dialout group).", "Imperial units (ft, mi, mph), optional altitude, Exit button in browser mode and Settings translated into English, Spanish, French, German and Italian."]),
         e("1.15.3", "Simpler what's-new notice", ["The new-version notice now has only the Close button.", "The new-version bulletin is sent as scheduled; to turn it off, use Automations → Announce new version."]),
         e("1.15.2", "Announcement in your language and links kept", ["The new-version bulletin is sent in the configured language, with download at www.PT2VHF.com; the About tab promotion also uses www.PT2VHF.com.", "Clearing stations no longer deletes or hides the map links.", "The header now has a Send Beacon button instead of the icon."]),
@@ -87,6 +89,7 @@
         e("0.1.0", "First release", ["Incremental local database with clearing by callsign; ADIF, ADX, Cabrillo, EDI and CSV; import from QRZ.com, LoTW, eQSL and Club Log.", "20 statistics, QSL status, interactive charts, PDF reports and ADIF/CSV/Cabrillo/KML export."])
       ],
       es: [
+        e("1.15.8", "Mapa de calor completo", ["El mapa de calor muestra todas las áreas con recepción RF; las menos densas ya no desaparecen al crecer el historial.", "Al abrir, invitación a las demás herramientas gratuitas PT2VHF, como en Sat Tool.", "Barra del mapa traducida."]),
         e("1.15.7", "TNC / RF accesible y unidades imperiales", ["Corregida la subpestaña TNC / RF que no se desplazaba (conexión KISS y Guardar inaccesibles); Guardar TNC / RF siempre visible.", "Botón Detectar Dire Wolf para Raspberry Pi con Digirig y otras tarjetas de sonido; aviso de permiso serie (grupo dialout).", "Unidades imperiales (pies, millas, mph), altitud opcional, botón Salir en modo navegador y Configuración traducida al inglés, español, francés, alemán e italiano."]),
         e("1.15.3", "Aviso de novedades simplificado", ["El aviso de versión nueva solo tiene el botón Cerrar.", "El boletín de versión nueva se envía según lo programado; para desactivarlo, use Automatizaciones → Anunciar nueva versión."]),
         e("1.15.2", "Anuncio en su idioma y enlaces preservados", ["El boletín de versión nueva se envía en el idioma configurado, con descarga en www.PT2VHF.com; la divulgación de la pestaña Acerca de también usa www.PT2VHF.com.", "Limpiar las estaciones ya no borra ni oculta los enlaces del mapa.", "El encabezado tiene el botón Enviar beacon en lugar del icono."]),
@@ -133,6 +136,7 @@
         e("1.3.11", "Predicción comparada con el radio real", ["Compara el Doppler calculado con FA/FB leídas del TS-2000 aproximadamente cada segundo.", "Reconcilia automáticamente el radio cuando la frecuencia real difiere."])
       ],
       fr: [
+        e("1.15.8", "Carte de chaleur complète", ["La carte de chaleur affiche toutes les zones avec réception RF ; les zones peu denses ne disparaissent plus quand l’historique grandit.", "Au démarrage, une invitation aux autres outils gratuits PT2VHF, comme dans Sat Tool.", "Barre de la carte traduite."]),
         e("1.15.7", "TNC / RF accessible et unités impériales", ["Corrigé : le sous-onglet TNC / RF ne défilait pas (connexion KISS et Enregistrer inaccessibles) ; Enregistrer TNC / RF reste visible.", "Bouton Détecter Dire Wolf pour Raspberry Pi avec Digirig et autres cartes son ; aide sur la permission du port série (groupe dialout).", "Unités impériales (pieds, miles, mph), altitude facultative, bouton Quitter en mode navigateur et Configuration traduite en anglais, espagnol, français, allemand et italien."]),
         e("1.15.3", "Avis de nouveautés simplifié", ["L’avis de nouvelle version n’a plus que le bouton Fermer.", "Le bulletin de nouvelle version est envoyé comme prévu ; pour le désactiver, utilisez Automatisations → Annoncer la nouvelle version."]),
         e("1.15.2", "Annonce dans votre langue et liaisons conservées", ["Le bulletin de nouvelle version est envoyé dans la langue configurée, avec téléchargement sur www.PT2VHF.com ; la promotion de l’onglet À propos utilise aussi www.PT2VHF.com.", "Effacer les stations ne supprime ni ne masque plus les liaisons de la carte.", "L’en-tête affiche le bouton Envoyer le beacon à la place de l’icône."]),
@@ -147,6 +151,7 @@
         e("1.3.11", "Prévision comparée au poste réel", ["Compare le Doppler calculé aux FA/FB lues sur le TS-2000 environ chaque seconde.", "Réaligne automatiquement le poste lorsque la fréquence réelle diverge."])
       ],
       de: [
+        e("1.15.8", "Vollständige Heatmap", ["Die Heatmap zeigt alle Gebiete mit RF-Empfang; dünn besetzte Gebiete verschwinden nicht mehr, wenn der Verlauf wächst.", "Beim Start eine Einladung zu den anderen kostenlosen PT2VHF-Werkzeugen, wie im Sat Tool.", "Kartenleiste übersetzt."]),
         e("1.15.7", "TNC / RF erreichbar und imperiale Einheiten", ["Behoben: Der Unterreiter TNC / RF ließ sich nicht scrollen (KISS-Verbindung und Speichern unerreichbar); TNC / RF speichern bleibt sichtbar.", "Schaltfläche Dire Wolf erkennen für Raspberry Pi mit Digirig und anderen Soundkarten; Hinweis zu Berechtigungen der seriellen Schnittstelle (Gruppe dialout).", "Imperiale Einheiten (ft, mi, mph), optionale Höhe, Beenden-Schaltfläche im Browsermodus und Einstellungen auf Englisch, Spanisch, Französisch, Deutsch und Italienisch."]),
         e("1.15.3", "Vereinfachter Hinweis zu Neuerungen", ["Der Hinweis zur neuen Version hat nur noch die Schaltfläche Schließen.", "Das Bulletin zur neuen Version wird wie geplant gesendet; abschalten unter Automatisierungen → Neue Version ankündigen."]),
         e("1.15.2", "Ankündigung in Ihrer Sprache, Verbindungen bleiben erhalten", ["Das Bulletin zur neuen Version wird in der eingestellten Sprache gesendet, Download unter www.PT2VHF.com; auch die Werbung im Reiter Über nutzt www.PT2VHF.com.", "Das Löschen der Stationen löscht oder verbirgt die Kartenverbindungen nicht mehr.", "Die Kopfzeile hat jetzt die Schaltfläche Beacon senden statt des Symbols."]),
@@ -161,6 +166,7 @@
         e("1.3.11", "Vorhersage im Vergleich zum echten Funkgerät", ["Vergleicht den berechneten Doppler etwa sekündlich mit den vom TS-2000 gelesenen FA/FB.", "Gleicht das Funkgerät automatisch ab, wenn die tatsächliche Frequenz abweicht."])
       ],
       it: [
+        e("1.15.8", "Mappa di calore completa", ["La mappa di calore mostra tutte le aree con ricezione RF; quelle meno dense non scompaiono più quando lo storico cresce.", "All’avvio, un invito agli altri strumenti gratuiti PT2VHF, come nel Sat Tool.", "Barra della mappa tradotta."]),
         e("1.15.7", "TNC / RF accessibile e unità imperiali", ["Corretta la sotto-scheda TNC / RF che non scorreva (connessione KISS e Salva irraggiungibili); Salva TNC / RF resta sempre visibile.", "Pulsante Rileva Dire Wolf per Raspberry Pi con Digirig e altre schede audio; avviso sui permessi della porta seriale (gruppo dialout).", "Unità imperiali (piedi, miglia, mph), altitudine facoltativa, pulsante Esci in modalità browser e Configurazione tradotta in inglese, spagnolo, francese, tedesco e italiano."]),
         e("1.15.3", "Avviso delle novità semplificato", ["L’avviso di nuova versione ha solo il pulsante Chiudi.", "Il bollettino di nuova versione viene inviato come programmato; per disattivarlo, usa Automazioni → Annuncia nuova versione."]),
         e("1.15.2", "Annuncio nella tua lingua e collegamenti mantenuti", ["Il bollettino di nuova versione viene inviato nella lingua configurata, con download su www.PT2VHF.com; anche la promozione della scheda Informazioni usa www.PT2VHF.com.", "Cancellare le stazioni non elimina né nasconde più i collegamenti sulla mappa.", "L’intestazione ha il pulsante Invia beacon al posto dell’icona."]),
@@ -175,6 +181,7 @@
         e("1.3.11", "Previsione confrontata con la radio reale", ["Confronta il Doppler calcolato con FA/FB letti dal TS-2000 circa ogni secondo.", "Riallinea automaticamente la radio quando la frequenza reale differisce."])
       ],
       zh: [
+        e("1.15.8", "完整的热力图", ["热力图显示所有有 RF 接收的区域；历史数据增加时，稀疏区域不再消失。", "启动时邀请您了解其他免费的 PT2VHF 工具，与 Sat Tool 相同。", "地图工具栏已翻译。"]),
         e("1.15.7", "TNC / RF 可访问并支持英制单位", ["修复 TNC / RF 子选项卡无法滚动的问题（KISS 连接和保存按钮无法访问）；“保存 TNC / RF”始终可见。", "新增“检测 Dire Wolf”按钮，适用于搭配 Digirig 等声卡接口的树莓派；串口权限提示（dialout 组）。", "英制单位（英尺、英里、英里/小时）、海拔可选、浏览器模式下的退出按钮，并将设置翻译为英语、西班牙语、法语、德语和意大利语。"]),
         e("1.15.3", "简化的新功能提示", ["新版本提示只保留“关闭”按钮。", "新版本公告按计划发送；如需关闭，请在“自动化 → 公告新版本”中设置。"]),
         e("1.15.2", "以您的语言发布公告并保留链路", ["新版本公告以所设置的语言发送，下载地址 www.PT2VHF.com；“关于”选项卡的推广也改用 www.PT2VHF.com。", "清除电台不再删除或隐藏地图上的链路。", "页眉中的图标改为“发送信标”按钮。"]),

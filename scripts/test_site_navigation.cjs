@@ -13,7 +13,7 @@ for(const name of pages){
  assert(s.includes('href="/contato"'),name+": menu Contato ausente");
  assert(s.includes('href="/sobre"'),name+": menu Sobre ausente");
  assert(s.includes('class="site-nav-projects"'),name+": menu de projetos ausente");
- for(const project of ["aprs","android","prop","mesh","sat","prog","qsl"]){
+ for(const project of ["aprs","aprs-android","prop","mesh","sat","prog","qsl"]){
    assert(s.includes('href="/'+project+'"'),name+": projeto ausente: "+project);
  }
  assert(s.includes('class="site-nav-home"'),name+": Inicio ausente");
