@@ -469,8 +469,8 @@
     },
     "sat": {
       "name": "PT2VHF Sat Tool",
-      "version": "1.5.0",
-      "developmentVersion": "1.5.0",
+      "version": "1.6.0",
+      "developmentVersion": "1.6.0",
       "page": "https://www.pt2vhf.com/sat",
       "files": [
         {
@@ -480,10 +480,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Instalador",
-          "name": "PT2VHF-Sat-Tool-v1.5.0-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.5.0-Win11-x64-Setup.exe",
-          "size": 165951179,
-          "sha256": "0745ba98577a51b80ef7b744d9ce1ae1fe6dd5263759742474f955cd77bce4a9",
+          "name": "PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Setup.exe",
+          "size": 166087874,
+          "sha256": "9d475fb84f21bb5d8df7d209c45ce2289e3fb32d1bc62ad71431c8f7b49ce0d4",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -493,10 +493,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Portátil",
-          "name": "PT2VHF-Sat-Tool-v1.5.0-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.5.0-Win11-x64-Portable.exe",
-          "size": 244160464,
-          "sha256": "64de6404d79c1e7b4b08d1ae47e22c31f061e6b32796281be774f26167017c4e",
+          "name": "PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Portable.exe",
+          "size": 244265893,
+          "sha256": "580418296c2571487636f06cba4234714cac61de18a89ae485e296c97f505538",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -506,10 +506,10 @@
           "platform": "linux-x64",
           "architecture": "x64",
           "label": "Linux — .tar.gz",
-          "name": "PT2VHF-Sat-Tool-v1.5.0-Linux-x64.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.5.0-Linux-x64.tar.gz",
-          "size": 262206616,
-          "sha256": "c360977683fcde6500c2af0608ddae0fb77efc87c2e229f1947d7747444b7c84",
+          "name": "PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz",
+          "size": 262308085,
+          "sha256": "f59fb4a887eaa3101e65b2e82d92749154e6a2422d4244bfdefceb3b221523f0",
           "detail": "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute PT2VHF-Sat-Tool"
         },
         {
@@ -519,25 +519,25 @@
           "platform": "macos-arm64",
           "architecture": "Apple Silicon",
           "label": "macOS — .dmg",
-          "name": "PT2VHF-Sat-Tool-v1.5.0-macOS-arm64.dmg",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.5.0-macOS-arm64.dmg",
-          "size": 239383146,
-          "sha256": "967fbe6d9b310b06b7de1981d3ca19467e5ea7b16250a6bbf4da019f02fd403c",
+          "name": "PT2VHF-Sat-Tool-v1.6.0-macOS-arm64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-macOS-arm64.dmg",
+          "size": 249350994,
+          "sha256": "11ccbf1bea467e228a66f7d32a7081f685816db06da5d0bf11089f7421f59f8f",
           "detail": "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos"
         },
         {
           "category": "checksums",
           "label": "Somas de verificação",
-          "name": "PT2VHF-Sat-Tool-v1.5.0-SHA256.txt",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.5.0-SHA256.txt",
+          "name": "PT2VHF-Sat-Tool-v1.6.0-SHA256.txt",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-SHA256.txt",
           "size": 432,
-          "sha256": "c97c0a98bf78943ac8b9225047dded137030e0114aa679a320b31607b0eb0863",
+          "sha256": "1328e9bb10c659631feee84f8d11699534ab7b79ca116746437ce9b3b489bcf9",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
       "releaseStatus": "Pacotes oficiais para Windows 10/11 x64, Linux x64 e macOS Apple Silicon. Confira o SHA-256 antes da instalação.",
       "date": "2026-11-06",
-      "notes": "v1.5.0: RTL-SDR reconhecido corretamente (correção da listagem) e plug and play: driver WinUSB instalado pelo próprio programa no Windows (libwdi) e permissões automáticas no Linux; diagnóstico do RTL-SDR; CAT autodetectado (varre portas e velocidades, TS-2000 e FT-817/818); qualidade da passagem em estrelas; janela de passagens configurável; popup com informações do satélite no mapa, seletor e catálogo; novo popup de boas-vindas. Windows x64, Linux x64 e macOS ARM64.",
+      "notes": "v1.6.0: atualização automática conclui (processos do mapa encerrados, instalador detecta o app aberto, resultado exibido); display LCD âmbar de matriz de pontos com parâmetros do rádio via CAT, tecla A/B (MAIN↔SUB) e modo Somente RX; passagens com Hoje/Amanhã, larguras otimizadas, estrelas cheias e avisos 30 min/30 s pelo clique direito; divisor Passagens/Telemetria; trajetória passada de volta e linhas mais suaves; SDR com squelch por ruído, áudio contínuo, filtro/velocidade/altura do waterfall, janelas destacáveis e pacotes APRS decodificados no mapa. Windows x64, Linux x64 e macOS ARM64.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
     "qsl": {

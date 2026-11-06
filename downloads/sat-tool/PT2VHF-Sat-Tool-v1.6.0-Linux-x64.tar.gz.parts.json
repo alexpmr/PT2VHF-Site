@@ -1,0 +1,37 @@
+{
+  "name": "PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz",
+  "size": 262308085,
+  "sha256": "f59fb4a887eaa3101e65b2e82d92749154e6a2422d4244bfdefceb3b221523f0",
+  "parts": [
+    {
+      "name": "PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz.part00",
+      "size": 50331648,
+      "sha256": "488c253ac3558890928db7e08deefb2cac4cf4e0a7bc842e21dcd24c0a0ff9a5"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz.part01",
+      "size": 50331648,
+      "sha256": "b2ca725da4360f195358c2edd41237722c81800179cd4199a68b45c0c876f330"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz.part02",
+      "size": 50331648,
+      "sha256": "2d3797857e4b225d3ceb7495680ff14d6716090a944bba933b0d9490390c4f46"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz.part03",
+      "size": 50331648,
+      "sha256": "2261c94eb01a164e94708b469a98355348d55fbc58d33be26499da5257a3114b"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz.part04",
+      "size": 50331648,
+      "sha256": "cf9a516e9102883b53630d08002561afe925be13164b9c4e3b8ea2d462401def"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.6.0-Linux-x64.tar.gz.part05",
+      "size": 10649845,
+      "sha256": "ef803416171d136783e998d3f5f960cd1529e8b1502d8994a03d9c0510856041"
+    }
+  ]
+}
