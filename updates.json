@@ -482,8 +482,8 @@
           "label": "Windows — Instalador",
           "name": "PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Setup.exe",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Setup.exe",
-          "size": 166132708,
-          "sha256": "5e7c690f13e0ae89a76acf748eb721c63bbc3337c88a85cda63b265c51576942",
+          "size": 166064276,
+          "sha256": "0ffc75f5544779708b17d730b7cab653e32db8f89383b253245e2c25ed6ee458",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -495,8 +495,8 @@
           "label": "Windows — Portátil",
           "name": "PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Portable.exe",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-Win11-x64-Portable.exe",
-          "size": 244264895,
-          "sha256": "39fbefa213f0aa7d5765222c5279adff9774cb6a70d86702fb3c984f15ec9ae6",
+          "size": 244264851,
+          "sha256": "8116eb0ba68b0b3e3ec317aaab41843b07123d7b8686fbab6d815f41e57aeda6",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -531,7 +531,7 @@
           "name": "PT2VHF-Sat-Tool-v1.6.0-SHA256.txt",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.6.0-SHA256.txt",
           "size": 432,
-          "sha256": "51025a0f10012d654c7db5cf231af63a646891558e015bb67edf7d8c8c1a92e0",
+          "sha256": "cec0de9aeba1f4ee4a7051c836d1b9d4f0ebd968b7438b070acb0292bdc61976",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
