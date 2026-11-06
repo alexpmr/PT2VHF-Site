@@ -1,32 +1,32 @@
 {
   "name": "PT2VHF-Sat-Tool-v1.5.0-macOS-arm64.dmg",
-  "size": 236275546,
-  "sha256": "9e97ffe077080a65810ec1c79e312effa8c06c1385af47e1a1b918d4768a8e8b",
+  "size": 239383146,
+  "sha256": "967fbe6d9b310b06b7de1981d3ca19467e5ea7b16250a6bbf4da019f02fd403c",
   "parts": [
     {
       "name": "PT2VHF-Sat-Tool-v1.5.0-macOS-arm64.dmg.part00",
       "size": 50331648,
-      "sha256": "e9dec08beb1537ec360ee0608b241fbc8d87e0e718a1b6266b3c8114a9d4b6ee"
+      "sha256": "6dbec999c62c4d8ab46be580c0e40c0031b22a08dc0afecef2140cf96cf788cf"
     },
     {
       "name": "PT2VHF-Sat-Tool-v1.5.0-macOS-arm64.dmg.part01",
       "size": 50331648,
-      "sha256": "796211e2bb2378e4e5f2e7417d6a6841b3204d2255cd25c0cc78c3751aab8e39"
+      "sha256": "7635378bc8a854f7974ac745251d77bad8acecab18f1641db0436adff77e4b38"
     },
     {
       "name": "PT2VHF-Sat-Tool-v1.5.0-macOS-arm64.dmg.part02",
       "size": 50331648,
-      "sha256": "5c25cdb3cec401d388c0a1e54e5ac86807dfc16457ba3c59875009992a299c57"
+      "sha256": "cf3b3abbe784326a28eec3079b661f16b57a2282972caf5b8e2848af591e81bd"
     },
     {
       "name": "PT2VHF-Sat-Tool-v1.5.0-macOS-arm64.dmg.part03",
       "size": 50331648,
-      "sha256": "a7b7ad25b39c2ba147b8db2a0b0a569e8e03d1d8806ed9f82deca9e81d73dc57"
+      "sha256": "18ea95ac86541cce8431f63d29d994c66c60beae75cb94760690b0d3acc1948b"
     },
     {
       "name": "PT2VHF-Sat-Tool-v1.5.0-macOS-arm64.dmg.part04",
-      "size": 34948954,
-      "sha256": "4ea0d286a1eec1733a8b75e1731f1d0f75df27fd9113a0cbb372ebb74f9129c5"
+      "size": 38056554,
+      "sha256": "092f0be82cabd559ffd235ae1d85dc432de14f5801724f2cbc416de12c0cb294"
     }
   ]
 }
