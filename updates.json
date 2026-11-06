@@ -482,8 +482,8 @@
           "label": "Windows — Instalador",
           "name": "PT2VHF-Sat-Tool-v1.4.0-Win11-x64-Setup.exe",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.4.0-Win11-x64-Setup.exe",
-          "size": 161088621,
-          "sha256": "975484496280249830e95b11ae92635b485dcbef64a0507d7f9ced10da2fea54",
+          "size": 161039387,
+          "sha256": "9ef4f90b10c4b883c810f218e4a4502b966d871c3d8b7dc4d81bfb5d471d1493",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -495,8 +495,8 @@
           "label": "Windows — Portátil",
           "name": "PT2VHF-Sat-Tool-v1.4.0-Win11-x64-Portable.exe",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.4.0-Win11-x64-Portable.exe",
-          "size": 238654531,
-          "sha256": "b2ba59682597ff9dbbd69c7538b7944ff2f93550f25d934c4df605092a84cd95",
+          "size": 238654926,
+          "sha256": "b7fc06d5438b3a662a12b0f58b2f91ef7e6138fce607a22e508fc668abee9b35",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -508,8 +508,8 @@
           "label": "Linux — .tar.gz",
           "name": "PT2VHF-Sat-Tool-v1.4.0-Linux-x64.tar.gz",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.4.0-Linux-x64.tar.gz",
-          "size": 262166242,
-          "sha256": "c5adc80b1f807199f66b7d9f35432993d07eec601a9355c1f3299cd5743ce2c6",
+          "size": 262158719,
+          "sha256": "5f67878a3678607d281aab5aa2fc9501b5745cd735ac5f614cf3e4fcaeeb8b13",
           "detail": "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute PT2VHF-Sat-Tool"
         },
         {
@@ -521,8 +521,8 @@
           "label": "macOS — .dmg",
           "name": "PT2VHF-Sat-Tool-v1.4.0-macOS-arm64.dmg",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.4.0-macOS-arm64.dmg",
-          "size": 237461289,
-          "sha256": "8b83a1475db73289decf958aae5be30b87f91401fc0e3ca1f9a4168318474396",
+          "size": 237151426,
+          "sha256": "7cf2da7d9dcabea5dfd608c213a0d1ab6b4277c2c4f68d67f822b8fd51182b71",
           "detail": "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos"
         },
         {
@@ -531,7 +531,7 @@
           "name": "PT2VHF-Sat-Tool-v1.4.0-SHA256.txt",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.4.0-SHA256.txt",
           "size": 432,
-          "sha256": "b26cecb553f54f7d02bc5301f62272d0af2483fce3efc99627668671e4165434",
+          "sha256": "fdbe8d49ec46f8a991daf1d12731c59272606f9bd000fca00333154cf9cd4e81",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
