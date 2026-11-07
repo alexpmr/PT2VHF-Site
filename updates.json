@@ -542,11 +542,39 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "",
-      "developmentVersion": "0.2.0",
+      "version": "0.3.0",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "",
-      "files": []
+      "notes": "Assistente de sintonia (auto-sintonia SSB pelos harmônicos da voz, detecção de modo e banda lateral, filtro ajustado ao sinal), voltar no tempo, até 4 receptores extras, transcrição local opcional e atualização automática pelo site. Primeira versão com instalador e portátil para Windows.",
+      "files": [
+        {
+          "category": "windows-installer",
+          "counterKey": "win-setup-x64",
+          "kind": "installer",
+          "label": "Windows — Instalador",
+          "detail": "Windows 10/11 64 bits (recomendado)",
+          "architecture": "x64",
+          "platform": "windows-x64",
+          "name": "PT2VHF-SDR-Tool-0.3.0-win-x64-setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-0.3.0-win-x64-setup.exe",
+          "size": 64965239,
+          "sha256": "ce0864f848fb40c5d03530774050d4ea128447b5fbdc6ae8b28c853703da9d04"
+        },
+        {
+          "category": "windows-portable",
+          "counterKey": "win-portable-x64",
+          "kind": "portable",
+          "label": "Windows — Portátil",
+          "detail": "Windows 10/11 64 bits, EXE único sem instalar",
+          "architecture": "x64",
+          "platform": "windows-x64",
+          "name": "PT2VHF-SDR-Tool-0.3.0-win-x64-portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-0.3.0-win-x64-portable.exe",
+          "size": 97696309,
+          "sha256": "2b8a329c0b6ae8d0b1fc0d22520581bbca3d887cff51266fb4f8cdd56fbdc81e"
+        }
+      ],
+      "date": "2026-11-07",
+      "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr"
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
