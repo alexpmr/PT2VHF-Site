@@ -2,17 +2,6 @@
 
 ## Pendentes
 
-### Confirmar no ar a publicação do PT2VHF SDR Tool 0.5.0 (07/11/2026)
-
-- **Publicado na `main`:** commits `43da66d`…`6075010` (instalador, portátil, textos da página em 7 idiomas e
-  `updates.json`), a partir da Release `v0.5.0` do `alexpmr/PT2VHF-SDR-Tool` (build aprovado, run 42397078694,
-  commit `02d5095`; autoteste Windows OK; SHA-256 conferidos). Substitui a pendência da 0.4.1, que fica superada.
-- **Validado localmente (PHP):** `update.php?product=sdr` anuncia a 0.5.0 e `download.php` remonta os dois `.exe`
-  idênticos ao SHA-256 da Release (Setup 71 954 751 B `b5bf22bb…`, Portátil 104 122 048 B `49b8c8d4…`).
-- **Não confirmado no ar:** a verificação pelo GitHub Actions (run 42398177173) recebeu só HTTP 429 da Hostinger.
-  Conferir num navegador: `https://www.pt2vhf.com/sdr` (versão 0.5.0 na tabela), `/updates.json` e
-  `/update.php?product=sdr`; ou rodar de novo o workflow "Verificar publicação no site oficial" (versão 0.5.0).
-
 ### Site não atualizou depois da publicação do QSL Analyzer 0.1.0 (29/10/2026)
 
 - **Relato:** depois dos pushes de 29/10/2026 (commits `1008fc4` a `39002a1`), a página `/qsl` e o
@@ -24,6 +13,13 @@
   sem .tar.gz Linux) ou mover os binários grandes para fora do histórico do Git.
 
 ## Concluídos
+
+### RESOLVIDO (07/11/2026) — PT2VHF SDR Tool 0.5.0 no ar e funcionando
+
+- Publicado na `main` (commits `43da66d`…`6075010`) a partir da Release `v0.5.0` (run 42397078694, SHA-256
+  conferidos). A verificação automática pelo GitHub Actions recebeu HTTP 429 da Hostinger (run 42398177173); o
+  mantenedor confirmou em 07/11/2026 que a versão ficou boa e está funcionando.
+- Supera a pendência da 0.4.1 (que não abria o RTL-SDR): a 0.5.0 traz a correção.
 
 ### RESOLVIDO (07/11/2026) — PT2VHF SDR Tool 0.4.0 no ar
 
