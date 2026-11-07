@@ -233,7 +233,7 @@ window.PT2VHF_PRODUCTS = [
     description: [
       "O PT2VHF SDR Tool transforma um RTL-SDR (ou outro receptor SDR) num rádio de escuta completo no computador. A interface imita o painel de um rádio, com display LCD de 7 segmentos, S-meter, VFO A/B e teclas de memória, e traz um waterfall no estilo KiwiSDR para ver a banda inteira de uma vez.",
       "Para quem gosta de escutar, vem com memórias prontas (marítimo, PX, rádio comunicador, aviação, satélites e modos digitais) e um scanner que varre faixas inteiras pelo espectro, descobre as frequências ativas da sua região e pode gravar cada transmissão automaticamente.",
-      "Também decodifica APRS (posição, Mic-E, telemetria e estações meteorológicas), DTMF e CTCSS. O projeto está em desenvolvimento: o instalador para Windows será publicado nesta página quando a primeira versão for liberada."
+      "Também decodifica APRS (posição, Mic-E, telemetria e estações meteorológicas), DTMF e CTCSS, e traz um assistente que acerta a sintonia de fonias SSB pelos harmônicos da voz, identifica o modo do sinal e ajusta o filtro sozinho. Dá para voltar no tempo e reouvir os últimos segundos da faixa e ouvir vários canais ao mesmo tempo."
     ],
     features: [
       "Display LCD de rádio: frequência em 7 segmentos, S-meter, VFO A/B, sintonia pela roda do mouse em cada dígito e 5 temas",
@@ -244,7 +244,10 @@ window.PT2VHF_PRODUCTS = [
       "Scanner por espectro: varre faixas inteiras, descobre frequências ativas, para e escuta, com canal prioritário e bloqueio de frequências",
       "Gravação automática de cada transmissão, além de gravação de áudio e IQ (compatível com SDR# e SDR++)",
       "Decodificação APRS/AX.25 1200 bd com distância e azimute, DTMF e CTCSS com tom squelch",
-      "Fontes: RTL-SDR (Bias-T e amostragem direta para HF), rtl_tcp em rede, SoapySDR, arquivos IQ e simulador para testar sem hardware"
+      "Fontes: RTL-SDR (Bias-T e amostragem direta para HF), rtl_tcp em rede, SoapySDR, arquivos IQ e simulador para testar sem hardware",
+      "Assistente de sintonia: auto-sintonia SSB pelos harmônicos da voz, detecção automática de modo e banda lateral e filtro ajustado à largura do sinal",
+      "Voltar no tempo (reouvir os últimos 10–60 s de qualquer frequência da faixa) e até 4 receptores extras ao mesmo tempo",
+      "Transcrição local opcional das transmissões gravadas e atualização automática segura por www.pt2vhf.com (tamanho e SHA-256 verificados)"
     ],
     supported: [
       { name: "RTL-SDR", detail: "Dongles R820T/R828D, incluindo RTL-SDR Blog V3/V4 (HF por amostragem direta)" },
@@ -253,7 +256,7 @@ window.PT2VHF_PRODUCTS = [
       { name: "Arquivos IQ", detail: "Gravações WAV I/Q do SDR#, do SDR++ e do próprio programa" }
     ],
     requirements: [
-      "Windows 10/11 de 64 bits (instalador em preparação)",
+      "Windows 10/11 de 64 bits: instalador ou versão portátil",
       "RTL-SDR com driver WinUSB, instalado pelo Zadig",
       "Antena adequada à faixa; para HF, RTL-SDR com amostragem direta ou upconverter",
       "Linux e macOS: pelo código-fonte, com Python 3.10+"

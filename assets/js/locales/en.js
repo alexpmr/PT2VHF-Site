@@ -104,6 +104,7 @@ window.PT2VHF_I18N["en"] = {
     "progIcom": "Icom radio programming",
     "aprsBrand": "APRS Client branding",
     "satBrand": "SAT Tool branding",
+    "sdrAssist": "Tuning assistant, rewind and extra receivers",
     "sdrScanner": "Spectrum scanner, active frequencies and favorite keys",
     "sdrAprs": "Radio display, waterfall and APRS decoding",
     "sdrActivity": "Automatic recording of every transmission",
@@ -113,50 +114,53 @@ window.PT2VHF_I18N["en"] = {
   },
   "products": {
     "sdr": {
-        "summary": "SDR receiver from 24 MHz to 1.7 GHz with a radio front panel, waterfall, spectrum scanner and APRS decoding.",
-        "cardSummary": "SDR listening receiver with a radio display, ready-made memories, scanner and decoders.",
-        "tagline": "RTL-SDR, rtl_tcp and SoapySDR · NFM, WFM, AM, SSB and CW · scanner and APRS",
-        "description": [
-          "PT2VHF SDR Tool turns an RTL-SDR (or another SDR receiver) into a complete listening radio on your computer. The interface looks like a radio front panel, with a 7-segment LCD, S-meter, VFO A/B and memory keys, plus a KiwiSDR-style waterfall that shows the whole band at once.",
-          "Built for listeners, it ships with ready-made memories (marine, CB, walkie-talkie, aviation, satellites and digital modes) and a scanner that sweeps entire bands through the spectrum, discovers the active frequencies in your area and can record every transmission automatically.",
-          "It also decodes APRS (position, Mic-E, telemetry and weather stations), DTMF and CTCSS. The project is under development: the Windows installer will be published on this page when the first version is released."
-        ],
-        "features": [
-          "Radio LCD: 7-segment frequency, S-meter, VFO A/B, mouse-wheel tuning on each digit and 5 themes",
-          "KiwiSDR-style waterfall and spectrum: click to tune, draggable passband, zoom, auto levels and color maps",
-          "NFM, WFM, AM, USB, LSB, CW, DSB and RAW modes with AGC, squelch, noise blanker, noise reduction, notch and 8-band equalizer",
-          "Memories with categories, band plan, CHIRP CSV import/export and favorite keys",
-          "Ready-made memories: VHF marine, CB (40 channels), FRS/PMR446, aviation, ISS and satellites, FT8/FT4/WSPR and time signals",
-          "Spectrum scanner: sweeps whole bands, discovers active frequencies, stops and listens, with priority channel and frequency lockout",
-          "Automatic recording of every transmission, plus audio and IQ recording (SDR# and SDR++ compatible)",
-          "APRS/AX.25 1200 baud decoding with distance and bearing, DTMF and CTCSS with tone squelch",
-          "Sources: RTL-SDR (Bias-T and direct sampling for HF), networked rtl_tcp, SoapySDR, IQ files and a simulator to test without hardware"
-        ],
-        "supported": [
-          {
-            "name": "RTL-SDR",
-            "detail": "R820T/R828D dongles, including RTL-SDR Blog V3/V4 (HF via direct sampling)"
-          },
-          {
-            "name": "rtl_tcp",
-            "detail": "Remote RTL-SDR receiver over the network"
-          },
-          {
-            "name": "SoapySDR",
-            "detail": "Airspy, HackRF, SDRplay, LimeSDR and others (with SoapySDR installed)"
-          },
-          {
-            "name": "IQ files",
-            "detail": "WAV I/Q recordings from SDR#, SDR++ and the app itself"
-          }
-        ],
-        "requirements": [
-          "Windows 10/11 64-bit (installer in preparation)",
-          "RTL-SDR with the WinUSB driver, installed with Zadig",
-          "Antenna suited to the band; for HF, an RTL-SDR with direct sampling or an upconverter",
-          "Linux and macOS: from source, with Python 3.10+"
-        ]
-      },
+      "summary": "SDR receiver from 24 MHz to 1.7 GHz with a radio front panel, waterfall, spectrum scanner and APRS decoding.",
+      "cardSummary": "SDR listening receiver with a radio display, ready-made memories, scanner and decoders.",
+      "tagline": "RTL-SDR, rtl_tcp and SoapySDR · NFM, WFM, AM, SSB and CW · scanner and APRS",
+      "description": [
+        "PT2VHF SDR Tool turns an RTL-SDR (or another SDR receiver) into a complete listening radio on your computer. The interface looks like a radio front panel, with a 7-segment LCD, S-meter, VFO A/B and memory keys, plus a KiwiSDR-style waterfall that shows the whole band at once.",
+        "Built for listeners, it ships with ready-made memories (marine, CB, walkie-talkie, aviation, satellites and digital modes) and a scanner that sweeps entire bands through the spectrum, discovers the active frequencies in your area and can record every transmission automatically.",
+        "It also decodes APRS (position, Mic-E, telemetry and weather stations), DTMF and CTCSS, and includes an assistant that fine-tunes SSB voice from the voice harmonics, identifies the signal mode and fits the filter on its own. You can rewind to replay the last seconds of the band and listen to several channels at once."
+      ],
+      "features": [
+        "Radio LCD: 7-segment frequency, S-meter, VFO A/B, mouse-wheel tuning on each digit and 5 themes",
+        "KiwiSDR-style waterfall and spectrum: click to tune, draggable passband, zoom, auto levels and color maps",
+        "NFM, WFM, AM, USB, LSB, CW, DSB and RAW modes with AGC, squelch, noise blanker, noise reduction, notch and 8-band equalizer",
+        "Memories with categories, band plan, CHIRP CSV import/export and favorite keys",
+        "Ready-made memories: VHF marine, CB (40 channels), FRS/PMR446, aviation, ISS and satellites, FT8/FT4/WSPR and time signals",
+        "Spectrum scanner: sweeps whole bands, discovers active frequencies, stops and listens, with priority channel and frequency lockout",
+        "Automatic recording of every transmission, plus audio and IQ recording (SDR# and SDR++ compatible)",
+        "APRS/AX.25 1200 baud decoding with distance and bearing, DTMF and CTCSS with tone squelch",
+        "Sources: RTL-SDR (Bias-T and direct sampling for HF), networked rtl_tcp, SoapySDR, IQ files and a simulator to test without hardware",
+        "Tuning assistant: SSB auto-tune from voice harmonics, automatic mode and sideband detection, and a filter fitted to the signal width",
+        "Rewind (replay the last 10–60 s of any frequency in the band) and up to 4 extra receivers at once",
+        "Optional local transcription of recorded transmissions and secure automatic updates from www.pt2vhf.com (size and SHA-256 verified)"
+      ],
+      "supported": [
+        {
+          "name": "RTL-SDR",
+          "detail": "R820T/R828D dongles, including RTL-SDR Blog V3/V4 (HF via direct sampling)"
+        },
+        {
+          "name": "rtl_tcp",
+          "detail": "Remote RTL-SDR receiver over the network"
+        },
+        {
+          "name": "SoapySDR",
+          "detail": "Airspy, HackRF, SDRplay, LimeSDR and others (with SoapySDR installed)"
+        },
+        {
+          "name": "IQ files",
+          "detail": "WAV I/Q recordings from SDR#, SDR++ and the app itself"
+        }
+      ],
+      "requirements": [
+        "Windows 10/11 64-bit: installer or portable version",
+        "RTL-SDR with the WinUSB driver, installed with Zadig",
+        "Antenna suited to the band; for HF, an RTL-SDR with direct sampling or an upconverter",
+        "Linux and macOS: from source, with Python 3.10+"
+      ]
+    },
     "prog": {
       "summary": "Program, back up and manage memories and settings on Kenwood and Icom radios.",
       "cardSummary": "A simple, easy tool for configuring radio memories and menus.",

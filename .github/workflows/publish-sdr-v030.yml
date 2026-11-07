@@ -1,0 +1,66 @@
+name: Publish SDR Tool v0.3.0 to PT2VHF Site (GitHub only)
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-sdr-v030.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: pt2vhf-sdr-site-v030
+  cancel-in-progress: false
+env:
+  SOURCE_RUN: "42366992825"
+  SOURCE_SHA: "d4646046e5805e663dc7921c9414f6a86dd80368"
+  VERSION: "0.3.0"
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Conferir o build oficial (Windows, autoteste e instalação silenciosa)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api repos/alexpmr/PT2VHF-SDR-Tool/actions/runs/$SOURCE_RUN --jq '{status, conclusion, head_sha}' > /tmp/source.json
+          cat /tmp/source.json
+          jq -e --arg sha "$SOURCE_SHA" '.status == "completed" and .conclusion == "success" and .head_sha == $sha' /tmp/source.json
+      - name: Baixar os binários da Release v0.3.0 (origem; criada do build conferido acima)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api repos/alexpmr/PT2VHF-SDR-Tool/git/ref/tags/v$VERSION --jq .object.sha | tee /tmp/tag.txt
+          test "$(cat /tmp/tag.txt)" = "$SOURCE_SHA"
+          mkdir -p artifacts
+          base="https://github.com/alexpmr/PT2VHF-SDR-Tool/releases/download/v$VERSION"
+          for f in SHA256SUMS.txt "PT2VHF-SDR-Tool-$VERSION-win-x64-setup.exe" "PT2VHF-SDR-Tool-$VERSION-win-x64-portable.exe"; do
+            curl -fsSL --retry 4 -o "artifacts/$f" "$base/$f"
+          done
+          cd artifacts && sed '1s/^\xef\xbb\xbf//' SHA256SUMS.txt | tr -d '\r' | awk 'NF>=3{print $1"  "$3}' | sha256sum -c -
+      - name: Validar, segmentar e atualizar o manifesto
+        run: |
+          set -euo pipefail
+          ls -la artifacts
+          python3 scripts/publish_sdr_release.py "$VERSION" artifacts "Assistente de sintonia (auto-sintonia SSB pelos harmônicos da voz, detecção de modo e banda lateral, filtro ajustado ao sinal), voltar no tempo, até 4 receptores extras, transcrição local opcional e atualização automática pelo site. Primeira versão com instalador e portátil para Windows."
+          python3 -m json.tool updates.json > /dev/null
+          php -l update.php && php -l download.php && php -l prop_parts.php
+          ls -la downloads/sdr-tool
+      - name: Commit somente dos downloads validados e do manifesto
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add updates.json downloads/sdr-tool
+          if ! git diff --cached --quiet; then
+            git commit -m "release(sdr): publicar v$VERSION no site oficial"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+          echo "GITHUB_SITE_SDR_PUBLICATION_RECORDED=1"
+      - name: Verificar no ar (Hostinger), sem inflar contadores
+        run: python3 scripts/verify_sdr_live.py "$VERSION" --wait

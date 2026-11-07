@@ -22,6 +22,7 @@ window.PT2VHF_GALLERIES = {
     { src:"/assets/screenshots/sat/icon.svg",type:"brand",caption:"Identidade visual do SAT Tool",captionId:"satBrand" }
   ],
   sdr: [
+    { src:"/assets/screenshots/sdr/assistente-v030.webp",full:"/assets/screenshots/sdr/original/assistente-v030.png",type:"screenshot",caption:"Assistente de sintonia, voltar no tempo e receptores extras",captionId:"sdrAssist" },
     { src:"/assets/screenshots/sdr/scanner-v020.webp",full:"/assets/screenshots/sdr/original/scanner-v020.png",type:"screenshot",caption:"Scanner por espectro, frequências ativas e teclas de favoritos",captionId:"sdrScanner" },
     { src:"/assets/screenshots/sdr/aprs-v020.webp",full:"/assets/screenshots/sdr/original/aprs-v020.png",type:"screenshot",caption:"Display de rádio, waterfall e decodificação APRS",captionId:"sdrAprs" },
     { src:"/assets/screenshots/sdr/atividade-v020.webp",full:"/assets/screenshots/sdr/original/atividade-v020.png",type:"screenshot",caption:"Gravação automática de cada transmissão",captionId:"sdrActivity" },

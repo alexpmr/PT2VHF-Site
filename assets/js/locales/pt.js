@@ -90,6 +90,7 @@ window.PT2VHF_I18N["pt"] = {
     "progIcom": "Programação de rádios Icom",
     "aprsBrand": "Identidade visual do APRS Client",
     "satBrand": "Identidade visual do SAT Tool",
+    "sdrAssist": "Assistente de sintonia, voltar no tempo e receptores extras",
     "sdrScanner": "Scanner por espectro, frequências ativas e teclas de favoritos",
     "sdrAprs": "Display de rádio, waterfall e decodificação APRS",
     "sdrActivity": "Gravação automática de cada transmissão",

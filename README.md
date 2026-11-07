@@ -315,7 +315,15 @@ inclusive o OTA) e atualiza o produto `qsl` do `updates.json`. O app consulta
 
 ## PT2VHF SDR Tool (`sdr`)
 
-Página `/sdr` publicada sem instalador: `updates.json` traz `developmentVersion` e `files: []`,
-e a tabela de downloads mostra "Publicação pendente". Na primeira release, além dos arquivos em
-`downloads/sdr-tool/` e do manifesto, incluir `sdr` em `download.php`, `update.php`,
-`prop_parts.php` (se segmentado) e nas regras de download do `.htaccess`.
+Instalador e portátil Windows gerados pelo GitHub Actions do repositório `alexpmr/PT2VHF-SDR-Tool`
+(workflow manual "Gerar executável do Windows", com autoteste dos executáveis e da instalação).
+Publicação:
+
+```bash
+python3 scripts/publish_sdr_release.py X.Y.Z <pasta-do-artefato> "notas da versão"
+```
+
+O script confere `MZ` e o SHA-256 do `SHA256SUMS.txt` do CI, grava cada `.exe` em partes < 100 MiB
+(`downloads/sdr-tool/*.partNN` + `.parts.json`, como Sat/QSL), remove versões anteriores e atualiza
+`updates.json`. `download.php` remonta o arquivo (HTTP 200, Range) e conta uma vez por download
+(site ou OTA); o app consulta `update.php?product=sdr`.
