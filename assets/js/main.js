@@ -40,7 +40,7 @@
   };
   function applyLocaleProducts() {
     var tr = (LANG_DICT[selectedLang] && LANG_DICT[selectedLang].products) || {};
-    var order = ["aprs", "aprs-android", "prop", "mesh", "sat", "prog", "qsl"];
+    var order = ["aprs", "aprs-android", "prop", "mesh", "sat", "sdr", "prog", "qsl"];
     products = baseProducts.map(function (p) {
       var product=Object.assign({}, p, tr[p.id] || {});
       if (p.id === "mesh" && window.PT2VHF_MESH_SITE) {
@@ -163,7 +163,7 @@
     // Preserve the selected language when navigating between project pages.
     Array.prototype.forEach.call(document.querySelectorAll('a[href^="/"]'), function (link) {
       var href = link.getAttribute("href");
-      if (!/^\/(?:$|aprs(?:[?#]|$)|android(?:[?#]|$)|aprs-android(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|prog(?:[?#]|$)|qsl(?:[?#]|$)|contato(?:[?#]|$)|sobre(?:[?#]|$)|#)/.test(href)) return;
+      if (!/^\/(?:$|aprs(?:[?#]|$)|android(?:[?#]|$)|aprs-android(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|sdr(?:[?#]|$)|prog(?:[?#]|$)|qsl(?:[?#]|$)|contato(?:[?#]|$)|sobre(?:[?#]|$)|#)/.test(href)) return;
       var url = new URL(href, location.origin);
       url.searchParams.set("lang", selectedLang);
       link.setAttribute("href", url.pathname + url.search + url.hash);
@@ -195,6 +195,8 @@
       '<circle cx="16" cy="6" r="3"/><circle cx="6" cy="24" r="3"/><circle cx="26" cy="24" r="3"/><circle cx="16" cy="17" r="2.5"/><path d="M16 9v5.5M14 18.5l-6 4M18 18.5l6 4M9 24h14"/>',
     aprs:
       '<path d="M16 29s-9-8.5-9-15a9 9 0 0 1 18 0c0 6.5-9 15-9 15z"/><circle cx="16" cy="14" r="3"/>',
+    sdr:
+      '<rect x="3" y="8" width="26" height="18" rx="2"/><path d="M7 21l3-6 3 4 3-9 3 7 2-3 4 7"/><path d="M10 8l9-5"/>',
     sat:
       '<circle cx="16" cy="16" r="4"/><ellipse cx="16" cy="16" rx="14" ry="7" transform="rotate(-28 16 16)"/><path d="M24 3l5 5M24 8l5-5"/>'
   };
@@ -260,7 +262,7 @@
   }
 
   function publicDownloadUrl(p, f) {
-    return (p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog" || p.id === "qsl" || p.id === "aprs-android") && f.name
+    return (p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "sdr" || p.id === "prog" || p.id === "qsl" || p.id === "aprs-android") && f.name
       ? "/download.php?product=" + p.id + "&file=" + encodeURIComponent(f.name)
       : localUrl(f.url);
   }
@@ -335,7 +337,7 @@
           '<td data-label="' + esc(t("catDownloads")) + '" class="count-cell"><span class="download-count" data-count-product="' + esc(p.id) + '" data-count-category="' + esc(f.counterKey || f.category) + '" aria-live="polite">—</span></td>' +
           '<td class="action"><a class="btn btn-sm btn-primary" href="' + esc(publicDownloadUrl(p, f)) + '"' +
           ' data-counter-product="' + esc(p.id) + '" data-counter-category="' + esc(f.counterKey || f.category) + '"' +
-          ((p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "prog" || p.id === "qsl" || p.id === "aprs-android") ? "" : " download") + '>' + esc(t("download")) +
+          ((p.id === "aprs" || p.id === "mesh" || p.id === "prop" || p.id === "sat" || p.id === "sdr" || p.id === "prog" || p.id === "qsl" || p.id === "aprs-android") ? "" : " download") + '>' + esc(t("download")) +
           '<span class="sr-only"> ' + esc(f.name || fileName(f.url)) + "</span></a></td>" +
           "</tr>"
         );
@@ -681,7 +683,7 @@
   document.addEventListener("click", function (event) {
     var a = event.target.closest ? event.target.closest("a[data-counter-product][data-counter-category]") : null;
     if (!a) return;
-    if (["aprs", "prop", "mesh", "sat", "prog", "qsl", "aprs-android"].indexOf(a.getAttribute("data-counter-product")) !== -1) {
+    if (["aprs", "prop", "mesh", "sat", "sdr", "prog", "qsl", "aprs-android"].indexOf(a.getAttribute("data-counter-product")) !== -1) {
       setTimeout(loadDownloadCounters, 900);
       setTimeout(loadDownloadCounters, 2800);
     } else if (window.navigator) {
@@ -701,7 +703,7 @@
 
   // Preserva os favoritos antigos com âncoras no catálogo anterior.
   if (!programId) {
-    var oldLink = /^#(aprs|prop|mesh|sat|prog|qsl)(-downloads)?$/.exec(location.hash);
+    var oldLink = /^#(aprs|prop|mesh|sat|sdr|prog|qsl)(-downloads)?$/.exec(location.hash);
     if (oldLink) window.location.replace("/" + oldLink[1] + "?lang=" + selectedLang + (oldLink[2] ? "#downloads" : ""));
   }
 

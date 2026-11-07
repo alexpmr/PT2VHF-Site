@@ -21,6 +21,13 @@ window.PT2VHF_GALLERIES = {
     { src:"/assets/screenshots/sat/operacao-v1.3.15.webp",full:"/assets/screenshots/sat/original/operacao-v1.3.15.png",type:"screenshot",caption:"Operação — rastreio, frequências com Doppler e passagens",captionId:"satOperation" },
     { src:"/assets/screenshots/sat/icon.svg",type:"brand",caption:"Identidade visual do SAT Tool",captionId:"satBrand" }
   ],
+  sdr: [
+    { src:"/assets/screenshots/sdr/scanner-v020.webp",full:"/assets/screenshots/sdr/original/scanner-v020.png",type:"screenshot",caption:"Scanner por espectro, frequências ativas e teclas de favoritos",captionId:"sdrScanner" },
+    { src:"/assets/screenshots/sdr/aprs-v020.webp",full:"/assets/screenshots/sdr/original/aprs-v020.png",type:"screenshot",caption:"Display de rádio, waterfall e decodificação APRS",captionId:"sdrAprs" },
+    { src:"/assets/screenshots/sdr/atividade-v020.webp",full:"/assets/screenshots/sdr/original/atividade-v020.png",type:"screenshot",caption:"Gravação automática de cada transmissão",captionId:"sdrActivity" },
+    { src:"/assets/screenshots/sdr/memorias-prontas-v020.webp",full:"/assets/screenshots/sdr/original/memorias-prontas-v020.png",type:"screenshot",caption:"Memórias prontas: pacotes de frequências",captionId:"sdrPresets" },
+    { src:"/assets/screenshots/sdr/tema-azul-v020.webp",full:"/assets/screenshots/sdr/original/tema-azul-v020.png",type:"screenshot",caption:"Tema azul com DTMF e CTCSS decodificados",captionId:"sdrBlue" }
+  ],
   qsl: [
     { src:"/assets/screenshots/qsl/estatisticas-basicas.webp",type:"screenshot",caption:"Estatísticas básicas de um log real com 65.289 QSOs",captionId:"qslEstatisticasBasicas" },
     { src:"/assets/screenshots/qsl/estacoes-trabalhadas.webp",type:"screenshot",caption:"Estações trabalhadas, com bandas, modos e slots",captionId:"qslEstacoesTrabalhadas" },

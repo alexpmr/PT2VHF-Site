@@ -6,7 +6,7 @@
  * a única fonte de versões (lida também pelos próprios programas para
  * verificar atualizações). Veja o README.
  *
- *   - id:           chave do programa em updates.json (prog, prop, mesh, aprs, sat, qsl)
+ *   - id:           chave do programa em updates.json (prog, prop, mesh, aprs, sat, sdr, qsl)
  *   - description:  texto ou lista de parágrafos
  *   - features:     recursos principais
  *   - supported:    rádios e equipamentos suportados (opcional)
@@ -223,6 +223,42 @@ window.PT2VHF_PRODUCTS = [
       "Ajustes automáticos devem ser validados no rádio físico antes do uso operacional"
     ],
     icon: "sat"
+  },
+  {
+    id: "sdr",
+    summary: "Receptor SDR de 24 MHz a 1,7 GHz com painel de rádio, waterfall, scanner por espectro e decodificação APRS.",
+    cardSummary: "Receptor SDR para escuta, com display de rádio, memórias prontas, scanner e decodificadores.",
+    name: "PT2VHF SDR Tool",
+    tagline: "RTL-SDR, rtl_tcp e SoapySDR · NFM, WFM, AM, SSB e CW · scanner e APRS",
+    description: [
+      "O PT2VHF SDR Tool transforma um RTL-SDR (ou outro receptor SDR) num rádio de escuta completo no computador. A interface imita o painel de um rádio, com display LCD de 7 segmentos, S-meter, VFO A/B e teclas de memória, e traz um waterfall no estilo KiwiSDR para ver a banda inteira de uma vez.",
+      "Para quem gosta de escutar, vem com memórias prontas (marítimo, PX, rádio comunicador, aviação, satélites e modos digitais) e um scanner que varre faixas inteiras pelo espectro, descobre as frequências ativas da sua região e pode gravar cada transmissão automaticamente.",
+      "Também decodifica APRS (posição, Mic-E, telemetria e estações meteorológicas), DTMF e CTCSS. O projeto está em desenvolvimento: o instalador para Windows será publicado nesta página quando a primeira versão for liberada."
+    ],
+    features: [
+      "Display LCD de rádio: frequência em 7 segmentos, S-meter, VFO A/B, sintonia pela roda do mouse em cada dígito e 5 temas",
+      "Waterfall e espectro no estilo KiwiSDR: clique para sintonizar, passband arrastável, zoom, níveis automáticos e paletas",
+      "Modos NFM, WFM, AM, USB, LSB, CW, DSB e RAW, com AGC, squelch, noise blanker, redução de ruído, notch e equalizador de 8 bandas",
+      "Memórias com categorias, plano de bandas, importação e exportação no CSV do CHIRP e teclas de favoritos",
+      "Memórias prontas: marítimo VHF, PX (40 canais), FRS/PMR446, aviação, ISS e satélites, FT8/FT4/WSPR e sinais horários",
+      "Scanner por espectro: varre faixas inteiras, descobre frequências ativas, para e escuta, com canal prioritário e bloqueio de frequências",
+      "Gravação automática de cada transmissão, além de gravação de áudio e IQ (compatível com SDR# e SDR++)",
+      "Decodificação APRS/AX.25 1200 bd com distância e azimute, DTMF e CTCSS com tom squelch",
+      "Fontes: RTL-SDR (Bias-T e amostragem direta para HF), rtl_tcp em rede, SoapySDR, arquivos IQ e simulador para testar sem hardware"
+    ],
+    supported: [
+      { name: "RTL-SDR", detail: "Dongles R820T/R828D, incluindo RTL-SDR Blog V3/V4 (HF por amostragem direta)" },
+      { name: "rtl_tcp", detail: "Receptor RTL-SDR remoto pela rede" },
+      { name: "SoapySDR", detail: "Airspy, HackRF, SDRplay, LimeSDR e outros (com o SoapySDR instalado)" },
+      { name: "Arquivos IQ", detail: "Gravações WAV I/Q do SDR#, do SDR++ e do próprio programa" }
+    ],
+    requirements: [
+      "Windows 10/11 de 64 bits (instalador em preparação)",
+      "RTL-SDR com driver WinUSB, instalado pelo Zadig",
+      "Antena adequada à faixa; para HF, RTL-SDR com amostragem direta ou upconverter",
+      "Linux e macOS: pelo código-fonte, com Python 3.10+"
+    ],
+    icon: "sdr"
   },
   {
     id: "qsl",

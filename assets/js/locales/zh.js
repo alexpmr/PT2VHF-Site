@@ -4,9 +4,9 @@ window.PT2VHF_I18N["zh"] = {
     "navInstallation": "安装",
     "navContact": "联系",
     "language": "语言",
-    "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT",
-    "homeTitle": "业余无线电软件：七个项目，一座电台。",
-    "homeLead": "实时 APRS、传播分析、Meshtastic 网络拓扑、卫星跟踪、电台编程以及日志与 QSL 分析。了解工具和可用安装程序。",
+    "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · SDR · CAT",
+    "homeTitle": "业余无线电软件：八个项目，一座电台。",
+    "homeLead": "实时 APRS、传播分析、Meshtastic 网络拓扑、卫星跟踪、SDR 接收、电台编程以及日志与 QSL 分析。了解工具和可用安装程序。",
     "homeExplore": "浏览项目",
     "homeKnow": "了解软件",
     "catalogTitle": "PT2VHF 项目",
@@ -71,6 +71,7 @@ window.PT2VHF_I18N["zh"] = {
     "statProp": "Windows 安装包已生成，但自动验证失败，尚无通过验证的公开安装包。",
     "statMesh": "目前未在此 GitLab 账号中确认该项目的公开安装包或对应仓库。",
     "statAprs": "1.15.8 版已提供 Windows、Linux（x86_64 和树莓派 ARM64）和 macOS 版本。已安装的程序会收到提示并在应用内更新。",
+    "statSdr": "开发中。首个版本发布后，Windows 安装程序将在此提供。",
     "statSat": "适用于 Windows 10/11 x64 的官方安装版与便携版。",
     "ciLink": "构建详情（可能需要 GitLab 权限）",
     "detailsProgInstaller": "Windows 10/11 64 位（推荐）",
@@ -103,9 +104,59 @@ window.PT2VHF_I18N["zh"] = {
     "progIcom": "Icom 电台编程",
     "aprsBrand": "APRS Client 项目标识",
     "satBrand": "SAT Tool 项目标识",
+    "sdrScanner": "频谱扫描器、活跃频率和收藏按键",
+    "sdrAprs": "电台显示屏、瀑布图和 APRS 解码",
+    "sdrActivity": "自动录下每一次发射",
+    "sdrPresets": "预置存储：频率包",
+    "sdrBlue": "蓝色主题，已解码 DTMF 与 CTCSS",
     "satOperation": "运行 — 跟踪、多普勒校正频率与过境预报"
   },
   "products": {
+    "sdr": {
+        "summary": "24 MHz 至 1.7 GHz 的 SDR 接收机，带电台面板、瀑布图、频谱扫描和 APRS 解码。",
+        "cardSummary": "用于收听的 SDR 接收机，带电台显示屏、预置存储、扫描器和解码器。",
+        "tagline": "RTL-SDR、rtl_tcp 和 SoapySDR · NFM、WFM、AM、SSB 与 CW · 扫描与 APRS",
+        "description": [
+          "PT2VHF SDR Tool 可将 RTL-SDR（或其他 SDR 接收机）变成电脑上的完整收听电台。界面模仿电台面板，带 7 段 LCD、S 表、VFO A/B 和存储按键，并提供 KiwiSDR 风格的瀑布图，一眼看清整个频段。",
+          "专为收听爱好者设计：内置预置存储（海事、CB、对讲机、航空、卫星和数字模式），以及可通过频谱扫描整个频段的扫描器，能发现您所在地区的活跃频率，并可自动录下每一次发射。",
+          "它还能解码 APRS（位置、Mic-E、遥测和气象站）、DTMF 和 CTCSS。项目仍在开发中：首个版本发布后，Windows 安装程序将在本页提供。"
+        ],
+        "features": [
+          "电台 LCD：7 段频率显示、S 表、VFO A/B、在每一位数字上用鼠标滚轮调谐，并有 5 种主题",
+          "KiwiSDR 风格的瀑布图与频谱：点击调谐、可拖动通带、缩放、自动电平和配色方案",
+          "NFM、WFM、AM、USB、LSB、CW、DSB 和 RAW 模式，带 AGC、静噪、噪声消隐、降噪、陷波和 8 段均衡器",
+          "分类存储、频段规划、CHIRP CSV 导入导出和收藏按键",
+          "预置存储：VHF 海事、CB（40 个信道）、FRS/PMR446、航空、ISS 与卫星、FT8/FT4/WSPR 以及授时信号",
+          "频谱扫描器：扫描整个频段，发现活跃频率，停下收听，支持优先信道和频率锁定",
+          "自动录下每一次发射，并可录制音频和 IQ（兼容 SDR# 与 SDR++）",
+          "APRS/AX.25 1200 波特解码并计算距离和方位，DTMF 以及带亚音静噪的 CTCSS",
+          "信号源：RTL-SDR（Bias-T 与短波直接采样）、网络 rtl_tcp、SoapySDR、IQ 文件，以及无需硬件即可测试的模拟器"
+        ],
+        "supported": [
+          {
+            "name": "RTL-SDR",
+            "detail": "R820T/R828D 接收棒，包括 RTL-SDR Blog V3/V4（直接采样收听短波）"
+          },
+          {
+            "name": "rtl_tcp",
+            "detail": "通过网络使用远程 RTL-SDR 接收机"
+          },
+          {
+            "name": "SoapySDR",
+            "detail": "Airspy、HackRF、SDRplay、LimeSDR 等（需安装 SoapySDR）"
+          },
+          {
+            "name": "IQ 文件",
+            "detail": "SDR#、SDR++ 及本程序录制的 WAV I/Q 文件"
+          }
+        ],
+        "requirements": [
+          "Windows 10/11 64 位（安装程序准备中）",
+          "使用 Zadig 安装 WinUSB 驱动的 RTL-SDR",
+          "适合频段的天线；短波需支持直接采样的 RTL-SDR 或上变频器",
+          "Linux 和 macOS：从源代码运行，需要 Python 3.10+"
+        ]
+      },
     "prog": {
       "summary": "管理、备份和编程 Kenwood 与 Icom 电台的频道及设置。",
       "cardSummary": "简单易用的电台频道与菜单配置工具。",

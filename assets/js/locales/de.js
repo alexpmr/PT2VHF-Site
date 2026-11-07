@@ -4,9 +4,9 @@ window.PT2VHF_I18N["de"] = {
     "navInstallation": "Installation",
     "navContact": "Kontakt",
     "language": "Sprache",
-    "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT",
-    "homeTitle": "Amateurfunk-Software. Sieben Projekte, eine Station.",
-    "homeLead": "APRS in Echtzeit, Ausbreitungsanalyse, Meshtastic-Topologie, Satellitenverfolgung, Funkgeräteprogrammierung sowie Log- und QSL-Analyse. Entdecken Sie die Werkzeuge und Installationspakete.",
+    "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · SDR · CAT",
+    "homeTitle": "Amateurfunk-Software. Acht Projekte, eine Station.",
+    "homeLead": "APRS in Echtzeit, Ausbreitungsanalyse, Meshtastic-Topologie, Satellitenverfolgung, SDR-Empfang, Funkgeräteprogrammierung sowie Log- und QSL-Analyse. Entdecken Sie die Werkzeuge und Installationspakete.",
     "homeExplore": "Projekte entdecken",
     "homeKnow": "Software kennenlernen",
     "catalogTitle": "PT2VHF-Projekte",
@@ -71,6 +71,7 @@ window.PT2VHF_I18N["de"] = {
     "statProp": "Windows-Pakete erstellt, automatische Prüfung jedoch fehlgeschlagen. Noch kein freigegebener Download.",
     "statMesh": "Für dieses Projekt wurde in diesem GitLab-Konto weder ein öffentlicher Installer noch ein Repository bestätigt.",
     "statAprs": "Version 1.15.8 für Windows, Linux (x86_64 und Raspberry Pi ARM64) und macOS verfügbar. Installierte Programme werden benachrichtigt und aktualisieren sich in der App.",
+    "statSdr": "In Entwicklung. Der Windows-Installer wird hier veröffentlicht, sobald die erste Version freigegeben ist.",
     "statSat": "Offizieller Installer und portable Version für Windows 10/11 x64.",
     "ciLink": "Build-Details (GitLab-Zugang eventuell erforderlich)",
     "detailsProgInstaller": "Windows 10/11 64 Bit (empfohlen)",
@@ -103,9 +104,59 @@ window.PT2VHF_I18N["de"] = {
     "progIcom": "Icom-Funkgeräteprogrammierung",
     "aprsBrand": "APRS-Client-Logo",
     "satBrand": "SAT-Tool-Logo",
+    "sdrScanner": "Spektrum-Scanner, aktive Frequenzen und Favoritentasten",
+    "sdrAprs": "Funkgerätedisplay, Wasserfall und APRS-Dekodierung",
+    "sdrActivity": "Automatische Aufzeichnung jeder Aussendung",
+    "sdrPresets": "Fertige Speicher: Frequenzpakete",
+    "sdrBlue": "Blaues Design mit dekodiertem DTMF und CTCSS",
     "satOperation": "Betrieb — Verfolgung, Doppler-korrigierte Frequenzen und Überflüge"
   },
   "products": {
+    "sdr": {
+        "summary": "SDR-Empfänger von 24 MHz bis 1,7 GHz mit Funkgeräte-Frontplatte, Wasserfall, Spektrum-Scanner und APRS-Dekodierung.",
+        "cardSummary": "SDR-Empfänger zum Hören, mit Funkgerätedisplay, fertigen Speichern, Scanner und Dekodern.",
+        "tagline": "RTL-SDR, rtl_tcp und SoapySDR · NFM, WFM, AM, SSB und CW · Scanner und APRS",
+        "description": [
+          "PT2VHF SDR Tool macht aus einem RTL-SDR (oder einem anderen SDR-Empfänger) einen vollständigen Hörempfänger am Computer. Die Oberfläche ahmt die Frontplatte eines Funkgeräts nach, mit 7-Segment-LCD, S-Meter, VFO A/B und Speichertasten, dazu ein Wasserfall im KiwiSDR-Stil, der das ganze Band auf einen Blick zeigt.",
+          "Für Hörer gedacht, bringt es fertige Speicher mit (Seefunk, CB-Funk, Handfunkgeräte, Flugfunk, Satelliten und Digitalmodi) sowie einen Scanner, der ganze Bänder über das Spektrum absucht, die aktiven Frequenzen Ihrer Region findet und jede Aussendung automatisch aufzeichnen kann.",
+          "Außerdem dekodiert es APRS (Position, Mic-E, Telemetrie und Wetterstationen), DTMF und CTCSS. Das Projekt ist in Entwicklung: Der Windows-Installer wird auf dieser Seite veröffentlicht, sobald die erste Version freigegeben ist."
+        ],
+        "features": [
+          "Funkgeräte-LCD: 7-Segment-Frequenz, S-Meter, VFO A/B, Abstimmung per Mausrad auf jeder Ziffer und 5 Designs",
+          "Wasserfall und Spektrum im KiwiSDR-Stil: Klick zum Abstimmen, verschiebbarer Durchlassbereich, Zoom, automatische Pegel und Farbpaletten",
+          "Betriebsarten NFM, WFM, AM, USB, LSB, CW, DSB und RAW mit AGC, Squelch, Störaustaster, Rauschminderung, Notch und 8-Band-Equalizer",
+          "Speicher mit Kategorien, Bandplan, CHIRP-CSV-Import/-Export und Favoritentasten",
+          "Fertige Speicher: UKW-Seefunk, CB-Funk (40 Kanäle), FRS/PMR446, Flugfunk, ISS und Satelliten, FT8/FT4/WSPR und Zeitzeichen",
+          "Spektrum-Scanner: sucht ganze Bänder ab, findet aktive Frequenzen, hält an und hört mit, mit Prioritätskanal und Frequenzsperre",
+          "Automatische Aufzeichnung jeder Aussendung sowie Audio- und IQ-Aufnahme (kompatibel mit SDR# und SDR++)",
+          "APRS/AX.25-Dekodierung mit 1200 Baud inklusive Entfernung und Richtung, DTMF und CTCSS mit Ton-Squelch",
+          "Quellen: RTL-SDR (Bias-T und Direktabtastung für KW), rtl_tcp im Netzwerk, SoapySDR, IQ-Dateien und ein Simulator zum Testen ohne Hardware"
+        ],
+        "supported": [
+          {
+            "name": "RTL-SDR",
+            "detail": "R820T/R828D-Sticks, einschließlich RTL-SDR Blog V3/V4 (KW per Direktabtastung)"
+          },
+          {
+            "name": "rtl_tcp",
+            "detail": "Entfernter RTL-SDR-Empfänger über das Netzwerk"
+          },
+          {
+            "name": "SoapySDR",
+            "detail": "Airspy, HackRF, SDRplay, LimeSDR und weitere (mit installiertem SoapySDR)"
+          },
+          {
+            "name": "IQ-Dateien",
+            "detail": "WAV-I/Q-Aufnahmen von SDR#, SDR++ und dem Programm selbst"
+          }
+        ],
+        "requirements": [
+          "Windows 10/11 64 Bit (Installer in Vorbereitung)",
+          "RTL-SDR mit WinUSB-Treiber, installiert mit Zadig",
+          "Für das Band geeignete Antenne; für KW ein RTL-SDR mit Direktabtastung oder ein Upconverter",
+          "Linux und macOS: aus dem Quellcode, mit Python 3.10+"
+        ]
+      },
     "prog": {
       "summary": "Speicher und Einstellungen von Kenwood- und Icom-Geräten programmieren und sichern.",
       "cardSummary": "Ein einfaches, leicht bedienbares Werkzeug zum Konfigurieren von Speichern und Menüs von Funkgeräten.",

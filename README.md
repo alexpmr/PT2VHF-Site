@@ -17,7 +17,7 @@ assets/css/style.css     Estilos (tema claro e escuro automáticos)
 assets/js/products.js    Textos de cada programa (descrição, recursos, equipamentos, requisitos)
 assets/js/main.js        Lê updates.json e monta a visão geral e a seção de cada programa
 assets/img/              Favicon e imagem de compartilhamento
-downloads/<pasta>/        Arquivos de cada versão (prog-tool, prop-tool, mesh-analyzer, aprs-client, sat-tool, qsl-analyzer)
+downloads/<pasta>/        Arquivos de cada versão (prog-tool, prop-tool, mesh-analyzer, aprs-client, sat-tool, sdr-tool, qsl-analyzer)
 CNAME                    Domínio personalizado (www.pt2vhf.com)
 (deploy)                 Integração Git da Hostinger: cada push na main é publicado
 ```
@@ -63,7 +63,7 @@ programas: **não renomeie nem remova campos**. Campos novos podem ser acrescent
 |---|---|
 | `schema` | Versão do formato. Hoje `1`. |
 | `updated` | Data da última alteração do arquivo (`AAAA-MM-DD`). |
-| `products.<id>` | Chaves fixas: `prog`, `prop`, `mesh`, `aprs`, `sat`, `qsl` (as mesmas de `products.js`). |
+| `products.<id>` | Chaves fixas: `prog`, `prop`, `mesh`, `aprs`, `sat`, `sdr`, `qsl` (as mesmas de `products.js`). |
 | `version` | Versão publicada (`"1.2.0"`), ou `null` se ainda não há versão. Com `null`, o site mostra **Em breve**. |
 | `date` | Data de lançamento (`AAAA-MM-DD`). |
 | `page` | Página do programa no site. |
@@ -217,8 +217,8 @@ substitutos de instaladores públicos homologados.
 ## URLs próprias dos projetos (26/10/2026)
 
 As cinco páginas possuem URLs estáveis: `/aprs`, `/prop`, `/mesh`,
-`/sat` e `/prog`. Cada rota tem um documento estático em sua respectiva
-raiz (`aprs.html`, `prop.html`, `mesh.html`, `sat.html`, `prog.html`).
+`/sat`, `/sdr` e `/prog`. Cada rota tem um documento estático em sua respectiva
+raiz (`aprs.html`, `prop.html`, `mesh.html`, `sat.html`, `sdr.html`, `prog.html`).
 O Apache/LiteSpeed da Hostinger realiza reescrita interna pelas regras
 do arquivo `.htaccess`. O GitLab Pages recebe os arquivos HTML no artefato.
 
@@ -312,3 +312,10 @@ O script confere o SHA-256 de cada pacote, divide os arquivos em partes menores 
 `downloads/qsl-analyzer/` (o `download.php` remonta o arquivo, aceita Range e conta uma vez por download,
 inclusive o OTA) e atualiza o produto `qsl` do `updates.json`. O app consulta
 `https://www.pt2vhf.com/update.php?product=qsl&platform=<plataforma>` e mostra o aviso de versão nova.
+
+## PT2VHF SDR Tool (`sdr`)
+
+Página `/sdr` publicada sem instalador: `updates.json` traz `developmentVersion` e `files: []`,
+e a tabela de downloads mostra "Publicação pendente". Na primeira release, além dos arquivos em
+`downloads/sdr-tool/` e do manifesto, incluir `sdr` em `download.php`, `update.php`,
+`prop_parts.php` (se segmentado) e nas regras de download do `.htaccess`.

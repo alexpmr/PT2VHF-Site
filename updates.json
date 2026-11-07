@@ -540,6 +540,14 @@
       "notes": "v1.7.0: display no layout do TS-2000 (MAIN e SUB lado a lado) com 5 modelos selecionáveis — matriz de pontos âmbar Normal/Negrito, LED e LCD de 7 segmentos âmbar, Digital colorido e Clássico — pontos sem falhas e contagem LOS/AOS; tecla A/B corrigida (confirma pela leitura do rádio e acompanha troca feita no painel); controle de rotor GS-232 (Yaesu G-5400B via ERC-M pela USB) com pré-posicionamento, flip, estacionamento e PARAR; atualização automática sem perguntar (configurável, adia durante operação); Configurações em abas Apresentação/Estação/Rádio/Rotor/Geral; detalhes de CAT recolhidos; velocidade radial em km/h; tabela de passagens sem rolagem lateral. Windows x64, Linux x64 e macOS ARM64.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
+    "sdr": {
+      "name": "PT2VHF SDR Tool",
+      "version": "",
+      "developmentVersion": "0.2.0",
+      "page": "https://www.pt2vhf.com/sdr",
+      "notes": "",
+      "files": []
+    },
     "qsl": {
       "name": "PT2VHF QSL Manager",
       "version": "0.6.0",

@@ -1,5 +1,5 @@
 /* Changelog (últimas 5 versões) dos projetos sem arquivo próprio de site.
- * Fontes: CHANGELOG do QSL Manager, README do Sat Tool, version_notes.py do APRS Client e notas da
+ * Fontes: CHANGELOG do QSL Manager, README do Sat Tool, CHANGELOG do SDR Tool, version_notes.py do APRS Client e notas da
  * versão do Prog Tool em updates.json. Mesh e Prop usam mesh-site-data.js
  * e prop-site.js. Idioma ausente cai para pt. */
 (function () {
@@ -15,6 +15,15 @@
     de: "Changelog", it: "Changelog", zh: "更新日志"
   };
   var INTRO = {
+    sdr: {
+      pt: "Evolução do SDR Tool, versão a versão (ainda sem instalador publicado).",
+      en: "SDR Tool evolution, version by version (no installer published yet).",
+      es: "Evolución del SDR Tool, versión por versión (aún sin instalador publicado).",
+      fr: "Évolution du SDR Tool, version par version (pas encore d’installateur publié).",
+      de: "Entwicklung des SDR Tool, Version für Version (noch kein Installer veröffentlicht).",
+      it: "Evoluzione del SDR Tool, versione per versione (nessun installer ancora pubblicato).",
+      zh: "SDR Tool 各版本更新（尚未发布安装程序）。"
+    },
     sat: {
       pt: "Evolução do Sat Tool com base no histórico oficial do projeto.",
       en: "Sat Tool evolution, based on the project's official history.",
@@ -63,6 +72,15 @@
   };
   function e(version, title, changes) { return { version: version, title: title, changes: changes }; }
   var LOG = {
+    sdr: {
+      pt: [e("0.2.0", "Memórias prontas, favoritos e scanner", ["Pacotes de memórias prontas: marítimo, PX, FRS/PMR446, aviação, ISS e satélites, FT8/FT4/WSPR e sinais horários.", "Barra de favoritos com teclas de um clique acima do waterfall.", "Scanner por espectro: varre faixas inteiras, lista as frequências ativas, para e escuta, com canal prioritário e bloqueio.", "Gravação automática de cada transmissão, com lista para ouvir depois."]), e("0.1.0", "Primeira versão", ["Display LCD de rádio, waterfall e modos NFM, WFM, AM, SSB e CW.", "AGC, squelch, noise blanker, redução de ruído, notch e equalizador de 8 bandas.", "Fontes RTL-SDR, rtl_tcp, SoapySDR, arquivo IQ e simulador.", "Decodificação APRS, DTMF e CTCSS."])],
+      en: [e("0.2.0", "Ready-made memories, favorites and scanner", ["Ready-made memory packs: marine, CB, FRS/PMR446, aviation, ISS and satellites, FT8/FT4/WSPR and time signals.", "Favorites bar with one-click keys above the waterfall.", "Spectrum scanner: sweeps whole bands, lists active frequencies, stops and listens, with priority channel and lockout.", "Automatic recording of every transmission, with a list to play back later."]), e("0.1.0", "First version", ["Radio LCD, waterfall and NFM, WFM, AM, SSB and CW modes.", "AGC, squelch, noise blanker, noise reduction, notch and 8-band equalizer.", "RTL-SDR, rtl_tcp, SoapySDR, IQ file and simulator sources.", "APRS, DTMF and CTCSS decoding."])],
+      es: [e("0.2.0", "Memorias listas, favoritos y escáner", ["Paquetes de memorias listas: marítimo, banda ciudadana, FRS/PMR446, aviación, ISS y satélites, FT8/FT4/WSPR y señales horarias.", "Barra de favoritos con teclas de un clic sobre el waterfall.", "Escáner por espectro: recorre bandas enteras, lista las frecuencias activas, se detiene y escucha, con canal prioritario y bloqueo.", "Grabación automática de cada transmisión, con lista para escuchar después."]), e("0.1.0", "Primera versión", ["Display LCD de radio, waterfall y modos NFM, WFM, AM, SSB y CW.", "AGC, squelch, noise blanker, reducción de ruido, notch y ecualizador de 8 bandas.", "Fuentes RTL-SDR, rtl_tcp, SoapySDR, archivo IQ y simulador.", "Decodificación APRS, DTMF y CTCSS."])],
+      fr: [e("0.2.0", "Mémoires prêtes, favoris et scanner", ["Paquets de mémoires prêtes : marine, CB, FRS/PMR446, aviation, ISS et satellites, FT8/FT4/WSPR et signaux horaires.", "Barre de favoris avec touches en un clic au-dessus du waterfall.", "Scanner par spectre : balaie des bandes entières, liste les fréquences actives, s’arrête pour écouter, avec canal prioritaire et blocage.", "Enregistrement automatique de chaque émission, avec une liste pour réécouter."]), e("0.1.0", "Première version", ["Afficheur LCD de radio, waterfall et modes NFM, WFM, AM, BLU et CW.", "CAG, squelch, noise blanker, réduction de bruit, notch et égaliseur 8 bandes.", "Sources RTL-SDR, rtl_tcp, SoapySDR, fichier IQ et simulateur.", "Décodage APRS, DTMF et CTCSS."])],
+      de: [e("0.2.0", "Fertige Speicher, Favoriten und Scanner", ["Fertige Speicherpakete: Seefunk, CB-Funk, FRS/PMR446, Flugfunk, ISS und Satelliten, FT8/FT4/WSPR und Zeitzeichen.", "Favoritenleiste mit Ein-Klick-Tasten über dem Wasserfall.", "Spektrum-Scanner: sucht ganze Bänder ab, listet aktive Frequenzen, hält an und hört mit, mit Prioritätskanal und Sperre.", "Automatische Aufzeichnung jeder Aussendung, mit Liste zum späteren Anhören."]), e("0.1.0", "Erste Version", ["Funkgeräte-LCD, Wasserfall und Betriebsarten NFM, WFM, AM, SSB und CW.", "AGC, Squelch, Störaustaster, Rauschminderung, Notch und 8-Band-Equalizer.", "Quellen RTL-SDR, rtl_tcp, SoapySDR, IQ-Datei und Simulator.", "APRS-, DTMF- und CTCSS-Dekodierung."])],
+      it: [e("0.2.0", "Memorie pronte, preferiti e scanner", ["Pacchetti di memorie pronte: nautico, CB, FRS/PMR446, aeronautico, ISS e satelliti, FT8/FT4/WSPR e segnali orari.", "Barra dei preferiti con tasti a un clic sopra il waterfall.", "Scanner su spettro: percorre intere bande, elenca le frequenze attive, si ferma ad ascoltare, con canale prioritario e blocco.", "Registrazione automatica di ogni trasmissione, con elenco da riascoltare."]), e("0.1.0", "Prima versione", ["Display LCD da radio, waterfall e modi NFM, WFM, AM, SSB e CW.", "AGC, squelch, noise blanker, riduzione del rumore, notch ed equalizzatore a 8 bande.", "Sorgenti RTL-SDR, rtl_tcp, SoapySDR, file IQ e simulatore.", "Decodifica APRS, DTMF e CTCSS."])],
+      zh: [e("0.2.0", "预置存储、收藏与扫描器", ["预置存储包：海事、CB、FRS/PMR446、航空、ISS 与卫星、FT8/FT4/WSPR 以及授时信号。", "瀑布图上方的收藏栏，一键收听。", "频谱扫描器：扫描整个频段，列出活跃频率，停下收听，支持优先信道和锁定。", "自动录下每一次发射，并可稍后回放。"]), e("0.1.0", "首个版本", ["电台 LCD、瀑布图以及 NFM、WFM、AM、SSB 和 CW 模式。", "AGC、静噪、噪声消隐、降噪、陷波和 8 段均衡器。", "信号源：RTL-SDR、rtl_tcp、SoapySDR、IQ 文件和模拟器。", "APRS、DTMF 和 CTCSS 解码。"])]
+    },
     qsl: {
       pt: [
         e("1.15.8", "Mapa de calor completo", ["O mapa de calor mostra todas as áreas com recepção RF; as menos densas não somem mais quando o histórico cresce.", "Ao abrir, convite às demais ferramentas gratuitas PT2VHF, como no Sat Tool.", "Barra do mapa traduzida."]),

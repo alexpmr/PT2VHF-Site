@@ -4,9 +4,9 @@ window.PT2VHF_I18N["es"] = {
     "navInstallation": "Instalación",
     "navContact": "Contacto",
     "language": "Idioma",
-    "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · CAT",
-    "homeTitle": "Software para radioaficionados. Siete proyectos, una estación.",
-    "homeLead": "APRS en tiempo real, propagación, topología Meshtastic, seguimiento de satélites, programación de radios y análisis de logs y QSL. Descubra las herramientas y los instaladores.",
+    "homeEyebrow": "PT2VHF · APRS · HF/VHF/UHF · MESH · SAT · SDR · CAT",
+    "homeTitle": "Software para radioaficionados. Ocho proyectos, una estación.",
+    "homeLead": "APRS en tiempo real, propagación, topología Meshtastic, seguimiento de satélites, recepción SDR, programación de radios y análisis de logs y QSL. Descubra las herramientas y los instaladores.",
     "homeExplore": "Explorar proyectos",
     "homeKnow": "Conocer los programas",
     "catalogTitle": "Proyectos PT2VHF",
@@ -71,6 +71,7 @@ window.PT2VHF_I18N["es"] = {
     "statProp": "Se generaron paquetes Windows, pero falló la validación automática. Aún no hay instalador público aprobado.",
     "statMesh": "No se ha confirmado instalador público ni repositorio de este proyecto en GitLab.",
     "statAprs": "Versión 1.15.8 disponible para Windows, Linux (x86_64 y Raspberry Pi ARM64) y macOS. Las instalaciones existentes reciben el aviso y se actualizan desde la aplicación.",
+    "statSdr": "En desarrollo. El instalador para Windows se publicará aquí cuando se libere la primera versión.",
     "statSat": "Instalador y portátil oficiales para Windows 10/11 x64.",
     "ciLink": "Detalles de la compilación (puede requerir acceso a GitLab)",
     "detailsProgInstaller": "Windows 10/11 de 64 bits (recomendado)",
@@ -103,9 +104,59 @@ window.PT2VHF_I18N["es"] = {
     "progIcom": "Programación de radios Icom",
     "aprsBrand": "Identidad visual de APRS Client",
     "satBrand": "Identidad visual de SAT Tool",
+    "sdrScanner": "Escáner por espectro, frecuencias activas y teclas de favoritos",
+    "sdrAprs": "Display de radio, waterfall y decodificación APRS",
+    "sdrActivity": "Grabación automática de cada transmisión",
+    "sdrPresets": "Memorias listas: paquetes de frecuencias",
+    "sdrBlue": "Tema azul con DTMF y CTCSS decodificados",
     "satOperation": "Operación — seguimiento, frecuencias con Doppler y pasadas"
   },
   "products": {
+    "sdr": {
+        "summary": "Receptor SDR de 24 MHz a 1,7 GHz con panel de radio, waterfall, escáner por espectro y decodificación APRS.",
+        "cardSummary": "Receptor SDR para escucha, con display de radio, memorias listas, escáner y decodificadores.",
+        "tagline": "RTL-SDR, rtl_tcp y SoapySDR · NFM, WFM, AM, SSB y CW · escáner y APRS",
+        "description": [
+          "PT2VHF SDR Tool convierte un RTL-SDR (u otro receptor SDR) en una radio de escucha completa en la computadora. La interfaz imita el panel de una radio, con display LCD de 7 segmentos, S-meter, VFO A/B y teclas de memoria, e incluye un waterfall al estilo KiwiSDR para ver toda la banda de una vez.",
+          "Pensado para quien disfruta escuchar, trae memorias listas (marítimo, banda ciudadana, radios portátiles, aviación, satélites y modos digitales) y un escáner que recorre bandas enteras por el espectro, descubre las frecuencias activas de su región y puede grabar cada transmisión automáticamente.",
+          "También decodifica APRS (posición, Mic-E, telemetría y estaciones meteorológicas), DTMF y CTCSS. El proyecto está en desarrollo: el instalador para Windows se publicará en esta página cuando se libere la primera versión."
+        ],
+        "features": [
+          "Display LCD de radio: frecuencia en 7 segmentos, S-meter, VFO A/B, sintonía con la rueda del ratón en cada dígito y 5 temas",
+          "Waterfall y espectro al estilo KiwiSDR: clic para sintonizar, passband arrastrable, zoom, niveles automáticos y paletas",
+          "Modos NFM, WFM, AM, USB, LSB, CW, DSB y RAW, con AGC, squelch, noise blanker, reducción de ruido, notch y ecualizador de 8 bandas",
+          "Memorias con categorías, plan de bandas, importación y exportación en CSV de CHIRP y teclas de favoritos",
+          "Memorias listas: marítimo VHF, banda ciudadana (40 canales), FRS/PMR446, aviación, ISS y satélites, FT8/FT4/WSPR y señales horarias",
+          "Escáner por espectro: recorre bandas enteras, descubre frecuencias activas, se detiene y escucha, con canal prioritario y bloqueo de frecuencias",
+          "Grabación automática de cada transmisión, además de grabación de audio e IQ (compatible con SDR# y SDR++)",
+          "Decodificación APRS/AX.25 1200 bd con distancia y azimut, DTMF y CTCSS con tono squelch",
+          "Fuentes: RTL-SDR (Bias-T y muestreo directo para HF), rtl_tcp en red, SoapySDR, archivos IQ y simulador para probar sin hardware"
+        ],
+        "supported": [
+          {
+            "name": "RTL-SDR",
+            "detail": "Dongles R820T/R828D, incluido RTL-SDR Blog V3/V4 (HF por muestreo directo)"
+          },
+          {
+            "name": "rtl_tcp",
+            "detail": "Receptor RTL-SDR remoto por la red"
+          },
+          {
+            "name": "SoapySDR",
+            "detail": "Airspy, HackRF, SDRplay, LimeSDR y otros (con SoapySDR instalado)"
+          },
+          {
+            "name": "Archivos IQ",
+            "detail": "Grabaciones WAV I/Q de SDR#, SDR++ y del propio programa"
+          }
+        ],
+        "requirements": [
+          "Windows 10/11 de 64 bits (instalador en preparación)",
+          "RTL-SDR con controlador WinUSB, instalado con Zadig",
+          "Antena adecuada a la banda; para HF, RTL-SDR con muestreo directo o upconverter",
+          "Linux y macOS: desde el código fuente, con Python 3.10+"
+        ]
+      },
     "prog": {
       "summary": "Programe, respalde y gestione memorias y ajustes de radios Kenwood e Icom.",
       "cardSummary": "Herramienta sencilla y fácil para configurar memorias y menús de radios.",
