@@ -22,9 +22,11 @@ window.PT2VHF_GALLERIES = {
     { src:"/assets/screenshots/sat/icon.svg",type:"brand",caption:"Identidade visual do SAT Tool",captionId:"satBrand" }
   ],
   sdr: [
+    { src:"/assets/screenshots/sdr/abas-v050.webp",full:"/assets/screenshots/sdr/original/abas-v050.png",type:"screenshot",caption:"Abas superiores e cabeçalho com atualização, Ligar/Desligar e UTC",captionId:"sdrTabs" },
+    { src:"/assets/screenshots/sdr/configuracoes-v050.webp",full:"/assets/screenshots/sdr/original/configuracoes-v050.png",type:"screenshot",caption:"Configurações: apresentação, reconexão, web sem chave e atualizações",captionId:"sdrSettings050" },
+    { src:"/assets/screenshots/sdr/apresentacao-v050.webp",full:"/assets/screenshots/sdr/original/apresentacao-v050.png",type:"screenshot",caption:"Modo apresentação (F11): só display e waterfall em tela cheia",captionId:"sdrPresentation" },
     { src:"/assets/screenshots/sdr/display-v040.webp",full:"/assets/screenshots/sdr/original/display-v040.png",type:"screenshot",caption:"Display com modos clicáveis, AUTO, A-SINT e ◀ ▶",captionId:"sdrDisplayKeys" },
     { src:"/assets/screenshots/sdr/web-v040.webp",full:"/assets/screenshots/sdr/original/web-v040.png",type:"screenshot",caption:"Interface web: display, waterfall, APRS e áudio no navegador",captionId:"sdrWeb" },
-    { src:"/assets/screenshots/sdr/configuracoes-v040.webp",full:"/assets/screenshots/sdr/original/configuracoes-v040.png",type:"screenshot",caption:"Aba Configurações e interface web local/LAN",captionId:"sdrSettings" },
     { src:"/assets/screenshots/sdr/assistente-v030.webp",full:"/assets/screenshots/sdr/original/assistente-v030.png",type:"screenshot",caption:"Assistente de sintonia, voltar no tempo e receptores extras",captionId:"sdrAssist" },
     { src:"/assets/screenshots/sdr/scanner-v020.webp",full:"/assets/screenshots/sdr/original/scanner-v020.png",type:"screenshot",caption:"Scanner por espectro, frequências ativas e teclas de favoritos",captionId:"sdrScanner" },
     { src:"/assets/screenshots/sdr/aprs-v020.webp",full:"/assets/screenshots/sdr/original/aprs-v020.png",type:"screenshot",caption:"Display de rádio, waterfall e decodificação APRS",captionId:"sdrAprs" },

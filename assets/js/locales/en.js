@@ -107,6 +107,9 @@ window.PT2VHF_I18N["en"] = {
     "sdrDisplayKeys": "Display with clickable modes, AUTO, A-SINT and ◀ ▶",
     "sdrWeb": "Web interface: display, waterfall, APRS and audio in the browser",
     "sdrSettings": "Settings tab and local/LAN web interface",
+    "sdrTabs": "Top tabs and header with update, On/Off and UTC",
+    "sdrSettings050": "Settings: presentation, reconnect, keyless web and updates",
+    "sdrPresentation": "Presentation mode (F11): display and waterfall only, full screen",
     "sdrAssist": "Tuning assistant, rewind and extra receivers",
     "sdrScanner": "Spectrum scanner, active frequencies and favorite keys",
     "sdrAprs": "Radio display, waterfall and APRS decoding",
@@ -140,7 +143,8 @@ window.PT2VHF_I18N["en"] = {
         "Optional local transcription of recorded transmissions and secure automatic updates from www.pt2vhf.com (size and SHA-256 verified)",
         "AUTO mode, auto-tune when selecting a transmission, ◀ ▶ keys to jump to the neighboring transmission and clickable modes on the display",
         "Three interface levels (Essential, Intermediate, Advanced), VOX recording with pre-roll and a local/LAN web interface with display, waterfall, APRS and audio in the browser",
-        "Robust RTL-SDR: automatic reconnection, unsupported-range warning, RTL-SDR Blog driver (V4) and WinUSB driver setup from the app itself"
+        "Robust RTL-SDR: automatic reconnection, unsupported-range warning, RTL-SDR Blog driver (V4) and WinUSB driver setup from the app itself",
+        "Top tabs following the PT2VHF standard, with a version/update header, On/Off and UTC clock; reconnects the receiver on startup and full-screen presentation mode (F11)"
       ],
       "supported": [
         {

@@ -107,6 +107,9 @@ window.PT2VHF_I18N["fr"] = {
     "sdrDisplayKeys": "Afficheur avec modes cliquables, AUTO, A-SINT et ◀ ▶",
     "sdrWeb": "Interface web : afficheur, waterfall, APRS et audio dans le navigateur",
     "sdrSettings": "Onglet Paramètres et interface web locale/LAN",
+    "sdrTabs": "Onglets en haut et en-tête avec mise à jour, Marche/Arrêt et UTC",
+    "sdrSettings050": "Paramètres : présentation, reconnexion, web sans clé et mises à jour",
+    "sdrPresentation": "Mode présentation (F11) : afficheur et waterfall seuls en plein écran",
     "sdrAssist": "Assistant d’accord, retour arrière et récepteurs supplémentaires",
     "sdrScanner": "Scanner par spectre, fréquences actives et touches favoris",
     "sdrAprs": "Afficheur de radio, waterfall et décodage APRS",
@@ -140,7 +143,8 @@ window.PT2VHF_I18N["fr"] = {
         "Transcription locale optionnelle des émissions enregistrées et mise à jour automatique sécurisée depuis www.pt2vhf.com (taille et SHA-256 vérifiés)",
         "Mode AUTO, accord automatique à la sélection d’une émission, touches ◀ ▶ vers l’émission voisine et modes cliquables sur l’afficheur",
         "Interface en trois niveaux (Essentiel, Intermédiaire, Avancé), enregistrement VOX avec pré-enregistrement et interface web locale/LAN avec afficheur, waterfall, APRS et audio dans le navigateur",
-        "RTL-SDR robuste : reconnexion automatique, alerte de plage non prise en charge, pilote RTL-SDR Blog (V4) et préparation du pilote WinUSB depuis le programme"
+        "RTL-SDR robuste : reconnexion automatique, alerte de plage non prise en charge, pilote RTL-SDR Blog (V4) et préparation du pilote WinUSB depuis le programme",
+        "Onglets en haut au standard PT2VHF, avec en-tête version/mise à jour, Marche/Arrêt et horloge UTC ; reconnexion du récepteur à l’ouverture et mode présentation (F11) en plein écran"
       ],
       "supported": [
         {

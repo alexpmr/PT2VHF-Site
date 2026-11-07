@@ -107,6 +107,9 @@ window.PT2VHF_I18N["de"] = {
     "sdrDisplayKeys": "Display mit anklickbaren Betriebsarten, AUTO, A-SINT und ◀ ▶",
     "sdrWeb": "Weboberfläche: Display, Wasserfall, APRS und Audio im Browser",
     "sdrSettings": "Registerkarte Einstellungen und lokale/LAN-Weboberfläche",
+    "sdrTabs": "Registerkarten oben und Kopfzeile mit Update, Ein/Aus und UTC",
+    "sdrSettings050": "Einstellungen: Präsentation, Wiederverbindung, Web ohne Schlüssel und Updates",
+    "sdrPresentation": "Präsentationsmodus (F11): nur Display und Wasserfall im Vollbild",
     "sdrAssist": "Abstimmassistent, Zurückspulen und zusätzliche Empfänger",
     "sdrScanner": "Spektrum-Scanner, aktive Frequenzen und Favoritentasten",
     "sdrAprs": "Funkgerätedisplay, Wasserfall und APRS-Dekodierung",
@@ -140,7 +143,8 @@ window.PT2VHF_I18N["de"] = {
         "Optionale lokale Transkription aufgezeichneter Aussendungen und sichere automatische Updates von www.pt2vhf.com (Größe und SHA-256 geprüft)",
         "AUTO-Modus, automatische Abstimmung bei Auswahl einer Aussendung, Tasten ◀ ▶ zur benachbarten Aussendung und anklickbare Betriebsarten im Display",
         "Drei Oberflächenstufen (Einfach, Mittel, Erweitert), VOX-Aufnahme mit Vorlauf und lokale/LAN-Weboberfläche mit Display, Wasserfall, APRS und Audio im Browser",
-        "Robuster RTL-SDR: automatische Wiederverbindung, Warnung bei nicht unterstütztem Bereich, RTL-SDR-Blog-Treiber (V4) und WinUSB-Treibereinrichtung direkt im Programm"
+        "Robuster RTL-SDR: automatische Wiederverbindung, Warnung bei nicht unterstütztem Bereich, RTL-SDR-Blog-Treiber (V4) und WinUSB-Treibereinrichtung direkt im Programm",
+        "Registerkarten oben nach PT2VHF-Standard, mit Kopfzeile für Version/Update, Ein/Aus und UTC-Uhr; verbindet den Empfänger beim Start neu und Präsentationsmodus (F11) im Vollbild"
       ],
       "supported": [
         {

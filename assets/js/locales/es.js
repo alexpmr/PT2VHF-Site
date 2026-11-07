@@ -107,6 +107,9 @@ window.PT2VHF_I18N["es"] = {
     "sdrDisplayKeys": "Display con modos clicables, AUTO, A-SINT y ◀ ▶",
     "sdrWeb": "Interfaz web: display, waterfall, APRS y audio en el navegador",
     "sdrSettings": "Pestaña Configuración e interfaz web local/LAN",
+    "sdrTabs": "Pestañas superiores y cabecera con actualización, Encender/Apagar y UTC",
+    "sdrSettings050": "Configuración: presentación, reconexión, web sin clave y actualizaciones",
+    "sdrPresentation": "Modo presentación (F11): solo display y waterfall a pantalla completa",
     "sdrAssist": "Asistente de sintonía, volver en el tiempo y receptores extra",
     "sdrScanner": "Escáner por espectro, frecuencias activas y teclas de favoritos",
     "sdrAprs": "Display de radio, waterfall y decodificación APRS",
@@ -140,7 +143,8 @@ window.PT2VHF_I18N["es"] = {
         "Transcripción local opcional de las transmisiones grabadas y actualización automática segura desde www.pt2vhf.com (tamaño y SHA-256 verificados)",
         "Modo AUTO, autosintonía al seleccionar una transmisión, teclas ◀ ▶ para la transmisión vecina y modos clicables en el display",
         "Interfaz en tres niveles (Esencial, Intermedio, Avanzado), grabación VOX con pregrabación e interfaz web local/LAN con display, waterfall, APRS y audio en el navegador",
-        "RTL-SDR robusto: reconexión automática, aviso de rango no soportado, controlador RTL-SDR Blog (V4) y preparación del controlador WinUSB desde el propio programa"
+        "RTL-SDR robusto: reconexión automática, aviso de rango no soportado, controlador RTL-SDR Blog (V4) y preparación del controlador WinUSB desde el propio programa",
+        "Pestañas superiores al estilo PT2VHF, con cabecera de versión/actualización, Encender/Apagar y reloj UTC; reconecta el receptor al abrir y modo presentación (F11) a pantalla completa"
       ],
       "supported": [
         {

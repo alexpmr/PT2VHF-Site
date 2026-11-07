@@ -250,7 +250,8 @@ window.PT2VHF_PRODUCTS = [
       "Transcrição local opcional das transmissões gravadas e atualização automática segura por www.pt2vhf.com (tamanho e SHA-256 verificados)",
       "Modo AUTO, auto-sintonia ao selecionar uma transmissão, teclas ◀ ▶ para a transmissão vizinha e modos clicáveis no display",
       "Interface em três níveis (Essencial, Intermediário, Avançado), gravação VOX com pré-gravação e interface web local/LAN com display, waterfall, APRS e áudio no navegador",
-      "RTL-SDR robusto: reconexão automática, aviso de faixa sem suporte, driver RTL-SDR Blog (V4) e preparo do driver WinUSB pelo próprio programa"
+      "RTL-SDR robusto: reconexão automática, aviso de faixa sem suporte, driver RTL-SDR Blog (V4) e preparo do driver WinUSB pelo próprio programa",
+      "Abas superiores no padrão PT2VHF, com cabeçalho de versão/atualização, Ligar/Desligar e relógio UTC; reconecta o receptor ao abrir e modo apresentação (F11) em tela cheia"
     ],
     supported: [
       { name: "RTL-SDR", detail: "Dongles R820T/R828D, incluindo RTL-SDR Blog V3/V4 (HF por amostragem direta)" },
