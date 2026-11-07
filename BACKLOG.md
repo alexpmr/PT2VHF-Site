@@ -2,17 +2,16 @@
 
 ## Pendentes
 
-### Confirmar no ar a publicação do PT2VHF SDR Tool 0.4.1 (07/11/2026)
+### Confirmar no ar a publicação do PT2VHF SDR Tool 0.5.0 (07/11/2026)
 
-- **Publicado na `main`:** commits até `d674198` (instalador, portátil e `updates.json`), a partir da Release `v0.4.1`
-  do `alexpmr/PT2VHF-SDR-Tool` (build aprovado, run 42390425191, commit `bf42368`; SHA-256 conferidos).
-  Correção do LIBUSB_ERROR_ACCESS da 0.4.0.
-- **Validado localmente (PHP 8.3):** `update.php?product=sdr` anuncia a 0.4.1 (instalador e portátil) e
-  `download.php` remonta os dois `.exe` idênticos ao SHA-256 da Release.
-- **Não confirmado no ar:** verificação pelo GitHub Actions (runs 42391490642 e 42392653837): a primeira ainda via a
-  0.4.0 no ar durante ~13 min; a segunda recebeu só HTTP 429 da Hostinger.
-- **Conferir:** https://www.pt2vhf.com/update.php?product=sdr (`"version": "0.4.1"`) e a tabela de /sdr.
-  Se continuar na 0.4.0: hPanel → GIT → Implantar.
+- **Publicado na `main`:** commits `43da66d`…`6075010` (instalador, portátil, textos da página em 7 idiomas e
+  `updates.json`), a partir da Release `v0.5.0` do `alexpmr/PT2VHF-SDR-Tool` (build aprovado, run 42397078694,
+  commit `02d5095`; autoteste Windows OK; SHA-256 conferidos). Substitui a pendência da 0.4.1, que fica superada.
+- **Validado localmente (PHP):** `update.php?product=sdr` anuncia a 0.5.0 e `download.php` remonta os dois `.exe`
+  idênticos ao SHA-256 da Release (Setup 71 954 751 B `b5bf22bb…`, Portátil 104 122 048 B `49b8c8d4…`).
+- **Não confirmado no ar:** a verificação pelo GitHub Actions (run 42398177173) recebeu só HTTP 429 da Hostinger.
+  Conferir num navegador: `https://www.pt2vhf.com/sdr` (versão 0.5.0 na tabela), `/updates.json` e
+  `/update.php?product=sdr`; ou rodar de novo o workflow "Verificar publicação no site oficial" (versão 0.5.0).
 
 ### Site não atualizou depois da publicação do QSL Analyzer 0.1.0 (29/10/2026)
 
