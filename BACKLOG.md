@@ -2,6 +2,20 @@
 
 ## Pendentes
 
+### Confirmar no ar a publicação do PT2VHF SDR Tool 0.3.0 (07/11/2026)
+
+- **Publicado no GitHub (`main`):** commits `7d709ad` (partes do instalador), `ed2443b` (partes do portátil) e
+  `ab3feb9` (`updates.json`), a partir da Release `v0.3.0` do `alexpmr/PT2VHF-SDR-Tool`
+  (build Windows aprovado, run 42366992825, commit `d464604`; SHA-256 conferidos).
+- **Validado localmente (PHP 8.3):** `update.php?product=sdr` anuncia a 0.3.0 com instalador e portátil;
+  `download.php` remonta os dois `.exe` idênticos (SHA-256), Range não conta, OTA conta uma vez.
+- **Não confirmado no endereço público:** a sessão do Claude não alcança www.pt2vhf.com (proxy) e a
+  verificação pelo GitHub Actions do repositório público recebeu HTTP 429 da Hostinger em todas as tentativas.
+  O workflow `publish-sdr-v030` deste repositório não rodou: orçamento do GitHub Actions esgotado.
+- **Conferir:** https://www.pt2vhf.com/sdr (tabela com instalador e portátil v0.3.0),
+  https://www.pt2vhf.com/update.php?product=sdr (`"status": "available"`, `"version": "0.3.0"`) e um download
+  real; se não aparecer, ver o log de implantação Git no hPanel e clicar em Implantar.
+
 ### Site não atualizou depois da publicação do QSL Analyzer 0.1.0 (29/10/2026)
 
 - **Relato:** depois dos pushes de 29/10/2026 (commits `1008fc4` a `39002a1`), a página `/qsl` e o
