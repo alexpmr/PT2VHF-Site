@@ -2,20 +2,6 @@
 
 ## Pendentes
 
-### Confirmar no ar a publicação do PT2VHF SDR Tool 0.4.0 (07/11/2026)
-
-- **Publicado na `main`:** commits `ec3ba4e` (instalador), `92321d9` e `e1e91bf` (portátil e `updates.json`), a partir
-  da Release `v0.4.0` do `alexpmr/PT2VHF-SDR-Tool` (build Windows aprovado, run 42377695470, commit `c6232f0`;
-  SHA-256 conferidos). Nomes no padrão PT2VHF: `PT2VHF-SDR-Tool-v0.4.0-Win11-x64-Setup.exe` / `-Portable.exe`.
-  Substitui a pendência da 0.3.0 (os pacotes da 0.3.0 foram removidos).
-- **Validado localmente (PHP 8.3):** `update.php?product=sdr` (instalador e portátil) anuncia a 0.4.0; `download.php`
-  remonta os dois `.exe` idênticos ao SHA-256 da Release e conta uma vez (OTA); página `/sdr` em pt/en/zh sem erros.
-- **Não confirmado no endereço público:** a sessão do Claude não alcança www.pt2vhf.com e a Hostinger responde
-  HTTP 429 ao GitHub Actions; o orçamento do Actions deste repositório está esgotado.
-- **Conferir:** https://www.pt2vhf.com/sdr (tabela com instalador e portátil v0.4.0),
-  https://www.pt2vhf.com/update.php?product=sdr (`"version": "0.4.0"`) e um download real. Se não aparecer:
-  hPanel → GIT → Implantar.
-
 ### Site não atualizou depois da publicação do QSL Analyzer 0.1.0 (29/10/2026)
 
 - **Relato:** depois dos pushes de 29/10/2026 (commits `1008fc4` a `39002a1`), a página `/qsl` e o
@@ -27,6 +13,13 @@
   sem .tar.gz Linux) ou mover os binários grandes para fora do histórico do Git.
 
 ## Concluídos
+
+### RESOLVIDO (07/11/2026) — PT2VHF SDR Tool 0.4.0 no ar
+
+- Verificado no endereço público pelo workflow `verify-site` do `alexpmr/PT2VHF-SDR-Tool` (run 42387645413):
+  `update.php?product=sdr` anuncia a 0.4.0 com instalador e portátil, `/sdr` e `updates.json` atualizados, e os dois
+  `.exe` baixados de www.pt2vhf.com conferem tamanho e SHA-256 (download com Range, sem inflar os contadores).
+- A tentativa anterior também mostrou a 0.3.0 no ar antes da implantação da 0.4.0 (publicação da 0.3.0 confirmada).
 
 ### RESOLVIDO (29/10/2026) — PT2VHF QSL Manager 0.4.0 no site (Windows)
 
