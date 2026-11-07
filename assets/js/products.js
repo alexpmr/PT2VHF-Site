@@ -247,7 +247,10 @@ window.PT2VHF_PRODUCTS = [
       "Fontes: RTL-SDR (Bias-T e amostragem direta para HF), rtl_tcp em rede, SoapySDR, arquivos IQ e simulador para testar sem hardware",
       "Assistente de sintonia: auto-sintonia SSB pelos harmônicos da voz, detecção automática de modo e banda lateral e filtro ajustado à largura do sinal",
       "Voltar no tempo (reouvir os últimos 10–60 s de qualquer frequência da faixa) e até 4 receptores extras ao mesmo tempo",
-      "Transcrição local opcional das transmissões gravadas e atualização automática segura por www.pt2vhf.com (tamanho e SHA-256 verificados)"
+      "Transcrição local opcional das transmissões gravadas e atualização automática segura por www.pt2vhf.com (tamanho e SHA-256 verificados)",
+      "Modo AUTO, auto-sintonia ao selecionar uma transmissão, teclas ◀ ▶ para a transmissão vizinha e modos clicáveis no display",
+      "Interface em três níveis (Essencial, Intermediário, Avançado), gravação VOX com pré-gravação e interface web local/LAN com display, waterfall, APRS e áudio no navegador",
+      "RTL-SDR robusto: reconexão automática, aviso de faixa sem suporte, driver RTL-SDR Blog (V4) e preparo do driver WinUSB pelo próprio programa"
     ],
     supported: [
       { name: "RTL-SDR", detail: "Dongles R820T/R828D, incluindo RTL-SDR Blog V3/V4 (HF por amostragem direta)" },
@@ -257,7 +260,7 @@ window.PT2VHF_PRODUCTS = [
     ],
     requirements: [
       "Windows 10/11 de 64 bits: instalador ou versão portátil",
-      "RTL-SDR com driver WinUSB, instalado pelo Zadig",
+      "RTL-SDR com driver WinUSB (o instalador e o menu Ajuda → Preparar RTL-SDR instalam; o Zadig também serve)",
       "Antena adequada à faixa; para HF, RTL-SDR com amostragem direta ou upconverter",
       "Linux e macOS: pelo código-fonte, com Python 3.10+"
     ],

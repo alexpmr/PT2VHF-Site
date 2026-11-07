@@ -104,6 +104,9 @@ window.PT2VHF_I18N["es"] = {
     "progIcom": "Programación de radios Icom",
     "aprsBrand": "Identidad visual de APRS Client",
     "satBrand": "Identidad visual de SAT Tool",
+    "sdrDisplayKeys": "Display con modos clicables, AUTO, A-SINT y ◀ ▶",
+    "sdrWeb": "Interfaz web: display, waterfall, APRS y audio en el navegador",
+    "sdrSettings": "Pestaña Configuración e interfaz web local/LAN",
     "sdrAssist": "Asistente de sintonía, volver en el tiempo y receptores extra",
     "sdrScanner": "Escáner por espectro, frecuencias activas y teclas de favoritos",
     "sdrAprs": "Display de radio, waterfall y decodificación APRS",
@@ -134,7 +137,10 @@ window.PT2VHF_I18N["es"] = {
         "Fuentes: RTL-SDR (Bias-T y muestreo directo para HF), rtl_tcp en red, SoapySDR, archivos IQ y simulador para probar sin hardware",
         "Asistente de sintonía: autosintonía SSB por los armónicos de la voz, detección automática de modo y banda lateral, y filtro ajustado al ancho de la señal",
         "Volver en el tiempo (reescuchar los últimos 10–60 s de cualquier frecuencia de la banda) y hasta 4 receptores extra a la vez",
-        "Transcripción local opcional de las transmisiones grabadas y actualización automática segura desde www.pt2vhf.com (tamaño y SHA-256 verificados)"
+        "Transcripción local opcional de las transmisiones grabadas y actualización automática segura desde www.pt2vhf.com (tamaño y SHA-256 verificados)",
+        "Modo AUTO, autosintonía al seleccionar una transmisión, teclas ◀ ▶ para la transmisión vecina y modos clicables en el display",
+        "Interfaz en tres niveles (Esencial, Intermedio, Avanzado), grabación VOX con pregrabación e interfaz web local/LAN con display, waterfall, APRS y audio en el navegador",
+        "RTL-SDR robusto: reconexión automática, aviso de rango no soportado, controlador RTL-SDR Blog (V4) y preparación del controlador WinUSB desde el propio programa"
       ],
       "supported": [
         {
@@ -156,7 +162,7 @@ window.PT2VHF_I18N["es"] = {
       ],
       "requirements": [
         "Windows 10/11 de 64 bits: instalador o versión portátil",
-        "RTL-SDR con controlador WinUSB, instalado con Zadig",
+        "RTL-SDR con controlador WinUSB (lo instalan el instalador o Ayuda → Preparar RTL-SDR; Zadig también sirve)",
         "Antena adecuada a la banda; para HF, RTL-SDR con muestreo directo o upconverter",
         "Linux y macOS: desde el código fuente, con Python 3.10+"
       ]

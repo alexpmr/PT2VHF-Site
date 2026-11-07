@@ -2,6 +2,7 @@
 """Publica uma versão do PT2VHF SDR Tool no site.
 
 Uso: python3 scripts/publish_sdr_release.py X.Y.Z <pasta-do-artefato> "notas da versão"
+Nomes (padrão PT2VHF desde a 0.4.0): PT2VHF-SDR-Tool-vX.Y.Z-Win11-x64-Setup.exe / -Portable.exe
 
 - confere os dois .exe (assinatura MZ e SHA-256 do SHA256SUMS.txt gerado no GitHub Actions);
 - grava cada pacote em partes < 100 MiB (limite do GitHub) + <nome>.parts.json, como Sat/QSL;
@@ -23,9 +24,10 @@ DEST = ROOT / "downloads" / "sdr-tool"
 MAX_PART = 48 * 1024 * 1024
 KINDS = {
     "setup": dict(category="windows-installer", counterKey="win-setup-x64", kind="installer",
-                  label="Windows — Instalador", detail="Windows 10/11 64 bits (recomendado)"),
+                  label="Windows — Instalador", detail="Windows 10/11 64 bits (recomendado; prepara o RTL-SDR)"),
     "portable": dict(category="windows-portable", counterKey="win-portable-x64", kind="portable",
                      label="Windows — Portátil", detail="Windows 10/11 64 bits, EXE único sem instalar"),
+    # o instalador é por usuário (sem administrador) e oferece preparar o driver WinUSB do RTL-SDR
 }
 
 
@@ -54,7 +56,7 @@ def main():
             old.unlink()
     files = []
     for kind, meta in KINDS.items():
-        name = f"PT2VHF-SDR-Tool-{version}-win-x64-{kind}.exe"
+        name = f"PT2VHF-SDR-Tool-v{version}-Win11-x64-{kind.capitalize()}.exe"
         original = src / name
         data = original.read_bytes()
         if data[:2] != b"MZ":

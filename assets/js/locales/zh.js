@@ -104,6 +104,9 @@ window.PT2VHF_I18N["zh"] = {
     "progIcom": "Icom 电台编程",
     "aprsBrand": "APRS Client 项目标识",
     "satBrand": "SAT Tool 项目标识",
+    "sdrDisplayKeys": "可点击模式键、AUTO、A-SINT 与 ◀ ▶ 的显示屏",
+    "sdrWeb": "网页界面：浏览器中的显示屏、瀑布图、APRS 与音频",
+    "sdrSettings": "设置页与本地/局域网网页界面",
     "sdrAssist": "调谐助手、时光回放与附加接收机",
     "sdrScanner": "频谱扫描器、活跃频率和收藏按键",
     "sdrAprs": "电台显示屏、瀑布图和 APRS 解码",
@@ -134,7 +137,10 @@ window.PT2VHF_I18N["zh"] = {
         "信号源：RTL-SDR（Bias-T 与短波直接采样）、网络 rtl_tcp、SoapySDR、IQ 文件，以及无需硬件即可测试的模拟器",
         "调谐助手：根据语音谐波自动校准 SSB 调谐，自动识别模式与边带，并按信号宽度调整滤波器",
         "时光回放（重听频段内任意频率最近 10–60 秒）以及最多 4 个同时工作的附加接收机",
-        "可选的本地语音转写（针对录下的发射），以及来自 www.pt2vhf.com 的安全自动更新（校验大小与 SHA-256）"
+        "可选的本地语音转写（针对录下的发射），以及来自 www.pt2vhf.com 的安全自动更新（校验大小与 SHA-256）",
+        "AUTO 模式、选中发射时自动校准、◀ ▶ 键跳到相邻发射，以及显示屏上可点击的模式键",
+        "三级界面（基础、中级、高级）、带预录的 VOX 录音，以及本地/局域网网页界面（浏览器中显示屏、瀑布图、APRS 和音频）",
+        "更稳健的 RTL-SDR：自动重连、不支持频段提示、RTL-SDR Blog 驱动（V4）以及程序内安装 WinUSB 驱动"
       ],
       "supported": [
         {
@@ -156,7 +162,7 @@ window.PT2VHF_I18N["zh"] = {
       ],
       "requirements": [
         "Windows 10/11 64 位：安装版或便携版",
-        "使用 Zadig 安装 WinUSB 驱动的 RTL-SDR",
+        "使用 WinUSB 驱动的 RTL-SDR（安装程序或“帮助 → 准备 RTL-SDR”可自动安装；也可用 Zadig）",
         "适合频段的天线；短波需支持直接采样的 RTL-SDR 或上变频器",
         "Linux 和 macOS：从源代码运行，需要 Python 3.10+"
       ]

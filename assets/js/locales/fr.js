@@ -104,6 +104,9 @@ window.PT2VHF_I18N["fr"] = {
     "progIcom": "Programmation des postes Icom",
     "aprsBrand": "Identité visuelle d’APRS Client",
     "satBrand": "Identité visuelle de SAT Tool",
+    "sdrDisplayKeys": "Afficheur avec modes cliquables, AUTO, A-SINT et ◀ ▶",
+    "sdrWeb": "Interface web : afficheur, waterfall, APRS et audio dans le navigateur",
+    "sdrSettings": "Onglet Paramètres et interface web locale/LAN",
     "sdrAssist": "Assistant d’accord, retour arrière et récepteurs supplémentaires",
     "sdrScanner": "Scanner par spectre, fréquences actives et touches favoris",
     "sdrAprs": "Afficheur de radio, waterfall et décodage APRS",
@@ -134,7 +137,10 @@ window.PT2VHF_I18N["fr"] = {
         "Sources : RTL-SDR (Bias-T et échantillonnage direct pour la HF), rtl_tcp en réseau, SoapySDR, fichiers IQ et simulateur pour tester sans matériel",
         "Assistant d’accord : accord automatique en BLU par les harmoniques de la voix, détection automatique du mode et de la bande latérale, filtre ajusté à la largeur du signal",
         "Retour arrière (réécouter les 10 à 60 dernières secondes de n’importe quelle fréquence de la bande) et jusqu’à 4 récepteurs supplémentaires simultanés",
-        "Transcription locale optionnelle des émissions enregistrées et mise à jour automatique sécurisée depuis www.pt2vhf.com (taille et SHA-256 vérifiés)"
+        "Transcription locale optionnelle des émissions enregistrées et mise à jour automatique sécurisée depuis www.pt2vhf.com (taille et SHA-256 vérifiés)",
+        "Mode AUTO, accord automatique à la sélection d’une émission, touches ◀ ▶ vers l’émission voisine et modes cliquables sur l’afficheur",
+        "Interface en trois niveaux (Essentiel, Intermédiaire, Avancé), enregistrement VOX avec pré-enregistrement et interface web locale/LAN avec afficheur, waterfall, APRS et audio dans le navigateur",
+        "RTL-SDR robuste : reconnexion automatique, alerte de plage non prise en charge, pilote RTL-SDR Blog (V4) et préparation du pilote WinUSB depuis le programme"
       ],
       "supported": [
         {
@@ -156,7 +162,7 @@ window.PT2VHF_I18N["fr"] = {
       ],
       "requirements": [
         "Windows 10/11 64 bits : installateur ou version portable",
-        "RTL-SDR avec le pilote WinUSB, installé avec Zadig",
+        "RTL-SDR avec le pilote WinUSB (installé par l’installateur ou Aide → Préparer le RTL-SDR ; Zadig convient aussi)",
         "Antenne adaptée à la bande ; pour la HF, RTL-SDR à échantillonnage direct ou convertisseur",
         "Linux et macOS : depuis le code source, avec Python 3.10+"
       ]

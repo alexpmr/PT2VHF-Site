@@ -104,6 +104,9 @@ window.PT2VHF_I18N["en"] = {
     "progIcom": "Icom radio programming",
     "aprsBrand": "APRS Client branding",
     "satBrand": "SAT Tool branding",
+    "sdrDisplayKeys": "Display with clickable modes, AUTO, A-SINT and ◀ ▶",
+    "sdrWeb": "Web interface: display, waterfall, APRS and audio in the browser",
+    "sdrSettings": "Settings tab and local/LAN web interface",
     "sdrAssist": "Tuning assistant, rewind and extra receivers",
     "sdrScanner": "Spectrum scanner, active frequencies and favorite keys",
     "sdrAprs": "Radio display, waterfall and APRS decoding",
@@ -134,7 +137,10 @@ window.PT2VHF_I18N["en"] = {
         "Sources: RTL-SDR (Bias-T and direct sampling for HF), networked rtl_tcp, SoapySDR, IQ files and a simulator to test without hardware",
         "Tuning assistant: SSB auto-tune from voice harmonics, automatic mode and sideband detection, and a filter fitted to the signal width",
         "Rewind (replay the last 10–60 s of any frequency in the band) and up to 4 extra receivers at once",
-        "Optional local transcription of recorded transmissions and secure automatic updates from www.pt2vhf.com (size and SHA-256 verified)"
+        "Optional local transcription of recorded transmissions and secure automatic updates from www.pt2vhf.com (size and SHA-256 verified)",
+        "AUTO mode, auto-tune when selecting a transmission, ◀ ▶ keys to jump to the neighboring transmission and clickable modes on the display",
+        "Three interface levels (Essential, Intermediate, Advanced), VOX recording with pre-roll and a local/LAN web interface with display, waterfall, APRS and audio in the browser",
+        "Robust RTL-SDR: automatic reconnection, unsupported-range warning, RTL-SDR Blog driver (V4) and WinUSB driver setup from the app itself"
       ],
       "supported": [
         {
@@ -156,7 +162,7 @@ window.PT2VHF_I18N["en"] = {
       ],
       "requirements": [
         "Windows 10/11 64-bit: installer or portable version",
-        "RTL-SDR with the WinUSB driver, installed with Zadig",
+        "RTL-SDR with the WinUSB driver (installed by the setup or Help → Prepare RTL-SDR; Zadig also works)",
         "Antenna suited to the band; for HF, an RTL-SDR with direct sampling or an upconverter",
         "Linux and macOS: from source, with Python 3.10+"
       ]
