@@ -1,0 +1,17 @@
+{
+  "name": "PT2VHF-SDR-Tool-v0.5.0-Win11-x64-Setup.exe",
+  "size": 71954751,
+  "sha256": "b5bf22bbacd2110373cd700e9cc0461d053a0de5347262544025a44f328befe5",
+  "parts": [
+    {
+      "name": "PT2VHF-SDR-Tool-v0.5.0-Win11-x64-Setup.exe.part00",
+      "size": 35977376,
+      "sha256": "6f8d7265a800404114c20376436ffbe21d4d9256877ef7a1acd877b6ec603fad"
+    },
+    {
+      "name": "PT2VHF-SDR-Tool-v0.5.0-Win11-x64-Setup.exe.part01",
+      "size": 35977375,
+      "sha256": "d0de8c189584c3b8ad7252ffafd4972ffcfa3499677ef770f771be6c009ff513"
+    }
+  ]
+}
