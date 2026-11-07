@@ -482,8 +482,8 @@
           "label": "Windows — Instalador",
           "name": "PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Setup.exe",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Setup.exe",
-          "size": 166133001,
-          "sha256": "8d137478fcfc0e16c14a6f0264f3a0da211650448ce842ac2d1e638808af4b89",
+          "size": 166120661,
+          "sha256": "6e368acb20edd56c461801ea8dec778848eb63e3050b4cc5cbdd69c61220b831",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -495,8 +495,8 @@
           "label": "Windows — Portátil",
           "name": "PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Portable.exe",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Portable.exe",
-          "size": 244313871,
-          "sha256": "047ce41b78fa1cf5b9075ec602fb68a07c449a12ba58ab20d6d4c916f36816be",
+          "size": 244312557,
+          "sha256": "c57b141a698fcdfc6c939d01b8f519c3be740bcb2b265bef50d660912cc48721",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -521,8 +521,8 @@
           "label": "macOS — .dmg",
           "name": "PT2VHF-Sat-Tool-v1.7.0-macOS-arm64.dmg",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-macOS-arm64.dmg",
-          "size": 249758827,
-          "sha256": "f4d76b9a717d9bb7bf540e09ef70611408ec2f45d728c777d378141b388d77a4",
+          "size": 250166385,
+          "sha256": "14986cc52448fdc16b2fdb9e647af2eb5d3cb835cab00467f0f26bcdd605dcff",
           "detail": "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos"
         },
         {
@@ -531,7 +531,7 @@
           "name": "PT2VHF-Sat-Tool-v1.7.0-SHA256.txt",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-SHA256.txt",
           "size": 432,
-          "sha256": "c935e3d42f62174ba93de08b6b9a07b858a7824e25e9d792b349f02daea7b46b",
+          "sha256": "08a70c53bb4b9cd18bf64076ef72090ecffdcb634d20157c1da08c59f1cfcee3",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],

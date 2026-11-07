@@ -1,12 +1,12 @@
 {
   "name": "PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Portable.exe",
-  "size": 244313871,
-  "sha256": "047ce41b78fa1cf5b9075ec602fb68a07c449a12ba58ab20d6d4c916f36816be",
+  "size": 244312557,
+  "sha256": "c57b141a698fcdfc6c939d01b8f519c3be740bcb2b265bef50d660912cc48721",
   "parts": [
     {
       "name": "PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Portable.exe.part00",
       "size": 50331648,
-      "sha256": "db554b78f6a5f9ded4a42fbbff2daaa0d922854c178a1f23594d36a79edc0e3f"
+      "sha256": "bc16990ebda4c1fa4bc92d6a2bcac4797a971551a94f015252b290ef20536852"
     },
     {
       "name": "PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Portable.exe.part01",
@@ -25,8 +25,8 @@
     },
     {
       "name": "PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Portable.exe.part04",
-      "size": 42987279,
-      "sha256": "7bd3a92a0c1c95db2e8cc9d1b45c602796ee50ee486a3c16ca2b6a4b9d9960fd"
+      "size": 42985965,
+      "sha256": "b6d061e8174e5473a5c58c2200c9387b898417a2b6cd309385a8204998fa1910"
     }
   ]
 }
