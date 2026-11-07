@@ -542,9 +542,9 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "Mudar de banda não trava mais (RTL-SDR Blog V4): reconexão automática e driver RTL-SDR Blog incluído. Modo AUTO, auto-sintonia ao selecionar, transmissão vizinha ◀ ▶ e modos no display. Três níveis de interface, gravação VOX, aba Configurações e interface web com áudio. OTA, anúncio e instalador no padrão PT2VHF (instalação sem administrador, prepara o RTL-SDR).",
+      "notes": "Corrigido: em alguns computadores a 0.4.0 não abria o RTL-SDR (LIBUSB_ERROR_ACCESS). Agora, se o driver RTL-SDR Blog não abrir o dongle, o programa usa automaticamente a biblioteca da 0.3.0. Nova opção Configurações → Biblioteca do RTL-SDR e mensagem de erro com o driver de cada interface.",
       "files": [
         {
           "category": "windows-installer",
@@ -554,10 +554,10 @@
           "detail": "Windows 10/11 64 bits (recomendado; prepara o RTL-SDR)",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v0.4.0-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.4.0-Win11-x64-Setup.exe",
-          "size": 71944163,
-          "sha256": "bab71eafde96197ae1889ebcce7a8173b0e09cd1c445d1a444b77e90bee55c29"
+          "name": "PT2VHF-SDR-Tool-v0.4.1-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.4.1-Win11-x64-Setup.exe",
+          "size": 71947377,
+          "sha256": "cbe77fa3f38cdb0a7b05a7579c9d11992bc6f470657da5cd104faf73297ea931"
         },
         {
           "category": "windows-portable",
@@ -567,10 +567,10 @@
           "detail": "Windows 10/11 64 bits, EXE único sem instalar",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v0.4.0-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.4.0-Win11-x64-Portable.exe",
-          "size": 104112493,
-          "sha256": "c87786dc0c2c6c621ad2af10652fd5d8b1e43a3e97e51add1d14fd08a3a3f4c9"
+          "name": "PT2VHF-SDR-Tool-v0.4.1-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.4.1-Win11-x64-Portable.exe",
+          "size": 104113559,
+          "sha256": "66a4245568716f8e792f2abcfe262b51769a2e71dc9ec0a86aad75e69646542f"
         }
       ],
       "date": "2026-11-07",
