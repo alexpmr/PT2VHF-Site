@@ -2,19 +2,19 @@
 
 ## Pendentes
 
-### Confirmar no ar a publicação do PT2VHF SDR Tool 0.3.0 (07/11/2026)
+### Confirmar no ar a publicação do PT2VHF SDR Tool 0.4.0 (07/11/2026)
 
-- **Publicado no GitHub (`main`):** commits `7d709ad` (partes do instalador), `ed2443b` (partes do portátil) e
-  `ab3feb9` (`updates.json`), a partir da Release `v0.3.0` do `alexpmr/PT2VHF-SDR-Tool`
-  (build Windows aprovado, run 42366992825, commit `d464604`; SHA-256 conferidos).
-- **Validado localmente (PHP 8.3):** `update.php?product=sdr` anuncia a 0.3.0 com instalador e portátil;
-  `download.php` remonta os dois `.exe` idênticos (SHA-256), Range não conta, OTA conta uma vez.
-- **Não confirmado no endereço público:** a sessão do Claude não alcança www.pt2vhf.com (proxy) e a
-  verificação pelo GitHub Actions do repositório público recebeu HTTP 429 da Hostinger em todas as tentativas.
-  O workflow `publish-sdr-v030` deste repositório não rodou: orçamento do GitHub Actions esgotado.
-- **Conferir:** https://www.pt2vhf.com/sdr (tabela com instalador e portátil v0.3.0),
-  https://www.pt2vhf.com/update.php?product=sdr (`"status": "available"`, `"version": "0.3.0"`) e um download
-  real; se não aparecer, ver o log de implantação Git no hPanel e clicar em Implantar.
+- **Publicado na `main`:** commits `ec3ba4e` (instalador), `92321d9` e `e1e91bf` (portátil e `updates.json`), a partir
+  da Release `v0.4.0` do `alexpmr/PT2VHF-SDR-Tool` (build Windows aprovado, run 42377695470, commit `c6232f0`;
+  SHA-256 conferidos). Nomes no padrão PT2VHF: `PT2VHF-SDR-Tool-v0.4.0-Win11-x64-Setup.exe` / `-Portable.exe`.
+  Substitui a pendência da 0.3.0 (os pacotes da 0.3.0 foram removidos).
+- **Validado localmente (PHP 8.3):** `update.php?product=sdr` (instalador e portátil) anuncia a 0.4.0; `download.php`
+  remonta os dois `.exe` idênticos ao SHA-256 da Release e conta uma vez (OTA); página `/sdr` em pt/en/zh sem erros.
+- **Não confirmado no endereço público:** a sessão do Claude não alcança www.pt2vhf.com e a Hostinger responde
+  HTTP 429 ao GitHub Actions; o orçamento do Actions deste repositório está esgotado.
+- **Conferir:** https://www.pt2vhf.com/sdr (tabela com instalador e portátil v0.4.0),
+  https://www.pt2vhf.com/update.php?product=sdr (`"version": "0.4.0"`) e um download real. Se não aparecer:
+  hPanel → GIT → Implantar.
 
 ### Site não atualizou depois da publicação do QSL Analyzer 0.1.0 (29/10/2026)
 
