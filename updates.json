@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -482,8 +482,8 @@
           "label": "Windows — Instalador",
           "name": "PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Setup.exe",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Setup.exe",
-          "size": 166144928,
-          "sha256": "390f90e2332ccb0de01a09a7790efcc11e3f960390f60ad54e8b67e343fb1cc5",
+          "size": 166133001,
+          "sha256": "8d137478fcfc0e16c14a6f0264f3a0da211650448ce842ac2d1e638808af4b89",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -495,8 +495,8 @@
           "label": "Windows — Portátil",
           "name": "PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Portable.exe",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-Win11-x64-Portable.exe",
-          "size": 244312807,
-          "sha256": "8a1fb9dc12e5b029493d8aba5c8af2a240a1793ce58fb66acb8637c4a047befd",
+          "size": 244313871,
+          "sha256": "047ce41b78fa1cf5b9075ec602fb68a07c449a12ba58ab20d6d4c916f36816be",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -508,8 +508,8 @@
           "label": "Linux — .tar.gz",
           "name": "PT2VHF-Sat-Tool-v1.7.0-Linux-x64.tar.gz",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-Linux-x64.tar.gz",
-          "size": 262361904,
-          "sha256": "db770b14ae9f927a661d25a2d79b484b6d64d93617632be90fde9c36aeeb381a",
+          "size": 262360574,
+          "sha256": "56253d92a67ab973375b0623efc412dab71f7eb38630096ac0bce2ed54dde584",
           "detail": "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute PT2VHF-Sat-Tool"
         },
         {
@@ -521,8 +521,8 @@
           "label": "macOS — .dmg",
           "name": "PT2VHF-Sat-Tool-v1.7.0-macOS-arm64.dmg",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-macOS-arm64.dmg",
-          "size": 250889205,
-          "sha256": "369c93224e36e2367634a7c4d50dded6d36f004e4cba946fbec33d354a3cb799",
+          "size": 249758827,
+          "sha256": "f4d76b9a717d9bb7bf540e09ef70611408ec2f45d728c777d378141b388d77a4",
           "detail": "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos"
         },
         {
@@ -531,12 +531,12 @@
           "name": "PT2VHF-Sat-Tool-v1.7.0-SHA256.txt",
           "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.0-SHA256.txt",
           "size": 432,
-          "sha256": "4c0f6b7679405b23790f0f5f39f7653c8bb790177a9509ebb1c9da7253055bcb",
+          "sha256": "c935e3d42f62174ba93de08b6b9a07b858a7824e25e9d792b349f02daea7b46b",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
       "releaseStatus": "Pacotes oficiais para Windows 10/11 x64, Linux x64 e macOS Apple Silicon. Confira o SHA-256 antes da instalação.",
-      "date": "2026-11-06",
+      "date": "2026-11-07",
       "notes": "v1.7.0: display no layout do TS-2000 (MAIN e SUB lado a lado) com 5 modelos selecionáveis — matriz de pontos âmbar Normal/Negrito, LED e LCD de 7 segmentos âmbar, Digital colorido e Clássico — pontos sem falhas e contagem LOS/AOS; tecla A/B corrigida (confirma pela leitura do rádio e acompanha troca feita no painel); controle de rotor GS-232 (Yaesu G-5400B via ERC-M pela USB) com pré-posicionamento, flip, estacionamento e PARAR; atualização automática sem perguntar (configurável, adia durante operação); Configurações em abas Apresentação/Estação/Rádio/Rotor/Geral; detalhes de CAT recolhidos; velocidade radial em km/h; tabela de passagens sem rolagem lateral. Windows x64, Linux x64 e macOS ARM64.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
