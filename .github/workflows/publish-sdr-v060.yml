@@ -15,7 +15,7 @@ env:
   SOURCE_SHA: "2a51a34e5f34d37b465449ad9b0b11122ff83495"
 jobs:
   publish:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     timeout-minutes: 85
     steps:
       - uses: actions/checkout@v4
