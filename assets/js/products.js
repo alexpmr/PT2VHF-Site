@@ -236,6 +236,10 @@ window.PT2VHF_PRODUCTS = [
       "Também decodifica APRS (posição, Mic-E, telemetria e estações meteorológicas), DTMF e CTCSS, e traz um assistente que acerta a sintonia de fonias SSB pelos harmônicos da voz, identifica o modo do sinal e ajusta o filtro sozinho. Dá para voltar no tempo e reouvir os últimos segundos da faixa e ouvir vários canais ao mesmo tempo."
     ],
     features: [
+      "v0.12.0: IA neural RNNoise para remover ruído da voz em NFM/AM/SSB, com controle da intensidade e processamento em segundo plano; não altera IQ/APRS/DTMF",
+      "v0.12.0: Sinal fraco combina NB, NR e AGC com RNNoise quando disponível; pode ser desligado sem perder as configurações anteriores",
+      "v0.12.0: transcrição de áudio ao vivo e de gravações com faster-whisper/CTranslate2 locais, seleção de idioma e modelo tiny/base/small, histórico de frequência/modo/indicativos e exportação CSV",
+      "v0.12.0: download do modelo Whisper somente quando solicitado pelo operador; depois a transcrição funciona offline e o áudio nunca sai do computador",
       "v0.11.0: LCD totalmente redimensionável sem cortes, botões de bandas em 5 colunas à direita da frequência, acima do S-meter",
       "v0.11.0: S-meter sem sete barras fixas; somente apresenta leitura quando houver amostras IQ recentes, com barras proporcionais e dBFS/dBm no tooltip",
       "v0.11.0: RS41 com frequência central do IQ corrigida para 0 Hz e máscara do demodulador FSK de -5 a +5 kHz; depende de fsk_demod/rs41mod e ainda requer teste RF real",
@@ -268,6 +272,8 @@ window.PT2VHF_PRODUCTS = [
       { name: "Arquivos IQ", detail: "Gravações WAV I/Q do SDR#, do SDR++ e do próprio programa" }
     ],
     requirements: [
+      "Para transcrever: baixe pelo programa um modelo Whisper (tiny/base/small) uma única vez com Internet; o reconhecimento posterior é local e não envia áudio",
+      "IA RNNoise incluída no instalador Windows, otimizada para voz, não para música, dados ou CW",
       "Windows 10/11 de 64 bits: instalador ou versão portátil; download contado pelo site oficial",
       "RS41 por IQ exige instalação separada de fsk_demod e rs41mod do projeto radiosonde_auto_rx",
       "RTL-SDR com driver WinUSB (o instalador e o menu Ajuda → Preparar RTL-SDR instalam; o Zadig também serve)",
