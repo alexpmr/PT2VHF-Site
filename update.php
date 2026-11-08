@@ -73,7 +73,19 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
         $size = $file['size'] ?? null;
         $sha = (string)($file['sha256'] ?? '');
         if (!is_int($size) || $size <= 0 || !preg_match('/^[a-f0-9]{64}$/D', $sha)) continue;
-        if ($product === 'prop' || $product === 'sat' || $product === 'sdr' || $product === 'qsl') {
+        $remoteSdr = false;
+        if ($product === 'sdr' && ($file['delivery'] ?? '') === 'github-release') {
+            // Nome/versão/hash validados no manifesto; URL de entrega continua
+            // sendo o download.php do site, que conta e redireciona ao GitHub.
+            $remoteSdr = preg_match('/^\d+\.\d+\.\d+$/D', (string)$version) === 1
+                && in_array($name, array(
+                    "PT2VHF-SDR-Tool-v{$version}-Win11-x64-Setup.exe",
+                    "PT2VHF-SDR-Tool-v{$version}-Win11-x64-Portable.exe"), true);
+            if (!$remoteSdr) continue;
+        }
+        if ($remoteSdr) {
+            $url = 'https://www.pt2vhf.com/download.php?product=sdr&file=' . rawurlencode($name);
+        } elseif ($product === 'prop' || $product === 'sat' || $product === 'sdr' || $product === 'qsl') {
             // Each installer consists of verified, sub-100 MiB server-side parts.
             if (pt2vhf_prop_parts($file, $product) === false) continue;
         } else {

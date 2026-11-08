@@ -119,6 +119,7 @@ if (!is_array($files)) {
 // efetivamente presente na hospedagem. Nunca aceita caminho enviado pelo cliente.
 $found = false;
 $redirectPath = '';
+$githubReleaseUrl = ''; // SDR Tool: fallback assinado pelo manifesto para artefatos da release GitHub
 $propChunks = false;
 $propSize = 0;
 $folders = array('aprs' => 'aprs-client', 'prop' => 'prop-tool', 'mesh' => 'mesh-analyzer', 'sat' => 'sat-tool', 'sdr' => 'sdr-tool', 'prog' => 'prog-tool', 'qsl' => 'qsl-analyzer', 'aprs-android' => 'aprs-android');
@@ -139,6 +140,24 @@ foreach ($files as $entry) {
     if (strpos($path, '/downloads/') !== 0 || strpos($path, '%') !== false) continue;
     if ($isFileRequest && $path !== '/downloads/' . $folders[$product] . '/' . $requestedFile) continue;
     $size = $entry['size'] ?? null;
+    // Evita repositório Git com binários >100 MB no plano de hospedagem.
+    // O manifesto do site preserva o SHA256; só aceitamos nomes gerados pelo
+    // fluxo de release do repositório fixo PT2VHF-SDR-Tool, sem URL arbitrária.
+    if ($product === 'sdr' && ($entry['delivery'] ?? '') === 'github-release') {
+        $ver = (string)($updates['products']['sdr']['version'] ?? '');
+        $expectedSetup = "PT2VHF-SDR-Tool-v{$ver}-Win11-x64-Setup.exe";
+        $expectedPortable = "PT2VHF-SDR-Tool-v{$ver}-Win11-x64-Portable.exe";
+        $digest = (string)($entry['sha256'] ?? '');
+        if (preg_match('/^\d+\.\d+\.\d+$/D', $ver) !== 1 ||
+            !in_array($requestedFile, array($expectedSetup, $expectedPortable), true) ||
+            !is_int($size) || $size < 20000000 ||
+            preg_match('/^[a-f0-9]{64}$/D', $digest) !== 1) continue;
+        $found = true;
+        $category = $key;
+        $githubReleaseUrl = 'https://github.com/alexpmr/PT2VHF-SDR-Tool/releases/download/v'
+            . $ver . '/' . $requestedFile;
+        break;
+    }
     if ($segmented) {
         $chunks = pt2vhf_prop_parts($entry, $product);
         if ($chunks !== false) {
@@ -167,6 +186,10 @@ if (!$found) {
 }
 if ($isFileRequest && $method === 'HEAD') {
     fclose($file);
+    if ($githubReleaseUrl !== '') {
+        header('Location: ' . $githubReleaseUrl, true, 302);
+        exit;
+    }
     if ($segmented) {
         if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks, true);
         header('Location: ' . $redirectPath, true, 302);
@@ -178,6 +201,10 @@ if ($isFileRequest && $method === 'HEAD') {
 // Download continuation/range requests must not inflate the accumulated counter.
 if ($isFileRequest && $segmented && isset($_SERVER['HTTP_RANGE'])) {
     fclose($file);
+    if ($githubReleaseUrl !== '') {
+        header('Location: ' . $githubReleaseUrl, true, 302);
+        exit;
+    }
     if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
     header('Location: ' . $redirectPath, true, 302);
     exit;
@@ -220,6 +247,10 @@ if ($isFileRequest && $isAprsUpdater && !$segmented) {
     exit;
 }
 if ($isFileRequest) {
+    if ($githubReleaseUrl !== '') {
+        header('Location: ' . $githubReleaseUrl, true, 302);
+        exit;
+    }
     if ($segmented) {
         if ($propChunks !== false) pt2vhf_serve_prop($requestedFile, $propSize, $propChunks);
         header('Location: ' . $redirectPath, true, 302);
