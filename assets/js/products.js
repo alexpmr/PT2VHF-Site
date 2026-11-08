@@ -226,8 +226,8 @@ window.PT2VHF_PRODUCTS = [
   },
   {
     id: "sdr",
-    summary: "Receptor SDR de 24 MHz a 1,7 GHz com painel de rádio, waterfall, scanner por espectro e decodificação APRS.",
-    cardSummary: "Receptor SDR para escuta, com display de rádio, memórias prontas, scanner e decodificadores.",
+    summary: "Receptor SDR com LCD interativo, scanner, APRS, ADS-B, AIS e sondas meteorológicas; exportação de rastros e diagnóstico RS41.",
+    cardSummary: "Receptor SDR com LCD, seleção de bandas, scanner, APRS e painéis de tráfego e sondas meteorológicas.",
     name: "PT2VHF SDR Tool",
     tagline: "RTL-SDR, rtl_tcp e SoapySDR · NFM, WFM, AM, SSB e CW · scanner e APRS",
     description: [
@@ -236,6 +236,11 @@ window.PT2VHF_PRODUCTS = [
       "Também decodifica APRS (posição, Mic-E, telemetria e estações meteorológicas), DTMF e CTCSS, e traz um assistente que acerta a sintonia de fonias SSB pelos harmônicos da voz, identifica o modo do sinal e ajusta o filtro sozinho. Dá para voltar no tempo e reouvir os últimos segundos da faixa e ouvir vários canais ao mesmo tempo."
     ],
     features: [
+      "v0.10.0: ADS-B, AIS e Sondas Meteorológicas em abas próprias; APRS/DTMF/CTCSS no Scanner e iGate RX retirado da interface",
+      "v0.10.0: teclas de seleção de bandas integradas ao LCD, preservando modos, temas e avisos de faixa do receptor",
+      "v0.10.0: diagnóstico de RS41 com contadores de IQ, quadros com/sem GPS, erros dos decodificadores e captura de IQ de 20 s; requer fsk_demod e rs41mod externos, sem homologação RF real",
+      "v0.10.0: mapas OSM com rastros e exportação GPX/KML/CSV; ADS-B e AIS são alimentados por decodificadores externos",
+      "Satélites: previsão de passagens por TLE/SGP4 e Doppler RX opcional",
       "Display LCD de rádio: frequência em 7 segmentos, S-meter, VFO A/B, sintonia pela roda do mouse em cada dígito e 5 temas",
       "Waterfall e espectro no estilo KiwiSDR: clique para sintonizar, passband arrastável, zoom, níveis automáticos e paletas",
       "Modos NFM, WFM, AM, USB, LSB, CW, DSB e RAW, com AGC, squelch, noise blanker, redução de ruído, notch e equalizador de 8 bandas",
@@ -260,7 +265,8 @@ window.PT2VHF_PRODUCTS = [
       { name: "Arquivos IQ", detail: "Gravações WAV I/Q do SDR#, do SDR++ e do próprio programa" }
     ],
     requirements: [
-      "Windows 10/11 de 64 bits: instalador ou versão portátil",
+      "Windows 10/11 de 64 bits: instalador ou versão portátil; download contado pelo site oficial",
+      "RS41 por IQ exige instalação separada de fsk_demod e rs41mod do projeto radiosonde_auto_rx",
       "RTL-SDR com driver WinUSB (o instalador e o menu Ajuda → Preparar RTL-SDR instalam; o Zadig também serve)",
       "Antena adequada à faixa; para HF, RTL-SDR com amostragem direta ou upconverter",
       "Linux e macOS: pelo código-fonte, com Python 3.10+"

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -542,38 +542,40 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "0.5.0",
+      "version": "0.10.0",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "Abas superiores no padrão PT2VHF com botão de atualização no topo, correção do RTL-SDR que não abria na 0.4.1 (dithering -1 + LIBUSB_ERROR_ACCESS), reconexão do receptor ao abrir, modo apresentação (F11) e interface web pela rede local direto pelo IP, sem chave.",
+      "notes": "Abas independentes ADS-B, AIS e Sondas Meteorológicas; LCD com teclas de bandas; APRS/DTMF dentro do Scanner; diagnóstico RS41 com captura de IQ; rastros OSM e GPX/KML. RS41 requer decodificadores externos fsk_demod/rs41mod e ainda aguarda homologação RF real.",
       "files": [
         {
           "category": "windows-installer",
           "counterKey": "win-setup-x64",
           "kind": "installer",
           "label": "Windows — Instalador",
-          "detail": "Windows 10/11 64 bits (recomendado; prepara o RTL-SDR)",
+          "detail": "Windows 10/11 x64; Setup por usuário",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v0.5.0-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.5.0-Win11-x64-Setup.exe",
-          "size": 71954751,
-          "sha256": "b5bf22bbacd2110373cd700e9cc0461d053a0de5347262544025a44f328befe5"
+          "name": "PT2VHF-SDR-Tool-v0.10.0-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.10.0-Win11-x64-Setup.exe",
+          "size": 71714367,
+          "sha256": "3fe1dee538de9aa202765347f6ee90ca0a2a16bf59439f73a05b90574e593408",
+          "delivery": "github-release"
         },
         {
           "category": "windows-portable",
           "counterKey": "win-portable-x64",
           "kind": "portable",
           "label": "Windows — Portátil",
-          "detail": "Windows 10/11 64 bits, EXE único sem instalar",
+          "detail": "Windows 10/11 x64; EXE sem instalar",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v0.5.0-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.5.0-Win11-x64-Portable.exe",
-          "size": 104122048,
-          "sha256": "49b8c8d44ff82fdd3044d559d88ce2911ae059874ca0dcdb499e623587834ddc"
+          "name": "PT2VHF-SDR-Tool-v0.10.0-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.10.0-Win11-x64-Portable.exe",
+          "size": 103714177,
+          "sha256": "57017fe477e9910089c3edce1517a9d88c8468020a316e6fb2249e646aa58e34",
+          "delivery": "github-release"
         }
       ],
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr"
     },
     "qsl": {
