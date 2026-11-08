@@ -542,9 +542,9 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "0.11.0",
+      "version": "0.12.0",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "LCD responsivo com bandas em matriz de cinco colunas na área direita; S-meter atualizado com leitura IQ recente; correção da FI RS41 para 0 Hz e busca FSK -5/+5 kHz. RS41 requer fsk_demod/rs41mod externos e ainda necessita homologação RF real. O backlog de decodificadores avançados permanece aberto.",
+      "notes": "IA neural RNNoise para reduzir ruído da voz em NFM/AM/SSB com controle de intensidade; transcrição local em tempo quase real ou de gravações com faster-whisper/CTranslate2. Os modelos tiny/base/small são baixados somente sob solicitação do usuário e permitem transcrição offline. IQ, APRS e S-meter permanecem originais. IA sobre IQ e tradução automática ainda pendentes.",
       "files": [
         {
           "category": "windows-installer",
@@ -554,10 +554,10 @@
           "detail": "Windows 10/11 x64; Setup por usuário",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v0.11.0-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.11.0-Win11-x64-Setup.exe",
-          "size": 71725023,
-          "sha256": "ef725084568eff6ee6e19082b868cb83616067fc1fd253c4cc3d8d6e8b330d41",
+          "name": "PT2VHF-SDR-Tool-v0.12.0-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.12.0-Win11-x64-Setup.exe",
+          "size": 142653411,
+          "sha256": "8890438f73681a2facaf0dcc490ffd4e324afd2838f692d8d71ac883ce99c111",
           "delivery": "github-release"
         },
         {
@@ -568,10 +568,10 @@
           "detail": "Windows 10/11 x64; EXE sem instalar",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v0.11.0-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.11.0-Win11-x64-Portable.exe",
-          "size": 103716309,
-          "sha256": "66767bf7c203497ccb68221e29bfc929508e7a20dbc36ec012767fd968f97b2b",
+          "name": "PT2VHF-SDR-Tool-v0.12.0-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.12.0-Win11-x64-Portable.exe",
+          "size": 204057535,
+          "sha256": "c9fe9b827762cf70d20ba9960af6543b40e24536112a50866be90afdafed6551",
           "delivery": "github-release"
         }
       ],
