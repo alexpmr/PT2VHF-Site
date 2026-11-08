@@ -236,6 +236,9 @@ window.PT2VHF_PRODUCTS = [
       "Também decodifica APRS (posição, Mic-E, telemetria e estações meteorológicas), DTMF e CTCSS, e traz um assistente que acerta a sintonia de fonias SSB pelos harmônicos da voz, identifica o modo do sinal e ajusta o filtro sozinho. Dá para voltar no tempo e reouvir os últimos segundos da faixa e ouvir vários canais ao mesmo tempo."
     ],
     features: [
+      "v0.11.0: LCD totalmente redimensionável sem cortes, botões de bandas em 5 colunas à direita da frequência, acima do S-meter",
+      "v0.11.0: S-meter sem sete barras fixas; somente apresenta leitura quando houver amostras IQ recentes, com barras proporcionais e dBFS/dBm no tooltip",
+      "v0.11.0: RS41 com frequência central do IQ corrigida para 0 Hz e máscara do demodulador FSK de -5 a +5 kHz; depende de fsk_demod/rs41mod e ainda requer teste RF real",
       "v0.10.0: ADS-B, AIS e Sondas Meteorológicas em abas próprias; APRS/DTMF/CTCSS no Scanner e iGate RX retirado da interface",
       "v0.10.0: teclas de seleção de bandas integradas ao LCD, preservando modos, temas e avisos de faixa do receptor",
       "v0.10.0: diagnóstico de RS41 com contadores de IQ, quadros com/sem GPS, erros dos decodificadores e captura de IQ de 20 s; requer fsk_demod e rs41mod externos, sem homologação RF real",
