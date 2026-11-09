@@ -85,7 +85,7 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
         }
         if ($remoteSdr) {
             $url = 'https://www.pt2vhf.com/download.php?product=sdr&file=' . rawurlencode($name);
-        } elseif ($product === 'prop' || $product === 'sat' || $product === 'sdr' || $product === 'qsl') {
+        } elseif ($product === 'prop' || $product === 'sat' || $product === 'sdr' || $product === 'qsl' || $product === 'aprs-android') {
             // Each installer consists of verified, sub-100 MiB server-side parts.
             if (pt2vhf_prop_parts($file, $product) === false) continue;
         } else {
