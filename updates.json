@@ -616,10 +616,10 @@
     },
     "aprs-android": {
       "name": "PT2VHF APRS Client for Android",
-      "version": "0.1.9",
-      "date": "2026-11-05",
+      "version": "0.1.10",
+      "date": "2026-11-08",
       "page": "https://www.pt2vhf.com/aprs-android",
-      "notes": "v0.1.9: modem AFSK 1200 pelo áudio do celular, TNC KISS por USB-OTG, aba Logs com todos os pacotes, objetos e itens APRS pelo mapa, posição fixa, rotas GPX, modo carro, widget, economia de bateria, backup das configurações, aviso de nova versão com notificação e reenvio de mensagens configurável. Versão beta em homologação.",
+      "notes": "v0.1.10 beta QA: filtro APRS-IS para mensagens diretas, pacotes via iGate, reply-ack, feedback de envio, lixeira de estações, campo de mensagens legível e gráficos WX da sessão. Versão experimental: ainda depende de homologação RF/APRS-IS e não encerra o backlog.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=aprs-android",
       "files": [
         {
@@ -627,14 +627,15 @@
           "counterKey": "android-apk",
           "architecture": "universal",
           "platform": "android",
-          "name": "PT2VHF_APRS_Client_Android_v0.1.9.apk",
-          "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.9.apk",
-          "size": 7970775,
-          "sha256": "fda693d8240050c20b172553e71c976c4d30baa9738e79b0fa767d6efe4b6017",
-          "detail": "Android 8 ou superior",
-          "label": "Android — APK"
+          "name": "PT2VHF_APRS_Client_Android_v0.1.10_QA.apk",
+          "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.10_QA.apk",
+          "size": 7992699,
+          "sha256": "0a656898f98b354ff460c962089ccabb46ab63e76d15c78adaa9f6f905b8ac07",
+          "detail": "Android 8 ou superior · BETA QA (teste não homologado em RF)",
+          "label": "Android — APK Beta QA"
         }
-      ]
+      ],
+      "releaseStatus": "Beta QA — APK assinado e validado em CI, testes reais RF/APRS-IS pendentes."
     }
   }
 }

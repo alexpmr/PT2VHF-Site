@@ -61,6 +61,8 @@ window.PT2VHF_PRODUCTS = [
       "Com um rádio ou TNC KISS pareado por Bluetooth, transmite e recebe por RF. O modo tracker envia a sua posição com SmartBeaconing mesmo com a tela desligada."
     ],
     features: [
+      "Beta QA 0.1.10: mensagens dirigidas via APRS-IS/iGate, reply-ack e feedback de envio; homologação RF ainda pendente",
+      "Beta QA 0.1.10: lixeira de estações, gráficos WX da sessão e validação básica do indicativo; histórico completo ainda pendente",
       "APRS-IS com lista de servidores (padrão soam.aprs2.net) ou servidor próprio, passcode automático e filtro editável (padrão r/4000)",
       "Reconexão automática ao trocar entre Wi-Fi e dados móveis",
       "Mapa OpenStreetMap com estações e enlaces RF comprovados (internet, DMR e D-STAR não contam como RF)",
