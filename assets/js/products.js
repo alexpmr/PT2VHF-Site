@@ -60,10 +60,7 @@ window.PT2VHF_PRODUCTS = [
       "Versão para celular do PT2VHF APRS Client. Conecta ao APRS-IS com o servidor que você escolher, calcula o passcode a partir do indicativo e mostra estações e enlaces RF no mapa.",
       "Com um rádio ou TNC KISS pareado por Bluetooth, transmite e recebe por RF. O modo tracker envia a sua posição com SmartBeaconing mesmo com a tela desligada."
     ],
-    features: [
-      "Beta QA 0.1.10: mensagens dirigidas via APRS-IS/iGate, reply-ack e feedback de envio; homologação RF ainda pendente",
-      "Beta QA 0.1.10: lixeira de estações, gráficos WX da sessão e validação básica do indicativo; histórico completo ainda pendente",
-      "APRS-IS com lista de servidores (padrão soam.aprs2.net) ou servidor próprio, passcode automático e filtro editável (padrão r/4000)",
+    features: ["APRS-IS com lista de servidores (padrão soam.aprs2.net) ou servidor próprio, passcode automático e filtro editável (padrão r/4000)",
       "Reconexão automática ao trocar entre Wi-Fi e dados móveis",
       "Mapa OpenStreetMap com estações e enlaces RF comprovados (internet, DMR e D-STAR não contam como RF)",
       "Mensagens: conversas, canal geral (CQ) e boletins, com ACK, novas tentativas e notificações",
