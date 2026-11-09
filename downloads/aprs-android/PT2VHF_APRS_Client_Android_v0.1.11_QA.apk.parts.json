@@ -1,0 +1,67 @@
+{
+  "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk",
+  "size": 7992699,
+  "sha256": "00e9fff75e348e7cc91e9a73314a2d0eeb07d9e73a9d5c23894fffddf1f656bf",
+  "parts": [
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part00",
+      "size": 675000,
+      "sha256": "b170183fa29133c8b893adc9ac7824eb756bfb9ac157dc40b99b2dda5706f1f4"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part01",
+      "size": 675000,
+      "sha256": "599148254261ee29160c8046b003ea1c471cb5ae4ce55a7b780b1498ee499bf6"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part02",
+      "size": 675000,
+      "sha256": "bc62311dca7e39f2c207b3db25a90404d527824faadcb3aaab6d9d9bda567fce"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part03",
+      "size": 675000,
+      "sha256": "621ea8c5d7874460223548768c83e145c94bf6474bd1455339fe5a119576cb62"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part04",
+      "size": 675000,
+      "sha256": "643fd62af6feaac39cc8aea28e5cd294c755d182dbbc1e1daf0a24d1401fac09"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part05",
+      "size": 675000,
+      "sha256": "bf9b31e4e6a0634fd6cbf1eda21865498f8fc9ddbd1a60825f943f525f89cdf1"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part06",
+      "size": 675000,
+      "sha256": "b7b3c164491910e90b19ad818b0a1a707a26e83d54a5a72b6c1f9b5c689a23a2"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part07",
+      "size": 675000,
+      "sha256": "6c4ef5e9805038628fcf30cac7702f3f41428a443d30bc0d0e7c6f18067ca1ff"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part08",
+      "size": 675000,
+      "sha256": "3e75b99c3d97c135e8cfa56cebe200f2b6f286457fb45b5e37b53f924fbc7529"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part09",
+      "size": 675000,
+      "sha256": "194488b9039e5d9d57d7e3943f525d5bd79d9adfb8cf8d18c19fdd7380383197"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part10",
+      "size": 675000,
+      "sha256": "c4b8c339f1e100cb0f381723c9e861d37d11301a38c04bc45f393273779b73b5"
+    },
+    {
+      "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk.part11",
+      "size": 567699,
+      "sha256": "eeced0c2d3cc22b20daced0d3fbbade3bdd89aafa36c13f36f734cc1668fd205"
+    }
+  ]
+}

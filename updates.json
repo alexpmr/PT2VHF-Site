@@ -627,15 +627,28 @@
           "counterKey": "android-apk",
           "architecture": "universal",
           "platform": "android",
+          "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk",
+          "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.11_QA.apk",
+          "size": 7992699,
+          "sha256": "00e9fff75e348e7cc91e9a73314a2d0eeb07d9e73a9d5c23894fffddf1f656bf",
+          "detail": "Android 8+ · BETA QA 0.1.11 · testes em aparelho pendentes",
+          "label": "Android — APK 0.1.11 Beta QA (testes)",
+          "qaOnly": true
+        },
+        {
+          "category": "android-apk",
+          "counterKey": "android-apk",
+          "architecture": "universal",
+          "platform": "android",
           "name": "PT2VHF_APRS_Client_Android_v0.1.9.apk",
           "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.9.apk",
           "size": 7970775,
           "sha256": "fda693d8240050c20b172553e71c976c4d30baa9738e79b0fa767d6efe4b6017",
           "detail": "Android 8 ou superior",
-          "label": "Android — APK"
+          "label": "Android — APK 0.1.9 (versão anterior)"
         }
       ],
-      "releaseStatus": "Versão 0.1.10 QA retirada temporariamente após relato de encerramento ao apagar mensagens ou estações. Versão 0.1.9 anterior disponível para testes; correção em andamento. Não realizar downgrade sem backup dos dados."
+      "releaseStatus": "0.1.11 QA disponível para teste manual (sem homologação RF/APRS-IS). OTA regular preservado na 0.1.9. A 0.1.10 foi retirada após travamentos. Faça backup."
     }
   }
 }

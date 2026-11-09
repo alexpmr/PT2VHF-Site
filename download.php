@@ -123,7 +123,7 @@ $githubReleaseUrl = ''; // SDR Tool: fallback assinado pelo manifesto para artef
 $propChunks = false;
 $propSize = 0;
 $folders = array('aprs' => 'aprs-client', 'prop' => 'prop-tool', 'mesh' => 'mesh-analyzer', 'sat' => 'sat-tool', 'sdr' => 'sdr-tool', 'prog' => 'prog-tool', 'qsl' => 'qsl-analyzer', 'aprs-android' => 'aprs-android');
-$segmented = $product === 'prop' || $product === 'sat' || $product === 'sdr' || $product === 'qsl' || $product === 'aprs-android';
+$segmented = $product === 'prop' || $product === 'sat' || $product === 'sdr' || $product === 'qsl' || ($product === 'aprs-android' && preg_match('/_QA\\.apk$/D', $requestedFile) === 1);
 foreach ($files as $entry) {
     if (!is_array($entry)) continue;
     $key = (string)(($entry['counterKey'] ?? null) ?: ($entry['category'] ?? ''));

@@ -70,6 +70,8 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
         if (strpos($path, $prefix) !== 0 || strpos($path, '%') !== false) continue;
         $name = basename($path);
         if ($name !== (string)($file['name'] ?? '') || !preg_match('/^[a-zA-Z0-9_.-]+$/D', $name)) continue;
+        // Manual QA packages must not be offered by regular automatic updates.
+        if ($product === 'aprs-android' && !empty($file['qaOnly'])) continue;
         $size = $file['size'] ?? null;
         $sha = (string)($file['sha256'] ?? '');
         if (!is_int($size) || $size <= 0 || !preg_match('/^[a-f0-9]{64}$/D', $sha)) continue;
@@ -85,7 +87,7 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
         }
         if ($remoteSdr) {
             $url = 'https://www.pt2vhf.com/download.php?product=sdr&file=' . rawurlencode($name);
-        } elseif ($product === 'prop' || $product === 'sat' || $product === 'sdr' || $product === 'qsl' || $product === 'aprs-android') {
+        } elseif ($product === 'prop' || $product === 'sat' || $product === 'sdr' || $product === 'qsl' || ($product === 'aprs-android' && substr($name, -7) === '_QA.apk')) {
             // Each installer consists of verified, sub-100 MiB server-side parts.
             if (pt2vhf_prop_parts($file, $product) === false) continue;
         } else {
