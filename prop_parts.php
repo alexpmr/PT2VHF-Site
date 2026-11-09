@@ -13,7 +13,7 @@ function pt2vhf_segmented_products(): array {
                        'pattern' => '/^PT2VHF-SDR-Tool-(v[0-9]+\.[0-9]+\.[0-9]+-Win11-x64-(Setup|Portable)|[0-9]+\.[0-9]+\.[0-9]+-win-x64-(setup|portable))\.exe$/D'),
         // Android QA APK is served from validated Git segments to retain official OTA and counters.
         'aprs-android' => array('folder' => 'aprs-android', 'min' => 1000000,
-                        'pattern' => '/^PT2VHF_APRS_Client_Android_v[0-9]+\\.[0-9]+\\.[0-9]+_QA\\.apk$/D'),
+                        'pattern' => '/^PT2VHF_APRS_Client_Android_v[0-9]+\.[0-9]+\.[0-9]+_QA\.apk$/D'),
         // QSL Analyzer (Electron): todos os pacotes de Windows, Linux e macOS são segmentados.
         'qsl' => array('folder' => 'qsl-analyzer', 'min' => 20000000,
                        'pattern' => '/^(PT2VHF-QSL-(Analyzer|Manager)-[0-9]+\.[0-9]+\.[0-9]+-(win-x64-(setup|portable)\.exe|linux-x86_64\.AppImage|linux-x64\.tar\.gz|mac-(x64|arm64)\.dmg)|pt2vhf-qsl-(analyzer|manager)_[0-9]+\.[0-9]+\.[0-9]+_amd64\.deb)$/D'),
