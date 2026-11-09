@@ -44,11 +44,10 @@ RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
 RewriteCond %{HTTP:Range} ^$
 RewriteRule ^downloads/aprs-client/([A-Za-z0-9_.-]+\.(?:exe|AppImage|deb|tar\.gz))$ download.php?product=aprs&file=$1 [L,NC,QSA]
 
-# APRS Client for Android: links diretos e o aviso de atualização do app passam
-# pelo mesmo contador (uma contagem por download; pt2vhf_raw=1 serve o arquivo).
+# APRS Client for Android: downloads e OTA contam uma única vez.
+# APK Beta QA em partes: segmentos e sidecar não podem ser baixados isoladamente.
+RewriteRule ^downloads/aprs-android/.*\.apk\.part(?:[0-9]{2}|s\.json)$ - [F,L,NC]
 RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
-# APK Android Beta QA em partes: impedir acesso direto para preservar a contagem e a integridade.
-RewriteRule ^downloads/aprs-android/.*\\.apk\\.part(?:[0-9]{2}|s\\.json)$ - [F,L,NC]
 RewriteRule ^downloads/aprs-android/([A-Za-z0-9_.-]+\.apk)$ download.php?product=aprs-android&file=$1 [L,NC,QSA]
 
 # Downloads do Mesh Analyzer (site, links diretos e OTA) passam pelo mesmo
