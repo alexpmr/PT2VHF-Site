@@ -237,6 +237,9 @@ window.PT2VHF_PRODUCTS = [
       "Também decodifica APRS (posição, Mic-E, telemetria e estações meteorológicas), DTMF e CTCSS, e traz um assistente que acerta a sintonia de fonias SSB pelos harmônicos da voz, identifica o modo do sinal e ajusta o filtro sozinho. Dá para voltar no tempo e reouvir os últimos segundos da faixa e ouvir vários canais ao mesmo tempo."
     ],
     features: [
+      "v0.13.0: display LCD com tamanho manual ajustável de 50% a 150% e persistência da última escala escolhida, sem deformar os indicadores",
+      "v0.13.0: teclas de banda incompatíveis com o SDR atual ocultadas e grade de até cinco colunas reorganizada automaticamente",
+      "v0.13.0: abas Decodificação e Ferramentas reorganizadas; transcrição com popup destacado exibindo apenas texto",
       "v0.12.0: IA neural RNNoise para remover ruído da voz em NFM/AM/SSB, com controle da intensidade e processamento em segundo plano; não altera IQ/APRS/DTMF",
       "v0.12.0: Sinal fraco combina NB, NR e AGC com RNNoise quando disponível; pode ser desligado sem perder as configurações anteriores",
       "v0.12.0: transcrição de áudio ao vivo e de gravações com faster-whisper/CTranslate2 locais, seleção de idioma e modelo tiny/base/small, histórico de frequência/modo/indicativos e exportação CSV",
