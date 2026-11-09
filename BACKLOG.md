@@ -2,6 +2,27 @@
 
 ## Pendentes
 
+### APRS Android v0.1.10 Beta QA — GitHub preparado; Hostinger ainda na v0.1.9 (08/11/2026)
+
+- **Repositório do site atualizado:** commit `84efc53bc992fdda8341fcca331408e50cfc2201` e ajustes posteriores.
+- APK Android assinado, 7.992.699 bytes, SHA-256 `0a656898f98b354ff460c962089ccabb46ab63e76d15c78adaa9f6f905b8ac07`;
+  armazenado em 12 segmentos Git, reconstruídos no `download.php` pelo suporte `prop_parts.php`.
+  `counterKey=android-apk` preservado; `.htaccess` impede acessar segmentos diretamente.
+- `updates.json` da branch `main` anuncia **0.1.10 QA beta**, com link oficial, tamanho e SHA-256;
+  página Android, catálogo e changelog de cinco versões ajustados.
+- **Bloqueio observado:** o workflow do repositório `PT2VHF-Site` falhou **antes de iniciar o runner**
+  nas execuções `42541710070` e `42541891213` (assim como runs anteriores do site);
+  importação via GitHub App foi usada como alternativa e o commit do site foi concluído.
+- **Verificação pública após o push:** `https://www.pt2vhf.com/updates.json` e
+  `update.php?product=aprs-android` ainda retornaram **0.1.9**, a página não exibiu o aviso de QA.
+  A implantação **na Hostinger não está confirmada**.
+- **Próxima ação:** no hPanel Hostinger, implantar a branch `main` do repositório
+  `alexpmr/PT2VHF-Site` e validar: a página `/aprs-android`, `updates.json`, `update.php`,
+  HEAD do APK (`Content-Length: 7992699`) e checksum SHA-256 de um download real.
+  Não declarar entrega pública sem esta verificação.
+- O APK é **QA beta**, não homologado por RF/APRS-IS; backlog funcional continua aberto.
+
+
 ### Site não atualizou depois da publicação do QSL Analyzer 0.1.0 (29/10/2026)
 
 - **Relato:** depois dos pushes de 29/10/2026 (commits `1008fc4` a `39002a1`), a página `/qsl` e o
