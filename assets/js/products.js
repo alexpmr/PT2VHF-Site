@@ -61,8 +61,10 @@ window.PT2VHF_PRODUCTS = [
       "Com um rádio ou TNC KISS pareado por Bluetooth, transmite e recebe por RF. O modo tracker envia a sua posição com SmartBeaconing mesmo com a tela desligada."
     ],
     features: [
-      "0.1.11 Beta QA: exclusão de mensagens e estações mais segura, com diagnóstico de erros e preservação dos dados em caso de falha",
-      "0.1.11 Beta QA: mensagens privadas priorizam APRS-IS verificado, com fallback RF e diagnóstico TX; ACK exige teste real","APRS-IS com lista de servidores (padrão soam.aprs2.net) ou servidor próprio, passcode automático e filtro editável (padrão r/4000)",
+      "Ficha da estação em tela cheia: recepção nas últimas 24 h (iGates, último salto, RF × APRS-IS), outros SSIDs, caminho do pacote salto a salto, gráficos de clima e telemetria APRS e pacotes brutos",
+      "Lista de estações ordenada em um toque por Tipo, Nome, Distância ou Recentes (tocar de novo inverte); ícones do mapa maiores e nítidos, com tamanho Pequeno/Médio/Grande",
+      "Mensagens privadas priorizam APRS-IS verificado, com fallback RF; envio interrompido fica marcado com Reenviar; exclusão segura de mensagens e estações",
+      "APRS-IS com lista de servidores (padrão soam.aprs2.net) ou servidor próprio, passcode automático e filtro editável (padrão r/4000)",
       "Reconexão automática ao trocar entre Wi-Fi e dados móveis",
       "Mapa OpenStreetMap com estações e enlaces RF comprovados (internet, DMR e D-STAR não contam como RF)",
       "Mensagens: conversas, canal geral (CQ) e boletins, com ACK, novas tentativas e notificações",
@@ -72,7 +74,7 @@ window.PT2VHF_PRODUCTS = [
       "Símbolos APRS convencionais nas tabelas primária e alternativa, inclusive overlays; disponíveis offline dentro do APK",
       "Restauração da visualização anterior do mapa, preservando centro e zoom, com ação Minha localização",
       "Filtro combinado de estações por indicativo, tipo, fonte APRS-IS/RF, período de recepção e distância",
-      "Ordenação ascendente ou descendente por indicativo, primeira/última recepção e distância, com histórico local",
+      "Ordenação ascendente ou descendente por indicativo, tipo, primeira/última recepção e distância, com histórico local",
       "Confirmação de saída, com opção de manter ou interromper o tracker; versão instalada em Configurações → Sobre",
       "Perfis Base, Móvel, Portátil e Somente recepção, com troca rápida no Rastreador",
       "TNC KISS também por TCP na rede local (Dire Wolf e similares), além do Bluetooth",

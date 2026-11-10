@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -617,10 +617,10 @@
     },
     "aprs-android": {
       "name": "PT2VHF APRS Client for Android",
-      "version": "0.1.9",
-      "date": "2026-11-05",
+      "version": "0.1.13",
+      "date": "2026-11-10",
       "page": "https://www.pt2vhf.com/aprs-android",
-      "notes": "v0.1.9: modem AFSK 1200 pelo áudio do celular, TNC KISS por USB-OTG, aba Logs com todos os pacotes, objetos e itens APRS pelo mapa, posição fixa, rotas GPX, modo carro, widget, economia de bateria, backup das configurações, aviso de nova versão com notificação e reenvio de mensagens configurável. Versão beta em homologação.",
+      "notes": "v0.1.13: ficha da estação em tela cheia (recepção 24 h, iGates, último salto, outros SSIDs, caminho do pacote, gráficos de clima e telemetria APRS, pacotes brutos), ordenação de estações em um toque por tipo, nome, distância ou recentes, ícones do mapa maiores e nítidos (Pequeno/Médio/Grande) e as correções das betas QA 0.1.10 a 0.1.12: mensagens com prioridade ao APRS-IS e fallback RF, envio interrompido sem ficar pendente, ACK/REJ corrigidos, exclusão segura e WX. Versão beta em homologação.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=aprs-android",
       "files": [
         {
@@ -628,13 +628,12 @@
           "counterKey": "android-apk",
           "architecture": "universal",
           "platform": "android",
-          "name": "PT2VHF_APRS_Client_Android_v0.1.11_QA.apk",
-          "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.11_QA.apk",
-          "size": 7992699,
-          "sha256": "00e9fff75e348e7cc91e9a73314a2d0eeb07d9e73a9d5c23894fffddf1f656bf",
-          "detail": "Android 8+ · BETA QA 0.1.11 · testes em aparelho pendentes",
-          "label": "Android — APK 0.1.11 Beta QA (testes)",
-          "qaOnly": true
+          "name": "PT2VHF_APRS_Client_Android_v0.1.13.apk",
+          "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.13.apk",
+          "size": 8481097,
+          "sha256": "4f3ab6427839b8fca8e4d0e47f5be644670dd44e9a8693f37824c6e080319266",
+          "detail": "Android 8 ou superior",
+          "label": "Android — APK 0.1.13"
         },
         {
           "category": "android-apk",
@@ -649,7 +648,7 @@
           "label": "Android — APK 0.1.9 (versão anterior)"
         }
       ],
-      "releaseStatus": "0.1.11 QA disponível para teste manual (sem homologação RF/APRS-IS). OTA regular preservado na 0.1.9. A 0.1.10 foi retirada após travamentos. Faça backup."
+      "releaseStatus": "0.1.13 publicada como OTA regular (beta). Reúne as betas QA 0.1.10 a 0.1.12; a 0.1.9 continua disponível como versão anterior. Faça backup antes de atualizar."
     }
   }
 }

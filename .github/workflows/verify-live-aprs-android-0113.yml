@@ -1,0 +1,55 @@
+name: Verify public APRS Android v0.1.13 delivery
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-live-aprs-android-0113.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-verification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Verify live manifest, OTA endpoint, page assets and APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          site="https://www.pt2vhf.com"
+          sha="4f3ab6427839b8fca8e4d0e47f5be644670dd44e9a8693f37824c6e080319266"
+          apk="$site/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.13.apk"
+          check() {
+            local v="-"
+            code=$(curl -s -o "$RUNNER_TEMP/u.json" -w '%{http_code}' --max-time 15 -H "Cache-Control: no-cache" "$site/updates.json?verify=v0113-$1") || true
+            [ "$code" = 200 ] && v=$(jq -r '.products["aprs-android"].version + " " + .products["aprs-android"].files[0].sha256' "$RUNNER_TEMP/u.json" 2>/dev/null || echo parse-error)
+            ota_code=$(curl -s -o "$RUNNER_TEMP/ota.json" -w '%{http_code}' --max-time 15 "$site/update.php?product=aprs-android&verify=$1") || true
+            ota=$(jq -r '.status + " " + .version + " " + (.files[0].name // "-")' "$RUNNER_TEMP/ota.json" 2>/dev/null || echo parse-error)
+            page_code=$(curl -s -o "$RUNNER_TEMP/page.html" -w '%{http_code}' --max-time 15 "$site/aprs-android") || true
+            js_code=$(curl -s -o "$RUNNER_TEMP/ch.js" -w '%{http_code}' --max-time 15 "$site/assets/js/changelog-data.js?v=20261110-android0113") || true
+            apk_code=$(curl -s -o /dev/null -I -L -w '%{http_code} %header{content-length}' --max-time 20 "$apk") || true
+            echo "attempt $1: updates.json=$code ($v) update.php=$ota_code ($ota) page=$page_code js=$js_code apk=$apk_code"
+            [ "$v" = "0.1.13 $sha" ] && [ "$ota_code" = 200 ] \
+              && [ "$ota" = "available 0.1.13 PT2VHF_APRS_Client_Android_v0.1.13.apk" ] \
+              && [ "$page_code" = 200 ] && grep -q 'android0113' "$RUNNER_TEMP/page.html" \
+              && [ "$js_code" = 200 ] && grep -q '"0.1.13"' "$RUNNER_TEMP/ch.js" \
+              && [ "$apk_code" = "200 8481097" ]
+          }
+          # Hostinger devolve 429 com consultas seguidas: poucas tentativas espaçadas.
+          sleep 240
+          for attempt in $(seq 1 5); do
+            if check "$attempt-${GITHUB_SHA}"; then
+              # Download real (GET direto do arquivo, sem passar pelo contador) e conferência do SHA-256.
+              curl -s -L --max-time 60 -o "$RUNNER_TEMP/app.apk" "$apk"
+              echo "$sha  $RUNNER_TEMP/app.apk" | sha256sum -c -
+              echo "OTA response:"; cat "$RUNNER_TEMP/ota.json"; echo
+              echo "LIVE_ANDROID_0113_APK_OTA_PAGE_VERIFIED=1"
+              exit 0
+            fi
+            sleep 120
+          done
+          echo "::error::APRS Android v0.1.13 in GitHub site repo but not verified on live Hostinger"
+          exit 1
