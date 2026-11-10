@@ -634,21 +634,9 @@
           "sha256": "4f3ab6427839b8fca8e4d0e47f5be644670dd44e9a8693f37824c6e080319266",
           "detail": "Android 8 ou superior",
           "label": "Android — APK 0.1.13"
-        },
-        {
-          "category": "android-apk",
-          "counterKey": "android-apk",
-          "architecture": "universal",
-          "platform": "android",
-          "name": "PT2VHF_APRS_Client_Android_v0.1.9.apk",
-          "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.9.apk",
-          "size": 7970775,
-          "sha256": "fda693d8240050c20b172553e71c976c4d30baa9738e79b0fa767d6efe4b6017",
-          "detail": "Android 8 ou superior",
-          "label": "Android — APK 0.1.9 (versão anterior)"
         }
       ],
-      "releaseStatus": "0.1.13 publicada como OTA regular (beta). Reúne as betas QA 0.1.10 a 0.1.12; a 0.1.9 continua disponível como versão anterior. Faça backup antes de atualizar."
+      "releaseStatus": "0.1.13 publicada como OTA regular (beta). Reúne as betas QA 0.1.10 a 0.1.12. Faça backup antes de atualizar."
     }
   }
 }
