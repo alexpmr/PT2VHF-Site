@@ -617,10 +617,10 @@
     },
     "aprs-android": {
       "name": "PT2VHF APRS Client for Android",
-      "version": "0.1.14",
+      "version": "0.1.15",
       "date": "2026-11-10",
       "page": "https://www.pt2vhf.com/aprs-android",
-      "notes": "v0.1.14: mensagens compactas e legíveis com o teclado aberto (cabeçalho de uma linha, Enviar em ícone, mensagens novas na hora), só indicativos de radioamador válidos no mundo (tabela de prefixos da ITU, com país), ficha da estação com abas Trilha e Mensagens, filtros por região/SSID/símbolo/visto por último, aba Comunidade com rodadas de check-in, agrupamento de estações e camada de clima no mapa, decodificador de pacotes, tabela de frequências APRS e importação de configurações do APRSdroid. Versão beta em homologação.",
+      "notes": "v0.1.15: configurações reorganizadas em 7 abas (Estação, APRS-IS, Beacon, Posição, Mapa, Mensagens e Sistema), banner de abertura, mensagens com botões Minhas/Todas (inclui mensagens entre outras estações, só leitura) e Agrupadas/Lista, campos de busca sem cortar o texto e textos que faltavam traduzidos. Versão beta em homologação.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=aprs-android",
       "files": [
         {
@@ -628,15 +628,15 @@
           "counterKey": "android-apk",
           "architecture": "universal",
           "platform": "android",
-          "name": "PT2VHF_APRS_Client_Android_v0.1.14.apk",
-          "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.14.apk",
-          "size": 8612105,
-          "sha256": "67f24deff0ff19a1bfa738b01340e3581c473aafb8a0c7a44654754c7d85bcfe",
+          "name": "PT2VHF_APRS_Client_Android_v0.1.15.apk",
+          "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v0.1.15.apk",
+          "size": 8699786,
+          "sha256": "bfb41158caddaa99e8f275a340d9ac897621090363e50f5546d5a6587c457bf3",
           "detail": "Android 8 ou superior",
-          "label": "Android — APK 0.1.14"
+          "label": "Android — APK 0.1.15"
         }
       ],
-      "releaseStatus": "0.1.14 publicada como OTA regular (beta). Faça backup antes de atualizar."
+      "releaseStatus": "0.1.15 publicada como OTA regular (beta). Faça backup antes de atualizar."
     }
   }
 }
