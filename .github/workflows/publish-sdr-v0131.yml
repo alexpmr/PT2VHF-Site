@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 env:
   VERSION: "0.13.1"
-  SOURCE_SHA: "PENDING"
+  SOURCE_SHA: "a44bd7a67422c91a0202b47526126d05eab7fb3b"
   RELEASE_NOTES: "Manutenção estável: atualização OTA compatível com o download oficial do site, redirecionamentos seguros para a release, validação SHA-256 e correção do auxiliar de instalação. Classificador neural IQ/ONNX permanece experimental e não integra esta versão."
 jobs:
   publish:
