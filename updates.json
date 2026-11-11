@@ -239,7 +239,7 @@
     },
     "aprs": {
       "name": "PT2VHF APRS Client",
-      "version": "1.15.8",
+      "version": "1.15.9",
       "page": "https://www.pt2vhf.com/aprs",
       "files": [
         {
@@ -247,147 +247,147 @@
           "counterKey": "win-setup-x64",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF_APRS_Client_Setup_x64_v1.15.8.exe",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Setup_x64_v1.15.8.exe",
-          "size": 22464059,
-          "sha256": "54fa876885fb698804eebc65850894ec1b90bfc65964ef0a792e78af8a0ff446",
+          "name": "PT2VHF_APRS_Client_Setup_x64_v1.15.9.exe",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Setup_x64_v1.15.9.exe",
+          "size": 22471566,
+          "sha256": "221b960e3777f96aa31ef9a6319ceca19c947da93edfa4050604d7f1ada757b4",
           "detail": "PT2VHF APRS Client x64",
-          "version": "1.15.8"
+          "version": "1.15.9"
         },
         {
           "category": "windows-portable",
           "counterKey": "win-portable-x64",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF_APRS_Client_Portable_x64_v1.15.8.exe",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Portable_x64_v1.15.8.exe",
-          "size": 27077526,
-          "sha256": "07cbfbf04f204f2c4fd1af596c20ca18eac6ffa4328773f710c70bf473537f51",
+          "name": "PT2VHF_APRS_Client_Portable_x64_v1.15.9.exe",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Portable_x64_v1.15.9.exe",
+          "size": 27090252,
+          "sha256": "0b45a671daff490128c911a844e346be5ff1a16bdbc2c430039b8633005649b3",
           "detail": "PT2VHF APRS Client x64",
-          "version": "1.15.8"
+          "version": "1.15.9"
         },
         {
           "category": "windows-installer",
           "counterKey": "win-setup-arm64",
           "architecture": "ARM64",
           "platform": "windows-arm64",
-          "name": "PT2VHF_APRS_Client_Setup_ARM64_v1.15.8.exe",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Setup_ARM64_v1.15.8.exe",
-          "size": 19646777,
-          "sha256": "2347892f3cf9ef5b523ae75f752b453995f672a23d621d0b4f11780b75ab6650",
+          "name": "PT2VHF_APRS_Client_Setup_ARM64_v1.15.9.exe",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Setup_ARM64_v1.15.9.exe",
+          "size": 19654761,
+          "sha256": "c38b624916ef37255b087694c173cf7640b4d8d9cc50adfa135250a25f40eef7",
           "detail": "PT2VHF APRS Client ARM64",
-          "version": "1.15.8"
+          "version": "1.15.9"
         },
         {
           "category": "windows-portable",
           "counterKey": "win-portable-arm64",
           "architecture": "ARM64",
           "platform": "windows-arm64",
-          "name": "PT2VHF_APRS_Client_Portable_ARM64_v1.15.8.exe",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Portable_ARM64_v1.15.8.exe",
-          "size": 21571752,
-          "sha256": "5457a0de60b86e882d1eb7a8fce1b38209934b30a24574878fac0be849bf41bd",
+          "name": "PT2VHF_APRS_Client_Portable_ARM64_v1.15.9.exe",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Portable_ARM64_v1.15.9.exe",
+          "size": 21589040,
+          "sha256": "5f2057e252ec6d7ee39221999cd8cb36f3d685663c56d02d91b29f66793b1cbd",
           "detail": "PT2VHF APRS Client ARM64",
-          "version": "1.15.8"
+          "version": "1.15.9"
         },
         {
           "category": "linux-appimage",
           "counterKey": "linux-appimage-x64",
           "architecture": "x64",
           "platform": "linux-x64",
-          "name": "PT2VHF_APRS_Client_x86_64_v1.15.8.AppImage",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_x86_64_v1.15.8.AppImage",
-          "size": 42506744,
-          "sha256": "5db48d7397a3625de350d8b2831137faf4a76664e886633086802cbce0d700ec",
+          "name": "PT2VHF_APRS_Client_x86_64_v1.15.9.AppImage",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_x86_64_v1.15.9.AppImage",
+          "size": 42523128,
+          "sha256": "a82d4d25f0e109256b2e9f0c2e445385b69f6bf5a1b1880532d03368bde35062",
           "detail": "PT2VHF APRS Client x64",
-          "version": "1.15.8"
+          "version": "1.15.9"
         },
         {
           "category": "linux-deb",
           "counterKey": "linux-deb-x64",
           "architecture": "x64",
           "platform": "linux-x64",
-          "name": "pt2vhf-aprs-client_1.15.8_amd64.deb",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/pt2vhf-aprs-client_1.15.8_amd64.deb",
-          "size": 41362016,
-          "sha256": "e1707a08dedd05beac110ac22c35f1280c56cee1c82d91b8e7cdcd5ae461ac1d",
+          "name": "pt2vhf-aprs-client_1.15.9_amd64.deb",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/pt2vhf-aprs-client_1.15.9_amd64.deb",
+          "size": 41375278,
+          "sha256": "9578ecae35cb1855edcea8563639af9253b1e25d988cecd89f96d605453d1f1b",
           "detail": "PT2VHF APRS Client x64",
-          "version": "1.15.8"
+          "version": "1.15.9"
         },
         {
           "category": "linux-targz",
           "counterKey": "linux-tar-x64",
           "architecture": "x64",
           "platform": "linux-x64",
-          "name": "PT2VHF_APRS_Client_Linux_x86_64_v1.15.8.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Linux_x86_64_v1.15.8.tar.gz",
-          "size": 41537978,
-          "sha256": "815b273ea047a38635f5fbb1e4b72e4d0a901974d7a4da6a2a55cdf1a94bc022",
+          "name": "PT2VHF_APRS_Client_Linux_x86_64_v1.15.9.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Linux_x86_64_v1.15.9.tar.gz",
+          "size": 41552531,
+          "sha256": "6ef68ed26fa3908ea15fbe32ad3bba94140b380f5712ec0b5d46b95e4a8e2c56",
           "detail": "PT2VHF APRS Client x64",
-          "version": "1.15.8"
+          "version": "1.15.9"
         },
         {
           "category": "macos",
           "counterKey": "mac-dmg-x64",
           "architecture": "Intel",
           "platform": "macos-x64",
-          "name": "PT2VHF_APRS_Client_macOS_x86_64_v1.15.8.dmg",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_macOS_x86_64_v1.15.8.dmg",
-          "size": 27194581,
-          "sha256": "5701d18b2ef0eca8bec4d1b844b61f1858df7444fb76fcff488a824d4ac08f62",
+          "name": "PT2VHF_APRS_Client_macOS_x86_64_v1.15.9.dmg",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_macOS_x86_64_v1.15.9.dmg",
+          "size": 27209339,
+          "sha256": "440d2792bb26271de00631dabfa56c3489d4b860112ff850f96e706ec46dbd0b",
           "detail": "Mac Intel (x86_64), macOS 11 ou superior. Catalina 10.15 exige o futuro instalador Intel Legacy.",
-          "version": "1.15.8"
+          "version": "1.15.9"
         },
         {
           "category": "macos",
           "counterKey": "mac-dmg-arm64",
           "architecture": "Apple Silicon",
           "platform": "macos-arm64",
-          "name": "PT2VHF_APRS_Client_macOS_arm64_v1.15.8.dmg",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_macOS_arm64_v1.15.8.dmg",
-          "size": 25771429,
-          "sha256": "522a762831a11c5056a487055aeefbe4a293520bdcdd54a0116c33a50e185b46",
+          "name": "PT2VHF_APRS_Client_macOS_arm64_v1.15.9.dmg",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_macOS_arm64_v1.15.9.dmg",
+          "size": 25794403,
+          "sha256": "9c53b4d9d8310c016e7351e840b2ea08a1a4f89e38fa81c2bd74dd12b9750000",
           "detail": "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou superior. Não funciona em Macs Intel.",
-          "version": "1.15.8"
+          "version": "1.15.9"
         },
         {
-          "name": "PT2VHF_APRS_Client_arm64_v1.15.8.AppImage",
+          "name": "PT2VHF_APRS_Client_arm64_v1.15.9.AppImage",
           "category": "linux-appimage",
           "counterKey": "linux-appimage-arm64",
           "architecture": "ARM64 / aarch64",
           "platform": "linux-arm64",
-          "size": 39307784,
-          "sha256": "cb4a95a491a67c8baf462054a37a547cda53f6fdfa3ea181799a3e12be7745a9",
+          "size": 39328264,
+          "sha256": "26c89ecb789e579cb5d28a5255cdbfea66fc9cf7d7600b350554ed6fd153144d",
           "detail": "Linux ARM64 — AppImage (Raspberry Pi)",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_arm64_v1.15.8.AppImage",
-          "version": "1.15.8"
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_arm64_v1.15.9.AppImage",
+          "version": "1.15.9"
         },
         {
-          "name": "pt2vhf-aprs-client_1.15.8_arm64.deb",
+          "name": "pt2vhf-aprs-client_1.15.9_arm64.deb",
           "category": "linux-deb",
           "counterKey": "linux-deb-arm64",
           "architecture": "ARM64 / aarch64",
           "platform": "linux-arm64",
-          "size": 38164250,
-          "sha256": "2be59a5f410b7ee57269097b5c979a1d5786a364374c0a798b1081c09e5a0d06",
+          "size": 38179562,
+          "sha256": "f28ce138abc9a9f467977212166b7df6971b09b2c82fc125a1d466698dba0d79",
           "detail": "Linux ARM64 — DEB (Raspberry Pi OS 64-bit)",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/pt2vhf-aprs-client_1.15.8_arm64.deb",
-          "version": "1.15.8"
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/pt2vhf-aprs-client_1.15.9_arm64.deb",
+          "version": "1.15.9"
         },
         {
-          "name": "PT2VHF_APRS_Client_Linux_arm64_v1.15.8.tar.gz",
+          "name": "PT2VHF_APRS_Client_Linux_arm64_v1.15.9.tar.gz",
           "category": "linux-targz",
           "counterKey": "linux-tar-arm64",
           "architecture": "ARM64 / aarch64",
           "platform": "linux-arm64",
-          "size": 38329931,
-          "sha256": "d90f045a928d5494afb1dcad72b06770857b129dece162334cb201a136f9d8f0",
+          "size": 38344753,
+          "sha256": "55f75bd10d8cd6701f9c1ca66d7d78d9ea36be92793b0e313101d7cdc010e555",
           "detail": "Linux ARM64 — TAR.GZ (Raspberry Pi)",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Linux_arm64_v1.15.8.tar.gz",
-          "version": "1.15.8"
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Linux_arm64_v1.15.9.tar.gz",
+          "version": "1.15.9"
         }
       ],
-      "developmentVersion": "1.15.8",
+      "developmentVersion": "1.15.9",
       "releaseStatus": "Instaladores oficiais validados e hospedados em pt2vhf.com",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=aprs",
       "plannedFiles": [
@@ -395,77 +395,77 @@
           "category": "windows-installer",
           "counterKey": "win-setup-x64",
           "architecture": "x64",
-          "name": "PT2VHF_APRS_Client_Setup_x64_v1.15.8.exe"
+          "name": "PT2VHF_APRS_Client_Setup_x64_v1.15.9.exe"
         },
         {
           "category": "windows-portable",
           "counterKey": "win-portable-x64",
           "architecture": "x64",
-          "name": "PT2VHF_APRS_Client_Portable_x64_v1.15.8.exe"
+          "name": "PT2VHF_APRS_Client_Portable_x64_v1.15.9.exe"
         },
         {
           "category": "windows-installer",
           "counterKey": "win-setup-arm64",
           "architecture": "ARM64",
-          "name": "PT2VHF_APRS_Client_Setup_ARM64_v1.15.8.exe"
+          "name": "PT2VHF_APRS_Client_Setup_ARM64_v1.15.9.exe"
         },
         {
           "category": "windows-portable",
           "counterKey": "win-portable-arm64",
           "architecture": "ARM64",
-          "name": "PT2VHF_APRS_Client_Portable_ARM64_v1.15.8.exe"
+          "name": "PT2VHF_APRS_Client_Portable_ARM64_v1.15.9.exe"
         },
         {
           "category": "linux-appimage",
           "counterKey": "linux-appimage-x64",
           "architecture": "x64",
-          "name": "PT2VHF_APRS_Client_x86_64_v1.15.8.AppImage"
+          "name": "PT2VHF_APRS_Client_x86_64_v1.15.9.AppImage"
         },
         {
           "category": "linux-deb",
           "counterKey": "linux-deb-x64",
           "architecture": "x64",
-          "name": "pt2vhf-aprs-client_1.15.8_amd64.deb"
+          "name": "pt2vhf-aprs-client_1.15.9_amd64.deb"
         },
         {
           "category": "linux-targz",
           "counterKey": "linux-tar-x64",
           "architecture": "x64",
-          "name": "PT2VHF_APRS_Client_Linux_x86_64_v1.15.8.tar.gz"
+          "name": "PT2VHF_APRS_Client_Linux_x86_64_v1.15.9.tar.gz"
         },
         {
           "category": "macos",
           "counterKey": "mac-dmg-x64",
           "architecture": "Intel",
-          "name": "PT2VHF_APRS_Client_macOS_x86_64_v1.15.8.dmg"
+          "name": "PT2VHF_APRS_Client_macOS_x86_64_v1.15.9.dmg"
         },
         {
           "category": "macos",
           "counterKey": "mac-dmg-arm64",
           "architecture": "Apple Silicon",
-          "name": "PT2VHF_APRS_Client_macOS_arm64_v1.15.8.dmg"
+          "name": "PT2VHF_APRS_Client_macOS_arm64_v1.15.9.dmg"
         },
         {
           "category": "linux-appimage",
           "counterKey": "linux-appimage-arm64",
           "architecture": "ARM64 / aarch64",
-          "name": "PT2VHF_APRS_Client_arm64_v1.15.8.AppImage"
+          "name": "PT2VHF_APRS_Client_arm64_v1.15.9.AppImage"
         },
         {
           "category": "linux-deb",
           "counterKey": "linux-deb-arm64",
           "architecture": "ARM64 / aarch64",
-          "name": "pt2vhf-aprs-client_1.15.8_arm64.deb"
+          "name": "pt2vhf-aprs-client_1.15.9_arm64.deb"
         },
         {
           "category": "linux-targz",
           "counterKey": "linux-tar-arm64",
           "architecture": "ARM64 / aarch64",
-          "name": "PT2VHF_APRS_Client_Linux_arm64_v1.15.8.tar.gz"
+          "name": "PT2VHF_APRS_Client_Linux_arm64_v1.15.9.tar.gz"
         }
       ],
-      "date": "2026-11-06",
-      "notes": "Mapa de calor mostra todas as áreas com recepção RF (as menos densas não somem mais); aviso de boas-vindas com convite às demais ferramentas PT2VHF; barra do mapa traduzida. Revisão integral de traduções (#157) continua aberta."
+      "date": "2026-11-11",
+      "notes": "Botão direito nas mensagens (copiar texto/indicativo, cancelar reenvio, reenviar agora) com contador de tentativas; perfil Kenwood TS-2000 (TNC interno) com entrada e saída do modo KISS; aba Ajuda em inglês."
     },
     "sat": {
       "name": "PT2VHF Sat Tool",
