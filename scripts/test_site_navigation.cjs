@@ -21,7 +21,10 @@ for(const name of pages){
  for(const m of s.matchAll(/<script src="([^"]+)"/g))assert(m[1].includes("?v="),name+": script sem ?v=: "+m[1]);
 }
 const index=load("index.html");
-assert(index.includes('/assets/img/pt2vhf-hero-banner.webp'),"Banner nao encontrado");
+assert(index.includes('/assets/img/pt2vhf-hero-banner-en.svg'),"Banner em ingles nao encontrado");
+const bannerSvg=load("assets/img/pt2vhf-hero-banner-en.svg");
+assert(bannerSvg.includes('RADIO · TECHNOLOGY · COMMUNITY'),"Banner em ingles sem slogan");
+assert(!bannerSvg.includes('por Alex'),"Assinatura antiga permaneceu no novo banner");
 assert(!index.includes('id="instalacao"'),"Instalacao deve sair da homepage");
 assert(!index.includes('id="sobre"'),"Sobre deve estar somente na pagina exclusiva");
 assert(!index.includes('id="contato"'),"Contato deve estar somente na pagina exclusiva");
