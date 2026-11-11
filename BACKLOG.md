@@ -2,6 +2,15 @@
 
 ## Pendentes
 
+### Banner PT2VHF em inglês — GitHub atualizado, publicação na Hostinger pendente (10/11/2026)
+
+- **Solicitação:** retirar o carro e a pessoa, reduzir a altura do banner e retirar a assinatura "por Alex, PT2VHF"; usar títulos em inglês.
+- **Código pronto na branch `main`:** novo `assets/img/pt2vhf-hero-banner-en.svg` (2000 × 520), página `index.html` apontando para a arte, e teste do site atualizado.
+- **Commits:** `0d4a76214c9b62ed1cf136ffc7577998914f8b69` (arte), `0bf2b74904706f805ddaebd2e3bbf9b9db12e387` (index), `6633f05b93621e38aeac86071a859081d3426651` (teste).
+- **Verificação em produção:** após os commits, `https://www.pt2vhf.com/` ainda referenciava `pt2vhf-hero-banner.webp`; a nova URL `/assets/img/pt2vhf-hero-banner-en.svg` retornava HTTP 404. Confirmado novamente com parâmetros de cache-busting. **Não considerar publicado em produção.**
+- **Próxima ação:** conferir o status de Auto-deployment, o commit atual e o log de deploy em **Hostinger hPanel → Sites → pt2vhf.com → Avançado → Git**; se necessário, clicar **Redeploy** da `main`. Depois validar a imagem no navegador desktop e celular, sem cache, e a URL direta com HTTP 200.
+
+
 ### APRS Android v0.1.10 Beta QA — GitHub preparado; Hostinger ainda na v0.1.9 (08/11/2026)
 
 - **Repositório do site atualizado:** commit `84efc53bc992fdda8341fcca331408e50cfc2201` e ajustes posteriores.
