@@ -70,7 +70,7 @@ window.PT2VHF_I18N["pt"] = {
     "statProg": "Instaladores oficiais disponíveis para Windows e Linux.",
     "statProp": "Arquivos Windows gerados, mas a validação automatizada falhou. Instalador público ainda não homologado.",
     "statMesh": "Ainda não há instalador público ou repositório confirmado neste GitLab.",
-    "statAprs": "Versão 1.15.8 disponível para Windows, Linux (x86_64 e Raspberry Pi ARM64) e macOS. Programas instalados são avisados e atualizados pelo próprio aplicativo.",
+    "statAprs": "Versão 1.15.9 disponível para Windows, Linux (x86_64 e Raspberry Pi ARM64) e macOS. Programas instalados são avisados e atualizados pelo próprio aplicativo.",
     "statSdr": "Em desenvolvimento. O instalador para Windows será publicado aqui quando a primeira versão for liberada.",
     "statSat": "Instalador e portátil oficiais para Windows 10/11 x64.",
     "ciLink": "Detalhes da compilação (pode exigir acesso ao GitLab)",

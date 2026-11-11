@@ -48,7 +48,7 @@ for(const lang of ["pt","en","es","fr","de","it","zh"]){
  }
 }
 const ht=load(".htaccess");
-assert(ht.includes("(aprs|android|prop|mesh|sat|prog|qsl|contato|sobre)/?"),"Falta rota /contato, /sobre, /qsl ou /android");
+assert(/\(aprs\|android\|prop\|mesh\|sat\|(?:sdr\|)?prog\|qsl\|contato\|sobre\)\/\?/.test(ht),"Falta rota /contato, /sobre, /qsl ou /android");
 const siteJs=load("assets/js/main.js");
 assert(siteJs.includes("contato(?:[?#]|$)"),"Idioma deve persistir ao navegar para /contato");
 assert(siteJs.includes("sobre(?:[?#]|$)"),"Idioma deve persistir ao navegar para /sobre");
