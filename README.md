@@ -82,12 +82,19 @@ O servidor entrega o arquivo com `Content-Type: application/json; charset=utf-8`
 Pastas de download: `prog` → `downloads/prog-tool/`, `prop` → `downloads/prop-tool/`,
 `mesh` → `downloads/mesh-analyzer/`, `aprs` → `downloads/aprs-client/`.
 
-## Regra: todos os binários ficam no site
+## Regra de distribuição e exceção controlada do SDR
 
-Todo instalador, pacote ou arquivo oferecido no site e no OTA (`update.php`) fica hospedado em
-`downloads/<pasta>/` deste repositório. O `download.php` e o `update.php` só entregam arquivos do
-próprio domínio e **nunca redirecionam** para o GitHub ou outro serviço: se o arquivo não estiver aqui,
-o download responde 404 e o OTA não o oferece. Assim os repositórios dos programas podem ser privados.
+Como regra geral, os binários anunciados em `updates.json` ficam em `downloads/<pasta>/`,
+com download no domínio oficial e, quando necessário, partes `.parts.json` remontadas pelo PHP.
+**Exceção explícita:** para o produto `sdr`, quando o arquivo possui
+`delivery: "github-release"`, o `download.php?product=sdr&file=<nome>` valida o nome, a
+versão, o tamanho e o SHA-256 registrados no manifesto e responde com redirecionamento
+HTTP 302 exclusivamente para a release correspondente do repositório
+`alexpmr/PT2VHF-SDR-Tool` no GitHub. O cliente OTA v0.13.1 restringe a cadeia de
+redirecionamentos (site → release oficial → CDN GitHub) e verifica tamanho e SHA-256
+**antes** de instalar. Não presumir que um pacote esteja disponível apenas porque
+seus metadados foram publicados: testar os downloads públicos após o deploy.
+Os demais produtos conservam suas próprias regras de distribuição.
 
 Arquivos acima de 100 MB (limite do GitHub) são guardados em partes de 48 MiB com um `.parts.json`
 (tamanho e SHA-256 de cada parte e do arquivo inteiro); o PHP remonta o arquivo na hora do download,
@@ -315,15 +322,31 @@ inclusive o OTA) e atualiza o produto `qsl` do `updates.json`. O app consulta
 
 ## PT2VHF SDR Tool (`sdr`)
 
-Instalador e portátil Windows gerados pelo GitHub Actions do repositório `alexpmr/PT2VHF-SDR-Tool`
-(workflow manual "Gerar executável do Windows", com autoteste dos executáveis e da instalação).
-Publicação:
+O workflow `.github/workflows/build.yml` do repositório
+`alexpmr/PT2VHF-SDR-Tool` compila Windows x64 Setup/Portable, testa Linux/Qt,
+instalação e OTA Setup/Portable e publica a release `vX.Y.Z` com
+`SHA256SUMS.txt` somente após aprovação. Não integrar a branch experimental
+IQ/ONNX para releases estáveis sem homologação independente.
 
-```bash
-python3 scripts/publish_sdr_release.py X.Y.Z <pasta-do-artefato> "notas da versão"
-```
+Para a **v0.13.1**, o workflow versionado do site é
+`.github/workflows/publish-sdr-v0131.yml` (commit de origem fixado em
+`a44bd7a67422c91a0202b47526126d05eab7fb3b`). Ele usa
+`scripts/publish_sdr_remote_release.py` para conferir release, tamanhos,
+hashes e `SHA256SUMS.txt`, atualizando **somente os metadados SDR** de
+`updates.json`, com `delivery: "github-release"`. Não requer incluir
+instaladores de 100–200 MiB no repositório do site. O fluxo anterior
+`.github/workflows/publish-sdr-v013.yml` está fixado na v0.13.0 e **não**
+deve ser reutilizado para publicar a v0.13.1 sem alteração explícita.
 
-O script confere `MZ` e o SHA-256 do `SHA256SUMS.txt` do CI, grava cada `.exe` em partes < 100 MiB
-(`downloads/sdr-tool/*.partNN` + `.parts.json`, como Sat/QSL), remove versões anteriores e atualiza
-`updates.json`. `download.php` remonta o arquivo (HTTP 200, Range) e conta uma vez por download
-(site ou OTA); o app consulta `update.php?product=sdr`.
+Após a publicação do Git, é **obrigatório verificar a implantação efetiva**
+na Hostinger. Executar `python3 scripts/verify_sdr_live.py 0.13.1 --wait`
+em ambiente com acesso HTTPS; o teste verifica `/sdr`, `updates.json`,
+`update.php?product=sdr` e downloads completos de Setup/Portable com SHA-256.
+Se o GitHub mostrar v0.13.1 e a Hostinger ainda servir v0.13.0, verificar
+**hPanel → Sites → pt2vhf.com → Avançado → Git**, a branch `main`,
+o diretório `public_html` e os logs da implantação; **não anunciar a
+distribuição como concluída** até o teste público passar.
+
+Para releases anteriores que usem partes hospedadas no próprio site, o
+script legado `scripts/publish_sdr_release.py` permanece disponível,
+mas não deve sobrescrever a estratégia de distribuição da v0.13.1.
