@@ -544,7 +544,7 @@
       "name": "PT2VHF SDR Tool",
       "version": "0.13.2",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "Waterfall: sintonia por clique limitada à faixa IQ recebida após zoom e pan; arraste do passband protegido; novos testes Qt. IA IQ/ONNX experimental permanece fora desta versão.",
+      "notes": "Waterfall: sintonia por clique limitada à faixa IQ recebida após zoom e pan; arraste do passband protegido; novos testes Qt. IA IQ/ONNX experimental permanece fora desta versão. Atenção: quem usa a v0.13.0 precisa instalar manualmente a v0.13.1 ou superior uma única vez, pois o OTA antigo não reconhece o endpoint atual.",
       "files": [
         {
           "category": "windows-installer",
