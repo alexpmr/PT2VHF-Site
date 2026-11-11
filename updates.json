@@ -542,9 +542,9 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "0.13.1",
+      "version": "0.13.2",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "Manutenção estável: atualização OTA compatível com o download oficial do site, redirecionamentos seguros para a release, validação SHA-256 e correção do auxiliar de instalação. Classificador neural IQ/ONNX permanece experimental e não integra esta versão.",
+      "notes": "Waterfall: sintonia por clique limitada à faixa IQ recebida após zoom e pan; arraste do passband protegido; novos testes Qt. IA IQ/ONNX experimental permanece fora desta versão.",
       "files": [
         {
           "category": "windows-installer",
@@ -554,10 +554,10 @@
           "detail": "Windows 10/11 x64; instalação por usuário",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v0.13.1-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.13.1-Win11-x64-Setup.exe",
-          "size": 142689017,
-          "sha256": "8c2f61f8176ccd865ee33d1a038d0607d4220fe16b9b0ed0500ae859ca57d73f",
+          "name": "PT2VHF-SDR-Tool-v0.13.2-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.13.2-Win11-x64-Setup.exe",
+          "size": 142692386,
+          "sha256": "dcb313680493a23fd12de7ab4495082a2a2da21d8ca09a075e4a43637595c0a4",
           "delivery": "github-release"
         },
         {
@@ -568,16 +568,16 @@
           "detail": "Windows 10/11 x64; executável portátil",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v0.13.1-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.13.1-Win11-x64-Portable.exe",
-          "size": 204069660,
-          "sha256": "a98caaf502b760511e28681610d8ccf2fb6a5c510ebdcf80339c56b6a6e0c722",
+          "name": "PT2VHF-SDR-Tool-v0.13.2-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v0.13.2-Win11-x64-Portable.exe",
+          "size": 204071199,
+          "sha256": "f8b63fc28b3afde1cc830cf752787c9a88e72386852eccfcf73b0065c6e66fe1",
           "delivery": "github-release"
         }
       ],
       "date": "2026-11-11",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr",
-      "releaseStatus": "Build Windows e hashes verificados na origem GitHub Release; distribuição via site oficial."
+      "releaseStatus": "Release Windows v0.13.2 com Setup/Portable e hashes SHA-256 verificados no GitHub; distribuição pelo site oficial."
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
