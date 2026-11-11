@@ -1,0 +1,22 @@
+name: Testar publicador SDR no site (sem deploy)
+on:
+  pull_request:
+    paths:
+      - scripts/publish_sdr_remote_release.py
+      - scripts/test_publish_sdr_remote_release.py
+      - .github/workflows/publish-sdr-v0131.yml
+      - .github/workflows/test-sdr-site-publisher.yml
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Testes offline de manifesto e hashes
+        run: python3 scripts/test_publish_sdr_remote_release.py
+      - name: Validar sintaxe Python
+        run: python3 -m py_compile scripts/publish_sdr_remote_release.py scripts/test_publish_sdr_remote_release.py
