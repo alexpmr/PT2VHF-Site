@@ -577,7 +577,7 @@
       ],
       "date": "2026-11-11",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr",
-      "releaseStatus": "Distribuição conservadora v0.13.2 até diagnóstico do incidente v0.13.3; hashes validados na release GitHub."
+      "releaseStatus": "P0: v0.13.3 suspensa do OTA por encerramento inesperado no Windows. Oferecer somente v0.13.2 enquanto o incidente #8 estiver aberto; SHA-256 conferidos com a release oficial."
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
