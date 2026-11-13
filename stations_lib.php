@@ -28,6 +28,8 @@ function pt2vhf_station_file(): string {
 function pt2vhf_station_normalize($raw): ?string {
     if (!is_string($raw)) return null;
     $call = strtoupper(trim($raw));
+    // SSID APRS (-9, -10...) não faz parte do indicativo: PY2XYZ-9 conta como PY2XYZ.
+    $call = (string)preg_replace('~-[A-Z0-9]{1,2}$~D', '', $call);
     if ($call === '' || strlen($call) > 16) return null;
     if (!preg_match('~^(?=.*[0-9])(?=.*[A-Z])[A-Z0-9]{1,8}(?:/[A-Z0-9]{1,8}){0,2}$~D', $call)) return null;
     $base = pt2vhf_station_base($call);
