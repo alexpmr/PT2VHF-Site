@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -469,8 +469,8 @@
     },
     "sat": {
       "name": "PT2VHF Sat Tool",
-      "version": "1.7.2",
-      "developmentVersion": "1.7.2",
+      "version": "1.8.0",
+      "developmentVersion": "1.8.0",
       "page": "https://www.pt2vhf.com/sat",
       "files": [
         {
@@ -480,10 +480,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Instalador",
-          "name": "PT2VHF-Sat-Tool-v1.7.2-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.2-Win11-x64-Setup.exe",
-          "size": 166510315,
-          "sha256": "eedb61cc000a6830060ef3c0d3ae448b23207505f764ab9edfe886b712600a05",
+          "name": "PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Setup.exe",
+          "size": 166608677,
+          "sha256": "cf929f9c57f4dd699cdf648625eecae7904d9005d72dbe1360c1e0114ae9dae3",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -493,10 +493,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Portátil",
-          "name": "PT2VHF-Sat-Tool-v1.7.2-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.2-Win11-x64-Portable.exe",
-          "size": 244692950,
-          "sha256": "3ae475bdcb20c6ec8df2cc47889b0c1189f2e1c060b22afd787fd20c5a1cc173",
+          "name": "PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Portable.exe",
+          "size": 244825227,
+          "sha256": "cff0bfc4cac5a7a7f427574b48cfd2c2d8428af0517748a1e39ac9d281944dc0",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -506,11 +506,24 @@
           "platform": "linux-x64",
           "architecture": "x64",
           "label": "Linux — .tar.gz",
-          "name": "PT2VHF-Sat-Tool-v1.7.2-Linux-x64.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.2-Linux-x64.tar.gz",
-          "size": 262741345,
-          "sha256": "bfe4194d9851a64eb056334e12384651414cfe5b474492fbc9ab77dfde1812fe",
+          "name": "PT2VHF-Sat-Tool-v1.8.0-Linux-x64.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-Linux-x64.tar.gz",
+          "size": 263213971,
+          "sha256": "3b5c0ef915e39187006b74494ae6a560fe0dccf9783087b5fb829e84387a5535",
           "detail": "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute o arquivo PT2VHF-Sat-Tool-v<versão> da pasta"
+        },
+        {
+          "category": "linux-deb",
+          "counterKey": "linux-deb-x64",
+          "kind": "deb",
+          "platform": "linux-x64",
+          "architecture": "x64",
+          "label": "Linux — .deb (Ubuntu/Mint)",
+          "name": "PT2VHF-Sat-Tool-v1.8.0-Linux-x64.deb",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-Linux-x64.deb",
+          "size": 187803740,
+          "sha256": "2434eab0de782357187301b87f171389eff19eecbf32f1e3a1642da27e93d220",
+          "detail": "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./PT2VHF-Sat-Tool-v<versão>-Linux-x64.deb"
         },
         {
           "category": "macos",
@@ -519,25 +532,25 @@
           "platform": "macos-arm64",
           "architecture": "Apple Silicon",
           "label": "macOS — .dmg",
-          "name": "PT2VHF-Sat-Tool-v1.7.2-macOS-arm64.dmg",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.2-macOS-arm64.dmg",
-          "size": 251355189,
-          "sha256": "2838ee00c66fce98a91b412135a986ef087da1a0bf166fe171374ca22fc58dd5",
+          "name": "PT2VHF-Sat-Tool-v1.8.0-macOS-arm64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-macOS-arm64.dmg",
+          "size": 252693776,
+          "sha256": "be941a074fbdc2257c6aac664a862c159758cc1f26726d3c8155b7567bbd43c2",
           "detail": "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos"
         },
         {
           "category": "checksums",
           "label": "Somas de verificação",
-          "name": "PT2VHF-Sat-Tool-v1.7.2-SHA256.txt",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.7.2-SHA256.txt",
-          "size": 432,
-          "sha256": "a6eefd63cc04d9fa044abceac1505750671bb2efcae9e771241fe51d15f410f3",
+          "name": "PT2VHF-Sat-Tool-v1.8.0-SHA256.txt",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-SHA256.txt",
+          "size": 535,
+          "sha256": "100cf85c1a8cafad4130b9485c41009109993e33c86901b530d5a9c3a55313e1",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
       "releaseStatus": "Pacotes oficiais para Windows 10/11 x64, Linux x64 e macOS Apple Silicon. Confira o SHA-256 antes da instalação.",
-      "date": "2026-11-12",
-      "notes": "v1.7.2: gauges de direção e elevação do rotor em tempo real; botão ROTOR no topo (liga/desliga o controlador) e rastreamento automático com estado RASTREANDO/PARADO; contagem regressiva LOS/AOS em segmentos no display; ícone <> troca MAIN e SUB; janela de AOS só com contagem e fechamento automático; abertura com o banner Powered by www.PT2VHF.com (10 s); binários com a versão no nome; correções: rotor aparecia DESCONECTADO conectado e tecla RX ONLY sem indicar o estado. Windows x64, Linux x64 e macOS ARM64.",
+      "date": "2026-11-13",
+      "notes": "v1.8.0: pacote .deb para Ubuntu/Mint (menu, comando pt2vhf-sat-tool e regra udev do RTL-SDR); TLE atualizados em segundo plano ao abrir; medidor de CPU e RAM no topo; botões CAT, SDR e ROTOR do mesmo tamanho; menus e campos do tamanho do conteúdo; contagem AOS/LOS do display com segundos (HH:MM:SS, letras H M S menores); indicativo informado na consulta de versão (lista de usuários no site, pode ser desligado). Windows x64, Linux x64 (.tar.gz e .deb) e macOS ARM64.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
     "sdr": {
