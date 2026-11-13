@@ -202,6 +202,7 @@
     },
     aprs: {
       pt: [
+        e("2.0.1", "Lista de estações no site", ["A consulta de versão volta a informar o indicativo (sem o SSID), e a estação aparece na lista de estações do site."]),
         e("2.0.0", "Versão 2.0: splash PT2VHF, SSIDs e banco recuperável", ["Abertura \"Powered by www.PT2VHF.com\" como no Sat Tool; sugestões de SSID por tipo de operação na configuração do indicativo.", "Banco de dados corrompido é recuperado automaticamente, também ao instalar.", "Mensagens saem sem acentos (opção ligada por padrão); sinal sonoro ao receber ACK e ao ouvir seu pacote repetido por um digipeater.", "Popup da estação com e-mail clicável, equipamento, formato e pacote bruto.", "A consulta de versão informa só o seu indicativo, para a lista de estações abaixo (pode desligar)."]),
         e("1.15.9", "Botão direito nas mensagens e Kenwood TS-2000", ["Botão direito numa mensagem: copiar texto ou indicativo, cancelar reenvio e reenviar agora; contador de tentativas.", "Perfil Kenwood TS-2000 (TNC interno) com botões para entrar e sair do modo KISS.", "Aba Ajuda completa em inglês."]),
         e("1.15.8", "Mapa de calor completo", ["O mapa de calor mostra todas as áreas com recepção RF; as menos densas não somem mais quando o histórico cresce.", "Ao abrir, convite às demais ferramentas gratuitas PT2VHF, como no Sat Tool.", "Barra do mapa traduzida."]),
@@ -221,6 +222,7 @@
         e("1.14.55", "Planejamento de enlaces e melhor ponto", ["Enlace entre 2 pontos com perfil de terreno, Fresnel, sinal estimado e veredito de viabilidade.", "Melhor ponto para instalar estação: topos da área desenhada, com CSV e PDF."])
       ],
       en: [
+        e("2.0.1", "Station list on the website", ["The update check sends the callsign again (without the SSID), so the station shows up in the website's station list."]),
         e("2.0.0", "Version 2.0: PT2VHF splash, SSIDs and recoverable database", ["\"Powered by www.PT2VHF.com\" launch screen as in Sat Tool; SSID suggestions per type of operation in the callsign settings.", "A corrupted database is recovered automatically, also during installation.", "Messages are sent without accents (on by default); a sound on ACK and when your packet is heard repeated by a digipeater.", "Station popup with clickable e-mail, equipment, format and raw packet.", "The update check reports only your callsign, for the station list below (can be turned off)."]),
         e("1.15.9", "Right-click on messages and Kenwood TS-2000", ["Right-click a message to copy its text or callsign, cancel retries or resend now; retry counter shown.", "Kenwood TS-2000 (built-in TNC) profile with buttons to enter and exit KISS mode.", "Help tab fully in English."]),
         e("1.15.8", "Complete heat map", ["The heat map shows every area with RF reception; sparse areas no longer disappear as the history grows.", "On startup, an invitation to the other free PT2VHF tools, as in Sat Tool.", "Map toolbar translated."]),
@@ -240,6 +242,7 @@
         e("1.14.55", "Link planning and best site", ["Point-to-point link with terrain profile, Fresnel zone, estimated signal and feasibility verdict.", "Best site for a station: peaks inside the drawn area, with CSV and PDF."])
       ],
       es: [
+        e("2.0.1", "Lista de estaciones en el sitio", ["La consulta de versión vuelve a informar el indicativo (sin el SSID) y la estación aparece en la lista del sitio."]),
         e("2.0.0", "Versión 2.0: splash PT2VHF, SSID y base de datos recuperable", ["Pantalla de inicio \"Powered by www.PT2VHF.com\" como en Sat Tool; sugerencias de SSID por tipo de operación en la configuración del indicativo.", "La base de datos dañada se recupera automáticamente, también al instalar.", "Los mensajes salen sin acentos (activado por defecto); sonido al recibir ACK y al oír su paquete repetido por un digipeater.", "Ventana de estación con correo clicable, equipo, formato y paquete bruto.", "La búsqueda de versión informa solo su indicativo, para la lista de estaciones de abajo (se puede desactivar)."]),
         e("1.15.9", "Clic derecho en los mensajes y Kenwood TS-2000", ["Clic derecho en un mensaje: copiar texto o indicativo, cancelar reenvío y reenviar ahora; contador de intentos.", "Perfil Kenwood TS-2000 (TNC interno) con botones para entrar y salir del modo KISS.", "Pestaña Ayuda completa en inglés."]),
         e("1.15.8", "Mapa de calor completo", ["El mapa de calor muestra todas las áreas con recepción RF; las menos densas ya no desaparecen al crecer el historial.", "Al abrir, invitación a las demás herramientas gratuitas PT2VHF, como en Sat Tool.", "Barra del mapa traducida."]),
@@ -259,6 +262,7 @@
         e("1.14.55", "Planificación de enlaces y mejor punto", ["Enlace entre 2 puntos con perfil de terreno, Fresnel, señal estimada y veredicto de viabilidad.", "Mejor punto para instalar una estación: cumbres del área dibujada, con CSV y PDF."])
       ],
       fr: [
+        e("2.0.1", "Liste des stations sur le site", ["La vérification de version envoie de nouveau l’indicatif (sans le SSID) ; la station apparaît dans la liste du site."]),
         e("2.0.0", "Version 2.0 : écran PT2VHF, SSID et base récupérable", ["Écran d’ouverture « Powered by www.PT2VHF.com » comme dans Sat Tool ; suggestions de SSID par type d’activité dans la configuration de l’indicatif.", "Une base de données corrompue est récupérée automatiquement, aussi à l’installation.", "Les messages partent sans accents (activé par défaut) ; son à l’ACK et quand votre paquet est entendu répété par un digipeater.", "Fenêtre de station avec e-mail cliquable, équipement, format et paquet brut.", "La recherche de version transmet uniquement votre indicatif, pour la liste des stations ci-dessous (désactivable)."]),
         e("1.15.9", "Clic droit sur les messages et Kenwood TS-2000", ["Clic droit sur un message : copier le texte ou l’indicatif, annuler les renvois et renvoyer maintenant ; compteur de tentatives.", "Profil Kenwood TS-2000 (TNC intégré) avec des boutons pour entrer et sortir du mode KISS.", "Onglet Aide entièrement en anglais."]),
         e("1.15.8", "Carte de chaleur complète", ["La carte de chaleur affiche toutes les zones avec réception RF ; les zones peu denses ne disparaissent plus quand l’historique grandit.", "Au démarrage, une invitation aux autres outils gratuits PT2VHF, comme dans Sat Tool.", "Barre de la carte traduite."]),
@@ -278,6 +282,7 @@
         e("1.14.55", "Planification de liaisons et meilleur site", ["Liaison entre 2 points avec profil du terrain, zone de Fresnel, signal estimé et verdict de faisabilité.", "Meilleur site pour une station : sommets de la zone dessinée, avec CSV et PDF."])
       ],
       de: [
+        e("2.0.1", "Stationsliste auf der Website", ["Die Versionsprüfung sendet wieder das Rufzeichen (ohne SSID), damit die Station in der Liste der Website erscheint."]),
         e("2.0.0", "Version 2.0: PT2VHF-Startbild, SSIDs und wiederherstellbare Datenbank", ["Startbild „Powered by www.PT2VHF.com“ wie im Sat Tool; SSID-Vorschläge je Betriebsart in den Rufzeichen-Einstellungen.", "Eine beschädigte Datenbank wird automatisch wiederhergestellt, auch bei der Installation.", "Nachrichten werden ohne Akzente gesendet (standardmäßig an); Ton bei ACK und wenn Ihr Paket von einem Digipeater wiederholt gehört wird.", "Stationsfenster mit anklickbarer E-Mail, Ausrüstung, Format und Rohpaket.", "Die Update-Prüfung übermittelt nur Ihr Rufzeichen, für die Stationsliste unten (abschaltbar)."]),
         e("1.15.9", "Rechtsklick auf Nachrichten und Kenwood TS-2000", ["Rechtsklick auf eine Nachricht: Text oder Rufzeichen kopieren, Wiederholungen abbrechen und jetzt erneut senden; Versuchszähler.", "Profil Kenwood TS-2000 (eingebauter TNC) mit Schaltflächen zum Ein- und Ausschalten des KISS-Modus.", "Hilfe-Reiter vollständig auf Englisch."]),
         e("1.15.8", "Vollständige Heatmap", ["Die Heatmap zeigt alle Gebiete mit RF-Empfang; dünn besetzte Gebiete verschwinden nicht mehr, wenn der Verlauf wächst.", "Beim Start eine Einladung zu den anderen kostenlosen PT2VHF-Werkzeugen, wie im Sat Tool.", "Kartenleiste übersetzt."]),
@@ -297,6 +302,7 @@
         e("1.14.55", "Verbindungsplanung und bester Standort", ["Punkt-zu-Punkt-Verbindung mit Geländeprofil, Fresnelzone, geschätztem Signal und Machbarkeitsurteil.", "Bester Standort für eine Station: Gipfel im gezeichneten Bereich, mit CSV und PDF."])
       ],
       it: [
+        e("2.0.1", "Elenco stazioni sul sito", ["Il controllo della versione invia di nuovo il nominativo (senza SSID) e la stazione compare nell’elenco del sito."]),
         e("2.0.0", "Versione 2.0: splash PT2VHF, SSID e database recuperabile", ["Schermata iniziale \"Powered by www.PT2VHF.com\" come in Sat Tool; suggerimenti di SSID per tipo di attività nella configurazione del nominativo.", "Un database danneggiato viene recuperato automaticamente, anche durante l’installazione.", "I messaggi partono senza accenti (attivo per impostazione predefinita); suono all’ACK e quando il tuo pacchetto viene sentito ripetuto da un digipeater.", "Finestra della stazione con e-mail cliccabile, apparato, formato e pacchetto grezzo.", "La ricerca di versioni comunica solo il tuo nominativo, per l’elenco delle stazioni qui sotto (disattivabile)."]),
         e("1.15.9", "Clic destro sui messaggi e Kenwood TS-2000", ["Clic destro su un messaggio: copia testo o nominativo, annulla i reinvii e reinvia ora; contatore dei tentativi.", "Profilo Kenwood TS-2000 (TNC interno) con pulsanti per entrare e uscire dalla modalità KISS.", "Scheda Aiuto completa in inglese."]),
         e("1.15.8", "Mappa di calore completa", ["La mappa di calore mostra tutte le aree con ricezione RF; quelle meno dense non scompaiono più quando lo storico cresce.", "All’avvio, un invito agli altri strumenti gratuiti PT2VHF, come nel Sat Tool.", "Barra della mappa tradotta."]),
@@ -316,6 +322,7 @@
         e("1.14.55", "Pianificazione dei collegamenti e punto migliore", ["Collegamento tra 2 punti con profilo del terreno, zona di Fresnel, segnale stimato e verdetto di fattibilità.", "Punto migliore per una stazione: cime dell’area disegnata, con CSV e PDF."])
       ],
       zh: [
+        e("2.0.1", "网站电台列表", ["版本检查重新发送呼号（不含 SSID），电台会出现在网站的电台列表中。"]),
         e("2.0.0", "2.0 版：PT2VHF 启动画面、SSID 与可恢复数据库", ["与 Sat Tool 相同的“Powered by www.PT2VHF.com”启动画面；呼号设置中按操作类型推荐 SSID。", "损坏的数据库会自动恢复，安装时也会检查。", "消息发送前去除重音（默认开启）；收到 ACK 以及听到自己的数据包被数字中继转发时发出提示音。", "电台弹窗显示可点击的电子邮件、设备、格式和原始数据包。", "检查更新时只上报呼号，用于下方的电台列表（可关闭）。"]),
         e("1.15.9", "消息右键菜单与 Kenwood TS-2000", ["在消息上点击右键：复制文本或呼号、取消重发、立即重发；显示重试次数。", "Kenwood TS-2000（内置 TNC）配置，带进入和退出 KISS 模式的按钮。", "帮助选项卡已完整提供英文版。"]),
         e("1.15.8", "完整的热力图", ["热力图显示所有有 RF 接收的区域；历史数据增加时，稀疏区域不再消失。", "启动时邀请您了解其他免费的 PT2VHF 工具，与 Sat Tool 相同。", "地图工具栏已翻译。"]),
