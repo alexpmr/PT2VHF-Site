@@ -523,7 +523,8 @@ table.stations-rank { width: 100%; border-collapse: collapse; }
 .stations-rank td:first-child, .stations-rank th:first-child { width: 3em; color: var(--muted); }
 .stations-rank td:last-child, .stations-rank th:last-child { text-align: right; white-space: nowrap; }
 .stations-rank a { text-decoration: none; }
-.stations-flag { display: inline-block; min-width: 1.6em; }
+.stations-flag { display: inline-flex; align-items: center; margin-right: .5em; }
+.stations-flag img { width: 1.33em; height: 1em; border-radius: 2px; box-shadow: 0 0 0 1px var(--border); object-fit: cover; }
 .stations-country { margin-top: 28px; scroll-margin-top: 90px; }
 .stations-country h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 1.05rem; }
 .stations-calls { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
