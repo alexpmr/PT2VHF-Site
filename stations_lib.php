@@ -7,14 +7,13 @@
  * Guardamos indicativo, país (pelo prefixo DXCC) e datas da primeira/última
  * consulta. Nenhum endereço IP é gravado: o limite por IP usa um hash HMAC
  * com chave aleatória que é descartada (junto com os hashes) a cada dia UTC.
+ * Os registros são permanentes: uma estação vista uma única vez fica na lista.
  * Arquivo de dados fora de public_html, preservado em novos deploys.
  * Qualquer falha aqui é silenciosa: a resposta do update.php não muda.
  */
 declare(strict_types=1);
 
 const PT2VHF_STATION_PRODUCTS = array('sat');
-const PT2VHF_STATION_WINDOW_DAYS = 365;     // aparecem na página
-const PT2VHF_STATION_KEEP_DAYS = 730;       // depois disso, apagados
 const PT2VHF_STATION_NEW_PER_IP_DAY = 10;   // indicativos novos por IP por dia
 const PT2VHF_STATION_NEW_PER_DAY = 300;     // indicativos novos por dia, total
 const PT2VHF_STATION_MAX = 50000;           // teto de registros por produto
@@ -125,10 +124,6 @@ function pt2vhf_station_seen(string $product, $rawCall, string $ip): void {
             $list[$call] = array('cc' => $country[0], 'entity' => $country[1], 'first' => $today, 'last' => $today);
         }
 
-        $cutoff = gmdate('Y-m-d', time() - PT2VHF_STATION_KEEP_DAYS * 86400);
-        foreach ($list as $c => $row) {
-            if (($row['last'] ?? '') < $cutoff) unset($list[$c]);
-        }
         unset($list);
         $json = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         if (!is_string($json)) return;
@@ -142,16 +137,15 @@ function pt2vhf_station_seen(string $product, $rawCall, string $ip): void {
     }
 }
 
-/** Resumo público: países (ranking) e indicativos ativos na janela. */
+/** Resumo público: países (ranking) e todos os indicativos já registrados (nunca expiram). */
 function pt2vhf_station_summary(string $product): ?array {
     $raw = @file_get_contents(pt2vhf_station_file());
     $data = pt2vhf_station_decode($raw === false ? '' : $raw);
     if ($data === null) return null;
-    $cutoff = gmdate('Y-m-d', time() - PT2VHF_STATION_WINDOW_DAYS * 86400);
     $countries = array();
     $total = 0;
     foreach (($data['products'][$product] ?? array()) as $call => $row) {
-        if (!is_array($row) || ($row['last'] ?? '') < $cutoff) continue;
+        if (!is_array($row)) continue;
         $cc = (string)($row['cc'] ?? '');
         $key = $cc !== '' ? $cc : (string)($row['entity'] ?? '?');
         if (!isset($countries[$key])) {
@@ -174,6 +168,5 @@ function pt2vhf_station_summary(string $product): ?array {
     usort($countries, function ($a, $b) {
         return ($b['count'] <=> $a['count']) ?: strcmp($a['name'], $b['name']);
     });
-    return array('schema' => 1, 'product' => $product, 'windowDays' => PT2VHF_STATION_WINDOW_DAYS,
-                 'total' => $total, 'countries' => $countries);
+    return array('schema' => 1, 'product' => $product, 'total' => $total, 'countries' => $countries);
 }

@@ -41,7 +41,7 @@ window.PT2VHF_I18N["zh"] = {
     "screenshotsIntro": "软件的真实运行截图。",
     "visualIdentityOnly": "仅展示项目标识，尚未发布软件截图。",
     "stationsTitle": "使用 {app} 的电台",
-    "stationsIntro": "应用程序在检查更新时报告的呼号（最近 12 个月内活跃）。",
+    "stationsIntro": "应用程序在检查更新时报告的呼号。",
     "stationsCountry": "国家/地区",
     "stationsCount": "电台数",
     "stationsTotal": "{c} 个国家/地区共 {n} 个电台",

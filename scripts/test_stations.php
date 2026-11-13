@@ -71,6 +71,17 @@ try {
     $doc = json_decode(file_get_contents($data), true);
     check($doc['products']['sat']['PY2XYZ']['last'] === gmdate('Y-m-d'), 'last deveria ser atualizado');
 
+    // Registro antigo (5 anos sem consulta) nunca expira nem some do resumo.
+    $doc = json_decode(file_get_contents($data), true);
+    $doc['products']['sat']['PY2OLD'] = array('cc' => 'BR', 'entity' => 'Brazil', 'first' => '2020-01-01', 'last' => '2020-01-01');
+    file_put_contents($data, json_encode($doc));
+    get($base . '/update.php?product=sat&call=PY2XYZ');
+    $doc['products']['sat']['PY2XYZ']['last'] = '2026-01-02';
+    file_put_contents($data, json_encode($doc));
+    get($base . '/update.php?product=sat&call=PY2XYZ'); // força uma gravação
+    check(isset(json_decode(file_get_contents($data), true)['products']['sat']['PY2OLD']), 'Registro antigo não pode ser apagado');
+    check(strpos(get($base . '/stations.php?product=sat')[1], 'PY2OLD') !== false, 'Registro antigo deve aparecer no resumo');
+
     // Arquivo corrompido: nunca sobrescrever, resposta inalterada.
     file_put_contents($data, '{corrompido');
     [$sc, $bodyC] = get($base . '/update.php?product=sat&call=PY9NEW');

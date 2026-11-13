@@ -41,7 +41,7 @@ window.PT2VHF_I18N["en"] = {
     "screenshotsIntro": "Actual application screenshots.",
     "visualIdentityOnly": "Project branding only. Screenshots are not published yet.",
     "stationsTitle": "Stations using {app}",
-    "stationsIntro": "Callsigns reported by the application itself when checking for updates, active in the last 12 months.",
+    "stationsIntro": "Callsigns reported by the application itself when checking for updates.",
     "stationsCountry": "Country",
     "stationsCount": "Stations",
     "stationsTotal": "{n} stations in {c} countries",
