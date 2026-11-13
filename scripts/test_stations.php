@@ -63,6 +63,7 @@ try {
     [$sa0, $plainA] = get($base . '/update.php?product=aprs-android');
     [$sa1, $withCallA] = get($base . '/update.php?product=aprs-android&call=py2xyz');
     check($sa0 === 200 && $sa1 === 200 && $withCallA === $plainA, 'aprs-android: resposta com call deve ser idêntica');
+    get($base . '/update.php?product=aprs-android&call=PY2XYZ-9'); // SSID: mesma estação
     [$sas, $summaryA] = get($base . '/stations.php?product=aprs-android');
     $ja = json_decode($summaryA, true);
     check($sas === 200 && $ja['product'] === 'aprs-android' && $ja['total'] === 1
