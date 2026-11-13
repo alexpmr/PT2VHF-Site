@@ -631,6 +631,7 @@
     if (sectionsEl) renderSections(sectionsEl);
     renderPropIntro();
     renderDownloadCounters();
+    renderStations();
 
     // Âncora na URL (ex.: /#prop): rola depois que as seções existem
     if (location.hash) {
@@ -678,6 +679,72 @@
     });
   }
 
+  // Estações que usam o aplicativo (indicativos enviados na consulta de versão).
+  // Ranking de países e, abaixo, os indicativos de cada país.
+  var stationsData = null;
+  function countryName(c) {
+    if (c.cc && window.Intl && Intl.DisplayNames) {
+      try {
+        var name = new Intl.DisplayNames([LOCALES[selectedLang]], { type: "region" }).of(c.cc);
+        if (name && name !== c.cc) return name;
+      } catch (e) {}
+    }
+    return c.name || c.cc || "?";
+  }
+  function countryFlag(cc) {
+    if (!/^[A-Z]{2}$/.test(cc || "") || cc === "UN") return "";
+    return String.fromCodePoint(0x1F1E6 + cc.charCodeAt(0) - 65, 0x1F1E6 + cc.charCodeAt(1) - 65);
+  }
+  function renderStations() {
+    var section = document.querySelector("[data-stations-product]");
+    var body = document.getElementById("stations-body");
+    if (!section || !body || !stationsData) return;
+    var current = products.filter(function (p) { return p.id === programId; })[0];
+    var app = (current && current.name) || "";
+    var title = document.getElementById("stations-title");
+    if (title) title.textContent = t("stationsTitle").replace("{app}", app);
+    var intro = document.getElementById("stations-intro");
+    if (intro) intro.textContent = t("stationsIntro");
+    var list = stationsData.countries || [];
+    var fmt = new Intl.NumberFormat(LOCALES[selectedLang]);
+    if (!list.length) {
+      body.innerHTML = '<p class="soon">' + esc(t("stationsEmpty")) + "</p>";
+    } else {
+      body.innerHTML =
+        '<p class="stations-total">' + esc(t("stationsTotal").replace("{n}", fmt.format(stationsData.total)).replace("{c}", fmt.format(list.length))) + "</p>" +
+        '<div class="table-wrap"><table class="stations-rank"><thead><tr><th>#</th><th>' + esc(t("stationsCountry")) +
+        "</th><th>" + esc(t("stationsCount")) + "</th></tr></thead><tbody>" +
+        list.map(function (c, i) {
+          return "<tr><td>" + (i + 1) + '</td><td><a href="#estacoes-' + esc(c.cc || i) + '">' +
+            '<span class="stations-flag" aria-hidden="true">' + countryFlag(c.cc) + "</span>" + esc(countryName(c)) +
+            "</a></td><td>" + fmt.format(c.count) + "</td></tr>";
+        }).join("") +
+        "</tbody></table></div>" +
+        list.map(function (c, i) {
+          return '<div class="stations-country" id="estacoes-' + esc(c.cc || i) + '"><h3>' +
+            '<span class="stations-flag" aria-hidden="true">' + countryFlag(c.cc) + "</span>" + esc(countryName(c)) +
+            ' <span class="badge">' + fmt.format(c.count) + "</span></h3>" +
+            '<ul class="stations-calls">' + c.calls.map(function (call) {
+              return '<li class="mono">' + esc(call) + "</li>";
+            }).join("") + "</ul></div>";
+        }).join("");
+    }
+    section.hidden = false;
+  }
+  function loadStations() {
+    var section = document.querySelector("[data-stations-product]");
+    if (!section || !window.fetch) return;
+    var product = section.getAttribute("data-stations-product");
+    fetch("/stations.php?product=" + encodeURIComponent(product), { cache: "no-cache" }).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    }).then(function (data) {
+      if (!data || data.schema !== 1 || !Array.isArray(data.countries)) throw new Error("Invalid stations");
+      stationsData = data;
+      renderStations();
+    }).catch(function () { section.hidden = true; });
+  }
+
   // APRS: o servidor registra a solicitação antes de servir o arquivo.
   // Jamais emitir um segundo POST no mesmo clique.
   document.addEventListener("click", function (event) {
@@ -715,6 +782,7 @@
     .then(function () {
       render();
       if (programId) loadDownloadCounters();
+      loadStations();
     });
 
   // Fiel ao seletor do APRS Client: botão de idioma atual + menu vertical.

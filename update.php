@@ -6,6 +6,7 @@
  */
 declare(strict_types=1);
 require_once __DIR__ . '/prop_parts.php';
+require_once __DIR__ . '/stations_lib.php';
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, max-age=0');
 header('X-Content-Type-Options: nosniff');
@@ -23,6 +24,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'GET') {
 $names = array('mesh','aprs','prop','sat','sdr','prog','qsl','aprs-android');
 $product = (string)($_GET['product'] ?? 'mesh');
 if (!in_array($product, $names, true)) reply(400, array('error' => 'Produto invalido'));
+// Indicativo da estação (opcional, ex.: &call=PY2XYZ): registrado para a lista
+// pública de usuários. Nunca altera a resposta nem bloqueia a consulta.
+if (isset($_GET['call'])) {
+    try { pt2vhf_station_seen($product, $_GET['call'], (string)($_SERVER['REMOTE_ADDR'] ?? '')); }
+    catch (Throwable $e) { /* silencioso */ }
+}
 $platform = (string)($_GET['platform'] ?? '');
 $kind = (string)($_GET['kind'] ?? '');
 $platforms = array('', 'windows-x64', 'windows-arm64', 'linux-x64', 'linux-arm64', 'macos-x64', 'macos-arm64', 'android');
