@@ -41,7 +41,7 @@ window.PT2VHF_I18N["es"] = {
     "screenshotsIntro": "Capturas reales de la aplicación.",
     "visualIdentityOnly": "Solo identidad visual. Las capturas todavía no están disponibles.",
     "stationsTitle": "Estaciones que usan {app}",
-    "stationsIntro": "Indicativos enviados por la propia aplicación al buscar actualizaciones, activos en los últimos 12 meses.",
+    "stationsIntro": "Indicativos enviados por la propia aplicación al buscar actualizaciones.",
     "stationsCountry": "País",
     "stationsCount": "Estaciones",
     "stationsTotal": "{n} estaciones en {c} países",

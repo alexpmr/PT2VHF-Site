@@ -10,7 +10,7 @@
   indicativo, URL-encoded. A resposta do `update.php` não muda; falha no registro é silenciosa.
 - **Implementado no PR:** `stations_lib.php` (validação, país por prefixo DXCC, uma gravação por indicativo
   por dia, sem guardar IP, limite de 10 indicativos novos por IP/dia e 300/dia no total), `stations.php`
-  (resumo público, últimos 12 meses), `stations_prefixes.php` gerado por `scripts/build_station_prefixes.py`
+  (resumo público; registros permanentes, sem expiração, a pedido do Alex), `stations_prefixes.php` gerado por `scripts/build_station_prefixes.py`
   a partir do dxcc.json (k0swe/dxcc-json, Apache-2.0), seção "Estações usando o SAT Tool" em `sat.html`
   e teste `scripts/test_stations.php`. Dados em `../pt2vhf-private-data/stations.json`.
 - **Depois do merge:** verificar em produção `stations.php?product=sat` (HTTP 200) e a seção na página `/sat`;

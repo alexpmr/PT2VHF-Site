@@ -2,8 +2,8 @@
 /**
  * Resumo público das estações que usam um aplicativo PT2VHF:
  *   stations.php?product=sat
- * Países em ordem de quantidade e os indicativos de cada um (ativos nos
- * últimos 365 dias). Somente leitura; os registros vêm do update.php.
+ * Países em ordem de quantidade e todos os indicativos já registrados
+ * (permanentes). Somente leitura; os registros vêm do update.php.
  */
 declare(strict_types=1);
 require_once __DIR__ . '/stations_lib.php';

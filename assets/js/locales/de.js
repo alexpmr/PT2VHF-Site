@@ -41,7 +41,7 @@ window.PT2VHF_I18N["de"] = {
     "screenshotsIntro": "Echte Screenshots der Anwendung.",
     "visualIdentityOnly": "Nur das Projektlogo; Screenshots noch nicht veröffentlicht.",
     "stationsTitle": "Stationen mit {app}",
-    "stationsIntro": "Rufzeichen, die die Anwendung bei der Update-Prüfung meldet, aktiv in den letzten 12 Monaten.",
+    "stationsIntro": "Rufzeichen, die die Anwendung bei der Update-Prüfung meldet.",
     "stationsCountry": "Land",
     "stationsCount": "Stationen",
     "stationsTotal": "{n} Stationen in {c} Ländern",

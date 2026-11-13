@@ -41,7 +41,7 @@ window.PT2VHF_I18N["it"] = {
     "screenshotsIntro": "Schermate reali dell’applicazione.",
     "visualIdentityOnly": "Solo identità visiva del progetto; le schermate non sono ancora disponibili.",
     "stationsTitle": "Stazioni che usano {app}",
-    "stationsIntro": "Nominativi inviati dall’applicazione durante la verifica degli aggiornamenti, attivi negli ultimi 12 mesi.",
+    "stationsIntro": "Nominativi inviati dall’applicazione durante la verifica degli aggiornamenti.",
     "stationsCountry": "Paese",
     "stationsCount": "Stazioni",
     "stationsTotal": "{n} stazioni in {c} paesi",
