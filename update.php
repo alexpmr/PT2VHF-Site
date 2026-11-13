@@ -45,7 +45,8 @@ if (!is_array($catalog) || ($catalog['schema'] ?? null) !== 1 || !is_array($cata
 $entry = $catalog['products'][$product] ?? null;
 if (!is_array($entry)) reply(404, array('error' => 'Produto nao cadastrado'));
 $version = $entry['version'] ?? null;
-$ready = is_string($version) && preg_match('/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/D', $version) === 1;
+// Aceita X.Y (ex.: APRS Android 1.0, item #83) além de X.Y.Z.
+$ready = is_string($version) && preg_match('/^\d+\.\d+(?:\.\d+)?(?:[-+][0-9A-Za-z.-]+)?$/D', $version) === 1;
 $mapping = array('windows-installer' => 'installer', 'windows-portable' => 'portable',
                  'linux-deb' => 'deb', 'linux-targz' => 'tar.gz',
                  'linux-appimage' => 'appimage', 'macos' => 'dmg',
