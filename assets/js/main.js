@@ -691,9 +691,10 @@
     }
     return c.name || c.cc || "?";
   }
+  // Imagem SVG (flag-icons, MIT): o Windows não desenha emojis de bandeira e mostraria só a sigla.
   function countryFlag(cc) {
-    if (!/^[A-Z]{2}$/.test(cc || "") || cc === "UN") return "";
-    return String.fromCodePoint(0x1F1E6 + cc.charCodeAt(0) - 65, 0x1F1E6 + cc.charCodeAt(1) - 65);
+    if (!/^[A-Z]{2}$/.test(cc || "") || cc === "ZZ") return "";
+    return '<img src="/assets/img/flags/country/' + cc.toLowerCase() + '.svg" alt="" width="20" height="15" loading="lazy">';
   }
   function renderStations() {
     var section = document.querySelector("[data-stations-product]");
