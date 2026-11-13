@@ -361,7 +361,7 @@
   function meshChangelog(p) {
     if (!Array.isArray(p.changelog) || !p.changelog.length) return "";
     var rows=p.changelog.slice(0,5).map(function (entry) {
-      if (!entry || !/^\d+\.\d+\.\d+$/.test(String(entry.version || ""))) return "";
+      if (!entry || !/^\d+\.\d+(?:\.\d+)?$/.test(String(entry.version || ""))) return "";
       var changes=Array.isArray(entry.changes) ? entry.changes : [];
       return '<article class="mesh-history-entry">' +
         '<h4><span class="mesh-history-version">v' + esc(entry.version) + '</span>' +

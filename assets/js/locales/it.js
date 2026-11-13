@@ -262,6 +262,9 @@ window.PT2VHF_I18N["it"] = {
         "Con una radio o un TNC KISS associato via Bluetooth trasmette e riceve in RF. La modalità tracker invia la posizione con SmartBeaconing anche a schermo spento."
       ],
       "features": [
+        "TNC KISS via Bluetooth LE (Mobilinkd TNC4, PicoAPRS, tracker LoRa APRS) e, in modalità audio, PTT via RTS/DTR o CAT (Kenwood, Yaesu, Icom CI-V) con adattatore USB-seriale",
+        "Scheda stazione con la radio/app usata (tabella aprs-deviceid), stato Mic-E, PHG, frequenza annunciata e percorso; le stazioni Mic-E compaiono sulla mappa",
+        "E-mail e siti nel commento diventano link; suoni per la conferma (ack) e per il mio pacchetto ripetuto da un digipeater",
         "Android Auto: stazioni vicine, Beacon ora e ultimo messaggio sul display dell'auto (modalità sviluppatore di Android Auto per APK fuori dal Play Store)",
         "Finestra \"Quale SSID usare?\" con le raccomandazioni di WB4APR, scheda Informazioni e Salva sempre visibile nelle Impostazioni",
         "Messaggi inviati senza accenti per impostazione predefinita, per radio e client che mostrano solo ASCII",

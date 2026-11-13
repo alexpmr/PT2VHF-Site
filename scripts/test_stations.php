@@ -95,6 +95,9 @@ try {
     check(isset(json_decode(file_get_contents($data), true)['products']['sat']['PY2OLD']), 'Registro antigo não pode ser apagado');
     check(strpos(get($base . '/stations.php?product=sat')[1], 'PY2OLD') !== false, 'Registro antigo deve aparecer no resumo');
 
+    // Cópia diária do registro antes de gravar (#86 do app Android).
+    check(count(glob(dirname($data) . '/stations-backup-*.json') ?: array()) >= 1, 'Deveria haver cópia diária do registro');
+
     // Arquivo corrompido: nunca sobrescrever, resposta inalterada.
     file_put_contents($data, '{corrompido');
     [$sc, $bodyC] = get($base . '/update.php?product=sat&call=PY9NEW');

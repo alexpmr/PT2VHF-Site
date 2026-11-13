@@ -100,8 +100,10 @@ function pt2vhf_station_seen(string $product, $rawCall, string $ip): void {
     if ($fh === false) return;
     try {
         if (!flock($fh, LOCK_EX)) return;
-        $data = pt2vhf_station_decode(stream_get_contents($fh));
+        $original = stream_get_contents($fh);
+        $data = pt2vhf_station_decode($original);
         if ($data === null) return; // arquivo inválido: nunca sobrescrever
+        pt2vhf_station_backup($dir, $original, $today);
         if (!is_array($data['products'][$product] ?? null)) $data['products'][$product] = array();
         $list =& $data['products'][$product];
 
@@ -136,6 +138,20 @@ function pt2vhf_station_seen(string $product, $rawCall, string $ip): void {
         @flock($fh, LOCK_UN);
         fclose($fh);
     }
+}
+
+/**
+ * Cópia diária do registro antes da primeira gravação do dia (stations-backup-AAAA-MM-DD.json, mesma pasta privada),
+ * para nunca perder a lista por gravação corrompida. Guarda as 30 cópias mais recentes.
+ */
+function pt2vhf_station_backup(string $dir, $contents, string $today): void {
+    if (!is_string($contents) || $contents === '') return;
+    $file = $dir . '/stations-backup-' . $today . '.json';
+    if (file_exists($file)) return;
+    @file_put_contents($file, $contents, LOCK_EX);
+    $old = glob($dir . '/stations-backup-*.json') ?: array();
+    sort($old);
+    foreach (array_slice($old, 0, max(0, count($old) - 30)) as $f) @unlink($f);
 }
 
 /** Resumo público: países (ranking) e todos os indicativos já registrados (nunca expiram). */

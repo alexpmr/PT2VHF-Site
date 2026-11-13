@@ -630,10 +630,10 @@
     },
     "aprs-android": {
       "name": "PT2VHF APRS Client for Android",
-      "version": "1.0",
+      "version": "1.1",
       "date": "2026-11-13",
       "page": "https://www.pt2vhf.com/aprs-android",
-      "notes": "v1.0: Salvar sempre visível nas Configurações (Android 15/16, tablets e navegação por 3 botões), SSID que não volta mais para -9/-7, janela \"Qual SSID usar?\" (WB4APR), aba Sobre com colaboradores, mensagens sem acentos por padrão, Android Auto (primeira versão), indicativo informado na consulta de versão (pode desligar) e ICOM ID-5200 na lista de rádios.",
+      "notes": "v1.1: TNC KISS por Bluetooth LE, PTT por RTS/DTR ou CAT no modo áudio (Kenwood, Yaesu, Icom CI-V), ficha da estação com o rádio/aplicativo usado e Mic-E completo (estações Mic-E no mapa), PHG e frequência anunciada, e-mails e sites do comentário como links, sons de ack e de pacote repetido pelo digipeater, e PP5PK nos colaboradores. BLE e PTT ainda não testados em hardware real.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=aprs-android",
       "files": [
         {
@@ -641,15 +641,15 @@
           "counterKey": "android-apk",
           "architecture": "universal",
           "platform": "android",
-          "name": "PT2VHF_APRS_Client_Android_v1.0.apk",
-          "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v1.0.apk",
-          "size": 9756883,
-          "sha256": "371610efc934bf934dff1c635c90433aa2e267cc9df7b8371e5cb6e57e18b301",
+          "name": "PT2VHF_APRS_Client_Android_v1.1.apk",
+          "url": "https://www.pt2vhf.com/downloads/aprs-android/PT2VHF_APRS_Client_Android_v1.1.apk",
+          "size": 9846899,
+          "sha256": "29106026d9d34ec58317cb35805ff15df858cf3a2089b5d10fb9b2b95adfcd0a",
           "detail": "Android 8 ou superior",
-          "label": "Android — APK 1.0"
+          "label": "Android — APK 1.1"
         }
       ],
-      "releaseStatus": "1.0 publicada como OTA regular. Faça backup antes de atualizar."
+      "releaseStatus": "1.1 publicada como OTA regular. Faça backup antes de atualizar."
     }
   }
 }
