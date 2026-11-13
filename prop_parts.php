@@ -7,7 +7,7 @@ function pt2vhf_segmented_products(): array {
         'prop' => array('folder' => 'prop-tool',
                         'pattern' => '/^PT2VHF-Prop-Tool-[0-9]+\.[0-9]+\.[0-9]+-x64-(setup|portable)\.exe$/D'),
         'sat' => array('folder' => 'sat-tool',
-                       'pattern' => '/^PT2VHF-Sat-Tool-v[0-9]+\.[0-9]+\.[0-9]+-(Win11-x64-(Setup|Portable)\.exe|Linux-x64\.tar\.gz|macOS-arm64\.dmg)$/D'),
+                       'pattern' => '/^PT2VHF-Sat-Tool-v[0-9]+\.[0-9]+\.[0-9]+-(Win11-x64-(Setup|Portable)\.exe|Linux-x64\.(tar\.gz|deb)|macOS-arm64\.dmg)$/D'),
         // SDR Tool (PyInstaller): instalador e portátil Windows sempre em partes.
         'sdr' => array('folder' => 'sdr-tool', 'min' => 20000000,
                        'pattern' => '/^PT2VHF-SDR-Tool-(v[0-9]+\.[0-9]+\.[0-9]+-Win11-x64-(Setup|Portable)|[0-9]+\.[0-9]+\.[0-9]+-win-x64-(setup|portable))\.exe$/D'),
