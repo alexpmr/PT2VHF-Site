@@ -59,10 +59,24 @@ try {
     [$sx] = get($base . '/stations.php?product=xyz');
     check($sx === 400, 'Produto inválido no resumo deveria dar 400');
 
-    // Limite de indicativos novos por IP por dia (2 já usados).
+    // Prop Tool: mesmo registro, lista separada por produto, resposta do update.php inalterada.
+    [$sp0, $propPlain] = get($base . '/update.php?product=prop');
+    [$sp1, $propCall] = get($base . '/update.php?product=prop&call=pu2abc');
+    check($sp0 === 200 && $sp1 === 200 && $propCall === $propPlain, 'Resposta do Prop Tool com call deve ser idêntica');
+    get($base . '/update.php?product=prop&call=' . rawurlencode('EA/PY2XYZ'));
+    $jp = json_decode(get($base . '/stations.php?product=prop')[1], true);
+    $propCc = array();
+    foreach ($jp['countries'] as $c) $propCc[$c['cc']] = $c['calls'];
+    check($jp['product'] === 'prop' && $jp['total'] === 2, 'Prop Tool deveria ter 2 estações: ' . json_encode($jp));
+    check(($propCc['BR'] ?? null) === array('PU2ABC') && ($propCc['ES'] ?? null) === array('EA/PY2XYZ'), 'Países do Prop Tool');
+    check(strpos(json_encode($jp), 'PY2OLD') === false, 'Listas de produtos não podem se misturar');
+    $doc = json_decode(file_get_contents($data), true);
+    check(!isset($doc['products']['prop']['PU2ABC']['ip']) && strpos(file_get_contents($data), '127.0.0.1') === false, 'Sem IP no registro do Prop Tool');
+
+    // Limite de indicativos novos por IP por dia, comum aos produtos (4 já usados: 2 SAT + 2 Prop).
     for ($i = 1; $i <= 12; $i++) get($base . '/update.php?product=sat&call=PY' . $i . 'LIM');
     $j = json_decode(get($base . '/stations.php?product=sat')[1], true);
-    check($j['total'] === 10, 'Limite por IP deveria parar em 10 novos/dia, total ' . $j['total']);
+    check($j['total'] === 8, 'Limite por IP deveria parar em 10 novos/dia (8 no SAT), total ' . $j['total']);
     // Estação já conhecida continua sendo atualizada mesmo acima do limite.
     $doc = json_decode(file_get_contents($data), true);
     $doc['products']['sat']['PY2XYZ']['last'] = '2026-01-01';

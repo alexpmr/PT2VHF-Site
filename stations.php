@@ -1,7 +1,7 @@
 <?php
 /**
  * Resumo público das estações que usam um aplicativo PT2VHF:
- *   stations.php?product=sat
+ *   stations.php?product=sat | stations.php?product=prop
  * Países em ordem de quantidade e todos os indicativos já registrados
  * (permanentes). Somente leitura; os registros vêm do update.php.
  */

@@ -2,6 +2,20 @@
 
 ## Pendentes
 
+### Estações que usam o Prop Tool (indicativos por país) — PR aberto, aguardando aprovação (13/11/2026)
+
+- **Pedido do Alex:** registro de usuários por indicativo igual ao do SAT Tool, para o PT2VHF Prop Tool
+  (produto OTA **`prop`**, repositório `alexpmr/PT2VHF-Prop-Tool`).
+- **Contrato com o app:** `update.php?product=prop&call=PY2XYZ`, só o indicativo (nunca localização ou locator);
+  a resposta do `update.php` não muda e falha no registro é silenciosa.
+- **Implementado no PR:** `prop` em `PT2VHF_STATION_PRODUCTS` (`stations_lib.php`), reaproveitando validação, país
+  por prefixo DXCC, primeira/última consulta, sem IP, limite de 10 indicativos novos por IP/dia (comum aos
+  produtos) e registro permanente; seção "Estações usando o Prop Tool" no fim de `prop.html` (ranking de países
+  com bandeira em imagem e os indicativos de cada país, 7 idiomas) e cache-busting atualizado; teste em
+  `scripts/test_stations.php`.
+- **Publicação:** só após aprovação do Alex (o merge na `main` publica na Hostinger). Depois, verificar em produção
+  `stations.php?product=prop` (HTTP 200) e a seção na página `/prop`.
+
 ### Estações que usam o SAT Tool (indicativos por país) — PR aberto, aguardando aprovação (13/11/2026)
 
 - **Pedido do Alex:** ao consultar versão nova, o app envia o indicativo da estação; o site mostra, no fim da
