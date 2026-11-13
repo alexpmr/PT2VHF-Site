@@ -2,6 +2,16 @@
 
 ## Pendentes
 
+### RESOLVIDO (APRS Client v2.0.0, 13/11/2026) — Estações do APRS Client e comparação de recursos em /aprs
+
+- **Estações por país:** produto `aprs` no registro (`stations_lib.php`), seção no fim de `/aprs` igual à de `/android`
+  (ranking com bandeira e indicativos de cada país). Substitui o PR #25, que tinha conflito com o registro do Android.
+  O app envia `update.php?product=aprs&call=...` a partir da v2.0.0. Teste em `scripts/test_stations.php`.
+- **Comparação de recursos (backlog 12/11/2026):** WinAPRS × APRS World × PT2VHF APRS Client, no mesmo formato da
+  tabela do Android (`assets/js/compare-data-aprs.js`). Valores sem fonte ficam como "Não confirmado".
+- **Changelog corrigido:** as notas 1.15.2–1.15.9 do APRS Client tinham entrado nos blocos do QSL (pt/en/es) e do Sat
+  (fr/de/it/zh) em `changelog-data.js`; voltaram para o APRS, com a 2.0.0 no topo.
+
 ### Estações que usam o APRS Client for Android (indicativos por país) — PR aberto, aguardando aprovação (13/11/2026)
 
 - **Pedido do Alex:** o mesmo registro do SAT Tool para o app Android (produto `aprs-android`, item #84 do

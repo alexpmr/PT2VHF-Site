@@ -70,10 +70,20 @@ try {
     check(strpos($summaryA, 'CT/PY2ABC/P') === false, 'aprs-android não pode listar estações do SAT');
     check(json_decode(get($base . '/stations.php?product=sat')[1], true)['total'] === 2, 'SAT não pode listar estações do Android');
 
-    // Limite de indicativos novos por IP por dia, somando os produtos (3 já usados).
+    // APRS Client desktop (v2.0.0+): mesmo registro, lista separada e resposta inalterada.
+    [$sd0, $plainD] = get($base . '/update.php?product=aprs');
+    [$sd1, $withCallD] = get($base . '/update.php?product=aprs&call=PY2APR');
+    check($sd0 === 200 && $sd1 === 200 && $withCallD === $plainD, 'aprs: resposta com call deve ser idêntica');
+    [$sds, $summaryD] = get($base . '/stations.php?product=aprs');
+    $jd = json_decode($summaryD, true);
+    check($sds === 200 && $jd['product'] === 'aprs' && $jd['total'] === 1
+        && $jd['countries'][0]['cc'] === 'BR' && $jd['countries'][0]['calls'] === array('PY2APR'), 'aprs: resumo ' . $summaryD);
+    check(json_decode(get($base . '/stations.php?product=aprs-android')[1], true)['total'] === 1, 'Android não pode listar estações do APRS desktop');
+
+    // Limite de indicativos novos por IP por dia, somando os produtos (4 já usados).
     for ($i = 1; $i <= 12; $i++) get($base . '/update.php?product=sat&call=PY' . $i . 'LIM');
     $j = json_decode(get($base . '/stations.php?product=sat')[1], true);
-    check($j['total'] === 9, 'Limite por IP deveria parar em 10 novos/dia, total SAT ' . $j['total']);
+    check($j['total'] === 8, 'Limite por IP deveria parar em 10 novos/dia, total SAT ' . $j['total']);
     get($base . '/update.php?product=aprs-android&call=PY2LIM');
     check(json_decode(get($base . '/stations.php?product=aprs-android')[1], true)['total'] === 1, 'Limite por IP vale também para o Android');
     // Estação já conhecida continua sendo atualizada mesmo acima do limite.
