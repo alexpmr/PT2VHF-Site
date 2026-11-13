@@ -513,3 +513,18 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .contact-help h2 { font-size:clamp(1.3rem,2.6vw,1.7rem); margin:0 0 16px; }
 .contact-help-list { margin:0; padding:20px 24px 20px 44px; background:var(--surface); border:1px solid var(--border); border-radius:14px; line-height:1.7; }
 .contact-help-list li + li { margin-top:6px; }
+
+/* Estações que usam o aplicativo: ranking de países e indicativos. */
+.stations-total { color: var(--muted); margin: 0 0 12px; }
+table.stations-rank { width: 100%; border-collapse: collapse; }
+.stations-rank th, .stations-rank td { text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+.stations-rank thead th { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: var(--bg-alt); }
+.stations-rank tbody tr:last-child > * { border-bottom: 0; }
+.stations-rank td:first-child, .stations-rank th:first-child { width: 3em; color: var(--muted); }
+.stations-rank td:last-child, .stations-rank th:last-child { text-align: right; white-space: nowrap; }
+.stations-rank a { text-decoration: none; }
+.stations-flag { display: inline-block; min-width: 1.6em; }
+.stations-country { margin-top: 28px; scroll-margin-top: 90px; }
+.stations-country h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 1.05rem; }
+.stations-calls { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.stations-calls li { font-size: .85rem; padding: 4px 10px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); }

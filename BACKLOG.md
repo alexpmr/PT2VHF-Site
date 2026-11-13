@@ -2,6 +2,20 @@
 
 ## Pendentes
 
+### Estações que usam o SAT Tool (indicativos por país) — PR aberto, aguardando aprovação (13/11/2026)
+
+- **Pedido do Alex:** ao consultar versão nova, o app envia o indicativo da estação; o site mostra, no fim da
+  página `/sat`, um ranking de países e a lista de indicativos de cada país (estilo APRS World).
+- **Contrato com o app (v1.8.0, PR #34 do PT2VHF-Sat-Tool):** `update.php?product=sat&call=PY2XYZ`, só o
+  indicativo, URL-encoded. A resposta do `update.php` não muda; falha no registro é silenciosa.
+- **Implementado no PR:** `stations_lib.php` (validação, país por prefixo DXCC, uma gravação por indicativo
+  por dia, sem guardar IP, limite de 10 indicativos novos por IP/dia e 300/dia no total), `stations.php`
+  (resumo público, últimos 12 meses), `stations_prefixes.php` gerado por `scripts/build_station_prefixes.py`
+  a partir do dxcc.json (k0swe/dxcc-json, Apache-2.0), seção "Estações usando o SAT Tool" em `sat.html`
+  e teste `scripts/test_stations.php`. Dados em `../pt2vhf-private-data/stations.json`.
+- **Depois do merge:** verificar em produção `stations.php?product=sat` (HTTP 200) e a seção na página `/sat`;
+  ela só aparece quando o endpoint responde e lista estações a partir da 1.8.0 do app.
+
 ### Banner PT2VHF em inglês — GitHub atualizado, publicação na Hostinger pendente (10/11/2026)
 
 - **Solicitação:** retirar o carro e a pessoa, reduzir a altura do banner e retirar a assinatura "por Alex, PT2VHF"; usar títulos em inglês.
