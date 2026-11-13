@@ -262,12 +262,15 @@ window.PT2VHF_I18N["it"] = {
         "Con una radio o un TNC KISS associato via Bluetooth trasmette e riceve in RF. La modalità tracker invia la posizione con SmartBeaconing anche a schermo spento."
       ],
       "features": [
+        "Android Auto: stazioni vicine, Beacon ora e ultimo messaggio sul display dell'auto (modalità sviluppatore di Android Auto per APK fuori dal Play Store)",
+        "Finestra \"Quale SSID usare?\" con le raccomandazioni di WB4APR, scheda Informazioni e Salva sempre visibile nelle Impostazioni",
+        "Messaggi inviati senza accenti per impostazione predefinita, per radio e client che mostrano solo ASCII",
         "APRS-IS con elenco di server (predefinito soam.aprs2.net) o server proprio, passcode automatico e filtro modificabile (predefinito r/4000)",
         "Riconnessione automatica al passaggio tra Wi-Fi e dati mobili",
         "Mappa OpenStreetMap con stazioni e collegamenti RF comprovati (internet, DMR e D-STAR non contano come RF)",
         "Messaggi: conversazioni, canale generale (CQ) e bollettini, con ACK, nuovi tentativi e notifiche",
         "Pulsante Invia beacon e tracker SmartBeaconing in background",
-        "TNC KISS via Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro e simili) con monitor dal vivo",
+        "TNC KISS via Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 e simili) con monitor dal vivo",
         "Avviso di nuova versione e download dal sito ufficiale",
         "Profili Base, Mobile, Portatile e Solo ricezione, con cambio rapido nel Tracker",
         "TNC KISS anche via TCP sulla rete locale (Dire Wolf e simili), oltre al Bluetooth",

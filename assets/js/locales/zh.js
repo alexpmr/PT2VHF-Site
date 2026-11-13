@@ -262,12 +262,15 @@ window.PT2VHF_I18N["zh"] = {
         "通过蓝牙配对的 KISS 电台或 TNC 可进行射频收发。跟踪器模式在屏幕关闭时也会用 SmartBeaconing 发送位置。"
       ],
       "features": [
+        "Android Auto：在车载屏幕上显示附近电台、立即发送信标和最新消息（Play 商店以外的 APK 需开启 Android Auto 开发者模式）",
+        "“该用哪个 SSID？”窗口（WB4APR 建议）、“关于”标签页，设置中的“保存”始终可见",
+        "默认发送不带重音符号的消息，适配只显示 ASCII 的电台和客户端",
         "APRS-IS 服务器列表（默认 soam.aprs2.net）或自有服务器，自动 passcode，可编辑过滤器（默认 r/4000）",
         "在 Wi-Fi 与移动数据间切换时自动重连",
         "OpenStreetMap 地图显示电台和已证实的射频链路（互联网、DMR 和 D-STAR 不算射频）",
         "消息：会话、公共频道（CQ）和公告，支持 ACK、重发和通知",
         "发送信标按钮和后台 SmartBeaconing 跟踪器",
-        "蓝牙 KISS TNC（Mobilinkd、BTECH UV-Pro、Radtel RT-950 Pro 等）及实时监视",
+        "蓝牙 KISS TNC（Mobilinkd、BTECH UV-Pro、Radtel RT-950 Pro、ICOM ID-5200 等）及实时监视",
         "新版本提醒，官方网站下载",
         "基地、车载、便携和仅接收配置文件，可在跟踪页快速切换",
         "除蓝牙外，也支持局域网 TCP 方式的 KISS TNC（Dire Wolf 等）",

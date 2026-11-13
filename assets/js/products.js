@@ -61,6 +61,9 @@ window.PT2VHF_PRODUCTS = [
       "Com um rádio ou TNC KISS pareado por Bluetooth, transmite e recebe por RF. O modo tracker envia a sua posição com SmartBeaconing mesmo com a tela desligada."
     ],
     features: [
+        "Android Auto: estações próximas, Beacon agora e última mensagem no painel do carro (modo desenvolvedor do Android Auto para APK fora da Play Store)",
+        "Janela \"Qual SSID usar?\" com as recomendações de WB4APR, aba Sobre e Salvar sempre visível nas Configurações",
+        "Mensagens enviadas sem acentos por padrão, para rádios e clientes que só mostram ASCII",
       "Ficha da estação em tela cheia: recepção nas últimas 24 h (iGates, último salto, RF × APRS-IS), outros SSIDs, caminho do pacote salto a salto, gráficos de clima e telemetria APRS e pacotes brutos",
       "Lista de estações ordenada em um toque por Tipo, Nome, Distância ou Recentes (tocar de novo inverte); ícones do mapa maiores e nítidos, com tamanho Pequeno/Médio/Grande",
       "Mensagens privadas priorizam APRS-IS verificado, com fallback RF; envio interrompido fica marcado com Reenviar; exclusão segura de mensagens e estações",
@@ -69,7 +72,7 @@ window.PT2VHF_PRODUCTS = [
       "Mapa OpenStreetMap com estações e enlaces RF comprovados (internet, DMR e D-STAR não contam como RF)",
       "Mensagens: conversas, canal geral (CQ) e boletins, com ACK, novas tentativas e notificações",
       "Botão Enviar beacon e modo tracker com SmartBeaconing em segundo plano",
-      "TNC KISS por Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro e similares) com monitor ao vivo",
+      "TNC KISS por Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 e similares) com monitor ao vivo",
       "Aviso de nova versão e downloads pelo site oficial",
       "Símbolos APRS convencionais nas tabelas primária e alternativa, inclusive overlays; disponíveis offline dentro do APK",
       "Restauração da visualização anterior do mapa, preservando centro e zoom, com ação Minha localização",
@@ -93,7 +96,7 @@ window.PT2VHF_PRODUCTS = [
     supported: [
       {
         "name": "TNC KISS Bluetooth",
-        "detail": "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro e similares (SPP)"
+        "detail": "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 e similares (SPP)"
       },
       {
         "name": "APRS-IS",

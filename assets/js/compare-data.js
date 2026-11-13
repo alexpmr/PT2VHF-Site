@@ -1,0 +1,103 @@
+/* Item #81: comparação de recursos APRSdroid × APRS World × PT2VHF APRS Client for Android.
+ * Fontes conferidas em 13/11/2026: aprsdroid.org e wiki do APRSdroid no GitHub (Settings, FAQ);
+ * aprs.world (get-the-app, upgrade, guides/aprsdroid-vs-aprs-world — afirmações do próprio APRS World).
+ * Coluna PT2VHF: código da versão publicada; o que depende de teste em rádio/carro reais fica "partial".
+ * Valores: "y" disponível, "p" parcial, "n" indisponível, "u" não confirmado nas fontes. Atualizar a cada versão. */
+(function () {
+  "use strict";
+  var REVIEWED = "2026-11-13";
+  var APPS = ["APRSdroid", "APRS World", "PT2VHF APRS Client"];
+  function r(a, b, c, label, desc) { return { v: [a, b, c], label: label, desc: desc }; }
+  var ROWS = [
+    r("u", "y", "y",
+      { pt: "Interface moderna (Material Design)", en: "Modern interface (Material Design)", es: "Interfaz moderna (Material Design)", fr: "Interface moderne (Material Design)", de: "Moderne Oberfläche (Material Design)", it: "Interfaccia moderna (Material Design)", zh: "现代界面（Material Design）" },
+      { pt: "PT2VHF em Jetpack Compose e Material 3.", en: "PT2VHF uses Jetpack Compose and Material 3.", es: "PT2VHF usa Jetpack Compose y Material 3.", fr: "PT2VHF utilise Jetpack Compose et Material 3.", de: "PT2VHF nutzt Jetpack Compose und Material 3.", it: "PT2VHF usa Jetpack Compose e Material 3.", zh: "PT2VHF 采用 Jetpack Compose 和 Material 3。" }),
+    r("p", "y", "n",
+      { pt: "Na Play Store / App Store", en: "On Play Store / App Store", es: "En Play Store / App Store", fr: "Sur Play Store / App Store", de: "Im Play Store / App Store", it: "Su Play Store / App Store", zh: "上架 Play 商店 / App Store" },
+      { pt: "PT2VHF: só APK assinado neste site, com atualização dentro do app. APRSdroid: Play Store.", en: "PT2VHF: signed APK from this site only, with in-app updates. APRSdroid: Play Store.", es: "PT2VHF: solo APK firmado en este sitio, con actualización en la app. APRSdroid: Play Store.", fr: "PT2VHF : APK signé sur ce site uniquement, avec mise à jour dans l'app. APRSdroid : Play Store.", de: "PT2VHF: nur signierte APK von dieser Website, mit Updates in der App. APRSdroid: Play Store.", it: "PT2VHF: solo APK firmato da questo sito, con aggiornamento nell'app. APRSdroid: Play Store.", zh: "PT2VHF：仅本站签名 APK，应用内更新。APRSdroid：Play 商店。" }),
+    r("n", "y", "n",
+      { pt: "Roda no navegador", en: "Runs in the browser", es: "Funciona en el navegador", fr: "Fonctionne dans le navigateur", de: "Läuft im Browser", it: "Funziona nel browser", zh: "可在浏览器中使用" },
+      { pt: "APRS World tem mapa e mensagens na web.", en: "APRS World has a web map and messaging.", es: "APRS World tiene mapa y mensajes en la web.", fr: "APRS World propose carte et messages sur le web.", de: "APRS World bietet Karte und Nachrichten im Web.", it: "APRS World ha mappa e messaggi sul web.", zh: "APRS World 提供网页地图和消息。" }),
+    r("u", "y", "y",
+      { pt: "Indicadores de entrega de mensagens", en: "Message delivery indicators", es: "Indicadores de entrega de mensajes", fr: "Indicateurs de remise des messages", de: "Zustellanzeige für Nachrichten", it: "Indicatori di consegna dei messaggi", zh: "消息送达指示" },
+      { pt: "Enviando, aguardando ACK (tentativa n), ACK recebido, rejeitada ou sem ACK, com ✓/✓✓.", en: "Sending, awaiting ACK (try n), ACK received, rejected or no ACK, with ✓/✓✓.", es: "Enviando, esperando ACK (intento n), ACK recibido, rechazado o sin ACK, con ✓/✓✓.", fr: "Envoi, attente d'ACK (essai n), ACK reçu, rejeté ou sans ACK, avec ✓/✓✓.", de: "Senden, warte auf ACK (Versuch n), ACK erhalten, abgelehnt oder ohne ACK, mit ✓/✓✓.", it: "Invio, in attesa di ACK (tentativo n), ACK ricevuto, rifiutato o senza ACK, con ✓/✓✓.", zh: "发送中、等待 ACK（第 n 次）、已确认、被拒绝或无 ACK，带 ✓/✓✓。" }),
+    r("u", "u", "y",
+      { pt: "Cancelar mensagens pendentes", en: "Cancel pending messages", es: "Cancelar mensajes pendientes", fr: "Annuler les messages en attente", de: "Ausstehende Nachrichten abbrechen", it: "Annullare i messaggi in sospeso", zh: "取消待发送消息" },
+      { pt: "Ação Cancelar e Reenviar no balão da mensagem.", en: "Cancel and Resend on the message bubble.", es: "Cancelar y Reenviar en el globo del mensaje.", fr: "Annuler et Renvoyer sur la bulle du message.", de: "Abbrechen und Erneut senden an der Nachrichtenblase.", it: "Annulla e Reinvia sul fumetto del messaggio.", zh: "消息气泡上的“取消”和“重发”。" }),
+    r("p", "y", "y",
+      { pt: "Pacotes brutos e caminho do pacote", en: "Raw packets and packet path", es: "Paquetes brutos y ruta del paquete", fr: "Paquets bruts et chemin du paquet", de: "Rohpakete und Paketpfad", it: "Pacchetti grezzi e percorso del pacchetto", zh: "原始数据包与传输路径" },
+      { pt: "Aba Logs com todos os pacotes, decodificador e caminho salto a salto na ficha da estação.", en: "Logs tab with every packet, decoder and hop-by-hop path in the station sheet.", es: "Pestaña Logs con todos los paquetes, decodificador y ruta salto a salto en la ficha.", fr: "Onglet Logs avec tous les paquets, décodeur et chemin saut par saut dans la fiche.", de: "Logs-Reiter mit allen Paketen, Decoder und Pfad Sprung für Sprung im Stationsblatt.", it: "Scheda Logs con tutti i pacchetti, decodificatore e percorso salto per salto nella scheda.", zh: "“日志”页显示全部数据包，含解码器及电台详情中的逐跳路径。" }),
+    r("u", "p", "y",
+      { pt: "Check-in na rede semanal (APRS Thursday)", en: "Weekly net check-in (APRS Thursday)", es: "Check-in en la red semanal (APRS Thursday)", fr: "Check-in au réseau hebdomadaire (APRS Thursday)", de: "Check-in ins Wochennetz (APRS Thursday)", it: "Check-in nella rete settimanale (APRS Thursday)", zh: "每周网络签到（APRS Thursday）" },
+      { pt: "Aba Comunidade com a rodada pré-configurada; confirma antes de transmitir.", en: "Community tab with the net preset; asks before transmitting.", es: "Pestaña Comunidad con la rueda preconfigurada; confirma antes de transmitir.", fr: "Onglet Communauté avec le réseau préconfiguré ; confirmation avant d'émettre.", de: "Reiter Community mit voreingestelltem Netz; fragt vor dem Senden.", it: "Scheda Comunità con la rete preimpostata; chiede prima di trasmettere.", zh: "“社区”页预置该网络；发射前确认。" }),
+    r("u", "y", "n",
+      { pt: "Página pública de status do serviço", en: "Public service status page", es: "Página pública de estado del servicio", fr: "Page publique d'état du service", de: "Öffentliche Statusseite", it: "Pagina pubblica di stato del servizio", zh: "公开服务状态页" },
+      { pt: "O app mostra o estado das conexões e um diagnóstico, mas não há página pública.", en: "The app shows connection status and diagnostics, but there is no public page.", es: "La app muestra el estado de las conexiones y un diagnóstico, pero no hay página pública.", fr: "L'app affiche l'état des connexions et un diagnostic, mais pas de page publique.", de: "Die App zeigt Verbindungsstatus und Diagnose, aber keine öffentliche Seite.", it: "L'app mostra lo stato delle connessioni e una diagnostica, ma non c'è una pagina pubblica.", zh: "应用内可查看连接状态和诊断，但没有公开页面。" }),
+    r("y", "y", "y",
+      { pt: "TNC KISS por Bluetooth clássico", en: "KISS TNC over Bluetooth Classic", es: "TNC KISS por Bluetooth clásico", fr: "TNC KISS en Bluetooth classique", de: "KISS-TNC über Bluetooth Classic", it: "TNC KISS via Bluetooth classico", zh: "经典蓝牙 KISS TNC" },
+      { pt: "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 e similares. APRS World: só no Android.", en: "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 and similar. APRS World: Android only.", es: "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 y similares. APRS World: solo Android.", fr: "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 et similaires. APRS World : Android seulement.", de: "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 u. ä. APRS World: nur Android.", it: "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 e simili. APRS World: solo Android.", zh: "Mobilinkd、BTECH UV-Pro、Radtel RT-950 Pro、ICOM ID-5200 等。APRS World 仅限 Android。" }),
+    r("y", "n", "p",
+      { pt: "AFSK 1200 pelo áudio do celular", en: "AFSK 1200 through the phone's audio", es: "AFSK 1200 por el audio del teléfono", fr: "AFSK 1200 par l'audio du téléphone", de: "AFSK 1200 über das Telefon-Audio", it: "AFSK 1200 tramite l'audio del telefono", zh: "通过手机音频的 AFSK 1200" },
+      { pt: "Modem RX/TX com VOX no app; parcial até a validação com rádios reais.", en: "RX/TX modem with VOX in the app; partial until validated with real radios.", es: "Módem RX/TX con VOX en la app; parcial hasta validarlo con radios reales.", fr: "Modem RX/TX avec VOX dans l'app ; partiel jusqu'à validation avec de vraies radios.", de: "RX/TX-Modem mit VOX in der App; teilweise, bis es mit echten Funkgeräten geprüft ist.", it: "Modem RX/TX con VOX nell'app; parziale fino alla verifica con radio reali.", zh: "应用内含 VOX 收发调制解调器；在真实电台验证前标为部分支持。" }),
+    r("u", "u", "n",
+      { pt: "PTT por CAT/RTS", en: "PTT via CAT/RTS", es: "PTT por CAT/RTS", fr: "PTT par CAT/RTS", de: "PTT über CAT/RTS", it: "PTT via CAT/RTS", zh: "CAT/RTS 控制 PTT" },
+      { pt: "No modo áudio, só VOX.", en: "Audio mode uses VOX only.", es: "En modo audio, solo VOX.", fr: "En mode audio, VOX seulement.", de: "Im Audiomodus nur VOX.", it: "In modalità audio, solo VOX.", zh: "音频模式仅支持 VOX。" }),
+    r("n", "u", "n",
+      { pt: "TNC Bluetooth Low Energy (BLE)", en: "Bluetooth Low Energy (BLE) TNC", es: "TNC Bluetooth Low Energy (BLE)", fr: "TNC Bluetooth Low Energy (BLE)", de: "Bluetooth-Low-Energy-TNC (BLE)", it: "TNC Bluetooth Low Energy (BLE)", zh: "低功耗蓝牙（BLE）TNC" },
+      { pt: "Só Bluetooth clássico (SPP).", en: "Bluetooth Classic (SPP) only.", es: "Solo Bluetooth clásico (SPP).", fr: "Bluetooth classique (SPP) seulement.", de: "Nur Bluetooth Classic (SPP).", it: "Solo Bluetooth classico (SPP).", zh: "仅支持经典蓝牙（SPP）。" }),
+    r("u", "n", "p",
+      { pt: "TNC KISS por cabo USB-OTG", en: "KISS TNC over USB-OTG cable", es: "TNC KISS por cable USB-OTG", fr: "TNC KISS par câble USB-OTG", de: "KISS-TNC per USB-OTG-Kabel", it: "TNC KISS via cavo USB-OTG", zh: "USB-OTG 有线 KISS TNC" },
+      { pt: "CDC-ACM, FTDI e CP210x; parcial até a validação com mais adaptadores.", en: "CDC-ACM, FTDI and CP210x; partial until validated with more adapters.", es: "CDC-ACM, FTDI y CP210x; parcial hasta validarlo con más adaptadores.", fr: "CDC-ACM, FTDI et CP210x ; partiel jusqu'à validation avec plus d'adaptateurs.", de: "CDC-ACM, FTDI und CP210x; teilweise, bis weitere Adapter geprüft sind.", it: "CDC-ACM, FTDI e CP210x; parziale fino alla verifica con altri adattatori.", zh: "支持 CDC-ACM、FTDI、CP210x；更多适配器验证前标为部分支持。" }),
+    r("n", "u", "y",
+      { pt: "TNC KISS por TCP/IP (Dire Wolf)", en: "KISS TNC over TCP/IP (Dire Wolf)", es: "TNC KISS por TCP/IP (Dire Wolf)", fr: "TNC KISS par TCP/IP (Dire Wolf)", de: "KISS-TNC über TCP/IP (Dire Wolf)", it: "TNC KISS via TCP/IP (Dire Wolf)", zh: "TCP/IP KISS TNC（Dire Wolf）" },
+      { pt: "No APRSdroid, a conexão TCP é a do APRS-IS, não KISS.", en: "In APRSdroid, the TCP connection is APRS-IS, not KISS.", es: "En APRSdroid, la conexión TCP es la de APRS-IS, no KISS.", fr: "Dans APRSdroid, la connexion TCP est celle d'APRS-IS, pas KISS.", de: "In APRSdroid ist die TCP-Verbindung APRS-IS, nicht KISS.", it: "In APRSdroid la connessione TCP è APRS-IS, non KISS.", zh: "APRSdroid 的 TCP 连接是 APRS-IS，不是 KISS。" }),
+    r("u", "y", "p",
+      { pt: "Android Auto", en: "Android Auto", es: "Android Auto", fr: "Android Auto", de: "Android Auto", it: "Android Auto", zh: "Android Auto" },
+      { pt: "Primeira versão na 1.0 (estações próximas, beacon, última mensagem); ainda sem teste em carro.", en: "First version in 1.0 (nearby stations, beacon, last message); not yet tested in a car.", es: "Primera versión en la 1.0 (estaciones cercanas, baliza, último mensaje); aún sin prueba en coche.", fr: "Première version en 1.0 (stations proches, balise, dernier message) ; pas encore testée en voiture.", de: "Erste Version in 1.0 (Stationen in der Nähe, Bake, letzte Nachricht); noch nicht im Auto getestet.", it: "Prima versione nella 1.0 (stazioni vicine, beacon, ultimo messaggio); non ancora provata in auto.", zh: "1.0 首个版本（附近电台、信标、最新消息）；尚未实车测试。" }),
+    r("y", "u", "y",
+      { pt: "SmartBeaconing", en: "SmartBeaconing", es: "SmartBeaconing", fr: "SmartBeaconing", de: "SmartBeaconing", it: "SmartBeaconing", zh: "SmartBeaconing" },
+      { pt: "No PT2VHF, com perfis Base, Móvel, Portátil e Somente recepção.", en: "In PT2VHF, with Base, Mobile, Portable and Receive-only profiles.", es: "En PT2VHF, con perfiles Base, Móvil, Portátil y Solo recepción.", fr: "Dans PT2VHF, avec profils Base, Mobile, Portable et Réception seule.", de: "In PT2VHF mit Profilen Basis, Mobil, Portabel und Nur Empfang.", it: "In PT2VHF, con profili Base, Mobile, Portatile e Solo ricezione.", zh: "PT2VHF 提供固定、车载、便携和仅接收配置。" }),
+    r("y", "u", "y",
+      { pt: "API para outros apps (Intents)", en: "API for other apps (Intents)", es: "API para otras apps (Intents)", fr: "API pour d'autres apps (Intents)", de: "API für andere Apps (Intents)", it: "API per altre app (Intents)", zh: "供其他应用调用的 API（Intent）" },
+      { pt: "No PT2VHF, desligada por padrão e protegida por permissão.", en: "In PT2VHF, off by default and protected by a permission.", es: "En PT2VHF, desactivada por defecto y protegida por permiso.", fr: "Dans PT2VHF, désactivée par défaut et protégée par une permission.", de: "In PT2VHF standardmäßig aus und durch eine Berechtigung geschützt.", it: "In PT2VHF, disattivata per impostazione predefinita e protetta da un permesso.", zh: "PT2VHF 默认关闭，并受权限保护。" }),
+    r("y", "p", "y",
+      { pt: "Gratuito, sem recurso pago", en: "Free, no paid features", es: "Gratis, sin funciones de pago", fr: "Gratuit, sans fonction payante", de: "Kostenlos, ohne Bezahlfunktionen", it: "Gratuito, senza funzioni a pagamento", zh: "免费，无付费功能" },
+      { pt: "APRSdroid: APK gratuito (a versão da Play é paga para apoiar o autor). APRS World: plano Premium.", en: "APRSdroid: free APK (the Play version is paid to support the author). APRS World: Premium plan.", es: "APRSdroid: APK gratis (la versión de Play es de pago para apoyar al autor). APRS World: plan Premium.", fr: "APRSdroid : APK gratuit (la version Play est payante pour soutenir l'auteur). APRS World : offre Premium.", de: "APRSdroid: kostenlose APK (Play-Version kostet zur Unterstützung des Autors). APRS World: Premium-Tarif.", it: "APRSdroid: APK gratuito (la versione Play è a pagamento per sostenere l'autore). APRS World: piano Premium.", zh: "APRSdroid：APK 免费（Play 版付费以支持作者）。APRS World：有高级版。" }),
+    r("y", "u", "y",
+      { pt: "Importar configurações do APRSdroid", en: "Import APRSdroid settings", es: "Importar ajustes de APRSdroid", fr: "Importer les réglages d'APRSdroid", de: "APRSdroid-Einstellungen importieren", it: "Importare le impostazioni di APRSdroid", zh: "导入 APRSdroid 设置" },
+      { pt: "PT2VHF lê o backup do APRSdroid com prévia antes de aplicar.", en: "PT2VHF reads the APRSdroid backup with a preview before applying.", es: "PT2VHF lee la copia de APRSdroid con vista previa antes de aplicar.", fr: "PT2VHF lit la sauvegarde d'APRSdroid avec aperçu avant application.", de: "PT2VHF liest die APRSdroid-Sicherung mit Vorschau vor dem Übernehmen.", it: "PT2VHF legge il backup di APRSdroid con anteprima prima di applicarlo.", zh: "PT2VHF 读取 APRSdroid 备份，应用前可预览。" })
+  ];
+  var TEXT = {
+    pt: { title: "Comparação de recursos", intro: "Comparação honesta com outros apps APRS para Android. As colunas APRSdroid e APRS World seguem o que os sites de cada um informam.", feature: "Recurso", y: "Disponível", p: "Parcial", n: "Indisponível", u: "Não confirmado", reviewed: "Conferido em {d}. Fontes: aprsdroid.org e aprs.world." },
+    en: { title: "Feature comparison", intro: "An honest comparison with other APRS apps for Android. The APRSdroid and APRS World columns follow what each app's website states.", feature: "Feature", y: "Available", p: "Partial", n: "Not available", u: "Not confirmed", reviewed: "Reviewed on {d}. Sources: aprsdroid.org and aprs.world." },
+    es: { title: "Comparación de funciones", intro: "Comparación honesta con otras apps APRS para Android. Las columnas APRSdroid y APRS World siguen lo que informa el sitio de cada una.", feature: "Función", y: "Disponible", p: "Parcial", n: "No disponible", u: "No confirmado", reviewed: "Revisado el {d}. Fuentes: aprsdroid.org y aprs.world." },
+    fr: { title: "Comparaison des fonctions", intro: "Une comparaison honnête avec d'autres apps APRS pour Android. Les colonnes APRSdroid et APRS World suivent ce qu'indique le site de chacune.", feature: "Fonction", y: "Disponible", p: "Partiel", n: "Indisponible", u: "Non confirmé", reviewed: "Vérifié le {d}. Sources : aprsdroid.org et aprs.world." },
+    de: { title: "Funktionsvergleich", intro: "Ein ehrlicher Vergleich mit anderen APRS-Apps für Android. Die Spalten APRSdroid und APRS World folgen den Angaben auf deren Websites.", feature: "Funktion", y: "Verfügbar", p: "Teilweise", n: "Nicht verfügbar", u: "Nicht bestätigt", reviewed: "Geprüft am {d}. Quellen: aprsdroid.org und aprs.world." },
+    it: { title: "Confronto delle funzioni", intro: "Un confronto onesto con altre app APRS per Android. Le colonne APRSdroid e APRS World seguono quanto indicato dai rispettivi siti.", feature: "Funzione", y: "Disponibile", p: "Parziale", n: "Non disponibile", u: "Non confermato", reviewed: "Verificato il {d}. Fonti: aprsdroid.org e aprs.world." },
+    zh: { title: "功能对比", intro: "与其他 Android APRS 应用的客观对比。APRSdroid 和 APRS World 两列依据各自官网的说明。", feature: "功能", y: "支持", p: "部分支持", n: "不支持", u: "未确认", reviewed: "核对日期：{d}。来源：aprsdroid.org 和 aprs.world。" }
+  };
+  var SYMBOL = { y: "✓", p: "⊙", n: "✗", u: "—" };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function render(lang) {
+    var section = document.getElementById("comparacao");
+    var body = document.getElementById("compare-body");
+    if (!section || !body) return;
+    var L = TEXT[lang] ? lang : "pt";
+    var T = TEXT[L];
+    var date = new Date(REVIEWED + "T12:00:00Z").toLocaleDateString(document.documentElement.lang || "pt-BR");
+    document.getElementById("compare-title").textContent = T.title;
+    document.getElementById("compare-intro").textContent = T.intro;
+    function cell(v) { return '<td class="cmp-' + v + '"><span aria-hidden="true">' + SYMBOL[v] + '</span><span class="sr-only">' + esc(T[v]) + "</span></td>"; }
+    body.innerHTML =
+      '<p class="compare-legend">' + ["y", "p", "n", "u"].map(function (k) { return '<span class="cmp-' + k + '">' + SYMBOL[k] + " " + esc(T[k]) + "</span>"; }).join(" · ") + "</p>" +
+      '<div class="table-wrap"><table class="compare-table"><thead><tr><th scope="col">' + esc(T.feature) + "</th>" +
+      APPS.map(function (a) { return '<th scope="col">' + esc(a) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+      ROWS.map(function (row) {
+        return '<tr><th scope="row"><strong>' + esc(row.label[L] || row.label.pt) + '</strong><small>' + esc(row.desc[L] || row.desc.pt) + "</small></th>" +
+          row.v.map(cell).join("") + "</tr>";
+      }).join("") + "</tbody></table></div>" +
+      '<p class="compare-reviewed">' + esc(T.reviewed.replace("{d}", date)) + "</p>";
+    section.hidden = false;
+  }
+  window.PT2VHF_RENDER_COMPARE = render;
+})();

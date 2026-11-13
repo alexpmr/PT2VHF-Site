@@ -262,12 +262,15 @@ window.PT2VHF_I18N["de"] = {
         "Mit einem per Bluetooth gekoppelten KISS-Funkgerät oder TNC sendet und empfängt es über Funk. Der Tracker-Modus sendet die Position per SmartBeaconing auch bei ausgeschaltetem Bildschirm."
       ],
       "features": [
+        "Android Auto: Stationen in der Nähe, Bake jetzt und letzte Nachricht auf dem Autodisplay (Entwicklermodus von Android Auto für APKs außerhalb des Play Store)",
+        "Fenster „Welche SSID?“ mit den Empfehlungen von WB4APR, Reiter „Über“ und immer sichtbare Speichern-Schaltfläche in den Einstellungen",
+        "Gesendete Nachrichten standardmäßig ohne Akzente, für Funkgeräte und Clients, die nur ASCII anzeigen",
         "APRS-IS mit Serverliste (Standard soam.aprs2.net) oder eigenem Server, automatischem Passcode und editierbarem Filter (Standard r/4000)",
         "Automatische Neuverbindung beim Wechsel zwischen WLAN und Mobilfunk",
         "OpenStreetMap-Karte mit Stationen und nachgewiesenen Funkverbindungen (Internet, DMR und D-STAR zählen nicht als Funk)",
         "Nachrichten: Unterhaltungen, allgemeiner Kanal (CQ) und Bulletins, mit ACK, Wiederholungen und Benachrichtigungen",
         "Schaltfläche Bake senden und SmartBeaconing-Tracker im Hintergrund",
-        "KISS-TNC über Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro u. ä.) mit Live-Monitor",
+        "KISS-TNC über Bluetooth (Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 u. ä.) mit Live-Monitor",
         "Hinweis auf neue Versionen und Downloads über die offizielle Website",
         "Profile Basis, Mobil, Portabel und Nur Empfang, mit schnellem Wechsel im Tracker",
         "KISS-TNC auch über TCP im lokalen Netz (Dire Wolf und ähnliche), zusätzlich zu Bluetooth",

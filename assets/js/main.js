@@ -632,6 +632,7 @@
     renderPropIntro();
     renderDownloadCounters();
     renderStations();
+    if (window.PT2VHF_RENDER_COMPARE) window.PT2VHF_RENDER_COMPARE(selectedLang);
 
     // Âncora na URL (ex.: /#prop): rola depois que as seções existem
     if (location.hash) {
