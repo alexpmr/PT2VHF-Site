@@ -4,6 +4,7 @@
  *
  * O aplicativo envia somente o indicativo na consulta de versão:
  *   update.php?product=sat&call=PY2XYZ
+ *   update.php?product=aprs-android&call=PY2XYZ
  * Guardamos indicativo, país (pelo prefixo DXCC) e datas da primeira/última
  * consulta. Nenhum endereço IP é gravado: o limite por IP usa um hash HMAC
  * com chave aleatória que é descartada (junto com os hashes) a cada dia UTC.
@@ -13,7 +14,7 @@
  */
 declare(strict_types=1);
 
-const PT2VHF_STATION_PRODUCTS = array('sat');
+const PT2VHF_STATION_PRODUCTS = array('sat', 'aprs-android');
 const PT2VHF_STATION_NEW_PER_IP_DAY = 10;   // indicativos novos por IP por dia
 const PT2VHF_STATION_NEW_PER_DAY = 300;     // indicativos novos por dia, total
 const PT2VHF_STATION_MAX = 50000;           // teto de registros por produto
