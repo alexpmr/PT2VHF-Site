@@ -1,0 +1,16 @@
+name: Verify live APRS Client release
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/verify-aprs-live.yml', 'scripts/verify_aprs_live.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-live:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify served binaries, OTA, station list and /aprs page
+        run: python3 -u scripts/verify_aprs_live.py --wait
