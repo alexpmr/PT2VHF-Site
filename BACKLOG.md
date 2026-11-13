@@ -2,6 +2,17 @@
 
 ## Pendentes
 
+### Estações que usam o APRS Client for Android (indicativos por país) — PR aberto, aguardando aprovação (13/11/2026)
+
+- **Pedido do Alex:** o mesmo registro do SAT Tool para o app Android (produto `aprs-android`, item #84 do
+  PT2VHF-APRS-Android): ranking de países e indicativos de cada país no fim da página `/aprs-android`, com bandeira em
+  imagem no lugar da sigla, em todos os idiomas.
+- **Contrato com o app:** `update.php?product=aprs-android&call=PY2XYZ`, só o indicativo (sem SSID, posição ou
+  locator); resposta do `update.php` idêntica com ou sem `call`.
+- **Feito no PR:** `aprs-android` em `PT2VHF_STATION_PRODUCTS` (mesmo arquivo, mesmas regras: DXCC, sem IP, 10 novos por
+  IP por dia somando os produtos, registro permanente), seção em `android.html`, cache busting e teste em
+  `scripts/test_stations.php`. Publicar só com aprovação do Alex.
+
 ### Estações que usam o SAT Tool (indicativos por país) — PR aberto, aguardando aprovação (13/11/2026)
 
 - **Pedido do Alex:** ao consultar versão nova, o app envia o indicativo da estação; o site mostra, no fim da
