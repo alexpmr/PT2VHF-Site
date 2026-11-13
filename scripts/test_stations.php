@@ -48,6 +48,14 @@ try {
     }
     get($base . '/update.php?product=mesh&call=PY2MESH'); // produto sem registro
 
+    // APRS Client: mesmo registro, lista separada por produto.
+    [$sa0, $aprsPlain] = get($base . '/update.php?product=aprs');
+    [$sa1, $aprsCall] = get($base . '/update.php?product=aprs&call=PY2APR');
+    check($sa0 === 200 && $sa1 === 200 && $aprsCall === $aprsPlain, 'APRS: resposta com call deve ser idêntica');
+    $ja = json_decode(get($base . '/stations.php?product=aprs')[1], true);
+    check($ja['schema'] === 1 && $ja['total'] === 1 && $ja['countries'][0]['cc'] === 'BR'
+        && $ja['countries'][0]['calls'] === array('PY2APR'), 'APRS: PY2APR deveria estar no Brasil');
+
     [$ss, $summary] = get($base . '/stations.php?product=sat');
     $j = json_decode($summary, true);
     check($ss === 200 && $j['schema'] === 1 && $j['total'] === 2, 'Resumo deveria ter 2 estações: ' . $summary);
@@ -59,10 +67,10 @@ try {
     [$sx] = get($base . '/stations.php?product=xyz');
     check($sx === 400, 'Produto inválido no resumo deveria dar 400');
 
-    // Limite de indicativos novos por IP por dia (2 já usados).
+    // Limite de indicativos novos por IP por dia, somando os produtos (3 já usados: 2 sat + 1 aprs).
     for ($i = 1; $i <= 12; $i++) get($base . '/update.php?product=sat&call=PY' . $i . 'LIM');
     $j = json_decode(get($base . '/stations.php?product=sat')[1], true);
-    check($j['total'] === 10, 'Limite por IP deveria parar em 10 novos/dia, total ' . $j['total']);
+    check($j['total'] === 9, 'Limite por IP deveria parar em 10 novos/dia, sat total ' . $j['total']);
     // Estação já conhecida continua sendo atualizada mesmo acima do limite.
     $doc = json_decode(file_get_contents($data), true);
     $doc['products']['sat']['PY2XYZ']['last'] = '2026-01-01';

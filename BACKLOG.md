@@ -2,6 +2,19 @@
 
 ## Pendentes
 
+### Estações que usam o APRS Client (indicativos por país) — PR aberto, aguardando aprovação (13/11/2026)
+
+- **Pedido do Alex:** o mesmo registro do SAT Tool para o PT2VHF APRS Client: na consulta de versão o app envia
+  só o indicativo; no fim da página `/aprs` aparece o ranking de países (bandeira em imagem) e, embaixo de cada
+  país, todos os indicativos já registrados (permanentes, sem expiração).
+- **Contrato com o app (próxima versão do APRS Client):** `update.php?product=aprs&call=PY2XYZ`. A resposta do
+  `update.php` não muda; falha no registro é silenciosa.
+- **Implementado no PR:** produto `aprs` em `PT2VHF_STATION_PRODUCTS` (`stations_lib.php`), seção
+  `data-stations-product="aprs"` em `aprs.html` e caso do APRS em `scripts/test_stations.php`. Mesmas regras do SAT
+  (validação, país pelo prefixo DXCC, uma gravação por dia, sem IP, 10 novos por IP/dia somando os produtos).
+- **Publicação:** só depois da aprovação do Alex. Depois do merge, verificar `stations.php?product=aprs` (HTTP 200)
+  e a seção na página `/aprs`.
+
 ### Estações que usam o SAT Tool (indicativos por país) — PR aberto, aguardando aprovação (13/11/2026)
 
 - **Pedido do Alex:** ao consultar versão nova, o app envia o indicativo da estação; o site mostra, no fim da
