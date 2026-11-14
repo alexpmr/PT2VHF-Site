@@ -1,5 +1,5 @@
-889a257214205ffbca6cc378c514f51ca1ff48eb76d4ab7e3178666bcb02ff81  PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Setup.exe
-fa8ed31e966cd04e705839357c4a5a7ff18b2dca99074e025aa1860cd4d880be  PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Portable.exe
-264851cea860b28560803853a80f6645de911e4ffd0dac0e08fa45b4398fdb75  PT2VHF-Sat-Tool-v1.8.0-Linux-x64.tar.gz
-74537012c351cb2509b0cd319b0df9fcbd6c2118de84deca7aa6845c00e3e5cd  PT2VHF-Sat-Tool-v1.8.0-Linux-x64.deb
-3e3e286d5e18ce16359642ec9f23cd7dac892fe9982927eb972a412f509432c8  PT2VHF-Sat-Tool-v1.8.0-macOS-arm64.dmg
+9870f0bbf2dcec573ff65f8cb36c1b28c9389df3a1b943bae22c266335ca0fac  PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Setup.exe
+3d6bd5a73208056200efb68338ef2484b5f26f6a583b8a61c577f2feeaec714d  PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Portable.exe
+ccc1c43bd72d375dcbf11d28fb636613f168f967538ae58162a6a7b378b86241  PT2VHF-Sat-Tool-v1.8.0-Linux-x64.tar.gz
+eb98025583f0e508c9dd10f9d3cbbc16e859c03ca76f05ada8f36abd4eef8014  PT2VHF-Sat-Tool-v1.8.0-Linux-x64.deb
+ae309c179c76ca3feb586103fb0a4669df542b0c4d1a539ae5ac1c8f6d5f749e  PT2VHF-Sat-Tool-v1.8.0-macOS-arm64.dmg
