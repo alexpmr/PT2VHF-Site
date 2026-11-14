@@ -45,6 +45,7 @@ window.PT2VHF_I18N["pt"] = {
     "stationsCountry": "País",
     "stationsCount": "Estações",
     "stationsTotal": "{n} estações em {c} países",
+    "installsActive": "Cerca de {n} instalações ativas por dia (média dos últimos 7 dias, inclui versões antigas que não informam o indicativo).",
     "stationsEmpty": "Nenhuma estação registrada ainda.",
     "downloadsTitle": "Downloads",
     "featuresTitle": "Recursos",

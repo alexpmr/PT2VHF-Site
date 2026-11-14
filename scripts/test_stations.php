@@ -12,7 +12,7 @@ function check(bool $ok, string $message): void {
 $tmp = sys_get_temp_dir() . '/pt2vhf-stations-test-' . getmypid();
 $public = $tmp . '/public_html';
 check(@mkdir($public, 0700, true) || is_dir($public), 'Criar fixture');
-foreach (array('update.php', 'prop_parts.php', 'stations_lib.php', 'stations_prefixes.php', 'stations.php', 'updates.json') as $f) {
+foreach (array('update.php', 'prop_parts.php', 'stations_lib.php', 'stations_prefixes.php', 'stations.php', 'installs_lib.php', 'updates.json') as $f) {
     copy(__DIR__ . '/../' . $f, $public . '/' . $f);
 }
 $data = $tmp . '/pt2vhf-private-data/stations.json';

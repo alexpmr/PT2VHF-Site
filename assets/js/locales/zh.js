@@ -45,6 +45,7 @@ window.PT2VHF_I18N["zh"] = {
     "stationsCountry": "国家/地区",
     "stationsCount": "电台数",
     "stationsTotal": "{c} 个国家/地区共 {n} 个电台",
+    "installsActive": "每天约 {n} 个活跃安装（最近 7 天平均值，包括不报告呼号的旧版本）。",
     "stationsEmpty": "尚无已登记的电台。",
     "downloadsTitle": "下载",
     "featuresTitle": "功能",

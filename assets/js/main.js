@@ -697,6 +697,12 @@
     if (!/^[A-Z]{2}$/.test(cc || "") || cc === "ZZ") return "";
     return '<img src="/assets/img/flags/country/' + cc.toLowerCase() + '.svg" alt="" width="20" height="15" loading="lazy">';
   }
+  // Instalações ativas (aproximado): visitantes únicos por dia no update.php, inclusive versões antigas.
+  var installsData = null;
+  function installsLine(fmt) {
+    if (!installsData || !(installsData.average7 > 0)) return "";
+    return '<p class="stations-installs">' + esc(t("installsActive").replace("{n}", fmt.format(installsData.average7))) + "</p>";
+  }
   function renderStations() {
     var section = document.querySelector("[data-stations-product]");
     var body = document.getElementById("stations-body");
@@ -710,10 +716,11 @@
     var list = stationsData.countries || [];
     var fmt = new Intl.NumberFormat(LOCALES[selectedLang]);
     if (!list.length) {
-      body.innerHTML = '<p class="soon">' + esc(t("stationsEmpty")) + "</p>";
+      body.innerHTML = installsLine(fmt) + '<p class="soon">' + esc(t("stationsEmpty")) + "</p>";
     } else {
       body.innerHTML =
         '<p class="stations-total">' + esc(t("stationsTotal").replace("{n}", fmt.format(stationsData.total)).replace("{c}", fmt.format(list.length))) + "</p>" +
+        installsLine(fmt) +
         '<div class="table-wrap"><table class="stations-rank"><thead><tr><th>#</th><th>' + esc(t("stationsCountry")) +
         "</th><th>" + esc(t("stationsCount")) + "</th></tr></thead><tbody>" +
         list.map(function (c, i) {
@@ -737,6 +744,11 @@
     var section = document.querySelector("[data-stations-product]");
     if (!section || !window.fetch) return;
     var product = section.getAttribute("data-stations-product");
+    fetch("/installs.php?product=" + encodeURIComponent(product), { cache: "no-cache" }).then(function (r) {
+      return r.ok ? r.json() : null;
+    }).then(function (data) {
+      if (data && data.schema === 1) { installsData = data; renderStations(); }
+    }).catch(function () {});
     fetch("/stations.php?product=" + encodeURIComponent(product), { cache: "no-cache" }).then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();

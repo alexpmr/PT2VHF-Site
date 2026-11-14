@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Publica uma versão do PT2VHF APRS Client (desktop) a partir dos assets da GitHub Release.
 
-Uso: python3 scripts/publish_aprs_release.py <versão> <pasta-com-os-assets> --date AAAA-MM-DD --notes "..."
+Uso: python3 scripts/publish_aprs_release.py <versão> <pasta-com-os-assets> --date AAAA-MM-DD --notes "..." [--only windows]
+
+Com --only windows (ex.: v2.0.2), só os binários Windows são da versão nova; os de Linux/macOS
+continuam no manifesto com a versão anterior (campo `version` de cada arquivo) e não são apagados.
 
 Confere assinatura, tamanho e SHA-256 de cada binário, copia para downloads/aprs-client/,
 atualiza o produto `aprs` do updates.json (mesmos counterKey de sempre) e mantém só a versão
@@ -71,6 +74,7 @@ def main() -> None:
     ap.add_argument("src", type=Path)
     ap.add_argument("--date", required=True)
     ap.add_argument("--notes", required=True)
+    ap.add_argument("--only", choices=["windows"], default=None)
     opts = ap.parse_args()
     ver = opts.version
     if not re.fullmatch(r"\d+\.\d+\.\d+", ver):
@@ -81,8 +85,20 @@ def main() -> None:
     entry = data["products"]["aprs"]
     previous = entry.get("version")
 
+    old_files = {f.get("counterKey"): f for f in entry.get("files") or [] if isinstance(f, dict)}
     found = []
+    kept = []  # (counterKey, meta) de plataformas que ficam na versão anterior
     for category, counter, arch, platform, name, detail in files_for(ver):
+        if opts.only and not platform.startswith(opts.only):
+            meta = old_files.get(counter)
+            if not meta:
+                raise ValueError(f"Sem arquivo anterior para manter: {counter}")
+            target = DEST / meta["name"]
+            if inspect(target) != (meta["size"], meta["sha256"]):
+                raise ValueError(f"Arquivo anterior divergente: {meta['name']}")
+            meta.setdefault("version", previous)
+            kept.append((None, meta))
+            continue
         matches = list(opts.src.resolve().rglob(name))
         if len(matches) != 1:
             raise ValueError(f"Binário não único ou ausente: {name}")
@@ -102,8 +118,8 @@ def main() -> None:
         if inspect(target) != (meta["size"], meta["sha256"]):
             raise ValueError(f"Cópia divergente: {target.name}")
 
-    # Mantém só a versão anterior além da nova.
-    keep = {ver, previous}
+    # Mantém só a versão anterior além da nova (e as versões dos arquivos mantidos).
+    keep = {ver, previous} | {meta.get("version") for _, meta in kept}
     removed = []
     for item in DEST.iterdir():
         m = re.search(r"(?:_v|_)(\d+\.\d+\.\d+)(?:_amd64|_arm64)?\.(?:exe|AppImage|deb|tar\.gz|dmg)$", item.name)
@@ -111,15 +127,17 @@ def main() -> None:
             item.unlink()
             removed.append(item.name)
 
+    order = [counter for _, counter, *_ in files_for(ver)]
+    metas = sorted([meta for _, meta in found + kept], key=lambda m: order.index(m["counterKey"]))
     entry.update(version=ver, developmentVersion=ver, date=opts.date,
                  releaseStatus="Instaladores oficiais validados e hospedados em pt2vhf.com",
-                 notes=opts.notes, files=[meta for _, meta in found])
-    entry["plannedFiles"] = [{k: meta[k] for k in ("category", "counterKey", "architecture", "name")} for _, meta in found]
+                 notes=opts.notes, files=metas)
+    entry["plannedFiles"] = [{k: meta[k] for k in ("category", "counterKey", "architecture", "name")} for meta in metas]
     data["updated"] = opts.date
     tmp = manifest.with_suffix(".json.tmp")
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     os.replace(tmp, manifest)
-    print(f"PUBLICACAO_APRS={ver}; binários={len(found)}; anterior={previous}; removidos={len(removed)}")
+    print(f"PUBLICACAO_APRS={ver}; binários={len(found)}; mantidos={len(kept)}; anterior={previous}; removidos={len(removed)}")
     for name in removed:
         print("  removido:", name)
 

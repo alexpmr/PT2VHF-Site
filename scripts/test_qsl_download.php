@@ -24,7 +24,7 @@ $tmp = sys_get_temp_dir() . '/pt2vhf-qsl-test-' . getmypid();
 $public = $tmp . '/public_html';
 $downloads = $public . '/downloads/qsl-analyzer';
 check(@mkdir($downloads, 0700, true) || is_dir($downloads), 'Criar fixture');
-foreach (array('download.php', 'prop_parts.php', 'update.php') as $f) copy(__DIR__ . '/../' . $f, $public . '/' . $f);
+foreach (array('download.php', 'prop_parts.php', 'update.php', 'stations_lib.php', 'stations_prefixes.php', 'installs_lib.php') as $f) copy(__DIR__ . '/../' . $f, $public . '/' . $f);
 $name = 'pt2vhf-qsl-analyzer_9.9.9_amd64.deb';
 $contents = "!<arch>\n" . random_bytes(21000000);
 $half = intdiv(strlen($contents), 2);

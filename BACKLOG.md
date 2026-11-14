@@ -2,6 +2,20 @@
 
 ## Pendentes
 
+### RESOLVIDO (APRS Client v2.0.2, 14/11/2026) — Contagem aproximada de instalações ativas
+
+- **Pedido do Alex (aprovado em 13/11/2026):** contar as instalações ativas, inclusive versões antigas que não mandam
+  indicativo, sem guardar IP nem indicativo.
+- **Entregue:** `installs_lib.php`, chamado pelo `update.php` em toda consulta de todos os produtos. Cada consulta vira
+  um hash HMAC de (IP + User-Agent) com chave aleatória do dia; chave e hashes somem na virada do dia UTC e fica só o
+  total diário (400 dias), em `../pt2vhf-private-data/installs.json`. A resposta do `update.php` não muda.
+  Resumo público em `installs.php?product=<produto>` (hoje, média dos 7 dias completos, maior dia, 30 dias); a
+  seção de estações de `/aprs`, `/android` e `/sat` mostra "Cerca de N instalações ativas por dia". É aproximado:
+  instalações atrás do mesmo IP contam como uma. Teste em `scripts/test_installs.php`.
+- **APRS Client v2.0.2 só Windows:** `scripts/publish_aprs_release.py --only windows` publica os binários Windows da
+  versão nova e mantém Linux/macOS da 2.0.1 no manifesto (campo `version` por arquivo). No Linux/macOS o app vê a
+  2.0.2 anunciada sem pacote compatível e não oferece atualização.
+
 ### RESOLVIDO (APRS Client v2.0.0, 13/11/2026) — Estações do APRS Client e comparação de recursos em /aprs
 
 - **Estações por país:** produto `aprs` no registro (`stations_lib.php`), seção no fim de `/aprs` igual à de `/android`

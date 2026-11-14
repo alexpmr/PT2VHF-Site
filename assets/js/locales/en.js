@@ -45,6 +45,7 @@ window.PT2VHF_I18N["en"] = {
     "stationsCountry": "Country",
     "stationsCount": "Stations",
     "stationsTotal": "{n} stations in {c} countries",
+    "installsActive": "About {n} active installations per day (7-day average, including older versions that do not report a callsign).",
     "stationsEmpty": "No stations registered yet.",
     "downloadsTitle": "Downloads",
     "featuresTitle": "Features",

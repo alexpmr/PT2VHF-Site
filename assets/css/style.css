@@ -515,7 +515,7 @@ table.downloads { width: 100%; border-collapse: collapse; }
 .contact-help-list li + li { margin-top:6px; }
 
 /* Estações que usam o aplicativo: ranking de países e indicativos. */
-.stations-total { color: var(--muted); margin: 0 0 12px; }
+.stations-total, .stations-installs { color: var(--muted); margin: 0 0 12px; }
 table.stations-rank { width: 100%; border-collapse: collapse; }
 .stations-rank th, .stations-rank td { text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--border); }
 .stations-rank thead th { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: var(--bg-alt); }
