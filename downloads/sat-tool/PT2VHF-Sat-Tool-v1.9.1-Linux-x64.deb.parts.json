@@ -1,0 +1,27 @@
+{
+  "name": "PT2VHF-Sat-Tool-v1.9.1-Linux-x64.deb",
+  "size": 188004040,
+  "sha256": "c585fb077a82ef372454a702608dd7c242f1134d30073fcfbb4f938463995e0d",
+  "parts": [
+    {
+      "name": "PT2VHF-Sat-Tool-v1.9.1-Linux-x64.deb.part00",
+      "size": 50331648,
+      "sha256": "90f9edd86f85607bf229d83de55960b02f212a3f2c487178da62b2716d279847"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.9.1-Linux-x64.deb.part01",
+      "size": 50331648,
+      "sha256": "882274b354806b7afd10f507651fce8b44d4a7385d637862f4c69230a964da54"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.9.1-Linux-x64.deb.part02",
+      "size": 50331648,
+      "sha256": "6c92f0f23cc0b153e6a0ade73d11491538d86b237bc99344ebe0b2075de40dfc"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.9.1-Linux-x64.deb.part03",
+      "size": 37009096,
+      "sha256": "8a5fa3912282e3509a5c0488d3439de80484911773666835dac3ce4328d7d8be"
+    }
+  ]
+}
