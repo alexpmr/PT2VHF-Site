@@ -469,8 +469,8 @@
     },
     "sat": {
       "name": "PT2VHF Sat Tool",
-      "version": "1.8.0",
-      "developmentVersion": "1.8.0",
+      "version": "1.9.0",
+      "developmentVersion": "1.9.0",
       "page": "https://www.pt2vhf.com/sat",
       "files": [
         {
@@ -480,10 +480,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Instalador",
-          "name": "PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Setup.exe",
-          "size": 166586035,
-          "sha256": "26d0813557fc3cd2f0097270111c9a8cf827a0b100b6f9364b220ce3f1fb87aa",
+          "name": "PT2VHF-Sat-Tool-v1.9.0-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.0-Win11-x64-Setup.exe",
+          "size": 166781579,
+          "sha256": "953ab6d101bd34f9e5ab7404b60e454a110e4e2db3cb75052ca9bf6d4d4a3298",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -493,10 +493,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Portátil",
-          "name": "PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-Win11-x64-Portable.exe",
-          "size": 244826738,
-          "sha256": "ff5845e771ca11b96185b27c2e05781ae74fcc0165c30235d1047a234ace5177",
+          "name": "PT2VHF-Sat-Tool-v1.9.0-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.0-Win11-x64-Portable.exe",
+          "size": 245022495,
+          "sha256": "797740ed8655697c550615440f6d71624d759d90aae781a3b1c21b8b634aba28",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -506,10 +506,10 @@
           "platform": "linux-x64",
           "architecture": "x64",
           "label": "Linux — .tar.gz",
-          "name": "PT2VHF-Sat-Tool-v1.8.0-Linux-x64.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-Linux-x64.tar.gz",
-          "size": 263205424,
-          "sha256": "ccc1c43bd72d375dcbf11d28fb636613f168f967538ae58162a6a7b378b86241",
+          "name": "PT2VHF-Sat-Tool-v1.9.0-Linux-x64.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.0-Linux-x64.tar.gz",
+          "size": 263406631,
+          "sha256": "eaae5055a0d473091f5321570b33970b350e181021e25bd19a1b82dea4d2f487",
           "detail": "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute o arquivo PT2VHF-Sat-Tool-v<versão> da pasta"
         },
         {
@@ -519,10 +519,10 @@
           "platform": "linux-x64",
           "architecture": "x64",
           "label": "Linux — .deb (Ubuntu/Mint)",
-          "name": "PT2VHF-Sat-Tool-v1.8.0-Linux-x64.deb",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-Linux-x64.deb",
-          "size": 187871292,
-          "sha256": "eb98025583f0e508c9dd10f9d3cbbc16e859c03ca76f05ada8f36abd4eef8014",
+          "name": "PT2VHF-Sat-Tool-v1.9.0-Linux-x64.deb",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.0-Linux-x64.deb",
+          "size": 187993608,
+          "sha256": "5a0fe299a73a589708bb3a03480e1d779409d4433c9c6d84ebd7f804840cfd9b",
           "detail": "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./PT2VHF-Sat-Tool-v<versão>-Linux-x64.deb"
         },
         {
@@ -532,25 +532,25 @@
           "platform": "macos-arm64",
           "architecture": "Apple Silicon",
           "label": "macOS — .dmg",
-          "name": "PT2VHF-Sat-Tool-v1.8.0-macOS-arm64.dmg",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-macOS-arm64.dmg",
-          "size": 256377117,
-          "sha256": "ae309c179c76ca3feb586103fb0a4669df542b0c4d1a539ae5ac1c8f6d5f749e",
+          "name": "PT2VHF-Sat-Tool-v1.9.0-macOS-arm64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.0-macOS-arm64.dmg",
+          "size": 256000346,
+          "sha256": "7a9cc20537f77eecfbbcdca3b173871de6063ba6dfd3b2d6f51a7bfba329b771",
           "detail": "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos"
         },
         {
           "category": "checksums",
           "label": "Somas de verificação",
-          "name": "PT2VHF-Sat-Tool-v1.8.0-SHA256.txt",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.8.0-SHA256.txt",
+          "name": "PT2VHF-Sat-Tool-v1.9.0-SHA256.txt",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.0-SHA256.txt",
           "size": 535,
-          "sha256": "575ed48c3e0aa75e3a68ed54dc0fca42acc0f7bad09c9d6b93fb1f03f965448e",
+          "sha256": "670d308d3ea91984214d945a5f7662b93febd31e42a7650f37fd201a3ca09019",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
       "releaseStatus": "Pacotes oficiais para Windows 10/11 x64, Linux x64 e macOS Apple Silicon. Confira o SHA-256 antes da instalação.",
       "date": "2026-11-14",
-      "notes": "v1.8.0: pacote .deb para Ubuntu/Mint (menu, comando pt2vhf-sat-tool e regra udev do RTL-SDR); TLE atualizados em segundo plano ao abrir; medidor de CPU e RAM no topo; botões CAT, SDR e ROTOR do mesmo tamanho; menus e campos do tamanho do conteúdo; contagem AOS/LOS do display com segundos (HH:MM:SS, letras H M S menores); indicativo informado na consulta de versão (lista de usuários no site, pode ser desligado). Windows x64, Linux x64 (.tar.gz e .deb) e macOS ARM64.",
+      "notes": "v1.9.0: SSTV (recepção com Doppler, 14 modos, imagem salva e transmissão); botão PREVER com as passagens de 24 h de todos os satélites selecionados; rádios ICOM (CI-V, IC-746 e outros) e Kenwood (TS-480/590/890/990); servidor DDE para o WiSpDDE; novas fontes de TLE AMSAT e R4UAB; traduções revisadas em todos os idiomas; atualizador reabre o programa. Windows x64, Linux x64 (.tar.gz e .deb) e macOS ARM64.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
     "sdr": {
