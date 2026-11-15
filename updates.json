@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -555,23 +555,23 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "1.0.1",
-      "date": "2026-11-14",
+      "version": "1.0.2",
+      "date": "2026-11-15",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "Correção Windows v1.0.1: checkbox do upconverter externo pode ser alterado com o SDR ligado, com reinicialização controlada do receptor; exibe frequência RF e frequência de sintonia do hardware. Mantém compensação de +100 MHz configurável, troca automática de amostragem direta para VHF/UHF, LCD e CPU/RAM. O banner gráfico original ainda não acompanha esta compilação; permanece o aviso textual. IA IQ/ONNX continua experimental.",
+      "notes": "v1.0.2 Windows: seleção SDRplay RSP1 / MSi-SDR por backend SDRplay API ou Mirics, preservando recursos e correções da v1.0.1. 235 testes Linux, testes Windows, instalação silenciosa e OTA Setup aprovados. ATENÇÃO: detecção/recepção RSP é EXPERIMENTAL. Bibliotecas SoapySDR, módulos SoapySDRPlay3 ou SoapyMiri e drivers USB não estão embutidos; requerem instalação e compatibilidade verificadas separadamente. Ainda sem homologação de RF com RSP1 físico. Não substitua drivers USB indiscriminadamente. Splash textual mantém-se nesta compilação; IA IQ/ONNX segue experimental fora da versão.",
       "files": [
         {
           "category": "windows-installer",
           "counterKey": "win-setup-x64",
           "kind": "installer",
           "label": "Windows — Instalador",
-          "detail": "Windows 10/11 x64; instalação por usuário",
+          "detail": "Windows 10/11 x64; pacote oficial verificado por SHA-256",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.1-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.1-Win11-x64-Setup.exe",
-          "size": 143938539,
-          "sha256": "e87ff0c92d1bc8d3a3a2691420920fd328c3e8b12e43e06cbc55e7c2065f71eb",
+          "name": "PT2VHF-SDR-Tool-v1.0.2-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.2-Win11-x64-Setup.exe",
+          "size": 143947444,
+          "sha256": "8651ed0b428dd6d97685b4b3b4e888a75afb1cda50297d415a755216dbe7d6bd",
           "delivery": "github-release"
         },
         {
@@ -579,18 +579,18 @@
           "counterKey": "win-portable-x64",
           "kind": "portable",
           "label": "Windows — Portátil",
-          "detail": "Windows 10/11 x64; executável portátil",
+          "detail": "Windows 10/11 x64; pacote oficial verificado por SHA-256",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.1-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.1-Win11-x64-Portable.exe",
-          "size": 205900477,
-          "sha256": "e1cb9c282311d9f27679c17364ad203dab8f9e0a964c1efb4671c8aac356f512",
+          "name": "PT2VHF-SDR-Tool-v1.0.2-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.2-Win11-x64-Portable.exe",
+          "size": 205904080,
+          "sha256": "5056eeb859842b409d8e0620c79c2f6fa1db360c3302e839090b7fe76375a619",
           "delivery": "github-release"
         }
       ],
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr",
-      "releaseStatus": "v1.0.1 Windows x64: Setup/Portable gerados em QA com CI Linux/Windows aprovado, hashes SHA-256 verificados na GitHub Release. Distribuição via site; verificar implantação Hostinger antes de declarar OTA ativo."
+      "releaseStatus": "Distribuição Windows v1.0.2 com hashes SHA-256 da GitHub Release verificados. Novidade SDRplay/Mirics experimental: não representa suporte plug and play sem drivers nativos e testes de recepção física."
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
