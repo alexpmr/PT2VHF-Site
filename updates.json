@@ -555,23 +555,23 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "date": "2026-11-15",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "v1.0.2 Windows: seleção SDRplay RSP1 / MSi-SDR por backend SDRplay API ou Mirics, preservando recursos e correções da v1.0.1. 235 testes Linux, testes Windows, instalação silenciosa e OTA Setup aprovados. ATENÇÃO: detecção/recepção RSP é EXPERIMENTAL. Bibliotecas SoapySDR, módulos SoapySDRPlay3 ou SoapyMiri e drivers USB não estão embutidos; requerem instalação e compatibilidade verificadas separadamente. Ainda sem homologação de RF com RSP1 físico. Não substitua drivers USB indiscriminadamente. Splash textual mantém-se nesta compilação; IA IQ/ONNX segue experimental fora da versão.",
+      "notes": "v1.0.3 Windows — correção candidata do OTA: inicialização do PowerShell sem DETACHED_PROCESS, redirecionamento de stderr, log de diagnóstico criado antes da execução em %TEMP%/PT2VHF-SDR-Tool-ota-launch.log, código de erro exibido e teste nativo do auxiliar empacotado. 240 testes Linux aprovados, testes Windows, Setup, Portable, prova nativa PowerShell e OTA Setup aprovados no CI. INSTALAÇÃO MANUAL UMA VEZ É NECESSÁRIA para corrigir a versão anterior, cujo OTA falha. Correção ainda não homologada no Windows do usuário que relatou a falha. Preserva v1.0.2 e detecção SDRplay/Mirics experimental; drivers nativos Soapy RSP não empacotados e testes RF pendentes. Splash textual; IA IQ/ONNX fora desta release.",
       "files": [
         {
           "category": "windows-installer",
           "counterKey": "win-setup-x64",
           "kind": "installer",
           "label": "Windows — Instalador",
-          "detail": "Windows 10/11 x64; pacote oficial verificado por SHA-256",
+          "detail": "Windows 10/11 x64; instalação por usuário",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.2-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.2-Win11-x64-Setup.exe",
-          "size": 143947444,
-          "sha256": "8651ed0b428dd6d97685b4b3b4e888a75afb1cda50297d415a755216dbe7d6bd",
+          "name": "PT2VHF-SDR-Tool-v1.0.3-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.3-Win11-x64-Setup.exe",
+          "size": 143950259,
+          "sha256": "b38ad3125dce56fdca4901dfc38065b65834e5a98117e2af26e362c1ce326d27",
           "delivery": "github-release"
         },
         {
@@ -579,18 +579,18 @@
           "counterKey": "win-portable-x64",
           "kind": "portable",
           "label": "Windows — Portátil",
-          "detail": "Windows 10/11 x64; pacote oficial verificado por SHA-256",
+          "detail": "Windows 10/11 x64; executável portátil",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.2-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.2-Win11-x64-Portable.exe",
-          "size": 205904080,
-          "sha256": "5056eeb859842b409d8e0620c79c2f6fa1db360c3302e839090b7fe76375a619",
+          "name": "PT2VHF-SDR-Tool-v1.0.3-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.3-Win11-x64-Portable.exe",
+          "size": 205906207,
+          "sha256": "ca4a040069f14553b0a04f943ed0433929be98456e1a524ff2441ad22ecdacb3",
           "delivery": "github-release"
         }
       ],
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr",
-      "releaseStatus": "Distribuição Windows v1.0.2 com hashes SHA-256 da GitHub Release verificados. Novidade SDRplay/Mirics experimental: não representa suporte plug and play sem drivers nativos e testes de recepção física."
+      "releaseStatus": "v1.0.3 com OTA corrigido em teste CI Windows, pendente homologação com usuário final. É necessário instalar manualmente uma vez para sair de uma versão cujo OTA falha. Backend SDRplay/Mirics segue experimental e depende de drivers externos."
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
