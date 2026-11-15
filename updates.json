@@ -555,10 +555,10 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "date": "2026-11-14",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "v1.0.0 Windows validada pelo mantenedor: correção do RTL-SDR R820T acima de 30 MHz, compensação opcional de upconverter externo (100 MHz), ajustes de LCD e checkboxes, medidor CPU/RAM e melhorias no OTA. O splash mostra aviso textual nesta compilação; a imagem original não foi incluída. IA IQ/ONNX permanece experimental e não integra esta versão.",
+      "notes": "Correção Windows v1.0.1: checkbox do upconverter externo pode ser alterado com o SDR ligado, com reinicialização controlada do receptor; exibe frequência RF e frequência de sintonia do hardware. Mantém compensação de +100 MHz configurável, troca automática de amostragem direta para VHF/UHF, LCD e CPU/RAM. O banner gráfico original ainda não acompanha esta compilação; permanece o aviso textual. IA IQ/ONNX continua experimental.",
       "files": [
         {
           "category": "windows-installer",
@@ -568,10 +568,10 @@
           "detail": "Windows 10/11 x64; instalação por usuário",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.0-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.0-Win11-x64-Setup.exe",
-          "size": 143938510,
-          "sha256": "da4f4c196f1de325dd5a582f472d06ebd3a8ed89007730eda72f9487ceb9ecd7",
+          "name": "PT2VHF-SDR-Tool-v1.0.1-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.1-Win11-x64-Setup.exe",
+          "size": 143938539,
+          "sha256": "e87ff0c92d1bc8d3a3a2691420920fd328c3e8b12e43e06cbc55e7c2065f71eb",
           "delivery": "github-release"
         },
         {
@@ -582,15 +582,15 @@
           "detail": "Windows 10/11 x64; executável portátil",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.0-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.0-Win11-x64-Portable.exe",
-          "size": 205898012,
-          "sha256": "bf78d3b05e3d7bf843ac907bc6a74c3dfb5d40e0ccbc0dd2c53a641a02897e21",
+          "name": "PT2VHF-SDR-Tool-v1.0.1-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.1-Win11-x64-Portable.exe",
+          "size": 205900477,
+          "sha256": "e1cb9c282311d9f27679c17364ad203dab8f9e0a964c1efb4671c8aac356f512",
           "delivery": "github-release"
         }
       ],
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr",
-      "releaseStatus": "Versão Windows 1.0.0 validada pelo mantenedor. Setup e Portable com hashes SHA-256 verificados na release GitHub; distribuição pelo site oficial. Splash gráfico pendente; aviso textual disponível."
+      "releaseStatus": "v1.0.1 Windows x64: Setup/Portable gerados em QA com CI Linux/Windows aprovado, hashes SHA-256 verificados na GitHub Release. Distribuição via site; verificar implantação Hostinger antes de declarar OTA ativo."
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
