@@ -1,0 +1,78 @@
+name: Publicar SDR Tool v1.0.1 no site oficial (artefato validado)
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-sdr-v101.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: pt2vhf-publish-sdr-v101
+  cancel-in-progress: false
+env:
+  VERSION: "1.0.1"
+  SOURCE_SHA: "75369d1fdad78a4f557bed8b883477cca50f3a31"
+  RELEASE_NOTES: "Correção v1.0.1 Windows: checkbox do conversor externo habilitado durante recepção com reinicialização controlada do SDR, offset ajustável e indicação RF versus sintonia física SDR. Preserva sintonia RTL R820T acima de 30 MHz, LCD, medidor CPU/RAM e OTA da série 1.0. Sem imagem original do splash nesta build; utiliza aviso textual. IA IQ/ONNX continua experimental e não integra esta versão."
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Testes offline do publicador de metadados
+        run: python3 scripts/test_publish_sdr_remote_release.py
+      - name: Aguardar release Windows aprovada no commit correto
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$SOURCE_SHA" != "PENDING" || { echo "::error::SOURCE_SHA ainda não configurado"; exit 1; }
+          for i in $(seq 1 80); do
+            if gh api "repos/alexpmr/PT2VHF-SDR-Tool/releases/tags/v$VERSION" > /tmp/sdr_release.json 2>/dev/null; then
+              actual="$(gh api "repos/alexpmr/PT2VHF-SDR-Tool/git/ref/tags/v$VERSION" --jq '.object.sha')"
+              test "$actual" = "$SOURCE_SHA" || {
+                echo "::error::Tag v$VERSION aponta para $actual, esperado $SOURCE_SHA"; exit 1;
+              }
+              jq -e --arg v "$VERSION" '
+                .draft == false and .prerelease == false and
+                (([.assets[].name] | index("SHA256SUMS.txt")) != null) and
+                (([.assets[].name] | index("PT2VHF-SDR-Tool-v"+$v+"-Win11-x64-Setup.exe")) != null) and
+                (([.assets[].name] | index("PT2VHF-SDR-Tool-v"+$v+"-Win11-x64-Portable.exe")) != null)
+              ' /tmp/sdr_release.json
+              echo "RELEASE_SOURCE_VERIFIED=$SOURCE_SHA"
+              exit 0
+            fi
+            echo "Aguardando release SDR v$VERSION ($i/80)"
+            sleep 30
+          done
+          echo "::error::Release não disponível"
+          exit 1
+      - name: Conferir hashes de origem e preparar manifesto oficial
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error --retry 5 \
+            -o /tmp/SHA256SUMS.txt \
+            "https://github.com/alexpmr/PT2VHF-SDR-Tool/releases/download/v$VERSION/SHA256SUMS.txt"
+          python3 scripts/publish_sdr_remote_release.py \
+            "$VERSION" /tmp/sdr_release.json /tmp/SHA256SUMS.txt "$RELEASE_NOTES"
+          python3 -m json.tool updates.json >/dev/null
+          php -l update.php
+          php -l download.php
+      - name: Publicar somente metadados no Git (sem binários grandes)
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add updates.json
+          if ! git diff --cached --quiet; then
+            git commit -m "release(sdr): publicar v$VERSION via origem GitHub verificada"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Validar implantação Hostinger, OTA, links e SHA-256 públicos
+        run: |
+          set -euo pipefail
+          python3 scripts/verify_sdr_live.py "$VERSION" --wait
