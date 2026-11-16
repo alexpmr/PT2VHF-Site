@@ -53,6 +53,11 @@ RewriteRule ^downloads/aprs-android/.*\.apk\.part(?:[0-9]{2}|s\.json)$ - [F,L,NC
 RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
 RewriteRule ^downloads/aprs-android/([A-Za-z0-9_.-]+\.apk)$ download.php?product=aprs-android&file=$1 [L,NC,QSA]
 
+# Speed Alert Android: direct APK and OTA downloads are counted once.
+RewriteCond %{QUERY_STRING} !(^|&)pt2vhf_raw=1(&|$) [NC]
+RewriteCond %{HTTP:Range} ^$
+RewriteRule ^downloads/speed-alert/([A-Za-z0-9_.-]+\.apk)$ download.php?product=speed&file=$1 [L,NC,QSA]
+
 # Downloads do Mesh Analyzer (site, links diretos e OTA) passam pelo mesmo
 # contador persistente do APRS, com uma única contagem por download inicial.
 # pt2vhf_raw=1 identifica somente a resposta estática da segunda requisição.

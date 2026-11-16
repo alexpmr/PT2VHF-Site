@@ -22,7 +22,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'GET') {
     header('Allow: GET');
     reply(405, array('error' => 'Somente GET e permitido'));
 }
-$names = array('mesh','aprs','prop','sat','sdr','prog','qsl','aprs-android');
+$names = array('mesh','aprs','prop','sat','sdr','prog','qsl','aprs-android','speed');
 $product = (string)($_GET['product'] ?? 'mesh');
 if (!in_array($product, $names, true)) reply(400, array('error' => 'Produto invalido'));
 // Instalações ativas (aproximado): visitantes únicos por dia, sem guardar IP nem indicativo.
@@ -57,7 +57,7 @@ $mapping = array('windows-installer' => 'installer', 'windows-portable' => 'port
                  'android-apk' => 'apk');
 $directories = array('mesh'=>'mesh-analyzer', 'aprs'=>'aprs-client', 'prop'=>'prop-tool',
                      'sat'=>'sat-tool', 'sdr'=>'sdr-tool', 'prog'=>'prog-tool', 'qsl'=>'qsl-analyzer',
-                     'aprs-android'=>'aprs-android');
+                     'aprs-android'=>'aprs-android', 'speed'=>'speed-alert');
 $prefix = '/downloads/' . $directories[$product] . '/';
 $root = realpath(__DIR__ . '/downloads');
 $assets = array();
