@@ -16,6 +16,9 @@ RewriteRule ^ https://www.pt2vhf.com%{REQUEST_URI} [L,R=301]
 # URL oficial do APRS Android: mantém /android como endereço legado.
 RewriteRule ^aprs-android/?$ android.html [END,NC]
 
+# Página oficial do Speed Alert
+RewriteRule ^speed/?$ speed.html [END,NC]
+
 # As seis páginas funcionam sem extensão e com barra final opcional.
 # A condição THE_REQUEST limita o redirecionamento a requisições .html externas.
 RewriteCond %{THE_REQUEST} "^[A-Z]+[ ]/+(aprs|android|prop|mesh|sat|sdr|prog|qsl|contato|sobre)[.]html([ ?]|$)" [NC]
