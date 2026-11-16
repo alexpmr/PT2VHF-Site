@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -555,10 +555,10 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "1.0.3",
-      "date": "2026-11-15",
+      "version": "1.0.4",
+      "date": "2026-11-16",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "v1.0.3 Windows — correção candidata do OTA: inicialização do PowerShell sem DETACHED_PROCESS, redirecionamento de stderr, log de diagnóstico criado antes da execução em %TEMP%/PT2VHF-SDR-Tool-ota-launch.log, código de erro exibido e teste nativo do auxiliar empacotado. 240 testes Linux aprovados, testes Windows, Setup, Portable, prova nativa PowerShell e OTA Setup aprovados no CI. INSTALAÇÃO MANUAL UMA VEZ É NECESSÁRIA para corrigir a versão anterior, cujo OTA falha. Correção ainda não homologada no Windows do usuário que relatou a falha. Preserva v1.0.2 e detecção SDRplay/Mirics experimental; drivers nativos Soapy RSP não empacotados e testes RF pendentes. Splash textual; IA IQ/ONNX fora desta release.",
+      "notes": "v1.0.4: ferramenta de diagnóstico do OTA sem instalação em Configurações/Ajuda; verificação da disponibilidade dos decodificadores RS41 fsk_demod e rs41mod e cópia do diagnóstico; identificação dos backends SDRplay API/Mirics pelo SoapySDR; campos e formulários mais compactos. 248 testes Linux e suíte Windows aprovados, Setup/Portable e testes OTA Setup aprovados no CI. Limites: teste OTA no PC do usuário ainda necessário; RX RS41 e RSP não homologados em RF real; drivers RSP nativos não acompanham o instalador; IQ/ONNX ainda experimental; splash textual temporário. A versão anterior mantém seus recursos e configurações.",
       "files": [
         {
           "category": "windows-installer",
@@ -568,10 +568,10 @@
           "detail": "Windows 10/11 x64; instalação por usuário",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.3-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.3-Win11-x64-Setup.exe",
-          "size": 143950259,
-          "sha256": "b38ad3125dce56fdca4901dfc38065b65834e5a98117e2af26e362c1ce326d27",
+          "name": "PT2VHF-SDR-Tool-v1.0.4-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.4-Win11-x64-Setup.exe",
+          "size": 143959262,
+          "sha256": "c36ab736c9fb58e6fa278659ea24ff18546ac46428b3147cd13c61641207ddd2",
           "delivery": "github-release"
         },
         {
@@ -582,15 +582,15 @@
           "detail": "Windows 10/11 x64; executável portátil",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.3-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.3-Win11-x64-Portable.exe",
-          "size": 205906207,
-          "sha256": "ca4a040069f14553b0a04f943ed0433929be98456e1a524ff2441ad22ecdacb3",
+          "name": "PT2VHF-SDR-Tool-v1.0.4-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.4-Win11-x64-Portable.exe",
+          "size": 205918392,
+          "sha256": "bda294e08d872d2153c40258335e5db1c08b8983423108e9588cf059eb1acded",
           "delivery": "github-release"
         }
       ],
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr",
-      "releaseStatus": "v1.0.3 com OTA corrigido em teste CI Windows, pendente homologação com usuário final. É necessário instalar manualmente uma vez para sair de uma versão cujo OTA falha. Backend SDRplay/Mirics segue experimental e depende de drivers externos."
+      "releaseStatus": "v1.0.4 Windows Setup/Portable publicados com SHA-256 verificado; OTA e estabilidade requerem ensaios no computador do operador. SDRplay/Mirics sem drivers nativos embutidos, RS41 dependente de decodificadores externos."
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
