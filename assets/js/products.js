@@ -61,6 +61,7 @@ window.PT2VHF_PRODUCTS = [
       "Com um rádio ou TNC KISS pareado por Bluetooth, transmite e recebe por RF. O modo tracker envia a sua posição com SmartBeaconing mesmo com a tela desligada."
     ],
     features: [
+        "iGate (RF ↔ APRS-IS) e digipeater inteligente no próprio celular, ligados pelo TNC (opcionais, desligados por padrão)",
         "TNC KISS por Bluetooth LE (Mobilinkd TNC4, PicoAPRS, trackers LoRa APRS) e, no modo áudio, PTT por RTS/DTR ou CAT (Kenwood, Yaesu, Icom CI-V) por adaptador USB-serial",
         "Ficha da estação com o rádio/aplicativo usado (tabela aprs-deviceid), status Mic-E, PHG, frequência anunciada e caminho; estações Mic-E aparecem no mapa",
         "E-mails e sites no comentário viram links; sons de confirmação (ack) e de pacote repetido pelo digipeater",
