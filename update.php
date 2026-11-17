@@ -97,8 +97,19 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
                     "PT2VHF-SDR-Tool-v{$version}-Win11-x64-Portable.exe"), true);
             if (!$remoteSdr) continue;
         }
-        if ($remoteSdr) {
-            $url = 'https://www.pt2vhf.com/download.php?product=sdr&file=' . rawurlencode($name);
+        // Speed Alert is distributed by the official counted site endpoint.
+        // The APK may be stored in a verified GitHub release; it is not necessary
+        // to duplicate the binary on Hostinger for OTA discovery.
+        $remoteSpeed = $product === 'speed'
+            && ($file['delivery'] ?? '') === 'github-release'
+            && preg_match('/^\\d+\\.\\d+\\.\\d+-beta\\.\\d+$/D', (string)$version) === 1
+            && $name === "PT2VHF-Speed-Alert-v{$version}.apk"
+            && $fileKind === 'apk'
+            && $filePlatform === 'android';
+        if ($product === 'speed' && !$remoteSpeed) continue;
+        if ($remoteSdr || $remoteSpeed) {
+            $url = 'https://www.pt2vhf.com/download.php?product=' . rawurlencode($product)
+                . '&file=' . rawurlencode($name);
         } elseif ($product === 'prop' || $product === 'sat' || $product === 'sdr' || $product === 'qsl' || ($product === 'aprs-android' && substr($name, -7) === '_QA.apk')) {
             // Each installer consists of verified, sub-100 MiB server-side parts.
             if (pt2vhf_prop_parts($file, $product) === false) continue;
