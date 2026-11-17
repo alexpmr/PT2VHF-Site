@@ -150,7 +150,7 @@ foreach ($files as $entry) {
         $ver = (string)($updates['products']['speed']['version'] ?? '');
         $expectedApk = "PT2VHF-Speed-Alert-v{$ver}.apk";
         $digest = (string)($entry['sha256'] ?? '');
-        if (preg_match('/^\d+\.\d+\.\d+-beta\.\d+$/D', $ver) !== 1 ||
+        if (preg_match('/^\d+\.\d+\.\d+(?:-(?:beta|rc)\.\d+)?$/D', $ver) !== 1 ||
             $requestedFile !== $expectedApk ||
             !is_int($size) || $size < 1000000 || $size > 100000000 ||
             preg_match('/^[a-f0-9]{64}$/D', $digest) !== 1 ||

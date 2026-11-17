@@ -102,7 +102,7 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
         // to duplicate the binary on Hostinger for OTA discovery.
         $remoteSpeed = $product === 'speed'
             && ($file['delivery'] ?? '') === 'github-release'
-            && preg_match('/^\\d+\\.\\d+\\.\\d+-beta\\.\\d+$/D', (string)$version) === 1
+            && preg_match('/^\\d+\\.\\d+\\.\\d+(?:-(?:beta|rc)\\.\\d+)?$/D', (string)$version) === 1
             && $name === "PT2VHF-Speed-Alert-v{$version}.apk"
             && $fileKind === 'apk'
             && $filePlatform === 'android';
