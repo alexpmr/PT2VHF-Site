@@ -52,6 +52,7 @@ table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid #2a415a;
 <section class="stats" aria-labelledby="stats-title"><h2 id="stats-title">Instalações e países</h2>
 <p class="sub" id="stats-state">Preparando estatísticas de instalações identificadas durante a consulta de atualizações. Os dados só são enviados mediante participação voluntária.</p>
 <div class="grid" style="margin:18px 0">
+<div><div class="stat-number" id="downloads-count">—</div><div class="sub">downloads APK acumulados</div></div>
 <div><div class="stat-number" id="total">—</div><div class="sub">instalações identificadas</div></div>
 <div><div class="stat-number" id="active7">—</div><div class="sub">ativas em 7 dias (consultas OTA)</div></div>
 <div><div class="stat-number" id="countries">—</div><div class="sub">países identificados</div></div></div>
@@ -62,6 +63,10 @@ table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid #2a415a;
 <script>
 (function(){
  const api='/speed_stats.php';
+ fetch('/download.php?mode=stats',{cache:'no-store'})
+ .then(function(r){if(!r.ok)throw Error('counter unavailable');return r.json()})
+ .then(function(d){const c=d.counts&&d.counts.speed&&d.counts.speed['android-apk'];document.getElementById('downloads-count').textContent=Number.isFinite(Number(c))?Number(c).toLocaleString('pt-BR'):'—'})
+ .catch(function(){document.getElementById('downloads-count').textContent='—'});
  fetch(api,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('sem dados');return r.json()}).then(function(d){
  document.getElementById('total').textContent=d.totalUnique ?? 0;
  document.getElementById('active7').textContent=d.active7 ?? 0;
