@@ -665,7 +665,7 @@
           "name": "PT2VHF-Speed-Alert-v1.0.3-beta.1.apk",
           "url": "https://www.pt2vhf.com/downloads/speed-alert/PT2VHF-Speed-Alert-v1.0.3-beta.1.apk",
           "size": 10600625,
-          "sha256": "583782781a4058042b5b97a2dfca542d148bc3d36c8ceb36b94260fd4d4065f9",
+          "sha256": "9fab2b29e90f2d5b95682d257206e4f49a78d33c7e5562a1117c1588fa989b00",
           "platform": "android",
           "delivery": "github-release",
           "detail": "Android 8+; APK experimental. Certificado debug diferente das versões anteriores: requer desinstalação prévia."
