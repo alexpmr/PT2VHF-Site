@@ -16,7 +16,7 @@ if(!is_string($input) || strlen($input)>600) {http_response_code(400);exit;}
 $data=json_decode($input,true);
 if(!is_array($data)
   || ($data['product'] ?? '') !== 'speed-alert'
-  || ($data['platform'] ?? '') !== 'android'
+  || !in_array(($data['platform'] ?? ''), array('android','ios'), true)
   || ($data['event'] ?? '') !== 'update_check') {http_response_code(400);exit;}
 $id=strtolower((string)($data['install_id'] ?? ''));
 $ver=(string)($data['version'] ?? '');
@@ -24,5 +24,5 @@ if(!preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f
  || !preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}(?:[-+][A-Za-z0-9.-]{1,30})?$/D',$ver)) {
     http_response_code(400);exit;
 }
-if(!speed_record($id,$ver)) {http_response_code(503);exit;}
+if(!speed_record($id,$ver,(string)$data['platform'])) {http_response_code(503);exit;}
 http_response_code(204);

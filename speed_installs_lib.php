@@ -44,7 +44,8 @@ function speed_decode($raw): array {
         return array('schema'=>1,'records'=>array(),'totalEver'=>0);
     return $d;
 }
-function speed_record(string $uuid,string $version): bool {
+function speed_record(string $uuid,string $version,string $platform = 'android'): bool {
+    if (!in_array($platform,array('android','ios'),true)) return false;
     $secret = speed_secret();
     if ($secret === null) return false;
     $id = hash_hmac('sha256',$uuid,$secret);
@@ -71,7 +72,7 @@ function speed_record(string $uuid,string $version): bool {
         if (!$exists) $data['totalEver'] = (int)($data['totalEver'] ?? 0) + 1;
         $data['records'][$id] = array(
             'first'=>(int)$row['first'], 'last'=>$now,
-            'version'=>$version, 'country'=>speed_country_code()
+            'version'=>$version, 'platform'=>$platform, 'country'=>speed_country_code()
         );
         $json = json_encode($data,JSON_UNESCAPED_SLASHES);
         if (!is_string($json)) return false;
@@ -85,7 +86,7 @@ function speed_summary(): array {
     $data = speed_decode($raw === false ? null : $raw);
     $now = time();
     $active7 = 0;$active30 = 0;$active24 = 0;
-    $countries = array();$versions = array();
+    $countries = array();$versions = array();$platforms = array();
     foreach ($data['records'] as $row) {
         if (!is_array($row)) continue;
         $age = $now - (int)($row['last'] ?? 0);
@@ -98,6 +99,9 @@ function speed_summary(): array {
         $countries[$c] = ($countries[$c] ?? 0)+1;
         $v = (string)($row['version'] ?? '');
         if ($v !== '') $versions[$v] = ($versions[$v] ?? 0)+1;
+        $platform = (string)($row['platform'] ?? 'android');
+        if (!in_array($platform,array('android','ios'),true))$platform='android';
+        $platforms[$platform] = ($platforms[$platform] ?? 0)+1;
     }
     arsort($countries);arsort($versions);
     $labels = array('BR'=>'Brasil','PT'=>'Portugal','NL'=>'Países Baixos','US'=>'Estados Unidos',
@@ -114,5 +118,5 @@ function speed_summary(): array {
       'totalEver'=>(int)($data['totalEver'] ?? 0),
       'active24'=>$active24,'active7'=>$active7,'active30'=>$active30,
       'countryCount'=>count(array_filter(array_keys($countries),function($c){return $c !== 'ZZ';})),
-      'countries'=>$rows,'versions'=>$versionsList);
+      'countries'=>$rows,'versions'=>$versionsList,'platforms'=>$platforms);
 }
