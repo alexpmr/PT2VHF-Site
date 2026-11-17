@@ -143,6 +143,24 @@ foreach ($files as $entry) {
     // Evita repositório Git com binários >100 MB no plano de hospedagem.
     // O manifesto do site preserva o SHA256; só aceitamos nomes gerados pelo
     // fluxo de release do repositório fixo PT2VHF-SDR-Tool, sem URL arbitrária.
+    // Speed Alert: official counted download backed by an exact verified GitHub release.
+    // Do not require the APK to be stored on Hostinger, but only accept the
+    // explicitly allowlisted name, version, size and digest from updates.json.
+    if ($product === 'speed' && ($entry['delivery'] ?? '') === 'github-release') {
+        $ver = (string)($updates['products']['speed']['version'] ?? '');
+        $expectedApk = "PT2VHF-Speed-Alert-v{$ver}.apk";
+        $digest = (string)($entry['sha256'] ?? '');
+        if (preg_match('/^\d+\.\d+\.\d+-beta\.\d+$/D', $ver) !== 1 ||
+            $requestedFile !== $expectedApk ||
+            !is_int($size) || $size < 1000000 || $size > 100000000 ||
+            preg_match('/^[a-f0-9]{64}$/D', $digest) !== 1 ||
+            $path !== '/downloads/speed-alert/' . $requestedFile) continue;
+        $found = true;
+        $category = $key;
+        $githubReleaseUrl = 'https://github.com/alexpmr/speed-alert/releases/download/v'
+            . $ver . '/' . $requestedFile;
+        break;
+    }
     if ($product === 'sdr' && ($entry['delivery'] ?? '') === 'github-release') {
         $ver = (string)($updates['products']['sdr']['version'] ?? '');
         $expectedSetup = "PT2VHF-SDR-Tool-v{$ver}-Win11-x64-Setup.exe";

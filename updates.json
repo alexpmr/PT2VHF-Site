@@ -650,6 +650,27 @@
         }
       ],
       "releaseStatus": "1.1 publicada como OTA regular. Faça backup antes de atualizar."
+    },
+    "speed": {
+      "name": "PT2VHF Speed Alert",
+      "version": "1.0.3-beta.1",
+      "date": "2026-11-16",
+      "page": "https://www.pt2vhf.com/speed",
+      "notes": "Interface revisada com placa de velocidade e GPS, identificação de via, alertas sonoros/visuais e opção Silenciar. Correção de OTA com assinatura estável pendente. Beta sem homologação em campo.",
+      "files": [
+        {
+          "category": "android-apk",
+          "counterKey": "android-apk",
+          "label": "Android — APK beta",
+          "name": "PT2VHF-Speed-Alert-v1.0.3-beta.1.apk",
+          "url": "https://www.pt2vhf.com/downloads/speed-alert/PT2VHF-Speed-Alert-v1.0.3-beta.1.apk",
+          "size": 10600625,
+          "sha256": "583782781a4058042b5b97a2dfca542d148bc3d36c8ceb36b94260fd4d4065f9",
+          "platform": "android",
+          "delivery": "github-release",
+          "detail": "Android 8+; APK experimental. Certificado debug diferente das versões anteriores: requer desinstalação prévia."
+        }
+      ]
     }
   }
 }
