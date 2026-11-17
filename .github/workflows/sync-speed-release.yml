@@ -1,0 +1,81 @@
+name: Sync Speed Alert stable 1.0 release to PT2VHF website
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-speed-release.yml'
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: speed-site-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check canonical GitHub stable release
+        id: release
+        run: |
+          set -euo pipefail
+          status="$(curl -L -sS --connect-timeout 8 --max-time 40 \
+            -H "Accept: application/vnd.github+json" \
+            -o "$RUNNER_TEMP/speed-release.json" -w '%{http_code}' \
+            https://api.github.com/repos/alexpmr/speed-alert/releases/tags/v1.0.5)"
+          if [ "$status" = "404" ]; then
+            echo "Stable signed release not published yet. Leaving website unchanged."
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          test "$status" = "200" || { echo "::error::GitHub API returned $status"; exit 1; }
+          jq -e --arg fn 'PT2VHF-Speed-Alert-v1.0.5.apk' \
+            '.tag_name=="v1.0.5" and .draft==false and .prerelease==false and
+             ([.assets[]|select(.name==$fn)]|length)==1' \
+            "$RUNNER_TEMP/speed-release.json" > /dev/null
+          echo "available=true" >> "$GITHUB_OUTPUT"
+      - name: Validate canonical APK checksum and ZIP integrity
+        id: verify
+        if: steps.release.outputs.available == 'true'
+        run: |
+          set -euo pipefail
+          release="$RUNNER_TEMP/speed-release.json"
+          name='PT2VHF-Speed-Alert-v1.0.5.apk'
+          digest="$(jq -r --arg fn "$name" '.assets[]|select(.name==$fn)|.digest' "$release")"
+          echo "$digest" | grep -Eq '^sha256:[0-9a-f]{64}$'
+          sha="$(echo "$digest" | cut -d: -f2)"
+          url="$(jq -r --arg fn "$name" '.assets[]|select(.name==$fn)|.browser_download_url' "$release")"
+          test "$url" = "https://github.com/alexpmr/speed-alert/releases/download/v1.0.5/$name"
+          curl --fail -LsS --retry 3 --connect-timeout 15 --max-time 200 \
+            -o "$RUNNER_TEMP/$name" "$url"
+          echo "$sha  $RUNNER_TEMP/$name" | sha256sum -c -
+          unzip -t "$RUNNER_TEMP/$name" > /dev/null
+          unzip -l "$RUNNER_TEMP/$name" | grep 'assets/df_roads_v3.sqlite'
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+      - name: Synchronize official download and OTA metadata
+        if: steps.release.outputs.available == 'true'
+        env:
+          SHA: ${{ steps.verify.outputs.sha }}
+        run: |
+          set -euo pipefail
+          python3 scripts/sync_speed_stable_release.py "$RUNNER_TEMP/speed-release.json" "$SHA"
+          python3 -m json.tool updates.json > /dev/null
+          if command -v php >/dev/null; then
+            php -l update.php
+            php -l download.php
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add updates.json speed.html
+          if git diff --cached --quiet; then
+            echo "Website already synchronized."
+          else
+            git commit -m "release(site): Speed Alert v1.0.5 signed stable APK and OTA metadata"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
