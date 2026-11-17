@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PT2VHF Speed Alert para iPhone — Instalação e manual de uso</title>
+<meta name="description" content="Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.">
+<link rel="canonical" href="https://www.pt2vhf.com/speed-ios">
+<meta name="theme-color" content="#08121e">
+<style>
+:root{color-scheme:dark;font-family:Inter,system-ui,-apple-system,Arial,sans-serif;background:#08111f;color:#f0f6ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#153150 0%,#091421 38%,#08111f 85%);line-height:1.62}
+a{color:#60dfc0}header{border-bottom:1px solid #293b51;background:#08121eeb}
+nav,.wrap{max-width:1050px;margin:auto;padding:0 22px}nav{display:flex;align-items:center;gap:22px;min-height:68px;flex-wrap:wrap}nav .brand{font-size:1.24rem;font-weight:900;color:white;text-decoration:none}
+main{padding-top:46px;padding-bottom:50px}h1{font-size:clamp(2.2rem,5vw,3.7rem);line-height:1.12;margin:10px 0 20px}
+h2{font-size:1.5rem;margin-top:0}h3{font-size:1.14rem;margin:0 0 12px}
+p,li{color:#c1d3e6}.lead{font-size:1.12rem;max-width:830px}
+.eyebrow{font-size:.82rem;letter-spacing:.14em;font-weight:900;text-transform:uppercase;color:#55e0bd}
+.status{border-left:4px solid #f0bb51;background:#24281c;border-radius:10px;padding:18px 21px;margin:28px 0 32px}
+.status strong{color:#fff}.status p{margin:.35rem 0 0}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin:24px 0 32px}
+.card,.panel{border:1px solid #2a415a;background:#102033;border-radius:18px;padding:22px}
+.card p{margin:0}.tag{font-size:.77rem;letter-spacing:.04em;color:#71e1c4;text-transform:uppercase;font-weight:750}
+.panel{margin:24px 0}.step{font-size:1.1rem;line-height:1.75;padding-left:24px}
+.step li{margin:7px 0}code{overflow-wrap:anywhere;color:#f1d99a;background:#172c3e;border-radius:5px;padding:2px 5px}
+.callout{border-left:3px solid #51cdaa;padding:10px 14px;background:#0e2b32}
+.tableWrap{overflow-x:auto}table{border-collapse:collapse;width:100%;margin-top:14px}th,td{padding:12px;border-bottom:1px solid #284057;text-align:left;vertical-align:top}th{color:white}
+.btn{display:inline-block;background:#26c89c;color:#09211d;border-radius:11px;padding:12px 19px;margin:10px 10px 0 0;font-weight:800;text-decoration:none}
+.btn.secondary{background:#1a3245;border:1px solid #426b81;color:#eaf9ff}
+footer{border-top:1px solid #25364a;padding:25px 0;color:#9eb3c7}
+@media(max-width:750px){.cards{grid-template-columns:1fr}main{padding-top:28px}nav{gap:15px;padding:13px 22px}}
+</style>
+</head>
+<body>
+<header><nav><a class="brand" href="/">PT2VHF</a><a href="/speed">Speed Alert</a><a href="/speed-ios" aria-current="page">iPhone / iOS</a><a href="https://github.com/alexpmr/speed-alert">GitHub</a></nav></header>
+<main class="wrap">
+<div class="eyebrow">PT2VHF · iPhone · GPS · Base offline</div>
+<h1>Speed Alert para iPhone</h1>
+<p class="lead">Manual de instalação e uso da edição nativa em SwiftUI. A versão técnica 1.0.6 utiliza o GPS do iPhone para indicar a velocidade e consultar os limites cadastrados em uma base cartográfica offline.</p>
+<div class="status" role="status">
+<strong>Distribuição para iPhone ainda em preparação.</strong>
+<p>O projeto compilou para o simulador, mas <strong>ainda não há um IPA assinado nem convite TestFlight público</strong>. Um aplicativo de simulador não instala em iPhone. A instalação em dispositivo físico exige assinatura e provisionamento Apple; não oferecemos um download inválido.</p>
+</div>
+<div class="cards" aria-label="Modalidades de instalação">
+<article class="card"><div class="tag">Teste individual</div><h3>Instalar pelo Xcode</h3><p>Um Mac, o Xcode, sua Conta Apple e o iPhone conectado. Adequado para desenvolvimento e testes no próprio aparelho.</p></article>
+<article class="card"><div class="tag">Dispositivos registrados</div><h3>IPA Ad Hoc assinado</h3><p>Para iPhones previamente cadastrados no perfil de provisionamento Apple. Exige equipe do Apple Developer Program.</p></article>
+<article class="card"><div class="tag">Distribuição a usuários</div><h3>TestFlight ou App Store</h3><p>O caminho recomendado para compartilhar o aplicativo com usuários sem precisar registrar o UDID de cada iPhone.</p></article>
+</div>
+<a class="btn" href="#como-instalar">Como instalar no iPhone</a>
+<a class="btn secondary" href="#como-usar">Manual de uso</a>
+<a class="btn secondary" href="https://github.com/alexpmr/speed-alert/tree/main/ios">Código-fonte iOS</a>
+<section class="panel" id="como-instalar">
+<h2>Como instalar a versão iOS</h2>
+<h3>Opção 1 — pelo Xcode, no seu próprio iPhone</h3>
+<ol class="step">
+<li>Em um Mac, instale Xcode 16 ou superior e XcodeGen.</li>
+<li>Baixe o projeto <a href="https://github.com/alexpmr/speed-alert">PT2VHF Speed Alert</a> e execute na raiz: <code>bash ios/scripts/prepare_offline.sh</code>.</li>
+<li>Entre na pasta <code>ios</code>, execute <code>xcodegen generate --spec project.yml</code> e abra <code>PT2VHFSpeedAlert.xcodeproj</code>.</li>
+<li>Em <strong>Signing &amp; Capabilities</strong>, habilite a assinatura automática, escolha sua equipe Apple e permita assinatura para compilação em dispositivo. Se necessário para uso pessoal, escolha um identificador exclusivo.</li>
+<li>Conecte o iPhone, autorize o computador e ative o Modo de Desenvolvedor quando solicitado. Selecione o aparelho como destino e clique em <strong>Run</strong>.</li>
+<li>Abra o aplicativo no iPhone e conceda as permissões de localização adequadas.</li>
+</ol>
+<p class="callout">Uma Conta Apple gratuita pode servir para testes no seu próprio dispositivo pelo Xcode. Isso não disponibiliza um IPA público nem o TestFlight.</p>
+<h3>Opção 2 — IPA para iPhones registrados</h3>
+<ol class="step">
+<li>Inscreva-se no Apple Developer Program e registre o identificador <code>com.pt2vhf.speedalert.ios</code> e os UDIDs dos iPhones de teste.</li>
+<li>Prepare um certificado Apple Distribution e um perfil de provisionamento Ad Hoc que inclua esses aparelhos.</li>
+<li>Configure os segredos de assinatura Apple no repositório GitHub, de forma privada.</li>
+<li>Execute <a href="https://github.com/alexpmr/speed-alert/actions/workflows/ios-ipa.yml">Build signed iOS IPA for registered iPhones</a>. Se o workflow passar, baixe o IPA assinado e seu SHA-256.</li>
+<li>Instale no aparelho autorizado por Xcode, Apple Configurator ou procedimento Ad Hoc compatível. O IPA não funcionará em aparelhos que não estejam no perfil.</li>
+</ol>
+<h3>Opção 3 — TestFlight</h3>
+<ol class="step">
+<li>A equipe responsável arquiva e envia uma build assinada ao App Store Connect.</li>
+<li>Quando o teste estiver disponível e aprovado conforme as exigências da Apple, será publicado aqui um convite TestFlight real.</li>
+<li>Os usuários instalam o TestFlight no iPhone, aceitam o convite e instalam a edição iOS.</li>
+</ol>
+<p>Documentação da Apple: <a href="https://developer.apple.com/documentation/xcode/distributing-your-app-to-registered-devices/">dispositivos registrados</a> e <a href="https://developer.apple.com/documentation/xcode/distributing-your-app-for-beta-testing-and-releases/">TestFlight / distribuição</a>.</p>
+</section>
+<section class="panel" id="como-usar">
+<h2>Manual de uso — Speed Alert iOS</h2>
+<ol class="step">
+<li><strong>Primeira abertura:</strong> leia o aviso legal e toque em <strong>Continuar</strong> para ativar o monitoramento GPS.</li>
+<li><strong>Localização:</strong> permita acesso à localização precisa. Para receber alarmes enquanto usa Waze ou Mapas, conceda o acesso em segundo plano apropriado quando o iOS permitir.</li>
+<li><strong>Velocímetro:</strong> a placa circular mostra o limite cadastrado para a via; o número grande mostra a velocidade atual do GPS, sem casas decimais. Quando não há limite conhecido, a tela indica informação indisponível.</li>
+<li><strong>Cores:</strong> verde quando abaixo de 95% do limite; amarelo de 95% ao limite; vermelho piscante quando acima do limite.</li>
+<li><strong>Alarmes:</strong> sons durante o excesso de velocidade, enquanto houver monitoramento e GPS válidos. O botão <strong>Silenciar</strong> desliga somente o áudio.</li>
+<li><strong>Configurações:</strong> tolerância padrão 0 km/h; volume relativo 80%; seis padrões de som; tela ligada ativada; radar a 300 m por padrão, com ajustes disponíveis.</li>
+<li><strong>Offline:</strong> velocidade, via e radar usam dados locais. A cobertura cartográfica não é mundial; consulte a placa e a sinalização real quando a via estiver desconhecida.</li>
+<li><strong>Segundo plano:</strong> quando autorizado, o monitoramento pode continuar com outro navegador visível. Encerrar o app à força ou alterar permissões pode interromper os alarmes.</li>
+</ol>
+<div class="tableWrap">
+<table><thead><tr><th>Cor</th><th>Situação</th><th>Comportamento</th></tr></thead><tbody>
+<tr><td>Verde</td><td>Abaixo de 95% do limite</td><td>Indicação visual sem alarme de excesso</td></tr>
+<tr><td>Amarela</td><td>De 95% ao limite</td><td>Atenção visual</td></tr>
+<tr><td>Vermelha</td><td>Acima do limite</td><td>Indicação piscante e alerta sonoro quando não silenciado</td></tr>
+<tr><td>Neutra</td><td>Limite desconhecido</td><td>Não inventa limite; sem alarme automático de excesso</td></tr>
+</tbody></table></div>
+</section>
+<section class="panel">
+<h2>Segurança e limitações</h2>
+<p>O Speed Alert é um auxílio e não substitui as placas e as regras de trânsito. Limites de velocidade, localização e radares da base offline podem estar incorretos, incompletos ou desatualizados. O sinal GPS e as permissões do iOS podem variar. Não utilize o telefone manualmente enquanto estiver dirigindo.</p>
+<p>Dados de vias: © OpenStreetMap contributors, licença ODbL 1.0. Todos os recursos previstos do aplicativo são gratuitos; não há funções internas pagas. Eventuais exigências de conta Apple para distribuição do instalador são externas ao aplicativo.</p>
+</section>
+</main>
+<footer><div class="wrap">© PT2VHF · <a href="/speed">Página principal do Speed Alert</a> · <a href="https://github.com/alexpmr/speed-alert/issues">Problemas e sugestões no GitHub</a></div></footer>
+</body>
+</html>

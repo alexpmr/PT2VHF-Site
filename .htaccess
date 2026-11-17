@@ -18,6 +18,7 @@ RewriteRule ^aprs-android/?$ android.html [END,NC]
 
 # Página oficial do Speed Alert
 RewriteRule ^speed/?$ speed.html [END,NC]
+RewriteRule ^speed-ios/?$ speed-ios.html [END,NC]
 
 # As seis páginas funcionam sem extensão e com barra final opcional.
 # A condição THE_REQUEST limita o redirecionamento a requisições .html externas.
