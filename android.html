@@ -100,51 +100,56 @@
         <p class="eyebrow mono">APRS · ANDROID · BLUETOOTH</p>
         <h1>PT2VHF APRS Client for Android</h1>
         <p class="lead">Cliente APRS no celular: mapa, mensagens, beacon, tracker em segundo plano e TNC por Bluetooth.</p>
-        <p class="mono" role="status" style="margin: 0.75rem 0 1rem; color: #f9ce79;">
+        <p class="mono" role="status" style="margin: 0.75rem 0 1rem; color: #f9ce79;" data-gp-i18n="heroNotice">
           Novidade: daqui para frente o app se chama <strong>PT2VHF APRS Client</strong> e as novas versões para Android
           serão distribuídas somente pelo <strong>Google Play</strong>. Cadastre-se abaixo para testar antes de todos.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#google-play">Google Play</a>
-          <a class="btn btn-ghost btn-lg" href="#downloads">Ver downloads</a>
+          <a class="btn btn-primary btn-lg" href="#downloads">Ver downloads</a>
           <a class="btn btn-ghost btn-lg" href="#recursos">Conhecer os recursos</a>
+          <a class="gp-badge" href="#google-play" aria-label="Google Play">
+            <img class="gp-badge-img" src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png"
+                 alt="Disponível no Google Play" width="200" height="77" style="height:66px;width:auto;margin:-9px 0;vertical-align:middle">
+          </a>
         </div>
       </div>
     </section>
     <section class="section google-play" id="google-play" aria-labelledby="play-title">
       <div class="container">
         <div class="section-head">
-          <h2 id="play-title">Agora no Google Play</h2>
-          <p>A partir de agora, as novas versões do PT2VHF APRS Client para Android serão publicadas somente no
+          <h2 id="play-title" data-gp-i18n="playTitle">Agora no Google Play</h2>
+          <p data-gp-i18n="playIntro">A partir de agora, as novas versões do PT2VHF APRS Client para Android serão publicadas somente no
             <strong>Google Play</strong>, com atualização automática pela loja. O APK deste site continua disponível
             até a versão da loja ser liberada para todos; depois disso ele deixa de receber atualizações.</p>
         </div>
         <p>
-          <a class="btn btn-primary btn-lg play-badge" href="https://play.google.com/store/apps/details?id=com.pt2vhf.aprs"
+          <a class="gp-badge" href="https://play.google.com/store/apps/details?id=com.pt2vhf.aprs"
              target="_blank" rel="noopener" aria-label="Abrir o PT2VHF APRS Client no Google Play">
-            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-5px;margin-right:8px"><path fill="currentColor" d="M4 2.5v19l17-9.5z"/></svg>Disponível no Google Play
+            <img class="gp-badge-img" src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png"
+                 alt="Disponível no Google Play" width="250" height="97" style="height:84px;width:auto;margin:-12px">
           </a>
         </p>
-        <p class="mono" style="color: var(--muted); font-size: .9rem;">A página da loja abre para todos depois do teste fechado do Google Play.</p>
-        <h3 id="testers-title">Quero testar as novas versões</h3>
-        <p>O Google Play exige um teste fechado antes de publicar. Deixe seu e-mail (de preferência o da sua conta Google,
+        <p class="mono" style="color: var(--muted); font-size: .9rem;" data-gp-i18n="playNote">A página da loja abre para todos depois do teste fechado do Google Play.</p>
+        <h3 id="testers-title" data-gp-i18n="testersTitle">Quero testar as novas versões</h3>
+        <p data-gp-i18n="testersIntro">O Google Play exige um teste fechado antes de publicar. Deixe seu e-mail (de preferência o da sua conta Google,
           usada no Play) e você receberá o convite para instalar as versões de teste direto da loja.</p>
         <form class="testers-form" action="/testers.php" method="post" aria-labelledby="testers-title"
               style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;max-width:680px">
           <input type="hidden" name="product" value="aprs-android">
-          <label style="flex:2 1 240px;display:flex;flex-direction:column;gap:4px">E-mail da conta Google
+          <input type="hidden" name="lang" value="pt">
+          <label style="flex:2 1 240px;display:flex;flex-direction:column;gap:4px"><span data-gp-i18n="emailLabel">E-mail da conta Google</span>
             <input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="seuemail@gmail.com"
                    style="padding:10px;border-radius:8px;border:1px solid var(--line,#334);background:transparent;color:inherit">
           </label>
-          <label style="flex:1 1 140px;display:flex;flex-direction:column;gap:4px">Indicativo (opcional)
+          <label style="flex:1 1 140px;display:flex;flex-direction:column;gap:4px"><span data-gp-i18n="callLabel">Indicativo (opcional)</span>
             <input type="text" name="call" maxlength="16" autocapitalize="characters" placeholder="PY2XYZ"
                    style="padding:10px;border-radius:8px;border:1px solid var(--line,#334);background:transparent;color:inherit">
           </label>
           <label style="position:absolute;left:-9999px" aria-hidden="true">Não preencha<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-          <button class="btn btn-primary" type="submit">Quero testar</button>
+          <button class="btn btn-primary" type="submit" data-gp-i18n="submit">Quero testar</button>
         </form>
         <p id="testers-status" role="status" class="mono" style="margin-top:10px;color:#f9ce79" hidden></p>
-        <p style="color: var(--muted); font-size: .9rem;">Seu e-mail é usado só para a lista de testadores do Google Play.
+        <p style="color: var(--muted); font-size: .9rem;" data-gp-i18n="privacyNote">Seu e-mail é usado só para a lista de testadores do Google Play.
           Veja a <a href="/privacidade">política de privacidade</a>.</p>
       </div>
     </section>
@@ -154,11 +159,11 @@
     <section class="section ios-app" id="ios" aria-labelledby="ios-title">
       <div class="container">
         <div class="section-head">
-          <h2 id="ios-title">iPhone e iPad (iOS)</h2>
-          <p>Versão nativa para iOS 17 ou mais novo, em fase de testes: mapa (padrão, escuro, satélite e híbrido),
+          <h2 id="ios-title" data-gp-i18n="iosTitle">iPhone e iPad (iOS)</h2>
+          <p data-gp-i18n="iosP1">Versão nativa para iOS 17 ou mais novo, em fase de testes: mapa (padrão, escuro, satélite e híbrido),
             APRS-IS, estações, mensagens com confirmação, beacon por GPS com rastreador e TNC KISS por
             <strong>Bluetooth LE</strong>. TNCs Bluetooth clássico (SPP), USB e modem por áudio não funcionam no iPhone.</p>
-          <p>A Apple não permite instalar aplicativos baixados de sites, como o APK do Android. A versão iOS será
+          <p data-gp-i18n="iosP2">A Apple não permite instalar aplicativos baixados de sites, como o APK do Android. A versão iOS será
             distribuída pelo <strong>TestFlight</strong> (beta gratuito da Apple) e o link de instalação aparecerá
             aqui assim que o teste for liberado.</p>
         </div>
@@ -221,14 +226,6 @@
   <script src="/assets/js/changelog-data.js?v=20261118-android14"></script>
   <script src="/assets/js/compare-data.js?v=20261113-android-12"></script>
   <script src="/assets/js/main.js?v=20261114-aprs202"></script>
-  <script>
-    (function () {
-      var st = new URLSearchParams(location.search).get('testers');
-      var msg = { ok: 'Cadastro recebido! Você receberá o convite do Google Play quando o teste abrir.',
-                  dup: 'Este e-mail já está cadastrado.', erro: 'Não foi possível cadastrar. Confira o e-mail e tente de novo.' }[st];
-      var el = document.getElementById('testers-status');
-      if (msg && el) { el.textContent = msg; el.hidden = false; }
-    })();
-  </script>
+  <script src="/assets/js/android-play-i18n.js?v=20261118-play2"></script>
 </body>
 </html>
