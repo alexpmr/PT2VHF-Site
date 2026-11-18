@@ -263,6 +263,7 @@ window.PT2VHF_I18N["it"] = {
         "Con una radio o un TNC KISS associato via Bluetooth trasmette e riceve in RF. La modalità tracker invia la posizione con SmartBeaconing anche a schermo spento."
       ],
       "features": [
+        "Notifiche per tipo (messaggi personali, bollettini, CQ, ACK, digi e avvisi), ognuna con il proprio suono, e \"Rinuncia all'ACK e reinvia\" con un tocco",
         "iGate (RF ↔ APRS-IS) e digipeater intelligente sullo smartphone stesso, tramite il TNC (opzionali, disattivati di default)",
         "TNC KISS via Bluetooth LE (Mobilinkd TNC4, PicoAPRS, tracker LoRa APRS) e, in modalità audio, PTT via RTS/DTR o CAT (Kenwood, Yaesu, Icom CI-V) con adattatore USB-seriale",
         "Scheda stazione con la radio/app usata (tabella aprs-deviceid), stato Mic-E, PHG, frequenza annunciata e percorso; le stazioni Mic-E compaiono sulla mappa",

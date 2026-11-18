@@ -263,6 +263,7 @@ window.PT2VHF_I18N["zh"] = {
         "通过蓝牙配对的 KISS 电台或 TNC 可进行射频收发。跟踪器模式在屏幕关闭时也会用 SmartBeaconing 发送位置。"
       ],
       "features": [
+        "按类型通知（个人消息、公告、CQ、ACK、数字中继和提醒），各有独立铃声；一键“放弃 ACK 并重发”",
         "手机本身即可作为 iGate（RF ↔ APRS-IS）和智能数字中继，经由 TNC 工作（可选，默认关闭）",
         "支持低功耗蓝牙（BLE）KISS TNC（Mobilinkd TNC4、PicoAPRS、LoRa APRS 跟踪器）；音频模式下可通过 USB 串口适配器以 RTS/DTR 或 CAT（Kenwood、Yaesu、Icom CI-V）控制 PTT",
         "台站详情显示所用电台/应用（aprs-deviceid 表）、Mic-E 状态、PHG、公布频率和路径；Mic-E 台站会显示在地图上",
