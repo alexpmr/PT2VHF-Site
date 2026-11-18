@@ -18,7 +18,7 @@ const PT2VHF_TESTERS_MAX = 5000;
 const PT2VHF_TESTERS_BCC = 'alexpmr@gmail.com';
 const PT2VHF_TESTERS_FROM = 'PT2VHF <nao-responda@pt2vhf.com>';
 // Grupo do Google ligado ao teste fechado; vazio = o mantenedor inclui o e-mail na lista da Play Console.
-const PT2VHF_TESTERS_GROUP_URL = '';
+const PT2VHF_TESTERS_GROUP_URL = 'https://groups.google.com/g/pt2vhf-aprs-testers';
 const PT2VHF_PLAY_OPTIN_URL = 'https://play.google.com/apps/testing/com.pt2vhf.aprs';
 const PT2VHF_PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.pt2vhf.aprs';
 
