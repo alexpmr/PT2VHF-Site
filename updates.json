@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -555,10 +555,10 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "1.0.4",
-      "date": "2026-11-16",
+      "version": "1.0.5",
+      "date": "2026-11-19",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "v1.0.4: ferramenta de diagnóstico do OTA sem instalação em Configurações/Ajuda; verificação da disponibilidade dos decodificadores RS41 fsk_demod e rs41mod e cópia do diagnóstico; identificação dos backends SDRplay API/Mirics pelo SoapySDR; campos e formulários mais compactos. 248 testes Linux e suíte Windows aprovados, Setup/Portable e testes OTA Setup aprovados no CI. Limites: teste OTA no PC do usuário ainda necessário; RX RS41 e RSP não homologados em RF real; drivers RSP nativos não acompanham o instalador; IQ/ONNX ainda experimental; splash textual temporário. A versão anterior mantém seus recursos e configurações.",
+      "notes": "v1.0.5 — consolidação de todas as funcionalidades estáveis e aprovadas na v1.0.4: RTL-SDR, rtl_tcp, SoapySDR, SDRplay/Mirics (detecção experimental), waterfall e sintonia, upconverter externo, LCD responsivo, áudio, transcrição local, diagnóstico OTA sem instalação e pré-requisitos RS41. Acrescenta seis testes de regressão para evitar perda desses recursos, resultando em 254 testes Linux/Qt aprovados; suíte Windows, executáveis Setup/Portable, teste nativo PowerShell, instalação silenciosa e smoke OTA Setup/Portable aprovados no CI. Não contém o classificador IQ/ONNX experimental. IMPORTANTE: suporte RF RSP1 e RS41 NÃO homologado com equipamentos físicos; módulos Soapy RSP e drivers USB não estão embutidos; issues Windows #8 (estabilidade) e #18 (OTA no PC do usuário) permanecem abertas. Splash textual temporário. Configurações e memórias preservadas.",
       "files": [
         {
           "category": "windows-installer",
@@ -568,10 +568,10 @@
           "detail": "Windows 10/11 x64; instalação por usuário",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.4-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.4-Win11-x64-Setup.exe",
-          "size": 143959262,
-          "sha256": "c36ab736c9fb58e6fa278659ea24ff18546ac46428b3147cd13c61641207ddd2",
+          "name": "PT2VHF-SDR-Tool-v1.0.5-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.5-Win11-x64-Setup.exe",
+          "size": 143961173,
+          "sha256": "b0ce5a85ab6a93610f8c40221e41e4ecc017013b46f2397413003695e60ea3f1",
           "delivery": "github-release"
         },
         {
@@ -582,15 +582,15 @@
           "detail": "Windows 10/11 x64; executável portátil",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.4-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.4-Win11-x64-Portable.exe",
-          "size": 205918392,
-          "sha256": "bda294e08d872d2153c40258335e5db1c08b8983423108e9588cf059eb1acded",
+          "name": "PT2VHF-SDR-Tool-v1.0.5-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.5-Win11-x64-Portable.exe",
+          "size": 205916278,
+          "sha256": "c73eb947eb769c32f82c748d8818054a4ae9a241d54e1de2eaabb5fed7a252b7",
           "delivery": "github-release"
         }
       ],
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr",
-      "releaseStatus": "v1.0.4 Windows Setup/Portable publicados com SHA-256 verificado; OTA e estabilidade requerem ensaios no computador do operador. SDRplay/Mirics sem drivers nativos embutidos, RS41 dependente de decodificadores externos."
+      "releaseStatus": "v1.0.5 Windows Setup e Portable publicados no GitHub com hashes SHA-256 verificados; OTA e estabilidade requerem ensaio de campo. SDRplay/Mirics e RS41 continuam dependentes de software externo e RF real não homologado."
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
