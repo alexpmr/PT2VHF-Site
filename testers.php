@@ -7,7 +7,8 @@
  * uma linha por e-mail, no formato que a Play Console aceita para a lista de testadores
  * (primeira coluna = e-mail). E-mail repetido não é gravado de novo.
  * Nenhum IP é gravado: o limite por IP usa HMAC com chave diária, como em stations_lib.php.
- * Cadastro novo recebe um e-mail com as instruções do teste no Google Play, com cópia oculta ao mantenedor.
+ * Cadastro novo gera um aviso por e-mail ao mantenedor (que inclui o inscrito no Grupo do Google)
+ * e uma confirmação ao inscrito com as instruções do teste no Google Play.
  * Resposta: redireciona de volta para a página com ?testers=ok|dup|erro#google-play,
  * ou JSON {status} quando o pedido aceita application/json.
  */
@@ -18,7 +19,8 @@ const PT2VHF_TESTERS_MAX = 5000;
 const PT2VHF_TESTERS_BCC = 'alexpmr@gmail.com';
 const PT2VHF_TESTERS_FROM = 'PT2VHF <nao-responda@pt2vhf.com>';
 // Grupo do Google ligado ao teste fechado; vazio = o mantenedor inclui o e-mail na lista da Play Console.
-const PT2VHF_TESTERS_GROUP_URL = 'https://groups.google.com/g/pt2vhf-aprs-testers';
+// Vazio: o mantenedor recebe um aviso por e-mail e inclui o inscrito no Grupo do Google manualmente.
+const PT2VHF_TESTERS_GROUP_URL = '';
 const PT2VHF_PLAY_OPTIN_URL = 'https://play.google.com/apps/testing/com.pt2vhf.aprs';
 const PT2VHF_PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.pt2vhf.aprs';
 
@@ -76,13 +78,32 @@ function pt2vhf_testers_mail(string $email, string $call, string $lang): bool {
     $headers = implode("\r\n", array(
         'From: ' . PT2VHF_TESTERS_FROM,
         'Reply-To: ' . PT2VHF_TESTERS_BCC,
-        'Bcc: ' . PT2VHF_TESTERS_BCC,
         'MIME-Version: 1.0',
         'Content-Type: text/plain; charset=UTF-8',
         'Content-Transfer-Encoding: 8bit',
     ));
     $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
     return @mail($email, $encodedSubject, $body, $headers, '-fnao-responda@pt2vhf.com');
+}
+
+/** Avisa o mantenedor de cada inscrição nova, para ele incluir o e-mail no Grupo do Google. */
+function pt2vhf_testers_notify_admin(string $email, string $call, string $lang): bool {
+    $subject = 'Novo testador APRS Client: ' . $email;
+    $body = "Nova inscrição para o teste do PT2VHF APRS Client no Google Play.\n\n"
+        . "E-mail: $email\n"
+        . 'Indicativo: ' . ($call !== '' ? $call : '(não informado)') . "\n"
+        . "Idioma: $lang\n"
+        . 'Data (UTC): ' . gmdate('Y-m-d H:i') . "\n\n"
+        . "Para incluir no grupo: https://groups.google.com/g/pt2vhf-aprs-testers/members\n"
+        . "(Adicionar participantes -> colar o e-mail -> marcar \"Adicionar participantes diretamente\").\n";
+    $headers = implode("\r\n", array(
+        'From: ' . PT2VHF_TESTERS_FROM,
+        'Reply-To: ' . $email,
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Transfer-Encoding: 8bit',
+    ));
+    return @mail(PT2VHF_TESTERS_BCC, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, $headers, '-fnao-responda@pt2vhf.com');
 }
 
 function pt2vhf_testers_reply(string $status): void {
@@ -150,5 +171,6 @@ try {
     flock($fh, LOCK_UN);
     fclose($fh);
 }
-pt2vhf_testers_mail($email, $call, $lang); // falha de envio não desfaz o cadastro
+pt2vhf_testers_notify_admin($email, $call, $lang); // aviso ao mantenedor para incluir no grupo
+pt2vhf_testers_mail($email, $call, $lang); // confirmação ao inscrito; falha de envio não desfaz o cadastro
 pt2vhf_testers_reply('ok');
