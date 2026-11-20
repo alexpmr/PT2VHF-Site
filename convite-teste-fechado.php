@@ -12,8 +12,7 @@ $bcc = (string)($_POST['bcc'] ?? '');
 $list = array_values(array_filter(array_map('trim', explode(',', $bcc))));
 foreach ($list as $e) { if (!filter_var($e, FILTER_VALIDATE_EMAIL)) { echo "email-invalido\n"; exit; } }
 if (count($list) < 1 || count($list) > 60) { echo "quantidade-invalida\n"; exit; }
-$bcc = implode(', ', $list);
-$lock = dirname(__DIR__) . '/pt2vhf-private-data/convite-teste-fechado-2026-11-20.lock';
+$lock = dirname(__DIR__) . '/pt2vhf-private-data/convite-teste-fechado-2026-11-20-individual.lock';
 $fh = @fopen($lock, 'x');
 if (!$fh) { echo "ja-enviado\n"; exit; }
 $subject = 'Convite: participe do teste fechado do PT2VHF APRS Client no Google Play';
@@ -29,12 +28,18 @@ $body = "Olá, colega radioamador!\n\n"
 $headers = implode("\r\n", array(
     'From: PT2VHF <nao-responda@pt2vhf.com>',
     'Reply-To: alexpmr@gmail.com',
-    'Bcc: ' . $bcc,
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
     'Content-Transfer-Encoding: 8bit',
 ));
-$ok = @mail('alexpmr@gmail.com', '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, $headers, '-fnao-responda@pt2vhf.com');
-fwrite($fh, gmdate('c') . ' ' . ($ok ? 'ok' : 'falha') . ' ' . count(explode(',', $bcc)) . "\n");
+// Um e-mail por destinatário (a hospedagem recusou a mensagem única com 56 em Bcc).
+$encSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+$ok = 0; $fail = array();
+foreach (array_merge(array('alexpmr@gmail.com'), $list) as $to) {
+    if (@mail($to, $encSubject, $body, $headers, '-fnao-responda@pt2vhf.com')) { $ok++; } else { $fail[] = $to; }
+    usleep(300000);
+}
+fwrite($fh, gmdate('c') . " ok=$ok falhas=" . implode(',', $fail) . "\n");
 fclose($fh);
-echo ($ok ? 'enviado' : 'falha') . ' ' . count(explode(',', $bcc)) . "\n";
+echo "enviados $ok de " . (count($list) + 1) . "\n";
+foreach ($fail as $f) { echo "falha $f\n"; }
