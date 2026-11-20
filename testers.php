@@ -27,7 +27,8 @@ const PT2VHF_PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com
 function pt2vhf_testers_mail(string $email, string $call, string $lang): bool {
     $hi = $call !== '' ? ' ' . $call : '';
     $group = PT2VHF_TESTERS_GROUP_URL;
-    $optin = PT2VHF_PLAY_OPTIN_URL;
+    $hl = ['pt' => 'pt-BR', 'en' => 'en', 'es' => 'es', 'fr' => 'fr', 'de' => 'de', 'it' => 'it', 'zh' => 'zh-CN'];
+    $optin = PT2VHF_PLAY_OPTIN_URL . '?hl=' . ($hl[$lang] ?? 'en');
     $store = PT2VHF_PLAY_STORE_URL;
     if ($lang === 'pt') {
         $subject = 'PT2VHF APRS Client: como testar no Google Play';
