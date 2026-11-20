@@ -131,6 +131,11 @@
       img.src = PLAY + d.badge + "_badge_web_generic.png";
       img.alt = d.badgeAlt;
     });
+    // Link do teste no idioma da página (hl do Google Play).
+    var HL = { pt: "pt-BR", en: "en", es: "es", fr: "fr", de: "de", it: "it", zh: "zh-CN" };
+    Array.prototype.forEach.call(document.querySelectorAll('a.gp-badge[href*="/apps/testing/"]'), function (a) {
+      a.href = "https://play.google.com/apps/testing/com.pt2vhf.aprs?hl=" + (HL[code] || "pt-BR");
+    });
     var langInput = document.querySelector('.testers-form input[name="lang"]');
     if (langInput) langInput.value = code;
     var st = new URLSearchParams(location.search).get("testers");
