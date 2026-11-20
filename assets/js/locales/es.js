@@ -45,6 +45,8 @@ window.PT2VHF_I18N["es"] = {
     "stationsCountry": "País",
     "stationsCount": "Estaciones",
     "stationsTotal": "{n} estaciones en {c} países",
+    "stationsActive": "{n} usaron la app en los últimos 3 días (en verde)",
+    "stationsActiveTitle": "Usó la app en los últimos 3 días",
     "installsActive": "Cerca de {n} instalaciones activas por día (promedio de los últimos 7 días, incluye versiones antiguas que no informan el indicativo).",
     "stationsEmpty": "Aún no hay estaciones registradas.",
     "downloadsTitle": "Descargas",

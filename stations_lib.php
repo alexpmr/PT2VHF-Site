@@ -164,17 +164,26 @@ function pt2vhf_station_summary(string $product): ?array {
     if ($data === null) return null;
     $countries = array();
     $total = 0;
+    // APRS Android: estações que consultaram nos últimos 3 dias (hoje e os 2 dias UTC anteriores) saem em "active".
+    $withActive = ($product === 'aprs-android');
+    $activeSince = gmdate('Y-m-d', time() - 2 * 86400);
+    $activeTotal = 0;
     foreach (($data['products'][$product] ?? array()) as $call => $row) {
         if (!is_array($row)) continue;
         $cc = (string)($row['cc'] ?? '');
         $key = $cc !== '' ? $cc : (string)($row['entity'] ?? '?');
         if (!isset($countries[$key])) {
             $countries[$key] = array('cc' => $cc, 'name' => (string)($row['entity'] ?? ''), 'count' => 0, 'calls' => array());
+            if ($withActive) $countries[$key]['active'] = array();
         }
         // Nome do país: a entidade principal (a com mais estações) dá o nome.
         $countries[$key]['entities'][(string)($row['entity'] ?? '')] = ($countries[$key]['entities'][(string)($row['entity'] ?? '')] ?? 0) + 1;
         $countries[$key]['count']++;
         $countries[$key]['calls'][] = (string)$call;
+        if ($withActive && (string)($row['last'] ?? '') >= $activeSince) {
+            $countries[$key]['active'][] = (string)$call;
+            $activeTotal++;
+        }
         $total++;
     }
     foreach ($countries as &$c) {
@@ -182,11 +191,15 @@ function pt2vhf_station_summary(string $product): ?array {
         $c['name'] = (string)array_key_first($c['entities']);
         unset($c['entities']);
         sort($c['calls'], SORT_STRING);
+        if ($withActive) sort($c['active'], SORT_STRING);
     }
     unset($c);
     $countries = array_values($countries);
     usort($countries, function ($a, $b) {
         return ($b['count'] <=> $a['count']) ?: strcmp($a['name'], $b['name']);
     });
-    return array('schema' => 1, 'product' => $product, 'total' => $total, 'countries' => $countries);
+    $out = array('schema' => 1, 'product' => $product, 'total' => $total);
+    if ($withActive) $out['activeTotal'] = $activeTotal;
+    $out['countries'] = $countries;
+    return $out;
 }

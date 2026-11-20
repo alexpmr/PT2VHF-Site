@@ -721,6 +721,10 @@
       body.innerHTML =
         '<p class="stations-total">' + esc(t("stationsTotal").replace("{n}", fmt.format(stationsData.total)).replace("{c}", fmt.format(list.length))) + "</p>" +
         installsLine(fmt) +
+        (typeof stationsData.activeTotal === "number"
+          ? '<p class="stations-active-note"><span class="stations-active-dot" aria-hidden="true"></span>' +
+            esc(t("stationsActive").replace("{n}", fmt.format(stationsData.activeTotal))) + "</p>"
+          : "") +
         '<div class="table-wrap"><table class="stations-rank"><thead><tr><th>#</th><th>' + esc(t("stationsCountry")) +
         "</th><th>" + esc(t("stationsCount")) + "</th></tr></thead><tbody>" +
         list.map(function (c, i) {
@@ -734,7 +738,10 @@
             '<span class="stations-flag" aria-hidden="true">' + countryFlag(c.cc) + "</span>" + esc(countryName(c)) +
             ' <span class="badge">' + fmt.format(c.count) + "</span></h3>" +
             '<ul class="stations-calls">' + c.calls.map(function (call) {
-              return '<li class="mono">' + esc(call) + "</li>";
+              var on = Array.isArray(c.active) && c.active.indexOf(call) !== -1;
+              return on
+                ? '<li class="mono is-active" title="' + esc(t("stationsActiveTitle")) + '">' + esc(call) + "</li>"
+                : '<li class="mono">' + esc(call) + "</li>";
             }).join("") + "</ul></div>";
         }).join("");
     }

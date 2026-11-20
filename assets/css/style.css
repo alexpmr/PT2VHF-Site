@@ -529,6 +529,12 @@ table.stations-rank { width: 100%; border-collapse: collapse; }
 .stations-country h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 1.05rem; }
 .stations-calls { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .stations-calls li { font-size: .85rem; padding: 4px 10px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); }
+.stations-calls li.is-active { color: #116b2e; background: #dcf5e3; border-color: #3fae5f; font-weight: 600; }
+.stations-active-note { display: flex; align-items: center; gap: 8px; color: var(--muted); margin: 0 0 12px; }
+.stations-active-dot { width: .7em; height: .7em; border-radius: 50%; background: #2fa84f; flex: none; }
+@media (prefers-color-scheme: dark) {
+  .stations-calls li.is-active { color: #8ff0a8; background: #12351f; border-color: #2fa84f; }
+}
 
 /* #81 comparação de recursos (página /aprs-android) */
 .compare-legend { color: var(--muted); margin: 0 0 12px; font-size: .9rem; }
