@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css?v=20261114-aprs202">
   <link rel="stylesheet" href="/assets/css/aprs-language-menu.css?v=20261106-aprs1158">
+  <style>/* App distribuído só pelo Google Play: sem download do APK nesta página. */ #program-sections .program-downloads{display:none}</style>
 </head>
 <body class="program-page" data-program="aprs-android">
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -105,21 +106,30 @@
           serão distribuídas somente pelo <strong>Google Play</strong>. Cadastre-se abaixo para testar antes de todos.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#downloads">Ver downloads</a>
+          <a class="btn btn-primary btn-lg" href="#downloads" hidden style="display:none">Ver downloads</a>
           <a class="btn btn-ghost btn-lg" href="#recursos">Conhecer os recursos</a>
+          <a class="gp-badge" href="https://play.google.com/apps/testing/com.pt2vhf.aprs" target="_blank" rel="noopener" aria-label="Google Play">
+            <img class="gp-badge-img" src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png"
+                 alt="Disponível no Google Play" width="200" height="77" style="height:66px;width:auto;margin:-9px 0;vertical-align:middle">
+          </a>
         </div>
       </div>
     </section>
     <section class="section google-play" id="google-play" aria-labelledby="play-title">
       <div class="container">
         <div class="section-head">
-          <h2 id="play-title" data-gp-i18n="playTitle">Em breve no Google Play</h2>
-          <p data-gp-i18n="playIntro">A partir de agora, as novas versões do PT2VHF APRS Client para Android serão publicadas somente no <strong>Google Play</strong>, com atualização automática pela loja. O app está em teste fechado: cadastre-se abaixo para participar. Enquanto isso, o APK continua disponível abaixo; quando o app for liberado no Google Play, a versão da loja instala por cima, sem perder as configurações.</p>
+          <h2 id="play-title" data-gp-i18n="playTitle">Disponível no Google Play (teste fechado)</h2>
+          <p data-gp-i18n="playIntro">As versões do PT2VHF APRS Client para Android agora são distribuídas somente pelo <strong>Google Play</strong>, com atualização automática pela loja. O app está em teste fechado: se o seu e-mail já está na lista de testadores, toque no selo, entre como testador e instale pela Play Store. Se ainda não está, cadastre-se abaixo. Quem já usa o APK pode instalar a versão da loja por cima, sem perder as configurações.</p>
         </div>
-        <p class="mono" style="color: var(--muted); font-size: .9rem;" data-gp-i18n="playNote">O link da loja aparece aqui quando o Google liberar o app.</p>
+        <p>
+          <a class="gp-badge" href="https://play.google.com/apps/testing/com.pt2vhf.aprs" target="_blank" rel="noopener" aria-label="Abrir o teste do PT2VHF APRS Client no Google Play">
+            <img class="gp-badge-img" src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png"
+                 alt="Disponível no Google Play" width="250" height="97" style="height:84px;width:auto;margin:-12px">
+          </a>
+        </p>
+        <p data-gp-i18n="playNote">Algum problema para instalar ou entrar no teste? Fale comigo pelo <a href="https://wa.me/5561984023634" target="_blank" rel="noopener">WhatsApp (+55 61 98402 3634)</a> ou pelo e-mail <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a>.</p>
         <h3 id="testers-title" data-gp-i18n="testersTitle">Quero testar as novas versões</h3>
-        <p data-gp-i18n="testersIntro">O Google Play exige um teste fechado antes de publicar. Deixe seu e-mail (de preferência o da sua conta Google,
-          usada no Play) e você receberá o convite para instalar as versões de teste direto da loja.</p>
+        <p data-gp-i18n="testersIntro">O Google Play exige um teste fechado antes de liberar o app para todos. Deixe seu e-mail (de preferência o da sua conta Google, usada no Play) e eu incluo você na lista de testadores.</p>
         <form class="testers-form" action="/testers.php" method="post" aria-labelledby="testers-title"
               style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;max-width:680px">
           <input type="hidden" name="product" value="aprs-android">
@@ -213,6 +223,6 @@
   <script src="/assets/js/changelog-data.js?v=20261119-sat192"></script>
   <script src="/assets/js/compare-data.js?v=20261113-android-12"></script>
   <script src="/assets/js/main.js?v=20261114-aprs202"></script>
-  <script src="/assets/js/android-play-i18n.js?v=20261119-play4"></script>
+  <script src="/assets/js/android-play-i18n.js?v=20261120-play5"></script>
 </body>
 </html>
