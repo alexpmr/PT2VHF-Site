@@ -397,8 +397,8 @@
     },
     "sat": {
       "name": "PT2VHF Sat Tool",
-      "version": "1.9.4",
-      "developmentVersion": "1.9.4",
+      "version": "1.9.6",
+      "developmentVersion": "1.9.6",
       "page": "https://www.pt2vhf.com/sat",
       "files": [
         {
@@ -408,10 +408,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Instalador",
-          "name": "PT2VHF-Sat-Tool-v1.9.4-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.4-Win11-x64-Setup.exe",
-          "size": 166816553,
-          "sha256": "42f5072cecbd7c182f6ebef7c123d64fa4382da24a991af2e72ed794fd1d2768",
+          "name": "PT2VHF-Sat-Tool-v1.9.6-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.6-Win11-x64-Setup.exe",
+          "size": 166840553,
+          "sha256": "ccb71117fbd849cd7f92442c7a12f8c292a2d08c8e505d691ab0b24ae9240e92",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -421,10 +421,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Portátil",
-          "name": "PT2VHF-Sat-Tool-v1.9.4-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.4-Win11-x64-Portable.exe",
-          "size": 245071069,
-          "sha256": "bd18863bfcc2c638f3f6d582943448a027017148c6fd27045ac05fddce4e27ab",
+          "name": "PT2VHF-Sat-Tool-v1.9.6-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.6-Win11-x64-Portable.exe",
+          "size": 245091498,
+          "sha256": "8a952e388a2725ccec6a9e3a411443ba8dcfd80defb67ca129e4d41f37faa6af",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -434,10 +434,10 @@
           "platform": "linux-x64",
           "architecture": "x64",
           "label": "Linux — .tar.gz",
-          "name": "PT2VHF-Sat-Tool-v1.9.4-Linux-x64.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.4-Linux-x64.tar.gz",
-          "size": 263451205,
-          "sha256": "1b00ba16ed9d92031ad9efc8c68c4c5bcf6b17665b633124f4fbad3997bf526c",
+          "name": "PT2VHF-Sat-Tool-v1.9.6-Linux-x64.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.6-Linux-x64.tar.gz",
+          "size": 263455822,
+          "sha256": "5718c18f977606296c46a2d38aa324435c321cd91429d03c05900ed9bf3656ed",
           "detail": "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute o arquivo PT2VHF-Sat-Tool-v<versão> da pasta"
         },
         {
@@ -447,10 +447,10 @@
           "platform": "linux-x64",
           "architecture": "x64",
           "label": "Linux — .deb (Ubuntu/Mint)",
-          "name": "PT2VHF-Sat-Tool-v1.9.4-Linux-x64.deb",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.4-Linux-x64.deb",
-          "size": 187995792,
-          "sha256": "2e595e24ad2e2f2daf79d36ebfd247b3e9e34c62327d5bad0fc102860da0ccd1",
+          "name": "PT2VHF-Sat-Tool-v1.9.6-Linux-x64.deb",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.6-Linux-x64.deb",
+          "size": 188058608,
+          "sha256": "0464b4c0414aa7ae8d91dcf80e84ace85198760e2a67788c61ba0096cb23126f",
           "detail": "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./PT2VHF-Sat-Tool-v<versão>-Linux-x64.deb"
         },
         {
@@ -460,25 +460,25 @@
           "platform": "macos-arm64",
           "architecture": "Apple Silicon",
           "label": "macOS — .dmg",
-          "name": "PT2VHF-Sat-Tool-v1.9.4-macOS-arm64.dmg",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.4-macOS-arm64.dmg",
-          "size": 242004969,
-          "sha256": "509ef3972cb1a04d12ea4ed9f29277c9de76da42816f7556946e6a7072b5a8ea",
+          "name": "PT2VHF-Sat-Tool-v1.9.6-macOS-arm64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.6-macOS-arm64.dmg",
+          "size": 252713453,
+          "sha256": "6c7ca83c1e1334d8635b3fa399c9c736a7eff620e82fb2f745df6cf5ea31f448",
           "detail": "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos"
         },
         {
           "category": "checksums",
           "label": "Somas de verificação",
-          "name": "PT2VHF-Sat-Tool-v1.9.4-SHA256.txt",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.4-SHA256.txt",
+          "name": "PT2VHF-Sat-Tool-v1.9.6-SHA256.txt",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.6-SHA256.txt",
           "size": 535,
-          "sha256": "85297ff081a6331769270e978d1db6d07aff052a26330099aae9a40e8181c14c",
+          "sha256": "a6407421a2c74721623098ae344da82e5df86ec5651f97616f3745315c0c3c3a",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
       "releaseStatus": "Pacotes oficiais para Windows 10/11 x64, Linux x64 e macOS Apple Silicon. Confira o SHA-256 antes da instalação.",
       "date": "2026-11-22",
-      "notes": "v1.9.4: CAT para satélite em ICOM (IC-9700/910/9100/821: RX na SUB, TX na MAIN, modo satélite) e Yaesu (FT-847 no modo SAT; FT-991/991A e família por CAT texto); ícone ROTOR abre e esconde o bloco do rotor, com ATIVAR/DESATIVAR CONTROLE dentro dele; LUČA-1 e satélites russos da R4UAB voltam a aparecer (catálogo Alpha-5); atualização automática mais robusta e com aviso se não terminar. Windows x64, Linux x64 (.tar.gz e .deb) e macOS ARM64.",
+      "notes": "v1.9.6: o satélite de SSTV LUČA-1 (RS90S, NORAD 67287) vem marcado por padrão, inclusive em instalações existentes (uma única vez; desmarcar depois é respeitado). Windows x64, Linux x64 (.tar.gz e .deb) e macOS ARM64.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
     "sdr": {
