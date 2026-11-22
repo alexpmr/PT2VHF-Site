@@ -164,8 +164,9 @@ function pt2vhf_station_summary(string $product): ?array {
     if ($data === null) return null;
     $countries = array();
     $total = 0;
-    // APRS Android: estações que consultaram nos últimos 3 dias (hoje e os 2 dias UTC anteriores) saem em "active".
-    $withActive = ($product === 'aprs-android');
+    // Indicativos ativos: consultaram versão nova (update.php) nos últimos 3 dias (hoje e os 2 dias UTC anteriores).
+    // Vale para todos os aplicativos (antes só o APRS Android); saem em "active" e em verde na página.
+    $withActive = true;
     $activeSince = gmdate('Y-m-d', time() - 2 * 86400);
     $activeTotal = 0;
     foreach (($data['products'][$product] ?? array()) as $call => $row) {
