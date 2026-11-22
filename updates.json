@@ -483,10 +483,10 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "1.0.5",
-      "date": "2026-11-19",
+      "version": "1.0.6",
+      "date": "2026-11-22",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "v1.0.5 — consolidação de todas as funcionalidades estáveis e aprovadas na v1.0.4: RTL-SDR, rtl_tcp, SoapySDR, SDRplay/Mirics (detecção experimental), waterfall e sintonia, upconverter externo, LCD responsivo, áudio, transcrição local, diagnóstico OTA sem instalação e pré-requisitos RS41. Acrescenta seis testes de regressão para evitar perda desses recursos, resultando em 254 testes Linux/Qt aprovados; suíte Windows, executáveis Setup/Portable, teste nativo PowerShell, instalação silenciosa e smoke OTA Setup/Portable aprovados no CI. Não contém o classificador IQ/ONNX experimental. IMPORTANTE: suporte RF RSP1 e RS41 NÃO homologado com equipamentos físicos; módulos Soapy RSP e drivers USB não estão embutidos; issues Windows #8 (estabilidade) e #18 (OTA no PC do usuário) permanecem abertas. Splash textual temporário. Configurações e memórias preservadas.",
+      "notes": "v1.0.6: corrige perda de resolução do waterfall ao usar FFT de 32.768 pontos e zoom estreito: preserva o histórico FFT nativo (até 400 linhas em float16), apresenta os bins correspondentes ao intervalo realmente visível e aplica média de potência linear somente quando precisa reduzir à largura da tela. Corrige zoom-out além da largura de banda IQ amostrada, sem inventar frequências. Adiciona botão sempre visível para ocultar/mostrar painel direito de áudio/DSP (Ctrl+Shift+A), preservando preferência. 259 testes Linux/Qt aprovados, suíte Windows, Setup/Portable, prova nativa do auxiliar OTA, instalação silenciosa e teste OTA Setup aprovados no CI #45074010119; hashes verificados. OBSERVAÇÃO: correção visual em CI, teste de recepção real/fluidez no seu Windows ainda necessário. Não resolve integralmente backlog histórico, crash #8, OTA de campo #18, RS41 RF, RSP físico nem IQ/ONNX experimental. Splash textual temporário.",
       "files": [
         {
           "category": "windows-installer",
@@ -496,10 +496,10 @@
           "detail": "Windows 10/11 x64; instalação por usuário",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.5-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.5-Win11-x64-Setup.exe",
-          "size": 143961173,
-          "sha256": "b0ce5a85ab6a93610f8c40221e41e4ecc017013b46f2397413003695e60ea3f1",
+          "name": "PT2VHF-SDR-Tool-v1.0.6-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.6-Win11-x64-Setup.exe",
+          "size": 145535724,
+          "sha256": "af1f1e39250ab02c384d928f7a8757fb0057070d1b04b74195cc3b383103e00d",
           "delivery": "github-release"
         },
         {
@@ -510,15 +510,15 @@
           "detail": "Windows 10/11 x64; executável portátil",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.5-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.5-Win11-x64-Portable.exe",
-          "size": 205916278,
-          "sha256": "c73eb947eb769c32f82c748d8818054a4ae9a241d54e1de2eaabb5fed7a252b7",
+          "name": "PT2VHF-SDR-Tool-v1.0.6-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.6-Win11-x64-Portable.exe",
+          "size": 208606742,
+          "sha256": "f3b48ff69ad8385af3a715e8441c24f7d2ce0cd8d24dbf61b852b942691626fa",
           "delivery": "github-release"
         }
       ],
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr",
-      "releaseStatus": "v1.0.5 Windows Setup e Portable publicados no GitHub com hashes SHA-256 verificados; OTA e estabilidade requerem ensaio de campo. SDRplay/Mirics e RS41 continuam dependentes de software externo e RF real não homologado."
+      "releaseStatus": "v1.0.6 publicada no GitHub, hashes SHA-256 verificados; sincronização Hostinger/OTA a verificar. Zoom/definição e painel direito corrigidos em código e CI; validação real RF/visual permanece em aberto."
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
