@@ -1,0 +1,37 @@
+{
+  "name": "PT2VHF-Sat-Tool-v1.9.5-macOS-arm64.dmg",
+  "size": 252647693,
+  "sha256": "5f77cc66ad335e64c92512fd837936d7158bee34df744c5543337c79233415d6",
+  "parts": [
+    {
+      "name": "PT2VHF-Sat-Tool-v1.9.5-macOS-arm64.dmg.part00",
+      "size": 50331648,
+      "sha256": "43f0827b21d632b12f264dfe42c7c02af10ae6ee1d754086f8652c9ce296e49b"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.9.5-macOS-arm64.dmg.part01",
+      "size": 50331648,
+      "sha256": "303c95d4f60a7ecdc86735a8bb0790048e18a931a05a598eb3361f4d301cd6b3"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.9.5-macOS-arm64.dmg.part02",
+      "size": 50331648,
+      "sha256": "1fa1188e695f5a9d3cf8f22fb2c8e5134f955e4b04a1fe1c8829c93681c58aec"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.9.5-macOS-arm64.dmg.part03",
+      "size": 50331648,
+      "sha256": "c6e200402dca01eefbb63c97d0dd5eea6f1f5e159743952ab8e96820c791ebfa"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.9.5-macOS-arm64.dmg.part04",
+      "size": 50331648,
+      "sha256": "e7d60c0c0ea613babea7623f49499b95e8cf7b411ad18c1a2a20eac4273050e7"
+    },
+    {
+      "name": "PT2VHF-Sat-Tool-v1.9.5-macOS-arm64.dmg.part05",
+      "size": 989453,
+      "sha256": "0f4aeb1f969dafabd0e4a537ed866feab42f797101c639639a696da75aec0546"
+    }
+  ]
+}
