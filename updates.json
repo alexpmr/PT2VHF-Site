@@ -328,18 +328,6 @@
         },
         {
           "category": "macos",
-          "counterKey": "mac-dmg-x64",
-          "architecture": "Intel",
-          "platform": "macos-x64",
-          "name": "PT2VHF_APRS_Client_macOS_x86_64_v2.0.1.dmg",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_macOS_x86_64_v2.0.1.dmg",
-          "size": 28191718,
-          "sha256": "ea74c5a3f724693e7ac1d4e7ec03cb67d81216d0584340337971b2a8b1213675",
-          "detail": "Mac Intel (x86_64), macOS 11 ou superior. Catalina 10.15 exige o futuro instalador Intel Legacy.",
-          "version": "2.0.1"
-        },
-        {
-          "category": "macos",
           "counterKey": "mac-dmg-arm64",
           "architecture": "Apple Silicon",
           "platform": "macos-arm64",
@@ -348,42 +336,6 @@
           "size": 26827932,
           "sha256": "726a574e89430b790bf81d8af94495ff4f12b6488b6e14a1c8ee3ca610ae8452",
           "detail": "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou superior. Não funciona em Macs Intel.",
-          "version": "2.0.1"
-        },
-        {
-          "category": "linux-appimage",
-          "counterKey": "linux-appimage-arm64",
-          "architecture": "ARM64 / aarch64",
-          "platform": "linux-arm64",
-          "name": "PT2VHF_APRS_Client_arm64_v2.0.1.AppImage",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_arm64_v2.0.1.AppImage",
-          "size": 39524872,
-          "sha256": "6cf95ce7b822845e7b7e9adedc5854ebece979645ac20bc5738b9f62669b740e",
-          "detail": "Linux ARM64 — AppImage (Raspberry Pi)",
-          "version": "2.0.1"
-        },
-        {
-          "category": "linux-deb",
-          "counterKey": "linux-deb-arm64",
-          "architecture": "ARM64 / aarch64",
-          "platform": "linux-arm64",
-          "name": "pt2vhf-aprs-client_2.0.1_arm64.deb",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/pt2vhf-aprs-client_2.0.1_arm64.deb",
-          "size": 38380146,
-          "sha256": "380b83b31c5556bc63e773c820adef525114ccdf580f8e42307c9f8876beeeb3",
-          "detail": "Linux ARM64 — DEB (Raspberry Pi OS 64-bit)",
-          "version": "2.0.1"
-        },
-        {
-          "category": "linux-targz",
-          "counterKey": "linux-tar-arm64",
-          "architecture": "ARM64 / aarch64",
-          "platform": "linux-arm64",
-          "name": "PT2VHF_APRS_Client_Linux_arm64_v2.0.1.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Linux_arm64_v2.0.1.tar.gz",
-          "size": 38543387,
-          "sha256": "d75bdb93d23b614c12ca77c3c31906034efccf743f7514a7c56817d46315d4c4",
-          "detail": "Linux ARM64 — TAR.GZ (Raspberry Pi)",
           "version": "2.0.1"
         }
       ],
@@ -435,33 +387,9 @@
         },
         {
           "category": "macos",
-          "counterKey": "mac-dmg-x64",
-          "architecture": "Intel",
-          "name": "PT2VHF_APRS_Client_macOS_x86_64_v2.0.1.dmg"
-        },
-        {
-          "category": "macos",
           "counterKey": "mac-dmg-arm64",
           "architecture": "Apple Silicon",
           "name": "PT2VHF_APRS_Client_macOS_arm64_v2.0.1.dmg"
-        },
-        {
-          "category": "linux-appimage",
-          "counterKey": "linux-appimage-arm64",
-          "architecture": "ARM64 / aarch64",
-          "name": "PT2VHF_APRS_Client_arm64_v2.0.1.AppImage"
-        },
-        {
-          "category": "linux-deb",
-          "counterKey": "linux-deb-arm64",
-          "architecture": "ARM64 / aarch64",
-          "name": "pt2vhf-aprs-client_2.0.1_arm64.deb"
-        },
-        {
-          "category": "linux-targz",
-          "counterKey": "linux-tar-arm64",
-          "architecture": "ARM64 / aarch64",
-          "name": "PT2VHF_APRS_Client_Linux_arm64_v2.0.1.tar.gz"
         }
       ],
       "date": "2026-11-14",

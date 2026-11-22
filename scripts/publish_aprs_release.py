@@ -24,8 +24,8 @@ URL = "https://www.pt2vhf.com/downloads/aprs-client/"
 
 
 def files_for(v: str):
-    mac_x64 = "Mac Intel (x86_64), macOS 11 ou superior. Catalina 10.15 exige o futuro instalador Intel Legacy."
     mac_arm = "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou superior. Não funciona em Macs Intel."
+    # Raspberry Pi (Linux ARM64) e Mac Intel saíram dos downloads em 22/11/2026.
     return [
         ("windows-installer", "win-setup-x64", "x64", "windows-x64", f"PT2VHF_APRS_Client_Setup_x64_v{v}.exe", "PT2VHF APRS Client x64"),
         ("windows-portable", "win-portable-x64", "x64", "windows-x64", f"PT2VHF_APRS_Client_Portable_x64_v{v}.exe", "PT2VHF APRS Client x64"),
@@ -34,11 +34,7 @@ def files_for(v: str):
         ("linux-appimage", "linux-appimage-x64", "x64", "linux-x64", f"PT2VHF_APRS_Client_x86_64_v{v}.AppImage", "PT2VHF APRS Client x64"),
         ("linux-deb", "linux-deb-x64", "x64", "linux-x64", f"pt2vhf-aprs-client_{v}_amd64.deb", "PT2VHF APRS Client x64"),
         ("linux-targz", "linux-tar-x64", "x64", "linux-x64", f"PT2VHF_APRS_Client_Linux_x86_64_v{v}.tar.gz", "PT2VHF APRS Client x64"),
-        ("macos", "mac-dmg-x64", "Intel", "macos-x64", f"PT2VHF_APRS_Client_macOS_x86_64_v{v}.dmg", mac_x64),
         ("macos", "mac-dmg-arm64", "Apple Silicon", "macos-arm64", f"PT2VHF_APRS_Client_macOS_arm64_v{v}.dmg", mac_arm),
-        ("linux-appimage", "linux-appimage-arm64", "ARM64 / aarch64", "linux-arm64", f"PT2VHF_APRS_Client_arm64_v{v}.AppImage", "Linux ARM64 — AppImage (Raspberry Pi)"),
-        ("linux-deb", "linux-deb-arm64", "ARM64 / aarch64", "linux-arm64", f"pt2vhf-aprs-client_{v}_arm64.deb", "Linux ARM64 — DEB (Raspberry Pi OS 64-bit)"),
-        ("linux-targz", "linux-tar-arm64", "ARM64 / aarch64", "linux-arm64", f"PT2VHF_APRS_Client_Linux_arm64_v{v}.tar.gz", "Linux ARM64 — TAR.GZ (Raspberry Pi)"),
     ]
 
 
