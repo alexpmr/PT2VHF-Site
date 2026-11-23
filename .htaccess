@@ -96,6 +96,11 @@ RewriteRule ^downloads/qsl-analyzer/([A-Za-z0-9_.-]+\.(?:exe|AppImage|deb|tar\.g
 AddType application/vnd.microsoft.portable-executable .exe
 AddType application/x-msi .msi
 AddType application/vnd.android.package-archive .apk
+# Sem tipo próprio a Hostinger servia .deb e .AppImage como text/plain e o
+# navegador salvava "pt2vhf-aprs-client_2.0.3_amd64.txt" (relato HA7VDI, 23/11/2026).
+AddType application/vnd.debian.binary-package .deb
+AddType application/vnd.appimage .AppImage
+AddType application/x-apple-diskimage .dmg
 # Garantir visualização das capturas AVIF na hospedagem Hostinger.
 AddType image/avif .avif
 
