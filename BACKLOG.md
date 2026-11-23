@@ -2,7 +2,13 @@
 
 ## Pendentes
 
+Nenhum item pendente (conferido em produção em 23/11/2026).
+
+## Concluídos
+
 ### RESOLVIDO (APRS Client v2.0.2, 14/11/2026) — Contagem aproximada de instalações ativas
+
+- **Verificado em produção (23/11/2026):** `installs.php?product=aprs` responde HTTP 200.
 
 - **Pedido do Alex (aprovado em 13/11/2026):** contar as instalações ativas, inclusive versões antigas que não mandam
   indicativo, sem guardar IP nem indicativo.
@@ -18,6 +24,8 @@
 
 ### RESOLVIDO (APRS Client v2.0.0, 13/11/2026) — Estações do APRS Client e comparação de recursos em /aprs
 
+- **Verificado em produção (23/11/2026):** `stations.php?product=aprs` responde HTTP 200.
+
 - **Estações por país:** produto `aprs` no registro (`stations_lib.php`), seção no fim de `/aprs` igual à de `/android`
   (ranking com bandeira e indicativos de cada país). Substitui o PR #25, que tinha conflito com o registro do Android.
   O app envia `update.php?product=aprs&call=...` a partir da v2.0.0. Teste em `scripts/test_stations.php`.
@@ -26,7 +34,9 @@
 - **Changelog corrigido:** as notas 1.15.2–1.15.9 do APRS Client tinham entrado nos blocos do QSL (pt/en/es) e do Sat
   (fr/de/it/zh) em `changelog-data.js`; voltaram para o APRS, com a 2.0.0 no topo.
 
-### Estações que usam o APRS Client for Android (indicativos por país) — PR aberto, aguardando aprovação (13/11/2026)
+### RESOLVIDO (verificado em 23/11/2026) — Estações que usam o APRS Client for Android (indicativos por país) (13/11/2026)
+
+- **Verificado em produção (23/11/2026):** `stations.php?product=aprs-android` responde HTTP 200 (85 estações) e a seção de estações aparece em `/android`.
 
 - **Pedido do Alex:** o mesmo registro do SAT Tool para o app Android (produto `aprs-android`, item #84 do
   PT2VHF-APRS-Android): ranking de países e indicativos de cada país no fim da página `/aprs-android`, com bandeira em
@@ -37,7 +47,9 @@
   IP por dia somando os produtos, registro permanente), seção em `android.html`, cache busting e teste em
   `scripts/test_stations.php`. Publicar só com aprovação do Alex.
 
-### Estações que usam o SAT Tool (indicativos por país) — PR aberto, aguardando aprovação (13/11/2026)
+### RESOLVIDO (verificado em 23/11/2026) — Estações que usam o SAT Tool (indicativos por país) (13/11/2026)
+
+- **Verificado em produção (23/11/2026):** `stations.php?product=sat` responde HTTP 200 (3 estações) e a seção aparece em `/sat`.
 
 - **Pedido do Alex:** ao consultar versão nova, o app envia o indicativo da estação; o site mostra, no fim da
   página `/sat`, um ranking de países e a lista de indicativos de cada país (estilo APRS World).
@@ -51,7 +63,9 @@
 - **Depois do merge:** verificar em produção `stations.php?product=sat` (HTTP 200) e a seção na página `/sat`;
   ela só aparece quando o endpoint responde e lista estações a partir da 1.8.0 do app.
 
-### Banner PT2VHF em inglês — GitHub atualizado, publicação na Hostinger pendente (10/11/2026)
+### RESOLVIDO (verificado em 23/11/2026) — Banner PT2VHF em inglês (10/11/2026)
+
+- **Verificado em produção (23/11/2026):** a home referencia `pt2vhf-hero-banner-en.svg` e a imagem responde HTTP 200.
 
 - **Solicitação:** retirar o carro e a pessoa, reduzir a altura do banner e retirar a assinatura "por Alex, PT2VHF"; usar títulos em inglês.
 - **Código pronto na branch `main`:** novo `assets/img/pt2vhf-hero-banner-en.svg` (2000 × 520), página `index.html` apontando para a arte, e teste do site atualizado.
@@ -59,8 +73,9 @@
 - **Verificação em produção:** após os commits, `https://www.pt2vhf.com/` ainda referenciava `pt2vhf-hero-banner.webp`; a nova URL `/assets/img/pt2vhf-hero-banner-en.svg` retornava HTTP 404. Confirmado novamente com parâmetros de cache-busting. **Não considerar publicado em produção.**
 - **Próxima ação:** conferir o status de Auto-deployment, o commit atual e o log de deploy em **Hostinger hPanel → Sites → pt2vhf.com → Avançado → Git**; se necessário, clicar **Redeploy** da `main`. Depois validar a imagem no navegador desktop e celular, sem cache, e a URL direta com HTTP 200.
 
+### RESOLVIDO (verificado em 23/11/2026) — APRS Android v0.1.10 Beta QA (08/11/2026)
 
-### APRS Android v0.1.10 Beta QA — GitHub preparado; Hostinger ainda na v0.1.9 (08/11/2026)
+- **Verificado em produção (23/11/2026):** superado. O site público anuncia o APRS Android 1.4 (18/11/2026) em `updates.json` e `update.php?product=aprs-android`.
 
 - **Repositório do site atualizado:** commit `84efc53bc992fdda8341fcca331408e50cfc2201` e ajustes posteriores.
 - APK Android assinado, 7.992.699 bytes, SHA-256 `0a656898f98b354ff460c962089ccabb46ab63e76d15c78adaa9f6f905b8ac07`;
@@ -80,8 +95,9 @@
   Não declarar entrega pública sem esta verificação.
 - O APK é **QA beta**, não homologado por RF/APRS-IS; backlog funcional continua aberto.
 
+### RESOLVIDO (verificado em 23/11/2026) — Site não atualizou depois da publicação do QSL Analyzer 0.1.0 (29/10/2026)
 
-### Site não atualizou depois da publicação do QSL Analyzer 0.1.0 (29/10/2026)
+- **Verificado em produção (23/11/2026):** `/qsl` responde HTTP 200 (PT2VHF QSL Manager) e `update.php?product=qsl` anuncia a 0.6.0; a implantação da Hostinger está funcionando.
 
 - **Relato:** depois dos pushes de 29/10/2026 (commits `1008fc4` a `39002a1`), a página `/qsl` e o
   `update.php?product=qsl` não aparecem em www.pt2vhf.com.
@@ -90,8 +106,6 @@
 - **Conferir no hPanel:** Sites → pt2vhf.com → Avançado → GIT → log da última implantação; clicar em
   Implantar. Se o erro for de tamanho, publicar menos pacotes por versão (ex.: sem portátil Windows e
   sem .tar.gz Linux) ou mover os binários grandes para fora do histórico do Git.
-
-## Concluídos
 
 ### RESOLVIDO (07/11/2026) — PT2VHF SDR Tool 0.5.0 no ar e funcionando
 
