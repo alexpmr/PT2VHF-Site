@@ -1,12 +1,15 @@
 <?php
 /**
  * PT2VHF — lista das inscrições do teste fechado do APRS Client (testers.php), em HTML simples.
- * Substitui o aviso por e-mail (o domínio não entrega e-mail): o mantenedor abre esta página e
- * inclui os inscritos na lista de testadores da Play Console.
+ * Substitui o aviso por e-mail (o domínio não entrega e-mail): o mantenedor abre esta página,
+ * inclui os inscritos na lista de testadores da Play Console e marca como atendidos.
  * Acesso: ?key=<chave>. Só o SHA-256 da chave fica no repositório; a chave fica com o mantenedor.
- * Lê pt2vhf-private-data/testers-aprs-android.csv (fora de public_html). Nada é alterado.
- * ?format=txt devolve texto simples (e-mail,indicativo,data) para uso em scripts.
- * POST remove=<e-mail> (com a mesma chave) apaga essa inscrição do CSV (ex.: testes do mantenedor).
+ * Lê pt2vhf-private-data/testers-aprs-android.csv (fora de public_html).
+ * Colunas do CSV: e-mail, indicativo, data UTC e, opcional, data UTC em que foi atendido
+ * (convite ou aviso enviado). Linhas atendidas aparecem riscadas.
+ * Ações (POST, mesma chave): remove=<e-mail> apaga a linha; done=<e-mails separados por vírgula>
+ * marca como atendidos; undone=<e-mail> desmarca.
+ * ?format=txt devolve texto simples (e-mail,indicativo,data,atendido) para uso em scripts.
  */
 declare(strict_types=1);
 
@@ -22,16 +25,31 @@ if ($key === '' || !hash_equals(PT2VHF_TESTERS_EXPORT_SHA256, hash('sha256', $ke
 }
 $path = dirname(__DIR__) . '/pt2vhf-private-data/testers-aprs-android.csv';
 
-// Remoção de uma inscrição (botão "Remover" da tabela).
-if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['remove']) && is_file($path)) {
-    $remove = strtolower(trim((string)$_POST['remove']));
+/** Lista de e-mails em minúsculas a partir de um campo com vírgulas, espaços ou quebras de linha. */
+function pt2vhf_testers_emails(string $s): array {
+    return array_values(array_filter(array_map(
+        static fn($e) => strtolower(trim($e)),
+        preg_split('/[\s,;]+/', $s)
+    )));
+}
+
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && is_file($path)) {
+    $remove = pt2vhf_testers_emails((string)($_POST['remove'] ?? ''));
+    $done = pt2vhf_testers_emails((string)($_POST['done'] ?? ''));
+    $undone = pt2vhf_testers_emails((string)($_POST['undone'] ?? ''));
+    $now = gmdate('Y-m-d\TH:i:s\Z');
     $fh = @fopen($path, 'c+');
     if ($fh && flock($fh, LOCK_EX)) {
         $keep = array();
         foreach (preg_split('/\r?\n/', (string)stream_get_contents($fh)) as $line) {
             if (trim($line) === '') continue;
-            if (strtolower(trim(explode(',', $line)[0])) === $remove) continue;
-            $keep[] = $line;
+            $cols = explode(',', $line);
+            $email = strtolower(trim($cols[0]));
+            if (in_array($email, $remove, true)) continue;
+            $cols = array_pad(array_slice($cols, 0, 4), 4, '');
+            if (in_array($email, $done, true) && trim($cols[3]) === '') $cols[3] = $now;
+            if (in_array($email, $undone, true)) $cols[3] = '';
+            $keep[] = implode(',', trim($cols[3]) === '' ? array_slice($cols, 0, 3) : $cols);
         }
         ftruncate($fh, 0);
         rewind($fh);
@@ -40,6 +58,11 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['remove']) && 
         flock($fh, LOCK_UN);
     }
     if ($fh) fclose($fh);
+    if (strpos((string)($_SERVER['HTTP_ACCEPT'] ?? ''), 'application/json') !== false) {
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(array('status' => 'ok'));
+        exit;
+    }
     header('Location: ?key=' . rawurlencode($key), true, 303);
     exit;
 }
@@ -50,7 +73,7 @@ foreach (preg_split('/\r?\n/', $data) as $line) {
     $line = trim($line);
     if ($line === '') continue;
     $parts = explode(',', $line);
-    $rows[] = array($parts[0] ?? '', $parts[1] ?? '', $parts[2] ?? '');
+    $rows[] = array($parts[0] ?? '', $parts[1] ?? '', $parts[2] ?? '', $parts[3] ?? '');
 }
 $rows = array_reverse($rows); // mais recente primeiro
 
@@ -60,8 +83,10 @@ if (($_GET['format'] ?? '') === 'txt') {
     exit;
 }
 
+$pending = array_values(array_filter($rows, static fn($r) => trim($r[3]) === ''));
 header('Content-Type: text/html; charset=utf-8');
 $h = static fn(string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+$date = static fn(string $s): string => str_replace(array('T', 'Z'), array(' ', ''), $s);
 ?><!doctype html>
 <html lang="pt-BR">
 <head>
@@ -73,30 +98,37 @@ $h = static fn(string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
   body { font: 15px/1.45 system-ui, sans-serif; margin: 16px; color: #1b1b1b; background: #fff; }
   h1 { font-size: 20px; margin: 0 0 4px; }
   p { margin: 0 0 12px; color: #555; }
-  table { border-collapse: collapse; width: 100%; max-width: 760px; }
+  table { border-collapse: collapse; width: 100%; max-width: 860px; }
   th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #ddd; }
   th { font-size: 13px; color: #555; }
   td.n { color: #888; width: 2em; }
-  form { margin: 0; }
-  textarea { width: 100%; max-width: 760px; height: 5em; margin-top: 16px; font: 13px monospace; }
+  tr.done td.d { text-decoration: line-through; color: #888; }
+  form { margin: 0; display: inline; }
+  button { font-size: 12px; }
+  textarea { width: 100%; max-width: 860px; height: 5em; margin-top: 8px; font: 13px monospace; }
   @media (prefers-color-scheme: dark) {
     body { color: #eee; background: #121212; } p, th { color: #aaa; } th, td { border-color: #333; }
+    tr.done td.d { color: #777; }
     textarea { background: #1e1e1e; color: #eee; border-color: #333; }
   }
 </style>
 </head>
 <body>
 <h1>Inscritos no teste fechado do PT2VHF APRS Client</h1>
-<p><?= count($rows) ?> inscrições pelo formulário do site, mais recentes primeiro. Datas em UTC.</p>
+<p><?= count($rows) ?> inscrições pelo formulário do site, <?= count($pending) ?> ainda não atendidas.
+Linhas riscadas já foram atendidas (incluídas no Google Play e avisadas por e-mail). Mais recentes primeiro, datas em UTC.</p>
 <table>
-<thead><tr><th>#</th><th>E-mail</th><th>Indicativo</th><th>Data</th><th></th></tr></thead>
+<thead><tr><th>#</th><th>E-mail</th><th>Indicativo</th><th>Inscrição</th><th>Atendido</th><th></th></tr></thead>
 <tbody>
-<?php $n = count($rows); foreach ($rows as $r): ?>
-<tr><td class="n"><?= $n-- ?></td><td><?= $h($r[0]) ?></td><td><?= $h($r[1]) ?></td><td><?= $h(str_replace(array('T', 'Z'), array(' ', ''), $r[2])) ?></td><td><form method="post" onsubmit="return confirm('Remover <?= $h($r[0]) ?> da lista?')"><input type="hidden" name="remove" value="<?= $h($r[0]) ?>"><button type="submit">Remover</button></form></td></tr>
+<?php $n = count($rows); foreach ($rows as $r): $isDone = trim($r[3]) !== ''; ?>
+<tr<?= $isDone ? ' class="done"' : '' ?>><td class="n d"><?= $n-- ?></td><td class="d"><?= $h($r[0]) ?></td><td class="d"><?= $h($r[1]) ?></td><td class="d"><?= $h($date($r[2])) ?></td><td><?= $h($date($r[3])) ?></td><td>
+<?php if ($isDone): ?><form method="post"><input type="hidden" name="undone" value="<?= $h($r[0]) ?>"><button type="submit">Desmarcar</button></form>
+<?php else: ?><form method="post"><input type="hidden" name="done" value="<?= $h($r[0]) ?>"><button type="submit">Marcar atendido</button></form>
+<?php endif; ?> <form method="post" onsubmit="return confirm('Remover <?= $h($r[0]) ?> da lista?')"><input type="hidden" name="remove" value="<?= $h($r[0]) ?>"><button type="submit">Remover</button></form></td></tr>
 <?php endforeach; ?>
 </tbody>
 </table>
-<p style="margin-top:16px">Todos os e-mails, separados por vírgula, para colar na lista da Play Console:</p>
-<textarea readonly><?= $h(implode(', ', array_map(static fn($r) => $r[0], $rows))) ?></textarea>
+<p style="margin-top:16px">E-mails ainda não atendidos, separados por vírgula, para colar na lista da Play Console:</p>
+<textarea readonly><?= $h(implode(', ', array_map(static fn($r) => $r[0], $pending))) ?></textarea>
 </body>
 </html>
