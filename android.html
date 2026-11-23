@@ -18,7 +18,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css?v=20261120-ativos">
   <link rel="stylesheet" href="/assets/css/aprs-language-menu.css?v=20261106-aprs1158">
-  <style>/* App distribuído só pelo Google Play: sem download do APK nesta página. */ #program-sections .program-downloads{display:none}</style>
+  <style>/* App distribuído só pelo Google Play: sem download do APK nesta página. */ #program-sections .program-downloads{display:none}
+    /* Formulário de testadores com campos maiores e mais visíveis. */
+    .testers-form{max-width:760px!important;gap:14px!important}
+    .testers-form label>span{font-weight:600;font-size:1.05rem}
+    .testers-form input[type=email],.testers-form input[type=text]{font-size:1.15rem;padding:14px 16px!important;min-height:54px;border:2px solid var(--accent)!important;border-radius:10px!important;background:var(--surface)!important;color:var(--text)!important}
+    .testers-form input:focus{outline:3px solid var(--accent-soft);outline-offset:1px}
+    .testers-form .btn{font-size:1.1rem;padding:14px 26px;min-height:54px}
+  </style>
 </head>
 <body class="program-page" data-program="aprs-android">
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
