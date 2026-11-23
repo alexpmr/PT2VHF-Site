@@ -6,6 +6,7 @@
  * Acesso: ?key=<chave>. Só o SHA-256 da chave fica no repositório; a chave fica com o mantenedor.
  * Lê pt2vhf-private-data/testers-aprs-android.csv (fora de public_html). Nada é alterado.
  * ?format=txt devolve texto simples (e-mail,indicativo,data) para uso em scripts.
+ * POST remove=<e-mail> (com a mesma chave) apaga essa inscrição do CSV (ex.: testes do mantenedor).
  */
 declare(strict_types=1);
 
@@ -20,6 +21,29 @@ if ($key === '' || !hash_equals(PT2VHF_TESTERS_EXPORT_SHA256, hash('sha256', $ke
     exit;
 }
 $path = dirname(__DIR__) . '/pt2vhf-private-data/testers-aprs-android.csv';
+
+// Remoção de uma inscrição (botão "Remover" da tabela).
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_POST['remove']) && is_file($path)) {
+    $remove = strtolower(trim((string)$_POST['remove']));
+    $fh = @fopen($path, 'c+');
+    if ($fh && flock($fh, LOCK_EX)) {
+        $keep = array();
+        foreach (preg_split('/\r?\n/', (string)stream_get_contents($fh)) as $line) {
+            if (trim($line) === '') continue;
+            if (strtolower(trim(explode(',', $line)[0])) === $remove) continue;
+            $keep[] = $line;
+        }
+        ftruncate($fh, 0);
+        rewind($fh);
+        fwrite($fh, $keep ? implode("\n", $keep) . "\n" : '');
+        fflush($fh);
+        flock($fh, LOCK_UN);
+    }
+    if ($fh) fclose($fh);
+    header('Location: ?key=' . rawurlencode($key), true, 303);
+    exit;
+}
+
 $data = is_file($path) ? (string)@file_get_contents($path) : '';
 $rows = array();
 foreach (preg_split('/\r?\n/', $data) as $line) {
@@ -53,6 +77,7 @@ $h = static fn(string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
   th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #ddd; }
   th { font-size: 13px; color: #555; }
   td.n { color: #888; width: 2em; }
+  form { margin: 0; }
   textarea { width: 100%; max-width: 760px; height: 5em; margin-top: 16px; font: 13px monospace; }
   @media (prefers-color-scheme: dark) {
     body { color: #eee; background: #121212; } p, th { color: #aaa; } th, td { border-color: #333; }
@@ -64,10 +89,10 @@ $h = static fn(string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 <h1>Inscritos no teste fechado do PT2VHF APRS Client</h1>
 <p><?= count($rows) ?> inscrições pelo formulário do site, mais recentes primeiro. Datas em UTC.</p>
 <table>
-<thead><tr><th>#</th><th>E-mail</th><th>Indicativo</th><th>Data</th></tr></thead>
+<thead><tr><th>#</th><th>E-mail</th><th>Indicativo</th><th>Data</th><th></th></tr></thead>
 <tbody>
 <?php $n = count($rows); foreach ($rows as $r): ?>
-<tr><td class="n"><?= $n-- ?></td><td><?= $h($r[0]) ?></td><td><?= $h($r[1]) ?></td><td><?= $h(str_replace(array('T', 'Z'), array(' ', ''), $r[2])) ?></td></tr>
+<tr><td class="n"><?= $n-- ?></td><td><?= $h($r[0]) ?></td><td><?= $h($r[1]) ?></td><td><?= $h(str_replace(array('T', 'Z'), array(' ', ''), $r[2])) ?></td><td><form method="post" onsubmit="return confirm('Remover <?= $h($r[0]) ?> da lista?')"><input type="hidden" name="remove" value="<?= $h($r[0]) ?>"><button type="submit">Remover</button></form></td></tr>
 <?php endforeach; ?>
 </tbody>
 </table>
