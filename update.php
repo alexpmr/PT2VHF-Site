@@ -94,7 +94,10 @@ if ($ready && is_array($entry['files'] ?? null) && $root !== false) {
             $remoteSdr = preg_match('/^\d+\.\d+\.\d+$/D', (string)$version) === 1
                 && in_array($name, array(
                     "PT2VHF-SDR-Tool-v{$version}-Win11-x64-Setup.exe",
-                    "PT2VHF-SDR-Tool-v{$version}-Win11-x64-Portable.exe"), true);
+                    "PT2VHF-SDR-Tool-v{$version}-Win11-x64-Portable.exe",
+                    "pt2vhf-sdr-tool_{$version}_amd64.deb",
+                    "PT2VHF-SDR-Tool-v{$version}-Linux-x86_64.tgz",
+                    "PT2VHF-SDR-Tool-v{$version}-macOS-arm64.dmg"), true);
             if (!$remoteSdr) continue;
         }
         // Speed Alert is distributed by the official counted site endpoint.

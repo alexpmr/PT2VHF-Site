@@ -184,7 +184,7 @@ window.PT2VHF_I18N["fr"] = {
         "Windows 10/11 64 bits : installateur ou version portable",
         "RTL-SDR avec le pilote WinUSB (installé par l’installateur ou Aide → Préparer le RTL-SDR ; Zadig convient aussi)",
         "Antenne adaptée à la bande ; pour la HF, RTL-SDR à échantillonnage direct ou convertisseur",
-        "Linux et macOS : depuis le code source, avec Python 3.10+"
+        "Linux x86_64 : paquet .deb (Ubuntu 22.04+ / Mint 21+) ou .tgz ; macOS 13+ Apple Silicon (M1 ou ultérieur) en .dmg, non signé par Apple : au premier lancement, faites un clic droit sur l'app et choisissez Ouvrir"
       ]
     },
     "prog": {

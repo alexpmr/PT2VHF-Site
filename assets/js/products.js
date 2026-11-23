@@ -289,10 +289,10 @@ window.PT2VHF_PRODUCTS = [
       "Para transcrever: baixe pelo programa um modelo Whisper (tiny/base/small) uma única vez com Internet; o reconhecimento posterior é local e não envia áudio",
       "IA RNNoise incluída no instalador Windows, otimizada para voz, não para música, dados ou CW",
       "Windows 10/11 de 64 bits: instalador ou versão portátil; download contado pelo site oficial",
-      "RS41 por IQ exige instalação separada de fsk_demod e rs41mod do projeto radiosonde_auto_rx",
+      "Decodificadores RS41 (fsk_demod e rs41mod) e AIS (AIS-catcher) já vêm embarcados no Windows, Linux e macOS",
       "RTL-SDR com driver WinUSB (o instalador e o menu Ajuda → Preparar RTL-SDR instalam; o Zadig também serve)",
       "Antena adequada à faixa; para HF, RTL-SDR com amostragem direta ou upconverter",
-      "Linux e macOS: pelo código-fonte, com Python 3.10+"
+      "Linux x86_64: pacote .deb (Ubuntu 22.04+ / Mint 21+) ou .tgz; macOS 13+ Apple Silicon (M1 ou superior) em .dmg, sem assinatura da Apple: na primeira abertura, clique com o botão direito no app e escolha Abrir"
     ],
     icon: "sdr"
   },

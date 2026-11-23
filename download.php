@@ -163,11 +163,15 @@ foreach ($files as $entry) {
     }
     if ($product === 'sdr' && ($entry['delivery'] ?? '') === 'github-release') {
         $ver = (string)($updates['products']['sdr']['version'] ?? '');
-        $expectedSetup = "PT2VHF-SDR-Tool-v{$ver}-Win11-x64-Setup.exe";
-        $expectedPortable = "PT2VHF-SDR-Tool-v{$ver}-Win11-x64-Portable.exe";
+        // Windows (Setup/Portable), Linux (.deb/.tgz) e macOS (.dmg) da mesma Release.
+        $expectedNames = array("PT2VHF-SDR-Tool-v{$ver}-Win11-x64-Setup.exe",
+            "PT2VHF-SDR-Tool-v{$ver}-Win11-x64-Portable.exe",
+            "pt2vhf-sdr-tool_{$ver}_amd64.deb",
+            "PT2VHF-SDR-Tool-v{$ver}-Linux-x86_64.tgz",
+            "PT2VHF-SDR-Tool-v{$ver}-macOS-arm64.dmg");
         $digest = (string)($entry['sha256'] ?? '');
         if (preg_match('/^\d+\.\d+\.\d+$/D', $ver) !== 1 ||
-            !in_array($requestedFile, array($expectedSetup, $expectedPortable), true) ||
+            !in_array($requestedFile, $expectedNames, true) ||
             !is_int($size) || $size < 20000000 ||
             preg_match('/^[a-f0-9]{64}$/D', $digest) !== 1) continue;
         $found = true;

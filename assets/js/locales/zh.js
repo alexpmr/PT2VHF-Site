@@ -184,7 +184,7 @@ window.PT2VHF_I18N["zh"] = {
         "Windows 10/11 64 位：安装版或便携版",
         "使用 WinUSB 驱动的 RTL-SDR（安装程序或“帮助 → 准备 RTL-SDR”可自动安装；也可用 Zadig）",
         "适合频段的天线；短波需支持直接采样的 RTL-SDR 或上变频器",
-        "Linux 和 macOS：从源代码运行，需要 Python 3.10+"
+        "Linux x86_64：.deb 软件包（Ubuntu 22.04+ / Mint 21+）或 .tgz；macOS 13+ Apple Silicon（M1 或更新）.dmg，未经 Apple 签名：首次启动时右键点击应用并选择“打开”"
       ]
     },
     "prog": {
