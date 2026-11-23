@@ -7,7 +7,7 @@
  * Lê pt2vhf-private-data/testers-aprs-android.csv (fora de public_html).
  * Colunas do CSV: e-mail, indicativo, data UTC e, opcional, data UTC em que foi atendido
  * (convite ou aviso enviado). Linhas atendidas aparecem riscadas.
- * Ações (POST, mesma chave): remove=<e-mail> apaga a linha; done=<e-mails separados por vírgula>
+ * Sem botões na página. Ações por POST (mesma chave), usadas pelo Claude: remove=<e-mail> apaga a linha; done=<e-mails separados por vírgula>
  * marca como atendidos; undone=<e-mail> desmarca.
  * ?format=txt devolve texto simples (e-mail,indicativo,data,atendido) para uso em scripts.
  */
@@ -103,8 +103,6 @@ $date = static fn(string $s): string => str_replace(array('T', 'Z'), array(' ', 
   th { font-size: 13px; color: #555; }
   td.n { color: #888; width: 2em; }
   tr.done td.d { text-decoration: line-through; color: #888; }
-  form { margin: 0; display: inline; }
-  button { font-size: 12px; }
   textarea { width: 100%; max-width: 860px; height: 5em; margin-top: 8px; font: 13px monospace; }
   @media (prefers-color-scheme: dark) {
     body { color: #eee; background: #121212; } p, th { color: #aaa; } th, td { border-color: #333; }
@@ -118,13 +116,10 @@ $date = static fn(string $s): string => str_replace(array('T', 'Z'), array(' ', 
 <p><?= count($rows) ?> inscrições pelo formulário do site, <?= count($pending) ?> ainda não atendidas.
 Linhas riscadas já foram atendidas (incluídas no Google Play e avisadas por e-mail). Mais recentes primeiro, datas em UTC.</p>
 <table>
-<thead><tr><th>#</th><th>E-mail</th><th>Indicativo</th><th>Inscrição</th><th>Atendido</th><th></th></tr></thead>
+<thead><tr><th>#</th><th>E-mail</th><th>Indicativo</th><th>Inscrição</th><th>Atendido</th></tr></thead>
 <tbody>
 <?php $n = count($rows); foreach ($rows as $r): $isDone = trim($r[3]) !== ''; ?>
-<tr<?= $isDone ? ' class="done"' : '' ?>><td class="n d"><?= $n-- ?></td><td class="d"><?= $h($r[0]) ?></td><td class="d"><?= $h($r[1]) ?></td><td class="d"><?= $h($date($r[2])) ?></td><td><?= $h($date($r[3])) ?></td><td>
-<?php if ($isDone): ?><form method="post"><input type="hidden" name="undone" value="<?= $h($r[0]) ?>"><button type="submit">Desmarcar</button></form>
-<?php else: ?><form method="post"><input type="hidden" name="done" value="<?= $h($r[0]) ?>"><button type="submit">Marcar atendido</button></form>
-<?php endif; ?> <form method="post" onsubmit="return confirm('Remover <?= $h($r[0]) ?> da lista?')"><input type="hidden" name="remove" value="<?= $h($r[0]) ?>"><button type="submit">Remover</button></form></td></tr>
+<tr<?= $isDone ? ' class="done"' : '' ?>><td class="n d"><?= $n-- ?></td><td class="d"><?= $h($r[0]) ?></td><td class="d"><?= $h($r[1]) ?></td><td class="d"><?= $h($date($r[2])) ?></td><td class="d"><?= $h($date($r[3])) ?></td></tr>
 <?php endforeach; ?>
 </tbody>
 </table>
