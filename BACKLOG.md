@@ -6,6 +6,21 @@ Nenhum item pendente (conferido em produção em 23/11/2026).
 
 ## Concluídos
 
+### RESOLVIDO (23/11/2026) — Página de estatísticas de visitas em /stats
+
+- **Pedido do Alex:** página www.pt2vhf.com/stats com estatísticas de quem visita o site, só para ele, sem link no
+  site e, a pedido, sem senha.
+- **Coleta:** `assets/js/visit.js` em todas as páginas envia um beacon para `visit.php` com o caminho, o domínio de
+  origem externo, o idioma e o fuso do navegador. Sem cookies e sem serviços de terceiros. Visitante único por dia =
+  HMAC de (IP + User-Agent) com chave do dia, descartada na virada (mesmo esquema do `installs_lib.php`); IP e
+  User-Agent não são gravados, só as categorias. Robôs, navegadores automatizados, origens externas e o cookie
+  `pt2vhf_nostats=1` (botão "Não contar este navegador" no painel) não contam.
+- **Dados:** `../pt2vhf-private-data/visits-AAAA-MM.json` (totais diários) e `visits-state.json` (chave do dia).
+- **Painel `stats.php` (`/stats`):** períodos de hoje a 1 ano; visitantes, páginas vistas, gráfico diário, páginas,
+  entrada, origem, país (quando a hospedagem envia o cabeçalho), fuso, idioma, dispositivo, navegador, sistema e
+  horário (Brasília); downloads acumulados e instalações ativas. `noindex`, fora do sitemap e do robots.
+- Política de privacidade com o aviso das estatísticas do site. Teste em `scripts/test_visits.php`.
+
 ### RESOLVIDO (APRS Client v2.0.2, 14/11/2026) — Contagem aproximada de instalações ativas
 
 - **Verificado em produção (23/11/2026):** `installs.php?product=aprs` responde HTTP 200.
