@@ -15,6 +15,13 @@ window.PT2VHF_GALLERIES = {
     { src:"/assets/screenshots/prog/icom.png",type:"screenshot",caption:"Programação de rádios Icom",captionId:"progIcom" }
   ],
   aprs: [
+    { src:"/assets/screenshots/aprs/mapa-v2.0.3.webp",full:"/assets/screenshots/aprs/original/mapa-v2.0.3.png",type:"screenshot",caption:"Mapa com estações, enlaces RF, cobertura e radar meteorológico",captionId:"aprsMap" },
+    { src:"/assets/screenshots/aprs/mensagens-v2.0.3.webp",full:"/assets/screenshots/aprs/original/mensagens-v2.0.3.png",type:"screenshot",caption:"Mensagens APRS com filtros, status e envio por APRS-IS ou RF",captionId:"aprsMessages" },
+    { src:"/assets/screenshots/aprs/estacoes-v2.0.3.webp",full:"/assets/screenshots/aprs/original/estacoes-v2.0.3.png",type:"screenshot",caption:"Lista de estações com ícone, aplicativo, distância e informações",captionId:"aprsStations" },
+    { src:"/assets/screenshots/aprs/estatisticas-v2.0.3.webp",full:"/assets/screenshots/aprs/original/estatisticas-v2.0.3.png",type:"screenshot",caption:"Estatísticas da rede: enlaces, pacotes, iGates e digipeaters",captionId:"aprsStats" },
+    { src:"/assets/screenshots/aprs/log-v2.0.3.webp",full:"/assets/screenshots/aprs/original/log-v2.0.3.png",type:"screenshot",caption:"Log do tráfego APRS-IS recebido e transmitido",captionId:"aprsLog" },
+    { src:"/assets/screenshots/aprs/automacoes-ferramentas-v2.0.3.webp",full:"/assets/screenshots/aprs/original/automacoes-ferramentas-v2.0.3.png",type:"screenshot",caption:"Automações e menu Ferramentas: cobertura, enlaces e relatórios",captionId:"aprsTools" },
+    { src:"/assets/screenshots/aprs/configuracao-v2.0.3.webp",full:"/assets/screenshots/aprs/original/configuracao-v2.0.3.png",type:"screenshot",caption:"Configuração da estação com Grid Locator e passcode automático",captionId:"aprsSettings" },
     { src:"/assets/screenshots/aprs/logo.png",type:"brand",caption:"Identidade visual do APRS Client",captionId:"aprsBrand" }
   ],
   sat: [
