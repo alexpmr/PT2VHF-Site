@@ -237,6 +237,7 @@
     },
     aprs: {
       pt: [
+        e("2.0.4", "Linux em processadores mais antigos", ["O programa Linux volta a abrir em processadores sem AVX2 (antes fechava com \"Illegal instruction\").", "O pacote .deb do site baixa como .deb, não mais como .txt.", "A estação aparece na lista do site logo depois de salvar o indicativo.", "HA7VDI entra nos agradecimentos do Sobre."]),
         e("2.0.3", "Telas menores, mapa e indicativo", ["Janela e cabeçalho cabem em telas 1366x768; o botão APRS-IS fica sempre visível.", "O popup da estação cabe no mapa, com \"Enviar mensagem\" sempre à vista, e o mapa volta ao lugar ao fechar.", "Aviso \"Auto-Resposta ligada\" no cabeçalho; a Configuração só aceita indicativo de radioamador real.", "Windows, Linux x86_64 e macOS Apple Silicon; Raspberry Pi e Mac Intel continuam na 2.0.1."]),
         e("2.0.2", "Configuração compacta e Grid Locator (Windows)", ["Campos da Configuração com a largura do conteúdo (indicativo, SSID, porta, coordenadas...).", "Grid Locator sempre visível: digite o grid e tecle Enter para preencher latitude e longitude.", "Só Windows; Linux e macOS continuam na 2.0.1."]),
         e("2.0.1", "Lista de estações no site", ["A consulta de versão volta a informar o indicativo (sem o SSID), e a estação aparece na lista de estações do site."]),
@@ -259,6 +260,7 @@
         e("1.14.55", "Planejamento de enlaces e melhor ponto", ["Enlace entre 2 pontos com perfil de terreno, Fresnel, sinal estimado e veredito de viabilidade.", "Melhor ponto para instalar estação: topos da área desenhada, com CSV e PDF."])
       ],
       en: [
+        e("2.0.4", "Linux on older processors", ["The Linux program opens again on processors without AVX2 (it used to stop with \"Illegal instruction\").", "The .deb package from the site downloads as .deb, no longer as .txt.", "Your station shows up in the site list right after you save the callsign.", "HA7VDI joins the acknowledgements in About."]),
         e("2.0.3", "Smaller screens, map and callsign", ["Window and header fit 1366x768 screens; the APRS-IS button is always visible.", "The station popup fits the map with \"Send message\" always in view, and the map returns to its place when it closes.", "\"Auto-reply on\" notice in the header; Settings only accept a real amateur radio callsign.", "Windows, Linux x86_64 and macOS Apple Silicon; Raspberry Pi and Intel Macs stay on 2.0.1."]),
         e("2.0.2", "Compact settings and Grid Locator (Windows)", ["Settings fields sized to their content (callsign, SSID, port, coordinates...).", "Grid Locator always visible: type the grid and press Enter to fill latitude and longitude.", "Windows only; Linux and macOS stay on 2.0.1."]),
         e("2.0.1", "Station list on the website", ["The update check sends the callsign again (without the SSID), so the station shows up in the website's station list."]),
@@ -281,6 +283,7 @@
         e("1.14.55", "Link planning and best site", ["Point-to-point link with terrain profile, Fresnel zone, estimated signal and feasibility verdict.", "Best site for a station: peaks inside the drawn area, with CSV and PDF."])
       ],
       es: [
+        e("2.0.4", "Linux en procesadores más antiguos", ["El programa para Linux vuelve a abrir en procesadores sin AVX2 (antes se cerraba con \"Illegal instruction\").", "El paquete .deb del sitio se descarga como .deb, ya no como .txt.", "La estación aparece en la lista del sitio justo después de guardar el indicativo.", "HA7VDI se suma a los agradecimientos de Acerca de."]),
         e("2.0.3", "Pantallas pequeñas, mapa e indicativo", ["La ventana y el encabezado caben en pantallas de 1366x768; el botón APRS-IS siempre está visible.", "La ventana de la estación cabe en el mapa con \"Enviar mensaje\" siempre a la vista, y el mapa vuelve a su lugar al cerrarla.", "Aviso \"Respuesta automática activada\" en el encabezado; la configuración solo acepta indicativos de radioaficionado reales.", "Windows, Linux x86_64 y macOS Apple Silicon; Raspberry Pi y Mac Intel siguen en la 2.0.1."]),
         e("2.0.2", "Configuración compacta y Grid Locator (Windows)", ["Campos de la configuración con el ancho de su contenido (indicativo, SSID, puerto, coordenadas...).", "Grid Locator siempre visible: escriba el grid y pulse Enter para completar latitud y longitud.", "Solo Windows; Linux y macOS siguen en la 2.0.1."]),
         e("2.0.1", "Lista de estaciones en el sitio", ["La consulta de versión vuelve a informar el indicativo (sin el SSID) y la estación aparece en la lista del sitio."]),
@@ -303,6 +306,7 @@
         e("1.14.55", "Planificación de enlaces y mejor punto", ["Enlace entre 2 puntos con perfil de terreno, Fresnel, señal estimada y veredicto de viabilidad.", "Mejor punto para instalar una estación: cumbres del área dibujada, con CSV y PDF."])
       ],
       fr: [
+        e("2.0.4", "Linux sur les processeurs plus anciens", ["Le programme Linux s'ouvre de nouveau sur les processeurs sans AVX2 (il s'arrêtait avec « Illegal instruction »).", "Le paquet .deb du site se télécharge en .deb, et non plus en .txt.", "La station apparaît dans la liste du site dès l'enregistrement de l'indicatif.", "HA7VDI rejoint les remerciements dans À propos."]),
         e("2.0.3", "Petits écrans, carte et indicatif", ["La fenêtre et l'en-tête tiennent sur un écran 1366x768 ; le bouton APRS-IS reste toujours visible.", "La fiche de la station tient dans la carte avec « Envoyer un message » toujours visible, et la carte revient à sa place à la fermeture.", "Avis « Réponse automatique activée » dans l'en-tête ; la configuration n'accepte qu'un vrai indicatif radioamateur.", "Windows, Linux x86_64 et macOS Apple Silicon ; Raspberry Pi et Mac Intel restent en 2.0.1."]),
         e("2.0.2", "Configuration compacte et Grid Locator (Windows)", ["Champs de la configuration à la largeur de leur contenu (indicatif, SSID, port, coordonnées...).", "Grid Locator toujours visible : saisissez le locator et appuyez sur Entrée pour remplir latitude et longitude.", "Windows uniquement ; Linux et macOS restent en 2.0.1."]),
         e("2.0.1", "Liste des stations sur le site", ["La vérification de version envoie de nouveau l’indicatif (sans le SSID) ; la station apparaît dans la liste du site."]),
@@ -325,6 +329,7 @@
         e("1.14.55", "Planification de liaisons et meilleur site", ["Liaison entre 2 points avec profil du terrain, zone de Fresnel, signal estimé et verdict de faisabilité.", "Meilleur site pour une station : sommets de la zone dessinée, avec CSV et PDF."])
       ],
       de: [
+        e("2.0.4", "Linux auf älteren Prozessoren", ["Das Linux-Programm startet wieder auf Prozessoren ohne AVX2 (vorher Abbruch mit \"Illegal instruction\").", "Das .deb-Paket der Website wird als .deb heruntergeladen, nicht mehr als .txt.", "Die Station erscheint direkt nach dem Speichern des Rufzeichens in der Liste der Website.", "HA7VDI steht jetzt in den Danksagungen unter Info."]),
         e("2.0.3", "Kleine Bildschirme, Karte und Rufzeichen", ["Fenster und Kopfzeile passen auf 1366x768-Bildschirme; die APRS-IS-Schaltfläche ist immer sichtbar.", "Das Stations-Popup passt in die Karte, \"Nachricht senden\" bleibt sichtbar, und die Karte kehrt beim Schließen an ihren Platz zurück.", "Hinweis \"Auto-Antwort aktiv\" in der Kopfzeile; die Einstellungen akzeptieren nur echte Amateurfunk-Rufzeichen.", "Windows, Linux x86_64 und macOS Apple Silicon; Raspberry Pi und Intel-Macs bleiben bei 2.0.1."]),
         e("2.0.2", "Kompakte Einstellungen und Grid Locator (Windows)", ["Einstellungsfelder in der Breite ihres Inhalts (Rufzeichen, SSID, Port, Koordinaten...).", "Grid Locator immer sichtbar: Locator eingeben und Enter drücken, um Breite und Länge auszufüllen.", "Nur Windows; Linux und macOS bleiben bei 2.0.1."]),
         e("2.0.1", "Stationsliste auf der Website", ["Die Versionsprüfung sendet wieder das Rufzeichen (ohne SSID), damit die Station in der Liste der Website erscheint."]),
@@ -347,6 +352,7 @@
         e("1.14.55", "Verbindungsplanung und bester Standort", ["Punkt-zu-Punkt-Verbindung mit Geländeprofil, Fresnelzone, geschätztem Signal und Machbarkeitsurteil.", "Bester Standort für eine Station: Gipfel im gezeichneten Bereich, mit CSV und PDF."])
       ],
       it: [
+        e("2.0.4", "Linux su processori più vecchi", ["Il programma Linux torna ad aprirsi su processori senza AVX2 (prima si chiudeva con \"Illegal instruction\").", "Il pacchetto .deb del sito si scarica come .deb, non più come .txt.", "La stazione compare nell'elenco del sito subito dopo aver salvato il nominativo.", "HA7VDI entra nei ringraziamenti in Informazioni."]),
         e("2.0.3", "Schermi piccoli, mappa e nominativo", ["Finestra e intestazione entrano in schermi 1366x768; il pulsante APRS-IS è sempre visibile.", "Il popup della stazione entra nella mappa con \"Invia messaggio\" sempre a vista, e la mappa torna al suo posto alla chiusura.", "Avviso \"Risposta automatica attiva\" nell'intestazione; la configurazione accetta solo nominativi radioamatoriali reali.", "Windows, Linux x86_64 e macOS Apple Silicon; Raspberry Pi e Mac Intel restano alla 2.0.1."]),
         e("2.0.2", "Impostazioni compatte e Grid Locator (Windows)", ["Campi delle impostazioni larghi quanto il loro contenuto (nominativo, SSID, porta, coordinate...).", "Grid Locator sempre visibile: digita il locator e premi Invio per compilare latitudine e longitudine.", "Solo Windows; Linux e macOS restano alla 2.0.1."]),
         e("2.0.1", "Elenco stazioni sul sito", ["Il controllo della versione invia di nuovo il nominativo (senza SSID) e la stazione compare nell’elenco del sito."]),
@@ -369,6 +375,7 @@
         e("1.14.55", "Pianificazione dei collegamenti e punto migliore", ["Collegamento tra 2 punti con profilo del terreno, zona di Fresnel, segnale stimato e verdetto di fattibilità.", "Punto migliore per una stazione: cime dell’area disegnata, con CSV e PDF."])
       ],
       zh: [
+        e("2.0.4", "支持较旧的处理器（Linux）", ["Linux 版本重新可以在不支持 AVX2 的处理器上运行（此前会以 “Illegal instruction” 退出）。", "网站上的 .deb 安装包现在以 .deb 下载，不再变成 .txt。", "保存呼号后，电台会立即出现在网站的电台列表中。", "HA7VDI 加入“关于”页面的致谢名单。"]),
         e("2.0.3", "小屏幕、地图与呼号", ["窗口和标题栏适配 1366x768 屏幕；APRS-IS 按钮始终可见。", "电台弹窗完整显示在地图内，“发送消息”始终可见；关闭弹窗后地图回到原位。", "标题栏显示“自动回复已开启”；设置只接受真实的业余无线电呼号。", "支持 Windows、Linux x86_64 和 macOS Apple Silicon；树莓派和 Intel Mac 保持 2.0.1。"]),
         e("2.0.2", "紧凑设置与网格定位（Windows）", ["设置字段宽度与内容相符（呼号、SSID、端口、坐标等）。", "网格定位始终可见：输入网格并按 Enter 即可填入纬度和经度。", "仅 Windows；Linux 和 macOS 仍为 2.0.1。"]),
         e("2.0.1", "网站电台列表", ["版本检查重新发送呼号（不含 SSID），电台会出现在网站的电台列表中。"]),
