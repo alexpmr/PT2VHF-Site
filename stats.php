@@ -62,26 +62,31 @@ function product_name(string $id, array $products): string {
     return preg_replace('/^PT2VHF\s+/', '', $products[$id] ?? $id);
 }
 
-function rank_table(string $title, string $col, array $rows, string $unit, int $limit = 12, ?callable $label = null): string {
+function rank_table(string $title, string $col, array $rows, string $unit, int $limit = 12, ?callable $label = null, ?callable $html = null, string $note = ''): string {
     arsort($rows);
     $total = array_sum($rows);
     $out = '<section class="panel"><h2>' . h($title) . '</h2>';
-    if (!$rows) return $out . '<p class="empty">Sem dados no período.</p></section>';
+    $foot = $note !== '' ? '<p class="note">' . $note . '</p>' : '';
+    if (!$rows) return $out . '<p class="empty">Sem dados no período.</p>' . $foot . '</section>';
     $max = max($rows);
     $out .= '<table><thead><tr><th scope="col">' . h($col) . '</th><th scope="col" class="num">' . h($unit) . '</th><th scope="col" class="num">%</th></tr></thead><tbody>';
     foreach (array_slice($rows, 0, $limit, true) as $k => $v) {
         $w = $max ? max(1, round($v / $max * 100)) : 0;
-        $out .= '<tr><td><span class="bar" style="--w:' . $w . '%"></span><span class="lbl">' . h($label ? $label((string)$k) : $k) . '</span></td>'
+        $out .= '<tr><td><span class="bar" style="--w:' . $w . '%"></span><span class="lbl">' . ($html ? $html((string)$k) : h($label ? $label((string)$k) : $k)) . '</span></td>'
             . '<td class="num">' . n($v) . '</td><td class="num muted">' . ($total ? number_format($v / $total * 100, 1, ',', '.') : '0') . '</td></tr>';
     }
     $rest = array_slice($rows, $limit, null, true);
     if ($rest) $out .= '<tr class="rest"><td>Mais ' . count($rest) . '</td><td class="num">' . n(array_sum($rest)) . '</td><td></td></tr>';
-    return $out . '</tbody></table></section>';
+    return $out . '</tbody></table>' . $foot . '</section>';
 }
 
-$countryName = function (string $cc): string {
-    if (class_exists('Locale')) { $n = \Locale::getDisplayRegion('-' . $cc, 'pt_BR'); if ($n && $n !== $cc) return $n . ' (' . $cc . ')'; }
-    return $cc;
+// País: bandeira (assets/img/flags/country) e nome em português; sem a extensão intl, o nome sai pelo navegador.
+$countryCell = function (string $cc): string {
+    if (!preg_match('/^[A-Z]{2}$/', $cc)) return h($cc);
+    $flag = is_file(__DIR__ . '/assets/img/flags/country/' . strtolower($cc) . '.svg')
+        ? '<img class="flag" src="/assets/img/flags/country/' . strtolower($cc) . '.svg" alt="" width="20" height="15" loading="lazy">' : '';
+    $name = class_exists('Locale') ? (string)\Locale::getDisplayRegion('-' . $cc, 'pt_BR') : '';
+    return $flag . '<span data-cc="' . $cc . '">' . h($name !== '' && $name !== $cc ? $name : $cc) . '</span>';
 };
 $pageName = function (string $p): string { return $p === '/' ? '/ (início)' : $p; };
 $dateBr = function (string $d): string { return substr($d, 8, 2) . '/' . substr($d, 5, 2) . '/' . substr($d, 0, 4); };
@@ -140,6 +145,8 @@ th{font-weight:600;color:var(--muted);text-align:left;font-size:.8rem;padding:4p
 td{padding:5px 6px;border-bottom:1px solid var(--grid);position:relative}
 td:first-child{max-width:0;width:100%}
 .lbl{position:relative;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.flag{vertical-align:-2px;margin-right:8px;border-radius:2px;box-shadow:0 0 0 1px var(--border)}
+.note a{color:inherit}
 .bar{position:absolute;left:0;top:3px;bottom:3px;width:var(--w);background:var(--accent-soft);border-radius:0 4px 4px 0}
 .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .muted{color:var(--muted)}
@@ -196,7 +203,7 @@ button.ghost{background:transparent;color:var(--text);border-color:var(--border)
   <?= rank_table('Páginas mais vistas', 'Página', $dims['pages'], 'Vistas', 15, $pageName) ?>
   <?= rank_table('Página de entrada', 'Página', $dims['entries'], 'Visitantes', 10, $pageName) ?>
   <?= rank_table('Origem', 'Site', $dims['refs'], 'Visitantes', 15) ?>
-  <?php if ($dims['countries']): ?><?= rank_table('País', 'País', $dims['countries'], 'Visitantes', 15, $countryName) ?><?php endif; ?>
+  <?= rank_table('País', 'País', $dims['countries'], 'Visitantes', 20, null, $countryCell, 'País estimado pelo IP na hora da visita (o IP não é gravado). <a href="https://db-ip.com/">IP Geolocation by DB-IP</a>.') ?>
   <?= rank_table('Fuso horário do navegador', 'Fuso', $dims['tz'], 'Visitantes', 15) ?>
   <?= rank_table('Idioma do navegador', 'Idioma', $dims['langs'], 'Visitantes', 12) ?>
   <?= rank_table('Dispositivo', 'Tipo', $dims['devices'], 'Visitantes') ?>
@@ -257,6 +264,12 @@ button.ghost{background:transparent;color:var(--text);border-color:var(--border)
       tip.style.top = (e.clientY - box.top) + "px";
     });
     chart.addEventListener("mouseleave", function () { tip.style.display = "none"; });
+  }
+  if (window.Intl && Intl.DisplayNames) {
+    var names = new Intl.DisplayNames(["pt-BR"], { type: "region" });
+    document.querySelectorAll("[data-cc]").forEach(function (el) {
+      if (el.textContent === el.getAttribute("data-cc")) { try { el.textContent = names.of(el.textContent); } catch (e) {} }
+    });
   }
   var btn = document.getElementById("optout"), state = document.getElementById("optout-state");
   function off() { return /(?:^|;\s*)pt2vhf_nostats=1/.test(document.cookie); }

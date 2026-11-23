@@ -17,9 +17,14 @@ Nenhum item pendente (conferido em produção em 23/11/2026).
   `pt2vhf_nostats=1` (botão "Não contar este navegador" no painel) não contam.
 - **Dados:** `../pt2vhf-private-data/visits-AAAA-MM.json` (totais diários) e `visits-state.json` (chave do dia).
 - **Painel `stats.php` (`/stats`):** períodos de hoje a 1 ano; visitantes, páginas vistas, gráfico diário, páginas,
-  entrada, origem, país (quando a hospedagem envia o cabeçalho), fuso, idioma, dispositivo, navegador, sistema e
+  entrada, origem, país, fuso, idioma, dispositivo, navegador, sistema e
   horário (Brasília); downloads acumulados e instalações ativas. `noindex`, fora do sitemap e do robots.
 - Política de privacidade com o aviso das estatísticas do site. Teste em `scripts/test_visits.php`.
+- **País (pedido do Alex, 23/11/2026):** estimado pelo IP na hora da visita com a base local DB-IP Lite (CC BY 4.0),
+  em `geo/country-ipv4.bin` e `geo/country-ipv6.bin` (busca binária em `pt2vhf_geo_country`, bloqueados por
+  `.htaccess`). O IP continua sem ser gravado nem enviado a terceiros. Atualizar a base: `npm pack
+  @ip-location-db/dbip-country` e `scripts/build_country_db.py` (versão em `geo/VERSION`). O painel mostra bandeira
+  e nome em português, com o link "IP Geolocation by DB-IP" exigido pela licença.
 
 ### RESOLVIDO (APRS Client v2.0.2, 14/11/2026) — Contagem aproximada de instalações ativas
 

@@ -33,8 +33,11 @@ foreach (array('HTTP_CF_IPCOUNTRY', 'HTTP_X_COUNTRY_CODE', 'GEOIP_COUNTRY_CODE',
     if (preg_match('/^[A-Z]{2}$/', $v) && $v !== 'XX' && $v !== 'T1') { $country = $v; break; }
 }
 
+$ip = (string)($_SERVER['REMOTE_ADDR'] ?? '');
+if ($country === '') $country = pt2vhf_geo_country($ip);
+
 pt2vhf_visits_record(
     array('path' => $path, 'ref' => $ref, 'lang' => $lang, 'tz' => $tz, 'country' => $country),
-    (string)($_SERVER['REMOTE_ADDR'] ?? ''),
+    $ip,
     (string)($_SERVER['HTTP_USER_AGENT'] ?? '')
 );

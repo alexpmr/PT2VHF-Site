@@ -57,6 +57,40 @@ function pt2vhf_visits_os(string $ua): string {
     return 'Outro';
 }
 
+/**
+ * País de um IP pela base local DB-IP Lite (geo/country-ipv4.bin e geo/country-ipv6.bin, gerados por
+ * scripts/build_country_db.py). Busca binária direto no arquivo; o IP não sai do servidor nem é gravado.
+ * Devolve "" quando o país é desconhecido (rede privada, base ausente etc.).
+ */
+function pt2vhf_geo_country(string $ip): string {
+    $bin = @inet_pton($ip);
+    if (!is_string($bin)) return '';
+    if (strlen($bin) === 16 && substr($bin, 0, 12) === str_repeat("\0", 10) . "\xff\xff") $bin = substr($bin, 12);
+    $width = strlen($bin);
+    $file = __DIR__ . '/geo/country-' . ($width === 4 ? 'ipv4' : 'ipv6') . '.bin';
+    $size = @filesize($file);
+    $rec = $width + 2;
+    if (!$size || $size % $rec !== 0) return '';
+    $fh = @fopen($file, 'rb');
+    if ($fh === false) return '';
+    $lo = 0;
+    $hi = intdiv($size, $rec) - 1;
+    $found = -1;
+    while ($lo <= $hi) {
+        $mid = intdiv($lo + $hi, 2);
+        fseek($fh, $mid * $rec);
+        $start = (string)fread($fh, $width);
+        if (strcmp($start, $bin) <= 0) { $found = $mid; $lo = $mid + 1; } else { $hi = $mid - 1; }
+    }
+    $cc = '';
+    if ($found >= 0) {
+        fseek($fh, $found * $rec + $width);
+        $cc = (string)fread($fh, 2);
+    }
+    fclose($fh);
+    return preg_match('/^[A-Z]{2}$/', $cc) ? $cc : '';
+}
+
 /** Limpa um texto vindo do navegador: curto, só caracteres seguros. */
 function pt2vhf_visits_clean(string $value, string $pattern, int $max): string {
     $value = trim(substr($value, 0, $max));
@@ -148,7 +182,7 @@ function pt2vhf_visits_record(array $hit, string $ip, string $agent, ?int $now =
         pt2vhf_visits_bump($d['os'], pt2vhf_visits_os($agent));
         pt2vhf_visits_bump($d['langs'], (string)($hit['lang'] ?? '') ?: '(desconhecido)');
         pt2vhf_visits_bump($d['tz'], (string)($hit['tz'] ?? '') ?: '(desconhecido)');
-        if (($hit['country'] ?? '') !== '') pt2vhf_visits_bump($d['countries'], (string)$hit['country']);
+        pt2vhf_visits_bump($d['countries'], (string)($hit['country'] ?? '') ?: '(desconhecido)');
     }
     $m['days'][$day] = $d;
     pt2vhf_visits_close($mfh, $m);

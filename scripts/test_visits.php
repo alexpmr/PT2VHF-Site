@@ -14,6 +14,15 @@ check(@mkdir($public, 0700, true) || is_dir($public), 'Criar fixture');
 foreach (array('visit.php', 'visits_lib.php', 'stats.php', 'installs_lib.php', 'updates.json') as $f) {
     copy(__DIR__ . '/../' . $f, $public . '/' . $f);
 }
+@mkdir($public . '/geo', 0700, true);
+foreach (array('country-ipv4.bin', 'country-ipv6.bin') as $f) copy(__DIR__ . '/../geo/' . $f, $public . '/geo/' . $f);
+
+// País pela base local DB-IP Lite
+require_once __DIR__ . '/../visits_lib.php';
+foreach (array('8.8.8.8' => 'US', '200.147.67.142' => 'BR', '::ffff:200.147.67.142' => 'BR', '2804:14c::1' => 'BR',
+               '81.92.200.1' => 'GB', '10.1.2.3' => '', '127.0.0.1' => '', 'lixo' => '') as $ip => $cc) {
+    check(pt2vhf_geo_country($ip) === $cc, "País de $ip deveria ser '$cc', veio '" . pt2vhf_geo_country($ip) . "'");
+}
 $private = $tmp . '/pt2vhf-private-data';
 $port = random_int(20000, 50000);
 $base = 'http://127.0.0.1:' . $port;
@@ -72,10 +81,12 @@ try {
     check(!preg_match('/script|evil|etc/', file_get_contents($files[0])), 'Valores inválidos não podem ser gravados');
 
     check(($day['pages']['(outra)'] ?? 0) === 1, 'Caminho inválido vira (outra)');
+    check(($day['countries']['(desconhecido)'] ?? 0) === 3, 'IP local não tem país');
     [$s, $body, $headers] = req($base . '/stats.php?d=7');
     check($s === 200 && strpos($body, 'páginas vistas') !== false, 'Painel deveria abrir');
     check(strpos($body, 'google.com') !== false && strpos($body, 'America/New_York') !== false, 'Painel deveria listar origem e fuso');
     check((bool)preg_grep('/^X-Robots-Tag: noindex/i', $headers), 'Painel não pode ser indexado');
+    check(strpos($body, 'IP Geolocation by DB-IP') !== false, 'Atribuição da DB-IP exigida pela licença');
     check(strpos($body, 'visit.js') === false, 'O painel não conta a si mesmo');
     echo "OK: visitas e painel /stats\n";
 } finally {
