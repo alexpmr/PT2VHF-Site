@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-22",
+  "updated": "2026-11-23",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -483,10 +483,10 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "1.0.6",
-      "date": "2026-11-22",
+      "version": "1.0.7",
+      "date": "2026-11-23",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "v1.0.6: corrige perda de resolução do waterfall ao usar FFT de 32.768 pontos e zoom estreito: preserva o histórico FFT nativo (até 400 linhas em float16), apresenta os bins correspondentes ao intervalo realmente visível e aplica média de potência linear somente quando precisa reduzir à largura da tela. Corrige zoom-out além da largura de banda IQ amostrada, sem inventar frequências. Adiciona botão sempre visível para ocultar/mostrar painel direito de áudio/DSP (Ctrl+Shift+A), preservando preferência. 259 testes Linux/Qt aprovados, suíte Windows, Setup/Portable, prova nativa do auxiliar OTA, instalação silenciosa e teste OTA Setup aprovados no CI #45074010119; hashes verificados. OBSERVAÇÃO: correção visual em CI, teste de recepção real/fluidez no seu Windows ainda necessário. Não resolve integralmente backlog histórico, crash #8, OTA de campo #18, RS41 RF, RSP físico nem IQ/ONNX experimental. Splash textual temporário.",
+      "notes": "v1.0.7: decodificadores embarcados no instalador e no portátil. RS41 (fsk_demod e rs41mod, com licenças e código-fonte) e AIS (AIS-catcher v0.71) detectados automaticamente; ADS-B (1090 MHz) e ACARS (131,550/131,725/131,825 MHz) decodificados pelo próprio programa, com nova aba Decodificação > ACARS. Um modo por vez no mesmo SDR: o programa sintoniza e ajusta a amostragem sozinho. Splash com o banner oficial PT2VHF, igual ao do Sat Tool. 282 testes Linux/Qt, suíte Windows, autoteste do Setup/Portable (RS41, ADS-B, ACARS e AIS com sinais sintéticos), instalação silenciosa e teste OTA aprovados no CI #45098073427; hashes verificados. OBSERVAÇÃO: os quatro decodificadores ainda precisam de teste com RF real; crash #8, OTA de campo #18 e IQ/ONNX experimental seguem em aberto.",
       "files": [
         {
           "category": "windows-installer",
@@ -496,10 +496,10 @@
           "detail": "Windows 10/11 x64; instalação por usuário",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.6-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.6-Win11-x64-Setup.exe",
-          "size": 145535724,
-          "sha256": "af1f1e39250ab02c384d928f7a8757fb0057070d1b04b74195cc3b383103e00d",
+          "name": "PT2VHF-SDR-Tool-v1.0.7-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.7-Win11-x64-Setup.exe",
+          "size": 155007864,
+          "sha256": "b6c96643357deb6f523caf7ef2034660b486ec141659771b165695a211c50b03",
           "delivery": "github-release"
         },
         {
@@ -510,15 +510,15 @@
           "detail": "Windows 10/11 x64; executável portátil",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.6-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.6-Win11-x64-Portable.exe",
-          "size": 208606742,
-          "sha256": "f3b48ff69ad8385af3a715e8441c24f7d2ce0cd8d24dbf61b852b942691626fa",
+          "name": "PT2VHF-SDR-Tool-v1.0.7-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.7-Win11-x64-Portable.exe",
+          "size": 221171942,
+          "sha256": "75ed7d45d60ef7dbae6014b1b606853153aa55076431cd0507f41a289350977e",
           "delivery": "github-release"
         }
       ],
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr",
-      "releaseStatus": "v1.0.6 publicada no GitHub, hashes SHA-256 verificados; sincronização Hostinger/OTA a verificar. Zoom/definição e painel direito corrigidos em código e CI; validação real RF/visual permanece em aberto."
+      "releaseStatus": "v1.0.7 publicada no GitHub (CI #45098073427, SHA 252fe4e), hashes SHA-256 verificados. Decodificadores RS41/ADS-B/AIS/ACARS testados com sinais sintéticos; homologação com RF real em aberto."
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
