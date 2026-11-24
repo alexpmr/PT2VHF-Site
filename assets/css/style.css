@@ -571,3 +571,6 @@ table.compare-table { width: 100%; border-collapse: collapse; min-width: 560px; 
 .contact-form-status.is-ok { border-color:var(--accent); background:var(--accent-soft); }
 .contact-form-status.is-erro, .contact-form-status.is-limite { border-color:#d97706; }
 @media(max-width:640px){ .contact-form { padding:18px; } .contact-form-row { grid-template-columns:1fr; } .contact-form-send { justify-self:stretch; } }
+.contact-field input[aria-invalid="true"], .contact-field textarea[aria-invalid="true"] { border-color:#d97706; box-shadow:0 0 0 1px #d97706; }
+.contact-form-status:focus { outline:none; }
+.contact-form-status.is-invalid, .contact-form-status.is-limit, .contact-form-status.is-error { border-color:#d97706; }

@@ -31,14 +31,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && ($_POST['action'] ?? '') ==
     } else {
         @file_put_contents($limitPath, json_encode(array('day' => $today, 'count' => $count + 1)), LOCK_EX);
         $err = null; $via = '';
-        $ok = pt2vhf_send_mail(PT2VHF_MAINTAINER_EMAIL, 'PT2VHF: teste do e-mail do site',
+        $ok = pt2vhf_send_mail(pt2vhf_contact_recipient(), 'PT2VHF: teste do e-mail do site',
             "Este é um teste do envio de e-mail do site www.pt2vhf.com, pedido no painel /stats.\n"
             . "Se chegou, o formulário de contato e os avisos de testadores também chegam.\n\n"
             . 'Data (UTC): ' . gmdate('Y-m-d H:i') . "\n", '', '', $err, $via);
-        $text = $ok ? 'E-mail de teste enviado para ' . PT2VHF_MAINTAINER_EMAIL . ' (via ' . ($via === 'smtp' ? 'SMTP' : 'mail() do PHP') . ').'
+        $text = $ok ? 'E-mail de teste enviado para ' . pt2vhf_contact_recipient() . ' (via ' . ($via === 'smtp' ? 'SMTP' : 'mail() do PHP') . ').'
                     : 'O envio falhou: ' . $err . '.';
         if ($ok) {
-            $flush = pt2vhf_contact_flush_stored(PT2VHF_MAINTAINER_EMAIL);
+            $flush = pt2vhf_contact_flush_stored(pt2vhf_contact_recipient());
             if ($flush['sent'] > 0) $text .= ' Mensagens guardadas reenviadas: ' . $flush['sent'] . '.';
             if ($flush['left'] > 0) $text .= ' Continuam guardadas: ' . $flush['left'] . ($flush['error'] ? ' (' . $flush['error'] . ')' : '') . '.';
         }
@@ -285,21 +285,21 @@ code{font-size:.85em;overflow-wrap:anywhere}
   <section class="panel" id="email">
     <h2>E-mail do site</h2>
     <?php if ($smtp): ?>
-      <p>Envio por SMTP: <b><?= h($smtp['host']) ?></b>, porta <?= (int)$smtp['port'] ?> (<?= h(strtoupper($smtp['security'])) ?>), conta <?= h(preg_replace('/^(.).*(@.*)$/', '$1***$2', $smtp['username'])) ?>.</p>
+      <p>Envio por SMTP: <b><?= h($smtp['host']) ?></b>, porta <?= (int)$smtp['port'] ?> (<?= h(strtoupper($smtp['security'])) ?>), conta <?= h(preg_replace('/^(.).*(@.*)$/', '$1***$2', $smtp['username'])) ?>, remetente <?= h($smtp['from']) ?>, destino do formulário <?= h(pt2vhf_contact_recipient()) ?>.</p>
     <?php elseif ($smtpProblem): ?>
-      <p>O arquivo <code>smtp.json</code> existe, mas tem um problema: <b><?= h($smtpProblem) ?></b>.</p>
+      <p>A configuração de e-mail tem um problema: <b><?= h($smtpProblem) ?></b>. Confira o arquivo <code>pt2vhf-private-data/smtp.env</code>.</p>
     <?php else:
       $misplaced = array();
-      foreach (array(__DIR__ . '/smtp.json', __DIR__ . '/smtp.json.txt', __DIR__ . '/pt2vhf-private-data/smtp.json', pt2vhf_private_dir() . '/smtp.json.txt') as $f) {
+      foreach (array(__DIR__ . '/smtp.env', __DIR__ . '/smtp.env.txt', __DIR__ . '/.env', __DIR__ . '/pt2vhf-private-data/smtp.env', pt2vhf_private_dir() . '/smtp.env.txt', pt2vhf_private_dir() . '/.env') as $f) {
           if (is_file($f)) $misplaced[] = basename(dirname($f)) . '/' . basename($f);
       } ?>
-      <p>Sem <code>smtp.json</code>: o site tenta o <code>mail()</code> do PHP, que a Hostinger não entrega.</p>
-      <?php if ($misplaced): ?><p class="mail-result is-err">Achei o arquivo no lugar ou nome errado: <code><?= h(implode(', ', $misplaced)) ?></code>. Ele precisa se chamar <code>smtp.json</code> e ficar em <code>pt2vhf-private-data</code>, na pasta acima do <code>public_html</code>.</p><?php endif; ?>
+      <p>Sem SMTP configurado: o site tenta o <code>mail()</code> do PHP, que a Hostinger não entrega. Crie <code>pt2vhf-private-data/smtp.env</code> (modelo em <code>.env.example</code>).</p>
+      <?php if ($misplaced): ?><p class="mail-result is-err">Achei um arquivo de configuração no lugar ou nome errado: <code><?= h(implode(', ', $misplaced)) ?></code>. Ele precisa se chamar <code>smtp.env</code> e ficar em <code>pt2vhf-private-data</code>, na pasta acima do <code>public_html</code>.</p><?php endif; ?>
     <?php endif; ?>
     <?php if ($mailResult): ?><p class="mail-result <?= $mailResult['ok'] ? 'is-ok' : 'is-err' ?>" role="status"><?= h($mailResult['text']) ?></p><?php endif; ?>
     <form method="post" action="/stats#email"><input type="hidden" name="action" value="mailtest">
       <button type="submit">Enviar e-mail de teste</button></form>
-    <p class="note">Envia só para <?= h(PT2VHF_MAINTAINER_EMAIL) ?>. Se der certo, também reenvia as mensagens de contato guardadas.</p>
+    <p class="note">Envia só para <?= h(pt2vhf_contact_recipient()) ?>. Se der certo, também reenvia as mensagens de contato guardadas.</p>
   </section>
   <section class="panel">
     <h2>Mensagens de contato guardadas</h2>

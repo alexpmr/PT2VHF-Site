@@ -10,12 +10,17 @@
   aparece no Gmail do Alex nos últimos 30 dias, então o `mail()` provavelmente nunca funcionou nesta hospedagem.
 - **Contorno no ar:** a mensagem fica guardada em `../pt2vhf-private-data/contact-messages.jsonl` (fora do site) e o
   visitante vê "Mensagem recebida"; o `/stats` mostra só a quantidade guardada. Falha de servidor tem texto próprio.
-- **Escolha do Alex (24/11/2026): SMTP autenticado.** Feito: `mail_lib.php` envia por SMTP (SSL 465 ou STARTTLS 587)
-  quando existe `../pt2vhf-private-data/smtp.json` (criado pelo Alex no Gerenciador de arquivos do hPanel; senha
-  nunca no repositório); sem o arquivo, tenta o `mail()` como antes. Usado pelo `enviar-contato.php` e pelo
-  `testers.php`. O `/stats` mostra o estado do envio e tem o botão "Enviar e-mail de teste", que também reenvia as
-  mensagens guardadas (só para o e-mail do mantenedor, 10 vezes por dia). Teste: `scripts/test_mail_lib.php`.
-- **Falta:** o Alex criar o `smtp.json` e clicar no botão de teste do `/stats`; conferir a chegada no Gmail.
+- **Escolha do Alex (24/11/2026): SMTP autenticado pela caixa alex@pt2vhf.com** (smtp.hostinger.com, 465, SSL/TLS),
+  remetente sempre `alex@pt2vhf.com`, destino `alexpmr@gmail.com`, Reply-To = e-mail do visitante.
+- **Feito:** `mail_lib.php` lê `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_FROM`,
+  `SMTP_FROM_NAME` e `CONTACT_RECIPIENT` das variáveis de ambiente ou, na falta delas (hospedagem compartilhada),
+  de `../pt2vhf-private-data/smtp.env` (fora do site; modelo sem senha em `.env.example`; `.gitignore` e `.htaccess`
+  protegem). `enviar-contato.php` valida os 4 campos obrigatórios com tamanho máximo, remove HTML/scripts, tem
+  armadilha anti-robô, recusa envio em menos de 3 s, limita por IP sem gravar IP e registra falhas só no log do
+  servidor. O formulário envia sem recarregar, limpa só após envio confirmado e mantém os campos em caso de erro.
+  Testes: `scripts/test_contact.php` e `scripts/test_mail_lib.php`.
+- **Falta:** o Alex criar `pt2vhf-private-data/smtp.env` com a senha real no hPanel, clicar em "Enviar e-mail de
+  teste" no `/stats` (que também reenvia as mensagens guardadas antes) e conferir a chegada no Gmail.
 
 
 ## Concluídos

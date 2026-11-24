@@ -38,13 +38,14 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formLead": "A mensagem chega no meu e-mail e eu respondo para o endereço que você informar.",
     "formName": "Nome",
     "formEmail": "Seu e-mail",
-    "formSubject": "Assunto (opcional)",
+    "formSubject": "Assunto",
     "formMessage": "Mensagem",
     "formSend": "Enviar mensagem",
-    "formSent": "Mensagem enviada. Obrigado pelo contato! Vou responder no e-mail informado.",
-    "formError": "Não foi possível enviar. Confira o nome, o e-mail e a mensagem e tente de novo, ou escreva para alexpmr@gmail.com.",
+    "formSent": "Mensagem enviada com sucesso. Obrigado pelo contato.",
+    "formError": "Confira os campos destacados: nome, e-mail válido, assunto e mensagem são obrigatórios.",
     "formLimit": "Limite de mensagens de hoje atingido nesta conexão. Tente amanhã ou escreva para alexpmr@gmail.com.",
-    "formFailed": "Não foi possível enviar agora por um problema no servidor. Escreva para alexpmr@gmail.com ou pelo WhatsApp."
+    "formFailed": "Não foi possível enviar sua mensagem agora. Tente novamente mais tarde.",
+    "formSending": "Enviando…"
   },
   "en": {
     "navHome": "Home",
@@ -84,13 +85,14 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formLead": "Your message goes to my e-mail and I reply to the address you enter.",
     "formName": "Name",
     "formEmail": "Your e-mail",
-    "formSubject": "Subject (optional)",
+    "formSubject": "Subject",
     "formMessage": "Message",
     "formSend": "Send message",
-    "formSent": "Message sent. Thanks for getting in touch! I'll reply to the e-mail you entered.",
-    "formError": "The message could not be sent. Check your name, e-mail and message and try again, or write to alexpmr@gmail.com.",
+    "formSent": "Message sent successfully. Thank you for getting in touch.",
+    "formError": "Check the highlighted fields: name, a valid e-mail, subject and message are required.",
     "formLimit": "Today's message limit for this connection was reached. Try again tomorrow or write to alexpmr@gmail.com.",
-    "formFailed": "The message could not be sent right now because of a server problem. Please write to alexpmr@gmail.com or use WhatsApp."
+    "formFailed": "Your message could not be sent right now. Please try again later.",
+    "formSending": "Sending…"
   },
   "es": {
     "navHome": "Inicio",
@@ -130,13 +132,14 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formLead": "El mensaje llega a mi correo y respondo a la dirección que indique.",
     "formName": "Nombre",
     "formEmail": "Su correo electrónico",
-    "formSubject": "Asunto (opcional)",
+    "formSubject": "Asunto",
     "formMessage": "Mensaje",
     "formSend": "Enviar mensaje",
-    "formSent": "Mensaje enviado. ¡Gracias por escribir! Responderé al correo indicado.",
-    "formError": "No se pudo enviar el mensaje. Revise el nombre, el correo y el mensaje e inténtelo de nuevo, o escriba a alexpmr@gmail.com.",
+    "formSent": "Mensaje enviado con éxito. Gracias por escribir.",
+    "formError": "Revise los campos destacados: nombre, correo válido, asunto y mensaje son obligatorios.",
     "formLimit": "Se alcanzó el límite de mensajes de hoy desde esta conexión. Inténtelo mañana o escriba a alexpmr@gmail.com.",
-    "formFailed": "No se pudo enviar ahora por un problema del servidor. Escriba a alexpmr@gmail.com o por WhatsApp."
+    "formFailed": "No fue posible enviar su mensaje ahora. Inténtelo de nuevo más tarde.",
+    "formSending": "Enviando…"
   },
   "fr": {
     "navHome": "Accueil",
@@ -176,13 +179,14 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formLead": "Le message arrive dans ma boîte e-mail et je réponds à l'adresse indiquée.",
     "formName": "Nom",
     "formEmail": "Votre e-mail",
-    "formSubject": "Objet (facultatif)",
+    "formSubject": "Objet",
     "formMessage": "Message",
     "formSend": "Envoyer le message",
-    "formSent": "Message envoyé. Merci de votre message ! Je répondrai à l'adresse indiquée.",
-    "formError": "Le message n'a pas pu être envoyé. Vérifiez le nom, l'e-mail et le message puis réessayez, ou écrivez à alexpmr@gmail.com.",
+    "formSent": "Message envoyé avec succès. Merci pour votre message.",
+    "formError": "Vérifiez les champs signalés : nom, e-mail valide, objet et message sont obligatoires.",
     "formLimit": "La limite de messages du jour pour cette connexion est atteinte. Réessayez demain ou écrivez à alexpmr@gmail.com.",
-    "formFailed": "Le message n'a pas pu être envoyé pour l'instant à cause d'un problème du serveur. Écrivez à alexpmr@gmail.com ou sur WhatsApp."
+    "formFailed": "Impossible d’envoyer votre message pour le moment. Réessayez plus tard.",
+    "formSending": "Envoi…"
   },
   "de": {
     "navHome": "Startseite",
@@ -222,13 +226,14 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formLead": "Die Nachricht kommt in meinem Postfach an, und ich antworte an die angegebene Adresse.",
     "formName": "Name",
     "formEmail": "Ihre E-Mail",
-    "formSubject": "Betreff (optional)",
+    "formSubject": "Betreff",
     "formMessage": "Nachricht",
     "formSend": "Nachricht senden",
-    "formSent": "Nachricht gesendet. Danke für Ihre Nachricht! Ich antworte an die angegebene E-Mail-Adresse.",
-    "formError": "Die Nachricht konnte nicht gesendet werden. Prüfen Sie Name, E-Mail und Nachricht und versuchen Sie es erneut, oder schreiben Sie an alexpmr@gmail.com.",
+    "formSent": "Nachricht erfolgreich gesendet. Danke für Ihre Nachricht.",
+    "formError": "Prüfen Sie die markierten Felder: Name, gültige E-Mail, Betreff und Nachricht sind Pflichtfelder.",
     "formLimit": "Das heutige Nachrichtenlimit für diese Verbindung ist erreicht. Versuchen Sie es morgen erneut oder schreiben Sie an alexpmr@gmail.com.",
-    "formFailed": "Die Nachricht konnte wegen eines Serverproblems gerade nicht gesendet werden. Schreiben Sie an alexpmr@gmail.com oder per WhatsApp."
+    "formFailed": "Ihre Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut.",
+    "formSending": "Wird gesendet…"
   },
   "it": {
     "navHome": "Home",
@@ -268,13 +273,14 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formLead": "Il messaggio arriva nella mia casella e-mail e rispondo all'indirizzo indicato.",
     "formName": "Nome",
     "formEmail": "La tua e-mail",
-    "formSubject": "Oggetto (facoltativo)",
+    "formSubject": "Oggetto",
     "formMessage": "Messaggio",
     "formSend": "Invia messaggio",
-    "formSent": "Messaggio inviato. Grazie per avermi scritto! Risponderò all'indirizzo indicato.",
-    "formError": "Impossibile inviare il messaggio. Controlla nome, e-mail e messaggio e riprova, oppure scrivi a alexpmr@gmail.com.",
+    "formSent": "Messaggio inviato con successo. Grazie per avermi scritto.",
+    "formError": "Controlla i campi evidenziati: nome, e-mail valida, oggetto e messaggio sono obbligatori.",
     "formLimit": "Raggiunto il limite di messaggi di oggi da questa connessione. Riprova domani o scrivi a alexpmr@gmail.com.",
-    "formFailed": "Impossibile inviare ora per un problema del server. Scrivi a alexpmr@gmail.com o su WhatsApp."
+    "formFailed": "Non è stato possibile inviare il messaggio ora. Riprova più tardi.",
+    "formSending": "Invio in corso…"
   },
   "zh": {
     "navHome": "首页",
@@ -314,12 +320,13 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formLead": "留言会发送到我的邮箱，我会回复到你填写的地址。",
     "formName": "姓名",
     "formEmail": "你的电子邮件",
-    "formSubject": "主题（可选）",
+    "formSubject": "主题",
     "formMessage": "留言",
     "formSend": "发送留言",
-    "formSent": "留言已发送。感谢联系！我会回复到你填写的邮箱。",
-    "formError": "留言未能发送。请检查姓名、电子邮件和留言后重试，或写信至 alexpmr@gmail.com。",
+    "formSent": "留言发送成功。感谢联系。",
+    "formError": "请检查标出的字段：姓名、有效的电子邮件、主题和留言均为必填。",
     "formLimit": "此连接今天的留言次数已达上限。请明天再试，或写信至 alexpmr@gmail.com。",
-    "formFailed": "由于服务器问题，留言暂时无法发送。请写信至 alexpmr@gmail.com 或通过 WhatsApp 联系。"
+    "formFailed": "暂时无法发送你的留言。请稍后再试。",
+    "formSending": "正在发送…"
   }
 };

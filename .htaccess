@@ -6,8 +6,9 @@ Options -Indexes
 RedirectMatch 404 /\.(git|github|gitlab-ci\.yml|gitignore)
 RedirectMatch 404 /(README|CLAUDE)\.md$
 RedirectMatch 404 ^/(visits_lib|mail_lib)\.php$
-# A senha de e-mail (smtp.json) fica fora do public_html; se for criada aqui por engano, nunca é servida.
-RedirectMatch 404 (?i)smtp\.json
+# Credenciais de e-mail (smtp.env/.env) ficam fora do public_html; se forem criadas aqui por engano, nunca são
+# servidas. O .env.example (modelo sem senha) também não é servido.
+RedirectMatch 404 (?i)(smtp\.(json|env)|/\.env)
 RedirectMatch 404 ^/geo/
 ErrorDocument 404 /404.html
 

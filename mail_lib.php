@@ -2,50 +2,84 @@
 /**
  * PT2VHF — envio de e-mail do site (formulário de contato, avisos de testadores, teste no /stats).
  *
- * A Hostinger não entrega o mail() do PHP. Quando existe ../pt2vhf-private-data/smtp.json, o envio é feito por
- * SMTP autenticado (SSL na porta 465 ou STARTTLS na 587). O arquivo é criado pelo mantenedor no Gerenciador de
- * arquivos do hPanel, fica fora do public_html e nunca vai para o repositório:
+ * A Hostinger não entrega o mail() do PHP, então o envio é feito por SMTP autenticado (SSL na porta 465 ou
+ * STARTTLS na 587). As credenciais NUNCA ficam no repositório. Vêm de variáveis de ambiente:
  *
- *   {
- *     "host": "smtp.gmail.com",          (ou "smtp.hostinger.com" para uma caixa do domínio)
- *     "port": 465,
- *     "security": "ssl",                 ("ssl" na 465, "starttls" na 587)
- *     "username": "conta@exemplo.com",
- *     "password": "senha de app ou da caixa",
- *     "from": "conta@exemplo.com",       (opcional; padrão = username)
- *     "fromName": "PT2VHF"               (opcional)
- *   }
+ *   SMTP_HOST=smtp.hostinger.com     SMTP_PORT=465      SMTP_SECURE=true   (true = SSL/TLS; starttls = 587)
+ *   SMTP_USER=alex@pt2vhf.com        SMTP_PASSWORD=...  SMTP_FROM=alex@pt2vhf.com (opcional; padrão = SMTP_USER)
+ *   SMTP_FROM_NAME=PT2VHF (opcional) CONTACT_RECIPIENT=alexpmr@gmail.com
  *
- * Sem o arquivo, tenta o mail() do PHP como antes. Erros devolvidos nunca contêm a senha.
+ * Na hospedagem compartilhada não há painel de variáveis para o PHP; por isso, o que não vier do ambiente é lido
+ * do arquivo ../pt2vhf-private-data/smtp.env (mesmo formato NOME=valor, fora do public_html, criado pelo
+ * mantenedor no Gerenciador de arquivos do hPanel). Modelo sem senha em .env.example. Sem SMTP configurado,
+ * tenta o mail() do PHP. Erros devolvidos nunca contêm a senha.
  */
 declare(strict_types=1);
 
 const PT2VHF_MAIL_FALLBACK_FROM = 'nao-responda@pt2vhf.com';
 const PT2VHF_MAINTAINER_EMAIL = 'alexpmr@gmail.com';
+const PT2VHF_MAIL_ENV_KEYS = array('SMTP_HOST', 'SMTP_PORT', 'SMTP_SECURE', 'SMTP_USER', 'SMTP_PASSWORD', 'SMTP_FROM',
+    'SMTP_FROM_NAME', 'CONTACT_RECIPIENT');
 
 function pt2vhf_mail_private_dir(): string {
     $env = getenv('PT2VHF_PRIVATE_DIR');
     return is_string($env) && $env !== '' ? rtrim($env, '/') : dirname(__DIR__) . '/pt2vhf-private-data';
 }
 
-/** Lê smtp.json. Devolve null se não existir; lança erro descritivo se estiver incompleto. */
+/** Variáveis do envio: ambiente do servidor primeiro, depois o arquivo privado smtp.env. */
+function pt2vhf_mail_env(): array {
+    $vars = array();
+    $file = pt2vhf_mail_private_dir() . '/smtp.env';
+    if (is_file($file)) {
+        foreach ((array)@file($file, FILE_IGNORE_NEW_LINES) as $line) {
+            $line = trim((string)$line);
+            if ($line === '' || $line[0] === '#' || strpos($line, '=') === false) continue;
+            [$k, $v] = array_map('trim', explode('=', $line, 2));
+            if (strlen($v) >= 2 && ($v[0] === '"' || $v[0] === "'") && substr($v, -1) === $v[0]) $v = substr($v, 1, -1);
+            if (in_array($k, PT2VHF_MAIL_ENV_KEYS, true)) $vars[$k] = $v;
+        }
+    }
+    foreach (PT2VHF_MAIL_ENV_KEYS as $k) {
+        $v = getenv($k);
+        if (!is_string($v) || $v === '') $v = (string)($_SERVER[$k] ?? $_ENV[$k] ?? '');
+        if ($v !== '') $vars[$k] = $v;
+    }
+    return $vars;
+}
+
+/** Destinatário do formulário de contato (CONTACT_RECIPIENT; padrão = e-mail do mantenedor). */
+function pt2vhf_contact_recipient(): string {
+    $to = trim((string)(pt2vhf_mail_env()['CONTACT_RECIPIENT'] ?? ''));
+    return filter_var($to, FILTER_VALIDATE_EMAIL) ? $to : PT2VHF_MAINTAINER_EMAIL;
+}
+
+/**
+ * Configuração SMTP. Devolve null quando não há SMTP configurado ($problem = null) ou quando a configuração
+ * está incompleta/inválida ($problem explica, sem a senha).
+ */
 function pt2vhf_smtp_config(?string &$problem = null): ?array {
     $problem = null;
-    $path = pt2vhf_mail_private_dir() . '/smtp.json';
-    if (!is_file($path)) return null;
-    $c = json_decode((string)@file_get_contents($path), true);
-    if (!is_array($c)) { $problem = 'smtp.json não é um JSON válido'; return null; }
-    $c['host'] = trim((string)($c['host'] ?? ''));
-    $c['port'] = (int)($c['port'] ?? 465);
-    $c['security'] = strtolower(trim((string)($c['security'] ?? ($c['port'] === 587 ? 'starttls' : 'ssl'))));
-    $c['username'] = trim((string)($c['username'] ?? ''));
-    $c['password'] = (string)($c['password'] ?? '');
-    $c['from'] = trim((string)($c['from'] ?? '')) ?: $c['username'];
-    $c['fromName'] = trim((string)($c['fromName'] ?? 'PT2VHF')) ?: 'PT2VHF';
-    if ($c['host'] === '' || $c['username'] === '' || $c['password'] === '') { $problem = 'smtp.json sem host, username ou password'; return null; }
-    if (!in_array($c['security'], array('ssl', 'starttls', 'none'), true)) { $problem = 'security deve ser "ssl" ou "starttls"'; return null; }
-    if ($c['security'] === 'none' && !in_array($c['host'], array('127.0.0.1', 'localhost'), true)) { $problem = 'security "none" só é aceito em testes locais'; return null; }
-    if (!filter_var($c['from'], FILTER_VALIDATE_EMAIL)) { $problem = 'from inválido'; return null; }
+    $e = pt2vhf_mail_env();
+    if (($e['SMTP_HOST'] ?? '') === '' && ($e['SMTP_USER'] ?? '') === '' && ($e['SMTP_PASSWORD'] ?? '') === '') return null;
+    $port = (int)($e['SMTP_PORT'] ?? 465);
+    $secure = strtolower(trim((string)($e['SMTP_SECURE'] ?? 'true')));
+    $security = in_array($secure, array('true', '1', 'yes', 'ssl', 'tls'), true) ? 'ssl'
+        : ($secure === 'starttls' ? 'starttls' : ($secure === 'none' ? 'none' : ($port === 587 ? 'starttls' : 'none')));
+    $c = array(
+        'host' => trim((string)($e['SMTP_HOST'] ?? '')),
+        'port' => $port,
+        'security' => $security,
+        'username' => trim((string)($e['SMTP_USER'] ?? '')),
+        'password' => (string)($e['SMTP_PASSWORD'] ?? ''),
+        'from' => trim((string)($e['SMTP_FROM'] ?? '')) ?: trim((string)($e['SMTP_USER'] ?? '')),
+        'fromName' => trim((string)($e['SMTP_FROM_NAME'] ?? '')) ?: 'PT2VHF',
+    );
+    if ($c['host'] === '' || $c['username'] === '' || $c['password'] === '') { $problem = 'faltam SMTP_HOST, SMTP_USER ou SMTP_PASSWORD'; return null; }
+    if ($c['port'] < 1 || $c['port'] > 65535) { $problem = 'SMTP_PORT inválida'; return null; }
+    if ($c['security'] === 'none' && !in_array($c['host'], array('127.0.0.1', 'localhost'), true)) {
+        $problem = 'SMTP_SECURE precisa ser true (porta 465) ou starttls (porta 587)'; return null;
+    }
+    if (!filter_var($c['from'], FILTER_VALIDATE_EMAIL)) { $problem = 'SMTP_FROM inválido'; return null; }
     return $c;
 }
 
@@ -96,7 +130,7 @@ function pt2vhf_send_mail(string $to, string $subject, string $body, string $rep
     $h = implode("\r\n", $headers);
     $s = pt2vhf_mail_encode($subject);
     if (@mail($to, $s, $body, $h, '-f' . PT2VHF_MAIL_FALLBACK_FROM) || @mail($to, $s, $body, $h)) return true;
-    $error = $problem !== null ? $problem : 'o servidor não enviou pelo mail() do PHP e o smtp.json não existe';
+    $error = $problem !== null ? $problem : 'SMTP não configurado (variáveis SMTP_* ou smtp.env) e o mail() do PHP não enviou';
     return false;
 }
 
