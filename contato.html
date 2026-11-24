@@ -171,7 +171,7 @@
     (function () {
       var form = document.querySelector(".contact-form");
       var params = new URLSearchParams(location.search);
-      var status = { ok: "formSent", erro: "formError", limite: "formLimit" }[params.get("contato")];
+      var status = { ok: "formSent", erro: "formError", limite: "formLimit", falha: "formFailed" }[params.get("contato")];
       var box = document.getElementById("contact-form-status");
       if (status && box) {
         box.setAttribute("data-contact", status);
@@ -188,7 +188,7 @@
       window.addEventListener("pageshow", function () { if (form) form.querySelector("button").disabled = false; });
     })();
   </script>
-  <script src="/assets/js/contact-data.js?v=20261124-contato"></script>
+  <script src="/assets/js/contact-data.js?v=20261124-contato2"></script>
   <script src="/assets/js/main.js?v=20261114-aprs202"></script>
   <script src="/assets/js/visit.js?v=20261123-stats" defer></script>
 </body>

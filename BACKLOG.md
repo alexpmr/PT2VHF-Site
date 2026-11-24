@@ -2,7 +2,19 @@
 
 ## Pendentes
 
-Nenhum item pendente (conferido em produção em 23/11/2026).
+### Formulário de contato: a Hostinger não envia e-mail pelo PHP (24/11/2026)
+
+- **Relato:** depois da publicação do formulário em `/contato`, o envio real falhou para o Alex e para o teste
+  automático. Diagnóstico em produção: `mail()` do PHP retorna falha com e sem remetente de envelope (`-f`), resposta
+  `{"status":"erro","stage":"mail-failed"}` às 01:22 UTC. Nenhum e-mail do site (nem os avisos do `testers.php`)
+  aparece no Gmail do Alex nos últimos 30 dias, então o `mail()` provavelmente nunca funcionou nesta hospedagem.
+- **Contorno no ar:** a mensagem fica guardada em `../pt2vhf-private-data/contact-messages.jsonl` (fora do site) e o
+  visitante vê "Mensagem recebida"; o `/stats` mostra só a quantidade guardada. Falha de servidor tem texto próprio.
+- **Para resolver:** decidir com o Alex entre (a) criar uma caixa de e-mail do domínio na Hostinger (hPanel → E-mails)
+  e testar o `mail()` com ela como remetente; (b) enviar por SMTP autenticado, com a senha num arquivo em
+  `pt2vhf-private-data` criado pelo Alex no hPanel (nunca no repositório); ou (c) ler as mensagens numa página com senha.
+  Depois, reenviar a si mesmo as mensagens guardadas e conferir também os avisos do `testers.php`.
+
 
 ## Concluídos
 

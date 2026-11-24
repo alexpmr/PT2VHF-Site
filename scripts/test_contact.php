@@ -77,11 +77,19 @@ try {
     }
     $js = (string)file_get_contents($root . '/assets/js/contact-data.js');
     preg_match_all('/data-contact="([A-Za-z0-9]+)"/', $html, $m);
-    $keys = array_unique(array_merge($m[1], array('formSent', 'formError', 'formLimit')));
+    $keys = array_unique(array_merge($m[1], array('formSent', 'formError', 'formLimit', 'formFailed')));
     foreach (array('pt', 'en', 'es', 'fr', 'de', 'it', 'zh') as $lang) {
         check(preg_match('/\n  "' . $lang . '": \{(.*?)\n  \}/s', $js, $b) === 1, "Bloco $lang");
         foreach ($keys as $k) check(strpos($b[1], '"' . $k . '":') !== false, "Falta $k em $lang");
     }
+    // Servidor sem envio de e-mail: a mensagem fica guardada fora do site e o visitante recebe ok.
+    file_put_contents($fake, "#!/bin/sh\ncat > /dev/null\nexit 1\n");
+    @unlink($tmp . '/pt2vhf-private-data/contact-limits.json');
+    [, $loc] = post($url, array_merge($ok, array('mensagem' => 'Mensagem guardada')));
+    check(strpos($loc, 'contato=ok') !== false, 'Falha de envio com mensagem guardada deve responder ok, veio ' . $loc);
+    $saved = (string)@file_get_contents($tmp . '/pt2vhf-private-data/contact-messages.jsonl');
+    check(strpos($saved, 'Mensagem guardada') !== false && strpos($saved, 'py2xyz@example.com') !== false, 'Mensagem deveria ficar guardada');
+    check(strpos($saved, '127.0.0.1') === false, 'IP não pode ser gravado junto da mensagem');
     echo "OK: formulário de contato\n";
 } finally {
     proc_terminate($proc);

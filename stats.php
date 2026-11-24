@@ -243,6 +243,17 @@ button.ghost{background:transparent;color:var(--text);border-color:var(--border)
 </div>
 
 <div class="settings">
+  <?php
+  $msgFile = pt2vhf_private_dir() . '/contact-messages.jsonl';
+  $msgLines = is_file($msgFile) ? array_values(array_filter(array_map('trim', (array)@file($msgFile)))) : array();
+  $msgLast = $msgLines ? json_decode((string)end($msgLines), true) : null;
+  ?>
+  <section class="panel">
+    <h2>Mensagens de contato guardadas</h2>
+    <?php if (!$msgLines): ?><p class="empty">Nenhuma. As mensagens do formulário estão chegando por e-mail.</p>
+    <?php else: ?><p><b><?= n(count($msgLines)) ?></b> mensage<?= count($msgLines) === 1 ? 'm' : 'ns' ?> que o servidor não conseguiu enviar por e-mail<?= is_array($msgLast) && isset($msgLast['date']) ? ' (última em ' . h($dateBr(substr((string)$msgLast['date'], 0, 10))) . ')' : '' ?>.</p>
+    <p class="note">O conteúdo não aparece aqui porque esta página não tem senha. Leia no hPanel, em Gerenciador de arquivos: <code>pt2vhf-private-data/contact-messages.jsonl</code> (fora do public_html).</p><?php endif; ?>
+  </section>
   <section class="panel">
     <h2>Seus acessos</h2>
     <p class="note" id="optout-state"></p>

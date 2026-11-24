@@ -3,10 +3,11 @@
  * PT2VHF — formulário de contato da página /contato.
  *
  * Recebe por POST: nome, email, assunto (opcional), mensagem, lang e website (armadilha anti-robô).
- * Envia a mensagem ao mantenedor por e-mail (Reply-To = e-mail de quem escreveu). Nada é gravado,
- * além do contador anti-abuso: no máximo 5 mensagens por IP e 60 no total por dia; o IP vira um
+ * Envia a mensagem ao mantenedor por e-mail (Reply-To = e-mail de quem escreveu). Se o envio falhar, a mensagem
+ * fica guardada em ../pt2vhf-private-data/contact-messages.jsonl (fora do site) para não se perder; o /stats mostra
+ * só a quantidade. Fora isso, só o contador anti-abuso é gravado: no máximo 5 mensagens por IP e 60 no total por dia; o IP vira um
  * HMAC com chave que muda a cada dia UTC (mesmo esquema do testers.php), nunca fica em claro.
- * Resposta: redireciona para /contato?lang=..&contato=ok|erro|limite#formulario,
+ * Resposta: redireciona para /contato?lang=..&contato=ok|erro|limite|falha#formulario,
  * ou JSON {status} quando o pedido aceita application/json.
  */
 declare(strict_types=1);
@@ -98,4 +99,10 @@ if (!$sent) { // algumas hospedagens recusam o remetente de envelope (-f)
     $stage = 'mail';
     $sent = @mail(PT2VHF_CONTACT_TO, $encodedTitle, $body, $headers);
 }
-pt2vhf_contact_reply($sent ? 'ok' : 'erro', $lang, $sent ? $stage : 'mail-failed');
+if ($sent) pt2vhf_contact_reply('ok', $lang, $stage);
+
+// O servidor não enviou: guarda a mensagem (fora do site) para o mantenedor ler depois.
+$line = json_encode(array('date' => gmdate('c'), 'lang' => $lang, 'name' => $name, 'email' => $email,
+    'subject' => $subject, 'message' => $message), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+$stored = is_string($line) && @file_put_contents($dir . '/contact-messages.jsonl', $line . "\n", FILE_APPEND | LOCK_EX) !== false;
+pt2vhf_contact_reply($stored ? 'ok' : 'falha', $lang, $stored ? 'stored' : 'mail-failed');
