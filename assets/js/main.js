@@ -14,11 +14,28 @@
     var code = String(value || "").toLowerCase().split("-")[0];
     return LANGS.indexOf(code) !== -1 ? code : "pt";
   }
+  // Idioma do site = idioma do navegador (que normalmente segue o do sistema): o primeiro da lista de
+  // preferências que o site tem; sem nenhum, inglês. O seletor muda o idioma só nesta aba (sessionStorage);
+  // ?lang na URL e a escolha antiga salva no navegador não prendem mais o idioma.
+  function browserLanguage() {
+    var list = [];
+    try { list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]; } catch (e) {}
+    for (var i = 0; i < list.length; i++) {
+      var code = String(list[i] || "").toLowerCase().split("-")[0];
+      if (LANGS.indexOf(code) !== -1) return code;
+    }
+    return "en";
+  }
   (function () {
-    var urlLang = new URLSearchParams(location.search).get("lang");
-    var stored = "";
-    try { stored = localStorage.getItem("pt2vhf-language") || ""; } catch (e) {}
-    selectedLang = normalizeLanguage(urlLang || stored || navigator.language || "pt");
+    var manual = "";
+    try { manual = sessionStorage.getItem("pt2vhf-language") || ""; } catch (e) {}
+    try { localStorage.removeItem("pt2vhf-language"); } catch (e) {}
+    selectedLang = LANGS.indexOf(manual) !== -1 ? manual : browserLanguage();
+    var url = new URL(location.href);
+    if (url.searchParams.has("lang")) {
+      url.searchParams.delete("lang");
+      try { history.replaceState(null, "", url.pathname + url.search + url.hash); } catch (e) {}
+    }
   })();
 
   function t(key) {
@@ -160,21 +177,10 @@
       document.title = "PT2VHF — " + t("catalogTitle");
       if (meta) meta.setAttribute("content", t("homeLead"));
     }
-    // Preserve the selected language when navigating between project pages.
-    Array.prototype.forEach.call(document.querySelectorAll('a[href^="/"]'), function (link) {
-      var href = link.getAttribute("href");
-      if (!/^\/(?:$|aprs(?:[?#]|$)|android(?:[?#]|$)|aprs-android(?:[?#]|$)|prop(?:[?#]|$)|mesh(?:[?#]|$)|sat(?:[?#]|$)|sdr(?:[?#]|$)|prog(?:[?#]|$)|qsl(?:[?#]|$)|contato(?:[?#]|$)|sobre(?:[?#]|$)|#)/.test(href)) return;
-      var url = new URL(href, location.origin);
-      url.searchParams.set("lang", selectedLang);
-      link.setAttribute("href", url.pathname + url.search + url.hash);
-    });
   }
   function setLanguage(lang) {
     selectedLang = normalizeLanguage(lang);
-    try { localStorage.setItem("pt2vhf-language", selectedLang); } catch (e) {}
-    var url = new URL(location.href);
-    url.searchParams.set("lang", selectedLang);
-    history.replaceState(null, "", url.pathname + url.search + url.hash);
+    try { sessionStorage.setItem("pt2vhf-language", selectedLang); } catch (e) {}
     applyLocaleProducts();
     merge(manifestData);
     render();
@@ -792,7 +798,7 @@
   // Preserva os favoritos antigos com âncoras no catálogo anterior.
   if (!programId) {
     var oldLink = /^#(aprs|prop|mesh|sat|sdr|prog|qsl)(-downloads)?$/.exec(location.hash);
-    if (oldLink) window.location.replace("/" + oldLink[1] + "?lang=" + selectedLang + (oldLink[2] ? "#downloads" : ""));
+    if (oldLink) window.location.replace("/" + oldLink[1] + (oldLink[2] ? "#downloads" : ""));
   }
 
   load()

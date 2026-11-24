@@ -179,9 +179,7 @@
         box.hidden = false;
       }
       if (form) form.addEventListener("submit", function () {
-        var lang = params.get("lang") || "";
-        try { lang = lang || localStorage.getItem("pt2vhf-language") || ""; } catch (e) {}
-        form.elements.lang.value = (lang || navigator.language || "pt").slice(0, 2).toLowerCase();
+        form.elements.lang.value = (document.documentElement.lang || "pt").slice(0, 2).toLowerCase();
         form.querySelector("button").disabled = true;
       });
       // Ao voltar pelo navegador, o botão volta a funcionar.
@@ -189,7 +187,7 @@
     })();
   </script>
   <script src="/assets/js/contact-data.js?v=20261124-contato2"></script>
-  <script src="/assets/js/main.js?v=20261114-aprs202"></script>
+  <script src="/assets/js/main.js?v=20261124-idioma"></script>
   <script src="/assets/js/visit.js?v=20261123-stats" defer></script>
 </body>
 </html>
