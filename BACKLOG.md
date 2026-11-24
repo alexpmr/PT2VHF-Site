@@ -10,10 +10,12 @@
   aparece no Gmail do Alex nos últimos 30 dias, então o `mail()` provavelmente nunca funcionou nesta hospedagem.
 - **Contorno no ar:** a mensagem fica guardada em `../pt2vhf-private-data/contact-messages.jsonl` (fora do site) e o
   visitante vê "Mensagem recebida"; o `/stats` mostra só a quantidade guardada. Falha de servidor tem texto próprio.
-- **Para resolver:** decidir com o Alex entre (a) criar uma caixa de e-mail do domínio na Hostinger (hPanel → E-mails)
-  e testar o `mail()` com ela como remetente; (b) enviar por SMTP autenticado, com a senha num arquivo em
-  `pt2vhf-private-data` criado pelo Alex no hPanel (nunca no repositório); ou (c) ler as mensagens numa página com senha.
-  Depois, reenviar a si mesmo as mensagens guardadas e conferir também os avisos do `testers.php`.
+- **Escolha do Alex (24/11/2026): SMTP autenticado.** Feito: `mail_lib.php` envia por SMTP (SSL 465 ou STARTTLS 587)
+  quando existe `../pt2vhf-private-data/smtp.json` (criado pelo Alex no Gerenciador de arquivos do hPanel; senha
+  nunca no repositório); sem o arquivo, tenta o `mail()` como antes. Usado pelo `enviar-contato.php` e pelo
+  `testers.php`. O `/stats` mostra o estado do envio e tem o botão "Enviar e-mail de teste", que também reenvia as
+  mensagens guardadas (só para o e-mail do mantenedor, 10 vezes por dia). Teste: `scripts/test_mail_lib.php`.
+- **Falta:** o Alex criar o `smtp.json` e clicar no botão de teste do `/stats`; conferir a chegada no Gmail.
 
 
 ## Concluídos

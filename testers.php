@@ -13,11 +13,11 @@
  * ou JSON {status} quando o pedido aceita application/json.
  */
 declare(strict_types=1);
+require_once __DIR__ . '/mail_lib.php';
 
 const PT2VHF_TESTERS_PER_IP_DAY = 5;
 const PT2VHF_TESTERS_MAX = 5000;
 const PT2VHF_TESTERS_BCC = 'alexpmr@gmail.com';
-const PT2VHF_TESTERS_FROM = 'PT2VHF <nao-responda@pt2vhf.com>';
 // Grupo do Google ligado ao teste fechado; vazio = o mantenedor inclui o e-mail na lista da Play Console.
 // Vazio: o mantenedor recebe um aviso por e-mail e inclui o inscrito no Grupo do Google manualmente.
 const PT2VHF_TESTERS_GROUP_URL = '';
@@ -76,15 +76,7 @@ function pt2vhf_testers_mail(string $email, string $call, string $lang): bool {
             . "73,\nPT2VHF\nhttps://www.pt2vhf.com/aprs-android\n\n"
             . "You received this message because this e-mail was registered at www.pt2vhf.com. To leave the list, reply asking for removal.\n";
     }
-    $headers = implode("\r\n", array(
-        'From: ' . PT2VHF_TESTERS_FROM,
-        'Reply-To: ' . PT2VHF_TESTERS_BCC,
-        'MIME-Version: 1.0',
-        'Content-Type: text/plain; charset=UTF-8',
-        'Content-Transfer-Encoding: 8bit',
-    ));
-    $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
-    return @mail($email, $encodedSubject, $body, $headers, '-fnao-responda@pt2vhf.com');
+    return pt2vhf_send_mail($email, $subject, $body, PT2VHF_TESTERS_BCC, 'PT2VHF');
 }
 
 /** Avisa o mantenedor de cada inscrição nova, para ele incluir o e-mail no Grupo do Google. */
@@ -97,14 +89,7 @@ function pt2vhf_testers_notify_admin(string $email, string $call, string $lang):
         . 'Data (UTC): ' . gmdate('Y-m-d H:i') . "\n\n"
         . "Para incluir no grupo: https://groups.google.com/g/pt2vhf-aprs-testers/members\n"
         . "(Adicionar participantes -> colar o e-mail -> marcar \"Adicionar participantes diretamente\").\n";
-    $headers = implode("\r\n", array(
-        'From: ' . PT2VHF_TESTERS_FROM,
-        'Reply-To: ' . $email,
-        'MIME-Version: 1.0',
-        'Content-Type: text/plain; charset=UTF-8',
-        'Content-Transfer-Encoding: 8bit',
-    ));
-    return @mail(PT2VHF_TESTERS_BCC, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, $headers, '-fnao-responda@pt2vhf.com');
+    return pt2vhf_send_mail(PT2VHF_TESTERS_BCC, $subject, $body, $email);
 }
 
 function pt2vhf_testers_reply(string $status): void {

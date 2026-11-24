@@ -7,6 +7,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/visits_lib.php';
 require_once __DIR__ . '/installs_lib.php';
+require_once __DIR__ . '/mail_lib.php';
 
 header('Cache-Control: no-store');
 header('X-Robots-Tag: noindex, nofollow');
@@ -16,6 +17,34 @@ header('Referrer-Policy: no-referrer');
 
 function h($s): string { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
 function n($v): string { return number_format((float)$v, 0, ',', '.'); }
+
+// Botão "Testar e-mail do site": envia um teste ao mantenedor e reenvia as mensagens de contato guardadas.
+// Só envia para o e-mail fixo do mantenedor; no máximo 10 vezes por dia (a página não tem senha).
+$mailResult = null;
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && ($_POST['action'] ?? '') === 'mailtest') {
+    $limitPath = pt2vhf_private_dir() . '/stats-mailtest.json';
+    $lim = json_decode((string)@file_get_contents($limitPath), true);
+    $today = gmdate('Y-m-d');
+    $count = (is_array($lim) && ($lim['day'] ?? '') === $today) ? (int)($lim['count'] ?? 0) : 0;
+    if ($count >= 10) {
+        $mailResult = array('ok' => false, 'text' => 'Limite de 10 testes por dia atingido. Tente amanhã.');
+    } else {
+        @file_put_contents($limitPath, json_encode(array('day' => $today, 'count' => $count + 1)), LOCK_EX);
+        $err = null; $via = '';
+        $ok = pt2vhf_send_mail(PT2VHF_MAINTAINER_EMAIL, 'PT2VHF: teste do e-mail do site',
+            "Este é um teste do envio de e-mail do site www.pt2vhf.com, pedido no painel /stats.\n"
+            . "Se chegou, o formulário de contato e os avisos de testadores também chegam.\n\n"
+            . 'Data (UTC): ' . gmdate('Y-m-d H:i') . "\n", '', '', $err, $via);
+        $text = $ok ? 'E-mail de teste enviado para ' . PT2VHF_MAINTAINER_EMAIL . ' (via ' . ($via === 'smtp' ? 'SMTP' : 'mail() do PHP') . ').'
+                    : 'O envio falhou: ' . $err . '.';
+        if ($ok) {
+            $flush = pt2vhf_contact_flush_stored(PT2VHF_MAINTAINER_EMAIL);
+            if ($flush['sent'] > 0) $text .= ' Mensagens guardadas reenviadas: ' . $flush['sent'] . '.';
+            if ($flush['left'] > 0) $text .= ' Continuam guardadas: ' . $flush['left'] . ($flush['error'] ? ' (' . $flush['error'] . ')' : '') . '.';
+        }
+        $mailResult = array('ok' => $ok, 'text' => $text);
+    }
+}
 
 // ---- Dados do período ----
 $periods = array(1 => 'Hoje', 7 => '7 dias', 30 => '30 dias', 90 => '90 dias', 365 => '1 ano');
@@ -159,6 +188,10 @@ tr.rest td{color:var(--muted)}
 button{padding:8px 14px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);font:inherit;font-weight:600;cursor:pointer}
 button.ghost{background:transparent;color:var(--text);border-color:var(--border);font-weight:500}
 .switch{display:flex;gap:10px;align-items:center;margin-top:6px}
+.mail-result{padding:8px 12px;border-radius:6px;border:1px solid var(--border)}
+.mail-result.is-ok{border-color:var(--accent)}
+.mail-result.is-err{border-color:#d97706}
+code{font-size:.85em;overflow-wrap:anywhere}
 @media (max-width:560px){.kpi{padding:12px}.kpi b{font-size:1.4rem}.grid{grid-template-columns:1fr}}
 </style></head><body><div class="wrap">
 <header>
@@ -248,9 +281,24 @@ button.ghost{background:transparent;color:var(--text);border-color:var(--border)
   $msgLines = is_file($msgFile) ? array_values(array_filter(array_map('trim', (array)@file($msgFile)))) : array();
   $msgLast = $msgLines ? json_decode((string)end($msgLines), true) : null;
   ?>
+  <?php $smtpProblem = null; $smtp = pt2vhf_smtp_config($smtpProblem); ?>
+  <section class="panel" id="email">
+    <h2>E-mail do site</h2>
+    <?php if ($smtp): ?>
+      <p>Envio por SMTP: <b><?= h($smtp['host']) ?></b>, porta <?= (int)$smtp['port'] ?> (<?= h(strtoupper($smtp['security'])) ?>), conta <?= h(preg_replace('/^(.).*(@.*)$/', '$1***$2', $smtp['username'])) ?>.</p>
+    <?php elseif ($smtpProblem): ?>
+      <p>O arquivo <code>smtp.json</code> existe, mas tem um problema: <b><?= h($smtpProblem) ?></b>.</p>
+    <?php else: ?>
+      <p>Sem <code>smtp.json</code>: o site tenta o <code>mail()</code> do PHP, que a Hostinger não entrega.</p>
+    <?php endif; ?>
+    <?php if ($mailResult): ?><p class="mail-result <?= $mailResult['ok'] ? 'is-ok' : 'is-err' ?>" role="status"><?= h($mailResult['text']) ?></p><?php endif; ?>
+    <form method="post" action="/stats#email"><input type="hidden" name="action" value="mailtest">
+      <button type="submit">Enviar e-mail de teste</button></form>
+    <p class="note">Envia só para <?= h(PT2VHF_MAINTAINER_EMAIL) ?>. Se der certo, também reenvia as mensagens de contato guardadas.</p>
+  </section>
   <section class="panel">
     <h2>Mensagens de contato guardadas</h2>
-    <?php if (!$msgLines): ?><p class="empty">Nenhuma. As mensagens do formulário estão chegando por e-mail.</p>
+    <?php if (!$msgLines): ?><p class="empty">Nenhuma.</p>
     <?php else: ?><p><b><?= n(count($msgLines)) ?></b> mensage<?= count($msgLines) === 1 ? 'm' : 'ns' ?> que o servidor não conseguiu enviar por e-mail<?= is_array($msgLast) && isset($msgLast['date']) ? ' (última em ' . h($dateBr(substr((string)$msgLast['date'], 0, 10))) . ')' : '' ?>.</p>
     <p class="note">O conteúdo não aparece aqui porque esta página não tem senha. Leia no hPanel, em Gerenciador de arquivos: <code>pt2vhf-private-data/contact-messages.jsonl</code> (fora do public_html).</p><?php endif; ?>
   </section>

@@ -11,7 +11,7 @@ function check(bool $ok, string $message): void {
 $tmp = sys_get_temp_dir() . '/pt2vhf-visits-test-' . getmypid();
 $public = $tmp . '/public_html';
 check(@mkdir($public, 0700, true) || is_dir($public), 'Criar fixture');
-foreach (array('visit.php', 'visits_lib.php', 'stats.php', 'installs_lib.php', 'updates.json') as $f) {
+foreach (array('visit.php', 'visits_lib.php', 'stats.php', 'installs_lib.php', 'mail_lib.php', 'updates.json') as $f) {
     copy(__DIR__ . '/../' . $f, $public . '/' . $f);
 }
 @mkdir($public . '/geo', 0700, true);

@@ -3,7 +3,7 @@
  * PT2VHF — formulário de contato da página /contato.
  *
  * Recebe por POST: nome, email, assunto (opcional), mensagem, lang e website (armadilha anti-robô).
- * Envia a mensagem ao mantenedor por e-mail (Reply-To = e-mail de quem escreveu). Se o envio falhar, a mensagem
+ * Envia a mensagem ao mantenedor por e-mail via mail_lib.php (SMTP do smtp.json; Reply-To = quem escreveu). Se o envio falhar, a mensagem
  * fica guardada em ../pt2vhf-private-data/contact-messages.jsonl (fora do site) para não se perder; o /stats mostra
  * só a quantidade. Fora isso, só o contador anti-abuso é gravado: no máximo 5 mensagens por IP e 60 no total por dia; o IP vira um
  * HMAC com chave que muda a cada dia UTC (mesmo esquema do testers.php), nunca fica em claro.
@@ -11,9 +11,9 @@
  * ou JSON {status} quando o pedido aceita application/json.
  */
 declare(strict_types=1);
+require_once __DIR__ . '/mail_lib.php';
 
 const PT2VHF_CONTACT_TO = 'alexpmr@gmail.com';
-const PT2VHF_CONTACT_FROM = 'PT2VHF <nao-responda@pt2vhf.com>';
 const PT2VHF_CONTACT_PER_IP_DAY = 5;
 const PT2VHF_CONTACT_PER_DAY = 60;
 const PT2VHF_CONTACT_LANGS = array('pt', 'en', 'es', 'fr', 'de', 'it', 'zh');
@@ -85,21 +85,10 @@ $body = "Mensagem enviada pelo formulário de www.pt2vhf.com/contato.\n"
     . "Idioma da página: $lang\n"
     . 'Data (UTC): ' . gmdate('Y-m-d H:i') . "\n\n"
     . "Mensagem:\n$message\n";
-$headers = implode("\r\n", array(
-    'From: ' . PT2VHF_CONTACT_FROM,
-    'Reply-To: ' . '=?UTF-8?B?' . base64_encode($name) . '?= <' . $email . '>',
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-    'Content-Transfer-Encoding: 8bit',
-));
-$encodedTitle = '=?UTF-8?B?' . base64_encode($title) . '?=';
-$stage = 'mail-f';
-$sent = @mail(PT2VHF_CONTACT_TO, $encodedTitle, $body, $headers, '-fnao-responda@pt2vhf.com');
-if (!$sent) { // algumas hospedagens recusam o remetente de envelope (-f)
-    $stage = 'mail';
-    $sent = @mail(PT2VHF_CONTACT_TO, $encodedTitle, $body, $headers);
-}
-if ($sent) pt2vhf_contact_reply('ok', $lang, $stage);
+$err = null;
+$via = '';
+$sent = pt2vhf_send_mail(PT2VHF_CONTACT_TO, $title, $body, $email, $name, $err, $via);
+if ($sent) pt2vhf_contact_reply('ok', $lang, $via);
 
 // O servidor não enviou: guarda a mensagem (fora do site) para o mantenedor ler depois.
 $line = json_encode(array('date' => gmdate('c'), 'lang' => $lang, 'name' => $name, 'email' => $email,

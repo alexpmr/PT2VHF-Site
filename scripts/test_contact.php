@@ -14,6 +14,7 @@ $tmp = sys_get_temp_dir() . '/pt2vhf-contact-test-' . getmypid();
 $public = $tmp . '/public_html';
 check(@mkdir($public, 0700, true) || is_dir($public), 'Criar fixture');
 copy($root . '/enviar-contato.php', $public . '/enviar-contato.php');
+copy($root . '/mail_lib.php', $public . '/mail_lib.php');
 $mailLog = $tmp . '/mail.log';
 $fake = $tmp . '/sendmail.sh';
 file_put_contents($fake, "#!/bin/sh\necho \"ARGS: \$*\" >> " . escapeshellarg($mailLog) . "\ncat >> " . escapeshellarg($mailLog) . "\necho '=====' >> " . escapeshellarg($mailLog) . "\n");
