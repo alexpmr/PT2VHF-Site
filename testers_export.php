@@ -1,10 +1,11 @@
 <?php
 /**
- * PT2VHF — lista das inscrições do teste fechado do APRS Client (testers.php), em HTML simples.
+ * PT2VHF — lista das inscrições do teste fechado dos apps Android (testers.php), em HTML simples.
+ * ?app=aprs-android (padrão) ou ?app=speed escolhe o app; o mesmo vale para as ações por POST.
  * Substitui o aviso por e-mail (o domínio não entrega e-mail): o mantenedor abre esta página,
  * inclui os inscritos na lista de testadores da Play Console e marca como atendidos.
  * Acesso: ?key=<chave>. Só o SHA-256 da chave fica no repositório; a chave fica com o mantenedor.
- * Lê pt2vhf-private-data/testers-aprs-android.csv (fora de public_html).
+ * Lê pt2vhf-private-data/testers-<app>.csv (fora de public_html).
  * Colunas do CSV: e-mail, indicativo, data UTC e, opcional, data UTC em que foi atendido
  * (convite ou aviso enviado). Linhas atendidas aparecem riscadas.
  * Sem botões na página. Ações por POST (mesma chave), usadas pelo Claude: remove=<e-mail> apaga a linha; done=<e-mails separados por vírgula>
@@ -23,7 +24,11 @@ if ($key === '' || !hash_equals(PT2VHF_TESTERS_EXPORT_SHA256, hash('sha256', $ke
     http_response_code(404);
     exit;
 }
-$path = dirname(__DIR__) . '/pt2vhf-private-data/testers-aprs-android.csv';
+const PT2VHF_TESTERS_EXPORT_APPS = array('aprs-android' => 'PT2VHF APRS Client', 'speed' => 'PT2VHF Speed Alert');
+$appId = (string)($_GET['app'] ?? $_POST['app'] ?? 'aprs-android');
+if (!isset(PT2VHF_TESTERS_EXPORT_APPS[$appId])) $appId = 'aprs-android';
+$appName = PT2VHF_TESTERS_EXPORT_APPS[$appId];
+$path = dirname(__DIR__) . '/pt2vhf-private-data/testers-' . $appId . '.csv';
 
 /** Lista de e-mails em minúsculas a partir de um campo com vírgulas, espaços ou quebras de linha. */
 function pt2vhf_testers_emails(string $s): array {
@@ -63,7 +68,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && is_file($path)) {
         echo json_encode(array('status' => 'ok'));
         exit;
     }
-    header('Location: ?key=' . rawurlencode($key), true, 303);
+    header('Location: ?key=' . rawurlencode($key) . '&app=' . rawurlencode($appId), true, 303);
     exit;
 }
 
@@ -93,7 +98,7 @@ $date = static fn(string $s): string => str_replace(array('T', 'Z'), array(' ', 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Inscritos no teste</title>
+<title>Inscritos no teste — <?= $h($appName) ?></title>
 <style>
   body { font: 15px/1.45 system-ui, sans-serif; margin: 16px; color: #1b1b1b; background: #fff; }
   h1 { font-size: 20px; margin: 0 0 4px; }
@@ -112,7 +117,8 @@ $date = static fn(string $s): string => str_replace(array('T', 'Z'), array(' ', 
 </style>
 </head>
 <body>
-<h1>Inscritos no teste fechado do PT2VHF APRS Client</h1>
+<p class="apps"><?php foreach (PT2VHF_TESTERS_EXPORT_APPS as $id => $label): ?><?= $id === $appId ? '<b>' . $h($label) . '</b>' : '<a href="?key=' . $h(rawurlencode($key)) . '&amp;app=' . $h($id) . '">' . $h($label) . '</a>' ?> &nbsp; <?php endforeach; ?></p>
+<h1>Inscritos no teste fechado do <?= $h($appName) ?></h1>
 <p><?= count($rows) ?> inscrições pelo formulário do site, <?= count($pending) ?> ainda não atendidas.
 Linhas riscadas já foram atendidas (incluídas no Google Play e avisadas por e-mail). Mais recentes primeiro, datas em UTC.</p>
 <table>

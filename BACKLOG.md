@@ -6,6 +6,17 @@ Nenhum item pendente.
 
 ## Concluídos
 
+### RESOLVIDO (24/11/2026) — Inscrição de testadores do Speed Alert, igual à do APRS Android
+
+- **Pedido do Alex:** quem quiser testar o Speed Alert (`com.pt2vhf.speedalert`, já em teste fechado no Google Play)
+  se inscreve pelo site, como no APRS Android; o Alex acompanha por e-mail.
+- **Feito:** `testers.php` atende os dois apps (`product=aprs-android|speed`, lista própria `testers-<app>.csv`);
+  cada inscrição manda ao Alex um e-mail `[Testador · Speed Alert] email — INDICATIVO` (ou `· APRS Client`) e ao
+  inscrito as instruções com os links do Play do app certo. Seção "Quero testar no Google Play" no `/speed`, nos 7
+  idiomas (`page-i18n.js`). `testers_export.php?app=speed` lista os pendentes de cada app.
+- **Limite:** o Google não permite incluir e-mails avulsos na lista de testadores por API; a inclusão na Play Console
+  continua manual ou por uma tarefa agendada do Claude Desktop com o Claude no Chrome, no computador do Alex.
+
 ### RESOLVIDO (24/11/2026) — Campo de produto no formulário de contato e e-mail mais enxuto
 
 - **Pedido do Alex:** escolher o produto do comentário: Cliente APRS para PC, Cliente APRS para Android/iOS, Prop Tool,

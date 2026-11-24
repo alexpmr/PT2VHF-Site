@@ -111,7 +111,20 @@ try {
     post($base . '/testers.php', array('email' => 'tester@example.com', 'call' => 'PY2ABC', 'lang' => 'pt', 'product' => 'aprs-android'));
     $last = array_slice(emails($box), -2);
     check(count(emails($box)) === 5, 'Testadores deveriam gerar 2 e-mails');
+    $countBeforeSpeed = 5;
     check(strpos($last[0] . $last[1], 'To: <alexpmr@gmail.com>') !== false && strpos($last[0] . $last[1], 'To: <tester@example.com>') !== false, 'Destinatários dos testadores');
+    check(strpos($last[0] . $last[1], 'Subject: =?UTF-8?B?' . base64_encode('[Testador · APRS Client] tester@example.com — PY2ABC') . '?=') !== false, 'Assunto do aviso do APRS');
+    // Speed Alert: mesmo fluxo, lista própria e instruções com o pacote do Speed
+    post($base . '/testers.php', array('email' => 'tester@example.com', 'call' => '', 'lang' => 'pt', 'product' => 'speed'));
+    $last = array_slice(emails($box), -2);
+    $both = $last[0] . $last[1] . decoded($last[0]) . decoded($last[1]);
+    check(strpos($both, 'Subject: =?UTF-8?B?' . base64_encode('[Testador · Speed Alert] tester@example.com') . '?=') !== false, 'Assunto do aviso do Speed');
+    check(strpos($both, 'apps/testing/com.pt2vhf.speedalert') !== false && strpos($both, 'www.pt2vhf.com/speed') !== false, 'Instruções do Speed');
+    check(is_file($private . '/testers-speed.csv') && strpos((string)file_get_contents($private . '/testers-speed.csv'), 'tester@example.com') === 0, 'Lista própria do Speed');
+    [, $r] = post($base . '/testers.php', array('email' => 'tester@example.com', 'lang' => 'pt', 'product' => 'speed'));
+    check(($r['status'] ?? '') === 'dup', 'Mesmo e-mail no Speed é duplicado');
+    [, $r] = post($base . '/testers.php', array('email' => 'outro@example.com', 'lang' => 'pt', 'product' => 'ios'));
+    check(($r['status'] ?? '') === 'erro', 'App desconhecido é recusado');
 
     // 6) Configuração inválida (sem SSL fora do teste local) não envia e o painel explica
     smtp_env($private, $smtpPort, 'senha-certa', 'smtp.exemplo.com');

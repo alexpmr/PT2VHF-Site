@@ -109,7 +109,16 @@ window.PT2VHF_PAGE_I18N = {
   "O endereço que você tentou acessar não existe ou foi movido.": "The address you tried to open does not exist or has moved.",
   "Voltar ao início": "Back to home",
   "@title:PT2VHF Speed Alert para iPhone — Instalação e manual de uso": "PT2VHF Speed Alert for iPhone — Installation and user guide",
-  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "How to install PT2VHF Speed Alert on iPhone with Xcode, an Ad Hoc IPA or TestFlight. GPS permissions, alarms, offline database and user instructions."
+  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "How to install PT2VHF Speed Alert on iPhone with Xcode, an Ad Hoc IPA or TestFlight. GPS permissions, alarms, offline database and user instructions.",
+  "Quero testar no Google Play": "I want to test on Google Play",
+  "O Speed Alert está em teste fechado no Google Play. Deixe seu e-mail (de preferência o da conta Google usada no Play) e eu incluo você na lista de testadores. As instruções chegam por e-mail.": "Speed Alert is in a closed test on Google Play. Leave your e-mail (preferably the one of the Google account you use on Play) and I will add you to the tester list. The instructions arrive by e-mail.",
+  "E-mail da conta Google": "Google account e-mail",
+  "Indicativo (opcional)": "Callsign (optional)",
+  "Quero testar": "Sign me up",
+  "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "Already on the list? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Open the test on Google Play</a> and tap “Become a tester”. Your e-mail is used only for the tester list; see the <a href=\"/privacidade\">privacy policy</a>.",
+  "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "Sign-up received! The instructions are on their way to your e-mail, and I will add you to the tester list within 1 day.",
+  "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "This e-mail is already signed up. If you still don’t have access to the test, wait up to 1 day or reply to the instructions e-mail.",
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Could not sign you up. Check the e-mail address and try again."
  },
  "es": {
   "Início": "Inicio",
@@ -207,7 +216,15 @@ window.PT2VHF_PAGE_I18N = {
   "O endereço que você tentou acessar não existe ou foi movido.": "La dirección a la que intentó acceder no existe o se ha movido.",
   "Voltar ao início": "Volver al inicio",
   "@title:PT2VHF Speed Alert para iPhone — Instalação e manual de uso": "PT2VHF Speed Alert para iPhone — Instalación y manual de uso",
-  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "Cómo instalar PT2VHF Speed Alert en iPhone con Xcode, IPA Ad Hoc o TestFlight. Permisos GPS, alarmas, base sin conexión e instrucciones de uso."
+  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "Cómo instalar PT2VHF Speed Alert en iPhone con Xcode, IPA Ad Hoc o TestFlight. Permisos GPS, alarmas, base sin conexión e instrucciones de uso.",
+  "Quero testar no Google Play": "Quiero probar en Google Play",
+  "O Speed Alert está em teste fechado no Google Play. Deixe seu e-mail (de preferência o da conta Google usada no Play) e eu incluo você na lista de testadores. As instruções chegam por e-mail.": "Speed Alert está en prueba cerrada en Google Play. Deje su correo (preferiblemente el de la cuenta de Google que usa en Play) y lo incluiré en la lista de testers. Las instrucciones llegan por correo.",
+  "E-mail da conta Google": "Correo de la cuenta de Google",
+  "Quero testar": "Quiero probar",
+  "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "¿Ya está en la lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra la prueba en Google Play</a> y toque “Convertirse en tester”. Su correo solo se usa para la lista de testers; vea la <a href=\"/privacidade\">política de privacidad</a>.",
+  "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "¡Registro recibido! Las instrucciones van a su correo y lo incluiré en la lista de testers en hasta 1 día.",
+  "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "Este correo ya está registrado. Si aún no tiene acceso a la prueba, espere hasta 1 día o responda el correo de instrucciones.",
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "No se pudo registrar. Revise el correo e inténtelo de nuevo."
  },
  "fr": {
   "Início": "Accueil",
@@ -313,7 +330,16 @@ window.PT2VHF_PAGE_I18N = {
   "O endereço que você tentou acessar não existe ou foi movido.": "L’adresse que vous avez essayé d’ouvrir n’existe pas ou a été déplacée.",
   "Voltar ao início": "Retour à l’accueil",
   "@title:PT2VHF Speed Alert para iPhone — Instalação e manual de uso": "PT2VHF Speed Alert pour iPhone — Installation et manuel d’utilisation",
-  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "Comment installer PT2VHF Speed Alert sur iPhone avec Xcode, un IPA Ad Hoc ou TestFlight. Autorisations GPS, alarmes, base hors ligne et instructions d’utilisation."
+  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "Comment installer PT2VHF Speed Alert sur iPhone avec Xcode, un IPA Ad Hoc ou TestFlight. Autorisations GPS, alarmes, base hors ligne et instructions d’utilisation.",
+  "Quero testar no Google Play": "Je veux tester sur Google Play",
+  "O Speed Alert está em teste fechado no Google Play. Deixe seu e-mail (de preferência o da conta Google usada no Play) e eu incluo você na lista de testadores. As instruções chegam por e-mail.": "Speed Alert est en test fermé sur Google Play. Laissez votre e-mail (de préférence celui du compte Google utilisé sur Play) et je vous ajoute à la liste des testeurs. Les instructions arrivent par e-mail.",
+  "E-mail da conta Google": "E-mail du compte Google",
+  "Indicativo (opcional)": "Indicatif (facultatif)",
+  "Quero testar": "Je veux tester",
+  "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "Déjà sur la liste ? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Ouvrez le test sur Google Play</a> et touchez « Devenir testeur ». Votre e-mail sert uniquement à la liste des testeurs ; consultez la <a href=\"/privacidade\">politique de confidentialité</a>.",
+  "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "Inscription reçue ! Les instructions arrivent dans votre boîte e-mail, et je vous ajoute à la liste des testeurs sous 1 jour.",
+  "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "Cet e-mail est déjà inscrit. Si vous n’avez pas encore accès au test, attendez jusqu’à 1 jour ou répondez à l’e-mail d’instructions.",
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Inscription impossible. Vérifiez l’adresse e-mail et réessayez."
  },
  "de": {
   "Início": "Startseite",
@@ -420,7 +446,16 @@ window.PT2VHF_PAGE_I18N = {
   "O endereço que você tentou acessar não existe ou foi movido.": "Die aufgerufene Adresse existiert nicht oder wurde verschoben.",
   "Voltar ao início": "Zur Startseite",
   "@title:PT2VHF Speed Alert para iPhone — Instalação e manual de uso": "PT2VHF Speed Alert für iPhone — Installation und Bedienungsanleitung",
-  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "So installieren Sie PT2VHF Speed Alert auf dem iPhone mit Xcode, einer Ad-hoc-IPA oder TestFlight. GPS-Berechtigungen, Alarme, Offline-Datenbank und Bedienungshinweise."
+  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "So installieren Sie PT2VHF Speed Alert auf dem iPhone mit Xcode, einer Ad-hoc-IPA oder TestFlight. GPS-Berechtigungen, Alarme, Offline-Datenbank und Bedienungshinweise.",
+  "Quero testar no Google Play": "Ich möchte über Google Play testen",
+  "O Speed Alert está em teste fechado no Google Play. Deixe seu e-mail (de preferência o da conta Google usada no Play) e eu incluo você na lista de testadores. As instruções chegam por e-mail.": "Speed Alert befindet sich in einem geschlossenen Test bei Google Play. Hinterlassen Sie Ihre E-Mail-Adresse (am besten die Ihres Google-Kontos für Play), und ich nehme Sie in die Testerliste auf. Die Anleitung kommt per E-Mail.",
+  "E-mail da conta Google": "E-Mail des Google-Kontos",
+  "Indicativo (opcional)": "Rufzeichen (optional)",
+  "Quero testar": "Ich möchte testen",
+  "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "Schon auf der Liste? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Öffnen Sie den Test bei Google Play</a> und tippen Sie auf „Tester werden“. Ihre E-Mail-Adresse wird nur für die Testerliste verwendet; siehe <a href=\"/privacidade\">Datenschutzerklärung</a>.",
+  "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "Anmeldung erhalten! Die Anleitung ist unterwegs in Ihr Postfach, und ich nehme Sie innerhalb von 1 Tag in die Testerliste auf.",
+  "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "Diese E-Mail-Adresse ist bereits angemeldet. Wenn Sie noch keinen Zugang zum Test haben, warten Sie bis zu 1 Tag oder antworten Sie auf die Anleitungs-E-Mail.",
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Anmeldung nicht möglich. Prüfen Sie die E-Mail-Adresse und versuchen Sie es erneut."
  },
  "it": {
   "Início": "Home",
@@ -522,7 +557,16 @@ window.PT2VHF_PAGE_I18N = {
   "O endereço que você tentou acessar não existe ou foi movido.": "L’indirizzo che hai cercato di aprire non esiste o è stato spostato.",
   "Voltar ao início": "Torna alla home",
   "@title:PT2VHF Speed Alert para iPhone — Instalação e manual de uso": "PT2VHF Speed Alert per iPhone — Installazione e manuale d’uso",
-  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "Come installare PT2VHF Speed Alert su iPhone con Xcode, IPA Ad Hoc o TestFlight. Autorizzazioni GPS, allarmi, base offline e istruzioni d’uso."
+  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "Come installare PT2VHF Speed Alert su iPhone con Xcode, IPA Ad Hoc o TestFlight. Autorizzazioni GPS, allarmi, base offline e istruzioni d’uso.",
+  "Quero testar no Google Play": "Voglio provarlo su Google Play",
+  "O Speed Alert está em teste fechado no Google Play. Deixe seu e-mail (de preferência o da conta Google usada no Play) e eu incluo você na lista de testadores. As instruções chegam por e-mail.": "Speed Alert è in test chiuso su Google Play. Lascia la tua e-mail (preferibilmente quella dell’account Google che usi su Play) e ti aggiungo all’elenco dei tester. Le istruzioni arrivano via e-mail.",
+  "E-mail da conta Google": "E-mail dell’account Google",
+  "Indicativo (opcional)": "Nominativo (facoltativo)",
+  "Quero testar": "Voglio provare",
+  "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "Sei già nell’elenco? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Apri il test su Google Play</a> e tocca “Diventa tester”. La tua e-mail serve solo per l’elenco dei tester; vedi l’<a href=\"/privacidade\">informativa sulla privacy</a>.",
+  "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "Iscrizione ricevuta! Le istruzioni arrivano nella tua e-mail e ti aggiungo all’elenco dei tester entro 1 giorno.",
+  "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "Questa e-mail è già iscritta. Se non hai ancora accesso al test, attendi fino a 1 giorno o rispondi all’e-mail con le istruzioni.",
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Non è stato possibile iscriverti. Controlla l’e-mail e riprova."
  },
  "zh": {
   "Início": "首页",
@@ -629,7 +673,16 @@ window.PT2VHF_PAGE_I18N = {
   "O endereço que você tentou acessar não existe ou foi movido.": "你尝试访问的地址不存在或已被移动。",
   "Voltar ao início": "返回首页",
   "@title:PT2VHF Speed Alert para iPhone — Instalação e manual de uso": "iPhone 版 PT2VHF Speed Alert — 安装与使用手册",
-  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "如何通过 Xcode、Ad Hoc IPA 或 TestFlight 在 iPhone 上安装 PT2VHF Speed Alert。GPS 权限、警报、离线数据库及使用说明。"
+  "@desc:Como instalar o PT2VHF Speed Alert no iPhone usando Xcode, IPA Ad Hoc ou TestFlight. Permissões GPS, alarmes, base offline e instruções de uso.": "如何通过 Xcode、Ad Hoc IPA 或 TestFlight 在 iPhone 上安装 PT2VHF Speed Alert。GPS 权限、警报、离线数据库及使用说明。",
+  "Quero testar no Google Play": "我想在 Google Play 上测试",
+  "O Speed Alert está em teste fechado no Google Play. Deixe seu e-mail (de preferência o da conta Google usada no Play) e eu incluo você na lista de testadores. As instruções chegam por e-mail.": "Speed Alert 正在 Google Play 进行封闭测试。留下你的电子邮件（最好是你在 Play 上使用的 Google 账户），我会把你加入测试者名单。说明会通过电子邮件发送。",
+  "E-mail da conta Google": "Google 账户电子邮件",
+  "Indicativo (opcional)": "呼号（可选）",
+  "Quero testar": "我要测试",
+  "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "已在名单中？<a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">在 Google Play 上打开测试</a>，然后点击“成为测试者”。你的电子邮件仅用于测试者名单；请参阅<a href=\"/privacidade\">隐私政策</a>。",
+  "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "已收到报名！说明已发送到你的邮箱，我会在 1 天内把你加入测试者名单。",
+  "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "此电子邮件已报名。如果你还无法访问测试，请等待最多 1 天，或回复说明邮件。",
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "报名失败。请检查电子邮件地址后重试。"
  }
 };
 
@@ -655,7 +708,7 @@ window.PT2VHF_PAGE_I18N = {
   if (D["@title:" + document.title]) document.title = D["@title:" + document.title];
   var meta = document.querySelector('meta[name="description"]');
   if (meta && D["@desc:" + meta.content]) meta.content = D["@desc:" + meta.content];
-  var sel = "h1,h2,h3,p,li,th,td,.eyebrow,.tag,.sub,.road,.status > strong,footer .wrap,nav a,a.btn,a.cta";
+  var sel = "h1,h2,h3,p,li,th,td,.eyebrow,.tag,.sub,.road,.status > strong,footer .wrap,nav a,a.btn,a.cta,label > span,button";
   Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
     if (!el.isConnected) return;
     var tr = D[norm(el.innerHTML)];
