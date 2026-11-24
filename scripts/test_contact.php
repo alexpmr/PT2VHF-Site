@@ -62,6 +62,20 @@ try {
     check(strpos($log, 'Reply-To: =?UTF-8?B?' . base64_encode('José da Silva') . '?= <py2xyz@example.com>') !== false, 'Reply-To com o e-mail do visitante');
     check(strpos($log, "Nome: José da Silva") !== false && strpos($log, "Olá!\nLinha 2") !== false, 'Corpo da mensagem');
 
+    check(strpos($log, 'Indicativo: (não informado)') !== false, 'Sem indicativo, o e-mail diz não informado');
+
+    // Indicativo opcional: inválidos são recusados; válido vai em maiúsculas no assunto e no corpo
+    foreach (array('PY', 'ABC', 'PY2#XYZ', '<b>abc</b>', str_repeat('A1', 11), 'PY 2-XYZ-999') as $bad) {
+        [, , $r] = post($url, array_merge($ok, array('indicativo' => $bad)));
+        check(($r['fields'] ?? array()) === array('indicativo'), "Indicativo inválido deveria ser recusado: $bad");
+    }
+    $before = mails($mailLog);
+    [, , $r] = post($url, array_merge($ok, array('indicativo' => ' pp5/py2xyz-9 ', 'mensagem' => 'Com indicativo')));
+    check(($r['status'] ?? '') === 'ok' && mails($mailLog) === $before + 1, 'Indicativo válido deveria ser aceito');
+    $log = (string)file_get_contents($mailLog);
+    check(strpos($log, 'Indicativo: PP5/PY2XYZ-9') !== false, 'Indicativo em maiúsculas no corpo');
+    check(strpos($log, base64_encode('[Site PT2VHF] Dúvida no APRS — PP5/PY2XYZ-9')) !== false, 'Indicativo no assunto');
+
     // Sem JavaScript: redireciona com o resultado
     [$s, $loc] = post($url, $ok, false);
     check($s === 303 && $loc === '/contato?contato=ok#formulario', "Sem JavaScript deveria redirecionar com ok, veio $s $loc");
@@ -105,8 +119,7 @@ try {
 
     // Limite: 5 mensagens enviadas por IP por dia
     $sentSoFar = mails($mailLog);
-    check($sentSoFar === 4, 'Deveriam ser 4 e-mails enviados até aqui, veio ' . $sentSoFar);
-    post($url, $ok);
+    check($sentSoFar === 5, 'Deveriam ser 5 e-mails enviados até aqui, veio ' . $sentSoFar);
     [, , $r] = post($url, $ok);
     check(($r['status'] ?? '') === 'limit' && mails($mailLog) === 5, 'Sexta mensagem do mesmo IP no dia é bloqueada');
     $limits = (string)file_get_contents($tmp . '/pt2vhf-private-data/contact-limits.json');
@@ -115,12 +128,12 @@ try {
     // Página: mantém o site completo e o formulário traduzido
     $html = (string)file_get_contents($root . '/contato.html');
     foreach (array('site-nav-projects', 'languageQuickSwitch', 'wa.me/', 'contact-help-list', 'visit.js', 'action="/enviar-contato.php"',
-                   'name="website"', 'name="ts"', 'id="formulario"', 'name="assunto" maxlength="150" required') as $needle) {
+                   'name="website"', 'name="ts"', 'name="indicativo"', 'id="formulario"', 'name="assunto" maxlength="150" required') as $needle) {
         check(strpos($html, $needle) !== false, "contato.html deveria conter $needle");
     }
     $js = (string)file_get_contents($root . '/assets/js/contact-data.js');
     preg_match_all('/data-contact="([A-Za-z0-9]+)"/', $html, $m);
-    $keys = array_unique(array_merge($m[1], array('formSent', 'formError', 'formLimit', 'formFailed', 'formSending')));
+    $keys = array_unique(array_merge($m[1], array('formSent', 'formError', 'formLimit', 'formFailed', 'formSending', 'formCallsign')));
     foreach (array('pt', 'en', 'es', 'fr', 'de', 'it', 'zh') as $lang) {
         check(preg_match('/\n  "' . $lang . '": \{(.*?)\n  \}/s', $js, $b) === 1, "Bloco $lang");
         foreach ($keys as $k) check(strpos($b[1], '"' . $k . '":') !== false, "Falta $k em $lang");

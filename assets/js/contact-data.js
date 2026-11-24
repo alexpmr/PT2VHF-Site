@@ -45,7 +45,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formError": "Confira os campos destacados: nome, e-mail válido, assunto e mensagem são obrigatórios.",
     "formLimit": "Limite de mensagens de hoje atingido nesta conexão. Tente amanhã ou escreva para alexpmr@gmail.com.",
     "formFailed": "Não foi possível enviar sua mensagem agora. Tente novamente mais tarde.",
-    "formSending": "Enviando…"
+    "formSending": "Enviando…",
+    "formCallsign": "Indicativo (opcional)"
   },
   "en": {
     "navHome": "Home",
@@ -92,7 +93,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formError": "Check the highlighted fields: name, a valid e-mail, subject and message are required.",
     "formLimit": "Today's message limit for this connection was reached. Try again tomorrow or write to alexpmr@gmail.com.",
     "formFailed": "Your message could not be sent right now. Please try again later.",
-    "formSending": "Sending…"
+    "formSending": "Sending…",
+    "formCallsign": "Callsign (optional)"
   },
   "es": {
     "navHome": "Inicio",
@@ -139,7 +141,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formError": "Revise los campos destacados: nombre, correo válido, asunto y mensaje son obligatorios.",
     "formLimit": "Se alcanzó el límite de mensajes de hoy desde esta conexión. Inténtelo mañana o escriba a alexpmr@gmail.com.",
     "formFailed": "No fue posible enviar su mensaje ahora. Inténtelo de nuevo más tarde.",
-    "formSending": "Enviando…"
+    "formSending": "Enviando…",
+    "formCallsign": "Indicativo (opcional)"
   },
   "fr": {
     "navHome": "Accueil",
@@ -186,7 +189,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formError": "Vérifiez les champs signalés : nom, e-mail valide, objet et message sont obligatoires.",
     "formLimit": "La limite de messages du jour pour cette connexion est atteinte. Réessayez demain ou écrivez à alexpmr@gmail.com.",
     "formFailed": "Impossible d’envoyer votre message pour le moment. Réessayez plus tard.",
-    "formSending": "Envoi…"
+    "formSending": "Envoi…",
+    "formCallsign": "Indicatif (facultatif)"
   },
   "de": {
     "navHome": "Startseite",
@@ -233,7 +237,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formError": "Prüfen Sie die markierten Felder: Name, gültige E-Mail, Betreff und Nachricht sind Pflichtfelder.",
     "formLimit": "Das heutige Nachrichtenlimit für diese Verbindung ist erreicht. Versuchen Sie es morgen erneut oder schreiben Sie an alexpmr@gmail.com.",
     "formFailed": "Ihre Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut.",
-    "formSending": "Wird gesendet…"
+    "formSending": "Wird gesendet…",
+    "formCallsign": "Rufzeichen (optional)"
   },
   "it": {
     "navHome": "Home",
@@ -280,7 +285,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formError": "Controlla i campi evidenziati: nome, e-mail valida, oggetto e messaggio sono obbligatori.",
     "formLimit": "Raggiunto il limite di messaggi di oggi da questa connessione. Riprova domani o scrivi a alexpmr@gmail.com.",
     "formFailed": "Non è stato possibile inviare il messaggio ora. Riprova più tardi.",
-    "formSending": "Invio in corso…"
+    "formSending": "Invio in corso…",
+    "formCallsign": "Nominativo (facoltativo)"
   },
   "zh": {
     "navHome": "首页",
@@ -327,6 +333,7 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formError": "请检查标出的字段：姓名、有效的电子邮件、主题和留言均为必填。",
     "formLimit": "此连接今天的留言次数已达上限。请明天再试，或写信至 alexpmr@gmail.com。",
     "formFailed": "暂时无法发送你的留言。请稍后再试。",
-    "formSending": "正在发送…"
+    "formSending": "正在发送…",
+    "formCallsign": "呼号（可选）"
   }
 };

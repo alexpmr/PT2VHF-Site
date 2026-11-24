@@ -2,7 +2,8 @@
 /**
  * PT2VHF — envio do formulário de contato (/contato).
  *
- * Recebe por POST: nome, email, assunto, mensagem (todos obrigatórios), lang, ts (hora em que a página abriu) e
+ * Recebe por POST: nome, email, assunto, mensagem (todos obrigatórios), indicativo (opcional; validado se informado),
+ * lang, ts (hora em que a página abriu) e
  * website (armadilha anti-robô, invisível). Envia por SMTP com mail_lib.php: remetente = SMTP_FROM
  * (alex@pt2vhf.com), destinatário = CONTACT_RECIPIENT, Reply-To = e-mail do visitante. As credenciais vêm das
  * variáveis de ambiente ou de pt2vhf-private-data/smtp.env (fora do site); nada de senha no repositório.
@@ -18,7 +19,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/mail_lib.php';
 
-const PT2VHF_CONTACT_MAX = array('nome' => 100, 'email' => 254, 'assunto' => 150, 'mensagem' => 5000);
+const PT2VHF_CONTACT_MAX = array('nome' => 100, 'email' => 254, 'indicativo' => 20, 'assunto' => 150, 'mensagem' => 5000);
 const PT2VHF_CONTACT_SENT_PER_IP_DAY = 5;
 const PT2VHF_CONTACT_TRIES_PER_IP_DAY = 15;
 const PT2VHF_CONTACT_SENT_PER_DAY = 60;
@@ -66,11 +67,14 @@ foreach (PT2VHF_CONTACT_MAX as $f => $_) $raw[$f] = (string)($_POST[$f] ?? '');
 $name = pt2vhf_contact_clean('nome');
 $email = strtolower(pt2vhf_contact_clean('email'));
 $subject = pt2vhf_contact_clean('assunto');
+// Indicativo de radioamador (opcional): letras, números e /, com SSID opcional (ex.: PY2XYZ, PP5/PY2XYZ, PY2XYZ-9)
+$callsign = strtoupper(str_replace(' ', '', pt2vhf_contact_clean('indicativo')));
 $message = pt2vhf_contact_clean('mensagem', true);
 
 $invalid = array();
 if ($name === '' || mb_strlen($raw['nome']) > PT2VHF_CONTACT_MAX['nome']) $invalid[] = 'nome';
 if ($email === '' || strlen($raw['email']) > PT2VHF_CONTACT_MAX['email'] || !filter_var($email, FILTER_VALIDATE_EMAIL)) $invalid[] = 'email';
+if ($callsign !== '' && (strlen($raw['indicativo']) > PT2VHF_CONTACT_MAX['indicativo'] || !preg_match('~^[A-Z0-9]{1,8}(/[A-Z0-9]{1,8}){0,2}(-[0-9]{1,2})?$~D', $callsign) || !preg_match('/[0-9]/', $callsign))) $invalid[] = 'indicativo';
 if ($subject === '' || mb_strlen($raw['assunto']) > PT2VHF_CONTACT_MAX['assunto']) $invalid[] = 'assunto';
 if ($message === '' || mb_strlen($raw['mensagem']) > PT2VHF_CONTACT_MAX['mensagem']) $invalid[] = 'mensagem';
 if ($invalid) pt2vhf_contact_reply('invalid', $invalid);
@@ -99,11 +103,12 @@ $blocked = (int)$mine['sent'] >= PT2VHF_CONTACT_SENT_PER_IP_DAY || (int)$mine['t
 $sent = false;
 if (!$blocked) {
     $mine['tries'] = (int)$mine['tries'] + 1;
-    $title = '[Site PT2VHF] ' . $subject;
+    $title = '[Site PT2VHF] ' . $subject . ($callsign !== '' ? ' — ' . $callsign : '');
     $body = "Mensagem enviada pelo formulário de contato de www.pt2vhf.com.\n"
         . "Responda este e-mail para falar diretamente com quem escreveu.\n\n"
         . "Nome: $name\n"
         . "E-mail: $email\n"
+        . 'Indicativo: ' . ($callsign !== '' ? $callsign : '(não informado)') . "\n"
         . "Assunto: $subject\n"
         . "Idioma da página: $lang\n"
         . 'Data (UTC): ' . gmdate('Y-m-d H:i') . "\n\n"

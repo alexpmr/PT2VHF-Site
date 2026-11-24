@@ -6,6 +6,14 @@ Nenhum item pendente.
 
 ## Concluídos
 
+### RESOLVIDO (24/11/2026) — Campo opcional de indicativo no formulário de contato
+
+- **Pedido do Alex:** campo "Indicativo de radioamador", opcional, no formulário de `/contato`.
+- **Feito:** campo ao lado do assunto (abaixo dele no celular), em maiúsculas, traduzido nos 7 idiomas (`formCallsign`).
+  O `enviar-contato.php` valida só quando informado (letras, números, `/` e SSID opcional, com ao menos um número,
+  até 20 caracteres) e põe o indicativo no assunto (`[Site PT2VHF] Assunto — PY2XYZ`) e no corpo do e-mail.
+  Teste em `scripts/test_contact.php`.
+
 ### RESOLVIDO (24/11/2026) — Formulário de contato: a Hostinger não envia e-mail pelo PHP
 
 - **Relato:** depois da publicação do formulário em `/contato`, o envio real falhou para o Alex e para o teste

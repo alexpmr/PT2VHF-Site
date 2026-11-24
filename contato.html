@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css?v=20261124-smtp">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261124-indicativo">
   <link rel="stylesheet" href="/assets/css/aprs-language-menu.css?v=20261106-aprs1158">
 </head>
 <body class="contact-page">
@@ -125,9 +125,14 @@
               <input type="email" name="email" autocomplete="email" maxlength="254" required>
             </label>
           </div>
-          <label class="contact-field"><span data-contact="formSubject">Assunto</span>
-            <input type="text" name="assunto" maxlength="150" required>
-          </label>
+          <div class="contact-form-row contact-form-row-callsign">
+            <label class="contact-field"><span data-contact="formCallsign">Indicativo (opcional)</span>
+              <input type="text" name="indicativo" class="contact-callsign" maxlength="20" placeholder="PY2XYZ" autocomplete="off" autocapitalize="characters" spellcheck="false">
+            </label>
+            <label class="contact-field"><span data-contact="formSubject">Assunto</span>
+              <input type="text" name="assunto" maxlength="150" required>
+            </label>
+          </div>
           <label class="contact-field"><span data-contact="formMessage">Mensagem</span>
             <textarea name="mensagem" rows="7" maxlength="5000" required></textarea>
           </label>
@@ -215,7 +220,7 @@
       window.addEventListener("pageshow", function () { form.querySelector("button").disabled = false; });
     })();
   </script>
-  <script src="/assets/js/contact-data.js?v=20261124-smtp"></script>
+  <script src="/assets/js/contact-data.js?v=20261124-indicativo"></script>
   <script src="/assets/js/main.js?v=20261124-i18n"></script>
   <script src="/assets/js/visit.js?v=20261123-stats" defer></script>
 </body>
