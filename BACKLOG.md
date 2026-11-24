@@ -2,7 +2,11 @@
 
 ## Pendentes
 
-### Formulário de contato: a Hostinger não envia e-mail pelo PHP (24/11/2026)
+Nenhum item pendente.
+
+## Concluídos
+
+### RESOLVIDO (24/11/2026) — Formulário de contato: a Hostinger não envia e-mail pelo PHP
 
 - **Relato:** depois da publicação do formulário em `/contato`, o envio real falhou para o Alex e para o teste
   automático. Diagnóstico em produção: `mail()` do PHP retorna falha com e sem remetente de envelope (`-f`), resposta
@@ -19,11 +23,9 @@
   armadilha anti-robô, recusa envio em menos de 3 s, limita por IP sem gravar IP e registra falhas só no log do
   servidor. O formulário envia sem recarregar, limpa só após envio confirmado e mantém os campos em caso de erro.
   Testes: `scripts/test_contact.php` e `scripts/test_mail_lib.php`.
-- **Falta:** o Alex criar `pt2vhf-private-data/smtp.env` com a senha real no hPanel, clicar em "Enviar e-mail de
-  teste" no `/stats` (que também reenvia as mensagens guardadas antes) e conferir a chegada no Gmail.
-
-
-## Concluídos
+- **Verificado em produção (24/11/2026):** o Alex criou o `smtp.env`; o `/stats` reconheceu smtp.hostinger.com:465 (SSL)
+  e o teste chegou ao Gmail com remetente alex@pt2vhf.com, junto com 2 mensagens guardadas. A terceira foi recusada por
+  logins SMTP seguidos; o reenvio passou a esperar 2 s entre os envios (commits `08735cb` e `1b7d224`).
 
 ### RESOLVIDO (24/11/2026) — Site no idioma do navegador e todas as páginas nos 7 idiomas
 
