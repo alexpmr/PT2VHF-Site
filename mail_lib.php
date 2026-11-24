@@ -233,7 +233,7 @@ function pt2vhf_contact_flush_stored(string $to): array {
             . 'Idioma da página: ' . ($m['lang'] ?? '') . "\n\n"
             . "Mensagem:\n" . ($m['message'] ?? '') . "\n";
         // A Hostinger recusa logins SMTP seguidos em poucos segundos: espera entre um envio e outro.
-        if ($result['sent'] > 0 || $result['error'] !== null) sleep(2);
+        sleep(2);
         $err = null;
         if (pt2vhf_send_mail($to, 'Contato pelo site (guardada): ' . ($subject !== '' ? $subject : (string)($m['name'] ?? '')),
                 $body, (string)($m['email'] ?? ''), (string)($m['name'] ?? ''), $err)) {
