@@ -5,7 +5,7 @@
  * Valores: "y" disponível, "p" parcial, "n" indisponível, "u" não confirmado nas fontes. Atualizar a cada versão. */
 (function () {
   "use strict";
-  var REVIEWED = "2026-11-13";
+  var REVIEWED = "2026-11-24";
   var APPS = ["APRSdroid", "APRS World", "PT2VHF APRS Client"];
   function r(a, b, c, label, desc) { return { v: [a, b, c], label: label, desc: desc }; }
   var ROWS = [
@@ -45,6 +45,9 @@
     r("n", "u", "y",
       { pt: "TNC Bluetooth Low Energy (BLE)", en: "Bluetooth Low Energy (BLE) TNC", es: "TNC Bluetooth Low Energy (BLE)", fr: "TNC Bluetooth Low Energy (BLE)", de: "Bluetooth-Low-Energy-TNC (BLE)", it: "TNC Bluetooth Low Energy (BLE)", zh: "低功耗蓝牙（BLE）TNC" },
       { pt: "Serviço KISS BLE (Mobilinkd TNC4, PicoAPRS, LoRa APRS) ou Nordic UART, sem parear.", en: "KISS BLE service (Mobilinkd TNC4, PicoAPRS, LoRa APRS) or Nordic UART, no pairing.", es: "Servicio KISS BLE (Mobilinkd TNC4, PicoAPRS, LoRa APRS) o Nordic UART, sin emparejar.", fr: "Service KISS BLE (Mobilinkd TNC4, PicoAPRS, LoRa APRS) ou Nordic UART, sans appairage.", de: "KISS-BLE-Dienst (Mobilinkd TNC4, PicoAPRS, LoRa APRS) oder Nordic UART, ohne Kopplung.", it: "Servizio KISS BLE (Mobilinkd TNC4, PicoAPRS, LoRa APRS) o Nordic UART, senza abbinamento.", zh: "支持 KISS BLE 服务（Mobilinkd TNC4、PicoAPRS、LoRa APRS）或 Nordic UART，无需配对。" }),
+    r("y", "u", "y",
+      { pt: "Compatível com LoRa APRS", en: "LoRa APRS compatible", es: "Compatible con LoRa APRS", fr: "Compatible LoRa APRS", de: "LoRa-APRS-kompatibel", it: "Compatibile con LoRa APRS", zh: "兼容 LoRa APRS" },
+      { pt: "Trackers e iGates LoRa APRS com TNC KISS por Bluetooth (LE ou clássico); o rádio LoRa cuida do RF.", en: "LoRa APRS trackers and iGates with a KISS TNC over Bluetooth (LE or Classic); the LoRa radio handles RF.", es: "Trackers e iGates LoRa APRS con TNC KISS por Bluetooth (LE o clásico); la radio LoRa se encarga del RF.", fr: "Trackers et iGates LoRa APRS avec TNC KISS en Bluetooth (LE ou classique) ; la radio LoRa gère la RF.", de: "LoRa-APRS-Tracker und -iGates mit KISS-TNC über Bluetooth (LE oder Classic); das LoRa-Funkgerät übernimmt HF.", it: "Tracker e iGate LoRa APRS con TNC KISS via Bluetooth (LE o classico); la radio LoRa gestisce la RF.", zh: "带蓝牙（BLE 或经典蓝牙）KISS TNC 的 LoRa APRS 跟踪器和 iGate；射频由 LoRa 设备负责。" }),
     r("u", "n", "y",
       { pt: "TNC KISS por cabo USB-OTG", en: "KISS TNC over USB-OTG cable", es: "TNC KISS por cable USB-OTG", fr: "TNC KISS par câble USB-OTG", de: "KISS-TNC per USB-OTG-Kabel", it: "TNC KISS via cavo USB-OTG", zh: "USB-OTG 有线 KISS TNC" },
       { pt: "Adaptadores CDC-ACM, FTDI e CP210x.", en: "CDC-ACM, FTDI and CP210x adapters.", es: "Adaptadores CDC-ACM, FTDI y CP210x.", fr: "Adaptateurs CDC-ACM, FTDI et CP210x.", de: "CDC-ACM-, FTDI- und CP210x-Adapter.", it: "Adattatori CDC-ACM, FTDI e CP210x.", zh: "支持 CDC-ACM、FTDI、CP210x 适配器。" }),

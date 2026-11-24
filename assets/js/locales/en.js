@@ -280,6 +280,7 @@ window.PT2VHF_I18N["en"] = {
         "With a KISS radio or TNC paired over Bluetooth it transmits and receives over RF. Tracker mode sends your position with SmartBeaconing even with the screen off."
       ],
       "features": [
+        "Compatible with LoRa APRS: LoRa APRS trackers, iGates and digipeaters with a KISS TNC over Bluetooth (LE or Classic) connect to the app to send and receive positions and messages",
         "Per-type notifications (personal messages, bulletins, CQ, ACK, digi and alerts), each with its own sound, and one-tap \"Give up ACK and resend\"",
         "iGate (RF ↔ APRS-IS) and smart digipeater on the phone itself, through the TNC (optional, off by default)",
         "KISS TNC over Bluetooth LE (Mobilinkd TNC4, PicoAPRS, LoRa APRS trackers) and, in audio mode, PTT via RTS/DTR or CAT (Kenwood, Yaesu, Icom CI-V) through a USB-serial adapter",

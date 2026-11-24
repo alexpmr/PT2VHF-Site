@@ -17,7 +17,9 @@
       dup: "Este e-mail já está cadastrado.", erro: "Não foi possível cadastrar. Confira o e-mail e tente de novo.",
       iosTitle: "iPhone e iPad (iOS)",
       iosP1: 'Versão nativa para iOS 17 ou mais novo, em fase de testes: mapa (padrão, escuro, satélite e híbrido), APRS-IS, estações, mensagens com confirmação, beacon por GPS com rastreador e TNC KISS por <strong>Bluetooth LE</strong>. TNCs Bluetooth clássico (SPP), USB e modem por áudio não funcionam no iPhone.',
-      iosP2: 'A Apple não permite instalar aplicativos baixados de sites, como o APK do Android. A versão iOS será distribuída pelo <strong>TestFlight</strong> (beta gratuito da Apple) e o link de instalação aparecerá aqui assim que o teste for liberado.'
+      iosP2: 'A Apple não permite instalar aplicativos baixados de sites, como o APK do Android. A versão iOS será distribuída pelo <strong>TestFlight</strong> (beta gratuito da Apple) e o link de instalação aparecerá aqui assim que o teste for liberado.',
+      creditsTitle: "Colaboradores e apoiadores",
+      creditsText: "Obrigado a quem testa, sugere melhorias e apoia o PT2VHF APRS Client. Colaboradores: <strong>PU2PYC, PP5AU, PU2MUS, PP5PK e PY6TL</strong>. Apoiador: <strong>PY4XV</strong>."
     },
     en: {
       badge: "en", badgeAlt: "Get it on Google Play",
@@ -33,7 +35,9 @@
       dup: "This e-mail is already registered.", erro: "Could not sign you up. Check the e-mail and try again.",
       iosTitle: "iPhone and iPad (iOS)",
       iosP1: 'Native version for iOS 17 or newer, in testing: map (standard, dark, satellite and hybrid), APRS-IS, stations, messages with acknowledgement, GPS beacon with tracker and KISS TNC over <strong>Bluetooth LE</strong>. Classic Bluetooth (SPP), USB and audio-modem TNCs do not work on the iPhone.',
-      iosP2: 'Apple does not allow installing apps downloaded from websites, like the Android APK. The iOS version will be distributed through <strong>TestFlight</strong> (Apple\'s free beta program) and the install link will appear here as soon as the test opens.'
+      iosP2: 'Apple does not allow installing apps downloaded from websites, like the Android APK. The iOS version will be distributed through <strong>TestFlight</strong> (Apple\'s free beta program) and the install link will appear here as soon as the test opens.',
+      creditsTitle: "Contributors and supporters",
+      creditsText: "Thanks to everyone who tests, suggests improvements and supports PT2VHF APRS Client. Contributors: <strong>PU2PYC, PP5AU, PU2MUS, PP5PK and PY6TL</strong>. Supporter: <strong>PY4XV</strong>."
     },
     es: {
       badge: "es", badgeAlt: "Disponible en Google Play",
@@ -49,7 +53,9 @@
       dup: "Este correo ya está registrado.", erro: "No se pudo registrar. Revisa el correo e inténtalo de nuevo.",
       iosTitle: "iPhone y iPad (iOS)",
       iosP1: 'Versión nativa para iOS 17 o posterior, en pruebas: mapa (estándar, oscuro, satélite e híbrido), APRS-IS, estaciones, mensajes con confirmación, baliza por GPS con rastreador y TNC KISS por <strong>Bluetooth LE</strong>. Los TNC Bluetooth clásico (SPP), USB y módem de audio no funcionan en el iPhone.',
-      iosP2: 'Apple no permite instalar apps descargadas de sitios web, como el APK de Android. La versión iOS se distribuirá por <strong>TestFlight</strong> (beta gratuita de Apple) y el enlace de instalación aparecerá aquí en cuanto se abra la prueba.'
+      iosP2: 'Apple no permite instalar apps descargadas de sitios web, como el APK de Android. La versión iOS se distribuirá por <strong>TestFlight</strong> (beta gratuita de Apple) y el enlace de instalación aparecerá aquí en cuanto se abra la prueba.',
+      creditsTitle: "Colaboradores y apoyos",
+      creditsText: "Gracias a quienes prueban, sugieren mejoras y apoyan PT2VHF APRS Client. Colaboradores: <strong>PU2PYC, PP5AU, PU2MUS, PP5PK y PY6TL</strong>. Apoyo: <strong>PY4XV</strong>."
     },
     fr: {
       badge: "fr", badgeAlt: "Disponible sur Google Play",
@@ -65,7 +71,9 @@
       dup: "Cet e-mail est déjà inscrit.", erro: "Inscription impossible. Vérifiez l'e-mail et réessayez.",
       iosTitle: "iPhone et iPad (iOS)",
       iosP1: 'Version native pour iOS 17 ou plus récent, en test : carte (standard, sombre, satellite et hybride), APRS-IS, stations, messages avec accusé de réception, balise GPS avec suivi et TNC KISS en <strong>Bluetooth LE</strong>. Les TNC Bluetooth classique (SPP), USB et modem audio ne fonctionnent pas sur l\'iPhone.',
-      iosP2: 'Apple ne permet pas d\'installer des applications téléchargées depuis des sites, comme l\'APK Android. La version iOS sera distribuée via <strong>TestFlight</strong> (bêta gratuite d\'Apple) et le lien d\'installation apparaîtra ici dès l\'ouverture du test.'
+      iosP2: 'Apple ne permet pas d\'installer des applications téléchargées depuis des sites, comme l\'APK Android. La version iOS sera distribuée via <strong>TestFlight</strong> (bêta gratuite d\'Apple) et le lien d\'installation apparaîtra ici dès l\'ouverture du test.',
+      creditsTitle: "Contributeurs et soutiens",
+      creditsText: "Merci à tous ceux qui testent, proposent des améliorations et soutiennent PT2VHF APRS Client. Contributeurs : <strong>PU2PYC, PP5AU, PU2MUS, PP5PK et PY6TL</strong>. Soutien : <strong>PY4XV</strong>."
     },
     de: {
       badge: "de", badgeAlt: "Jetzt bei Google Play",
@@ -81,7 +89,9 @@
       dup: "Diese E-Mail ist bereits registriert.", erro: "Anmeldung nicht möglich. Bitte E-Mail prüfen und erneut versuchen.",
       iosTitle: "iPhone und iPad (iOS)",
       iosP1: 'Native Version für iOS 17 oder neuer, im Test: Karte (Standard, dunkel, Satellit und Hybrid), APRS-IS, Stationen, Nachrichten mit Bestätigung, GPS-Bake mit Tracker und KISS-TNC über <strong>Bluetooth LE</strong>. TNCs mit klassischem Bluetooth (SPP), USB und Audio-Modem funktionieren auf dem iPhone nicht.',
-      iosP2: 'Apple erlaubt keine Installation von Apps, die von Websites geladen werden, wie die Android-APK. Die iOS-Version wird über <strong>TestFlight</strong> (kostenlose Beta von Apple) verteilt; der Installationslink erscheint hier, sobald der Test startet.'
+      iosP2: 'Apple erlaubt keine Installation von Apps, die von Websites geladen werden, wie die Android-APK. Die iOS-Version wird über <strong>TestFlight</strong> (kostenlose Beta von Apple) verteilt; der Installationslink erscheint hier, sobald der Test startet.',
+      creditsTitle: "Mitwirkende und Unterstützer",
+      creditsText: "Danke an alle, die PT2VHF APRS Client testen, Verbesserungen vorschlagen und unterstützen. Mitwirkende: <strong>PU2PYC, PP5AU, PU2MUS, PP5PK und PY6TL</strong>. Unterstützer: <strong>PY4XV</strong>."
     },
     it: {
       badge: "it", badgeAlt: "Disponibile su Google Play",
@@ -97,7 +107,9 @@
       dup: "Questa e-mail è già registrata.", erro: "Impossibile registrarsi. Controlla l'e-mail e riprova.",
       iosTitle: "iPhone e iPad (iOS)",
       iosP1: 'Versione nativa per iOS 17 o successivo, in fase di test: mappa (standard, scura, satellite e ibrida), APRS-IS, stazioni, messaggi con conferma, beacon GPS con tracker e TNC KISS via <strong>Bluetooth LE</strong>. I TNC Bluetooth classico (SPP), USB e modem audio non funzionano su iPhone.',
-      iosP2: 'Apple non consente di installare app scaricate da siti web, come l\'APK Android. La versione iOS sarà distribuita tramite <strong>TestFlight</strong> (beta gratuita di Apple) e il link di installazione apparirà qui appena il test sarà aperto.'
+      iosP2: 'Apple non consente di installare app scaricate da siti web, come l\'APK Android. La versione iOS sarà distribuita tramite <strong>TestFlight</strong> (beta gratuita di Apple) e il link di installazione apparirà qui appena il test sarà aperto.',
+      creditsTitle: "Collaboratori e sostenitori",
+      creditsText: "Grazie a chi prova, suggerisce miglioramenti e sostiene PT2VHF APRS Client. Collaboratori: <strong>PU2PYC, PP5AU, PU2MUS, PP5PK e PY6TL</strong>. Sostenitore: <strong>PY4XV</strong>."
     },
     zh: {
       badge: "zh-cn", badgeAlt: "在 Google Play 上获取",
@@ -113,7 +125,9 @@
       dup: "该电子邮件已报名。", erro: "报名失败。请检查电子邮件后重试。",
       iosTitle: "iPhone 和 iPad（iOS）",
       iosP1: '适用于 iOS 17 或更高版本的原生应用，测试中：地图（标准、深色、卫星和混合）、APRS-IS、电台、带确认的消息、带轨迹的 GPS 信标，以及通过 <strong>Bluetooth LE</strong> 连接的 KISS TNC。经典蓝牙（SPP）、USB 和音频调制解调器 TNC 无法在 iPhone 上使用。',
-      iosP2: 'Apple 不允许安装从网站下载的应用（例如 Android APK）。iOS 版本将通过 <strong>TestFlight</strong>（Apple 免费测试计划）发布，测试开放后安装链接将显示在这里。'
+      iosP2: 'Apple 不允许安装从网站下载的应用（例如 Android APK）。iOS 版本将通过 <strong>TestFlight</strong>（Apple 免费测试计划）发布，测试开放后安装链接将显示在这里。',
+      creditsTitle: "贡献者与支持者",
+      creditsText: "感谢所有测试、提出改进建议和支持 PT2VHF APRS Client 的朋友。贡献者：<strong>PU2PYC、PP5AU、PU2MUS、PP5PK 和 PY6TL</strong>。支持者：<strong>PY4XV</strong>。"
     }
   };
 
