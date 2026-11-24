@@ -56,7 +56,7 @@ function decoded(string $eml): string {
 try {
     foreach (array($smtpPort, $webPort) as $p) { for ($i = 0; $i < 50; $i++) { if (@fsockopen('127.0.0.1', $p)) break; usleep(100000); } }
     $ts = (string)((int)(microtime(true) * 1000) - 10000);
-    $msg = array('nome' => 'José da Silva', 'email' => 'py2xyz@example.com', 'assunto' => 'Dúvida', 'mensagem' => 'Olá, tudo bem?', 'lang' => 'pt', 'ts' => $ts);
+    $msg = array('nome' => 'José da Silva', 'email' => 'py2xyz@example.com', 'produto' => 'qsl', 'assunto' => 'Dúvida', 'mensagem' => 'Olá, tudo bem?', 'lang' => 'pt', 'ts' => $ts);
 
     // 1) Sem configuração SMTP e sem mail(): erro amigável, nada guardado
     [, $r] = post($base . '/enviar-contato.php', $msg);
@@ -71,7 +71,7 @@ try {
     check(strpos($e[0], 'From: "PT2VHF" <alex@pt2vhf.com>') !== false, 'From fixo alex@pt2vhf.com');
     check(strpos($e[0], 'To: <alexpmr@gmail.com>') !== false, 'To = CONTACT_RECIPIENT');
     check(strpos($e[0], 'Reply-To: =?UTF-8?B?' . base64_encode('José da Silva') . '?= <py2xyz@example.com>') !== false, 'Reply-To do visitante');
-    check(strpos($e[0], 'Subject: =?UTF-8?B?' . base64_encode('[Site PT2VHF] Dúvida') . '?=') !== false, 'Assunto UTF-8');
+    check(strpos($e[0], 'Subject: =?UTF-8?B?' . base64_encode('[Site PT2VHF · QSL Manager] Dúvida') . '?=') !== false, 'Assunto UTF-8 com o produto');
     check(strpos(decoded($e[0]), 'Mensagem por SMTP') !== false, 'Corpo');
     check(strpos($e[0], 'senha-certa') === false, 'Senha não pode aparecer na mensagem');
 

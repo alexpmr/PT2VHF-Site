@@ -42,11 +42,16 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formMessage": "Mensagem",
     "formSend": "Enviar mensagem",
     "formSent": "Mensagem enviada com sucesso. Obrigado pelo contato.",
-    "formError": "Confira os campos destacados: nome, e-mail válido, assunto e mensagem são obrigatórios.",
+    "formError": "Confira os campos destacados: nome, e-mail válido, produto, assunto e mensagem são obrigatórios.",
     "formLimit": "Limite de mensagens de hoje atingido nesta conexão. Tente amanhã ou escreva para alexpmr@gmail.com.",
     "formFailed": "Não foi possível enviar sua mensagem agora. Tente novamente mais tarde.",
     "formSending": "Enviando…",
-    "formCallsign": "Indicativo (opcional)"
+    "formCallsign": "Indicativo (opcional)",
+    "formProduct": "Produto",
+    "formProductChoose": "Escolha o produto",
+    "formProductAprsPc": "Cliente APRS para PC",
+    "formProductAprsMobile": "Cliente APRS para Android/iOS",
+    "formProductOther": "Outros"
   },
   "en": {
     "navHome": "Home",
@@ -90,11 +95,16 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formMessage": "Message",
     "formSend": "Send message",
     "formSent": "Message sent successfully. Thank you for getting in touch.",
-    "formError": "Check the highlighted fields: name, a valid e-mail, subject and message are required.",
+    "formError": "Check the highlighted fields: name, a valid e-mail, product, subject and message are required.",
     "formLimit": "Today's message limit for this connection was reached. Try again tomorrow or write to alexpmr@gmail.com.",
     "formFailed": "Your message could not be sent right now. Please try again later.",
     "formSending": "Sending…",
-    "formCallsign": "Callsign (optional)"
+    "formCallsign": "Callsign (optional)",
+    "formProduct": "Product",
+    "formProductChoose": "Choose a product",
+    "formProductAprsPc": "APRS Client for PC",
+    "formProductAprsMobile": "APRS Client for Android/iOS",
+    "formProductOther": "Other"
   },
   "es": {
     "navHome": "Inicio",
@@ -138,11 +148,16 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formMessage": "Mensaje",
     "formSend": "Enviar mensaje",
     "formSent": "Mensaje enviado con éxito. Gracias por escribir.",
-    "formError": "Revise los campos destacados: nombre, correo válido, asunto y mensaje son obligatorios.",
+    "formError": "Revise los campos destacados: nombre, correo válido, producto, asunto y mensaje son obligatorios.",
     "formLimit": "Se alcanzó el límite de mensajes de hoy desde esta conexión. Inténtelo mañana o escriba a alexpmr@gmail.com.",
     "formFailed": "No fue posible enviar su mensaje ahora. Inténtelo de nuevo más tarde.",
     "formSending": "Enviando…",
-    "formCallsign": "Indicativo (opcional)"
+    "formCallsign": "Indicativo (opcional)",
+    "formProduct": "Producto",
+    "formProductChoose": "Elija el producto",
+    "formProductAprsPc": "Cliente APRS para PC",
+    "formProductAprsMobile": "Cliente APRS para Android/iOS",
+    "formProductOther": "Otros"
   },
   "fr": {
     "navHome": "Accueil",
@@ -186,11 +201,16 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formMessage": "Message",
     "formSend": "Envoyer le message",
     "formSent": "Message envoyé avec succès. Merci pour votre message.",
-    "formError": "Vérifiez les champs signalés : nom, e-mail valide, objet et message sont obligatoires.",
+    "formError": "Vérifiez les champs signalés : nom, e-mail valide, produit, objet et message sont obligatoires.",
     "formLimit": "La limite de messages du jour pour cette connexion est atteinte. Réessayez demain ou écrivez à alexpmr@gmail.com.",
     "formFailed": "Impossible d’envoyer votre message pour le moment. Réessayez plus tard.",
     "formSending": "Envoi…",
-    "formCallsign": "Indicatif (facultatif)"
+    "formCallsign": "Indicatif (facultatif)",
+    "formProduct": "Produit",
+    "formProductChoose": "Choisissez le produit",
+    "formProductAprsPc": "Client APRS pour PC",
+    "formProductAprsMobile": "Client APRS pour Android/iOS",
+    "formProductOther": "Autres"
   },
   "de": {
     "navHome": "Startseite",
@@ -234,11 +254,16 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formMessage": "Nachricht",
     "formSend": "Nachricht senden",
     "formSent": "Nachricht erfolgreich gesendet. Danke für Ihre Nachricht.",
-    "formError": "Prüfen Sie die markierten Felder: Name, gültige E-Mail, Betreff und Nachricht sind Pflichtfelder.",
+    "formError": "Prüfen Sie die markierten Felder: Name, gültige E-Mail, Produkt, Betreff und Nachricht sind Pflichtfelder.",
     "formLimit": "Das heutige Nachrichtenlimit für diese Verbindung ist erreicht. Versuchen Sie es morgen erneut oder schreiben Sie an alexpmr@gmail.com.",
     "formFailed": "Ihre Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut.",
     "formSending": "Wird gesendet…",
-    "formCallsign": "Rufzeichen (optional)"
+    "formCallsign": "Rufzeichen (optional)",
+    "formProduct": "Produkt",
+    "formProductChoose": "Produkt auswählen",
+    "formProductAprsPc": "APRS-Client für PC",
+    "formProductAprsMobile": "APRS-Client für Android/iOS",
+    "formProductOther": "Sonstiges"
   },
   "it": {
     "navHome": "Home",
@@ -282,11 +307,16 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formMessage": "Messaggio",
     "formSend": "Invia messaggio",
     "formSent": "Messaggio inviato con successo. Grazie per avermi scritto.",
-    "formError": "Controlla i campi evidenziati: nome, e-mail valida, oggetto e messaggio sono obbligatori.",
+    "formError": "Controlla i campi evidenziati: nome, e-mail valida, prodotto, oggetto e messaggio sono obbligatori.",
     "formLimit": "Raggiunto il limite di messaggi di oggi da questa connessione. Riprova domani o scrivi a alexpmr@gmail.com.",
     "formFailed": "Non è stato possibile inviare il messaggio ora. Riprova più tardi.",
     "formSending": "Invio in corso…",
-    "formCallsign": "Nominativo (facoltativo)"
+    "formCallsign": "Nominativo (facoltativo)",
+    "formProduct": "Prodotto",
+    "formProductChoose": "Scegli il prodotto",
+    "formProductAprsPc": "Client APRS per PC",
+    "formProductAprsMobile": "Client APRS per Android/iOS",
+    "formProductOther": "Altro"
   },
   "zh": {
     "navHome": "首页",
@@ -330,10 +360,15 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formMessage": "留言",
     "formSend": "发送留言",
     "formSent": "留言发送成功。感谢联系。",
-    "formError": "请检查标出的字段：姓名、有效的电子邮件、主题和留言均为必填。",
+    "formError": "请检查标出的字段：姓名、有效的电子邮件、产品、主题和留言均为必填。",
     "formLimit": "此连接今天的留言次数已达上限。请明天再试，或写信至 alexpmr@gmail.com。",
     "formFailed": "暂时无法发送你的留言。请稍后再试。",
     "formSending": "正在发送…",
-    "formCallsign": "呼号（可选）"
+    "formCallsign": "呼号（可选）",
+    "formProduct": "产品",
+    "formProductChoose": "选择产品",
+    "formProductAprsPc": "PC 版 APRS 客户端",
+    "formProductAprsMobile": "Android/iOS 版 APRS 客户端",
+    "formProductOther": "其他"
   }
 };

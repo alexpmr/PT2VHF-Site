@@ -6,6 +6,14 @@ Nenhum item pendente.
 
 ## Concluídos
 
+### RESOLVIDO (24/11/2026) — Campo de produto no formulário de contato e e-mail mais enxuto
+
+- **Pedido do Alex:** escolher o produto do comentário: Cliente APRS para PC, Cliente APRS para Android/iOS, Prop Tool,
+  SDR Tool, QSL Manager, Mesh Analyzer e Outros. No e-mail, tirar "Idioma da página", "Data (UTC)" e o rótulo "Mensagem".
+- **Feito:** lista obrigatória ao lado do indicativo, traduzida nos 7 idiomas; o servidor só aceita os valores da lista
+  (`PT2VHF_CONTACT_PRODUCTS`) e põe o produto no assunto (`[Site PT2VHF · Prop Tool] Assunto — PY2XYZ`) e no corpo.
+  O corpo agora traz nome, e-mail, indicativo, produto e assunto, seguidos do texto do visitante.
+
 ### RESOLVIDO (24/11/2026) — Campo opcional de indicativo no formulário de contato
 
 - **Pedido do Alex:** campo "Indicativo de radioamador", opcional, no formulário de `/contato`.

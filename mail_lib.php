@@ -230,8 +230,8 @@ function pt2vhf_contact_flush_stored(string $to): array {
             . 'Nome: ' . ($m['name'] ?? '') . "\n"
             . 'E-mail: ' . ($m['email'] ?? '') . "\n"
             . 'Assunto: ' . ($subject !== '' ? $subject : '(sem assunto)') . "\n"
-            . 'Idioma da página: ' . ($m['lang'] ?? '') . "\n\n"
-            . "Mensagem:\n" . ($m['message'] ?? '') . "\n";
+            . "\n"
+            . ($m['message'] ?? '') . "\n";
         // A Hostinger recusa logins SMTP seguidos em poucos segundos: espera entre um envio e outro.
         sleep(2);
         $err = null;

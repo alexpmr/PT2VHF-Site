@@ -578,3 +578,6 @@ table.compare-table { width: 100%; border-collapse: collapse; min-width: 560px; 
 .contact-callsign { text-transform:uppercase; letter-spacing:.03em; }
 .contact-callsign::placeholder { text-transform:none; letter-spacing:normal; }
 @media(max-width:640px){ .contact-form-row-callsign { grid-template-columns:1fr; } }
+.contact-field select { width:100%; padding:11px 13px; border:1px solid var(--border); border-radius:10px; background:var(--bg); color:var(--text); font:inherit; font-weight:400; }
+.contact-field select:focus-visible { outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent); }
+.contact-field select[aria-invalid="true"] { border-color:#d97706; box-shadow:0 0 0 1px #d97706; }

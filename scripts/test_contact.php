@@ -50,7 +50,7 @@ try {
     check((int)explode(' ', $http_response_header[0])[1] === 405, 'GET deveria dar 405');
 
     $old = (string)((int)(microtime(true) * 1000) - 10000); // página aberta há 10 s
-    $ok = array('nome' => 'José da Silva', 'email' => 'PY2XYZ@Example.com', 'assunto' => 'Dúvida no APRS',
+    $ok = array('nome' => 'José da Silva', 'email' => 'PY2XYZ@Example.com', 'produto' => 'prop', 'assunto' => 'Dúvida no APRS',
         'mensagem' => "Olá!\nLinha 2", 'lang' => 'en', 'website' => '', 'ts' => $old);
 
     // Envio válido (JSON)
@@ -58,7 +58,10 @@ try {
     check($s === 200 && ($r['status'] ?? '') === 'ok', 'Envio válido deveria dar ok, veio ' . json_encode($r));
     $log = (string)file_get_contents($mailLog);
     check(strpos($log, 'To: alexpmr@gmail.com') !== false, 'Destinatário');
-    check(strpos($log, 'Subject: =?UTF-8?B?' . base64_encode('[Site PT2VHF] Dúvida no APRS') . '?=') !== false, 'Assunto em UTF-8');
+    check(strpos($log, 'Subject: =?UTF-8?B?' . base64_encode('[Site PT2VHF · Prop Tool] Dúvida no APRS') . '?=') !== false, 'Assunto em UTF-8 com o produto');
+    check(strpos($log, 'Produto: Prop Tool') !== false, 'Produto no corpo');
+    check(strpos($log, 'Idioma da página') === false && strpos($log, 'Data (UTC)') === false && strpos($log, 'Mensagem:') === false, 'Sem idioma, data e rótulo Mensagem no e-mail');
+    check(strpos($log, "Assunto: Dúvida no APRS\n\nOlá!\nLinha 2") !== false, 'Texto do visitante logo após os dados');
     check(strpos($log, 'Reply-To: =?UTF-8?B?' . base64_encode('José da Silva') . '?= <py2xyz@example.com>') !== false, 'Reply-To com o e-mail do visitante');
     check(strpos($log, "Nome: José da Silva") !== false && strpos($log, "Olá!\nLinha 2") !== false, 'Corpo da mensagem');
 
@@ -74,17 +77,24 @@ try {
     check(($r['status'] ?? '') === 'ok' && mails($mailLog) === $before + 1, 'Indicativo válido deveria ser aceito');
     $log = (string)file_get_contents($mailLog);
     check(strpos($log, 'Indicativo: PP5/PY2XYZ-9') !== false, 'Indicativo em maiúsculas no corpo');
-    check(strpos($log, base64_encode('[Site PT2VHF] Dúvida no APRS — PP5/PY2XYZ-9')) !== false, 'Indicativo no assunto');
+    check(strpos($log, base64_encode('[Site PT2VHF · Prop Tool] Dúvida no APRS — PP5/PY2XYZ-9')) !== false, 'Indicativo no assunto');
 
     // Sem JavaScript: redireciona com o resultado
     [$s, $loc] = post($url, $ok, false);
     check($s === 303 && $loc === '/contato?contato=ok#formulario', "Sem JavaScript deveria redirecionar com ok, veio $s $loc");
 
     // Validação
-    foreach (array('nome', 'email', 'assunto', 'mensagem') as $f) {
+    foreach (array('nome', 'email', 'produto', 'assunto', 'mensagem') as $f) {
         [, , $r] = post($url, array_merge($ok, array($f => '   ')));
         check(($r['status'] ?? '') === 'invalid' && in_array($f, $r['fields'] ?? array(), true), "Campo $f vazio deveria ser recusado");
     }
+    foreach (array('xyz', 'aprs', '') as $badProduct) {
+        [, , $r] = post($url, array_merge($ok, array('produto' => $badProduct)));
+        check(($r['fields'] ?? array()) === array('produto'), "Produto inválido deveria ser recusado: '$badProduct'");
+    }
+    $missing = $ok; unset($missing['produto']);
+    [, , $r] = post($url, $missing);
+    check(($r['fields'] ?? array()) === array('produto'), 'Sem produto deveria ser recusado');
     [, , $r] = post($url, array_merge($ok, array('email' => "a@b.com\r\nBcc: x@y.com")));
     check(($r['fields'] ?? array()) === array('email'), 'E-mail com quebra de linha é recusado');
     [, , $r] = post($url, array_merge($ok, array('mensagem' => str_repeat('a', 5001), 'nome' => str_repeat('b', 101))));
@@ -128,7 +138,7 @@ try {
     // Página: mantém o site completo e o formulário traduzido
     $html = (string)file_get_contents($root . '/contato.html');
     foreach (array('site-nav-projects', 'languageQuickSwitch', 'wa.me/', 'contact-help-list', 'visit.js', 'action="/enviar-contato.php"',
-                   'name="website"', 'name="ts"', 'name="indicativo"', 'id="formulario"', 'name="assunto" maxlength="150" required') as $needle) {
+                   'name="website"', 'name="ts"', 'name="indicativo"', 'name="produto" required', 'value="aprs-mobile"', 'value="outros"', 'id="formulario"', 'name="assunto" maxlength="150" required') as $needle) {
         check(strpos($html, $needle) !== false, "contato.html deveria conter $needle");
     }
     $js = (string)file_get_contents($root . '/assets/js/contact-data.js');
