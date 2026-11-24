@@ -6,6 +6,18 @@ Nenhum item pendente.
 
 ## Concluídos
 
+### RESOLVIDO (24/11/2026) — Página /speed no layout do site, sem APK, sem iOS e sem GitHub
+
+- **Pedido do Alex:** no /speed, tirar o conteúdo de iOS (avisar "em breve"), tirar o download do APK, usar o formulário
+  de testadores como no APRS Android, menu superior e layout como nas outras páginas; tirar menções ao GitHub do site.
+- **Feito:** `speed.html` refeito com o cabeçalho, menu, seletor de idioma e rodapé do site: apresentação, recursos
+  (velocímetro ilustrativo e crédito do OpenStreetMap), seção do Google Play com o formulário de testadores, iPhone "em
+  breve" e instalações por país. Textos em 7 idiomas por `page-i18n.js` (retraduz ao trocar o idioma) e
+  `android-play-i18n.js` (que agora mantém o pacote de cada app no selo). `/speed-ios` removida, com redirecionamento
+  301 para `/speed#ios`. Speed Alert no menu Projetos de todas as páginas. Changelog do Prop Tool sem GitHub.
+  `scripts/publish_speed_site.py` e `scripts/sync_speed_stable_release.py` só atualizam o `updates.json` (OTA de
+  quem já tem o APK), sem procurar o botão de download.
+
 ### RESOLVIDO (24/11/2026) — Inscrição de testadores do Speed Alert, igual à do APRS Android
 
 - **Pedido do Alex:** quem quiser testar o Speed Alert (`com.pt2vhf.speedalert`, já em teste fechado no Google Play)

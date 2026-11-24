@@ -1,4 +1,4 @@
-/* PT2VHF — traduções da seção Google Play / testadores / iOS da página /aprs-android.
+/* PT2VHF — traduções da seção Google Play / testadores / iOS das páginas /aprs-android e /speed.
    O main.js troca o idioma sem recarregar; aqui reaplicamos quando <html lang> muda. */
 (function () {
   var PLAY = "https://play.google.com/intl/en_us/badges/static/images/badges/";
@@ -134,7 +134,7 @@
     // Link do teste no idioma da página (hl do Google Play).
     var HL = { pt: "pt-BR", en: "en", es: "es", fr: "fr", de: "de", it: "it", zh: "zh-CN" };
     Array.prototype.forEach.call(document.querySelectorAll('a.gp-badge[href*="/apps/testing/"]'), function (a) {
-      a.href = "https://play.google.com/apps/testing/com.pt2vhf.aprs?hl=" + (HL[code] || "pt-BR");
+      a.href = a.href.split("?")[0] + "?hl=" + (HL[code] || "pt-BR"); // mantém o pacote de cada app
     });
     var langInput = document.querySelector('.testers-form input[name="lang"]');
     if (langInput) langInput.value = code;

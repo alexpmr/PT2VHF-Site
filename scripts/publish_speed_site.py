@@ -40,11 +40,6 @@ j["products"]["speed"]={
  }]
 }
 manifest.write_text(json.dumps(j,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-page=Path("speed.html")
-html=page.read_text(encoding="utf-8")
-pattern=r'(<a class="cta" href=")[^"]+(" id="release-link")'
-replacement=r"\g<1>https://www.pt2vhf.com/downloads/speed-alert/"+name+r"\g<2>"
-new,n=re.subn(pattern,replacement,html,count=1)
-if n!=1:raise SystemExit("Speed page download button not found; refusing stale page")
-page.write_text(new,encoding="utf-8")
+# A página /speed não oferece mais o APK (distribuição pelo Google Play, teste fechado). Só o manifesto é
+# atualizado, para o OTA de quem já tem o APK instalado; a página não é alterada.
 print("PUBLISHED SPEED SITE METADATA:",version,size,actual)

@@ -104,7 +104,9 @@
       var heroLink = document.querySelector(".prop-hero-screenshot a");
       if (heroLink) heroLink.setAttribute("aria-label", heroText);
     }
-    if (!programId) {
+    if (document.body.hasAttribute("data-own-title")) {
+      // Página com textos próprios (ex.: /speed, traduzida por page-i18n.js): nada da home nem de produto.
+    } else if (!programId) {
       var home = {
         ".hero .eyebrow":"homeEyebrow", ".hero h1":"homeTitle",
         ".hero .lead":"homeLead", ".hero-actions a:first-child":"homeExplore",
@@ -186,6 +188,8 @@
       var suffixes = { pt:"Recursos e downloads", en:"Features and downloads", es:"Funciones y descargas", fr:"Fonctions et téléchargements", de:"Funktionen und Downloads", it:"Funzioni e download", zh:"功能与下载" };
       document.title = currentProduct.name + " — " + suffixes[selectedLang];
       if (meta) meta.setAttribute("content", currentProduct.summary || currentProduct.tagline);
+    } else if (document.body.hasAttribute("data-own-title")) {
+      // Título e descrição traduzidos pela própria página (page-i18n.js).
     } else if (document.querySelector("[data-lang-block]:not([hidden])")) {
       var shown = document.querySelector("[data-lang-block]:not([hidden])");
       document.title = shown.getAttribute("data-title") + " — PT2VHF";

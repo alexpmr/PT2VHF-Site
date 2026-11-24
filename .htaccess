@@ -23,7 +23,8 @@ RewriteRule ^aprs-android/?$ android.html [END,NC]
 
 # Página oficial do Speed Alert
 RewriteRule ^speed/?$ speed.html [END,NC]
-RewriteRule ^speed-ios/?$ speed-ios.html [END,NC]
+# A edição iOS ainda não existe: a antiga página /speed-ios leva à seção "em breve" do /speed.
+RewriteRule ^speed-ios(/|\.html)?$ /speed#ios [R=301,L,NC,NE]
 
 # Painel de estatísticas do mantenedor (sem link no site, sem senha, noindex)
 RewriteRule ^stats/?$ stats.php [END,NC]

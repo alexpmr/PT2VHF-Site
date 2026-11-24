@@ -1,121 +1,245 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PT2VHF Speed Alert — Android, alertas de velocidade sem radar</title>
-<meta name="description" content="PT2VHF Speed Alert para Android: velocímetro GPS, limite das vias por base offline e aviso sonoro de excesso. Download e estatísticas.">
-<link rel="canonical" href="https://www.pt2vhf.com/speed">
-<meta property="og:type" content="website"><meta property="og:title" content="PT2VHF Speed Alert">
-<meta property="og:url" content="https://www.pt2vhf.com/speed">
-<meta name="theme-color" content="#091521">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<style>
-:root{color-scheme:dark;font-family:Inter,system-ui,Arial,sans-serif;background:#08111f;color:#f0f6ff}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#153150 0%,#091421 38%,#08111f 85%);line-height:1.6}
-a{color:#56ddbc}header{border-bottom:1px solid #293b51;background:#08121eeb}
-nav,.wrap{max-width:1040px;margin:auto;padding:0 22px}
-nav{display:flex;align-items:center;gap:24px;min-height:68px}nav .brand{font-weight:900;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:.06em}nav a:not(.brand){text-decoration:none;font-size:.92rem}
-header nav a:last-child{margin-left:auto}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:36px;align-items:center;padding:70px 0 48px}
-.eyebrow{color:#53e3bc;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.77rem}
-h1{font-size:clamp(2.4rem,5vw,4.5rem);line-height:1.06;letter-spacing:-.04em;margin:14px 0 20px}
-.lead{font-size:1.1rem;color:#b8c9db;max-width:650px}
-.cta{display:inline-block;margin-top:18px;border-radius:12px;padding:14px 22px;background:#20bb94;color:#071b23;text-decoration:none;font-weight:800}
-.note{color:#9cb1ca;font-size:.87rem}
-.visual{padding:26px;border:1px solid #34516a;border-radius:28px;background:#102235;box-shadow:0 26px 70px #0007;text-align:center}
-.plate{display:grid;place-items:center;margin:auto;width:186px;height:186px;border-radius:50%;border:18px solid #ee353c;background:white;color:#091522;font-size:5rem;font-weight:900;line-height:1}
-.speed{margin-top:22px;border-radius:16px;background:#167b41;color:white;font-size:4.2rem;font-weight:800;line-height:1.3}.speed span{font-size:1.05rem}
-.road{color:#d1e1f2;margin-top:12px}
-h2{font-size:1.55rem}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:26px 0 40px}
-.tile,.stats{border:1px solid #2a415a;background:#102033;border-radius:18px;padding:22px}
-.tile h3{margin:0 0 8px;color:#ecf5ff}.tile p{color:#afc3d8;margin:0}.stats{margin-bottom:60px}
-table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid #2a415a;text-align:left;padding:10px}th:last-child,td:last-child{text-align:right}
-.stat-number{font-size:2rem;font-weight:800;color:#58dfbe}.sub{color:#acc2d6}footer{padding:26px 0 44px;color:#95aec4;border-top:1px solid #25364a}
-.testers-form{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:18px 0 10px}.testers-form label{display:flex;flex-direction:column;gap:6px;font-weight:700;color:#dbe8f5}.testers-email{flex:2 1 260px}.testers-call{flex:1 1 150px}
-.testers-form input{padding:12px 14px;border-radius:10px;border:1px solid #34516a;background:#0b1828;color:#f0f6ff;font:inherit;font-weight:400}.testers-form input:focus-visible{outline:2px solid #56ddbc;outline-offset:1px}
-.testers-form button{border:0;border-radius:12px;padding:13px 22px;background:#20bb94;color:#071b23;font:inherit;font-weight:800;cursor:pointer}.testers-form button:focus-visible{outline:2px solid #fff;outline-offset:2px}
-.testers-trap{position:absolute;left:-9999px}.testers-status{padding:12px 14px;border-radius:10px;border:1px solid #20bb94;background:#0d2a2a;color:#e6fff8}.testers-status.is-erro{border-color:#f0b35a;background:#2a2112}.testers-small{font-size:.9rem}
-@media(max-width:720px){.hero{grid-template-columns:1fr;padding:40px 0}.visual{max-width:340px;width:100%;margin:auto}.grid{grid-template-columns:1fr}nav{gap:14px;flex-wrap:wrap;padding:14px 22px}header nav a:last-child{margin-left:0}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PT2VHF Speed Alert — velocímetro e alerta de velocidade para Android</title>
+  <meta name="description" content="PT2VHF Speed Alert para Android: velocímetro GPS, limite das vias por base offline e aviso sonoro de excesso. Teste fechado no Google Play.">
+  <link rel="canonical" href="https://www.pt2vhf.com/speed">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PT2VHF Speed Alert">
+  <meta property="og:description" content="Velocímetro GPS com limite das vias offline e aviso sonoro de excesso, para Android.">
+  <meta property="og:url" content="https://www.pt2vhf.com/speed">
+  <meta property="og:image" content="https://www.pt2vhf.com/assets/img/og-image.svg">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261124-speed">
+  <link rel="stylesheet" href="/assets/css/aprs-language-menu.css?v=20261106-aprs1158">
+  <style>
+    /* Speed Alert: recursos com o velocímetro ilustrativo e formulário de testadores igual ao do APRS Android. */
+    .speed-features{display:grid;grid-template-columns:minmax(220px,280px) repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+    .speed-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+    .speed-card h3{margin:0 0 8px;font-size:1.08rem}.speed-card p{margin:0;color:var(--muted);line-height:1.6}
+    .speed-visual{background:#102235;border-color:#34516a;text-align:center;color:#f0f6ff}
+    .speed-plate{display:grid;place-items:center;margin:auto;width:150px;height:150px;border-radius:50%;border:15px solid #ee353c;background:#fff;color:#091522;font-size:4rem;font-weight:800;line-height:1}
+    .speed-now{margin-top:16px;border-radius:14px;background:#167b41;color:#fff;font-size:3.2rem;font-weight:800;line-height:1.3}.speed-now span{font-size:1rem}
+    .speed-visual .road{color:#d1e1f2;margin-top:10px;font-size:.92rem}
+    .speed-osm{margin-top:14px;color:var(--muted);font-size:.88rem}
+    .testers-form{max-width:760px;gap:14px;display:flex;flex-wrap:wrap;align-items:flex-end}
+    .testers-form label{display:flex;flex-direction:column;gap:6px}.testers-form label>span{font-weight:600;font-size:1.05rem}
+    .testers-form input[type=email],.testers-form input[type=text]{font-size:1.15rem;padding:14px 16px;min-height:54px;border:2px solid var(--accent);border-radius:10px;background:var(--surface);color:var(--text)}
+    .testers-form input:focus{outline:3px solid var(--accent-soft);outline-offset:1px}
+    .testers-form .btn{font-size:1.1rem;padding:14px 26px;min-height:54px}
+    .speed-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:18px 0}
+    .speed-stats .stat-number{font-size:2rem;font-weight:800;color:var(--accent)}
+    .speed-table{width:100%;border-collapse:collapse;margin-top:8px}.speed-table th,.speed-table td{border-bottom:1px solid var(--border);text-align:left;padding:10px}
+    .speed-table th:last-child,.speed-table td:last-child{text-align:right}
+    @media(max-width:900px){.speed-features{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.speed-features,.speed-stats{grid-template-columns:1fr}}
+  </style>
 </head>
-<body>
-<header><nav><a class="brand" href="/">PT2VHF</a><a href="/">Início</a><a href="/android">APRS Android</a><a href="https://github.com/alexpmr/speed-alert">GitHub</a></nav></header>
-<main class="wrap">
-<section class="hero">
-<div><div class="eyebrow">Android · GPS · Offline</div>
-<h1>Speed Alert</h1>
-<p class="lead">Seu velocímetro inteligente. Acompanhe sua velocidade e receba alertas de excesso mesmo em vias sem radares. A base local permite o monitoramento sem conexão à Internet durante o trajeto.</p>
-<a class="cta" href="https://www.pt2vhf.com/downloads/speed-alert/PT2VHF-Speed-Alert-v1.0.3-beta.1.apk" id="release-link" rel="noopener noreferrer">Baixar APK Android v1.0.3-beta.1</a>
-<p class="note">Disponível em beta para Android 8+. O APK beta é servido por redirecionamento verificado do site para o GitHub Releases, com contagem cumulativa. Se já houver outra beta instalada, pode ser necessário desinstalá-la antes, pois as versões anteriores foram assinadas com chaves de depuração distintas.</p></div>
-<div class="visual" aria-label="Exemplo ilustrativo: limite 60, velocidade 52 quilômetros por hora"><div class="plate">60</div><div class="speed">52 <span>km/h</span></div><div class="road">Via em curso · velocidade ilustrativa</div></div>
-</section>
-<section><h2>Funcionalidades</h2><div class="grid">
-<article class="tile"><h3>Alerta contínuo</h3><p>Bipes ao ultrapassar o limite identificado. Com opção de silenciar apenas o som.</p></article>
-<article class="tile"><h3>Base offline</h3><p>GPS e limites locais sem necessidade de dados móveis. Se o limite não puder ser identificado, o aplicativo informa a ausência de dados.</p></article>
-<article class="tile"><h3>Configurações</h3><p>Ajuste o volume, tolerância, limite manual e outras opções do monitoramento.</p></article></div></section>
-<section class="stats testers" id="testadores" aria-labelledby="testers-title">
-<h2 id="testers-title">Quero testar no Google Play</h2>
-<p class="sub">O Speed Alert está em teste fechado no Google Play. Deixe seu e-mail (de preferência o da conta Google usada no Play) e eu incluo você na lista de testadores. As instruções chegam por e-mail.</p>
-<form class="testers-form" action="/testers.php" method="post" aria-labelledby="testers-title">
-<input type="hidden" name="product" value="speed"><input type="hidden" name="lang" value="pt">
-<label class="testers-email"><span>E-mail da conta Google</span><input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="seuemail@gmail.com"></label>
-<label class="testers-call"><span>Indicativo (opcional)</span><input type="text" name="call" maxlength="16" autocapitalize="characters" placeholder="PY2XYZ"></label>
-<label class="testers-trap" aria-hidden="true">Não preencha<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-<button type="submit">Quero testar</button>
-</form>
-<p id="testers-status" class="testers-status" role="status" hidden></p>
-<p class="sub testers-small">Já está na lista? <a href="https://play.google.com/apps/testing/com.pt2vhf.speedalert">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href="/privacidade">política de privacidade</a>.</p>
-</section>
-<section class="stats" aria-labelledby="ios-title">
-<h2 id="ios-title">Speed Alert para iPhone — iOS</h2>
-<p class="sub">O aplicativo nativo iOS 1.0.6 está compilado para simulador. A instalação em iPhone físico depende de assinatura Apple; <strong>ainda não existe IPA público instalável ou convite TestFlight</strong>. Veja instruções de instalação pelo Xcode, IPA para iPhones registrados e manual de uso.</p>
-<a class="cta" href="/speed-ios">Instruções de instalação e uso no iPhone</a>
-<p><a href="https://github.com/alexpmr/speed-alert/tree/main/ios">Consultar código-fonte iOS</a></p>
-</section>
-<section class="stats" aria-labelledby="stats-title"><h2 id="stats-title">Instalações e países</h2>
-<p class="sub" id="stats-state">Preparando estatísticas de instalações identificadas durante a consulta de atualizações. Os dados só são enviados mediante participação voluntária.</p>
-<div class="grid" style="margin:18px 0">
-<div><div class="stat-number" id="downloads-count">—</div><div class="sub">downloads APK acumulados</div></div>
-<div><div class="stat-number" id="total">—</div><div class="sub">instalações identificadas</div></div>
-<div><div class="stat-number" id="active7">—</div><div class="sub">ativas em 7 dias (consultas OTA)</div></div>
-<div><div class="stat-number" id="countries">—</div><div class="sub">países identificados</div></div></div>
-<table aria-label="Instalações por país"><thead><tr><th>País</th><th>Instalações</th></tr></thead><tbody id="country-rows"><tr><td colspan="2">Estatísticas ainda não disponíveis</td></tr></tbody></table>
-<p class="note">Ativo = instalação que realizou consulta de atualização no período, não prova uso contínuo. A identificação de país depende da disponibilidade de geolocalização aproximada do servidor.</p></section>
-</main>
-<footer><div class="wrap">© PT2VHF · Dados de vias: © OpenStreetMap contributors, ODbL. A sinalização oficial sempre prevalece. <a href="https://github.com/alexpmr/speed-alert">Código e suporte</a></div></footer>
-<script src="/assets/js/page-i18n.js?v=20261124-testers"></script>
-<script>
-// Formulário de testadores: mensagem do resultado (?testers=ok|dup|erro) e idioma enviado ao servidor.
-(function(){
- const T=window.PT2VHF_PAGE_T||function(x){return x};
- const MSG={ok:'Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.',
-  dup:'Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.',
-  erro:'Não foi possível registrar. Confira o e-mail e tente de novo.'};
- const st=new URLSearchParams(location.search).get('testers');const box=document.getElementById('testers-status');
- if(box&&MSG[st]){box.textContent=T(MSG[st]);box.className='testers-status is-'+st;box.hidden=false;}
- const form=document.querySelector('.testers-form');
- if(form)form.addEventListener('submit',function(){form.elements.lang.value=window.PT2VHF_PAGE_LANG||'pt';form.querySelector('button').disabled=true;});
- window.addEventListener('pageshow',function(){if(form)form.querySelector('button').disabled=false;});
-})();
-</script>
-<script>
-(function(){
- const T=window.PT2VHF_PAGE_T||function(x){return x};
- const api='/speed_stats.php';
- fetch('/download.php?mode=stats',{cache:'no-store'})
- .then(function(r){if(!r.ok)throw Error('counter unavailable');return r.json()})
- .then(function(d){const c=d.counts&&d.counts.speed&&d.counts.speed['android-apk'];document.getElementById('downloads-count').textContent=Number.isFinite(Number(c))?Number(c).toLocaleString(document.documentElement.lang||'pt-BR'):'—'})
- .catch(function(){document.getElementById('downloads-count').textContent='—'});
- fetch(api,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('sem dados');return r.json()}).then(function(d){
- document.getElementById('total').textContent=d.totalUnique ?? 0;
- document.getElementById('active7').textContent=d.active7 ?? 0;
- document.getElementById('countries').textContent=d.countryCount ?? 0;
- document.getElementById('stats-state').textContent=T('Instalações com telemetria de atualização voluntária.');
- const rows=document.getElementById('country-rows');rows.textContent='';
- if(!(d.countries||[]).length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=2;td.textContent=T('Ainda sem registros por país');tr.appendChild(td);rows.appendChild(tr);return}
- (d.countries||[]).forEach(function(c){const tr=document.createElement('tr');const a=document.createElement('td');a.textContent=c.name;const b=document.createElement('td');b.textContent=c.count;tr.append(a,b);rows.appendChild(tr)})
- }).catch(function(){document.getElementById('stats-state').textContent=T('Estatísticas indisponíveis no momento.')});
-})();
-</script>
+<body class="speed-page" data-own-title>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="PT2VHF, início">
+        <img src="/assets/img/favicon.svg" alt="" width="32" height="32">
+        <span>PT2VHF</span>
+      </a>
+
+      <nav id="site-nav" class="site-nav" aria-label="Principal">
+        <a class="site-nav-home" href="/">Início</a>
+        <details class="site-nav-projects">
+          <summary class="site-nav-projects-label" aria-label="Projetos">Projetos <span class="site-nav-caret" aria-hidden="true">▾</span></summary>
+          <div class="site-nav-dropdown">
+            <a href="/aprs">APRS Client</a>
+            <a href="/aprs-android">APRS Android</a>
+            <a href="/prop">Prop Tool</a>
+            <a href="/mesh">Mesh Analyzer</a>
+            <a href="/sat">SAT Tool</a>
+            <a href="/sdr">SDR Tool</a>
+            <a href="/prog">Prog Tool</a>
+            <a href="/qsl">QSL Manager</a>
+            <a href="/speed">Speed Alert</a>
+          </div>
+        </details>
+        <a class="site-nav-about" href="/sobre">Sobre</a>
+        <a class="site-nav-contact" href="/contato">Contato</a>
+      </nav>
+      <div class="header-controls">
+        <div id="languageQuickSwitch" class="language-quick-switch" aria-label="Idioma / Language">
+          <button id="languageQuickCurrent" type="button" class="language-quick-current" aria-haspopup="menu" aria-controls="languageQuickMenu" aria-expanded="false" title="Trocar idioma">
+            <img id="languageQuickCurrentFlag" class="language-quick-img" src="/assets/img/flags/br.svg" alt="Brasil" width="18" height="12">
+            <span id="languageQuickCurrentLabel">Português (Brasil)</span>
+            <span class="language-quick-caret" aria-hidden="true">▾</span>
+          </button>
+          <div id="languageQuickMenu" class="language-quick-menu" role="menu" aria-label="Idioma / Language" hidden>
+            <button type="button" class="language-quick-option" data-language="pt" role="menuitemradio" aria-checked="true">
+              <img class="language-quick-img" src="/assets/img/flags/br.svg" alt="Brasil" width="18" height="12">
+              <span>Português (Brasil)</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="en" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/gb.svg" alt="Reino Unido" width="18" height="12">
+              <span>English</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="es" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/es.svg" alt="Espanha" width="18" height="12">
+              <span>Español</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="fr" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/fr.svg" alt="França" width="18" height="12">
+              <span>Français</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="de" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/de.svg" alt="Alemanha" width="18" height="12">
+              <span>Deutsch</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="it" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/it.svg" alt="Itália" width="18" height="12">
+              <span>Italiano</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="zh" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/cn.svg" alt="China" width="18" height="12">
+              <span>简体中文</span>
+            </button>
+          </div>
+        </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      </div>
+    </div>
+  </header>
+  <main id="conteudo">
+    <section class="hero program-hero" id="topo">
+      <div class="hero-wave" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <nav class="breadcrumb" aria-label="Você está aqui">
+          <a href="/">Início</a><span aria-hidden="true">/</span><span aria-current="page">Speed Alert</span>
+        </nav>
+        <p class="eyebrow mono">ANDROID · GPS · OFFLINE</p>
+        <h1>PT2VHF Speed Alert</h1>
+        <p class="lead">Seu velocímetro inteligente. Acompanhe sua velocidade e receba alertas de excesso mesmo em vias sem radares. A base local permite o monitoramento sem conexão à Internet durante o trajeto.</p>
+        <p class="mono" role="status" style="margin: 0.75rem 0 1rem; color: #f9ce79;">O Speed Alert está em teste fechado no Google Play. Cadastre-se abaixo para testar antes de todos.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#testadores">Quero testar</a>
+          <a class="btn btn-ghost btn-lg" href="#recursos">Conhecer os recursos</a>
+          <a class="gp-badge" href="https://play.google.com/apps/testing/com.pt2vhf.speedalert?hl=pt-BR" target="_blank" rel="noopener" aria-label="Google Play">
+            <img class="gp-badge-img" src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png"
+                 alt="Disponível no Google Play" width="200" height="77" style="height:66px;width:auto;margin:-9px 0;vertical-align:middle">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="recursos" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-head"><h2 id="features-title">Recursos</h2></div>
+        <div class="speed-features">
+          <div class="speed-card speed-visual" aria-label="Exemplo ilustrativo: limite 60, velocidade 52 km/h">
+            <div class="speed-plate">60</div>
+            <div class="speed-now">52 <span>km/h</span></div>
+            <p class="road">Via em curso · velocidade ilustrativa</p>
+          </div>
+          <article class="speed-card"><h3>Alerta contínuo</h3><p>Bipes ao ultrapassar o limite identificado. Com opção de silenciar apenas o som.</p></article>
+          <article class="speed-card"><h3>Base offline</h3><p>GPS e limites locais sem necessidade de dados móveis. Se o limite não puder ser identificado, o aplicativo informa a ausência de dados.</p></article>
+          <article class="speed-card"><h3>Configurações</h3><p>Ajuste o volume, tolerância, limite manual e outras opções do monitoramento.</p></article>
+        </div>
+        <p class="speed-osm">Dados de vias: © OpenStreetMap contributors (ODbL). A sinalização oficial sempre prevalece.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt google-play" id="google-play" aria-labelledby="play-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="play-title" data-gp-i18n="playTitle">Disponível no Google Play (teste fechado)</h2>
+          <p>O PT2VHF Speed Alert para Android é distribuído pelo <strong>Google Play</strong>, com atualização automática pela loja. O app está em teste fechado: se o seu e-mail já está na lista de testadores, toque no selo, entre como testador e instale pela Play Store. Se ainda não está, cadastre-se abaixo.</p>
+        </div>
+        <p>
+          <a class="gp-badge" href="https://play.google.com/apps/testing/com.pt2vhf.speedalert?hl=pt-BR" target="_blank" rel="noopener" aria-label="Abrir o teste do PT2VHF Speed Alert no Google Play">
+            <img class="gp-badge-img" src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png"
+                 alt="Disponível no Google Play" width="250" height="97" style="height:84px;width:auto;margin:-12px">
+          </a>
+        </p>
+        <p data-gp-i18n="playNote">Algum problema para instalar ou entrar no teste? Fale comigo pelo <a href="https://wa.me/5561984023634" target="_blank" rel="noopener">WhatsApp (+55 61 98402 3634)</a> ou pelo e-mail <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a>.</p>
+        <h3 id="testadores" data-gp-i18n="testersTitle">Quero testar as novas versões</h3>
+        <p data-gp-i18n="testersIntro">O Google Play exige um teste fechado antes de liberar o app para todos. Deixe seu e-mail (de preferência o da sua conta Google, usada no Play) e eu incluo você na lista de testadores.</p>
+        <form class="testers-form" action="/testers.php" method="post" aria-labelledby="testadores">
+          <input type="hidden" name="product" value="speed">
+          <input type="hidden" name="lang" value="pt">
+          <label style="flex:2 1 240px"><span data-gp-i18n="emailLabel">E-mail da conta Google</span>
+            <input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="seuemail@gmail.com">
+          </label>
+          <label style="flex:1 1 140px"><span data-gp-i18n="callLabel">Indicativo (opcional)</span>
+            <input type="text" name="call" maxlength="16" autocapitalize="characters" placeholder="PY2XYZ">
+          </label>
+          <label style="position:absolute;left:-9999px" aria-hidden="true">Não preencha<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <button class="btn btn-primary" type="submit" data-gp-i18n="submit">Quero testar</button>
+        </form>
+        <p id="testers-status" role="status" class="mono" style="margin-top:10px;color:#f9ce79" hidden></p>
+        <p style="color: var(--muted); font-size: .9rem;" data-gp-i18n="privacyNote">Seu e-mail é usado só para a lista de testadores do Google Play.
+          Veja a <a href="/privacidade">política de privacidade</a>.</p>
+      </div>
+    </section>
+
+    <section class="section" id="ios" aria-labelledby="ios-title">
+      <div class="container">
+        <h2 id="ios-title" data-gp-i18n="iosTitle">iPhone e iPad (iOS)</h2>
+        <p>Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="instalacoes" aria-labelledby="stats-title">
+      <div class="container">
+        <h2 id="stats-title">Instalações e países</h2>
+        <p class="sub" id="stats-state">Preparando estatísticas de instalações identificadas durante a consulta de atualizações. Os dados só são enviados mediante participação voluntária.</p>
+        <div class="speed-stats">
+          <div class="speed-card"><div class="stat-number" id="total">—</div><div class="sub">instalações identificadas</div></div>
+          <div class="speed-card"><div class="stat-number" id="active7">—</div><div class="sub">ativas em 7 dias (consultas OTA)</div></div>
+          <div class="speed-card"><div class="stat-number" id="countries">—</div><div class="sub">países identificados</div></div>
+        </div>
+        <table class="speed-table" aria-label="Instalações por país"><thead><tr><th>País</th><th>Instalações</th></tr></thead><tbody id="country-rows"><tr><td colspan="2">Estatísticas ainda não disponíveis</td></tr></tbody></table>
+        <p class="speed-osm">Ativo = instalação que realizou consulta de atualização no período, não prova uso contínuo. A identificação de país depende da disponibilidade de geolocalização aproximada do servidor.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> PT2VHF. Todos os direitos reservados.</p>
+      <p class="mono">73 de PT2VHF</p>
+    </div>
+  </footer>
+  <script src="/assets/js/locales/pt.js?v=20261124-speed"></script>
+  <script src="/assets/js/locales/en.js?v=20261124-speed"></script>
+  <script src="/assets/js/locales/es.js?v=20261124-speed"></script>
+  <script src="/assets/js/locales/fr.js?v=20261124-speed"></script>
+  <script src="/assets/js/locales/de.js?v=20261124-speed"></script>
+  <script src="/assets/js/locales/it.js?v=20261124-speed"></script>
+  <script src="/assets/js/locales/zh.js?v=20261124-speed"></script>
+  <script src="/assets/js/products.js?v=20261124-speed"></script>
+  <script src="/assets/js/contact-data.js?v=20261124-speed"></script>
+  <script src="/assets/js/main.js?v=20261124-speed2"></script>
+  <script src="/assets/js/android-play-i18n.js?v=20261124-speed"></script>
+  <script src="/assets/js/page-i18n.js?v=20261124-speed"></script>
+  <script>
+  // Estatísticas de instalações do Speed Alert (speed_stats.php), com textos traduzidos por page-i18n.js.
+  (function () {
+    var T = function (x) { return (window.PT2VHF_PAGE_T || function (y) { return y; })(x); };
+    fetch('/speed_stats.php', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw Error('sem dados'); return r.json(); }).then(function (d) {
+      document.getElementById('total').textContent = d.totalUnique ?? 0;
+      document.getElementById('active7').textContent = d.active7 ?? 0;
+      document.getElementById('countries').textContent = d.countryCount ?? 0;
+      document.getElementById('stats-state').textContent = T('Instalações com telemetria de atualização voluntária.');
+      var rows = document.getElementById('country-rows'); rows.textContent = '';
+      if (!(d.countries || []).length) { var tr = document.createElement('tr'); var td = document.createElement('td'); td.colSpan = 2; td.textContent = T('Ainda sem registros por país'); tr.appendChild(td); rows.appendChild(tr); return; }
+      (d.countries || []).forEach(function (c) { var tr = document.createElement('tr'); var a = document.createElement('td'); a.textContent = c.name; var b = document.createElement('td'); b.textContent = c.count; tr.append(a, b); rows.appendChild(tr); });
+    }).catch(function () { document.getElementById('stats-state').textContent = T('Estatísticas indisponíveis no momento.'); });
+  })();
+  </script>
   <script src="/assets/js/visit.js?v=20261123-stats" defer></script>
-</body></html>
+</body>
+</html>

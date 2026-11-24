@@ -118,7 +118,15 @@ window.PT2VHF_PAGE_I18N = {
   "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "Already on the list? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Open the test on Google Play</a> and tap “Become a tester”. Your e-mail is used only for the tester list; see the <a href=\"/privacidade\">privacy policy</a>.",
   "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "Sign-up received! The instructions are on their way to your e-mail, and I will add you to the tester list within 1 day.",
   "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "This e-mail is already signed up. If you still don’t have access to the test, wait up to 1 day or reply to the instructions e-mail.",
-  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Could not sign you up. Check the e-mail address and try again."
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Could not sign you up. Check the e-mail address and try again.",
+  "@title:PT2VHF Speed Alert — velocímetro e alerta de velocidade para Android": "PT2VHF Speed Alert — speedometer and speed alerts for Android",
+  "@desc:PT2VHF Speed Alert para Android: velocímetro GPS, limite das vias por base offline e aviso sonoro de excesso. Teste fechado no Google Play.": "PT2VHF Speed Alert for Android: GPS speedometer, road speed limits from an offline database and an audible speeding alert. Closed test on Google Play.",
+  "O Speed Alert está em teste fechado no Google Play. Cadastre-se abaixo para testar antes de todos.": "Speed Alert is in a closed test on Google Play. Sign up below to try it before everyone else.",
+  "Conhecer os recursos": "Explore the features",
+  "Recursos": "Features",
+  "Dados de vias: © OpenStreetMap contributors (ODbL). A sinalização oficial sempre prevalece.": "Road data: © OpenStreetMap contributors (ODbL). Official road signs always take precedence.",
+  "O PT2VHF Speed Alert para Android é distribuído pelo <strong>Google Play</strong>, com atualização automática pela loja. O app está em teste fechado: se o seu e-mail já está na lista de testadores, toque no selo, entre como testador e instale pela Play Store. Se ainda não está, cadastre-se abaixo.": "PT2VHF Speed Alert for Android is distributed through <strong>Google Play</strong>, with automatic updates from the store. The app is in a closed test: if your e-mail is already on the tester list, tap the badge, become a tester and install it from Play Store. If not, sign up below.",
+  "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Coming soon. The iPhone version of Speed Alert is being prepared and will be announced here."
  },
  "es": {
   "Início": "Inicio",
@@ -224,7 +232,15 @@ window.PT2VHF_PAGE_I18N = {
   "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "¿Ya está en la lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra la prueba en Google Play</a> y toque “Convertirse en tester”. Su correo solo se usa para la lista de testers; vea la <a href=\"/privacidade\">política de privacidad</a>.",
   "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "¡Registro recibido! Las instrucciones van a su correo y lo incluiré en la lista de testers en hasta 1 día.",
   "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "Este correo ya está registrado. Si aún no tiene acceso a la prueba, espere hasta 1 día o responda el correo de instrucciones.",
-  "Não foi possível registrar. Confira o e-mail e tente de novo.": "No se pudo registrar. Revise el correo e inténtelo de nuevo."
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "No se pudo registrar. Revise el correo e inténtelo de nuevo.",
+  "@title:PT2VHF Speed Alert — velocímetro e alerta de velocidade para Android": "PT2VHF Speed Alert — velocímetro y alertas de velocidad para Android",
+  "@desc:PT2VHF Speed Alert para Android: velocímetro GPS, limite das vias por base offline e aviso sonoro de excesso. Teste fechado no Google Play.": "PT2VHF Speed Alert para Android: velocímetro GPS, límites de las vías por base sin conexión y aviso sonoro de exceso. Prueba cerrada en Google Play.",
+  "O Speed Alert está em teste fechado no Google Play. Cadastre-se abaixo para testar antes de todos.": "Speed Alert está en prueba cerrada en Google Play. Regístrese abajo para probarlo antes que nadie.",
+  "Conhecer os recursos": "Conocer las funciones",
+  "Recursos": "Funciones",
+  "Dados de vias: © OpenStreetMap contributors (ODbL). A sinalização oficial sempre prevalece.": "Datos de vías: © OpenStreetMap contributors (ODbL). La señalización oficial siempre prevalece.",
+  "O PT2VHF Speed Alert para Android é distribuído pelo <strong>Google Play</strong>, com atualização automática pela loja. O app está em teste fechado: se o seu e-mail já está na lista de testadores, toque no selo, entre como testador e instale pela Play Store. Se ainda não está, cadastre-se abaixo.": "PT2VHF Speed Alert para Android se distribuye por <strong>Google Play</strong>, con actualización automática desde la tienda. La app está en prueba cerrada: si su correo ya está en la lista de testers, toque la insignia, hágase tester e instálela desde Play Store. Si aún no está, regístrese abajo.",
+  "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Próximamente. La versión de Speed Alert para iPhone está en preparación y se anunciará aquí."
  },
  "fr": {
   "Início": "Accueil",
@@ -339,7 +355,15 @@ window.PT2VHF_PAGE_I18N = {
   "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "Déjà sur la liste ? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Ouvrez le test sur Google Play</a> et touchez « Devenir testeur ». Votre e-mail sert uniquement à la liste des testeurs ; consultez la <a href=\"/privacidade\">politique de confidentialité</a>.",
   "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "Inscription reçue ! Les instructions arrivent dans votre boîte e-mail, et je vous ajoute à la liste des testeurs sous 1 jour.",
   "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "Cet e-mail est déjà inscrit. Si vous n’avez pas encore accès au test, attendez jusqu’à 1 jour ou répondez à l’e-mail d’instructions.",
-  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Inscription impossible. Vérifiez l’adresse e-mail et réessayez."
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Inscription impossible. Vérifiez l’adresse e-mail et réessayez.",
+  "@title:PT2VHF Speed Alert — velocímetro e alerta de velocidade para Android": "PT2VHF Speed Alert — compteur et alertes de vitesse pour Android",
+  "@desc:PT2VHF Speed Alert para Android: velocímetro GPS, limite das vias por base offline e aviso sonoro de excesso. Teste fechado no Google Play.": "PT2VHF Speed Alert pour Android : compteur GPS, limites des routes via une base hors ligne et alerte sonore d’excès. Test fermé sur Google Play.",
+  "O Speed Alert está em teste fechado no Google Play. Cadastre-se abaixo para testar antes de todos.": "Speed Alert est en test fermé sur Google Play. Inscrivez-vous ci-dessous pour l’essayer avant tout le monde.",
+  "Conhecer os recursos": "Découvrir les fonctionnalités",
+  "Recursos": "Fonctionnalités",
+  "Dados de vias: © OpenStreetMap contributors (ODbL). A sinalização oficial sempre prevalece.": "Données routières : © OpenStreetMap contributors (ODbL). La signalisation officielle prévaut toujours.",
+  "O PT2VHF Speed Alert para Android é distribuído pelo <strong>Google Play</strong>, com atualização automática pela loja. O app está em teste fechado: se o seu e-mail já está na lista de testadores, toque no selo, entre como testador e instale pela Play Store. Se ainda não está, cadastre-se abaixo.": "PT2VHF Speed Alert pour Android est distribué via <strong>Google Play</strong>, avec mise à jour automatique par la boutique. L’application est en test fermé : si votre e-mail figure déjà sur la liste des testeurs, touchez le badge, devenez testeur et installez-la depuis le Play Store. Sinon, inscrivez-vous ci-dessous.",
+  "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Bientôt disponible. La version de Speed Alert pour iPhone est en préparation et sera annoncée ici."
  },
  "de": {
   "Início": "Startseite",
@@ -455,7 +479,15 @@ window.PT2VHF_PAGE_I18N = {
   "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "Schon auf der Liste? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Öffnen Sie den Test bei Google Play</a> und tippen Sie auf „Tester werden“. Ihre E-Mail-Adresse wird nur für die Testerliste verwendet; siehe <a href=\"/privacidade\">Datenschutzerklärung</a>.",
   "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "Anmeldung erhalten! Die Anleitung ist unterwegs in Ihr Postfach, und ich nehme Sie innerhalb von 1 Tag in die Testerliste auf.",
   "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "Diese E-Mail-Adresse ist bereits angemeldet. Wenn Sie noch keinen Zugang zum Test haben, warten Sie bis zu 1 Tag oder antworten Sie auf die Anleitungs-E-Mail.",
-  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Anmeldung nicht möglich. Prüfen Sie die E-Mail-Adresse und versuchen Sie es erneut."
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Anmeldung nicht möglich. Prüfen Sie die E-Mail-Adresse und versuchen Sie es erneut.",
+  "@title:PT2VHF Speed Alert — velocímetro e alerta de velocidade para Android": "PT2VHF Speed Alert — Tacho und Tempowarnungen für Android",
+  "@desc:PT2VHF Speed Alert para Android: velocímetro GPS, limite das vias por base offline e aviso sonoro de excesso. Teste fechado no Google Play.": "PT2VHF Speed Alert für Android: GPS-Tacho, Tempolimits aus einer Offline-Datenbank und akustische Warnung. Geschlossener Test bei Google Play.",
+  "O Speed Alert está em teste fechado no Google Play. Cadastre-se abaixo para testar antes de todos.": "Speed Alert befindet sich in einem geschlossenen Test bei Google Play. Melden Sie sich unten an, um es vor allen anderen zu testen.",
+  "Conhecer os recursos": "Funktionen entdecken",
+  "Recursos": "Funktionen",
+  "Dados de vias: © OpenStreetMap contributors (ODbL). A sinalização oficial sempre prevalece.": "Straßendaten: © OpenStreetMap contributors (ODbL). Die offizielle Beschilderung hat immer Vorrang.",
+  "O PT2VHF Speed Alert para Android é distribuído pelo <strong>Google Play</strong>, com atualização automática pela loja. O app está em teste fechado: se o seu e-mail já está na lista de testadores, toque no selo, entre como testador e instale pela Play Store. Se ainda não está, cadastre-se abaixo.": "PT2VHF Speed Alert für Android wird über <strong>Google Play</strong> verteilt, mit automatischen Updates aus dem Store. Die App befindet sich in einem geschlossenen Test: Steht Ihre E-Mail-Adresse bereits auf der Testerliste, tippen Sie auf das Badge, werden Sie Tester und installieren Sie die App aus dem Play Store. Andernfalls melden Sie sich unten an.",
+  "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Demnächst. Die iPhone-Version von Speed Alert ist in Vorbereitung und wird hier angekündigt."
  },
  "it": {
   "Início": "Home",
@@ -566,7 +598,15 @@ window.PT2VHF_PAGE_I18N = {
   "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "Sei già nell’elenco? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Apri il test su Google Play</a> e tocca “Diventa tester”. La tua e-mail serve solo per l’elenco dei tester; vedi l’<a href=\"/privacidade\">informativa sulla privacy</a>.",
   "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "Iscrizione ricevuta! Le istruzioni arrivano nella tua e-mail e ti aggiungo all’elenco dei tester entro 1 giorno.",
   "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "Questa e-mail è già iscritta. Se non hai ancora accesso al test, attendi fino a 1 giorno o rispondi all’e-mail con le istruzioni.",
-  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Non è stato possibile iscriverti. Controlla l’e-mail e riprova."
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "Non è stato possibile iscriverti. Controlla l’e-mail e riprova.",
+  "@title:PT2VHF Speed Alert — velocímetro e alerta de velocidade para Android": "PT2VHF Speed Alert — tachimetro e avvisi di velocità per Android",
+  "@desc:PT2VHF Speed Alert para Android: velocímetro GPS, limite das vias por base offline e aviso sonoro de excesso. Teste fechado no Google Play.": "PT2VHF Speed Alert per Android: tachimetro GPS, limiti delle strade da una base offline e avviso sonoro di eccesso. Test chiuso su Google Play.",
+  "O Speed Alert está em teste fechado no Google Play. Cadastre-se abaixo para testar antes de todos.": "Speed Alert è in test chiuso su Google Play. Iscriviti qui sotto per provarlo prima di tutti.",
+  "Conhecer os recursos": "Scopri le funzionalità",
+  "Recursos": "Funzionalità",
+  "Dados de vias: © OpenStreetMap contributors (ODbL). A sinalização oficial sempre prevalece.": "Dati stradali: © OpenStreetMap contributors (ODbL). La segnaletica ufficiale prevale sempre.",
+  "O PT2VHF Speed Alert para Android é distribuído pelo <strong>Google Play</strong>, com atualização automática pela loja. O app está em teste fechado: se o seu e-mail já está na lista de testadores, toque no selo, entre como testador e instale pela Play Store. Se ainda não está, cadastre-se abaixo.": "PT2VHF Speed Alert per Android è distribuito tramite <strong>Google Play</strong>, con aggiornamento automatico dallo store. L’app è in test chiuso: se la tua e-mail è già nell’elenco dei tester, tocca il badge, diventa tester e installala dal Play Store. Altrimenti, iscriviti qui sotto.",
+  "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Presto disponibile. La versione di Speed Alert per iPhone è in preparazione e sarà annunciata qui."
  },
  "zh": {
   "Início": "首页",
@@ -682,40 +722,69 @@ window.PT2VHF_PAGE_I18N = {
   "Já está na lista? <a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">Abra o teste no Google Play</a> e toque em “Tornar-se testador”. Seu e-mail é usado só para a lista de testadores; veja a <a href=\"/privacidade\">política de privacidade</a>.": "已在名单中？<a href=\"https://play.google.com/apps/testing/com.pt2vhf.speedalert\">在 Google Play 上打开测试</a>，然后点击“成为测试者”。你的电子邮件仅用于测试者名单；请参阅<a href=\"/privacidade\">隐私政策</a>。",
   "Inscrição recebida! As instruções vão para o seu e-mail, e eu incluo você na lista de testadores em até 1 dia.": "已收到报名！说明已发送到你的邮箱，我会在 1 天内把你加入测试者名单。",
   "Este e-mail já está inscrito. Se ainda não tem acesso ao teste, aguarde até 1 dia ou responda o e-mail de instruções.": "此电子邮件已报名。如果你还无法访问测试，请等待最多 1 天，或回复说明邮件。",
-  "Não foi possível registrar. Confira o e-mail e tente de novo.": "报名失败。请检查电子邮件地址后重试。"
+  "Não foi possível registrar. Confira o e-mail e tente de novo.": "报名失败。请检查电子邮件地址后重试。",
+  "@title:PT2VHF Speed Alert — velocímetro e alerta de velocidade para Android": "PT2VHF Speed Alert — Android 车速表与超速提醒",
+  "@desc:PT2VHF Speed Alert para Android: velocímetro GPS, limite das vias por base offline e aviso sonoro de excesso. Teste fechado no Google Play.": "Android 版 PT2VHF Speed Alert：GPS 车速表、离线数据库提供道路限速、超速声音提醒。Google Play 封闭测试中。",
+  "O Speed Alert está em teste fechado no Google Play. Cadastre-se abaixo para testar antes de todos.": "Speed Alert 正在 Google Play 进行封闭测试。在下方报名，抢先体验。",
+  "Conhecer os recursos": "了解功能",
+  "Recursos": "功能",
+  "Dados de vias: © OpenStreetMap contributors (ODbL). A sinalização oficial sempre prevalece.": "道路数据：© OpenStreetMap contributors（ODbL）。始终以官方交通标志为准。",
+  "O PT2VHF Speed Alert para Android é distribuído pelo <strong>Google Play</strong>, com atualização automática pela loja. O app está em teste fechado: se o seu e-mail já está na lista de testadores, toque no selo, entre como testador e instale pela Play Store. Se ainda não está, cadastre-se abaixo.": "Android 版 PT2VHF Speed Alert 通过 <strong>Google Play</strong> 发布，并由商店自动更新。该应用正在封闭测试中：如果你的电子邮件已在测试者名单中，点按徽章、成为测试者并从 Play 商店安装；如果还不在名单中，请在下方报名。",
+  "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "即将推出。iPhone 版 Speed Alert 正在准备中，届时将在此公布。"
  }
 };
 
 (function () {
   var LANGS = ["pt", "en", "es", "fr", "de", "it", "zh"];
   var LOC = { pt: "pt-BR", en: "en", es: "es", fr: "fr", de: "de", it: "it", zh: "zh-CN" };
-  var lang = "";
-  try { lang = sessionStorage.getItem("pt2vhf-language") || ""; } catch (e) {}
-  if (LANGS.indexOf(lang) === -1) {
-    lang = "en";
+  var ALL = window.PT2VHF_PAGE_I18N;
+  function norm(s) { return s.replace(/\s+/g, " ").trim(); }
+  function detect() {
+    // Com o main.js na página, o idioma já foi escolhido por ele (mesma regra); senão, escolhe aqui.
+    if (window.PT2VHF_I18N_T) return String(document.documentElement.lang || "pt").toLowerCase().split("-")[0];
+    var lang = "";
+    try { lang = sessionStorage.getItem("pt2vhf-language") || ""; } catch (e) {}
+    if (LANGS.indexOf(lang) !== -1) return lang;
     var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
     for (var i = 0; i < list.length; i++) {
       var code = String(list[i] || "").toLowerCase().split("-")[0];
-      if (LANGS.indexOf(code) !== -1) { lang = code; break; }
+      if (LANGS.indexOf(code) !== -1) return code;
     }
+    return "en";
   }
-  document.documentElement.lang = LOC[lang];
-  var D = lang === "pt" ? {} : (window.PT2VHF_PAGE_I18N[lang] || {});
-  window.PT2VHF_PAGE_LANG = lang;
-  window.PT2VHF_PAGE_T = function (pt) { return D[pt] || pt; };
-  if (lang === "pt") return;
-  function norm(s) { return s.replace(/\s+/g, " ").trim(); }
-  if (D["@title:" + document.title]) document.title = D["@title:" + document.title];
-  var meta = document.querySelector('meta[name="description"]');
-  if (meta && D["@desc:" + meta.content]) meta.content = D["@desc:" + meta.content];
-  var sel = "h1,h2,h3,p,li,th,td,.eyebrow,.tag,.sub,.road,.status > strong,footer .wrap,nav a,a.btn,a.cta,label > span,button";
+  // Guarda o texto original (português) dos blocos que têm tradução, para trocar de idioma sem recarregar.
+  var keys = {};
+  LANGS.forEach(function (l) { if (ALL[l]) Object.keys(ALL[l]).forEach(function (k) { keys[k] = true; }); });
+  var sel = "main h1,main h2,main h3,main p,main li,main th,main td,main .eyebrow,main .tag,main .sub,main .road,main .status > strong,main nav a,main a.btn,main a.cta,main label > span,main button";
+  var blocks = [];
   Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
-    if (!el.isConnected) return;
-    var tr = D[norm(el.innerHTML)];
-    if (tr) el.innerHTML = tr;
+    var key = norm(el.innerHTML);
+    if (keys[key]) blocks.push({ el: el, key: key, html: el.innerHTML });
   });
-  // Botão de download do Speed: o texto é reescrito pelos scripts de publicação; a versão vem do link.
-  var cta = document.getElementById("release-link");
-  var m = cta && /-v?(\d[\w.\-]*?)\.apk$/i.exec(cta.getAttribute("href") || "");
-  if (cta && D["@cta"]) cta.textContent = D["@cta"] + (m ? " v" + m[1] : "");
+  var meta = document.querySelector('meta[name="description"]');
+  var original = { title: document.title, desc: meta ? meta.content : "" };
+  var current = "";
+  function apply(lang) {
+    if (LANGS.indexOf(lang) === -1) lang = "en";
+    if (lang === current) return;
+    current = lang;
+    var D = lang === "pt" ? {} : (ALL[lang] || {});
+    window.PT2VHF_PAGE_LANG = lang;
+    window.PT2VHF_PAGE_T = function (pt) { return D[pt] || pt; };
+    document.title = D["@title:" + original.title] || original.title;
+    if (meta) meta.content = D["@desc:" + original.desc] || original.desc;
+    blocks.forEach(function (b) { if (b.el.isConnected) b.el.innerHTML = D[b.key] || b.html; });
+    // Botão de download do Speed (se existir): a versão vem do link.
+    var cta = document.getElementById("release-link");
+    var m = cta && /-v?(\d[\w.\-]*?)\.apk$/i.exec(cta.getAttribute("href") || "");
+    if (cta && D["@cta"]) cta.textContent = D["@cta"] + (m ? " v" + m[1] : "");
+  }
+  var first = detect();
+  if (!window.PT2VHF_I18N_T) document.documentElement.lang = LOC[first];
+  apply(first);
+  // Troca de idioma pelo seletor do site (o main.js muda <html lang>).
+  if (window.MutationObserver) {
+    new MutationObserver(function () { apply(String(document.documentElement.lang || "pt").toLowerCase().split("-")[0]); })
+      .observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+  }
 })();

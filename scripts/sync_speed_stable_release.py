@@ -67,19 +67,6 @@ manifest_file.write_text(
     json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
 )
 
-page = pathlib.Path("speed.html")
-html = page.read_text(encoding="utf-8")
-url = "https://www.pt2vhf.com/downloads/speed-alert/" + filename
-pattern = r'(<a class="cta" href=")[^"]+(" id="release-link"[^>]*>)[^<]*(</a>)'
-replacement = r"\g<1>" + url + r"\g<2>Baixar APK Android — v1.0\g<3>"
-html, count = re.subn(pattern, replacement, html, count=1)
-assert count == 1, "Official download button not found"
-html = re.sub(
-    r"(<p class=\"note\">)(.*?)(</p>)",
-    r"\g<1>Versão 1.0.6 disponível para Android 8+. "
-    r"Download direto com contador pelo site PT2VHF. "
-    r"Após instalar, o uso de GPS e alarmes é offline.\g<3>",
-    html, count=1, flags=re.DOTALL,
-)
-page.write_text(html, encoding="utf-8")
+# A página /speed não oferece mais o APK (distribuição pelo Google Play, teste fechado). Só o manifesto é
+# atualizado, para o OTA de quem já tem o APK instalado; a página não é alterada.
 print("Speed 1.0.6 OTA/site manifest updated:", filename, size, sha)
