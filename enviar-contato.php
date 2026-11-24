@@ -20,11 +20,11 @@ const PT2VHF_CONTACT_LANGS = array('pt', 'en', 'es', 'fr', 'de', 'it', 'zh');
 $lang = strtolower(substr(trim((string)($_POST['lang'] ?? 'pt')), 0, 2));
 if (!in_array($lang, PT2VHF_CONTACT_LANGS, true)) $lang = 'pt';
 
-function pt2vhf_contact_reply(string $status, string $lang): void {
+function pt2vhf_contact_reply(string $status, string $lang, string $stage = ''): void {
     if (strpos((string)($_SERVER['HTTP_ACCEPT'] ?? ''), 'application/json') !== false) {
         header('Content-Type: application/json; charset=utf-8');
         header('Cache-Control: no-store');
-        echo json_encode(array('status' => $status));
+        echo json_encode($stage !== '' ? array('status' => $status, 'stage' => $stage) : array('status' => $status));
     } else {
         header('Location: /contato?lang=' . $lang . '&contato=' . rawurlencode($status) . '#formulario', true, 303);
     }
@@ -53,9 +53,9 @@ if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL
 
 // Limite anti-abuso (HMAC do IP com chave diária; nada de IP em claro)
 $dir = dirname(__DIR__) . '/pt2vhf-private-data';
-if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) pt2vhf_contact_reply('erro', $lang);
+if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) pt2vhf_contact_reply('erro', $lang, 'storage');
 $fh = @fopen($dir . '/contact-limits.json', 'c+');
-if (!$fh || !flock($fh, LOCK_EX)) pt2vhf_contact_reply('erro', $lang);
+if (!$fh || !flock($fh, LOCK_EX)) pt2vhf_contact_reply('erro', $lang, 'storage');
 $today = gmdate('Y-m-d');
 $limits = json_decode((string)stream_get_contents($fh), true);
 if (!is_array($limits) || ($limits['day'] ?? '') !== $today || !is_string($limits['key'] ?? null)) {
@@ -91,5 +91,11 @@ $headers = implode("\r\n", array(
     'Content-Type: text/plain; charset=UTF-8',
     'Content-Transfer-Encoding: 8bit',
 ));
-$sent = @mail(PT2VHF_CONTACT_TO, '=?UTF-8?B?' . base64_encode($title) . '?=', $body, $headers, '-fnao-responda@pt2vhf.com');
-pt2vhf_contact_reply($sent ? 'ok' : 'erro', $lang);
+$encodedTitle = '=?UTF-8?B?' . base64_encode($title) . '?=';
+$stage = 'mail-f';
+$sent = @mail(PT2VHF_CONTACT_TO, $encodedTitle, $body, $headers, '-fnao-responda@pt2vhf.com');
+if (!$sent) { // algumas hospedagens recusam o remetente de envelope (-f)
+    $stage = 'mail';
+    $sent = @mail(PT2VHF_CONTACT_TO, $encodedTitle, $body, $headers);
+}
+pt2vhf_contact_reply($sent ? 'ok' : 'erro', $lang, $sent ? $stage : 'mail-failed');
