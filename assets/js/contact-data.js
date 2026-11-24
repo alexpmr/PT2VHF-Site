@@ -33,7 +33,17 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "tagline": "Tecnologia, experimentação e radioamadorismo conectando pessoas e ideias.",
     "contactTitle": "Dúvidas, dificuldades ou sugestões?",
     "contactText": "Encontrou algum problema, precisa de ajuda para configurar um dos aplicativos ou gostaria de propor uma melhoria? Comentários, sugestões, correções e relatos de erros são muito bem-vindos. Entre em contato diretamente comigo.",
-    "emailLabel": "E-mail"
+    "emailLabel": "E-mail",
+    "formTitle": "Ou escreva por aqui",
+    "formLead": "A mensagem chega no meu e-mail e eu respondo para o endereço que você informar.",
+    "formName": "Nome",
+    "formEmail": "Seu e-mail",
+    "formSubject": "Assunto (opcional)",
+    "formMessage": "Mensagem",
+    "formSend": "Enviar mensagem",
+    "formSent": "Mensagem enviada. Obrigado pelo contato! Vou responder no e-mail informado.",
+    "formError": "Não foi possível enviar. Confira o nome, o e-mail e a mensagem e tente de novo, ou escreva para alexpmr@gmail.com.",
+    "formLimit": "Limite de mensagens de hoje atingido nesta conexão. Tente amanhã ou escreva para alexpmr@gmail.com."
   },
   "en": {
     "navHome": "Home",
@@ -68,7 +78,17 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "tagline": "Technology, experimentation and amateur radio connecting people and ideas.",
     "contactTitle": "Questions, difficulties or suggestions?",
     "contactText": "Found a problem, need help setting up an application, or have an idea for improvement? Comments, suggestions, corrections and bug reports are always welcome. Contact me directly.",
-    "emailLabel": "Email"
+    "emailLabel": "Email",
+    "formTitle": "Or write here",
+    "formLead": "Your message goes to my e-mail and I reply to the address you enter.",
+    "formName": "Name",
+    "formEmail": "Your e-mail",
+    "formSubject": "Subject (optional)",
+    "formMessage": "Message",
+    "formSend": "Send message",
+    "formSent": "Message sent. Thanks for getting in touch! I'll reply to the e-mail you entered.",
+    "formError": "The message could not be sent. Check your name, e-mail and message and try again, or write to alexpmr@gmail.com.",
+    "formLimit": "Today's message limit for this connection was reached. Try again tomorrow or write to alexpmr@gmail.com."
   },
   "es": {
     "navHome": "Inicio",
@@ -103,7 +123,17 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "tagline": "Tecnología, experimentación y radioafición conectando personas e ideas.",
     "contactTitle": "¿Dudas, dificultades o sugerencias?",
     "contactText": "¿Encontró un problema, necesita ayuda con una aplicación o quiere proponer mejoras? Los comentarios, sugerencias, correcciones y errores detectados son bienvenidos. Contácteme.",
-    "emailLabel": "Correo electrónico"
+    "emailLabel": "Correo electrónico",
+    "formTitle": "O escriba aquí",
+    "formLead": "El mensaje llega a mi correo y respondo a la dirección que indique.",
+    "formName": "Nombre",
+    "formEmail": "Su correo electrónico",
+    "formSubject": "Asunto (opcional)",
+    "formMessage": "Mensaje",
+    "formSend": "Enviar mensaje",
+    "formSent": "Mensaje enviado. ¡Gracias por escribir! Responderé al correo indicado.",
+    "formError": "No se pudo enviar el mensaje. Revise el nombre, el correo y el mensaje e inténtelo de nuevo, o escriba a alexpmr@gmail.com.",
+    "formLimit": "Se alcanzó el límite de mensajes de hoy desde esta conexión. Inténtelo mañana o escriba a alexpmr@gmail.com."
   },
   "fr": {
     "navHome": "Accueil",
@@ -138,7 +168,17 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "tagline": "Technologie, expérimentation et radioamateurisme pour relier les personnes et les idées.",
     "contactTitle": "Questions, difficultés ou suggestions ?",
     "contactText": "Vous avez rencontré un problème, besoin d'aide ou une proposition ? Vos commentaires, corrections, idées et signalements de bugs sont les bienvenus. Contactez-moi.",
-    "emailLabel": "E-mail"
+    "emailLabel": "E-mail",
+    "formTitle": "Ou écrivez ici",
+    "formLead": "Le message arrive dans ma boîte e-mail et je réponds à l'adresse indiquée.",
+    "formName": "Nom",
+    "formEmail": "Votre e-mail",
+    "formSubject": "Objet (facultatif)",
+    "formMessage": "Message",
+    "formSend": "Envoyer le message",
+    "formSent": "Message envoyé. Merci de votre message ! Je répondrai à l'adresse indiquée.",
+    "formError": "Le message n'a pas pu être envoyé. Vérifiez le nom, l'e-mail et le message puis réessayez, ou écrivez à alexpmr@gmail.com.",
+    "formLimit": "La limite de messages du jour pour cette connexion est atteinte. Réessayez demain ou écrivez à alexpmr@gmail.com."
   },
   "de": {
     "navHome": "Startseite",
@@ -173,7 +213,17 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "tagline": "Technik, Experimentieren und Amateurfunk verbinden Menschen und Ideen.",
     "contactTitle": "Fragen, Probleme oder Vorschläge?",
     "contactText": "Ein Problem gefunden, Hilfe bei der Einrichtung benötigt oder eine Verbesserungsidee? Kommentare, Korrekturen und Fehlermeldungen sind willkommen. Kontaktieren Sie mich.",
-    "emailLabel": "E-Mail"
+    "emailLabel": "E-Mail",
+    "formTitle": "Oder hier schreiben",
+    "formLead": "Die Nachricht kommt in meinem Postfach an, und ich antworte an die angegebene Adresse.",
+    "formName": "Name",
+    "formEmail": "Ihre E-Mail",
+    "formSubject": "Betreff (optional)",
+    "formMessage": "Nachricht",
+    "formSend": "Nachricht senden",
+    "formSent": "Nachricht gesendet. Danke für Ihre Nachricht! Ich antworte an die angegebene E-Mail-Adresse.",
+    "formError": "Die Nachricht konnte nicht gesendet werden. Prüfen Sie Name, E-Mail und Nachricht und versuchen Sie es erneut, oder schreiben Sie an alexpmr@gmail.com.",
+    "formLimit": "Das heutige Nachrichtenlimit für diese Verbindung ist erreicht. Versuchen Sie es morgen erneut oder schreiben Sie an alexpmr@gmail.com."
   },
   "it": {
     "navHome": "Home",
@@ -208,7 +258,17 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "tagline": "Tecnologia, sperimentazione e radiantismo che uniscono persone e idee.",
     "contactTitle": "Domande, difficoltà o suggerimenti?",
     "contactText": "Hai trovato un problema, hai bisogno di aiuto o vuoi proporre un miglioramento? Commenti, correzioni, idee e segnalazioni sono benvenuti. Contattami.",
-    "emailLabel": "E-mail"
+    "emailLabel": "E-mail",
+    "formTitle": "Oppure scrivi qui",
+    "formLead": "Il messaggio arriva nella mia casella e-mail e rispondo all'indirizzo indicato.",
+    "formName": "Nome",
+    "formEmail": "La tua e-mail",
+    "formSubject": "Oggetto (facoltativo)",
+    "formMessage": "Messaggio",
+    "formSend": "Invia messaggio",
+    "formSent": "Messaggio inviato. Grazie per avermi scritto! Risponderò all'indirizzo indicato.",
+    "formError": "Impossibile inviare il messaggio. Controlla nome, e-mail e messaggio e riprova, oppure scrivi a alexpmr@gmail.com.",
+    "formLimit": "Raggiunto il limite di messaggi di oggi da questa connessione. Riprova domani o scrivi a alexpmr@gmail.com."
   },
   "zh": {
     "navHome": "首页",
@@ -243,6 +303,16 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "tagline": "技术、实验与业余无线电，连接人与思想。",
     "contactTitle": "有疑问、遇到困难或有建议？",
     "contactText": "发现问题、需要软件设置帮助或希望提出改进建议？欢迎发送评论、修正意见、功能创意和错误报告，直接联系我。",
-    "emailLabel": "电子邮件"
+    "emailLabel": "电子邮件",
+    "formTitle": "或者在这里留言",
+    "formLead": "留言会发送到我的邮箱，我会回复到你填写的地址。",
+    "formName": "姓名",
+    "formEmail": "你的电子邮件",
+    "formSubject": "主题（可选）",
+    "formMessage": "留言",
+    "formSend": "发送留言",
+    "formSent": "留言已发送。感谢联系！我会回复到你填写的邮箱。",
+    "formError": "留言未能发送。请检查姓名、电子邮件和留言后重试，或写信至 alexpmr@gmail.com。",
+    "formLimit": "此连接今天的留言次数已达上限。请明天再试，或写信至 alexpmr@gmail.com。"
   }
 };

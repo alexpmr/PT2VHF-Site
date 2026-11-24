@@ -6,6 +6,20 @@ Nenhum item pendente (conferido em produção em 23/11/2026).
 
 ## Concluídos
 
+### RESOLVIDO (24/11/2026) — Formulário de contato por e-mail em /contato
+
+- **Origem:** a IA da Hostinger criou o formulário (commits `c8eb0e9` e `93604b7`), mas o `contato.html` dela
+  trocava a página inteira: sumiam o menu de projetos, o seletor de 7 idiomas, o WhatsApp, a lista "Ao relatar um
+  problema" e a contagem do `/stats`. O `enviar-contato.php` não tinha limite de envios e mandava o assunto sem
+  codificação UTF-8.
+- **Feito (escolha do Alex):** página anterior restaurada, com o formulário "Ou escreva por aqui" entre os canais e a
+  lista de ajuda, no visual do site e traduzido nos 7 idiomas (`contact-data.js`). `enviar-contato.php` no padrão do
+  `testers.php`: assunto e nome em UTF-8, envelope `nao-responda@pt2vhf.com`, Reply-To de quem escreveu, armadilha
+  anti-robô, limite de 5 mensagens por IP e 60 por dia (HMAC com chave diária, sem gravar IP), nada mais é gravado.
+  Respostas: `/contato?contato=ok|erro|limite#formulario`.
+- Testes: `scripts/test_contact.php` (sendmail falso) e `scripts/test_site_navigation.cjs` (expressão das rotas
+  atualizada para a rota `privacidade`).
+
 ### RESOLVIDO (23/11/2026) — Página de estatísticas de visitas em /stats
 
 - **Pedido do Alex:** página www.pt2vhf.com/stats com estatísticas de quem visita o site, só para ele, sem link no
