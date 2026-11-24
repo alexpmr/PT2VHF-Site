@@ -42,6 +42,10 @@ Nenhum item pendente.
 - **Verificado em produção (24/11/2026):** o Alex criou o `smtp.env`; o `/stats` reconheceu smtp.hostinger.com:465 (SSL)
   e o teste chegou ao Gmail com remetente alex@pt2vhf.com, junto com 2 mensagens guardadas. A terceira foi recusada por
   logins SMTP seguidos; o reenvio passou a esperar 2 s entre os envios (commits `08735cb` e `1b7d224`).
+- **Troca a pedido do Alex (24/11/2026):** o `smtp.env` passou a usar o SMTP do Gmail (smtp.gmail.com:465, conta
+  alexpmr@gmail.com com senha de app), para as notificações chegarem como "Site PT2VHF" <alexpmr@gmail.com>.
+  Teste do `/stats` conferido na caixa de entrada. Nenhuma mudança de código; a caixa alex@pt2vhf.com deixou de ser
+  usada pelo site.
 
 ### RESOLVIDO (24/11/2026) — Site no idioma do navegador e todas as páginas nos 7 idiomas
 
