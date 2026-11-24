@@ -24,6 +24,7 @@ URL = "https://www.pt2vhf.com/downloads/aprs-client/"
 
 
 def files_for(v: str):
+    WIN7 = "Windows 7 SP1 64 bits (edição Legacy): a interface abre numa janela do Chrome, Chromium ou Brave. Windows XP e Windows 7 32 bits não são suportados."
     mac_arm = "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou superior. Não funciona em Macs Intel."
     # Raspberry Pi (Linux ARM64) e Mac Intel saíram dos downloads em 22/11/2026.
     return [
@@ -31,6 +32,9 @@ def files_for(v: str):
         ("windows-portable", "win-portable-x64", "x64", "windows-x64", f"PT2VHF_APRS_Client_Portable_x64_v{v}.exe", "PT2VHF APRS Client x64"),
         ("windows-installer", "win-setup-arm64", "ARM64", "windows-arm64", f"PT2VHF_APRS_Client_Setup_ARM64_v{v}.exe", "PT2VHF APRS Client ARM64"),
         ("windows-portable", "win-portable-arm64", "ARM64", "windows-arm64", f"PT2VHF_APRS_Client_Portable_ARM64_v{v}.exe", "PT2VHF APRS Client ARM64"),
+        # Win7 Legacy (Windows 7 SP1 x64) publicado no site desde 24/11/2026 (v2.0.5).
+        ("windows-installer", "win7-setup-x64", "x64 · Windows 7", "windows-x64", f"PT2VHF_APRS_Client_Setup_Win7_Legacy_x64_v{v}.exe", WIN7),
+        ("windows-portable", "win7-portable-x64", "x64 · Windows 7", "windows-x64", f"PT2VHF_APRS_Client_Win7_Legacy_Portable_x64_v{v}.exe", WIN7),
         ("linux-appimage", "linux-appimage-x64", "x64", "linux-x64", f"PT2VHF_APRS_Client_x86_64_v{v}.AppImage", "PT2VHF APRS Client x64"),
         ("linux-deb", "linux-deb-x64", "x64", "linux-x64", f"pt2vhf-aprs-client_{v}_amd64.deb", "PT2VHF APRS Client x64"),
         ("linux-targz", "linux-tar-x64", "x64", "linux-x64", f"PT2VHF_APRS_Client_Linux_x86_64_v{v}.tar.gz", "PT2VHF APRS Client x64"),

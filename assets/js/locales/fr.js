@@ -421,6 +421,7 @@ window.PT2VHF_I18N["fr"] = {
     "Android 8+; APK experimental. Certificado debug diferente das versões anteriores: requer desinstalação prévia.": "Android 8+ ; APK expérimental. Certificat de débogage différent des versions précédentes : désinstallez d’abord l’ancienne.",
     "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute ./pt2vhf-sdr na pasta PT2VHF-SDR-Tool": "Linux x64 (glibc 2.35+, p. ex. Ubuntu 22.04+) ; extrayez puis lancez ./pt2vhf-sdr dans le dossier PT2VHF-SDR-Tool",
     "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute o arquivo PT2VHF-Sat-Tool-v<versão> da pasta": "Linux x64 (glibc 2.35+, p. ex. Ubuntu 22.04+) ; extrayez puis lancez le fichier PT2VHF-Sat-Tool-v<version> du dossier",
+    "Windows 7 SP1 64 bits (edição Legacy): a interface abre numa janela do Chrome, Chromium ou Brave. Windows XP e Windows 7 32 bits não são suportados.": "Windows 7 SP1 64 bits (édition Legacy) : l’interface s’ouvre dans une fenêtre Chrome, Chromium ou Brave. Windows XP et Windows 7 32 bits ne sont pas pris en charge.",
     "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou superior. Não funciona em Macs Intel.": "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou ultérieur. Ne fonctionne pas sur les Mac Intel.",
     "Outras distribuições e macOS (Python 3.10+ com Tkinter)": "Autres distributions et macOS (Python 3.10+ avec Tkinter)",
     "SHA-256 dos arquivos da versão": "SHA-256 des fichiers de la version",

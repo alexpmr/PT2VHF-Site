@@ -291,6 +291,30 @@
           "version": "2.0.5"
         },
         {
+          "category": "windows-installer",
+          "counterKey": "win7-setup-x64",
+          "architecture": "x64 · Windows 7",
+          "platform": "windows-x64",
+          "name": "PT2VHF_APRS_Client_Setup_Win7_Legacy_x64_v2.0.5.exe",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Setup_Win7_Legacy_x64_v2.0.5.exe",
+          "size": 16682329,
+          "sha256": "b01280d63b59c1a371fa98eca67eaf745d47c9001434ec614c835912237d4efe",
+          "detail": "Windows 7 SP1 64 bits (edição Legacy): a interface abre numa janela do Chrome, Chromium ou Brave. Windows XP e Windows 7 32 bits não são suportados.",
+          "version": "2.0.5"
+        },
+        {
+          "category": "windows-portable",
+          "counterKey": "win7-portable-x64",
+          "architecture": "x64 · Windows 7",
+          "platform": "windows-x64",
+          "name": "PT2VHF_APRS_Client_Win7_Legacy_Portable_x64_v2.0.5.exe",
+          "url": "https://www.pt2vhf.com/downloads/aprs-client/PT2VHF_APRS_Client_Win7_Legacy_Portable_x64_v2.0.5.exe",
+          "size": 14770745,
+          "sha256": "8e8f6d95d3277b65838a29e8447239ec00cdc13fea6f7993b3d9b9fbab0bf299",
+          "detail": "Windows 7 SP1 64 bits (edição Legacy): a interface abre numa janela do Chrome, Chromium ou Brave. Windows XP e Windows 7 32 bits não são suportados.",
+          "version": "2.0.5"
+        },
+        {
           "category": "linux-appimage",
           "counterKey": "linux-appimage-x64",
           "architecture": "x64",
@@ -366,6 +390,18 @@
           "counterKey": "win-portable-arm64",
           "architecture": "ARM64",
           "name": "PT2VHF_APRS_Client_Portable_ARM64_v2.0.5.exe"
+        },
+        {
+          "category": "windows-installer",
+          "counterKey": "win7-setup-x64",
+          "architecture": "x64 · Windows 7",
+          "name": "PT2VHF_APRS_Client_Setup_Win7_Legacy_x64_v2.0.5.exe"
+        },
+        {
+          "category": "windows-portable",
+          "counterKey": "win7-portable-x64",
+          "architecture": "x64 · Windows 7",
+          "name": "PT2VHF_APRS_Client_Win7_Legacy_Portable_x64_v2.0.5.exe"
         },
         {
           "category": "linux-appimage",

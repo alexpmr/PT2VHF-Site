@@ -421,6 +421,7 @@ window.PT2VHF_I18N["zh"] = {
     "Android 8+; APK experimental. Certificado debug diferente das versões anteriores: requer desinstalação prévia.": "Android 8+；实验性 APK。调试证书与旧版本不同：需先卸载旧版。",
     "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute ./pt2vhf-sdr na pasta PT2VHF-SDR-Tool": "Linux x64（glibc 2.35+，如 Ubuntu 22.04+）；解压后在 PT2VHF-SDR-Tool 文件夹中运行 ./pt2vhf-sdr",
     "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute o arquivo PT2VHF-Sat-Tool-v<versão> da pasta": "Linux x64（glibc 2.35+，如 Ubuntu 22.04+）；解压后运行文件夹中的 PT2VHF-Sat-Tool-v<版本> 文件",
+    "Windows 7 SP1 64 bits (edição Legacy): a interface abre numa janela do Chrome, Chromium ou Brave. Windows XP e Windows 7 32 bits não são suportados.": "Windows 7 SP1 64 位（Legacy 版）：界面在 Chrome、Chromium 或 Brave 窗口中打开。不支持 Windows XP 和 32 位 Windows 7。",
     "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou superior. Não funciona em Macs Intel.": "Apple Silicon Mac（M1/M2/M3/M4 等），macOS 11 或更高版本。不支持 Intel Mac。",
     "Outras distribuições e macOS (Python 3.10+ com Tkinter)": "其他发行版和 macOS（Python 3.10+，需 Tkinter）",
     "SHA-256 dos arquivos da versão": "本版本文件的 SHA-256",
