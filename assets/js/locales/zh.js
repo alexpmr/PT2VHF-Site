@@ -27,6 +27,8 @@ window.PT2VHF_I18N["zh"] = {
     "contactIntro": "联系 PT2VHF。",
     "contactButton": "发送邮件",
     "footerRights": "保留所有权利。",
+    "skipLink": "跳到正文",
+    "breadcrumbLabel": "当前位置",
     "detailHome": "首页",
     "downloadsButton": "查看下载",
     "featuresButton": "了解功能",

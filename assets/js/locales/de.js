@@ -27,6 +27,8 @@ window.PT2VHF_I18N["de"] = {
     "contactIntro": "Kontaktieren Sie PT2VHF.",
     "contactButton": "E-Mail senden",
     "footerRights": "Alle Rechte vorbehalten.",
+    "skipLink": "Zum Inhalt springen",
+    "breadcrumbLabel": "Sie sind hier",
     "detailHome": "Startseite",
     "downloadsButton": "Downloads ansehen",
     "featuresButton": "Funktionen entdecken",

@@ -92,6 +92,9 @@
       if (selectedLang === "pt") el.textContent = original;
       else if (staticText[original]) el.textContent = staticText[original];
     });
+    textAt("a.skip", "skipLink");
+    var crumb = document.querySelector("nav.breadcrumb");
+    if (crumb) crumb.setAttribute("aria-label", t("breadcrumbLabel"));
     var heroCaption = document.getElementById("prop-hero-caption");
     if (heroCaption) {
       var heroText = window.PT2VHF_I18N_CAPTION({captionId:"propLive",caption:"Mapa de calor e monitoramento de bandas em operação"});
@@ -743,13 +746,14 @@
   function renderStations() {
     var section = document.querySelector("[data-stations-product]");
     var body = document.getElementById("stations-body");
-    if (!section || !body || !stationsData) return;
+    if (!section || !body) return;
     var current = products.filter(function (p) { return p.id === programId; })[0];
     var app = (current && current.name) || "";
     var title = document.getElementById("stations-title");
-    if (title) title.textContent = t("stationsTitle").replace("{app}", app);
+    if (title && app) title.textContent = t("stationsTitle").replace("{app}", app);
     var intro = document.getElementById("stations-intro");
     if (intro) intro.textContent = t("stationsIntro");
+    if (!stationsData) return;
     var list = stationsData.countries || [];
     var fmt = new Intl.NumberFormat(LOCALES[selectedLang]);
     if (!list.length) {
