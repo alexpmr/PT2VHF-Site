@@ -1,5 +1,8 @@
 # Regras do mantenedor para todos os projetos PT2VHF
 
+- **Nunca gerar build, release ou versão nova sem pedido explícito do mantenedor** — nem indiretamente: commits que
+  só registram backlog ou documentação em repositórios de apps levam `[skip ci]` na mensagem, para não disparar
+  workflows de build no GitHub Actions.
 - Mensagens que começam com **"Roadmap:"** ou **"Backlog:"** só registram o item no `BACKLOG.md`
   do projeto; não implementar até o pedido de versão nova.
 - **"Gerar versão nova"** de qualquer projeto significa, nesta ordem:
