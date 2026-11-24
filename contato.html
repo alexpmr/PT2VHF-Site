@@ -194,10 +194,15 @@
       var FROM_URL = { ok: "ok", erro: "invalid", limite: "limit", falha: "error" };
       function lang() { return (document.documentElement.lang || "pt").slice(0, 2).toLowerCase(); }
       function text(key) { var all = window.PT2VHF_SITE_PAGE_I18N || {}; return (all[lang()] || all.pt || {})[key] || ""; }
-      function show(status) {
+      // fields: campos recusados pelo servidor. Indicativo inválido ganha aviso próprio.
+      function show(status, fields) {
         if (!box) return;
-        box.setAttribute("data-contact", KEYS[status]); // o main.js traduz ao trocar de idioma
-        box.textContent = text(KEYS[status]);
+        var keys = [KEYS[status]];
+        if (status === "invalid" && fields && fields.indexOf("indicativo") !== -1) {
+          keys = fields.length === 1 ? ["formCallsignError"] : [KEYS[status], "formCallsignError"];
+        }
+        box.setAttribute("data-contact", keys[0]); // o main.js traduz ao trocar de idioma
+        box.textContent = keys.map(text).join(" ");
         box.className = "contact-form-status is-" + status;
         box.hidden = false;
       }
@@ -221,7 +226,7 @@
             Array.prototype.forEach.call(form.querySelectorAll("[aria-invalid]"), function (el) { el.removeAttribute("aria-invalid"); });
             ((r && r.fields) || []).forEach(function (name) { if (form.elements[name]) form.elements[name].setAttribute("aria-invalid", "true"); });
             if (status === "ok") form.reset(); // limpa só depois do envio confirmado
-            show(status);
+            show(status, r && r.fields);
             button.disabled = false;
             button.textContent = text("formSend") || button.textContent;
             box.focus({ preventScroll: true });
@@ -232,7 +237,7 @@
       window.addEventListener("pageshow", function () { form.querySelector("button").disabled = false; });
     })();
   </script>
-  <script src="/assets/js/contact-data.js?v=20261124-produto"></script>
+  <script src="/assets/js/contact-data.js?v=20261124-indicativo2"></script>
   <script src="/assets/js/main.js?v=20261124-i18n"></script>
   <script src="/assets/js/visit.js?v=20261123-stats" defer></script>
 </body>

@@ -51,7 +51,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formProductChoose": "Escolha o produto",
     "formProductAprsPc": "Cliente APRS para PC",
     "formProductAprsMobile": "Cliente APRS para Android/iOS",
-    "formProductOther": "Outros"
+    "formProductOther": "Outros",
+    "formCallsignError": "Indicativo inválido: use letras e números, como PY2XYZ, ou deixe o campo em branco."
   },
   "en": {
     "navHome": "Home",
@@ -104,7 +105,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formProductChoose": "Choose a product",
     "formProductAprsPc": "APRS Client for PC",
     "formProductAprsMobile": "APRS Client for Android/iOS",
-    "formProductOther": "Other"
+    "formProductOther": "Other",
+    "formCallsignError": "Invalid callsign: use letters and numbers, like PY2XYZ, or leave the field blank."
   },
   "es": {
     "navHome": "Inicio",
@@ -157,7 +159,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formProductChoose": "Elija el producto",
     "formProductAprsPc": "Cliente APRS para PC",
     "formProductAprsMobile": "Cliente APRS para Android/iOS",
-    "formProductOther": "Otros"
+    "formProductOther": "Otros",
+    "formCallsignError": "Indicativo no válido: use letras y números, como PY2XYZ, o deje el campo en blanco."
   },
   "fr": {
     "navHome": "Accueil",
@@ -210,7 +213,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formProductChoose": "Choisissez le produit",
     "formProductAprsPc": "Client APRS pour PC",
     "formProductAprsMobile": "Client APRS pour Android/iOS",
-    "formProductOther": "Autres"
+    "formProductOther": "Autres",
+    "formCallsignError": "Indicatif invalide : utilisez des lettres et des chiffres, comme PY2XYZ, ou laissez le champ vide."
   },
   "de": {
     "navHome": "Startseite",
@@ -263,7 +267,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formProductChoose": "Produkt auswählen",
     "formProductAprsPc": "APRS-Client für PC",
     "formProductAprsMobile": "APRS-Client für Android/iOS",
-    "formProductOther": "Sonstiges"
+    "formProductOther": "Sonstiges",
+    "formCallsignError": "Ungültiges Rufzeichen: Verwenden Sie Buchstaben und Ziffern wie PY2XYZ oder lassen Sie das Feld leer."
   },
   "it": {
     "navHome": "Home",
@@ -316,7 +321,8 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formProductChoose": "Scegli il prodotto",
     "formProductAprsPc": "Client APRS per PC",
     "formProductAprsMobile": "Client APRS per Android/iOS",
-    "formProductOther": "Altro"
+    "formProductOther": "Altro",
+    "formCallsignError": "Nominativo non valido: usa lettere e numeri, come PY2XYZ, oppure lascia il campo vuoto."
   },
   "zh": {
     "navHome": "首页",
@@ -369,6 +375,7 @@ window.PT2VHF_SITE_PAGE_I18N = {
     "formProductChoose": "选择产品",
     "formProductAprsPc": "PC 版 APRS 客户端",
     "formProductAprsMobile": "Android/iOS 版 APRS 客户端",
-    "formProductOther": "其他"
+    "formProductOther": "其他",
+    "formCallsignError": "呼号无效：请使用字母和数字（如 PY2XYZ），或留空。"
   }
 };
