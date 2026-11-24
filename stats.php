@@ -288,8 +288,13 @@ code{font-size:.85em;overflow-wrap:anywhere}
       <p>Envio por SMTP: <b><?= h($smtp['host']) ?></b>, porta <?= (int)$smtp['port'] ?> (<?= h(strtoupper($smtp['security'])) ?>), conta <?= h(preg_replace('/^(.).*(@.*)$/', '$1***$2', $smtp['username'])) ?>.</p>
     <?php elseif ($smtpProblem): ?>
       <p>O arquivo <code>smtp.json</code> existe, mas tem um problema: <b><?= h($smtpProblem) ?></b>.</p>
-    <?php else: ?>
+    <?php else:
+      $misplaced = array();
+      foreach (array(__DIR__ . '/smtp.json', __DIR__ . '/smtp.json.txt', __DIR__ . '/pt2vhf-private-data/smtp.json', pt2vhf_private_dir() . '/smtp.json.txt') as $f) {
+          if (is_file($f)) $misplaced[] = basename(dirname($f)) . '/' . basename($f);
+      } ?>
       <p>Sem <code>smtp.json</code>: o site tenta o <code>mail()</code> do PHP, que a Hostinger não entrega.</p>
+      <?php if ($misplaced): ?><p class="mail-result is-err">Achei o arquivo no lugar ou nome errado: <code><?= h(implode(', ', $misplaced)) ?></code>. Ele precisa se chamar <code>smtp.json</code> e ficar em <code>pt2vhf-private-data</code>, na pasta acima do <code>public_html</code>.</p><?php endif; ?>
     <?php endif; ?>
     <?php if ($mailResult): ?><p class="mail-result <?= $mailResult['ok'] ? 'is-ok' : 'is-err' ?>" role="status"><?= h($mailResult['text']) ?></p><?php endif; ?>
     <form method="post" action="/stats#email"><input type="hidden" name="action" value="mailtest">
