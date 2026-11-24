@@ -89,20 +89,20 @@ window.PT2VHF_I18N["de"] = {
     "detailsProgTar": "Andere Distributionen und macOS (Python 3.10+ mit Tkinter)"
   },
   "captions": {
-    "qslEstatisticasBasicas": "Basic stats from a real log with 65,289 QSOs",
-    "qslEstacoesTrabalhadas": "Stations worked, with bands, modes and slots",
-    "qslMapaAtividade": "Activity map: band × month",
-    "qslBandasModos": "Bands and modes: QSOs and callsigns per mode",
-    "qslBandasModos10m": "Bands/modes filtered by band (10 m)",
-    "qslDxccLocator": "QSOs per DXCC entity and grid square",
-    "qslDxccLocator10m": "DXCC/locator filtered by band",
-    "qslHistorico": "Historical charts: QSOs and DXCC per year",
-    "qslPontos": "Points per callsign",
-    "qslStatusQsl": "QSL status and DXCC per band",
-    "qslDashboard": "Dashboard with totals, bands, years and DXCC map",
-    "qslBi": "Interactive charts: one click filters the whole view",
-    "qslDatabase": "Clearing the database by station callsign",
-    "qslReport": "Report builder with PDF preview",
+    "qslEstatisticasBasicas": "Grundstatistik eines echten Logs mit 65.289 QSOs",
+    "qslEstacoesTrabalhadas": "Gearbeitete Stationen mit Bändern, Betriebsarten und Slots",
+    "qslMapaAtividade": "Aktivitätskarte: Band × Monat",
+    "qslBandasModos": "Bänder und Betriebsarten: QSOs und Rufzeichen je Betriebsart",
+    "qslBandasModos10m": "Bänder/Betriebsarten nach Band gefiltert (10 m)",
+    "qslDxccLocator": "QSOs je DXCC-Gebiet und Locator",
+    "qslDxccLocator10m": "DXCC/Locator nach Band gefiltert",
+    "qslHistorico": "Verlaufsdiagramme: QSOs und DXCC pro Jahr",
+    "qslPontos": "Punkte je Rufzeichen",
+    "qslStatusQsl": "QSL-Status und DXCC je Band",
+    "qslDashboard": "Dashboard mit Summen, Bändern, Jahren und DXCC-Karte",
+    "qslBi": "Interaktive Diagramme: ein Klick filtert die ganze Ansicht",
+    "qslDatabase": "Bereinigen der Datenbank nach Stationsrufzeichen",
+    "qslReport": "Berichtsgenerator mit PDF-Vorschau",
     "propLive": "Heatmap, aktuelle Bänder und Weltraumwetter — echter Screenshot",
     "propOverview": "Hauptübersicht — dunkles Design",
     "propBands": "Bandauswertung",
@@ -249,6 +249,12 @@ window.PT2VHF_I18N["de"] = {
         "Beobachtete geografische Ziele, Azimut und Entfernung",
         "Lokaler Assistent, Empfangsverlauf, Designs und Sprachen",
         "Windows-10/11-x64-Installer und Portable-Version mit OTA über pt2vhf.com"
+      ],
+      "requirements": [
+        "Windows 10 oder 11, 64 Bit",
+        "Internetverbindung zum Abrufen von Ausbreitungs- und Weltraumwetterquellen",
+        "Installierte oder portable Programmdatei; Node.js oder Python müssen nicht installiert werden",
+        "Lokales VOACAP erfordert bei Nutzung die Installation/Konfiguration der externen Engine"
       ]
     },
     "mesh": {
@@ -305,6 +311,28 @@ window.PT2VHF_I18N["de"] = {
         "Android 8.0 oder neuer",
         "Installation per APK von der Website: „Unbekannte Apps installieren“ erlauben, wenn Android fragt",
         "Berechtigungen für Standort (Bake/Tracker), Benachrichtigungen, Bluetooth (TNC), Mikrofon (Audiomodem) und USB (USB-OTG-TNC)"
+      ],
+      "supported": [
+        {
+          "name": "TNC KISS Bluetooth",
+          "detail": "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 und ähnliche (SPP)"
+        },
+        {
+          "name": "APRS-IS",
+          "detail": "aprs2.net-Netz oder eigener Server"
+        },
+        {
+          "name": "TNC KISS TCP",
+          "detail": "Dire Wolf oder TNC im lokalen Netzwerk"
+        },
+        {
+          "name": "AFSK-1200-Audiomodem",
+          "detail": "Smartphone als TNC, per Kabel, USB-Soundkarte oder Bluetooth; PTT über VOX oder Interface"
+        },
+        {
+          "name": "TNC KISS USB-OTG",
+          "detail": "CDC-ACM (Mobilinkd, NinoTNC, Funkgeräte mit USB), FTDI und CP210x"
+        }
       ]
     },
     "aprs": {
@@ -358,32 +386,64 @@ window.PT2VHF_I18N["de"] = {
       ]
     },
     "qsl": {
-      "summary": "Manage your amateur radio contacts: complete log, QSL confirmations, awards, sync with QRZ.com, LoTW, eQSL and Club Log, statistics and reports.",
-      "cardSummary": "Contact and QSL confirmation manager with sync, awards and statistics.",
-      "tagline": "Your log on your computer, synced with QRZ.com, LoTW, eQSL and Club Log",
+      "summary": "Verwalten Sie Ihre Amateurfunkkontakte: vollständiges Log, QSL-Bestätigungen, Diplome, Synchronisierung mit QRZ.com, LoTW, eQSL und Club Log, Statistiken und Berichte.",
+      "cardSummary": "Kontakt- und QSL-Bestätigungsverwaltung mit Synchronisierung, Diplomen und Statistiken.",
+      "tagline": "Ihr Log auf Ihrem Computer, synchronisiert mit QRZ.com, LoTW, eQSL und Club Log",
       "description": [
-        "PT2VHF QSL Manager keeps your whole amateur radio log in a local database on your computer. Import ADIF, ADX, Cabrillo, EDI and CSV files or download directly from QRZ.com, LoTW, eQSL and Club Log: repeated contacts are skipped and QSL confirmations are updated.",
-        "Add, edit and delete contacts, upload and sync your log with each platform (LoTW through ARRL TQSL) and track what has been uploaded and confirmed. Logs from several stations share the same database.",
-        "Click a callsign, country or grid to see everything you did with it, including the station photo and data from QRZ.com. The QSL tab shows confirmations, awards (DXCC, WAZ, WAS, WPX, VUCC, IOTA) and what is still to be confirmed.",
-        "Complete statistics, propagation over the months, log health, PDF reports and full backup with restore."
+        "PT2VHF QSL Manager speichert Ihr gesamtes Amateurfunk-Log in einer lokalen Datenbank auf Ihrem Computer. Importieren Sie ADIF-, ADX-, Cabrillo-, EDI- und CSV-Dateien oder laden Sie direkt von QRZ.com, LoTW, eQSL und Club Log herunter: doppelte Kontakte werden übersprungen und QSL-Bestätigungen aktualisiert.",
+        "Kontakte hinzufügen, bearbeiten und löschen, das Log zu jeder Plattform hochladen und synchronisieren (LoTW über ARRL TQSL) und verfolgen, was hochgeladen und bestätigt wurde. Logs mehrerer Stationen teilen sich dieselbe Datenbank.",
+        "Klicken Sie auf ein Rufzeichen, ein Land oder einen Locator, um alles zu sehen, was Sie damit gearbeitet haben, einschließlich Stationsfoto und Daten von QRZ.com. Der Reiter QSL zeigt Bestätigungen, Diplome (DXCC, WAZ, WAS, WPX, VUCC, IOTA) und was noch zu bestätigen ist.",
+        "Vollständige Statistiken, Ausbreitung über die Monate, Log-Zustand, PDF-Berichte und vollständige Sicherung mit Wiederherstellung."
       ],
       "features": [
-        "Contacts: add, edit and delete, with country, DXCC and zones filled in automatically",
-        "Import ADIF, ADX, Cabrillo, EDI and CSV with progress, without duplicates",
-        "Platforms: download, upload and sync with QRZ.com, LoTW (via TQSL), eQSL and Club Log, from 1980",
-        "QSL status (paper, LoTW, eQSL), awards and what is still to be confirmed",
-        "Cards for callsigns, countries and grids, with QRZ.com/HamQTH photo and data",
-        "20 detailed statistics, propagation, period comparison, contests and log health",
-        "Interactive charts, collapsible filters, saved views and PDF reports",
-        "Full backup (.qslbackup) with optional protected passwords, restore and automatic backup",
-        "Automatic updates from the official site; Portuguese, English and Spanish interface"
+        "Kontakte: hinzufügen, bearbeiten und löschen; Land, DXCC und Zonen werden automatisch ausgefüllt",
+        "Import von ADIF, ADX, Cabrillo, EDI und CSV mit Fortschrittsanzeige, ohne Duplikate",
+        "Plattformen: Herunterladen, Hochladen und Synchronisieren mit QRZ.com, LoTW (über TQSL), eQSL und Club Log, ab 1980",
+        "QSL-Status (Papier, LoTW, eQSL), Diplome und was noch zu bestätigen ist",
+        "Karten zu Rufzeichen, Ländern und Locators mit Foto und Daten von QRZ.com/HamQTH",
+        "20 detaillierte Statistiken, Ausbreitung, Zeitraumvergleich, Conteste und Log-Zustand",
+        "Interaktive Diagramme, einklappbare Filter, gespeicherte Ansichten und PDF-Berichte",
+        "Vollständige Sicherung (.qslbackup) mit optional geschützten Passwörtern, Wiederherstellung und automatischer Sicherung",
+        "Automatische Updates von der offiziellen Website; Oberfläche auf Portugiesisch, Englisch und Spanisch"
       ],
       "requirements": [
-        "Windows 10/11 64-bit: installer or portable",
-        "Linux and macOS: temporarily not in this version; coming back in the next ones",
-        "LoTW upload: ARRL TQSL installed with certificate and Station Location",
-        "Internet only for platforms, station data and updates at www.pt2vhf.com"
+        "Windows 10/11 64 Bit: Installer oder portable Version",
+        "Linux und macOS: in dieser Version vorübergehend nicht enthalten; kommen in den nächsten zurück",
+        "Upload zu LoTW: ARRL TQSL mit Zertifikat und Station Location installiert",
+        "Internet nur für Plattformen, Stationsdaten und Updates über www.pt2vhf.com"
       ]
     }
+  },
+  "fileText": {
+    "Android 8 ou superior": "Android 8 oder neuer",
+    "Android 8+; APK experimental. Certificado debug diferente das versões anteriores: requer desinstalação prévia.": "Android 8+; experimentelle APK. Anderes Debug-Zertifikat als frühere Versionen: vorher deinstallieren.",
+    "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute ./pt2vhf-sdr na pasta PT2VHF-SDR-Tool": "Linux x64 (glibc 2.35+, z. B. Ubuntu 22.04+); entpacken und ./pt2vhf-sdr im Ordner PT2VHF-SDR-Tool starten",
+    "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute o arquivo PT2VHF-Sat-Tool-v<versão> da pasta": "Linux x64 (glibc 2.35+, z. B. Ubuntu 22.04+); entpacken und die Datei PT2VHF-Sat-Tool-v<Version> aus dem Ordner starten",
+    "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou superior. Não funciona em Macs Intel.": "Mac mit Apple Silicon (M1/M2/M3/M4 usw.), macOS 11 oder neuer. Läuft nicht auf Intel-Macs.",
+    "Outras distribuições e macOS (Python 3.10+ com Tkinter)": "Andere Distributionen und macOS (Python 3.10+ mit Tkinter)",
+    "SHA-256 dos arquivos da versão": "SHA-256 der Dateien dieser Version",
+    "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./PT2VHF-Sat-Tool-v<versão>-Linux-x64.deb": "Ubuntu 22.04+ / Linux Mint 21+ 64 Bit; installieren mit: sudo apt install ./PT2VHF-Sat-Tool-v<Version>-Linux-x64.deb",
+    "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./pt2vhf-sdr-tool_{v}_amd64.deb": "Ubuntu 22.04+ / Linux Mint 21+ 64 Bit; installieren mit: sudo apt install ./pt2vhf-sdr-tool_{v}_amd64.deb",
+    "Windows 10 1809+ / 11 64 bits (recomendado)": "Windows 10 1809+ / 11 64 Bit (empfohlen)",
+    "Windows 10 1809+ / 11 64 bits, EXE único sem instalar": "Windows 10 1809+ / 11 64 Bit, einzelne EXE ohne Installation",
+    "Windows 10/11 64 bits (recomendado)": "Windows 10/11 64 Bit (empfohlen)",
+    "Windows 10/11 64 bits, sem instalação": "Windows 10/11 64 Bit, ohne Installation",
+    "Windows 10/11 x64; executável portátil": "Windows 10/11 x64; portable Programmdatei",
+    "Windows 10/11 x64; instalação por usuário": "Windows 10/11 x64; Installation pro Benutzer",
+    "macOS 13+ Apple Silicon (M1 ou superior); arraste para Aplicativos. Sem assinatura da Apple: na primeira vez, clique com o botão direito e escolha Abrir": "macOS 13+ Apple Silicon (M1 oder neuer); in den Ordner Programme ziehen. Ohne Apple-Signatur: beim ersten Mal rechts klicken und Öffnen wählen",
+    "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos": "macOS 14+ Apple Silicon (M1 oder neuer); in den Ordner Programme ziehen",
+    "Android — APK beta": "Android — Beta-APK",
+    "Código-fonte": "Quellcode",
+    "Somas de verificação": "Prüfsummen",
+    "Windows — Instalador": "Windows — Installer",
+    "Windows — Portátil": "Windows — Portable"
+  },
+  "staticText": {
+    "HF · VHF · UHF · PROPAGAÇÃO": "HF · VHF · UHF · AUSBREITUNG",
+    "MESH · MESHTASTIC · TELEMETRIA": "MESH · MESHTASTIC · TELEMETRIE",
+    "SATÉLITES · DOPPLER · CAT": "SATELLITEN · DOPPLER · CAT",
+    "RTL-SDR · WATERFALL · SCANNER": "RTL-SDR · WASSERFALL · SCANNER",
+    "KENWOOD · ICOM · MEMÓRIAS": "KENWOOD · ICOM · SPEICHER",
+    "LOG · QSL · LOTW · QRZ · DIPLOMAS": "LOG · QSL · LOTW · QRZ · DIPLOME"
   }
 };

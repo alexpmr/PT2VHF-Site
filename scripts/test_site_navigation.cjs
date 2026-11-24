@@ -50,8 +50,10 @@ for(const lang of ["pt","en","es","fr","de","it","zh"]){
 const ht=load(".htaccess");
 assert(/\(aprs\|android\|prop\|mesh\|sat\|(?:sdr\|)?prog\|qsl\|contato\|sobre(?:\|privacidade)?\)\/\?/.test(ht),"Falta rota /contato, /sobre, /qsl ou /android");
 const siteJs=load("assets/js/main.js");
-assert(siteJs.includes("contato(?:[?#]|$)"),"Idioma deve persistir ao navegar para /contato");
-assert(siteJs.includes("sobre(?:[?#]|$)"),"Idioma deve persistir ao navegar para /sobre");
+// Idioma = navegador; a troca manual vale para a aba inteira (sessionStorage), em qualquer página.
+assert(siteJs.includes("navigator.languages"),"Idioma deve seguir a lista de idiomas do navegador");
+assert(siteJs.includes('sessionStorage.getItem("pt2vhf-language")')&&siteJs.includes('sessionStorage.setItem("pt2vhf-language"'),"Troca manual de idioma deve valer na aba ao navegar");
+assert(!siteJs.includes('localStorage.setItem("pt2vhf-language"'),"Escolha de idioma não pode ficar salva para sempre");
 for(const name of ["pt2vhf-hero-banner.webp","alex-pt2vhf.webp"]){
  const buffer=fs.readFileSync(path.join(root,"assets/img",name));
  assert(buffer.length>10000,name+": imagem ausente");

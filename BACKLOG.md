@@ -20,6 +20,20 @@
 
 ## Concluídos
 
+### RESOLVIDO (24/11/2026) — Site no idioma do navegador e todas as páginas nos 7 idiomas
+
+- **Pedido do Alex:** o site deve abrir sempre no idioma do sistema/navegador do visitante, e todas as páginas devem ter
+  tradução nos 7 idiomas (pt, en, es, fr, de, it, zh). Os aplicativos não foram alterados.
+- **Idioma:** `main.js` e `page-i18n.js` usam o primeiro idioma da lista do navegador que o site tem (sem nenhum,
+  inglês). O seletor muda o idioma só na aba (sessionStorage); `?lang` e a escolha antiga salva não prendem mais o idioma.
+- **Traduções novas:** QSL Manager em fr/de/it/zh (textos, legendas e changelog), requisitos do Prop Tool, equipamentos
+  do APRS Android, observações e rótulos dos arquivos do `updates.json` (`fileText` nos arquivos de idioma, com `{v}`
+  no lugar da versão), faixas de tópicos das páginas de produto (`staticText`), `/privacidade` completa em 7 idiomas
+  (um bloco por idioma) e `/speed`, `/speed-ios` e `/404` via `assets/js/page-i18n.js`, sem mudar a marcação que os
+  scripts de publicação do Speed reescrevem.
+- **Ao publicar versão nova:** observação nova de arquivo no `updates.json` precisa da tradução em `fileText` dos
+  6 idiomas; sem ela, aparece em português.
+
 ### RESOLVIDO (24/11/2026) — Formulário de contato por e-mail em /contato
 
 - **Origem:** a IA da Hostinger criou o formulário (commits `c8eb0e9` e `93604b7`), mas o `contato.html` dela

@@ -78,6 +78,20 @@
     if (el) el.textContent = t(key);
   }
   function localizeStatic() {
+    // Páginas com uma versão completa por idioma (ex.: /privacidade): mostra a do idioma atual ou, sem ela, a inglesa.
+    var blocks = document.querySelectorAll("[data-lang-block]");
+    if (blocks.length) {
+      var wanted = document.querySelector('[data-lang-block="' + selectedLang + '"]') ? selectedLang : "en";
+      Array.prototype.forEach.call(blocks, function (el) { el.hidden = el.getAttribute("data-lang-block") !== wanted; });
+    }
+    // Faixas de tópicos (eyebrow) escritas em português no HTML: traduzidas por staticText.
+    var staticText = (LANG_DICT[selectedLang] && LANG_DICT[selectedLang].staticText) || {};
+    Array.prototype.forEach.call(document.querySelectorAll(".eyebrow:not([data-contact])"), function (el) {
+      if (!el.hasAttribute("data-pt-text")) el.setAttribute("data-pt-text", el.textContent.trim());
+      var original = el.getAttribute("data-pt-text");
+      if (selectedLang === "pt") el.textContent = original;
+      else if (staticText[original]) el.textContent = staticText[original];
+    });
     var heroCaption = document.getElementById("prop-hero-caption");
     if (heroCaption) {
       var heroText = window.PT2VHF_I18N_CAPTION({captionId:"propLive",caption:"Mapa de calor e monitoramento de bandas em operação"});
@@ -169,6 +183,10 @@
       var suffixes = { pt:"Recursos e downloads", en:"Features and downloads", es:"Funciones y descargas", fr:"Fonctions et téléchargements", de:"Funktionen und Downloads", it:"Funzioni e download", zh:"功能与下载" };
       document.title = currentProduct.name + " — " + suffixes[selectedLang];
       if (meta) meta.setAttribute("content", currentProduct.summary || currentProduct.tagline);
+    } else if (document.querySelector("[data-lang-block]:not([hidden])")) {
+      var shown = document.querySelector("[data-lang-block]:not([hidden])");
+      document.title = shown.getAttribute("data-title") + " — PT2VHF";
+      if (meta) meta.setAttribute("content", shown.getAttribute("data-description"));
     } else if(document.body.classList.contains("contact-page") && siteLanguage) {
       var isAbout=document.body.classList.contains("about-page");
       document.title=siteLanguage[isAbout?"aboutPageTitle":"pageTitle"];
@@ -293,10 +311,23 @@
       .map(function (x) { return x.f; });
   }
 
+  // Observações e rótulos dos arquivos vêm do updates.json em português; o idioma traduz pelo texto
+  // (fileText nos arquivos de idioma), com {v} no lugar da versão. Sem tradução, mostra o original.
+  function fileText(text, version) {
+    if (!text || selectedLang === "pt") return text;
+    var map = (LANG_DICT[selectedLang] && LANG_DICT[selectedLang].fileText) || {};
+    if (map[text]) return map[text];
+    if (version && text.indexOf(version) !== -1) {
+      var key = text.split(version).join("{v}");
+      if (map[key]) return map[key].split("{v}").join(version);
+    }
+    return text;
+  }
+
   function categoryLabel(f) {
     var i = CATEGORY_IDS.indexOf(f.category);
     var keys = { "windows-installer":"winInstaller", "windows-portable":"winPortable", "linux-deb":"linuxDeb", "linux-targz":"linuxTar", "linux-appimage":"linuxAppImage", "macos":"macOS" };
-    return (keys[f.category] ? t(keys[f.category]) : (f.label || f.category)) + (f.architecture ? " · " + f.architecture : "");
+    return (keys[f.category] ? t(keys[f.category]) : (fileText(f.label, f.version) || f.category)) + (f.architecture ? " · " + f.architecture : "");
   }
 
   function downloadTable(p) {
@@ -330,7 +361,7 @@
     var detailKeys = { "windows-installer":"detailsProgInstaller", "windows-portable":"detailsProgPortable", "linux-deb":"detailsProgDeb", "linux-targz":"detailsProgTar" };
     var rows = files
       .map(function (f, i) {
-        var detail = p.id === "prog" && detailKeys[f.category] ? t(detailKeys[f.category]) : f.detail;
+        var detail = p.id === "prog" && detailKeys[f.category] ? t(detailKeys[f.category]) : fileText(f.detail, f.version || p.version);
         return (
           "<tr>" +
           '<th scope="row" data-label="' + esc(t("catCategory")) + '">' + esc(categoryLabel(f)) + "</th>" +

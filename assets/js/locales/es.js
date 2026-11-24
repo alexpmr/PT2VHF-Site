@@ -249,6 +249,12 @@ window.PT2VHF_I18N["es"] = {
         "Destinos geográficos observados, rumbo y distancia",
         "Asistente local, historial de tráfico, temas e idiomas",
         "Instalador y versión portátil Windows 10/11 x64 con OTA desde pt2vhf.com"
+      ],
+      "requirements": [
+        "Windows 10 u 11 de 64 bits",
+        "Conexión a internet para consultar fuentes de propagación y clima espacial",
+        "Ejecutable instalado o portátil; no requiere instalar Node.js ni Python",
+        "VOACAP local requiere instalar/configurar el motor externo cuando se usa"
       ]
     },
     "mesh": {
@@ -305,6 +311,28 @@ window.PT2VHF_I18N["es"] = {
         "Android 8.0 o superior",
         "Instalación con el APK del sitio: permita \"instalar apps desconocidas\" cuando Android lo pida",
         "Permisos de ubicación (baliza/tracker), notificaciones, Bluetooth (TNC), micrófono (módem de audio) y USB (TNC USB-OTG)"
+      ],
+      "supported": [
+        {
+          "name": "TNC KISS Bluetooth",
+          "detail": "Mobilinkd, BTECH UV-Pro, Radtel RT-950 Pro, ICOM ID-5200 y similares (SPP)"
+        },
+        {
+          "name": "APRS-IS",
+          "detail": "Red aprs2.net o servidor propio"
+        },
+        {
+          "name": "TNC KISS TCP",
+          "detail": "Dire Wolf o TNC en la red local"
+        },
+        {
+          "name": "Módem de audio AFSK 1200",
+          "detail": "El celular como TNC, con cable, tarjeta de sonido USB o Bluetooth; PTT por VOX o interfaz"
+        },
+        {
+          "name": "TNC KISS USB-OTG",
+          "detail": "CDC-ACM (Mobilinkd, NinoTNC, radios con USB), FTDI y CP210x"
+        }
       ]
     },
     "aprs": {
@@ -385,5 +413,37 @@ window.PT2VHF_I18N["es"] = {
         "Internet solo para las plataformas, los datos de estaciones y las actualizaciones en www.pt2vhf.com"
       ]
     }
+  },
+  "fileText": {
+    "Android 8 ou superior": "Android 8 o superior",
+    "Android 8+; APK experimental. Certificado debug diferente das versões anteriores: requer desinstalação prévia.": "Android 8+; APK experimental. Certificado de depuración distinto al de las versiones anteriores: requiere desinstalar antes.",
+    "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute ./pt2vhf-sdr na pasta PT2VHF-SDR-Tool": "Linux x64 (glibc 2.35+, p. ej. Ubuntu 22.04+); extraiga y ejecute ./pt2vhf-sdr en la carpeta PT2VHF-SDR-Tool",
+    "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute o arquivo PT2VHF-Sat-Tool-v<versão> da pasta": "Linux x64 (glibc 2.35+, p. ej. Ubuntu 22.04+); extraiga y ejecute el archivo PT2VHF-Sat-Tool-v<versión> de la carpeta",
+    "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou superior. Não funciona em Macs Intel.": "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 o superior. No funciona en Macs Intel.",
+    "Outras distribuições e macOS (Python 3.10+ com Tkinter)": "Otras distribuciones y macOS (Python 3.10+ con Tkinter)",
+    "SHA-256 dos arquivos da versão": "SHA-256 de los archivos de la versión",
+    "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./PT2VHF-Sat-Tool-v<versão>-Linux-x64.deb": "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale con: sudo apt install ./PT2VHF-Sat-Tool-v<versión>-Linux-x64.deb",
+    "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./pt2vhf-sdr-tool_{v}_amd64.deb": "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale con: sudo apt install ./pt2vhf-sdr-tool_{v}_amd64.deb",
+    "Windows 10 1809+ / 11 64 bits (recomendado)": "Windows 10 1809+ / 11 64 bits (recomendado)",
+    "Windows 10 1809+ / 11 64 bits, EXE único sem instalar": "Windows 10 1809+ / 11 64 bits, EXE único sin instalar",
+    "Windows 10/11 64 bits (recomendado)": "Windows 10/11 64 bits (recomendado)",
+    "Windows 10/11 64 bits, sem instalação": "Windows 10/11 64 bits, sin instalación",
+    "Windows 10/11 x64; executável portátil": "Windows 10/11 x64; ejecutable portátil",
+    "Windows 10/11 x64; instalação por usuário": "Windows 10/11 x64; instalación por usuario",
+    "macOS 13+ Apple Silicon (M1 ou superior); arraste para Aplicativos. Sem assinatura da Apple: na primeira vez, clique com o botão direito e escolha Abrir": "macOS 13+ Apple Silicon (M1 o superior); arrástrelo a Aplicaciones. Sin firma de Apple: la primera vez, haga clic derecho y elija Abrir",
+    "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos": "macOS 14+ Apple Silicon (M1 o superior); arrástrelo a Aplicaciones",
+    "Android — APK beta": "Android — APK beta",
+    "Código-fonte": "Código fuente",
+    "Somas de verificação": "Sumas de verificación",
+    "Windows — Instalador": "Windows — Instalador",
+    "Windows — Portátil": "Windows — Portátil"
+  },
+  "staticText": {
+    "HF · VHF · UHF · PROPAGAÇÃO": "HF · VHF · UHF · PROPAGACIÓN",
+    "MESH · MESHTASTIC · TELEMETRIA": "MESH · MESHTASTIC · TELEMETRÍA",
+    "SATÉLITES · DOPPLER · CAT": "SATÉLITES · DOPPLER · CAT",
+    "RTL-SDR · WATERFALL · SCANNER": "RTL-SDR · CASCADA · ESCÁNER",
+    "KENWOOD · ICOM · MEMÓRIAS": "KENWOOD · ICOM · MEMORIAS",
+    "LOG · QSL · LOTW · QRZ · DIPLOMAS": "LOG · QSL · LOTW · QRZ · DIPLOMAS"
   }
 };

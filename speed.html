@@ -66,22 +66,24 @@ table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid #2a415a;
 <p class="note">Ativo = instalação que realizou consulta de atualização no período, não prova uso contínuo. A identificação de país depende da disponibilidade de geolocalização aproximada do servidor.</p></section>
 </main>
 <footer><div class="wrap">© PT2VHF · Dados de vias: © OpenStreetMap contributors, ODbL. A sinalização oficial sempre prevalece. <a href="https://github.com/alexpmr/speed-alert">Código e suporte</a></div></footer>
+<script src="/assets/js/page-i18n.js?v=20261124-i18n"></script>
 <script>
 (function(){
+ const T=window.PT2VHF_PAGE_T||function(x){return x};
  const api='/speed_stats.php';
  fetch('/download.php?mode=stats',{cache:'no-store'})
  .then(function(r){if(!r.ok)throw Error('counter unavailable');return r.json()})
- .then(function(d){const c=d.counts&&d.counts.speed&&d.counts.speed['android-apk'];document.getElementById('downloads-count').textContent=Number.isFinite(Number(c))?Number(c).toLocaleString('pt-BR'):'—'})
+ .then(function(d){const c=d.counts&&d.counts.speed&&d.counts.speed['android-apk'];document.getElementById('downloads-count').textContent=Number.isFinite(Number(c))?Number(c).toLocaleString(document.documentElement.lang||'pt-BR'):'—'})
  .catch(function(){document.getElementById('downloads-count').textContent='—'});
  fetch(api,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('sem dados');return r.json()}).then(function(d){
  document.getElementById('total').textContent=d.totalUnique ?? 0;
  document.getElementById('active7').textContent=d.active7 ?? 0;
  document.getElementById('countries').textContent=d.countryCount ?? 0;
- document.getElementById('stats-state').textContent='Instalações com telemetria de atualização voluntária.';
+ document.getElementById('stats-state').textContent=T('Instalações com telemetria de atualização voluntária.');
  const rows=document.getElementById('country-rows');rows.textContent='';
- if(!(d.countries||[]).length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=2;td.textContent='Ainda sem registros por país';tr.appendChild(td);rows.appendChild(tr);return}
+ if(!(d.countries||[]).length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=2;td.textContent=T('Ainda sem registros por país');tr.appendChild(td);rows.appendChild(tr);return}
  (d.countries||[]).forEach(function(c){const tr=document.createElement('tr');const a=document.createElement('td');a.textContent=c.name;const b=document.createElement('td');b.textContent=c.count;tr.append(a,b);rows.appendChild(tr)})
- }).catch(function(){document.getElementById('stats-state').textContent='Estatísticas indisponíveis no momento.'});
+ }).catch(function(){document.getElementById('stats-state').textContent=T('Estatísticas indisponíveis no momento.')});
 })();
 </script>
   <script src="/assets/js/visit.js?v=20261123-stats" defer></script>

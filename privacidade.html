@@ -93,67 +93,259 @@
   </header>
 
   <main id="conteudo">
-    <section class="section" id="privacidade" aria-labelledby="privacy-title">
+    <section class="section" id="privacidade">
       <div class="container" style="max-width: 820px;">
-        <p class="eyebrow mono">PT2VHF APRS CLIENT · PRIVACIDADE</p>
-        <h1 id="privacy-title">Política de privacidade – PT2VHF APRS Client</h1>
-        <p><em>Última atualização: 18/11/2026</em></p>
-        <p>O PT2VHF APRS Client é um cliente APRS para radioamadores licenciados, desenvolvido por Alex Rodrigues (PT2VHF).
-          O app não tem anúncios, não usa SDKs de análise ou rastreamento e não vende dados.</p>
-        <h2>O que o app envia e para onde</h2>
-        <ul>
-          <li><strong>Rede APRS (rádio e APRS-IS):</strong> quando você liga o beacon ou o rastreador, o app transmite seu indicativo,
-            sua posição, o comentário e as mensagens que você enviar. É assim que o APRS funciona: essas informações são públicas,
-            trafegam sem criptografia e podem ser vistas por qualquer pessoa e por sites como aprs.fi.</li>
-          <li><strong>Site pt2vhf.com:</strong> o app consulta o site para a lista de estações. Se a opção “Aparecer na lista de estações”
-            estiver ligada, envia só o seu indicativo (sem SSID e sem posição). Você pode desligar a opção a qualquer momento.</li>
-          <li><strong>Mapas:</strong> os mapas são baixados de provedores de mapas (como OpenStreetMap), que recebem o endereço IP e a área vista.</li>
-        </ul>
-        <h2>O que fica só no aparelho</h2>
-        <p>Configurações, mensagens, estações recebidas, logs e trilhas. Desinstalar o app apaga tudo.</p>
-        <h2>Permissões</h2>
-        <ul>
-          <li><strong>Localização:</strong> para o beacon e para mostrar sua posição no mapa. Usada em primeiro plano, com notificação
-            visível enquanto o rastreador estiver ligado.</li>
-          <li><strong>Bluetooth e USB:</strong> para conectar ao TNC do rádio.</li>
-          <li><strong>Microfone:</strong> só no modo TNC por áudio (AFSK); o áudio é processado no aparelho e não é gravado nem enviado.</li>
-          <li><strong>Notificações:</strong> mensagens recebidas e estado do serviço.</li>
-        </ul>
-        <h2>Relatórios de erro</h2>
-        <p>Só são enviados se você tocar em “Enviar log”, pelo app de e-mail ou compartilhamento que escolher.</p>
-        <h2>Cadastro de testadores</h2>
-        <p>Se você se cadastrar para testar versões novas pelo Google Play, guardamos seu e-mail (e o indicativo, se informado)
-          apenas para incluí-lo na lista de testadores do Google Play. Ele não é publicado nem compartilhado com mais ninguém.</p>
-        <h2>Estatísticas de visitas ao site</h2>
-        <p>O site www.pt2vhf.com conta as visitas para saber quais páginas são lidas: página vista, site de origem, idioma e fuso
-          horário do navegador, o tipo de aparelho, navegador e sistema, e o país (estimado pelo endereço IP numa base de dados
-          guardada no próprio site). Não usa cookies nem serviços de terceiros, e o endereço IP não é gravado: ele só serve para
-          estimar o país e contar visitantes únicos do dia, e é descartado na virada do dia.</p>
-        <h2 id="exclusao">Como pedir a exclusão dos seus dados</h2>
-        <ol>
-          <li><strong>Lista de estações do site:</strong> no app, abra Configurações → Sistema e desligue “Aparecer na lista de estações”;
-            depois peça a remoção do indicativo pelo e-mail abaixo, informando o indicativo.</li>
-          <li><strong>Cadastro de testadores:</strong> envie um e-mail pedindo a remoção, a partir do endereço cadastrado.</li>
-          <li><strong>Dados no aparelho:</strong> desinstale o app ou limpe os dados dele nas configurações do Android.</li>
-        </ol>
-        <p>Pedidos por e-mail são atendidos em até 30 dias; o indicativo ou o e-mail é apagado por completo, sem cópia mantida.
-          Pacotes já transmitidos na rede APRS são públicos e ficam em serviços de terceiros, como o aprs.fi, que têm regras próprias.</p>
-        <h2>Contato</h2>
-        <p>E-mail: <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> · página de <a href="/contato">contato</a>.</p>
-        <hr>
-        <h2 lang="en">Privacy policy (English)</h2>
-        <div lang="en">
-          <p>PT2VHF APRS Client is an APRS client for licensed radio amateurs, developed by Alex Rodrigues (PT2VHF). No ads, no analytics
-            or tracking SDKs, no data sales.</p>
-          <p><strong>APRS network:</strong> when the beacon or tracker is on, the app transmits your callsign, position, comment and messages.
-            This information is public and unencrypted by design. <strong>pt2vhf.com:</strong> with “Show me in the station list” on, only your
-            callsign (no SSID, no position) is sent. <strong>Maps:</strong> tile providers receive your IP address and the area viewed.
-<strong>Site visit statistics:</strong> www.pt2vhf.com counts page views (page, referring site, browser language and time zone, device type, and country estimated from the IP address) without cookies or third-party services; IP addresses are not stored.
-                        <strong>Tester sign-up:</strong> your e-mail is kept only to add you to the Google Play tester list.</p>
-          <p>Settings, messages, stations, logs and tracks stay on the device; uninstalling deletes them. Location is used in the foreground
-            with a visible notification; microphone only in audio TNC mode, processed on the device and never recorded or sent.</p>
-          <p><strong>Data deletion:</strong> turn off “Show me in the station list” and e-mail
-            <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> with your callsign or tester e-mail; it is fully deleted within 30 days.</p>
+        <div class="privacy-lang" data-lang-block="pt" lang="pt-BR" data-title="Política de privacidade – PT2VHF APRS Client" data-description="Como o PT2VHF APRS Client trata seus dados: o que é enviado à rede APRS e ao site, o que fica no aparelho e como pedir exclusão.">
+          <p class="eyebrow mono">PT2VHF APRS CLIENT · PRIVACIDADE</p>
+          <h1 id="privacy-title">Política de privacidade – PT2VHF APRS Client</h1>
+          <p><em>Última atualização: 24/11/2026</em></p>
+          <p>O PT2VHF APRS Client é um cliente APRS para radioamadores licenciados, desenvolvido por Alex Rodrigues (PT2VHF). O app não tem anúncios, não usa SDKs de análise ou rastreamento e não vende dados.</p>
+          <h2>O que o app envia e para onde</h2>
+          <ul>
+            <li><strong>Rede APRS (rádio e APRS-IS):</strong> quando você liga o beacon ou o rastreador, o app transmite seu indicativo, sua posição, o comentário e as mensagens que você enviar. É assim que o APRS funciona: essas informações são públicas, trafegam sem criptografia e podem ser vistas por qualquer pessoa e por sites como aprs.fi.</li>
+            <li><strong>Site pt2vhf.com:</strong> o app consulta o site para a lista de estações. Se a opção “Aparecer na lista de estações” estiver ligada, envia só o seu indicativo (sem SSID e sem posição). Você pode desligar a opção a qualquer momento.</li>
+            <li><strong>Mapas:</strong> os mapas são baixados de provedores de mapas (como OpenStreetMap), que recebem o endereço IP e a área vista.</li>
+          </ul>
+          <h2>O que fica só no aparelho</h2>
+          <p>Configurações, mensagens, estações recebidas, logs e trilhas. Desinstalar o app apaga tudo.</p>
+          <h2>Permissões</h2>
+          <ul>
+            <li><strong>Localização:</strong> para o beacon e para mostrar sua posição no mapa. Usada em primeiro plano, com notificação visível enquanto o rastreador estiver ligado.</li>
+            <li><strong>Bluetooth e USB:</strong> para conectar ao TNC do rádio.</li>
+            <li><strong>Microfone:</strong> só no modo TNC por áudio (AFSK); o áudio é processado no aparelho e não é gravado nem enviado.</li>
+            <li><strong>Notificações:</strong> mensagens recebidas e estado do serviço.</li>
+          </ul>
+          <h2>Relatórios de erro</h2>
+          <p>Só são enviados se você tocar em “Enviar log”, pelo app de e-mail ou compartilhamento que escolher.</p>
+          <h2>Cadastro de testadores</h2>
+          <p>Se você se cadastrar para testar versões novas pelo Google Play, guardamos seu e-mail (e o indicativo, se informado) apenas para incluí-lo na lista de testadores do Google Play. Ele não é publicado nem compartilhado com mais ninguém.</p>
+          <h2>Estatísticas de visitas ao site</h2>
+          <p>O site www.pt2vhf.com conta as visitas para saber quais páginas são lidas: página vista, site de origem, idioma e fuso horário do navegador, o tipo de aparelho, navegador e sistema, e o país (estimado pelo endereço IP numa base de dados guardada no próprio site). Não usa cookies nem serviços de terceiros, e o endereço IP não é gravado: ele só serve para estimar o país e contar visitantes únicos do dia, e é descartado na virada do dia.</p>
+          <h2>Como pedir a exclusão dos seus dados</h2>
+          <ol>
+            <li><strong>Lista de estações do site:</strong> no app, abra Configurações → Sistema e desligue “Aparecer na lista de estações”; depois peça a remoção do indicativo pelo e-mail abaixo, informando o indicativo.</li>
+            <li><strong>Cadastro de testadores:</strong> envie um e-mail pedindo a remoção, a partir do endereço cadastrado.</li>
+            <li><strong>Dados no aparelho:</strong> desinstale o app ou limpe os dados dele nas configurações do Android.</li>
+          </ol>
+          <p>Pedidos por e-mail são atendidos em até 30 dias; o indicativo ou o e-mail é apagado por completo, sem cópia mantida. Pacotes já transmitidos na rede APRS são públicos e ficam em serviços de terceiros, como o aprs.fi, que têm regras próprias.</p>
+          <h2>Contato</h2>
+          <p>E-mail: <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> · página de <a href="/contato">contato</a>.</p>
+        </div>
+        <div class="privacy-lang" data-lang-block="en" lang="en" data-title="Privacy policy – PT2VHF APRS Client" data-description="How PT2VHF APRS Client handles your data: what is sent to the APRS network and to the website, what stays on the device and how to request deletion." hidden>
+          <p class="eyebrow mono">PT2VHF APRS CLIENT · PRIVACY</p>
+          <h1>Privacy policy – PT2VHF APRS Client</h1>
+          <p><em>Last updated: November 24, 2026</em></p>
+          <p>PT2VHF APRS Client is an APRS client for licensed radio amateurs, developed by Alex Rodrigues (PT2VHF). The app has no ads, uses no analytics or tracking SDKs and does not sell data.</p>
+          <h2>What the app sends and where</h2>
+          <ul>
+            <li><strong>APRS network (radio and APRS-IS):</strong> when you turn on the beacon or the tracker, the app transmits your callsign, your position, the comment and the messages you send. This is how APRS works: this information is public, travels unencrypted and can be seen by anyone and by websites such as aprs.fi.</li>
+            <li><strong>pt2vhf.com website:</strong> the app queries the website for the station list. If “Show me in the station list” is on, it sends only your callsign (no SSID and no position). You can turn the option off at any time.</li>
+            <li><strong>Maps:</strong> maps are downloaded from map providers (such as OpenStreetMap), which receive your IP address and the area viewed.</li>
+          </ul>
+          <h2>What stays only on the device</h2>
+          <p>Settings, messages, received stations, logs and tracks. Uninstalling the app deletes everything.</p>
+          <h2>Permissions</h2>
+          <ul>
+            <li><strong>Location:</strong> for the beacon and to show your position on the map. Used in the foreground, with a visible notification while the tracker is on.</li>
+            <li><strong>Bluetooth and USB:</strong> to connect to the radio’s TNC.</li>
+            <li><strong>Microphone:</strong> only in audio TNC mode (AFSK); the audio is processed on the device and is never recorded or sent.</li>
+            <li><strong>Notifications:</strong> received messages and service status.</li>
+          </ul>
+          <h2>Error reports</h2>
+          <p>They are only sent if you tap “Send log”, through the e-mail or sharing app you choose.</p>
+          <h2>Tester sign-up</h2>
+          <p>If you sign up to test new versions on Google Play, we keep your e-mail (and your callsign, if provided) only to add you to the Google Play tester list. It is not published or shared with anyone else.</p>
+          <h2>Website visit statistics</h2>
+          <p>The www.pt2vhf.com website counts visits to know which pages are read: page viewed, referring site, browser language and time zone, device type, browser and operating system, and country (estimated from the IP address with a database kept on the website itself). It uses no cookies or third-party services, and the IP address is not stored: it is only used to estimate the country and count unique visitors of the day, and is discarded when the day ends.</p>
+          <h2>How to request deletion of your data</h2>
+          <ol>
+            <li><strong>Website station list:</strong> in the app, open Settings → System and turn off “Show me in the station list”; then ask for your callsign to be removed by e-mail (address below), stating the callsign.</li>
+            <li><strong>Tester sign-up:</strong> send an e-mail asking for removal from the registered address.</li>
+            <li><strong>Data on the device:</strong> uninstall the app or clear its data in the Android settings.</li>
+          </ol>
+          <p>E-mail requests are handled within 30 days; the callsign or e-mail is deleted completely, with no copy kept. Packets already transmitted on the APRS network are public and remain on third-party services, such as aprs.fi, which have their own rules.</p>
+          <h2>Contact</h2>
+          <p>E-mail: <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> · <a href="/contato">contact</a> page.</p>
+        </div>
+        <div class="privacy-lang" data-lang-block="es" lang="es" data-title="Política de privacidad – PT2VHF APRS Client" data-description="Cómo PT2VHF APRS Client trata sus datos: qué se envía a la red APRS y al sitio, qué queda en el dispositivo y cómo solicitar la eliminación." hidden>
+          <p class="eyebrow mono">PT2VHF APRS CLIENT · PRIVACIDAD</p>
+          <h1>Política de privacidad – PT2VHF APRS Client</h1>
+          <p><em>Última actualización: 24/11/2026</em></p>
+          <p>PT2VHF APRS Client es un cliente APRS para radioaficionados con licencia, desarrollado por Alex Rodrigues (PT2VHF). La app no tiene anuncios, no usa SDK de análisis ni de seguimiento y no vende datos.</p>
+          <h2>Qué envía la app y a dónde</h2>
+          <ul>
+            <li><strong>Red APRS (radio y APRS-IS):</strong> cuando activa la baliza o el rastreador, la app transmite su indicativo, su posición, el comentario y los mensajes que envíe. Así funciona APRS: esta información es pública, viaja sin cifrar y cualquier persona puede verla, así como sitios como aprs.fi.</li>
+            <li><strong>Sitio pt2vhf.com:</strong> la app consulta el sitio para obtener la lista de estaciones. Si la opción “Aparecer en la lista de estaciones” está activada, envía solo su indicativo (sin SSID y sin posición). Puede desactivar la opción en cualquier momento.</li>
+            <li><strong>Mapas:</strong> los mapas se descargan de proveedores de mapas (como OpenStreetMap), que reciben la dirección IP y el área visualizada.</li>
+          </ul>
+          <h2>Qué queda solo en el dispositivo</h2>
+          <p>Configuración, mensajes, estaciones recibidas, registros y trayectos. Desinstalar la app lo borra todo.</p>
+          <h2>Permisos</h2>
+          <ul>
+            <li><strong>Ubicación:</strong> para la baliza y para mostrar su posición en el mapa. Se usa en primer plano, con una notificación visible mientras el rastreador está activado.</li>
+            <li><strong>Bluetooth y USB:</strong> para conectarse al TNC de la radio.</li>
+            <li><strong>Micrófono:</strong> solo en el modo TNC por audio (AFSK); el audio se procesa en el dispositivo y no se graba ni se envía.</li>
+            <li><strong>Notificaciones:</strong> mensajes recibidos y estado del servicio.</li>
+          </ul>
+          <h2>Informes de error</h2>
+          <p>Solo se envían si toca “Enviar registro”, mediante la app de correo o de compartir que elija.</p>
+          <h2>Registro de probadores</h2>
+          <p>Si se registra para probar nuevas versiones en Google Play, guardamos su correo (y el indicativo, si lo indica) solo para incluirlo en la lista de probadores de Google Play. No se publica ni se comparte con nadie más.</p>
+          <h2>Estadísticas de visitas al sitio</h2>
+          <p>El sitio www.pt2vhf.com cuenta las visitas para saber qué páginas se leen: página vista, sitio de origen, idioma y zona horaria del navegador, tipo de dispositivo, navegador y sistema, y el país (estimado a partir de la dirección IP con una base de datos guardada en el propio sitio). No usa cookies ni servicios de terceros, y la dirección IP no se guarda: solo sirve para estimar el país y contar los visitantes únicos del día, y se descarta al terminar el día.</p>
+          <h2>Cómo solicitar la eliminación de sus datos</h2>
+          <ol>
+            <li><strong>Lista de estaciones del sitio:</strong> en la app, abra Configuración → Sistema y desactive “Aparecer en la lista de estaciones”; después solicite la eliminación del indicativo por correo (dirección abajo), indicando el indicativo.</li>
+            <li><strong>Registro de probadores:</strong> envíe un correo solicitando la eliminación desde la dirección registrada.</li>
+            <li><strong>Datos en el dispositivo:</strong> desinstale la app o borre sus datos en la configuración de Android.</li>
+          </ol>
+          <p>Las solicitudes por correo se atienden en un plazo de 30 días; el indicativo o el correo se borra por completo, sin conservar copias. Los paquetes ya transmitidos en la red APRS son públicos y permanecen en servicios de terceros, como aprs.fi, que tienen sus propias reglas.</p>
+          <h2>Contacto</h2>
+          <p>Correo: <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> · página de <a href="/contato">contacto</a>.</p>
+        </div>
+        <div class="privacy-lang" data-lang-block="fr" lang="fr" data-title="Politique de confidentialité – PT2VHF APRS Client" data-description="Comment PT2VHF APRS Client traite vos données : ce qui est envoyé au réseau APRS et au site, ce qui reste sur l’appareil et comment demander la suppression." hidden>
+          <p class="eyebrow mono">PT2VHF APRS CLIENT · CONFIDENTIALITÉ</p>
+          <h1>Politique de confidentialité – PT2VHF APRS Client</h1>
+          <p><em>Dernière mise à jour : 24/11/2026</em></p>
+          <p>PT2VHF APRS Client est un client APRS destiné aux radioamateurs titulaires d’une licence, développé par Alex Rodrigues (PT2VHF). L’application n’affiche pas de publicité, n’utilise aucun SDK d’analyse ou de suivi et ne vend aucune donnée.</p>
+          <h2>Ce que l’application envoie et où</h2>
+          <ul>
+            <li><strong>Réseau APRS (radio et APRS-IS) :</strong> lorsque vous activez la balise ou le traceur, l’application transmet votre indicatif, votre position, le commentaire et les messages que vous envoyez. C’est le fonctionnement d’APRS : ces informations sont publiques, circulent sans chiffrement et peuvent être vues par n’importe qui et par des sites comme aprs.fi.</li>
+            <li><strong>Site pt2vhf.com :</strong> l’application consulte le site pour la liste des stations. Si l’option « Apparaître dans la liste des stations » est activée, elle n’envoie que votre indicatif (sans SSID ni position). Vous pouvez désactiver l’option à tout moment.</li>
+            <li><strong>Cartes :</strong> les cartes sont téléchargées auprès de fournisseurs de cartes (comme OpenStreetMap), qui reçoivent l’adresse IP et la zone affichée.</li>
+          </ul>
+          <h2>Ce qui reste uniquement sur l’appareil</h2>
+          <p>Paramètres, messages, stations reçues, journaux et traces. Désinstaller l’application efface tout.</p>
+          <h2>Autorisations</h2>
+          <ul>
+            <li><strong>Localisation :</strong> pour la balise et pour afficher votre position sur la carte. Utilisée au premier plan, avec une notification visible tant que le traceur est activé.</li>
+            <li><strong>Bluetooth et USB :</strong> pour se connecter au TNC de la radio.</li>
+            <li><strong>Microphone :</strong> uniquement en mode TNC audio (AFSK) ; l’audio est traité sur l’appareil et n’est ni enregistré ni envoyé.</li>
+            <li><strong>Notifications :</strong> messages reçus et état du service.</li>
+          </ul>
+          <h2>Rapports d’erreur</h2>
+          <p>Ils ne sont envoyés que si vous touchez « Envoyer le journal », via l’application de messagerie ou de partage de votre choix.</p>
+          <h2>Inscription des testeurs</h2>
+          <p>Si vous vous inscrivez pour tester les nouvelles versions sur Google Play, nous conservons votre e-mail (et votre indicatif, s’il est indiqué) uniquement pour vous ajouter à la liste des testeurs Google Play. Il n’est ni publié ni partagé avec qui que ce soit.</p>
+          <h2>Statistiques de visites du site</h2>
+          <p>Le site www.pt2vhf.com compte les visites pour savoir quelles pages sont lues : page vue, site d’origine, langue et fuseau horaire du navigateur, type d’appareil, navigateur et système, et pays (estimé à partir de l’adresse IP grâce à une base de données conservée sur le site lui-même). Il n’utilise ni cookies ni services tiers, et l’adresse IP n’est pas enregistrée : elle sert seulement à estimer le pays et à compter les visiteurs uniques du jour, puis elle est effacée à la fin de la journée.</p>
+          <h2>Comment demander la suppression de vos données</h2>
+          <ol>
+            <li><strong>Liste des stations du site :</strong> dans l’application, ouvrez Paramètres → Système et désactivez « Apparaître dans la liste des stations » ; demandez ensuite le retrait de votre indicatif par e-mail (adresse ci-dessous), en indiquant l’indicatif.</li>
+            <li><strong>Inscription des testeurs :</strong> envoyez un e-mail demandant le retrait depuis l’adresse inscrite.</li>
+            <li><strong>Données sur l’appareil :</strong> désinstallez l’application ou effacez ses données dans les paramètres d’Android.</li>
+          </ol>
+          <p>Les demandes par e-mail sont traitées sous 30 jours ; l’indicatif ou l’e-mail est entièrement supprimé, sans copie conservée. Les paquets déjà transmis sur le réseau APRS sont publics et restent sur des services tiers, comme aprs.fi, qui ont leurs propres règles.</p>
+          <h2>Contact</h2>
+          <p>E-mail : <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> · page de <a href="/contato">contact</a>.</p>
+        </div>
+        <div class="privacy-lang" data-lang-block="de" lang="de" data-title="Datenschutzerklärung – PT2VHF APRS Client" data-description="Wie PT2VHF APRS Client mit Ihren Daten umgeht: was an das APRS-Netz und die Website gesendet wird, was auf dem Gerät bleibt und wie Sie die Löschung beantragen." hidden>
+          <p class="eyebrow mono">PT2VHF APRS CLIENT · DATENSCHUTZ</p>
+          <h1>Datenschutzerklärung – PT2VHF APRS Client</h1>
+          <p><em>Zuletzt aktualisiert: 24.11.2026</em></p>
+          <p>PT2VHF APRS Client ist ein APRS-Client für lizenzierte Funkamateure, entwickelt von Alex Rodrigues (PT2VHF). Die App enthält keine Werbung, verwendet keine Analyse- oder Tracking-SDKs und verkauft keine Daten.</p>
+          <h2>Was die App sendet und wohin</h2>
+          <ul>
+            <li><strong>APRS-Netz (Funk und APRS-IS):</strong> Wenn Sie die Bake oder den Tracker einschalten, sendet die App Ihr Rufzeichen, Ihre Position, den Kommentar und die Nachrichten, die Sie verschicken. So funktioniert APRS: Diese Informationen sind öffentlich, werden unverschlüsselt übertragen und können von jedem sowie von Websites wie aprs.fi eingesehen werden.</li>
+            <li><strong>Website pt2vhf.com:</strong> Die App fragt die Website nach der Stationsliste ab. Ist die Option „In der Stationsliste erscheinen“ eingeschaltet, sendet sie nur Ihr Rufzeichen (ohne SSID und ohne Position). Sie können die Option jederzeit ausschalten.</li>
+            <li><strong>Karten:</strong> Karten werden von Kartenanbietern (wie OpenStreetMap) geladen, die Ihre IP-Adresse und den angezeigten Bereich erhalten.</li>
+          </ul>
+          <h2>Was nur auf dem Gerät bleibt</h2>
+          <p>Einstellungen, Nachrichten, empfangene Stationen, Protokolle und Tracks. Beim Deinstallieren der App wird alles gelöscht.</p>
+          <h2>Berechtigungen</h2>
+          <ul>
+            <li><strong>Standort:</strong> für die Bake und um Ihre Position auf der Karte anzuzeigen. Wird im Vordergrund genutzt, mit sichtbarer Benachrichtigung, solange der Tracker eingeschaltet ist.</li>
+            <li><strong>Bluetooth und USB:</strong> zur Verbindung mit dem TNC des Funkgeräts.</li>
+            <li><strong>Mikrofon:</strong> nur im Audio-TNC-Modus (AFSK); der Ton wird auf dem Gerät verarbeitet und weder aufgezeichnet noch gesendet.</li>
+            <li><strong>Benachrichtigungen:</strong> empfangene Nachrichten und Dienststatus.</li>
+          </ul>
+          <h2>Fehlerberichte</h2>
+          <p>Sie werden nur gesendet, wenn Sie auf „Protokoll senden“ tippen, über die E-Mail- oder Teilen-App Ihrer Wahl.</p>
+          <h2>Anmeldung als Tester</h2>
+          <p>Wenn Sie sich anmelden, um neue Versionen über Google Play zu testen, speichern wir Ihre E-Mail-Adresse (und Ihr Rufzeichen, falls angegeben) nur, um Sie in die Testerliste von Google Play aufzunehmen. Sie wird weder veröffentlicht noch an andere weitergegeben.</p>
+          <h2>Besucherstatistik der Website</h2>
+          <p>Die Website www.pt2vhf.com zählt Besuche, um zu sehen, welche Seiten gelesen werden: aufgerufene Seite, verweisende Website, Sprache und Zeitzone des Browsers, Gerätetyp, Browser und Betriebssystem sowie das Land (geschätzt aus der IP-Adresse mit einer Datenbank, die auf der Website selbst liegt). Es werden keine Cookies und keine Dienste Dritter verwendet, und die IP-Adresse wird nicht gespeichert: Sie dient nur dazu, das Land zu schätzen und eindeutige Besucher des Tages zu zählen, und wird zum Tageswechsel verworfen.</p>
+          <h2>So beantragen Sie die Löschung Ihrer Daten</h2>
+          <ol>
+            <li><strong>Stationsliste der Website:</strong> Öffnen Sie in der App Einstellungen → System und schalten Sie „In der Stationsliste erscheinen“ aus; beantragen Sie dann per E-Mail (Adresse unten) die Entfernung Ihres Rufzeichens und nennen Sie es dabei.</li>
+            <li><strong>Anmeldung als Tester:</strong> Senden Sie von der angemeldeten Adresse eine E-Mail mit der Bitte um Entfernung.</li>
+            <li><strong>Daten auf dem Gerät:</strong> Deinstallieren Sie die App oder löschen Sie ihre Daten in den Android-Einstellungen.</li>
+          </ol>
+          <p>Anfragen per E-Mail werden innerhalb von 30 Tagen bearbeitet; das Rufzeichen oder die E-Mail-Adresse wird vollständig gelöscht, ohne dass eine Kopie aufbewahrt wird. Bereits im APRS-Netz gesendete Pakete sind öffentlich und verbleiben bei Diensten Dritter wie aprs.fi, die eigene Regeln haben.</p>
+          <h2>Kontakt</h2>
+          <p>E-Mail: <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> · <a href="/contato">Kontaktseite</a>.</p>
+        </div>
+        <div class="privacy-lang" data-lang-block="it" lang="it" data-title="Informativa sulla privacy – PT2VHF APRS Client" data-description="Come PT2VHF APRS Client tratta i tuoi dati: cosa viene inviato alla rete APRS e al sito, cosa resta sul dispositivo e come chiedere la cancellazione." hidden>
+          <p class="eyebrow mono">PT2VHF APRS CLIENT · PRIVACY</p>
+          <h1>Informativa sulla privacy – PT2VHF APRS Client</h1>
+          <p><em>Ultimo aggiornamento: 24/11/2026</em></p>
+          <p>PT2VHF APRS Client è un client APRS per radioamatori con licenza, sviluppato da Alex Rodrigues (PT2VHF). L’app non contiene pubblicità, non usa SDK di analisi o tracciamento e non vende dati.</p>
+          <h2>Cosa invia l’app e dove</h2>
+          <ul>
+            <li><strong>Rete APRS (radio e APRS-IS):</strong> quando attivi il beacon o il tracker, l’app trasmette il tuo nominativo, la tua posizione, il commento e i messaggi che invii. È così che funziona l’APRS: queste informazioni sono pubbliche, viaggiano senza cifratura e possono essere viste da chiunque e da siti come aprs.fi.</li>
+            <li><strong>Sito pt2vhf.com:</strong> l’app consulta il sito per l’elenco delle stazioni. Se l’opzione “Mostrami nell’elenco delle stazioni” è attiva, invia solo il tuo nominativo (senza SSID e senza posizione). Puoi disattivare l’opzione in qualsiasi momento.</li>
+            <li><strong>Mappe:</strong> le mappe vengono scaricate da fornitori di mappe (come OpenStreetMap), che ricevono l’indirizzo IP e l’area visualizzata.</li>
+          </ul>
+          <h2>Cosa resta solo sul dispositivo</h2>
+          <p>Impostazioni, messaggi, stazioni ricevute, log e tracce. Disinstallare l’app cancella tutto.</p>
+          <h2>Autorizzazioni</h2>
+          <ul>
+            <li><strong>Posizione:</strong> per il beacon e per mostrare la tua posizione sulla mappa. Usata in primo piano, con una notifica visibile finché il tracker è attivo.</li>
+            <li><strong>Bluetooth e USB:</strong> per collegarsi al TNC della radio.</li>
+            <li><strong>Microfono:</strong> solo nella modalità TNC audio (AFSK); l’audio viene elaborato sul dispositivo e non viene registrato né inviato.</li>
+            <li><strong>Notifiche:</strong> messaggi ricevuti e stato del servizio.</li>
+          </ul>
+          <h2>Segnalazioni di errore</h2>
+          <p>Vengono inviate solo se tocchi “Invia log”, tramite l’app di posta o di condivisione che scegli.</p>
+          <h2>Iscrizione dei tester</h2>
+          <p>Se ti iscrivi per provare le nuove versioni su Google Play, conserviamo la tua e-mail (e il nominativo, se indicato) solo per inserirti nell’elenco dei tester di Google Play. Non viene pubblicata né condivisa con nessun altro.</p>
+          <h2>Statistiche delle visite al sito</h2>
+          <p>Il sito www.pt2vhf.com conta le visite per sapere quali pagine vengono lette: pagina vista, sito di provenienza, lingua e fuso orario del browser, tipo di dispositivo, browser e sistema, e il paese (stimato dall’indirizzo IP con un database conservato sul sito stesso). Non usa cookie né servizi di terzi, e l’indirizzo IP non viene salvato: serve solo a stimare il paese e a contare i visitatori unici del giorno, e viene eliminato alla fine della giornata.</p>
+          <h2>Come chiedere la cancellazione dei tuoi dati</h2>
+          <ol>
+            <li><strong>Elenco delle stazioni del sito:</strong> nell’app, apri Impostazioni → Sistema e disattiva “Mostrami nell’elenco delle stazioni”; poi chiedi la rimozione del nominativo via e-mail (indirizzo qui sotto), indicando il nominativo.</li>
+            <li><strong>Iscrizione dei tester:</strong> invia un’e-mail chiedendo la rimozione dall’indirizzo iscritto.</li>
+            <li><strong>Dati sul dispositivo:</strong> disinstalla l’app o cancella i suoi dati nelle impostazioni di Android.</li>
+          </ol>
+          <p>Le richieste via e-mail vengono evase entro 30 giorni; il nominativo o l’e-mail vengono cancellati completamente, senza conservarne copie. I pacchetti già trasmessi sulla rete APRS sono pubblici e restano su servizi di terzi, come aprs.fi, che hanno regole proprie.</p>
+          <h2>Contatti</h2>
+          <p>E-mail: <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> · pagina dei <a href="/contato">contatti</a>.</p>
+        </div>
+        <div class="privacy-lang" data-lang-block="zh" lang="zh-CN" data-title="隐私政策 – PT2VHF APRS Client" data-description="PT2VHF APRS Client 如何处理你的数据：哪些信息发送到 APRS 网络和网站，哪些留在设备上，以及如何申请删除。" hidden>
+          <p class="eyebrow mono">PT2VHF APRS CLIENT · 隐私</p>
+          <h1>隐私政策 – PT2VHF APRS Client</h1>
+          <p><em>最后更新：2026 年 11 月 24 日</em></p>
+          <p>PT2VHF APRS Client 是面向持证业余无线电爱好者的 APRS 客户端，由 Alex Rodrigues（PT2VHF）开发。该应用没有广告，不使用任何分析或跟踪 SDK，也不出售数据。</p>
+          <h2>应用发送哪些内容、发送到哪里</h2>
+          <ul>
+            <li><strong>APRS 网络（电台和 APRS-IS）：</strong> 当你开启信标或跟踪器时，应用会发送你的呼号、位置、备注以及你发送的消息。这就是 APRS 的工作方式：这些信息是公开的，以明文传输，任何人以及 aprs.fi 等网站都可以看到。</li>
+            <li><strong>pt2vhf.com 网站：</strong> 应用会向网站查询电台列表。如果开启了“在电台列表中显示我”选项，只会发送你的呼号（不含 SSID 和位置）。你可以随时关闭该选项。</li>
+            <li><strong>地图：</strong> 地图从地图服务商（如 OpenStreetMap）下载，服务商会获得你的 IP 地址和查看的区域。</li>
+          </ul>
+          <h2>只保存在设备上的内容</h2>
+          <p>设置、消息、接收到的电台、日志和轨迹。卸载应用会删除所有这些内容。</p>
+          <h2>权限</h2>
+          <ul>
+            <li><strong>位置：</strong> 用于信标以及在地图上显示你的位置。仅在前台使用，跟踪器开启时会显示通知。</li>
+            <li><strong>蓝牙和 USB：</strong> 用于连接电台的 TNC。</li>
+            <li><strong>麦克风：</strong> 仅在音频 TNC 模式（AFSK）下使用；音频在设备上处理，不会录制或发送。</li>
+            <li><strong>通知：</strong> 收到的消息和服务状态。</li>
+          </ul>
+          <h2>错误报告</h2>
+          <p>只有当你点击“发送日志”时，才会通过你选择的邮件或分享应用发送。</p>
+          <h2>测试者报名</h2>
+          <p>如果你报名参加 Google Play 新版本测试，我们只会保存你的电子邮件（以及你填写的呼号），用于把你加入 Google Play 测试者名单。这些信息不会公开，也不会与任何其他人共享。</p>
+          <h2>网站访问统计</h2>
+          <p>www.pt2vhf.com 网站会统计访问量，以了解哪些页面被阅读：访问的页面、来源网站、浏览器语言和时区、设备类型、浏览器和操作系统，以及国家（根据 IP 地址，用保存在本网站上的数据库估算）。网站不使用 Cookie，也不使用第三方服务，且不保存 IP 地址：IP 地址仅用于估算国家和统计当天的独立访客，并在当天结束时丢弃。</p>
+          <h2>如何申请删除你的数据</h2>
+          <ol>
+            <li><strong>网站电台列表：</strong> 在应用中打开“设置 → 系统”，关闭“在电台列表中显示我”；然后通过下方的电子邮件申请删除呼号，并注明呼号。</li>
+            <li><strong>测试者报名：</strong> 从报名时使用的邮箱发送邮件申请删除。</li>
+            <li><strong>设备上的数据：</strong> 卸载应用，或在 Android 设置中清除应用数据。</li>
+          </ol>
+          <p>通过电子邮件提出的申请将在 30 天内处理；呼号或电子邮件会被彻底删除，不保留任何副本。已在 APRS 网络中发送的数据包是公开的，会保留在 aprs.fi 等第三方服务中，这些服务有各自的规则。</p>
+          <h2>联系方式</h2>
+          <p>电子邮件：<a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> · <a href="/contato">联系</a>页面。</p>
         </div>
       </div>
     </section>
@@ -166,16 +358,16 @@
     </div>
   </footer>
 
-  <script src="/assets/js/locales/pt.js?v=20261123-sdrunix"></script>
-  <script src="/assets/js/locales/en.js?v=20261123-sdrunix"></script>
-  <script src="/assets/js/locales/es.js?v=20261123-sdrunix"></script>
-  <script src="/assets/js/locales/fr.js?v=20261123-sdrunix"></script>
-  <script src="/assets/js/locales/de.js?v=20261123-sdrunix"></script>
-  <script src="/assets/js/locales/it.js?v=20261123-sdrunix"></script>
-  <script src="/assets/js/locales/zh.js?v=20261123-sdrunix"></script>
+  <script src="/assets/js/locales/pt.js?v=20261124-i18n"></script>
+  <script src="/assets/js/locales/en.js?v=20261124-i18n"></script>
+  <script src="/assets/js/locales/es.js?v=20261124-i18n"></script>
+  <script src="/assets/js/locales/fr.js?v=20261124-i18n"></script>
+  <script src="/assets/js/locales/de.js?v=20261124-i18n"></script>
+  <script src="/assets/js/locales/it.js?v=20261124-i18n"></script>
+  <script src="/assets/js/locales/zh.js?v=20261124-i18n"></script>
   <script src="/assets/js/products.js?v=20261123-sdrunix"></script>
   <script src="/assets/js/contact-data.js?v=20261106-aprs1158"></script>
-  <script src="/assets/js/main.js?v=20261124-idioma"></script>
+  <script src="/assets/js/main.js?v=20261124-i18n"></script>
   <script src="/assets/js/visit.js?v=20261123-stats" defer></script>
 </body>
 </html>

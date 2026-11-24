@@ -89,20 +89,20 @@ window.PT2VHF_I18N["zh"] = {
     "detailsProgTar": "其他 Linux 发行版及 macOS（Python 3.10+ 与 Tkinter）"
   },
   "captions": {
-    "qslEstatisticasBasicas": "Basic stats from a real log with 65,289 QSOs",
-    "qslEstacoesTrabalhadas": "Stations worked, with bands, modes and slots",
-    "qslMapaAtividade": "Activity map: band × month",
-    "qslBandasModos": "Bands and modes: QSOs and callsigns per mode",
-    "qslBandasModos10m": "Bands/modes filtered by band (10 m)",
-    "qslDxccLocator": "QSOs per DXCC entity and grid square",
-    "qslDxccLocator10m": "DXCC/locator filtered by band",
-    "qslHistorico": "Historical charts: QSOs and DXCC per year",
-    "qslPontos": "Points per callsign",
-    "qslStatusQsl": "QSL status and DXCC per band",
-    "qslDashboard": "Dashboard with totals, bands, years and DXCC map",
-    "qslBi": "Interactive charts: one click filters the whole view",
-    "qslDatabase": "Clearing the database by station callsign",
-    "qslReport": "Report builder with PDF preview",
+    "qslEstatisticasBasicas": "真实日志（65,289 个 QSO）的基础统计",
+    "qslEstacoesTrabalhadas": "已通联电台，含波段、模式和组合",
+    "qslMapaAtividade": "活动图：波段 × 月份",
+    "qslBandasModos": "波段与模式：各模式的 QSO 和呼号",
+    "qslBandasModos10m": "按波段筛选的波段/模式（10 m）",
+    "qslDxccLocator": "按 DXCC 实体和网格统计的 QSO",
+    "qslDxccLocator10m": "按波段筛选的 DXCC/网格",
+    "qslHistorico": "历史图表：每年的 QSO 和 DXCC",
+    "qslPontos": "各呼号得分",
+    "qslStatusQsl": "各波段的 QSL 状态和 DXCC",
+    "qslDashboard": "仪表板：总数、波段、年份和 DXCC 地图",
+    "qslBi": "交互式图表：点击一下即可筛选整个视图",
+    "qslDatabase": "按电台呼号清理数据库",
+    "qslReport": "带 PDF 预览的报告生成器",
     "propLive": "热力图、当前波段与空间天气 — 真实界面截图",
     "propOverview": "主界面 — 深色主题",
     "propBands": "波段分析",
@@ -249,6 +249,12 @@ window.PT2VHF_I18N["zh"] = {
         "已观测信号的目的地方位与距离",
         "本地助手、收发历史、主题和多语言界面",
         "Windows 10/11 x64 安装版和便携版，通过 pt2vhf.com 安全更新"
+      ],
+      "requirements": [
+        "Windows 10 或 11（64 位）",
+        "需联网查询传播与空间天气数据源",
+        "安装版或便携版可执行文件；无需安装 Node.js 或 Python",
+        "使用本地 VOACAP 时需安装/配置外部引擎"
       ]
     },
     "mesh": {
@@ -305,6 +311,28 @@ window.PT2VHF_I18N["zh"] = {
         "Android 8.0 或更高版本",
         "从网站安装 APK：在 Android 提示时允许“安装未知应用”",
         "位置（信标/跟踪器）、通知、蓝牙（TNC）、麦克风（音频调制解调器）和 USB（USB-OTG TNC）权限"
+      ],
+      "supported": [
+        {
+          "name": "TNC KISS Bluetooth",
+          "detail": "Mobilinkd、BTECH UV-Pro、Radtel RT-950 Pro、ICOM ID-5200 等同类设备（SPP）"
+        },
+        {
+          "name": "APRS-IS",
+          "detail": "aprs2.net 网络或自建服务器"
+        },
+        {
+          "name": "TNC KISS TCP",
+          "detail": "Dire Wolf 或局域网中的 TNC"
+        },
+        {
+          "name": "AFSK 1200 音频调制解调器",
+          "detail": "手机充当 TNC，可通过线缆、USB 声卡或蓝牙连接；PTT 使用 VOX 或接口"
+        },
+        {
+          "name": "TNC KISS USB-OTG",
+          "detail": "CDC-ACM（Mobilinkd、NinoTNC、带 USB 的电台）、FTDI 和 CP210x"
+        }
       ]
     },
     "aprs": {
@@ -358,32 +386,64 @@ window.PT2VHF_I18N["zh"] = {
       ]
     },
     "qsl": {
-      "summary": "Manage your amateur radio contacts: complete log, QSL confirmations, awards, sync with QRZ.com, LoTW, eQSL and Club Log, statistics and reports.",
-      "cardSummary": "Contact and QSL confirmation manager with sync, awards and statistics.",
-      "tagline": "Your log on your computer, synced with QRZ.com, LoTW, eQSL and Club Log",
+      "summary": "管理你的业余无线电通联：完整日志、QSL 确认、奖状，与 QRZ.com、LoTW、eQSL 和 Club Log 同步，以及统计和报告。",
+      "cardSummary": "通联与 QSL 确认管理工具，支持同步、奖状和统计。",
+      "tagline": "日志保存在你的电脑上，并与 QRZ.com、LoTW、eQSL 和 Club Log 同步",
       "description": [
-        "PT2VHF QSL Manager keeps your whole amateur radio log in a local database on your computer. Import ADIF, ADX, Cabrillo, EDI and CSV files or download directly from QRZ.com, LoTW, eQSL and Club Log: repeated contacts are skipped and QSL confirmations are updated.",
-        "Add, edit and delete contacts, upload and sync your log with each platform (LoTW through ARRL TQSL) and track what has been uploaded and confirmed. Logs from several stations share the same database.",
-        "Click a callsign, country or grid to see everything you did with it, including the station photo and data from QRZ.com. The QSL tab shows confirmations, awards (DXCC, WAZ, WAS, WPX, VUCC, IOTA) and what is still to be confirmed.",
-        "Complete statistics, propagation over the months, log health, PDF reports and full backup with restore."
+        "PT2VHF QSL Manager 将你的全部业余无线电日志保存在电脑上的本地数据库中。可导入 ADIF、ADX、Cabrillo、EDI 和 CSV 文件，或直接从 QRZ.com、LoTW、eQSL 和 Club Log 下载：重复的通联会被跳过，QSL 确认会自动更新。",
+        "添加、编辑和删除通联，将日志上传并同步到各平台（LoTW 通过 ARRL TQSL），并跟踪哪些已上传、哪些已确认。多个电台的日志共用同一个数据库。",
+        "点击呼号、国家或网格，即可查看与之相关的全部记录，包括电台照片和 QRZ.com 数据。QSL 标签页显示确认情况、奖状（DXCC、WAZ、WAS、WPX、VUCC、IOTA）以及尚待确认的内容。",
+        "完整统计、逐月传播情况、日志健康度、PDF 报告，以及可恢复的完整备份。"
       ],
       "features": [
-        "Contacts: add, edit and delete, with country, DXCC and zones filled in automatically",
-        "Import ADIF, ADX, Cabrillo, EDI and CSV with progress, without duplicates",
-        "Platforms: download, upload and sync with QRZ.com, LoTW (via TQSL), eQSL and Club Log, from 1980",
-        "QSL status (paper, LoTW, eQSL), awards and what is still to be confirmed",
-        "Cards for callsigns, countries and grids, with QRZ.com/HamQTH photo and data",
-        "20 detailed statistics, propagation, period comparison, contests and log health",
-        "Interactive charts, collapsible filters, saved views and PDF reports",
-        "Full backup (.qslbackup) with optional protected passwords, restore and automatic backup",
-        "Automatic updates from the official site; Portuguese, English and Spanish interface"
+        "通联：添加、编辑和删除，自动填写国家、DXCC 和分区",
+        "导入 ADIF、ADX、Cabrillo、EDI 和 CSV，显示进度且不重复",
+        "平台：与 QRZ.com、LoTW（通过 TQSL）、eQSL 和 Club Log 下载、上传和同步，最早可追溯到 1980 年",
+        "QSL 状态（纸卡、LoTW、eQSL）、奖状及尚待确认的内容",
+        "呼号、国家和网格资料卡，含 QRZ.com/HamQTH 照片和数据",
+        "20 项详细统计、传播、时段对比、比赛和日志健康度",
+        "交互式图表、可折叠筛选、保存的视图和 PDF 报告",
+        "完整备份（.qslbackup），可选受保护的密码，支持恢复和自动备份",
+        "从官网自动更新；界面支持葡萄牙语、英语和西班牙语"
       ],
       "requirements": [
-        "Windows 10/11 64-bit: installer or portable",
-        "Linux and macOS: temporarily not in this version; coming back in the next ones",
-        "LoTW upload: ARRL TQSL installed with certificate and Station Location",
-        "Internet only for platforms, station data and updates at www.pt2vhf.com"
+        "Windows 10/11 64 位：安装版或便携版",
+        "Linux 和 macOS：本版本暂不提供，后续版本恢复",
+        "上传到 LoTW：需安装 ARRL TQSL，并配置证书和 Station Location",
+        "仅在使用平台、获取电台数据和从 www.pt2vhf.com 更新时需要联网"
       ]
     }
+  },
+  "fileText": {
+    "Android 8 ou superior": "Android 8 或更高版本",
+    "Android 8+; APK experimental. Certificado debug diferente das versões anteriores: requer desinstalação prévia.": "Android 8+；实验性 APK。调试证书与旧版本不同：需先卸载旧版。",
+    "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute ./pt2vhf-sdr na pasta PT2VHF-SDR-Tool": "Linux x64（glibc 2.35+，如 Ubuntu 22.04+）；解压后在 PT2VHF-SDR-Tool 文件夹中运行 ./pt2vhf-sdr",
+    "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute o arquivo PT2VHF-Sat-Tool-v<versão> da pasta": "Linux x64（glibc 2.35+，如 Ubuntu 22.04+）；解压后运行文件夹中的 PT2VHF-Sat-Tool-v<版本> 文件",
+    "Mac Apple Silicon (M1/M2/M3/M4 etc.), macOS 11 ou superior. Não funciona em Macs Intel.": "Apple Silicon Mac（M1/M2/M3/M4 等），macOS 11 或更高版本。不支持 Intel Mac。",
+    "Outras distribuições e macOS (Python 3.10+ com Tkinter)": "其他发行版和 macOS（Python 3.10+，需 Tkinter）",
+    "SHA-256 dos arquivos da versão": "本版本文件的 SHA-256",
+    "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./PT2VHF-Sat-Tool-v<versão>-Linux-x64.deb": "Ubuntu 22.04+ / Linux Mint 21+ 64 位；安装命令：sudo apt install ./PT2VHF-Sat-Tool-v<版本>-Linux-x64.deb",
+    "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./pt2vhf-sdr-tool_{v}_amd64.deb": "Ubuntu 22.04+ / Linux Mint 21+ 64 位；安装命令：sudo apt install ./pt2vhf-sdr-tool_{v}_amd64.deb",
+    "Windows 10 1809+ / 11 64 bits (recomendado)": "Windows 10 1809+ / 11 64 位（推荐）",
+    "Windows 10 1809+ / 11 64 bits, EXE único sem instalar": "Windows 10 1809+ / 11 64 位，单个 EXE，无需安装",
+    "Windows 10/11 64 bits (recomendado)": "Windows 10/11 64 位（推荐）",
+    "Windows 10/11 64 bits, sem instalação": "Windows 10/11 64 位，无需安装",
+    "Windows 10/11 x64; executável portátil": "Windows 10/11 x64；便携版可执行文件",
+    "Windows 10/11 x64; instalação por usuário": "Windows 10/11 x64；按用户安装",
+    "macOS 13+ Apple Silicon (M1 ou superior); arraste para Aplicativos. Sem assinatura da Apple: na primeira vez, clique com o botão direito e escolha Abrir": "macOS 13+ Apple Silicon（M1 或更新）；拖到“应用程序”。未经 Apple 签名：首次打开时右键点击并选择“打开”",
+    "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos": "macOS 14+ Apple Silicon（M1 或更新）；拖到“应用程序”",
+    "Android — APK beta": "Android — 测试版 APK",
+    "Código-fonte": "源代码",
+    "Somas de verificação": "校验和",
+    "Windows — Instalador": "Windows — 安装版",
+    "Windows — Portátil": "Windows — 便携版"
+  },
+  "staticText": {
+    "HF · VHF · UHF · PROPAGAÇÃO": "HF · VHF · UHF · 传播",
+    "MESH · MESHTASTIC · TELEMETRIA": "MESH · MESHTASTIC · 遥测",
+    "SATÉLITES · DOPPLER · CAT": "卫星 · 多普勒 · CAT",
+    "RTL-SDR · WATERFALL · SCANNER": "RTL-SDR · 瀑布图 · 扫描",
+    "KENWOOD · ICOM · MEMÓRIAS": "KENWOOD · ICOM · 存储信道",
+    "LOG · QSL · LOTW · QRZ · DIPLOMAS": "日志 · QSL · LOTW · QRZ · 奖状"
   }
 };
