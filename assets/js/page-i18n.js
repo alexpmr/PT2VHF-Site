@@ -5,6 +5,9 @@
  * Idioma: escolha manual da aba (sessionStorage) ou o do navegador; sem nenhum idioma do site, inglês. */
 window.PT2VHF_PAGE_I18N = {
  "en": {
+  "Telas do aplicativo": "App screens",
+  "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "Map: the sondes within the chosen radius, your heading and the line to the selected sonde.",
+  "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "Compass: ADF needle pointing to the sonde, with distance, bearing and how much to turn.",
   "@title:PT2VHF Sonde Finder — encontre e resgate radiossondas": "PT2VHF Sonde Finder — find and recover radiosondes",
   "@desc:PT2VHF Sonde Finder para Android: mapa das radiossondas próximas, inclusive as que caíram há meses, bússola com agulha ADF e detector de proximidade. Teste fechado no Google Play.": "PT2VHF Sonde Finder for Android: map of nearby radiosondes, including ones that landed months ago, an ADF-style compass needle and a proximity detector. Closed test on Google Play.",
   "ANDROID · SONDEHUB · RADIOSSONDAS": "ANDROID · SONDEHUB · RADIOSONDES",
@@ -143,6 +146,9 @@ window.PT2VHF_PAGE_I18N = {
   "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Coming soon. The iPhone version of Speed Alert is being prepared and will be announced here."
  },
  "es": {
+  "Telas do aplicativo": "Pantallas de la app",
+  "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "Mapa: las sondas en el radio elegido, tu dirección y la línea hasta la sonda elegida.",
+  "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "Brújula: aguja ADF apuntando a la sonda, con distancia, rumbo y cuánto girar.",
   "@title:PT2VHF Sonde Finder — encontre e resgate radiossondas": "PT2VHF Sonde Finder — encuentra y recupera radiosondas",
   "@desc:PT2VHF Sonde Finder para Android: mapa das radiossondas próximas, inclusive as que caíram há meses, bússola com agulha ADF e detector de proximidade. Teste fechado no Google Play.": "PT2VHF Sonde Finder para Android: mapa de las radiosondas cercanas, incluso las que cayeron hace meses, brújula con aguja ADF y detector de proximidad. Prueba cerrada en Google Play.",
   "ANDROID · SONDEHUB · RADIOSSONDAS": "ANDROID · SONDEHUB · RADIOSONDAS",
@@ -271,6 +277,9 @@ window.PT2VHF_PAGE_I18N = {
   "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Próximamente. La versión de Speed Alert para iPhone está en preparación y se anunciará aquí."
  },
  "fr": {
+  "Telas do aplicativo": "Écrans de l'app",
+  "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "Carte : les sondes dans le rayon choisi, votre direction et la ligne vers la sonde choisie.",
+  "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "Boussole : aiguille ADF pointant vers la sonde, avec distance, cap et angle à tourner.",
   "@title:PT2VHF Sonde Finder — encontre e resgate radiossondas": "PT2VHF Sonde Finder — trouvez et récupérez des radiosondes",
   "@desc:PT2VHF Sonde Finder para Android: mapa das radiossondas próximas, inclusive as que caíram há meses, bússola com agulha ADF e detector de proximidade. Teste fechado no Google Play.": "PT2VHF Sonde Finder pour Android : carte des radiosondes proches, y compris celles tombées il y a des mois, boussole à aiguille ADF et détecteur de proximité. Test fermé sur Google Play.",
   "ANDROID · SONDEHUB · RADIOSSONDAS": "ANDROID · SONDEHUB · RADIOSONDES",
@@ -408,6 +417,9 @@ window.PT2VHF_PAGE_I18N = {
   "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Bientôt disponible. La version de Speed Alert pour iPhone est en préparation et sera annoncée ici."
  },
  "de": {
+  "Telas do aplicativo": "App-Bildschirme",
+  "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "Karte: die Sonden im gewählten Radius, deine Richtung und die Linie zur gewählten Sonde.",
+  "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "Kompass: ADF-Nadel zur Sonde, mit Entfernung, Peilung und wie weit du dich drehen musst.",
   "@title:PT2VHF Sonde Finder — encontre e resgate radiossondas": "PT2VHF Sonde Finder — Radiosonden finden und bergen",
   "@desc:PT2VHF Sonde Finder para Android: mapa das radiossondas próximas, inclusive as que caíram há meses, bússola com agulha ADF e detector de proximidade. Teste fechado no Google Play.": "PT2VHF Sonde Finder für Android: Karte der Radiosonden in der Nähe, auch solcher, die vor Monaten gelandet sind, Kompass mit ADF-Nadel und Näherungsdetektor. Geschlossener Test bei Google Play.",
   "ANDROID · SONDEHUB · RADIOSSONDAS": "ANDROID · SONDEHUB · RADIOSONDEN",
@@ -546,6 +558,9 @@ window.PT2VHF_PAGE_I18N = {
   "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Demnächst. Die iPhone-Version von Speed Alert ist in Vorbereitung und wird hier angekündigt."
  },
  "it": {
+  "Telas do aplicativo": "Schermate dell'app",
+  "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "Mappa: le sonde nel raggio scelto, la tua direzione e la linea verso la sonda scelta.",
+  "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "Bussola: ago ADF che punta alla sonda, con distanza, rotta e di quanto girare.",
   "@title:PT2VHF Sonde Finder — encontre e resgate radiossondas": "PT2VHF Sonde Finder — trova e recupera radiosonde",
   "@desc:PT2VHF Sonde Finder para Android: mapa das radiossondas próximas, inclusive as que caíram há meses, bússola com agulha ADF e detector de proximidade. Teste fechado no Google Play.": "PT2VHF Sonde Finder per Android: mappa delle radiosonde vicine, anche quelle cadute mesi fa, bussola con ago ADF e rilevatore di prossimità. Test chiuso su Google Play.",
   "ANDROID · SONDEHUB · RADIOSSONDAS": "ANDROID · SONDEHUB · RADIOSONDE",
@@ -679,6 +694,9 @@ window.PT2VHF_PAGE_I18N = {
   "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Presto disponibile. La versione di Speed Alert per iPhone è in preparazione e sarà annunciata qui."
  },
  "zh": {
+  "Telas do aplicativo": "应用界面",
+  "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "地图：所选半径内的探空仪、你的方向以及到所选探空仪的连线。",
+  "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "罗盘：ADF 指针指向探空仪，显示距离、方位和需要转动的角度。",
   "@title:PT2VHF Sonde Finder — encontre e resgate radiossondas": "PT2VHF Sonde Finder — 寻找并回收探空仪",
   "@desc:PT2VHF Sonde Finder para Android: mapa das radiossondas próximas, inclusive as que caíram há meses, bússola com agulha ADF e detector de proximidade. Teste fechado no Google Play.": "PT2VHF Sonde Finder（Android）：附近探空仪地图（包括数月前落地的）、ADF 式罗盘指针和接近探测器。Google Play 封闭测试。",
   "ANDROID · SONDEHUB · RADIOSSONDAS": "ANDROID · SONDEHUB · 探空仪",

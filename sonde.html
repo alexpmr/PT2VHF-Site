@@ -39,6 +39,10 @@
     .testers-form input[type=email]{font-size:1.15rem;padding:14px 16px;min-height:54px;border:2px solid var(--accent);border-radius:10px;background:var(--surface);color:var(--text)}
     .testers-form input:focus{outline:3px solid var(--accent-soft);outline-offset:1px}
     .testers-form .btn{font-size:1.1rem;padding:14px 26px;min-height:54px}
+    .sf-shots{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+    .sf-shots figure{margin:0;flex:0 1 270px;text-align:center}
+    .sf-shots img{width:100%;height:auto;border-radius:18px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .sf-shots p{margin:10px 0 0;color:var(--muted);font-size:.92rem;line-height:1.5}
     @media(max-width:900px){.sf-features{grid-template-columns:1fr 1fr}}
     @media(max-width:600px){.sf-features{grid-template-columns:1fr}}
   </style>
@@ -151,6 +155,18 @@
       </div>
     </section>
 
+    <section class="section" id="telas" aria-labelledby="shots-title">
+      <div class="container">
+        <div class="section-head"><h2 id="shots-title">Telas do aplicativo</h2></div>
+        <div class="sf-shots">
+          <figure><img src="/assets/img/sonde/mapa.jpg?v=20261126" width="540" height="1074" loading="lazy" alt="Tela do mapa do Sonde Finder com a sonda escolhida, a distância e o feixe de direção">
+            <p>Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.</p></figure>
+          <figure><img src="/assets/img/sonde/bussola.jpg?v=20261126" width="540" height="1074" loading="lazy" alt="Tela da bússola do Sonde Finder com a agulha ADF apontando para a sonda">
+            <p>Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.</p></figure>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-alt google-play" id="google-play" aria-labelledby="play-title">
       <div class="container">
         <div class="section-head">
@@ -193,7 +209,7 @@
   <script src="/assets/js/contact-data.js?v=20261124-speed"></script>
   <script src="/assets/js/main.js?v=20261124-speed2"></script>
   <script src="/assets/js/android-play-i18n.js?v=20261124-speed"></script>
-  <script src="/assets/js/page-i18n.js?v=20261126-sonde"></script>
+  <script src="/assets/js/page-i18n.js?v=20261126-sonde2"></script>
   <script src="/assets/js/visit.js?v=20261123-stats" defer></script>
 </body>
 </html>

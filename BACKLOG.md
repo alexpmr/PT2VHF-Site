@@ -18,7 +18,7 @@ Nenhum item pendente.
   e-mail for incluído no teste. `testers_export.php?app=sonde`. Sonde Finder no menu Projetos e no `sitemap.xml`.
 - **Pendente do lado do Google Play:** criar o app `com.pt2vhf.sondefinder` na Play Console, configurar o teste
   fechado e subir o primeiro AAB assinado; depois trocar `'instructions' => false` para mandar as instruções na
-  inscrição. Screenshots do app na página: aguardando capturas atuais do aparelho.
+  inscrição. Galeria com as telas do mapa e da bússola (capturas da v1.7.0) adicionada em seguida.
 
 ### RESOLVIDO (24/11/2026) — Página /speed no layout do site, sem APK, sem iOS e sem GitHub
 
