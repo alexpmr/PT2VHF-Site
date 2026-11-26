@@ -2,7 +2,10 @@
 
 ## Pendentes
 
-Nenhum item pendente.
+- **Contadores de usuários do Sonde Finder na página /sonde** (pedido do Alex, 26/11/2026): um número de
+  usuários totais e outro de usuários dos últimos 2 dias. Fonte: as verificações de versão do app com o
+  identificador anônimo da instalação (item do backlog do `PT2VHF-Sonde-Finder`). Só números agregados na
+  página, sem identificadores.
 
 ## Concluídos
 
@@ -16,6 +19,9 @@ Nenhum item pendente.
   `testers-sonde.csv`, aviso ao Alex `[Testador · Sonde Finder]`); como o app ainda não está na Play Console, o
   inscrito recebe só a confirmação de recebimento (`'instructions' => false`); as instruções do Play seguem quando o
   e-mail for incluído no teste. `testers_export.php?app=sonde`. Sonde Finder no menu Projetos e no `sitemap.xml`.
+- **Sem APK no site** (pedido do Alex, 26/11/2026): o Sonde Finder é distribuído só pelo Google Play, como o
+  Speed Alert; a página não oferece download. `update.php`/`download.php`/`installs_lib.php` já reconhecem o
+  produto `sonde` (sem entrada no `updates.json`), para a futura contagem de usuários pela verificação de versão.
 - **Pendente do lado do Google Play:** criar o app `com.pt2vhf.sondefinder` na Play Console, configurar o teste
   fechado e subir o primeiro AAB assinado; depois trocar `'instructions' => false` para mandar as instruções na
   inscrição. Galeria com as telas do mapa e da bússola (capturas da v1.7.0) adicionada em seguida.

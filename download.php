@@ -22,7 +22,7 @@ $allowed = array(
     'win7-setup-x64','win7-portable-x64',
     'android-apk'
 );
-$products = array('aprs', 'prop', 'mesh', 'sat', 'sdr', 'prog', 'qsl', 'aprs-android', 'speed');
+$products = array('aprs', 'prop', 'mesh', 'sat', 'sdr', 'prog', 'qsl', 'aprs-android', 'speed', 'sonde');
 // Baseline histórico do GitHub em 26/10/2026, antes dos downloads pelo site.
 // Contagens auditáveis: github.com/alexpmr/PT2VHF-Prop-Tool (ramo badges).
 $propHistoricalCounts = array('win-setup-x64' => 48, 'win-portable-x64' => 23);
@@ -89,7 +89,7 @@ $product = (string)($isFileRequest ? ($_GET['product'] ?? '') : ($_POST['product
 $category = (string)($isFileRequest ? '' : ($_POST['category'] ?? ''));
 $requestedFile = $isFileRequest ? (string)($_GET['file'] ?? '') : '';
 if (!in_array($product, $products, true) ||
-    ($isFileRequest && (!in_array($product, array('aprs', 'prop', 'mesh', 'sat', 'sdr', 'prog', 'qsl', 'aprs-android', 'speed'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
+    ($isFileRequest && (!in_array($product, array('aprs', 'prop', 'mesh', 'sat', 'sdr', 'prog', 'qsl', 'aprs-android', 'speed', 'sonde'), true) || preg_match('/^[a-zA-Z0-9_.-]+$/D', $requestedFile) !== 1)) ||
     (!$isFileRequest && !in_array($category, $allowed, true))) {
     fclose($file);
     pt2vhf_error(400, 'Projeto, categoria ou arquivo inválidos');
@@ -122,7 +122,7 @@ $redirectPath = '';
 $githubReleaseUrl = ''; // SDR Tool: fallback assinado pelo manifesto para artefatos da release GitHub
 $propChunks = false;
 $propSize = 0;
-$folders = array('aprs' => 'aprs-client', 'prop' => 'prop-tool', 'mesh' => 'mesh-analyzer', 'sat' => 'sat-tool', 'sdr' => 'sdr-tool', 'prog' => 'prog-tool', 'qsl' => 'qsl-analyzer', 'aprs-android' => 'aprs-android', 'speed' => 'speed-alert');
+$folders = array('aprs' => 'aprs-client', 'prop' => 'prop-tool', 'mesh' => 'mesh-analyzer', 'sat' => 'sat-tool', 'sdr' => 'sdr-tool', 'prog' => 'prog-tool', 'qsl' => 'qsl-analyzer', 'aprs-android' => 'aprs-android', 'speed' => 'speed-alert', 'sonde' => 'sonde-finder');
 $segmented = $product === 'prop' || $product === 'sat' || $product === 'sdr' || $product === 'qsl' || ($product === 'aprs-android' && preg_match('/_QA\\.apk$/D', $requestedFile) === 1);
 foreach ($files as $entry) {
     if (!is_array($entry)) continue;

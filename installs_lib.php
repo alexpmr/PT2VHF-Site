@@ -14,7 +14,7 @@
  */
 declare(strict_types=1);
 
-const PT2VHF_INSTALLS_PRODUCTS = array('mesh', 'aprs', 'prop', 'sat', 'sdr', 'prog', 'qsl', 'aprs-android', 'speed');
+const PT2VHF_INSTALLS_PRODUCTS = array('mesh', 'aprs', 'prop', 'sat', 'sdr', 'prog', 'qsl', 'aprs-android', 'speed', 'sonde');
 const PT2VHF_INSTALLS_KEEP_DAYS = 400;      // histórico de totais diários
 const PT2VHF_INSTALLS_MAX_PER_DAY = 200000; // teto de hashes por dia (todos os produtos)
 
