@@ -2,12 +2,17 @@
 
 ## Pendentes
 
-- **Contadores de usuários do Sonde Finder na página /sonde** (pedido do Alex, 26/11/2026): um número de
-  usuários totais e outro de usuários dos últimos 2 dias. Fonte: as verificações de versão do app com o
-  identificador anônimo da instalação (item do backlog do `PT2VHF-Sonde-Finder`). Só números agregados na
-  página, sem identificadores.
+Nenhum item pendente.
 
 ## Concluídos
+
+### RESOLVIDO (26/11/2026) — Contadores de usuários do Sonde Finder e política própria
+
+- **Pedido do Alex:** usuários totais e dos últimos 2 dias na página /sonde.
+- **Feito:** `sonde_installs_lib.php` / `sonde_activity.php` / `sonde_stats.php` no mesmo esquema do Speed Alert
+  (só HMAC do identificador aleatório da instalação, segredo e dados em `pt2vhf-private-data`, retenção de 400
+  dias, no máximo 1 atualização/hora por instalação). Seção "Usuários" no /sonde com `totalUnique` e `active48`,
+  em 7 idiomas. Política de privacidade própria em `/privacidade-sonde` (pt + en), usada na Play Console.
 
 ### RESOLVIDO (26/11/2026) — Página /sonde e inscrição de testadores do Sonde Finder
 

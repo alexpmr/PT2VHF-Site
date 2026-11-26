@@ -5,6 +5,10 @@
  * Idioma: escolha manual da aba (sessionStorage) ou o do navegador; sem nenhum idioma do site, inglês. */
 window.PT2VHF_PAGE_I18N = {
  "en": {
+  "Usuários": "Users",
+  "usuários no total": "users in total",
+  "usaram nos últimos 2 dias": "used it in the last 2 days",
+  "Contagem anônima: cada instalação envia um identificador aleatório ao verificar a versão, sem posição nem dados pessoais. Dá para desligar no app (botão ⓘ). Veja a <a href=\"/privacidade-sonde\">política de privacidade</a>.": "Anonymous count: each install sends a random identifier when checking the version, with no position or personal data. It can be turned off in the app (ⓘ button). See the <a href=\"/privacidade-sonde\">privacy policy</a>.",
   "Telas do aplicativo": "App screens",
   "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "Map: the sondes within the chosen radius, your heading and the line to the selected sonde.",
   "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "Compass: ADF needle pointing to the sonde, with distance, bearing and how much to turn.",
@@ -146,6 +150,10 @@ window.PT2VHF_PAGE_I18N = {
   "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Coming soon. The iPhone version of Speed Alert is being prepared and will be announced here."
  },
  "es": {
+  "Usuários": "Usuarios",
+  "usuários no total": "usuarios en total",
+  "usaram nos últimos 2 dias": "la usaron en los últimos 2 días",
+  "Contagem anônima: cada instalação envia um identificador aleatório ao verificar a versão, sem posição nem dados pessoais. Dá para desligar no app (botão ⓘ). Veja a <a href=\"/privacidade-sonde\">política de privacidade</a>.": "Conteo anónimo: cada instalación envía un identificador aleatorio al verificar la versión, sin posición ni datos personales. Se puede desactivar en la app (botón ⓘ). Ve la <a href=\"/privacidade-sonde\">política de privacidad</a>.",
   "Telas do aplicativo": "Pantallas de la app",
   "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "Mapa: las sondas en el radio elegido, tu dirección y la línea hasta la sonda elegida.",
   "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "Brújula: aguja ADF apuntando a la sonda, con distancia, rumbo y cuánto girar.",
@@ -277,6 +285,10 @@ window.PT2VHF_PAGE_I18N = {
   "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Próximamente. La versión de Speed Alert para iPhone está en preparación y se anunciará aquí."
  },
  "fr": {
+  "Usuários": "Utilisateurs",
+  "usuários no total": "utilisateurs au total",
+  "usaram nos últimos 2 dias": "l'ont utilisée ces 2 derniers jours",
+  "Contagem anônima: cada instalação envia um identificador aleatório ao verificar a versão, sem posição nem dados pessoais. Dá para desligar no app (botão ⓘ). Veja a <a href=\"/privacidade-sonde\">política de privacidade</a>.": "Comptage anonyme : chaque installation envoie un identifiant aléatoire en vérifiant la version, sans position ni données personnelles. Désactivable dans l'app (bouton ⓘ). Voir la <a href=\"/privacidade-sonde\">politique de confidentialité</a>.",
   "Telas do aplicativo": "Écrans de l'app",
   "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "Carte : les sondes dans le rayon choisi, votre direction et la ligne vers la sonde choisie.",
   "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "Boussole : aiguille ADF pointant vers la sonde, avec distance, cap et angle à tourner.",
@@ -417,6 +429,10 @@ window.PT2VHF_PAGE_I18N = {
   "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Bientôt disponible. La version de Speed Alert pour iPhone est en préparation et sera annoncée ici."
  },
  "de": {
+  "Usuários": "Nutzer",
+  "usuários no total": "Nutzer insgesamt",
+  "usaram nos últimos 2 dias": "in den letzten 2 Tagen genutzt",
+  "Contagem anônima: cada instalação envia um identificador aleatório ao verificar a versão, sem posição nem dados pessoais. Dá para desligar no app (botão ⓘ). Veja a <a href=\"/privacidade-sonde\">política de privacidade</a>.": "Anonyme Zählung: Jede Installation sendet bei der Versionsprüfung eine zufällige Kennung, ohne Position oder persönliche Daten. In der App abschaltbar (ⓘ-Taste). Siehe <a href=\"/privacidade-sonde\">Datenschutzerklärung</a>.",
   "Telas do aplicativo": "App-Bildschirme",
   "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "Karte: die Sonden im gewählten Radius, deine Richtung und die Linie zur gewählten Sonde.",
   "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "Kompass: ADF-Nadel zur Sonde, mit Entfernung, Peilung und wie weit du dich drehen musst.",
@@ -558,6 +574,10 @@ window.PT2VHF_PAGE_I18N = {
   "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Demnächst. Die iPhone-Version von Speed Alert ist in Vorbereitung und wird hier angekündigt."
  },
  "it": {
+  "Usuários": "Utenti",
+  "usuários no total": "utenti in totale",
+  "usaram nos últimos 2 dias": "l'hanno usata negli ultimi 2 giorni",
+  "Contagem anônima: cada instalação envia um identificador aleatório ao verificar a versão, sem posição nem dados pessoais. Dá para desligar no app (botão ⓘ). Veja a <a href=\"/privacidade-sonde\">política de privacidade</a>.": "Conteggio anonimo: ogni installazione invia un identificativo casuale quando controlla la versione, senza posizione né dati personali. Si può disattivare nell'app (pulsante ⓘ). Vedi l'<a href=\"/privacidade-sonde\">informativa sulla privacy</a>.",
   "Telas do aplicativo": "Schermate dell'app",
   "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "Mappa: le sonde nel raggio scelto, la tua direzione e la linea verso la sonda scelta.",
   "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "Bussola: ago ADF che punta alla sonda, con distanza, rotta e di quanto girare.",
@@ -694,6 +714,10 @@ window.PT2VHF_PAGE_I18N = {
   "Em breve. A versão do Speed Alert para iPhone está em preparação e será anunciada aqui.": "Presto disponibile. La versione di Speed Alert per iPhone è in preparazione e sarà annunciata qui."
  },
  "zh": {
+  "Usuários": "用户",
+  "usuários no total": "总用户数",
+  "usaram nos últimos 2 dias": "最近 2 天使用过",
+  "Contagem anônima: cada instalação envia um identificador aleatório ao verificar a versão, sem posição nem dados pessoais. Dá para desligar no app (botão ⓘ). Veja a <a href=\"/privacidade-sonde\">política de privacidade</a>.": "匿名统计：每个安装在检查版本时发送一个随机标识符，不含位置或个人数据。可在应用中关闭（ⓘ 按钮）。参见<a href=\"/privacidade-sonde\">隐私政策</a>。",
   "Telas do aplicativo": "应用界面",
   "Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.": "地图：所选半径内的探空仪、你的方向以及到所选探空仪的连线。",
   "Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.": "罗盘：ADF 指针指向探空仪，显示距离、方位和需要转动的角度。",

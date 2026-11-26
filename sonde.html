@@ -39,12 +39,14 @@
     .testers-form input[type=email]{font-size:1.15rem;padding:14px 16px;min-height:54px;border:2px solid var(--accent);border-radius:10px;background:var(--surface);color:var(--text)}
     .testers-form input:focus{outline:3px solid var(--accent-soft);outline-offset:1px}
     .testers-form .btn{font-size:1.1rem;padding:14px 26px;min-height:54px}
+    .sf-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:620px}
+    .sf-stats .n{font:800 2.4rem/1.1 "JetBrains Mono",monospace;color:var(--accent)}
     .sf-shots{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
     .sf-shots figure{margin:0;flex:0 1 270px;text-align:center}
     .sf-shots img{width:100%;height:auto;border-radius:18px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.25)}
     .sf-shots p{margin:10px 0 0;color:var(--muted);font-size:.92rem;line-height:1.5}
     @media(max-width:900px){.sf-features{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.sf-features{grid-template-columns:1fr}}
+    @media(max-width:600px){.sf-features,.sf-stats{grid-template-columns:1fr}}
   </style>
 </head>
 <body class="speed-page sonde-page" data-own-title>
@@ -167,6 +169,17 @@
       </div>
     </section>
 
+    <section class="section" id="usuarios" aria-labelledby="users-title">
+      <div class="container">
+        <h2 id="users-title">Usuários</h2>
+        <div class="sf-stats">
+          <div class="sf-card"><div class="n" id="users-total">—</div><p>usuários no total</p></div>
+          <div class="sf-card"><div class="n" id="users-48h">—</div><p>usaram nos últimos 2 dias</p></div>
+        </div>
+        <p class="sf-credit">Contagem anônima: cada instalação envia um identificador aleatório ao verificar a versão, sem posição nem dados pessoais. Dá para desligar no app (botão ⓘ). Veja a <a href="/privacidade-sonde">política de privacidade</a>.</p>
+      </div>
+    </section>
+
     <section class="section section-alt google-play" id="google-play" aria-labelledby="play-title">
       <div class="container">
         <div class="section-head">
@@ -187,7 +200,7 @@
         </form>
         <p id="testers-status" role="status" class="mono" style="margin-top:10px;color:#f9ce79" hidden></p>
         <p style="color: var(--muted); font-size: .9rem;" data-gp-i18n="privacyNote">Seu e-mail é usado só para a lista de testadores do Google Play.
-          Veja a <a href="/privacidade">política de privacidade</a>.</p>
+          Veja a <a href="/privacidade-sonde">política de privacidade</a>.</p>
       </div>
     </section>
   </main>
@@ -209,7 +222,16 @@
   <script src="/assets/js/contact-data.js?v=20261124-speed"></script>
   <script src="/assets/js/main.js?v=20261124-speed2"></script>
   <script src="/assets/js/android-play-i18n.js?v=20261124-speed"></script>
-  <script src="/assets/js/page-i18n.js?v=20261126-sonde2"></script>
+  <script src="/assets/js/page-i18n.js?v=20261126-sonde4"></script>
+  <script>
+  // Contadores agregados do Sonde Finder (sonde_stats.php): total de instalações e ativas em 2 dias.
+  (function () {
+    fetch('/sonde_stats.php', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw Error(); return r.json(); }).then(function (d) {
+      document.getElementById('users-total').textContent = d.totalUnique ?? 0;
+      document.getElementById('users-48h').textContent = d.active48 ?? 0;
+    }).catch(function () {});
+  })();
+  </script>
   <script src="/assets/js/visit.js?v=20261123-stats" defer></script>
 </body>
 </html>

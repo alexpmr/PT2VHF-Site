@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de privacidade — PT2VHF Sonde Finder</title>
+  <meta name="description" content="Como o PT2VHF Sonde Finder trata seus dados / How PT2VHF Sonde Finder handles your data.">
+  <link rel="canonical" href="https://www.pt2vhf.com/privacidade-sonde">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PT2VHF Sonde Finder">
+  <meta property="og:description" content="Encontre e resgate radiossondas perto de você, com dados do SondeHub.">
+  <meta property="og:url" content="https://www.pt2vhf.com/privacidade-sonde">
+  <meta property="og:image" content="https://www.pt2vhf.com/assets/img/og-image.svg">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261124-speed">
+  <link rel="stylesheet" href="/assets/css/aprs-language-menu.css?v=20261106-aprs1158">
+  <style>
+    /* Sonde Finder: recursos com a bússola ilustrativa e formulário de testadores (só e-mail). */
+    .sf-features{display:grid;grid-template-columns:minmax(220px,280px) repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+    .sf-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+    .sf-card h3{margin:0 0 8px;font-size:1.08rem}.sf-card p{margin:0;color:var(--muted);line-height:1.6}
+    .sf-visual{background:#0e1419;border-color:#26323c;text-align:center;color:#e8edf1}
+    .sf-dial{position:relative;margin:auto;width:150px;height:150px;border-radius:50%;background:#121a21;border:8px solid #0f161c;box-shadow:0 0 0 1px #26323c}
+    .sf-dial b{position:absolute;font-size:1rem}.sf-dial .n{top:6px;left:50%;transform:translateX(-50%);color:#ff5c5c}
+    .sf-dial .e{right:8px;top:50%;transform:translateY(-50%)}.sf-dial .s{bottom:6px;left:50%;transform:translateX(-50%)}.sf-dial .w{left:8px;top:50%;transform:translateY(-50%)}
+    .sf-needle{position:absolute;left:50%;top:50%;width:6px;height:112px;margin:-56px 0 0 -3px;transform:rotate(38deg)}
+    .sf-needle i{position:absolute;left:0;top:14px;width:6px;height:42px;background:#ff8a3d;border-radius:2px}
+    .sf-needle i:before{content:"";position:absolute;left:-9px;top:-16px;border:12px solid transparent;border-bottom:18px solid #ff8a3d;border-top:0}
+    .sf-needle u{position:absolute;left:2px;top:56px;width:2px;height:48px;background:#7f8e9b}
+    .sf-dist{margin-top:14px;font:700 2.2rem/1 "JetBrains Mono",monospace}.sf-dist span{font-size:1rem;color:#c5ced6}
+    .sf-visual .road{color:#c5ced6;margin-top:8px;font-size:.92rem}
+    .sf-credit{margin-top:14px;color:var(--muted);font-size:.88rem}
+    .testers-form{max-width:760px;gap:14px;display:flex;flex-wrap:wrap;align-items:flex-end}
+    .testers-form label{display:flex;flex-direction:column;gap:6px}.testers-form label>span{font-weight:600;font-size:1.05rem}
+    .testers-form input[type=email]{font-size:1.15rem;padding:14px 16px;min-height:54px;border:2px solid var(--accent);border-radius:10px;background:var(--surface);color:var(--text)}
+    .testers-form input:focus{outline:3px solid var(--accent-soft);outline-offset:1px}
+    .testers-form .btn{font-size:1.1rem;padding:14px 26px;min-height:54px}
+    .sf-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:620px}
+    .sf-stats .n{font:800 2.4rem/1.1 "JetBrains Mono",monospace;color:var(--accent)}
+    .sf-shots{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+    .sf-shots figure{margin:0;flex:0 1 270px;text-align:center}
+    .sf-shots img{width:100%;height:auto;border-radius:18px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .sf-shots p{margin:10px 0 0;color:var(--muted);font-size:.92rem;line-height:1.5}
+    @media(max-width:900px){.sf-features{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.sf-features,.sf-stats{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="speed-page sonde-page" data-own-title>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="PT2VHF, início">
+        <img src="/assets/img/favicon.svg" alt="" width="32" height="32">
+        <span>PT2VHF</span>
+      </a>
+
+      <nav id="site-nav" class="site-nav" aria-label="Principal">
+        <a class="site-nav-home" href="/">Início</a>
+        <details class="site-nav-projects">
+          <summary class="site-nav-projects-label" aria-label="Projetos">Projetos <span class="site-nav-caret" aria-hidden="true">▾</span></summary>
+          <div class="site-nav-dropdown">
+            <a href="/aprs">APRS Client</a>
+            <a href="/aprs-android">APRS Android</a>
+            <a href="/prop">Prop Tool</a>
+            <a href="/mesh">Mesh Analyzer</a>
+            <a href="/sat">SAT Tool</a>
+            <a href="/sdr">SDR Tool</a>
+            <a href="/prog">Prog Tool</a>
+            <a href="/qsl">QSL Manager</a>
+            <a href="/speed">Speed Alert</a>
+            <a href="/sonde">Sonde Finder</a>
+          </div>
+        </details>
+        <a class="site-nav-about" href="/sobre">Sobre</a>
+        <a class="site-nav-contact" href="/contato">Contato</a>
+      </nav>
+      <div class="header-controls">
+        <div id="languageQuickSwitch" class="language-quick-switch" aria-label="Idioma / Language">
+          <button id="languageQuickCurrent" type="button" class="language-quick-current" aria-haspopup="menu" aria-controls="languageQuickMenu" aria-expanded="false" title="Trocar idioma">
+            <img id="languageQuickCurrentFlag" class="language-quick-img" src="/assets/img/flags/br.svg" alt="Brasil" width="18" height="12">
+            <span id="languageQuickCurrentLabel">Português (Brasil)</span>
+            <span class="language-quick-caret" aria-hidden="true">▾</span>
+          </button>
+          <div id="languageQuickMenu" class="language-quick-menu" role="menu" aria-label="Idioma / Language" hidden>
+            <button type="button" class="language-quick-option" data-language="pt" role="menuitemradio" aria-checked="true">
+              <img class="language-quick-img" src="/assets/img/flags/br.svg" alt="Brasil" width="18" height="12">
+              <span>Português (Brasil)</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="en" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/gb.svg" alt="Reino Unido" width="18" height="12">
+              <span>English</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="es" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/es.svg" alt="Espanha" width="18" height="12">
+              <span>Español</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="fr" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/fr.svg" alt="França" width="18" height="12">
+              <span>Français</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="de" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/de.svg" alt="Alemanha" width="18" height="12">
+              <span>Deutsch</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="it" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/it.svg" alt="Itália" width="18" height="12">
+              <span>Italiano</span>
+            </button>
+            <button type="button" class="language-quick-option" data-language="zh" role="menuitemradio" aria-checked="false">
+              <img class="language-quick-img" src="/assets/img/flags/cn.svg" alt="China" width="18" height="12">
+              <span>简体中文</span>
+            </button>
+          </div>
+        </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      </div>
+    </div>
+  </header>
+  <main id="conteudo">
+    <section class="section" id="privacidade">
+      <div class="container" style="max-width: 820px;">
+        <p class="eyebrow mono">PT2VHF SONDE FINDER · PRIVACIDADE</p>
+        <h1>Política de privacidade — PT2VHF Sonde Finder</h1>
+        <p><em>Última atualização: 26/11/2026 · <a href="#en">English below</a></em></p>
+        <p>O PT2VHF Sonde Finder ajuda a encontrar e resgatar radiossondas meteorológicas. É desenvolvido por Alex Rodrigues (PT2VHF). O app não tem anúncios, não usa SDKs de análise ou rastreamento, não pede conta e não vende dados.</p>
+        <h2>O que o app envia e para onde</h2>
+        <ul>
+          <li><strong>SondeHub (api.v2.sondehub.org):</strong> para buscar as sondas próximas, o app envia a sua posição (latitude e longitude), o raio e o período escolhidos. O SondeHub é um serviço aberto de terceiros, com regras próprias; o PT2VHF não guarda essa posição.</li>
+          <li><strong>Mapas (OpenFreeMap / OpenStreetMap):</strong> os mapas são baixados desses provedores, que recebem o endereço IP e a área vista.</li>
+          <li><strong>Site pt2vhf.com (contagem de uso):</strong> no máximo duas vezes por dia, o app envia um identificador aleatório criado na instalação, a versão do app e a plataforma, para contar quantas pessoas usam o app. Não envia posição, nome, e-mail nem identificadores do aparelho. No site, o identificador é guardado só como um código cifrado (HMAC), junto com a data de uso e o país estimado pelo servidor, por até 400 dias. Dá para desligar no app, no botão ⓘ.</li>
+        </ul>
+        <h2>O que fica só no aparelho</h2>
+        <p>Configurações (raio, período, estilo do mapa, ajuste da bússola) e o identificador aleatório. Desinstalar o app apaga tudo.</p>
+        <h2>Permissões</h2>
+        <ul>
+          <li><strong>Localização:</strong> para achar as sondas perto de você, calcular distância e direção, e mostrar sua posição no mapa. Usada só com o app aberto, sem localização em segundo plano.</li>
+          <li><strong>Vibração:</strong> para o detector de proximidade.</li>
+          <li><strong>Internet:</strong> para o SondeHub, os mapas e a contagem de uso.</li>
+        </ul>
+        <h2>Cadastro de testadores</h2>
+        <p>Se você se cadastrar para testar pelo Google Play, guardamos seu e-mail apenas para incluí-lo na lista de testadores. Ele não é publicado nem compartilhado.</p>
+        <h2>Exclusão dos seus dados</h2>
+        <p>Desligue a contagem no app e desinstale-o; o código cifrado deixa de ser atualizado e é apagado em até 400 dias. Para apagar antes, ou para sair da lista de testadores, escreva para <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a>; atendemos em até 30 dias.</p>
+        <h2>Contato</h2>
+        <p>E-mail: <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> · <a href="/sonde">página do app</a>.</p>
+
+        <h2 id="en" lang="en" style="margin-top:48px">Privacy policy — PT2VHF Sonde Finder (English)</h2>
+        <div lang="en">
+        <p><em>Last updated: November 26, 2026</em></p>
+        <p>PT2VHF Sonde Finder helps you find and recover weather radiosondes. It is developed by Alex Rodrigues (PT2VHF). The app has no ads, uses no analytics or tracking SDKs, needs no account and does not sell data.</p>
+        <h3>What the app sends and where</h3>
+        <ul>
+          <li><strong>SondeHub (api.v2.sondehub.org):</strong> to find nearby sondes the app sends your position (latitude and longitude) with the chosen radius and period. SondeHub is an open third-party service with its own rules; PT2VHF does not store this position.</li>
+          <li><strong>Maps (OpenFreeMap / OpenStreetMap):</strong> map data is downloaded from these providers, which receive your IP address and the area viewed.</li>
+          <li><strong>pt2vhf.com (usage count):</strong> at most twice a day the app sends a random identifier created at install time, the app version and the platform, to count how many people use the app. No position, name, e-mail or device identifiers are sent. On the website the identifier is stored only as a keyed hash (HMAC), with the date of use and the country estimated by the server, for up to 400 days. You can turn it off in the app (ⓘ button).</li>
+        </ul>
+        <h3>What stays only on the device</h3>
+        <p>Settings (radius, period, map style, compass adjustment) and the random identifier. Uninstalling the app deletes everything.</p>
+        <h3>Permissions</h3>
+        <ul>
+          <li><strong>Location:</strong> to find sondes near you, compute distance and direction, and show your position on the map. Used only while the app is open, never in the background.</li>
+          <li><strong>Vibration:</strong> for the proximity detector.</li>
+          <li><strong>Internet:</strong> for SondeHub, maps and the usage count.</li>
+        </ul>
+        <h3>Tester sign-up</h3>
+        <p>If you sign up to test on Google Play, we keep your e-mail only to add it to the tester list. It is not published or shared.</p>
+        <h3>Deleting your data</h3>
+        <p>Turn the count off in the app and uninstall it; the keyed hash stops being updated and is deleted within 400 days. To delete it sooner, or to leave the tester list, write to <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a>; requests are handled within 30 days.</p>
+        <h3>Contact</h3>
+        <p>E-mail: <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a> · <a href="/sonde">app page</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> PT2VHF. Todos os direitos reservados.</p>
+      <p class="mono">73 de PT2VHF</p>
+    </div>
+  </footer>
+  <script src="/assets/js/locales/pt.js?v=20261124-win7"></script>
+  <script src="/assets/js/locales/en.js?v=20261124-win7"></script>
+  <script src="/assets/js/locales/es.js?v=20261124-win7"></script>
+  <script src="/assets/js/locales/fr.js?v=20261124-win7"></script>
+  <script src="/assets/js/locales/de.js?v=20261124-win7"></script>
+  <script src="/assets/js/locales/it.js?v=20261124-win7"></script>
+  <script src="/assets/js/locales/zh.js?v=20261124-win7"></script>
+  <script src="/assets/js/products.js?v=20261124-speed"></script>
+  <script src="/assets/js/contact-data.js?v=20261124-speed"></script>
+  <script src="/assets/js/main.js?v=20261124-speed2"></script>
+  <script src="/assets/js/android-play-i18n.js?v=20261124-speed"></script>
+  <script src="/assets/js/visit.js?v=20261123-stats" defer></script>
+</body>
+</html>

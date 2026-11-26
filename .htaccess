@@ -25,6 +25,7 @@ RewriteRule ^aprs-android/?$ android.html [END,NC]
 RewriteRule ^speed/?$ speed.html [END,NC]
 # Página oficial do Sonde Finder
 RewriteRule ^sonde/?$ sonde.html [END,NC]
+RewriteRule ^privacidade-sonde/?$ privacidade-sonde.html [END,NC]
 # A edição iOS ainda não existe: a antiga página /speed-ios leva à seção "em breve" do /speed.
 RewriteRule ^speed-ios(/|\.html)?$ /speed#ios [R=301,L,NC,NE]
 
