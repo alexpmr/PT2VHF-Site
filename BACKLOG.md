@@ -6,6 +6,20 @@ Nenhum item pendente.
 
 ## Concluídos
 
+### RESOLVIDO (26/11/2026) — Página /sonde e inscrição de testadores do Sonde Finder
+
+- **Pedido do Alex:** página do PT2VHF Sonde Finder com o mesmo formulário de testadores do APRS Android, enviando
+  só o e-mail.
+- **Feito:** `sonde.html` (rota `/sonde`) no layout do `/speed`: apresentação, recursos com a bússola ilustrativa,
+  crédito do SondeHub/OpenStreetMap/OpenFreeMap e a seção do Google Play com o formulário (só e-mail). Textos em 7
+  idiomas (`page-i18n.js` + chaves `data-gp-i18n`). `testers.php` com `product=sonde` (lista
+  `testers-sonde.csv`, aviso ao Alex `[Testador · Sonde Finder]`); como o app ainda não está na Play Console, o
+  inscrito recebe só a confirmação de recebimento (`'instructions' => false`); as instruções do Play seguem quando o
+  e-mail for incluído no teste. `testers_export.php?app=sonde`. Sonde Finder no menu Projetos e no `sitemap.xml`.
+- **Pendente do lado do Google Play:** criar o app `com.pt2vhf.sondefinder` na Play Console, configurar o teste
+  fechado e subir o primeiro AAB assinado; depois trocar `'instructions' => false` para mandar as instruções na
+  inscrição. Screenshots do app na página: aguardando capturas atuais do aparelho.
+
 ### RESOLVIDO (24/11/2026) — Página /speed no layout do site, sem APK, sem iOS e sem GitHub
 
 - **Pedido do Alex:** no /speed, tirar o conteúdo de iOS (avisar "em breve"), tirar o download do APK, usar o formulário

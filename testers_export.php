@@ -1,7 +1,7 @@
 <?php
 /**
  * PT2VHF — lista das inscrições do teste fechado dos apps Android (testers.php), em HTML simples.
- * ?app=aprs-android (padrão) ou ?app=speed escolhe o app; o mesmo vale para as ações por POST.
+ * ?app=aprs-android (padrão), ?app=speed ou ?app=sonde escolhe o app; o mesmo vale para as ações por POST.
  * Substitui o aviso por e-mail (o domínio não entrega e-mail): o mantenedor abre esta página,
  * inclui os inscritos na lista de testadores da Play Console e marca como atendidos.
  * Acesso: ?key=<chave>. Só o SHA-256 da chave fica no repositório; a chave fica com o mantenedor.
@@ -24,7 +24,7 @@ if ($key === '' || !hash_equals(PT2VHF_TESTERS_EXPORT_SHA256, hash('sha256', $ke
     http_response_code(404);
     exit;
 }
-const PT2VHF_TESTERS_EXPORT_APPS = array('aprs-android' => 'PT2VHF APRS Client', 'speed' => 'PT2VHF Speed Alert');
+const PT2VHF_TESTERS_EXPORT_APPS = array('aprs-android' => 'PT2VHF APRS Client', 'speed' => 'PT2VHF Speed Alert', 'sonde' => 'PT2VHF Sonde Finder');
 $appId = (string)($_GET['app'] ?? $_POST['app'] ?? 'aprs-android');
 if (!isset(PT2VHF_TESTERS_EXPORT_APPS[$appId])) $appId = 'aprs-android';
 $appName = PT2VHF_TESTERS_EXPORT_APPS[$appId];

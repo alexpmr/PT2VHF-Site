@@ -1,9 +1,9 @@
 <?php
 /**
  * PT2VHF — cadastro de testadores dos apps Android no teste fechado do Google Play
- * (PT2VHF APRS Client e PT2VHF Speed Alert).
+ * (PT2VHF APRS Client, PT2VHF Speed Alert e PT2VHF Sonde Finder).
  *
- * Recebe por POST: email, call (opcional), lang (opcional), product ("aprs-android" ou "speed"; sem product =
+ * Recebe por POST: email, call (opcional), lang (opcional), product ("aprs-android", "speed" ou "sonde"; sem product =
  * aprs-android, como nas versões anteriores) e website (armadilha anti-robô).
  * Grava em pt2vhf-private-data/testers-<product>.csv (fora de public_html, preservado em deploys), uma linha por
  * e-mail, no formato que a Play Console aceita para a lista de testadores (primeira coluna = e-mail).
@@ -25,7 +25,37 @@ const PT2VHF_TESTERS_APPS = array(
         'page' => '/aprs-android', 'anchor' => 'google-play', 'apk_over' => true),
     'speed' => array('name' => 'PT2VHF Speed Alert', 'package' => 'com.pt2vhf.speedalert', 'csv' => 'testers-speed.csv',
         'page' => '/speed', 'anchor' => 'testadores', 'apk_over' => false),
+    // Sonde Finder: o app ainda não existe na Play Console. A inscrição recebe só a confirmação de recebimento;
+    // as instruções do Play seguem depois, quando o mantenedor incluir o e-mail no teste ('instructions' => false).
+    'sonde' => array('name' => 'PT2VHF Sonde Finder', 'package' => 'com.pt2vhf.sondefinder', 'csv' => 'testers-sonde.csv',
+        'page' => '/sonde', 'anchor' => 'testadores', 'apk_over' => false, 'instructions' => false),
 );
+
+/** Confirmação de recebimento, sem links do Play (app que ainda não está no teste do Google Play). */
+function pt2vhf_testers_received_mail(array $app, string $email, string $lang): bool {
+    $name = $app['name'];
+    $page = 'https://www.pt2vhf.com' . $app['page'];
+    if ($lang === 'pt') {
+        $subject = "$name: cadastro recebido";
+        $body = "Olá,\n\nRecebemos o seu cadastro para testar o $name no Google Play.\n\n"
+            . "Assim que este e-mail for incluído no teste fechado, você recebe outra mensagem com o link e os passos para instalar.\n\n"
+            . "73,\nPT2VHF\n$page\n\n"
+            . "Você recebeu esta mensagem porque cadastrou este e-mail em www.pt2vhf.com. Para sair da lista, responda pedindo a exclusão.\n";
+    } elseif ($lang === 'es') {
+        $subject = "$name: registro recibido";
+        $body = "Hola,\n\nRecibimos tu registro para probar $name en Google Play.\n\n"
+            . "Cuando este correo se incluya en la prueba cerrada, recibirás otro mensaje con el enlace y los pasos para instalar.\n\n"
+            . "73,\nPT2VHF\n$page\n\n"
+            . "Recibiste este mensaje porque registraste este correo en www.pt2vhf.com. Para salir de la lista, responde pidiendo la baja.\n";
+    } else {
+        $subject = "$name: sign-up received";
+        $body = "Hello,\n\nWe received your sign-up to test $name on Google Play.\n\n"
+            . "As soon as this e-mail is added to the closed test, you will get another message with the link and the steps to install.\n\n"
+            . "73,\nPT2VHF\n$page\n\n"
+            . "You received this message because this e-mail was registered at www.pt2vhf.com. To leave the list, reply asking for removal.\n";
+    }
+    return pt2vhf_send_mail($email, $subject, $body, PT2VHF_TESTERS_BCC, 'PT2VHF');
+}
 
 function pt2vhf_testers_mail(array $app, string $email, string $call, string $lang): bool {
     $hi = $call !== '' ? ' ' . $call : '';
@@ -162,5 +192,7 @@ try {
     fclose($fh);
 }
 pt2vhf_testers_notify_admin($product, $app, $email, $call, $lang); // aviso ao mantenedor para incluir na Play Console
-pt2vhf_testers_mail($app, $email, $call, $lang); // confirmação ao inscrito; falha de envio não desfaz o cadastro
+// confirmação ao inscrito; falha de envio não desfaz o cadastro
+if ($app['instructions'] ?? true) pt2vhf_testers_mail($app, $email, $call, $lang);
+else pt2vhf_testers_received_mail($app, $email, $lang);
 pt2vhf_testers_reply('ok', $app);
