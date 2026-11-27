@@ -10,7 +10,7 @@
 declare(strict_types=1);
 
 const PT2VHF_SONDE_APK_ACTIVE = true;
-const PT2VHF_SONDE_APK_URL = 'https://www.pt2vhf.com/downloads/sonde-finder/PT2VHF-Sonde-Finder-v1.11.0.apk';
+const PT2VHF_SONDE_APK_URL = 'https://www.pt2vhf.com/downloads/sonde-finder/PT2VHF-Sonde-Finder-v1.12.0.apk';
 
 /** Parágrafo com o link do APK, o motivo e como instalar ('' quando o APK provisório está desligado). */
 function pt2vhf_sonde_apk_text(string $lang): string {
