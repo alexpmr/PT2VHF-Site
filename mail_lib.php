@@ -102,22 +102,24 @@ function pt2vhf_mail_address(string $email, string $name = ''): string {
 
 /**
  * Envia um e-mail de texto. $replyTo/$replyName opcionais. $error recebe o motivo da falha (sem a senha) e
- * $via diz o caminho usado ("smtp" ou "mail").
+ * $via diz o caminho usado ("smtp" ou "mail"). $bcc: cópias ocultas (só RCPT TO, nenhum cabeçalho as revela).
  */
 function pt2vhf_send_mail(string $to, string $subject, string $body, string $replyTo = '', string $replyName = '',
-                          ?string &$error = null, ?string &$via = null): bool {
+                          ?string &$error = null, ?string &$via = null, array $bcc = array()): bool {
     $error = null;
     $to = pt2vhf_mail_header_text($to);
     $replyTo = pt2vhf_mail_header_text($replyTo);
     if (!filter_var($to, FILTER_VALIDATE_EMAIL)) { $error = 'destinatário inválido'; return false; }
     if ($replyTo !== '' && !filter_var($replyTo, FILTER_VALIDATE_EMAIL)) $replyTo = '';
+    $bcc = array_values(array_filter(array_map('pt2vhf_mail_header_text', $bcc),
+        static fn($e) => filter_var($e, FILTER_VALIDATE_EMAIL) !== false));
     $body = str_replace(array("\r\n", "\r"), "\n", $body);
 
     $problem = null;
     $smtp = pt2vhf_smtp_config($problem);
     if ($smtp !== null) {
         $via = 'smtp';
-        return pt2vhf_smtp_send($smtp, $to, $subject, $body, $replyTo, $replyName, $error);
+        return pt2vhf_smtp_send($smtp, $to, $subject, $body, $replyTo, $replyName, $error, $bcc);
     }
     $via = 'mail';
     $headers = array(
@@ -127,6 +129,7 @@ function pt2vhf_send_mail(string $to, string $subject, string $body, string $rep
         'Content-Transfer-Encoding: 8bit',
     );
     if ($replyTo !== '') $headers[] = 'Reply-To: ' . pt2vhf_mail_address($replyTo, $replyName);
+    if ($bcc) $headers[] = 'Bcc: ' . implode(', ', $bcc); // mail(): o MTA remove o cabeçalho Bcc ao entregar
     $h = implode("\r\n", $headers);
     $s = pt2vhf_mail_encode($subject);
     if (@mail($to, $s, $body, $h, '-f' . PT2VHF_MAIL_FALLBACK_FROM) || @mail($to, $s, $body, $h)) return true;
@@ -144,7 +147,8 @@ function pt2vhf_smtp_read($fp): array {
     return array((int)substr($text, 0, 3), trim($text));
 }
 
-function pt2vhf_smtp_send(array $c, string $to, string $subject, string $body, string $replyTo, string $replyName, ?string &$error): bool {
+function pt2vhf_smtp_send(array $c, string $to, string $subject, string $body, string $replyTo, string $replyName, ?string &$error,
+                          array $bcc = array()): bool {
     $host = $c['host'];
     $remote = ($c['security'] === 'ssl' ? 'ssl://' : 'tcp://') . $host . ':' . $c['port'];
     $ctx = stream_context_create(array('ssl' => array('peer_name' => $host, 'verify_peer' => true, 'verify_peer_name' => true)));
@@ -184,6 +188,9 @@ function pt2vhf_smtp_send(array $c, string $to, string $subject, string $body, s
         }
         if ($step('MAIL FROM:<' . $c['from'] . '>', array(250), 'remetente') === null) return false;
         if ($step('RCPT TO:<' . $to . '>', array(250, 251), 'destinatário') === null) return false;
+        // cópias ocultas: só no envelope; um endereço recusado não derruba os demais
+        foreach ($bcc as $b) $step('RCPT TO:<' . $b . '>', array(250, 251), 'cópia oculta');
+        $error = null;
         if ($step('DATA', array(354), 'DATA') === null) return false;
 
         $domain = substr(strrchr($c['from'], '@') ?: '@pt2vhf.com', 1);
