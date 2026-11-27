@@ -16,6 +16,7 @@
  */
 declare(strict_types=1);
 require_once __DIR__ . '/mail_lib.php';
+require_once __DIR__ . '/sonde_apk_lib.php';
 
 const PT2VHF_TESTERS_PER_IP_DAY = 5;
 const PT2VHF_TESTERS_MAX = 5000;
@@ -25,29 +26,19 @@ const PT2VHF_TESTERS_APPS = array(
         'page' => '/aprs-android', 'anchor' => 'google-play', 'apk_over' => true),
     'speed' => array('name' => 'PT2VHF Speed Alert', 'package' => 'com.pt2vhf.speedalert', 'csv' => 'testers-speed.csv',
         'page' => '/speed', 'anchor' => 'testadores', 'apk_over' => false),
-    // Sonde Finder: teste fechado ainda em análise no Google Play. A inscrição recebe a confirmação de recebimento
-    // com o APK provisório ('apk'); as instruções do Play seguem depois ('instructions' => false até a aprovação).
+    // Sonde Finder: teste fechado ainda em análise no Google Play. A inscrição recebe a confirmação de recebimento,
+    // com o APK provisório de sonde_apk_lib.php; as instruções do Play seguem depois ('instructions' => false até a aprovação).
     'sonde' => array('name' => 'PT2VHF Sonde Finder', 'package' => 'com.pt2vhf.sondefinder', 'csv' => 'testers-sonde.csv',
-        'page' => '/sonde', 'anchor' => 'testadores', 'apk_over' => false, 'instructions' => false,
-        'apk' => 'https://www.pt2vhf.com/downloads/sonde-finder/PT2VHF-Sonde-Finder-v1.9.0.apk'),
+        'page' => '/sonde', 'anchor' => 'testadores', 'apk_over' => false, 'instructions' => false, 'apk' => true),
 );
 
 /** Confirmação de recebimento, sem links do Play (teste ainda não liberado); com 'apk', inclui o APK provisório. */
 function pt2vhf_testers_received_mail(array $app, string $email, string $lang): bool {
     $name = $app['name'];
     $page = 'https://www.pt2vhf.com' . $app['page'];
-    $apkUrl = $app['apk'] ?? '';
+    $apk = !empty($app['apk']) ? pt2vhf_sonde_apk_text($lang) : '';
     if ($lang === 'pt') {
         $subject = "$name: cadastro recebido";
-        $apk = $apkUrl === '' ? '' : "Enquanto isso, você já pode usar o app pelo APK provisório:\n   $apkUrl\n\n"
-            . "Por que um APK? O teste fechado do Google Play ainda está em análise pelo Google, o que pode levar alguns dias. "
-            . "O APK é a mesma versão, para você não precisar esperar.\n\n"
-            . "Como instalar:\n"
-            . "1. No celular Android, abra o link acima e baixe o arquivo.\n"
-            . "2. Toque no arquivo baixado (na notificação ou em Arquivos > Downloads).\n"
-            . "3. Se o Android pedir, permita instalar apps desta fonte (navegador ou Arquivos) e toque em Instalar.\n"
-            . "4. Se o Play Protect avisar que o app é desconhecido, toque em \"Mais detalhes\" > \"Instalar mesmo assim\".\n\n"
-            . "Quando o teste do Google Play for liberado, desinstale o APK e instale pela Play Store, para receber as atualizações pela loja.\n\n";
         $body = "Olá,\n\nRecebemos o seu cadastro para testar o $name no Google Play.\n\n"
             . "Assim que este e-mail for incluído no teste fechado, você recebe outra mensagem com o link e os passos para instalar.\n\n"
             . $apk
@@ -57,30 +48,14 @@ function pt2vhf_testers_received_mail(array $app, string $email, string $lang): 
         $subject = "$name: registro recibido";
         $body = "Hola,\n\nRecibimos tu registro para probar $name en Google Play.\n\n"
             . "Cuando este correo se incluya en la prueba cerrada, recibirás otro mensaje con el enlace y los pasos para instalar.\n\n"
-            . ($apkUrl === '' ? '' : "Mientras tanto, ya puedes usar la app con el APK provisional:\n   $apkUrl\n\n"
-            . "¿Por qué un APK? Google todavía está revisando la prueba cerrada de Google Play, lo que puede tardar algunos días. "
-            . "El APK es la misma versión, para que no tengas que esperar.\n\n"
-            . "Cómo instalar:\n"
-            . "1. En el teléfono Android, abre el enlace y descarga el archivo.\n"
-            . "2. Toca el archivo descargado (en la notificación o en Archivos > Descargas).\n"
-            . "3. Si Android lo pide, permite instalar apps de esta fuente (navegador o Archivos) y toca Instalar.\n"
-            . "4. Si Play Protect avisa que la app es desconocida, toca \"Más detalles\" > \"Instalar de todos modos\".\n\n"
-            . "Cuando se libere la prueba de Google Play, desinstala el APK e instala desde Play Store para recibir las actualizaciones de la tienda.\n\n")
+            . $apk
             . "73,\nPT2VHF\n$page\n\n"
             . "Recibiste este mensaje porque registraste este correo en www.pt2vhf.com. Para salir de la lista, responde pidiendo la baja.\n";
     } else {
         $subject = "$name: sign-up received";
         $body = "Hello,\n\nWe received your sign-up to test $name on Google Play.\n\n"
             . "As soon as this e-mail is added to the closed test, you will get another message with the link and the steps to install.\n\n"
-            . ($apkUrl === '' ? '' : "Meanwhile, you can already use the app with the temporary APK:\n   $apkUrl\n\n"
-            . "Why an APK? Google is still reviewing the Google Play closed test, which can take a few days. "
-            . "The APK is the same version, so you don't have to wait.\n\n"
-            . "How to install:\n"
-            . "1. On your Android phone, open the link above and download the file.\n"
-            . "2. Tap the downloaded file (in the notification or in Files > Downloads).\n"
-            . "3. If Android asks, allow installing apps from this source (browser or Files) and tap Install.\n"
-            . "4. If Play Protect warns that the app is unknown, tap \"More details\" > \"Install anyway\".\n\n"
-            . "Once the Google Play test opens, uninstall the APK and install from Play Store to get updates from the store.\n\n")
+            . $apk
             . "73,\nPT2VHF\n$page\n\n"
             . "You received this message because this e-mail was registered at www.pt2vhf.com. To leave the list, reply asking for removal.\n";
     }
