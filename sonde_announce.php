@@ -14,7 +14,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/mail_lib.php';
 require_once __DIR__ . '/sonde_apk_lib.php';
 
-const PT2VHF_SONDE_ANNOUNCE_FROM = '1.12.0';
+const PT2VHF_SONDE_ANNOUNCE_FROM = '1.11.0';
 const PT2VHF_SONDE_ANNOUNCE_BATCH = 40;
 
 header('Content-Type: application/json; charset=utf-8');
