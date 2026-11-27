@@ -167,7 +167,7 @@ window.PT2VHF_I18N["en"] = {
       "supported": [
         {
           "name": "RTL-SDR",
-          "detail": "R820T/R828D dongles, including RTL-SDR Blog V3/V4 (HF via direct sampling)"
+          "detail": "R820T/R828D dongles, including RTL-SDR Blog V3 (HF via direct sampling) and V4/V4L (HF via the built-in upconverter)"
         },
         {
           "name": "rtl_tcp",

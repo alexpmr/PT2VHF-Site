@@ -167,7 +167,7 @@ window.PT2VHF_I18N["zh"] = {
       "supported": [
         {
           "name": "RTL-SDR",
-          "detail": "R820T/R828D 接收棒，包括 RTL-SDR Blog V3/V4（直接采样收听短波）"
+          "detail": "R820T/R828D 接收棒，包括 RTL-SDR Blog V3（直接采样收听短波）和 V4/V4L（内置上变频器收听短波）"
         },
         {
           "name": "rtl_tcp",

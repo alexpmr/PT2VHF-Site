@@ -167,7 +167,7 @@ window.PT2VHF_I18N["fr"] = {
       "supported": [
         {
           "name": "RTL-SDR",
-          "detail": "Clés R820T/R828D, y compris RTL-SDR Blog V3/V4 (HF par échantillonnage direct)"
+          "detail": "Clés R820T/R828D, y compris RTL-SDR Blog V3 (HF par échantillonnage direct) et V4/V4L (HF par le convertisseur interne)"
         },
         {
           "name": "rtl_tcp",

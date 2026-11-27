@@ -167,7 +167,7 @@ window.PT2VHF_I18N["de"] = {
       "supported": [
         {
           "name": "RTL-SDR",
-          "detail": "R820T/R828D-Sticks, einschließlich RTL-SDR Blog V3/V4 (KW per Direktabtastung)"
+          "detail": "R820T/R828D-Sticks, einschließlich RTL-SDR Blog V3 (KW per Direktabtastung) und V4/V4L (KW über den eingebauten Konverter)"
         },
         {
           "name": "rtl_tcp",

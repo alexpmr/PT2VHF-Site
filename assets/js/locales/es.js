@@ -167,7 +167,7 @@ window.PT2VHF_I18N["es"] = {
       "supported": [
         {
           "name": "RTL-SDR",
-          "detail": "Dongles R820T/R828D, incluido RTL-SDR Blog V3/V4 (HF por muestreo directo)"
+          "detail": "Dongles R820T/R828D, incluido RTL-SDR Blog V3 (HF por muestreo directo) y V4/V4L (HF por el conversor interno)"
         },
         {
           "name": "rtl_tcp",

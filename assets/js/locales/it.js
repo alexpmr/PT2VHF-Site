@@ -167,7 +167,7 @@ window.PT2VHF_I18N["it"] = {
       "supported": [
         {
           "name": "RTL-SDR",
-          "detail": "Chiavette R820T/R828D, incluse RTL-SDR Blog V3/V4 (HF con campionamento diretto)"
+          "detail": "Chiavette R820T/R828D, incluse RTL-SDR Blog V3 (HF con campionamento diretto) e V4/V4L (HF dal convertitore interno)"
         },
         {
           "name": "rtl_tcp",

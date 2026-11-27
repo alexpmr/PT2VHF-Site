@@ -281,7 +281,7 @@ window.PT2VHF_PRODUCTS = [
       "Abas superiores no padrão PT2VHF, com cabeçalho de versão/atualização, Ligar/Desligar e relógio UTC; reconecta o receptor ao abrir e modo apresentação (F11) em tela cheia"
     ],
     supported: [
-      { name: "RTL-SDR", detail: "Dongles R820T/R828D, incluindo RTL-SDR Blog V3/V4 (HF por amostragem direta)" },
+      { name: "RTL-SDR", detail: "Dongles R820T/R828D, incluindo RTL-SDR Blog V3 (HF por amostragem direta) e V4/V4L (HF pelo conversor interno)" },
       { name: "rtl_tcp", detail: "Receptor RTL-SDR remoto pela rede" },
       { name: "SoapySDR", detail: "Airspy, HackRF, SDRplay, LimeSDR e outros (com o SoapySDR instalado)" },
       { name: "Arquivos IQ", detail: "Gravações WAV I/Q do SDR#, do SDR++ e do próprio programa" }
