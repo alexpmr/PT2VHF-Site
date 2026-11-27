@@ -18,11 +18,13 @@
  */
 declare(strict_types=1);
 require_once __DIR__ . '/mail_lib.php';
+require_once __DIR__ . '/sonde_apk_lib.php';
 
 const PT2VHF_CONTACT_MAX = array('nome' => 100, 'email' => 254, 'indicativo' => 20, 'assunto' => 150, 'mensagem' => 5000);
 // Produto escolhido no formulário (valor do <select> => nome no e-mail)
 const PT2VHF_CONTACT_PRODUCTS = array('aprs-pc' => 'Cliente APRS para PC', 'aprs-mobile' => 'Cliente APRS para Android/iOS',
-    'prop' => 'Prop Tool', 'sdr' => 'SDR Tool', 'qsl' => 'QSL Manager', 'mesh' => 'Mesh Analyzer', 'outros' => 'Outros');
+    'prop' => 'Prop Tool', 'sdr' => 'SDR Tool', 'qsl' => 'QSL Manager', 'mesh' => 'Mesh Analyzer',
+    'sonde' => 'Sonde Finder', 'outros' => 'Outros');
 const PT2VHF_CONTACT_SENT_PER_IP_DAY = 5;
 const PT2VHF_CONTACT_TRIES_PER_IP_DAY = 15;
 const PT2VHF_CONTACT_SENT_PER_DAY = 60;
@@ -134,6 +136,16 @@ if (!$blocked) {
 }
 flock($fh, LOCK_UN);
 fclose($fh);
+
+// Sobre o Sonde Finder (produto ou "sonda" no assunto/mensagem): resposta automática com o APK provisório.
+// Só depois do envio ao mantenedor; falha aqui não muda a resposta ao visitante.
+if ($sent && pt2vhf_sonde_is_about($productKey, $subject . ' ' . $message)) {
+    list($autoSubject, $autoBody) = pt2vhf_sonde_contact_autoreply($lang, $name);
+    $autoErr = null;
+    if (!pt2vhf_send_mail($email, $autoSubject, $autoBody, pt2vhf_contact_recipient(), 'PT2VHF', $autoErr)) {
+        error_log('[pt2vhf contato] resposta automática do Sonde Finder falhou: ' . $autoErr);
+    }
+}
 
 if ($blocked) pt2vhf_contact_reply('limit');
 pt2vhf_contact_reply($sent ? 'ok' : 'error');
