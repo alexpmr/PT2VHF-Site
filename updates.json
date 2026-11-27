@@ -433,8 +433,8 @@
     },
     "sat": {
       "name": "PT2VHF Sat Tool",
-      "version": "1.9.7",
-      "developmentVersion": "1.9.7",
+      "version": "1.9.8",
+      "developmentVersion": "1.9.8",
       "page": "https://www.pt2vhf.com/sat",
       "files": [
         {
@@ -444,10 +444,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Instalador",
-          "name": "PT2VHF-Sat-Tool-v1.9.7-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.7-Win11-x64-Setup.exe",
-          "size": 166831458,
-          "sha256": "47194c09637319b395e69674757437f94b44d759fbb12c6f50255f7f8ff99dbb",
+          "name": "PT2VHF-Sat-Tool-v1.9.8-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.8-Win11-x64-Setup.exe",
+          "size": 166845079,
+          "sha256": "fa59783c236c0f461fbb31a856a94dbe7290348e0ec1fdc77ca9222e15a165da",
           "detail": "Windows 10 1809+ / 11 64 bits (recomendado)"
         },
         {
@@ -457,10 +457,10 @@
           "platform": "windows-x64",
           "architecture": "x64",
           "label": "Windows — Portátil",
-          "name": "PT2VHF-Sat-Tool-v1.9.7-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.7-Win11-x64-Portable.exe",
-          "size": 245096243,
-          "sha256": "a82eaef7bd71ebab789a85a3462201580a583948aaac37b8f9cb95b3a264a3cc",
+          "name": "PT2VHF-Sat-Tool-v1.9.8-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.8-Win11-x64-Portable.exe",
+          "size": 245098378,
+          "sha256": "88f65debd5e7d889b1a140691179b02349fe07ddc47ffe3eceda7326602d49b9",
           "detail": "Windows 10 1809+ / 11 64 bits, EXE único sem instalar"
         },
         {
@@ -470,10 +470,10 @@
           "platform": "linux-x64",
           "architecture": "x64",
           "label": "Linux — .tar.gz",
-          "name": "PT2VHF-Sat-Tool-v1.9.7-Linux-x64.tar.gz",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.7-Linux-x64.tar.gz",
-          "size": 263463081,
-          "sha256": "57e92b38e278a6e71270d67a2c47ad77f2b058433b253115f7d8d3f276a694a7",
+          "name": "PT2VHF-Sat-Tool-v1.9.8-Linux-x64.tar.gz",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.8-Linux-x64.tar.gz",
+          "size": 263450168,
+          "sha256": "a1f2cb56364733372acf5557ee1a0dd9b1f6b0761d60e7178ead0f2179190317",
           "detail": "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute o arquivo PT2VHF-Sat-Tool-v<versão> da pasta"
         },
         {
@@ -483,10 +483,10 @@
           "platform": "linux-x64",
           "architecture": "x64",
           "label": "Linux — .deb (Ubuntu/Mint)",
-          "name": "PT2VHF-Sat-Tool-v1.9.7-Linux-x64.deb",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.7-Linux-x64.deb",
-          "size": 188034104,
-          "sha256": "75ef64ed82a9923d3fd858c2d744a4d00a27f61d1cd5dcc6e0dd5997e7aec846",
+          "name": "PT2VHF-Sat-Tool-v1.9.8-Linux-x64.deb",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.8-Linux-x64.deb",
+          "size": 188017016,
+          "sha256": "38a5bac4811684e227c0b0774759092189dfe2b652dec26402d9775b01e2b7ad",
           "detail": "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./PT2VHF-Sat-Tool-v<versão>-Linux-x64.deb"
         },
         {
@@ -496,25 +496,25 @@
           "platform": "macos-arm64",
           "architecture": "Apple Silicon",
           "label": "macOS — .dmg",
-          "name": "PT2VHF-Sat-Tool-v1.9.7-macOS-arm64.dmg",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.7-macOS-arm64.dmg",
-          "size": 251553975,
-          "sha256": "3e0cbbb36b2b0e4cd647caf073f5e5ec48fa108b864541647f11e86f8cefedb5",
+          "name": "PT2VHF-Sat-Tool-v1.9.8-macOS-arm64.dmg",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.8-macOS-arm64.dmg",
+          "size": 255619173,
+          "sha256": "e62f1588196235acd0a4097856351bf40d2d09cd1a323426b224b91b92cba755",
           "detail": "macOS 14+ Apple Silicon (M1 ou superior); arraste para Aplicativos"
         },
         {
           "category": "checksums",
           "label": "Somas de verificação",
-          "name": "PT2VHF-Sat-Tool-v1.9.7-SHA256.txt",
-          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.7-SHA256.txt",
+          "name": "PT2VHF-Sat-Tool-v1.9.8-SHA256.txt",
+          "url": "https://www.pt2vhf.com/downloads/sat-tool/PT2VHF-Sat-Tool-v1.9.8-SHA256.txt",
           "size": 535,
-          "sha256": "60b5c518447e5d5c26fb59719e624b98fa68b8c6285341b811ee473f9b3c252f",
+          "sha256": "052b82c9142cb08a0894ded4760940769d401a3f33e6ca50f75d506198f99847",
           "detail": "SHA-256 dos arquivos da versão"
         }
       ],
       "releaseStatus": "Pacotes oficiais para Windows 10/11 x64, Linux x64 e macOS Apple Silicon. Confira o SHA-256 antes da instalação.",
-      "date": "2026-11-22",
-      "notes": "v1.9.7: Atualizar frequências baixa a lista inteira de transmissores do SatNOGS numa única consulta e separa por satélite no próprio computador (antes eram milhares de consultas, uma por satélite, com horas de espera); IO-86 e os demais satélites padrão sempre aparecem na lista de satélites, com qualquer filtro de categoria, com o SatNOGS como reserva quando a CelesTrak não tem a órbita; HADES-E2 marcado por padrão, junto de ISS, SO-50, LUČA-1 e os demais. Windows x64, Linux x64 (.tar.gz e .deb) e macOS ARM64.",
+      "date": "2026-11-27",
+      "notes": "v1.9.8: correções de estabilidade encontradas numa análise completa do código: configurações corrompidas não impedem mais o programa de abrir (abre com os padrões e guarda uma cópia); parar a gravação do RTL-SDR não derruba mais a recepção; FT-817/818 e Hamlib rigctld liberam a porta quando a conexão falha e o rigctld não troca mais as respostas depois de uma demora; painel web só no computador recusa endereços de outros sites; telemetria sem internet não fica consultando o SatNOGS a cada quadro. Windows x64, Linux x64 (.tar.gz e .deb) e macOS ARM64.",
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sat"
     },
     "sdr": {
