@@ -12,6 +12,42 @@ declare(strict_types=1);
 const PT2VHF_SONDE_APK_ACTIVE = true;
 const PT2VHF_SONDE_APK_URL = 'https://www.pt2vhf.com/downloads/sonde-finder/PT2VHF-Sonde-Finder-v1.12.0.apk';
 
+/**
+ * Passe da página de download (sonde-baixar.php): a página do app não traz o link do APK; quem preenche o
+ * formulário (testers.php) é levado ao download com este passe, válido por 2 dias. HMAC com chave aleatória
+ * guardada em pt2vhf-private-data (fora de public_html), criada no primeiro uso.
+ */
+function pt2vhf_sonde_dl_key(): ?string {
+    $dir = dirname(__DIR__) . '/pt2vhf-private-data';
+    $path = $dir . '/sonde-download.key';
+    $key = @file_get_contents($path);
+    if (is_string($key) && strlen($key) === 64) return $key;
+    if (!is_dir($dir) && !@mkdir($dir, 0700, true)) return null;
+    $key = bin2hex(random_bytes(32));
+    if (@file_put_contents($path, $key, LOCK_EX) === false) return null;
+    @chmod($path, 0600);
+    return $key;
+}
+
+function pt2vhf_sonde_dl_token(): string {
+    $key = pt2vhf_sonde_dl_key();
+    if ($key === null) return '';
+    $exp = (string)(time() + 2 * 86400);
+    return $exp . '.' . substr(hash_hmac('sha256', 'sonde-dl|' . $exp, $key), 0, 32);
+}
+
+function pt2vhf_sonde_dl_valid(string $token): bool {
+    if (!preg_match('/^([0-9]{10})\.([0-9a-f]{32})$/D', $token, $m)) return false;
+    if ((int)$m[1] < time()) return false;
+    $key = pt2vhf_sonde_dl_key();
+    return $key !== null && hash_equals(substr(hash_hmac('sha256', 'sonde-dl|' . $m[1], $key), 0, 32), $m[2]);
+}
+
+/** Link do download contado pelo site (download.php) para o APK atual. */
+function pt2vhf_sonde_dl_url(): string {
+    return 'https://www.pt2vhf.com/download.php?product=sonde&file=' . rawurlencode(basename(PT2VHF_SONDE_APK_URL));
+}
+
 /** Parágrafo com o link do APK, o motivo e como instalar ('' quando o APK provisório está desligado). */
 function pt2vhf_sonde_apk_text(string $lang): string {
     if (!PT2VHF_SONDE_APK_ACTIVE) return '';

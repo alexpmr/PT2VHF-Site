@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="/assets/css/aprs-language-menu.css?v=20261106-aprs1158">
   <style>
     /* Sonde Finder: recursos com a bússola ilustrativa e formulário de testadores (só e-mail). */
-    .sf-features{display:grid;grid-template-columns:minmax(220px,280px) repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+    .sf-features{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;align-items:stretch}
     .sf-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
     .sf-card h3{margin:0 0 8px;font-size:1.08rem}.sf-card p{margin:0;color:var(--muted);line-height:1.6}
     .sf-visual{background:#0e1419;border-color:#26323c;text-align:center;color:#e8edf1}
@@ -45,7 +45,7 @@
     .sf-shots figure{margin:0;flex:0 1 270px;text-align:center}
     .sf-shots img{width:100%;height:auto;border-radius:18px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.25)}
     .sf-shots p{margin:10px 0 0;color:var(--muted);font-size:.92rem;line-height:1.5}
-    @media(max-width:900px){.sf-features{grid-template-columns:1fr 1fr}}
+    .sf-shots figure{flex-basis:240px}
     @media(max-width:600px){.sf-features,.sf-stats{grid-template-columns:1fr}}
   </style>
 </head>
@@ -132,9 +132,9 @@
         <p class="eyebrow mono">ANDROID · SONDEHUB · RADIOSSONDAS</p>
         <h1>PT2VHF Sonde Finder</h1>
         <p class="lead">Encontre e resgate radiossondas perto de você. O app mostra no mapa as sondas em voo e as que já caíram, até um ano atrás, e uma bússola aponta para a escolhida, com a distância e um detector de proximidade, como um detector de metais.</p>
-        <p class="mono" role="status" style="margin: 0.75rem 0 1rem; color: #f9ce79;">O Sonde Finder vai entrar em teste fechado no Google Play. Cadastre seu e-mail abaixo para testar antes de todos.</p>
+        <p class="mono" role="status" style="margin: 0.75rem 0 1rem; color: #f9ce79;">Versão 1.12.0. Preencha o formulário abaixo para baixar o app e entrar no teste do Google Play.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#testadores">Quero testar</a>
+          <a class="btn btn-primary btn-lg" href="#testadores">Quero baixar</a>
           <a class="btn btn-ghost btn-lg" href="#recursos">Conhecer os recursos</a>
         </div>
       </div>
@@ -149,11 +149,19 @@
             <div class="sf-dist">3,42 <span>km</span></div>
             <p class="road">Rumo 38° NE · ilustrativo</p>
           </div>
-          <article class="sf-card"><h3>Sondas perto de você</h3><p>Mapa com as sondas em voo e as que caíram no raio escolhido (1 a 25 km), de horas a um ano atrás. Lista por distância ou por idade, com as já recuperadas marcadas.</p></article>
-          <article class="sf-card"><h3>Bússola e detector</h3><p>Agulha estilo ADF apontando para a última posição recebida ou para o pouso previsto, com distância, elevação para a antena e bipes cada vez mais rápidos ao se aproximar.</p></article>
-          <article class="sf-card"><h3>Feito para o resgate</h3><p>Rumo pela bússola do celular ou pelo GPS em movimento, mapa que gira com a direção, idade do último pacote e aviso quando o sinal se perdeu ainda no alto.</p></article>
+          <article class="sf-card"><h3>Sondas perto de você</h3><p>Mapa com as sondas em voo e as que caíram no raio escolhido (1 a 25 km), de 1 hora a 1 ano atrás. Lista por distância ou por idade, com as já recuperadas marcadas e a opção de escondê-las.</p></article>
+          <article class="sf-card"><h3>Balão e paraquedas</h3><p>No mapa e na bússola, a sonda aparece como balão enquanto sobe e como paraquedas enquanto desce. Trajetória, pouso previsto e linha até você.</p></article>
+          <article class="sf-card"><h3>Pouso e endereço</h3><p>Enquanto cai, o app mostra quanto falta para o pouso; depois, o horário estimado em que pousou. O local do pouso aparece com rua, bairro e cidade.</p></article>
+          <article class="sf-card"><h3>Bússola e detector</h3><p>Bússola grande com agulha estilo ADF apontando para a última posição ou para o pouso previsto, distância, elevação para a antena e bipes cada vez mais rápidos ao se aproximar.</p></article>
+          <article class="sf-card"><h3>Alarme de pouso</h3><p>Escolha 2 a 50 km: o app toca e vibra quando o pouso previsto de uma sonda no ar, a até 400 km, ficar a essa distância de você.</p></article>
+          <article class="sf-card"><h3>Ao vivo</h3><p>Atualização a cada 5 segundos sem acumular atraso em rede lenta, idade do último pacote com cores e aviso “Atualizado há X” quando o dado para de chegar.</p></article>
+          <article class="sf-card"><h3>Mapas e satélite</h3><p>Mapa escuro, claro, colorido ou de satélite, com ajuste de brilho, mapa que gira com a sua direção e card de informações que se recolhe para mostrar mais mapa.</p></article>
+          <article class="sf-card"><h3>Temperatura e pressão</h3><p>Dados do último pacote da sonda: altitude, velocidades, rumo, frequência, temperatura e pressão (quando a sonda envia).</p></article>
+          <article class="sf-card"><h3>Configurações</h3><p>Altitude em metros ou pés, temperatura em °C ou °F, tipo de mapa e alarme de pouso. Em português, inglês, espanhol, alemão, francês, italiano e polonês.</p></article>
+          <article class="sf-card"><h3>Feito para o resgate</h3><p>Rumo pela bússola do celular ou pelo GPS em movimento, aviso quando o sinal se perdeu ainda no alto, relatos de resgate do SondeHub, copiar coordenadas e abrir no app de navegação.</p></article>
+          <article class="sf-card"><h3>Sempre atualizado</h3><p>O app avisa quando sai uma versão nova, baixa e confere o arquivo e pede para instalar; pelo Google Play, a atualização vem pela loja.</p></article>
         </div>
-        <p class="sf-credit">Dados das radiossondas: <a href="https://sondehub.org" target="_blank" rel="noopener">SondeHub</a>. Mapa: © OpenStreetMap contributors, OpenFreeMap.</p>
+        <p class="sf-credit">Dados das radiossondas: <a href="https://sondehub.org" target="_blank" rel="noopener">SondeHub</a>. Mapa: © OpenStreetMap contributors, OpenFreeMap. Satélite: Esri, Maxar, Earthstar Geographics. Endereços: Google/Android e OpenStreetMap (Nominatim).</p>
       </div>
     </section>
 
@@ -161,10 +169,18 @@
       <div class="container">
         <div class="section-head"><h2 id="shots-title">Telas do aplicativo</h2></div>
         <div class="sf-shots">
-          <figure><img src="/assets/img/sonde/mapa.jpg?v=20261126" width="540" height="1074" loading="lazy" alt="Tela do mapa do Sonde Finder com a sonda escolhida, a distância e o feixe de direção">
-            <p>Mapa: as sondas no raio escolhido, a sua direção e a linha até a sonda escolhida.</p></figure>
-          <figure><img src="/assets/img/sonde/bussola.jpg?v=20261126" width="540" height="1074" loading="lazy" alt="Tela da bússola do Sonde Finder com a agulha ADF apontando para a sonda">
-            <p>Bússola: agulha ADF apontando para a sonda, com distância, rumo e quanto virar.</p></figure>
+          <figure><img src="/assets/img/sonde/v112/01-mapa.jpg" width="540" height="1200" loading="lazy" alt="Tela do mapa do Sonde Finder com a trajetória da sonda, a distância e o card com altitude, velocidades, horário do pouso, local do pouso, temperatura e pressão">
+            <p>Mapa: trajetória, distância, horário e local do pouso, temperatura e pressão.</p></figure>
+          <figure><img src="/assets/img/sonde/v112/02-bussola.jpg" width="540" height="1200" loading="lazy" alt="Tela da bússola do Sonde Finder com a agulha ADF apontando para a sonda, a distância e o endereço">
+            <p>Bússola: agulha ADF apontando para a sonda, com a distância e o endereço do alvo.</p></figure>
+          <figure><img src="/assets/img/sonde/v112/06-satelite.jpg" width="540" height="1200" loading="lazy" alt="Mapa de satélite do Sonde Finder com a trajetória da sonda e o card recolhido">
+            <p>Satélite, com o card recolhido para ver mais mapa.</p></figure>
+          <figure><img src="/assets/img/sonde/v112/03-lista.jpg" width="540" height="1200" loading="lazy" alt="Lista de sondas do Sonde Finder com distância, idade do último pacote e altitude">
+            <p>Lista das sondas por distância ou por idade.</p></figure>
+          <figure><img src="/assets/img/sonde/v112/04-configuracoes.jpg" width="540" height="1200" loading="lazy" alt="Configurações do Sonde Finder: unidades, tipo de mapa e alarme de pouso">
+            <p>Configurações: unidades, tipo de mapa e alarme de pouso.</p></figure>
+          <figure><img src="/assets/img/sonde/v112/05-filtro.jpg" width="540" height="1200" loading="lazy" alt="Filtro do Sonde Finder: raio de busca, janela de tempo e sondas resgatadas">
+            <p>Filtro: raio de 1 a 25 km e janela de 1 hora a 1 ano.</p></figure>
         </div>
       </div>
     </section>
@@ -183,12 +199,12 @@
     <section class="section section-alt google-play" id="google-play" aria-labelledby="play-title">
       <div class="container">
         <div class="section-head">
-          <h2 id="play-title" data-gp-i18n="playTitle">Disponível no Google Play (teste fechado)</h2>
-          <p>O PT2VHF Sonde Finder para Android será distribuído pelo <strong>Google Play</strong>, com atualização automática pela loja. Cadastre seu e-mail abaixo: quando ele for incluído no teste, você recebe por e-mail as instruções para instalar.</p>
+          <h2 id="play-title">Baixar o PT2VHF Sonde Finder</h2>
+          <p>Para baixar o app, deixe seu e-mail no formulário abaixo. Logo depois de enviar, abre a página de download, e você também recebe o link e o passo a passo por e-mail. O mesmo cadastro inclui você no teste fechado do <strong>Google Play</strong>: quando ele for liberado, você recebe as instruções para instalar pela loja.</p>
         </div>
-        <p data-gp-i18n="playNote">Algum problema para instalar ou entrar no teste? Fale comigo pelo <a href="https://wa.me/5561984023634" target="_blank" rel="noopener">WhatsApp (+55 61 98402 3634)</a> ou pelo e-mail <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a>.</p>
-        <h3 id="testadores" data-gp-i18n="testersTitle">Quero testar as novas versões</h3>
-        <p data-gp-i18n="testersIntro">O Google Play exige um teste fechado antes de liberar o app para todos. Deixe seu e-mail (de preferência o da sua conta Google, usada no Play) e eu incluo você na lista de testadores.</p>
+        <p>Algum problema para instalar? Fale comigo pelo <a href="https://wa.me/5561984023634" target="_blank" rel="noopener">WhatsApp (+55 61 98402 3634)</a> ou pelo e-mail <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a>.</p>
+        <h3 id="testadores">Quero baixar o app</h3>
+        <p>Use, de preferência, o e-mail da sua conta Google (o mesmo do Play). Android 8 ou mais novo.</p>
         <form class="testers-form" action="/testers.php" method="post" aria-labelledby="testadores">
           <input type="hidden" name="product" value="sonde">
           <input type="hidden" name="lang" value="pt">
@@ -196,10 +212,10 @@
             <input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="seuemail@gmail.com">
           </label>
           <label style="position:absolute;left:-9999px" aria-hidden="true">Não preencha<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-          <button class="btn btn-primary" type="submit" data-gp-i18n="submit">Quero testar</button>
+          <button class="btn btn-primary" type="submit">Enviar e baixar</button>
         </form>
         <p id="testers-status" role="status" class="mono" style="margin-top:10px;color:#f9ce79" hidden></p>
-        <p style="color: var(--muted); font-size: .9rem;" data-gp-i18n="privacyNote">Seu e-mail é usado só para a lista de testadores do Google Play.
+        <p style="color: var(--muted); font-size: .9rem;">Seu e-mail é usado só para enviar o app e para a lista de testadores do Google Play.
           Veja a <a href="/privacidade-sonde">política de privacidade</a>.</p>
       </div>
     </section>

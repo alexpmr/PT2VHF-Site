@@ -138,6 +138,15 @@ function pt2vhf_testers_reply(string $status, ?array $app): void {
         echo json_encode(array('status' => $status));
     } else {
         $app = $app ?? PT2VHF_TESTERS_APPS['aprs-android'];
+        // Sonde Finder: o download só aparece depois do formulário (a página do app não tem o link do APK).
+        if (!empty($app['apk']) && PT2VHF_SONDE_APK_ACTIVE && ($status === 'ok' || $status === 'dup') && empty($GLOBALS['pt2vhf_robot'])) {
+            $t = pt2vhf_sonde_dl_token();
+            if ($t !== '') {
+                $lang = strtolower(substr(trim((string)($_POST['lang'] ?? 'pt')), 0, 2));
+                header('Location: /sonde-baixar.php?t=' . rawurlencode($t) . '&lang=' . rawurlencode($lang), true, 303);
+                exit;
+            }
+        }
         header('Location: ' . $app['page'] . '?testers=' . rawurlencode($status) . '#' . $app['anchor'], true, 303);
     }
     exit;
@@ -149,7 +158,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     exit;
 }
 if ($app === null) pt2vhf_testers_reply('erro', null);
-if (trim((string)($_POST['website'] ?? '')) !== '') pt2vhf_testers_reply('ok', $app); // robô: finge sucesso
+if (trim((string)($_POST['website'] ?? '')) !== '') { $GLOBALS['pt2vhf_robot'] = true; pt2vhf_testers_reply('ok', $app); } // robô: finge sucesso, sem download
 
 $email = strtolower(trim((string)($_POST['email'] ?? '')));
 if ($email === '' || strlen($email) > 254 || !filter_var($email, FILTER_VALIDATE_EMAIL)) pt2vhf_testers_reply('erro', $app);
