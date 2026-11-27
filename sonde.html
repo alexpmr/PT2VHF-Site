@@ -46,6 +46,17 @@
     .sf-shots img{width:100%;height:auto;border-radius:18px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.25)}
     .sf-shots p{margin:10px 0 0;color:var(--muted);font-size:.92rem;line-height:1.5}
     .sf-shots figure{flex-basis:240px}
+    /* Prints ampliados ao clicar (diálogo nativo; Esc, clique fora ou × fecham; setas trocam de imagem). */
+    .sf-shots img{cursor:zoom-in;transition:transform .15s}.sf-shots img:hover,.sf-shots img:focus-visible{transform:scale(1.02)}
+    .sf-shots img:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+    .sf-zoom{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;overflow:visible}
+    .sf-zoom::backdrop{background:rgba(5,9,14,.88)}
+    .sf-zoom figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px}
+    .sf-zoom img{display:block;max-height:calc(100vh - 90px);max-width:calc(100vw - 32px);width:auto;height:auto;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+    .sf-zoom figcaption{color:#e8edf1;text-align:center;max-width:560px;padding:0 16px;font-size:.95rem}
+    .sf-zoom button{position:fixed;border:0;border-radius:50%;width:48px;height:48px;background:rgba(255,255,255,.14);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer}
+    .sf-zoom button:hover,.sf-zoom button:focus-visible{background:rgba(255,255,255,.28)}
+    .sf-zoom .x{top:14px;right:14px}.sf-zoom .prev{left:14px;top:50%;margin-top:-24px}.sf-zoom .next{right:14px;top:50%;margin-top:-24px}
     @media(max-width:600px){.sf-features,.sf-stats{grid-template-columns:1fr}}
   </style>
 </head>
@@ -220,6 +231,42 @@
       </div>
     </section>
   </main>
+
+  <dialog class="sf-zoom" id="sf-zoom" aria-label="Print ampliado">
+    <figure><img alt=""><figcaption></figcaption></figure>
+    <button class="x" type="button" aria-label="Fechar">×</button>
+    <button class="prev" type="button" aria-label="Anterior">‹</button>
+    <button class="next" type="button" aria-label="Próximo">›</button>
+  </dialog>
+  <script>
+  // Clique (ou Enter) num print abre a imagem ampliada; setas ‹ › e do teclado trocam; Esc ou clique fora fecham.
+  (function () {
+    var dlg = document.getElementById('sf-zoom');
+    var shots = Array.prototype.slice.call(document.querySelectorAll('.sf-shots img'));
+    if (!dlg || !dlg.showModal || !shots.length) return;
+    var big = dlg.querySelector('img'), cap = dlg.querySelector('figcaption'), cur = 0;
+    function show(i) {
+      cur = (i + shots.length) % shots.length;
+      var s = shots[cur], p = s.parentNode.querySelector('p');
+      big.src = s.currentSrc || s.src; big.alt = s.alt; cap.textContent = p ? p.textContent : '';
+    }
+    shots.forEach(function (img, i) {
+      img.tabIndex = 0; img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', 'Ampliar: ' + img.alt);
+      img.addEventListener('click', function () { show(i); dlg.showModal(); });
+      img.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i); dlg.showModal(); } });
+    });
+    dlg.querySelector('.x').addEventListener('click', function () { dlg.close(); });
+    dlg.querySelector('.prev').addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+    dlg.querySelector('.next').addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target === big.parentNode) dlg.close(); });
+    dlg.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') show(cur - 1);
+      if (e.key === 'ArrowRight') show(cur + 1);
+    });
+    dlg.addEventListener('close', function () { if (shots[cur]) shots[cur].focus(); });
+  })();
+  </script>
 
   <footer class="site-footer">
     <div class="container footer-inner">
