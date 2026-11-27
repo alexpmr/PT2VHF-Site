@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      # Permanent key of PT2VHF Sonde Finder (same certificate as v1.9.0).
-      EXPECTED_CERT_SHA256: dfd3ebee6665a86319822b0b98f9913327fd883a7e5e09d3f8f62e6af509873b
+      # Permanent key of PT2VHF Sonde Finder (new key from 27/11/2026; the v1.9.0 key was replaced).
+      EXPECTED_CERT_SHA256: db5e19d5f99ef93aa3e1b7ce47bc4def24f5664582775380abe6376202e9121d
     steps:
       - uses: actions/checkout@v4
       - name: Latest release

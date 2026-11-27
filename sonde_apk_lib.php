@@ -24,7 +24,8 @@ function pt2vhf_sonde_apk_text(string $lang): string {
             . "1. No celular Android, abra o link acima e baixe o arquivo.\n"
             . "2. Toque no arquivo baixado (na notificação ou em Arquivos > Downloads).\n"
             . "3. Se o Android pedir, permita instalar apps desta fonte (navegador ou Arquivos) e toque em Instalar.\n"
-            . "4. Se o Play Protect avisar que o app é desconhecido, toque em \"Mais detalhes\" > \"Instalar mesmo assim\".\n\n"
+            . "4. Se o Play Protect avisar que o app é desconhecido, toque em \"Mais detalhes\" > \"Instalar mesmo assim\".\n"
+            . "5. Se você já tinha instalado o APK 1.9.0, desinstale-o antes: a assinatura do app mudou e o Android não instala por cima.\n\n"
             . "Quando o teste do Google Play for liberado, desinstale o APK e instale pela Play Store, para receber as atualizações pela loja.\n\n";
     }
     if ($lang === 'es') {
@@ -35,7 +36,8 @@ function pt2vhf_sonde_apk_text(string $lang): string {
             . "1. En el teléfono Android, abre el enlace y descarga el archivo.\n"
             . "2. Toca el archivo descargado (en la notificación o en Archivos > Descargas).\n"
             . "3. Si Android lo pide, permite instalar apps de esta fuente (navegador o Archivos) y toca Instalar.\n"
-            . "4. Si Play Protect avisa que la app es desconocida, toca \"Más detalles\" > \"Instalar de todos modos\".\n\n"
+            . "4. Si Play Protect avisa que la app es desconocida, toca \"Más detalles\" > \"Instalar de todos modos\".\n"
+            . "5. Si ya tenías instalado el APK 1.9.0, desinstálalo antes: la firma de la app cambió y Android no instala encima.\n\n"
             . "Cuando se libere la prueba de Google Play, desinstala el APK e instala desde Play Store para recibir las actualizaciones de la tienda.\n\n";
     }
     return "Meanwhile, you can already use the app with the temporary APK:\n   $url\n\n"
@@ -45,7 +47,8 @@ function pt2vhf_sonde_apk_text(string $lang): string {
         . "1. On your Android phone, open the link above and download the file.\n"
         . "2. Tap the downloaded file (in the notification or in Files > Downloads).\n"
         . "3. If Android asks, allow installing apps from this source (browser or Files) and tap Install.\n"
-        . "4. If Play Protect warns that the app is unknown, tap \"More details\" > \"Install anyway\".\n\n"
+        . "4. If Play Protect warns that the app is unknown, tap \"More details\" > \"Install anyway\".\n"
+        . "5. If you had installed the 1.9.0 APK, uninstall it first: the app signature changed and Android will not install over it.\n\n"
         . "Once the Google Play test opens, uninstall the APK and install from Play Store to get updates from the store.\n\n";
 }
 
