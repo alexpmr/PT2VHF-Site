@@ -25,6 +25,9 @@
     .testers-form input[type=email],.testers-form input[type=text]{font-size:1.15rem;padding:14px 16px!important;min-height:54px;border:2px solid var(--accent)!important;border-radius:10px!important;background:var(--surface)!important;color:var(--text)!important}
     .testers-form input:focus{outline:3px solid var(--accent-soft);outline-offset:1px}
     .testers-form .btn{font-size:1.1rem;padding:14px 26px;min-height:54px}
+    .gp-step{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:28px 0 8px;font-size:1.3rem}
+    .gp-step-n{background:var(--accent);color:#06111c;border-radius:999px;padding:4px 14px;font-size:.95rem;font-weight:800;white-space:nowrap}
+    .gp-steps{margin:0 0 14px;padding-left:1.4rem;line-height:1.7;max-width:760px}
   </style>
 </head>
 <body class="program-page" data-program="aprs-android">
@@ -130,14 +133,7 @@
           <h2 id="play-title" data-gp-i18n="playTitle">Disponível no Google Play (teste fechado)</h2>
           <p data-gp-i18n="playIntro">As versões do PT2VHF APRS Client para Android agora são distribuídas somente pelo <strong>Google Play</strong>, com atualização automática pela loja. O app está em teste fechado: se o seu e-mail já está na lista de testadores, toque no selo, entre como testador e instale pela Play Store. Se ainda não está, cadastre-se abaixo. Quem já usa o APK pode instalar a versão da loja por cima, sem perder as configurações.</p>
         </div>
-        <p>
-          <a class="gp-badge" href="https://play.google.com/apps/testing/com.pt2vhf.aprs?hl=pt-BR" target="_blank" rel="noopener" aria-label="Abrir o teste do PT2VHF APRS Client no Google Play">
-            <img class="gp-badge-img" src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png"
-                 alt="Disponível no Google Play" width="250" height="97" style="height:84px;width:auto;margin:-12px">
-          </a>
-        </p>
-        <p data-gp-i18n="playNote">Algum problema para instalar ou entrar no teste? Fale comigo pelo <a href="https://wa.me/5561984023634" target="_blank" rel="noopener">WhatsApp (+55 61 98402 3634)</a> ou pelo e-mail <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a>.</p>
-        <h3 id="testers-title" data-gp-i18n="testersTitle">Quero testar as novas versões</h3>
+        <h3 id="testers-title" class="gp-step"><span class="gp-step-n" data-gp-i18n="step1N">Passo 1</span> <span data-gp-i18n="step1Title">Cadastre o e-mail da sua conta Google</span></h3>
         <p data-gp-i18n="testersIntro">O Google Play exige um teste fechado antes de liberar o app para todos. Deixe seu e-mail (de preferência o da sua conta Google, usada no Play) e eu incluo você na lista de testadores.</p>
         <form class="testers-form" action="/testers.php" method="post" aria-labelledby="testers-title"
               style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;max-width:680px">
@@ -157,6 +153,22 @@
         <p id="testers-status" role="status" class="mono" style="margin-top:10px;color:#f9ce79" hidden></p>
         <p style="color: var(--muted); font-size: .9rem;" data-gp-i18n="privacyNote">Seu e-mail é usado só para a lista de testadores do Google Play.
           Veja a <a href="/privacidade">política de privacidade</a>.</p>
+
+        <h3 class="gp-step"><span class="gp-step-n" data-gp-i18n="step2N">Passo 2</span> <span data-gp-i18n="step2Title">Entre no teste e instale pelo Google Play</span></h3>
+        <ol class="gp-steps" data-gp-i18n="step2List">
+          <li>Espere a confirmação de que seu e-mail entrou na lista de testadores (pode levar algumas horas).</li>
+          <li>No celular, toque no selo abaixo usando a <strong>mesma conta Google</strong> que você cadastrou.</li>
+          <li>Toque em <strong>"Torne-se um testador"</strong> (em alguns casos aparece em inglês: "Become a tester").</li>
+          <li>Toque em <strong>"Baixe no Google Play"</strong> e depois em <strong>"Instalar"</strong>.</li>
+        </ol>
+        <p>
+          <a class="gp-badge" href="https://play.google.com/apps/testing/com.pt2vhf.aprs?hl=pt-BR" target="_blank" rel="noopener" aria-label="Abrir o teste do PT2VHF APRS Client no Google Play">
+            <img class="gp-badge-img" src="https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png"
+                 alt="Disponível no Google Play" width="250" height="97" style="height:84px;width:auto;margin:-12px">
+          </a>
+        </p>
+        <p data-gp-i18n="step2Help">Se o Google Play disser que o app não está disponível, você ainda não está na lista ou entrou com outra conta Google: volte ao Passo 1.</p>
+        <p data-gp-i18n="playNote">Algum problema para instalar ou entrar no teste? Fale comigo pelo <a href="https://wa.me/5561984023634" target="_blank" rel="noopener">WhatsApp (+55 61 98402 3634)</a> ou pelo e-mail <a href="mailto:alexpmr@gmail.com">alexpmr@gmail.com</a>.</p>
       </div>
     </section>
     <div id="program-sections" aria-live="polite">
@@ -240,7 +252,7 @@
   <script src="/assets/js/changelog-data.js?v=20261124-aprs205"></script>
   <script src="/assets/js/compare-data.js?v=20261124-lora2"></script>
   <script src="/assets/js/main.js?v=20261124-speed2"></script>
-  <script src="/assets/js/android-play-i18n.js?v=20261124-lora"></script>
+  <script src="/assets/js/android-play-i18n.js?v=20261127-passos"></script>
   <script src="/assets/js/visit.js?v=20261123-stats" defer></script>
 </body>
 </html>
