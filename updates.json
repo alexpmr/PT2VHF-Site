@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "products": {
     "prog": {
       "name": "PT2VHF Prog Tool",
@@ -675,6 +675,26 @@
           "platform": "android",
           "delivery": "github-release",
           "detail": "Android 8+; APK experimental. Certificado debug diferente das versões anteriores: requer desinstalação prévia."
+        }
+      ]
+    },
+    "sonde": {
+      "name": "PT2VHF Sonde Finder",
+      "version": "1.11.0",
+      "date": "2026-11-27",
+      "page": "https://www.pt2vhf.com/sonde",
+      "notes": "Versão 1.11.0: tela de Configurações (⚙) com unidades — altitude em metros ou pés, temperatura em °C ou °F — e o alarme de pouso a X km; mapa de satélite de fundo (botão de estilo do mapa); campos de temperatura e pressão da sonda no mapa e na bússola; nome e versão no topo (\"PT2VHF Sonde Finder 1.11.0\"); atualização automática pelo site no APK e pelo Google Play na versão da loja.",
+      "files": [
+        {
+          "category": "android-apk",
+          "counterKey": "android-apk",
+          "label": "Android — APK",
+          "name": "PT2VHF-Sonde-Finder-v1.11.0.apk",
+          "url": "https://www.pt2vhf.com/downloads/sonde-finder/PT2VHF-Sonde-Finder-v1.11.0.apk",
+          "size": 11709765,
+          "sha256": "242afcc11412217a3ddfced316c10c21d1aa592083fcb6677aa7214bb5f6e1a9",
+          "platform": "android",
+          "detail": "Android 8+; APK provisório enquanto o teste fechado do Google Play não é liberado."
         }
       ]
     }
