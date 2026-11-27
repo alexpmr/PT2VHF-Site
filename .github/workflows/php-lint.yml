@@ -1,0 +1,29 @@
+name: PHP lint
+# Syntax check of every PHP file before it reaches main (main publishes on Hostinger, PHP 7.4+).
+on:
+  push:
+    paths: ['**.php', '.github/workflows/php-lint.yml']
+  pull_request:
+    paths: ['**.php']
+  workflow_dispatch:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+      - name: php -l
+        run: |
+          set -e
+          find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l
+      - name: Sonde Finder e-mail texts
+        run: |
+          php -r 'require "sonde_apk_lib.php";
+            foreach (["pt","es","en"] as $l) { $t = pt2vhf_sonde_apk_text($l); if (strpos($t, PT2VHF_SONDE_APK_URL) === false) exit(1);
+              list($s, $b) = pt2vhf_sonde_contact_autoreply($l, "Gabriel"); if (strpos($b, PT2VHF_SONDE_APK_URL) === false || $s === "") exit(2); }
+            foreach (["Sondas", "sobre a radiossonda", "Sonde Finder", "sonde"] as $x) if (!pt2vhf_sonde_is_about("outros", $x)) { echo "miss: $x\n"; exit(3); }
+            foreach (["onda curta", "Prop Tool", "consonante"] as $x) if (pt2vhf_sonde_is_about("outros", $x)) { echo "false hit: $x\n"; exit(4); }
+            if (!pt2vhf_sonde_is_about("sonde", "x")) exit(5);
+            echo "ok\n";'

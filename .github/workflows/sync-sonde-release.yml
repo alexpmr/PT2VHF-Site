@@ -1,0 +1,80 @@
+name: Sync Sonde Finder release to PT2VHF website
+# Every hour (and on demand): if alexpmr/PT2VHF-Sonde-Finder has a newer signed GitHub Release,
+# verify it and publish the APK, the OTA entry and the temporary-APK link of the e-mails.
+# Pushing to main publishes the site on Hostinger.
+on:
+  schedule:
+    - cron: '41 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sonde-site-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      # Permanent key of PT2VHF Sonde Finder (same certificate as v1.9.0).
+      EXPECTED_CERT_SHA256: dfd3ebee6665a86319822b0b98f9913327fd883a7e5e09d3f8f62e6af509873b
+    steps:
+      - uses: actions/checkout@v4
+      - name: Latest release
+        id: release
+        run: |
+          set -euo pipefail
+          status="$(curl -L -sS --connect-timeout 8 --max-time 40 -H "Accept: application/vnd.github+json" \
+            -o "$RUNNER_TEMP/release.json" -w '%{http_code}' \
+            https://api.github.com/repos/alexpmr/PT2VHF-Sonde-Finder/releases/latest)"
+          if [ "$status" = "404" ]; then echo "No release yet."; echo "new=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          test "$status" = "200" || { echo "::error::GitHub API returned $status"; exit 1; }
+          tag="$(jq -r .tag_name "$RUNNER_TEMP/release.json")"
+          echo "$tag" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'
+          v="${tag#v}"
+          current="$(jq -r '.products.sonde.version // ""' updates.json)"
+          if [ "$current" = "$v" ] && [ -f "downloads/sonde-finder/PT2VHF-Sonde-Finder-v$v.apk" ]; then
+            echo "Site already has $v."; echo "new=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "new=true" >> "$GITHUB_OUTPUT"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+      - name: Download and verify the APK
+        id: verify
+        if: steps.release.outputs.new == 'true'
+        env:
+          V: ${{ steps.release.outputs.version }}
+        run: |
+          set -euo pipefail
+          name="PT2VHF-Sonde-Finder-v$V.apk"
+          digest="$(jq -r --arg n "$name" '.assets[]|select(.name==$n)|.digest' "$RUNNER_TEMP/release.json")"
+          echo "$digest" | grep -Eq '^sha256:[0-9a-f]{64}$'
+          sha="${digest#sha256:}"
+          url="$(jq -r --arg n "$name" '.assets[]|select(.name==$n)|.browser_download_url' "$RUNNER_TEMP/release.json")"
+          test "$url" = "https://github.com/alexpmr/PT2VHF-Sonde-Finder/releases/download/v$V/$name"
+          mkdir -p "$RUNNER_TEMP/apk"
+          curl --fail -LsS --retry 3 --connect-timeout 15 --max-time 200 -o "$RUNNER_TEMP/apk/$name" "$url"
+          echo "$sha  $RUNNER_TEMP/apk/$name" | sha256sum -c -
+          unzip -t "$RUNNER_TEMP/apk/$name" > /dev/null
+          APKSIGNER=$(ls "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -1)
+          cert=$("$APKSIGNER" verify --print-certs "$RUNNER_TEMP/apk/$name" | grep -oP 'Signer #1 certificate SHA-256 digest: \K[0-9a-f]+')
+          test "$cert" = "$EXPECTED_CERT_SHA256" || { echo "::error::APK not signed with the permanent key ($cert)"; exit 1; }
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "apk=$RUNNER_TEMP/apk/$name" >> "$GITHUB_OUTPUT"
+      - name: Publish on the site
+        if: steps.release.outputs.new == 'true'
+        env:
+          V: ${{ steps.release.outputs.version }}
+          SHA: ${{ steps.verify.outputs.sha }}
+          APK: ${{ steps.verify.outputs.apk }}
+        run: |
+          set -euo pipefail
+          python3 scripts/sync_sonde_release.py "$RUNNER_TEMP/release.json" "$APK" "$SHA"
+          python3 -m json.tool updates.json > /dev/null
+          php -l sonde_apk_lib.php
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add updates.json sonde_apk_lib.php "downloads/sonde-finder/PT2VHF-Sonde-Finder-v$V.apk"
+          if git diff --cached --quiet; then echo "Nothing to publish."; exit 0; fi
+          git commit -m "release(site): Sonde Finder v$V signed APK, OTA metadata and e-mail link"
+          git pull --rebase origin main
+          git push origin HEAD:main
