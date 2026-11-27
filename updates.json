@@ -519,10 +519,10 @@
     },
     "sdr": {
       "name": "PT2VHF SDR Tool",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "date": "2026-11-27",
       "page": "https://www.pt2vhf.com/sdr",
-      "notes": "v1.0.8: HF no RTL-SDR Blog V4 e V4 Lite (V4L). Com o driver RTL-SDR Blog, o HF agora entra pelo conversor interno desses modelos (0,5 a 1766 MHz). Antes, o V4L só sintonizava HF com a amostragem direta ligada, que desliga o sintonizador e deixava o waterfall só com ruído. V4/V4L são reconhecidos pelo USB; a amostragem direta é recusada nesses modelos com aviso, e a troca automática HF/VHF não volta a ligá-la. Aviso quando o V4/V4L abre sem o driver Blog; Diagnóstico mostra o modelo USB. RTL-SDR Blog V3 e dongles genéricos sem mudança. Testes Linux/Qt, suíte Windows, autoteste do Setup/Portable, instalação silenciosa e teste OTA aprovados no CI #46042738863; Linux x86_64 (.deb/.tgz) e macOS Apple Silicon (.dmg) autotestados no CI #46045284056; hashes verificados. OBSERVAÇÃO: falta confirmar a recepção de HF com o V4L real; RS41/ADS-B/AIS/ACARS ainda sem teste com RF real. macOS sem assinatura da Apple; Mac Intel ainda não disponível.",
+      "notes": "v1.0.9: favoritos num menu suspenso compacto, ordenados pelos mais usados; botão Auto do waterfall vira liga/desliga contínuo (vem ligado; piso e teto acompanham o sinal, e acima de 800 MHz a tela não fica mais preta); zoom de verdade no waterfall: com zoom alto o programa calcula uma FFT só da faixa visível (em 10 kHz, de ~73 Hz para ~4 Hz por ponto). ACARS e ADS-B seguem embarcados desde a v1.0.7. Testes Linux/Qt, suíte Windows, autoteste do Setup/Portable, instalação silenciosa e teste OTA aprovados no CI #46057765151; Linux x86_64 (.deb/.tgz) e macOS Apple Silicon (.dmg) autotestados no CI #46059379233; hashes verificados. OBSERVAÇÃO: falta testar o zoom com SDR real; RS41/ADS-B/AIS/ACARS e o HF do V4L ainda sem teste com RF real. macOS sem assinatura da Apple; Mac Intel ainda não disponível.",
       "files": [
         {
           "category": "windows-installer",
@@ -532,10 +532,10 @@
           "detail": "Windows 10/11 x64; instalação por usuário",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.8-Win11-x64-Setup.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.8-Win11-x64-Setup.exe",
-          "size": 155168914,
-          "sha256": "62c9e2af107876f59a71160d8d91831aa387031be059cf6179e02789318a878b",
+          "name": "PT2VHF-SDR-Tool-v1.0.9-Win11-x64-Setup.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.9-Win11-x64-Setup.exe",
+          "size": 155177836,
+          "sha256": "46cca6cd8693ec7ebf69007d0a182b8c90a313bd1868c4f70f2491d63dc58ec0",
           "delivery": "github-release"
         },
         {
@@ -546,10 +546,10 @@
           "detail": "Windows 10/11 x64; executável portátil",
           "architecture": "x64",
           "platform": "windows-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.8-Win11-x64-Portable.exe",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.8-Win11-x64-Portable.exe",
-          "size": 221323288,
-          "sha256": "545824cdd27f627626bad99c6f57679c728d1f208106eaa2ad943a483f453f06",
+          "name": "PT2VHF-SDR-Tool-v1.0.9-Win11-x64-Portable.exe",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.9-Win11-x64-Portable.exe",
+          "size": 221334839,
+          "sha256": "5f36b38773732e0befcefd37794747285f856772013b4fe98dab4b7d434c4066",
           "delivery": "github-release"
         },
         {
@@ -557,13 +557,13 @@
           "counterKey": "linux-deb-x64",
           "kind": "deb",
           "label": "Linux — .deb (Ubuntu/Mint)",
-          "detail": "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./pt2vhf-sdr-tool_1.0.8_amd64.deb",
+          "detail": "Ubuntu 22.04+ / Linux Mint 21+ 64 bits; instale com: sudo apt install ./pt2vhf-sdr-tool_1.0.9_amd64.deb",
           "architecture": "x64",
           "platform": "linux-x64",
-          "name": "pt2vhf-sdr-tool_1.0.8_amd64.deb",
-          "size": 224948058,
-          "sha256": "688da80e3b79c1f7775a35de1f7d99b259f81abe2609f118ab84a972f622a847",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/pt2vhf-sdr-tool_1.0.8_amd64.deb",
+          "name": "pt2vhf-sdr-tool_1.0.9_amd64.deb",
+          "size": 224955324,
+          "sha256": "d0aef6138e3c5b69916ac74e1ceb49e7a9a27269145c6dcbc44b94b5939d2f7e",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/pt2vhf-sdr-tool_1.0.9_amd64.deb",
           "delivery": "github-release"
         },
         {
@@ -574,10 +574,10 @@
           "detail": "Linux x64 (glibc 2.35+, ex.: Ubuntu 22.04+); extraia e execute ./pt2vhf-sdr na pasta PT2VHF-SDR-Tool",
           "architecture": "x64",
           "platform": "linux-x64",
-          "name": "PT2VHF-SDR-Tool-v1.0.8-Linux-x86_64.tgz",
-          "size": 286898367,
-          "sha256": "e5b55cf527d937af1524c7d73b9f1584a94fe88a12e0e2010b4e5c14dc867544",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.8-Linux-x86_64.tgz",
+          "name": "PT2VHF-SDR-Tool-v1.0.9-Linux-x86_64.tgz",
+          "size": 286911296,
+          "sha256": "7f4ae804aacf116ff345c8121bb3c97ecb0c051034706e64f655cbc76f4b2e01",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.9-Linux-x86_64.tgz",
           "delivery": "github-release"
         },
         {
@@ -588,15 +588,15 @@
           "detail": "macOS 13+ Apple Silicon (M1 ou superior); arraste para Aplicativos. Sem assinatura da Apple: na primeira vez, clique com o botão direito e escolha Abrir",
           "architecture": "Apple Silicon",
           "platform": "macos-arm64",
-          "name": "PT2VHF-SDR-Tool-v1.0.8-macOS-arm64.dmg",
-          "size": 174782300,
-          "sha256": "7f16c42742d5539c70afbbf94ddbed40fd0c7763574734974253d6d7f870b726",
-          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.8-macOS-arm64.dmg",
+          "name": "PT2VHF-SDR-Tool-v1.0.9-macOS-arm64.dmg",
+          "size": 174778813,
+          "sha256": "8943f203e179dd9722cb686ed8955ded1128d020b6ccfea843ab2c2387179e56",
+          "url": "https://www.pt2vhf.com/downloads/sdr-tool/PT2VHF-SDR-Tool-v1.0.9-macOS-arm64.dmg",
           "delivery": "github-release"
         }
       ],
       "updateEndpoint": "https://www.pt2vhf.com/update.php?product=sdr",
-      "releaseStatus": "v1.0.8 publicada no GitHub (CI #46042738863, SHA 3132d9b), hashes SHA-256 verificados. Correção de HF no RTL-SDR Blog V4/V4L; homologação com RF real em aberto. Linux/macOS: CI #46045284056 (SHA f5ca66f, branch release/publish-v1.0.8-unix-20261127), pacotes anexados à mesma Release com SHA-256 conferido."
+      "releaseStatus": "v1.0.9 publicada no GitHub (CI #46057765151, SHA b64aebe), hashes SHA-256 verificados. Favoritos por uso, Auto contínuo e zoom FFT no waterfall; homologação com SDR/RF real em aberto. Linux/macOS: CI #46059379233 (SHA 4165c50, branch release/publish-v1.0.9-unix-20261127), pacotes anexados à mesma Release com SHA-256 conferido."
     },
     "qsl": {
       "name": "PT2VHF QSL Manager",
